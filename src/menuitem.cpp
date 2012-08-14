@@ -40,18 +40,19 @@ public:
 
     MenuItem *parent;
     QList<MenuItem *> children;
-    bool menu;
-    QString category;
+    VPreferencesModule::Category category;
+    QString name;
+    QString categoryText;
     int weight;
+    QIcon icon;
     const VPreferencesModule *module;
 };
 
-MenuItem::MenuItem(bool isMenu, MenuItem *itsParent)
+MenuItem::MenuItem(MenuItem *itsParent)
     : d(new Private())
 {
     d->parent = itsParent;
-    d->menu = isMenu;
-    d->module = 0;
+    setModule(0);
 
     if (d->parent)
         d->parent->children().append(this);
@@ -73,11 +74,14 @@ MenuItem *MenuItem::child(int index)
     return d->children.at(index);
 }
 
-QStringList MenuItem::keywords()
+QStringList MenuItem::keywords() const
 {
     QStringList listOfKeywords;
 
-    listOfKeywords << d->module->keywords() << d->module->name();
+    if (d->module)
+        listOfKeywords << d->module->keywords();
+    listOfKeywords << name();
+
     foreach(MenuItem * child, d->children)
     listOfKeywords += child->keywords();
     return listOfKeywords;
@@ -100,55 +104,95 @@ const VPreferencesModule *MenuItem::module() const
 
 QIcon MenuItem::icon() const
 {
-    if (d->module)
-        return QIcon::fromTheme(d->module->iconName());
-    return QIcon();
+    return d->icon;
 }
 
 QString MenuItem::name() const
 {
     if (d->module)
         return d->module->name();
+    return d->name;
+}
+
+QString MenuItem::comment() const
+{
+    if (d->module)
+        return d->module->comment();
     return QString();
 }
 
-QString &MenuItem::category() const
+QString MenuItem::categoryText() const
 {
-    return d->category;
+    return d->categoryText;
 }
 
-int MenuItem::weight()
+int MenuItem::weight() const
 {
     return d->weight;
 }
 
 bool MenuItem::menu() const
 {
-    return d->menu;
+    if (d->module)
+        return false;
+    return true;
+}
+
+VPreferencesModule::Category MenuItem::category() const
+{
+    return d->category;
+}
+
+void MenuItem::setCategory(VPreferencesModule::Category category)
+{
+    setModule(0);
+
+    switch (category) {
+        case VPreferencesModule::PersonalCategory:
+            d->name = QObject::tr("Personal");
+            d->icon = QIcon::fromTheme("preferences-personal");
+            break;
+        case VPreferencesModule::HardwareCategory:
+            d->name = QObject::tr("Hardware");
+            d->icon = QIcon::fromTheme("preferences-hardware");
+            break;
+        case VPreferencesModule::SystemCategory:
+            d->name = QObject::tr("System");
+            d->icon = QIcon::fromTheme("preferences-system");
+            break;
+        case VPreferencesModule::OtherCategory:
+            d->name = QObject::tr("Other");
+            d->icon = QIcon::fromTheme("preferences-other");
+            break;
+    }
 }
 
 void MenuItem::setModule(const VPreferencesModule *module)
 {
     if (!module) {
         d->module = 0;
-        d->category = QString();
+        d->name = QString();
+        d->categoryText = QString();
+        d->icon = QIcon();
         d->weight = 100;
         return;
     }
 
     d->module = module;
+    d->name = module->name();
+    d->icon = QIcon::fromTheme(module->iconName());
     switch (module->category()) {
         case VPreferencesModule::PersonalCategory:
-            d->category = QObject::tr("Personal");
+            d->categoryText = QObject::tr("Personal");
             break;
         case VPreferencesModule::HardwareCategory:
-            d->category = QObject::tr("Hardware");
+            d->categoryText = QObject::tr("Hardware");
             break;
         case VPreferencesModule::SystemCategory:
-            d->category = QObject::tr("System");
+            d->categoryText = QObject::tr("System");
             break;
         case VPreferencesModule::OtherCategory:
-            d->category = QObject::tr("Other");
+            d->categoryText = QObject::tr("Other");
             break;
     }
     const QVariant itemWeight = module->weight();

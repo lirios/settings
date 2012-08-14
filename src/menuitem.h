@@ -22,11 +22,11 @@
 #ifndef MENUITEM_H
 #define MENUITEM_H
 
+#include <VPreferencesModule>
+
 class QString;
 class QIcon;
 template<typename T> class QList;
-
-class VPreferencesModule;
 
 /**
  * @brief Provides a specific item in the list of modules or categories
@@ -52,10 +52,9 @@ public:
      * Creates a MenuItem.
      * @note Will not provide keywords, name, or a module item until a module has been set.
      *
-     * @param isMenu Specifies if it is a category or not.
      * @param parent The item it is parented to. Provide 0 for a top level item.
      */
-    MenuItem(bool isMenu, MenuItem *parent);
+    MenuItem(MenuItem *parent);
 
     /**
      * Destroys a MenuItem, including all children, the module object and the module information.
@@ -84,7 +83,7 @@ public:
      * @note The parent items share all the keywords of their children.
      * @returns The list of keywords the item has.
      */
-    QStringList keywords();
+    QStringList keywords() const;
 
     /**
      * Returns the parent of this item.
@@ -122,11 +121,18 @@ public:
     QString name() const;
 
     /**
+     * Convienence function which provides the comment of the current item.
+     *
+     * @returns The comment of the item, if the module object has been set.
+     */
+    QString comment() const;
+
+    /**
      * Convienence function which provides the System Settings category of the current item.
      *
      * @returns The category of the item, if the module object has been set.
      */
-    QString &category() const;
+    QString categoryText() const;
 
     /**
      * Provides the weight of the current item, as determined by its module.
@@ -134,7 +140,7 @@ public:
      *
      * @returns The weight of the module
      */
-    int weight();
+    int weight() const;
 
     /**
      * Provides information on which type the current item is.
@@ -143,6 +149,9 @@ public:
      * @returns false if it is not a category.
      */
     bool menu() const;
+
+    VPreferencesModule::Category category() const;
+    void setCategory(VPreferencesModule::Category category);
 
     /**
      * Sets the module object, which is used to provide the module information, name and keywords

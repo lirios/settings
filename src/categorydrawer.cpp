@@ -169,11 +169,10 @@ void CategoryDrawer::drawCategory(const QModelIndex &index, int sortRole,
             gradient.setColorAt(0, option.palette.base().color());
             gradient.setColorAt(1, Qt::transparent);
             QSize rectSize;
-            if (leftToRight) {
+            if (leftToRight)
                 rectSize = QSize(newOptRect.width() - 3, 1);
-            } else {
+            else
                 rectSize = QSize(-newOptRect.width() + 3, 1);
-            }
             painter->fillRect(QRect(start, rectSize), gradient);
         }
         //END: inner horizontal line

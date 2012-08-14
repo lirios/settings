@@ -65,14 +65,6 @@ bool MenuProxyModel::subSortLessThan(const QModelIndex &left, const QModelIndex 
 
 bool MenuProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
-    MenuItem *mItem = index.data(Qt::UserRole).value<MenuItem *>();
-
-    // Accept only systemsettings categories that have children
-    if (mItem->children().isEmpty())
-        return false;
-
-    // Items matching the regexp are disabled, not hidden
     return true;
 }
 
@@ -84,8 +76,7 @@ Qt::ItemFlags MenuProxyModel::flags(const QModelIndex &index) const
     QString matchText = index.data(MenuModel::UserFilterRole).toString();
     if (!matchText.contains(filterRegExp()))
         return Qt::NoItemFlags;
-    else
-        return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+    return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }
 
 void MenuProxyModel::setFilterRegExp(const QString &pattern)

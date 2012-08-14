@@ -70,43 +70,37 @@ int MenuModel::rowCount(const QModelIndex &parent) const
 
 QVariant MenuModel::data(const QModelIndex &index, int role) const
 {
-    MenuItem *mi = 0;
-    QVariant theData;
     if (!index.isValid())
         return QVariant();
 
-    mi = static_cast<MenuItem *>(index.internalPointer());
+    MenuItem *mi = static_cast<MenuItem *>(index.internalPointer());
+
     switch (role) {
         case Qt::DisplayRole:
-            theData.setValue(mi->name());
-            break;
+            return mi->name();
         case Qt::ToolTipRole:
-            theData.setValue(mi->module()->comment());
-            break;
+            return mi->comment();
         case Qt::DecorationRole:
-            theData = mi->icon();
-            break;
+            return mi->icon();
         case VCategorizedSortFilterProxyModel::CategorySortRole:
             if (mi->parent())
-                theData.setValue(QString("%1%2").arg(QString::number(mi->parent()->weight()), 5, '0').arg(mi->parent()->name()));
+                return QString("%1%2").arg(QString::number(mi->parent()->weight()), 5, '0').arg(mi->parent()->name());
             break;
         case VCategorizedSortFilterProxyModel::CategoryDisplayRole:
             if (mi->parent())
-                theData.setValue(mi->parent()->name());
+                return mi->parent()->name();
             break;
         case Qt::UserRole:
-            theData.setValue(mi);
-            break;
+            return QVariant::fromValue(mi);
         case MenuModel::UserFilterRole:
-            theData.setValue(mi->keywords().join(QString()));
-            break;
+            return mi->keywords().join(QString());
         case MenuModel::UserSortRole:
-            theData.setValue(QString("%1").arg(QString::number(mi->weight()), 5, '0'));
-            break;
+            return QString("%1").arg(QString::number(mi->weight()), 5, '0');
         default:
             break;
     }
-    return theData;
+
+    return QVariant();
 }
 
 Qt::ItemFlags MenuModel::flags(const QModelIndex &index) const
@@ -131,8 +125,7 @@ QModelIndex MenuModel::index(int row, int column, const QModelIndex &parent) con
     MenuItem *childItem = childrenList(parentItem).value(row);
     if (childItem)
         return createIndex(row, column, childItem);
-    else
-        return QModelIndex();
+    return QModelIndex();
 }
 
 QModelIndex MenuModel::parent(const QModelIndex &index) const
@@ -155,6 +148,9 @@ QModelIndex MenuModel::parent(const QModelIndex &index) const
 
 QList<MenuItem *> MenuModel::childrenList(MenuItem *parent) const
 {
+    if (!parent)
+        return QList<MenuItem *>();
+
     QList<MenuItem *> children = parent->children();
     foreach(MenuItem * child, children) {
         if (d->exceptions.contains(child)) {
@@ -167,6 +163,9 @@ QList<MenuItem *> MenuModel::childrenList(MenuItem *parent) const
 
 MenuItem *MenuModel::parentItem(MenuItem *child) const
 {
+    if (!child)
+        return 0;
+
     MenuItem *parent = child->parent();
     if (d->exceptions.contains(parent))
         parent = parentItem(parent);

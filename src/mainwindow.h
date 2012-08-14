@@ -25,6 +25,8 @@
 
 #include <QMainWindow>
 
+#include <VPreferencesModule>
+
 class QAction;
 class QLineEdit;
 class QStackedWidget;
@@ -42,21 +44,24 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    void populate();
-
 private slots:
-    void slotShowAllTriggered();
+    void slotOverviewTriggered();
     void slotListViewClicked(const QModelIndex &index);
 
 private:
     QAction *m_overviewAction;
     QLineEdit *m_search;
     QStackedWidget *m_stackedWidget;
+    QMap<VPreferencesModule::Category, MenuItem *> m_categories;
     CategoryDrawer *m_catDrawer;
     CategorizedView *m_catView;
     MenuItem *m_rootItem;
     MenuModel *m_model;
     MenuProxyModel *m_proxyModel;
+
+    void createActions();
+    void createToolBar();
+    void populate();
 };
 
 #endif // MAINWINDOW_H

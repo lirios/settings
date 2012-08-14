@@ -30,46 +30,46 @@
 #include <QDebug>
 
 #include <VStandardDirectories>
-#include <VPreferencesModule>
 #include <VPreferencesModulePlugin>
 
 #include "mainwindow.h"
 #include "categorydrawer.h"
 #include "categorizedview.h"
-#include "menumodel.h"
 #include "menuitem.h"
+#include "menumodel.h"
 #include "menuproxymodel.h"
 
 using namespace VStandardDirectories;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , m_rootItem(0)
 {
     // Set window icon and title
     setWindowTitle(tr("System Preferences"));
     setWindowIcon(QIcon::fromTheme("preferences-system"));
 
-	// Actions
-    m_overviewAction = new QAction(tr("Overview"), this);
-    m_overviewAction->setEnabled(false);
+    // Search field
+    m_search = new QLineEdit(this);
+    m_search->setPlaceholderText(tr("Keywords"));
+
+    // Actions
+    createActions();
 
     // Tool bar
-	QToolBar *toolBar = new QToolBar(tr("Tool Bar"), this);
-	toolBar->addAction(m_overviewAction);
-    addToolBar(toolBar);
+    createToolBar();
 
     // Stacked widget
     m_stackedWidget = new QStackedWidget(this);
     setCentralWidget(m_stackedWidget);
 
-	// Search all the modules
-    m_rootItem = new MenuItem(true, 0);
+    // Search all the modules
+    m_rootItem = new MenuItem(0);
+    m_model = new MenuModel(m_rootItem, this);
     populate();
 
     // Main view
     m_catDrawer = new CategoryDrawer();
-    m_catView = new CategorizedView(this);
+    m_catView = new CategorizedView(m_stackedWidget);
     m_catView->setSelectionMode(QAbstractItemView::SingleSelection);
     ///    m_catView->setSpacing(QDialog::spacingHint());
     m_catView->setCategoryDrawer(m_catDrawer);
@@ -88,52 +88,17 @@ MainWindow::MainWindow(QWidget *parent)
     m_catView->setItemDelegate(delegate);
 
     // Setup the model
-    m_model = new MenuModel(m_rootItem, this);
     m_proxyModel = new MenuProxyModel(this);
     m_proxyModel->setCategorizedModel(true);
     m_proxyModel->setSourceModel(m_model);
     m_proxyModel->sort(0);
     m_catView->setModel(m_proxyModel);
-#if 0
     connect(m_catView, SIGNAL(activated(QModelIndex)),
-            this, SLOT(changeModule(QModelIndex)));
-#endif
+            this, SLOT(slotListViewClicked(QModelIndex)));
 
     // Add it to the stack and populate the model
     m_stackedWidget->insertWidget(0, m_catView);
     m_stackedWidget->setCurrentWidget(m_catView);
-
-#if 0
-    // Create a spacer in order to right align the search field
-    QWidget *spacer = new QWidget(this);
-    spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    ui->toolBar->addWidget(spacer);
-
-    // Create search line edit
-    m_search = new QLineEdit(this);
-    ui->toolBar->addWidget(m_search);
-
-    // Disable action, will enable it at the right moment
-    ui->actionShowAll->setEnabled(false);
-
-    // Create models
-    m_personalModel = new CategoriesModel(VPreferencesModule::PersonalCategory);
-    ui->listViewPersonal->setModel(m_personalModel);
-    m_hardwareModel = new CategoriesModel(VPreferencesModule::HardwareCategory);
-    ui->listViewHardware->setModel(m_hardwareModel);
-    m_systemModel = new CategoriesModel(VPreferencesModule::SystemCategory);
-    ui->listViewSystem->setModel(m_systemModel);
-
-    // Connect signals
-    connect(ui->actionShowAll, SIGNAL(triggered()),
-            this, SLOT(slotShowAllTriggered()));
-    connect(ui->listViewPersonal, SIGNAL(clicked(QModelIndex)),
-            this, SLOT(slotListViewClicked(QModelIndex)));
-    connect(ui->listViewHardware, SIGNAL(clicked(QModelIndex)),
-            this, SLOT(slotListViewClicked(QModelIndex)));
-    connect(ui->listViewSystem, SIGNAL(clicked(QModelIndex)),
-            this, SLOT(slotListViewClicked(QModelIndex)));
-#endif
 }
 
 MainWindow::~MainWindow()
@@ -141,11 +106,33 @@ MainWindow::~MainWindow()
     delete m_rootItem;
 }
 
+void MainWindow::createActions()
+{
+    m_overviewAction = new QAction(tr("Overview"), this);
+    m_overviewAction->setEnabled(false);
+    connect(m_overviewAction, SIGNAL(triggered()),
+            this, SLOT(slotOverviewTriggered()));
+}
+
+void MainWindow::createToolBar()
+{
+    QToolBar *toolBar = new QToolBar(tr("Tool Bar"), this);
+    toolBar->addAction(m_overviewAction);
+
+    QWidget *spacerWidget = new QWidget(this);
+    spacerWidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Maximum);
+    toolBar->addWidget(spacerWidget);
+
+    QAction *searchAction = toolBar->addWidget(m_search);
+    searchAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_F));
+    connect(searchAction, SIGNAL(triggered()),
+            m_search, SLOT(setFocus()));
+
+    addToolBar(toolBar);
+}
+
 void MainWindow::populate()
 {
-    if (!m_rootItem)
-        return;
-
     QStringList dirs;
     dirs << QString("%1/preferences").arg(findDirectory(CommonPluginsDirectory))
          << QString("%1/preferences").arg(findDirectory(SystemPluginsDirectory));
@@ -159,67 +146,57 @@ void MainWindow::populate()
 
             foreach(QString key, plugin->keys()) {
                 VPreferencesModule *module = plugin->create(key);
-                MenuItem *item = new MenuItem(false, m_rootItem);
+
+                // Create the category if needed
+                VPreferencesModule::Category category = module->category();
+                MenuItem *parent = m_categories.value(category, 0);
+                if (!parent) {
+                    parent = new MenuItem(m_rootItem);
+                    parent->setCategory(category);
+                    m_categories[category] = parent;
+                    m_model->addException(parent);
+                    qDebug() << "Create new category" << parent->name();
+                }
+
+                // Create the item and append its widget to the stack
+                MenuItem *item = new MenuItem(parent);
                 item->setModule(module);
                 m_stackedWidget->addWidget(module);
-                qDebug() << "Added" << item->name();
+                parent->sortChildrenByWeight();
+                qDebug() << "Added" << item->name() << "under category" << parent->name();
             }
         }
     }
 
-    m_rootItem->sortChildrenByWeight();
+    if (m_rootItem)
+        m_rootItem->sortChildrenByWeight();
 }
 
-void MainWindow::slotShowAllTriggered()
+void MainWindow::slotOverviewTriggered()
 {
-#if 0
     // Go to the first page
-    ui->stackedWidget->setCurrentIndex(0);
+    m_stackedWidget->setCurrentIndex(0);
 
     // Now that we are on the first page the action must be disabled
-    ui->actionShowAll->setEnabled(false);
+    m_overviewAction->setEnabled(false);
 
     // Show the search field because now we need it
     m_search->show();
-#endif
 }
 
 void MainWindow::slotListViewClicked(const QModelIndex &index)
 {
-#if 0
-    QAbstractItemModel *rawModel = const_cast<QAbstractItemModel *>(index.model());
-    CategoriesModel *model = qobject_cast<CategoriesModel *>(rawModel);
-    if (model) {
-        // Find the plugin that was clicked
-        VPreferencesModulePlugin *plugin = model->pluginAt(index.row());
+    MenuItem *item = index.data(Qt::UserRole).value<MenuItem *>();
+    if (item->module()) {
+        // Show the module
+        m_stackedWidget->setCurrentWidget((VPreferencesModule *)item->module());
 
-        // If we already created the widget we should just use it
-        foreach(QString key, plugin->keys()) {
-            VPreferencesModule *module = m_modules.value(key);
-            if (module) {
-                QWidget *widget =
+        // Enable the action to go to the first page
+        m_overviewAction->setEnabled(true);
 
-                    int index = -1;
-                QWidget *widget = m_modules.value(plugin->name());
-                if (widget)
-                    index = ui->stackedWidget->indexOf(widget);
-                else {
-                    // Not found, add it to the dictionary and the stacked widget
-                    widget = plugin->module();
-                    index = ui->stackedWidget->addWidget(widget);
-                    m_modules.insert(plugin->name(), widget);
-                }
-
-                // Activate the widget
-                ui->stackedWidget->setCurrentIndex(index);
-
-                // Enable the action to go to the first page
-                ui->actionShowAll->setEnabled(true);
-
-                // Hide the search field because it cannot be used now
-                m_search->hide();
-            }
-#endif
-        }
+        // Hide the search field because it cannot be used now
+        m_search->hide();
+    }
+}
 
 #include "moc_mainwindow.cpp"
