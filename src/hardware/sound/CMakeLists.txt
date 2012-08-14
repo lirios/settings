@@ -1,7 +1,6 @@
 include_directories(
     ${VibeWidgets_INCLUDE_DIRS}
     ${VibeHardware_INCLUDE_DIRS}
-    ${CMAKE_CURRENT_BINARY_DIR}
 )
 
 add_definitions(${VibeWidgets_DEFINITIONS} ${VibeHardware_DEFINITIONS} -DQT_PLUGIN)
@@ -28,5 +27,4 @@ add_library(sound SHARED ${SOURCES} ${FORMS_HEADERS})
 set_target_properties(sound PROPERTIES PREFIX "")
 target_link_libraries(sound ${VibeWidgets_LIBRARIES} ${VibeHardware_LIBRARIES})
 
-install(TARGETS sound LIBRARY
-    DESTINATION ${CMAKE_INSTALL_PLUGINSDIR}/preferences)
+install(TARGETS sound LIBRARY DESTINATION ${CMAKE_INSTALL_PLUGINSDIR}/preferences)

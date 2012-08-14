@@ -20,8 +20,6 @@
  * along with Preferences.  If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include <QtCore/qplugin.h>
-
 #include "preflet.h"
 #include "ui_mimetypespreflet.h"
 #include "typesmodel.h"
@@ -47,6 +45,36 @@ Preflet::~Preflet()
 {
     delete ui;
     delete m_model;
+}
+
+QString Preflet::name() const
+{
+    return tr("MIME Types");
+}
+
+QString Preflet::comment() const
+{
+    return tr("Configure the association between MIME types and programs.");
+}
+
+QString Preflet::iconName() const
+{
+    return "preferences-desktop-wallpaper";
+}
+
+QStringList Preflet::keywords() const
+{
+    return tr("mime;types;association;program").split(";");
+}
+
+VPreferencesModule::Category Preflet::category() const
+{
+    return VPreferencesModule::PersonalCategory;
+}
+
+int Preflet::weight() const
+{
+    return 50;
 }
 
 #include "moc_preflet.cpp"

@@ -20,8 +20,6 @@
  * along with Preferences.  If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include <QtCore/qplugin.h>
-
 #include "preflet.h"
 #include "ui_preflet.h"
 
@@ -39,6 +37,37 @@ Preflet::Preflet(QWidget *parent) :
 Preflet::~Preflet()
 {
     delete ui;
+}
+
+QString Preflet::name() const
+{
+    return tr("User Accounts");
+}
+
+QString Preflet::comment() const
+{
+    return tr("Create new users, change users' details such as real name and " \
+              "icon, manage administrators and groups.");
+}
+
+QString Preflet::iconName() const
+{
+    return "preferences-desktop-user";
+}
+
+QStringList Preflet::keywords() const
+{
+    return tr("user;account;password;administrator;real name").split(";");
+}
+
+VPreferencesModule::Category Preflet::category() const
+{
+    return VPreferencesModule::SystemCategory;
+}
+
+int Preflet::weight() const
+{
+    return 50;
 }
 
 #include "moc_preflet.cpp"

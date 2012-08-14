@@ -20,8 +20,6 @@
  * along with Preferences.  If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include <QtCore/qplugin.h>
-
 #include <VSettings>
 
 #include "preflet.h"
@@ -65,6 +63,36 @@ Preflet::~Preflet()
     delete ui;
     delete m_catModel;
     delete m_model;
+}
+
+QString Preflet::name() const
+{
+    return tr("Desktop & Screen Saver");
+}
+
+QString Preflet::comment() const
+{
+    return tr("Configure the desktop and the screen saver.");
+}
+
+QString Preflet::iconName() const
+{
+    return "preferences-desktop-wallpaper";
+}
+
+QStringList Preflet::keywords() const
+{
+    return tr("desktop;background;wallpaper;screen saver").split(";");
+}
+
+VPreferencesModule::Category Preflet::category() const
+{
+    return VPreferencesModule::PersonalCategory;
+}
+
+int Preflet::weight() const
+{
+    return 50;
 }
 
 void Preflet::slotBackgroundModeSelected(int index)

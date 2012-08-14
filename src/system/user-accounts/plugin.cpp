@@ -23,47 +23,21 @@
 #include "plugin.h"
 #include "preflet.h"
 
-UserAccountsPlugin::UserAccountsPlugin() :
-    VPreferencesModulePlugin()
+UserAccountsPlugin::UserAccountsPlugin(QObject *parent)
+    : VPreferencesModulePlugin(parent)
 {
 }
 
-QString UserAccountsPlugin::name() const
+QStringList UserAccountsPlugin::keys() const
 {
-    return tr("User Accounts");
+    return QStringList() << "user-accounts";
 }
 
-QString UserAccountsPlugin::comment() const
+VPreferencesModule *UserAccountsPlugin::create(const QString &key) const
 {
-    return tr("Create new users, change users' details such as real name and " \
-              "icon, manage administrators and groups.");
+    if (key.toLower() == "user-accounts")
+        return new Preflet();
+    return 0;
 }
-
-QString UserAccountsPlugin::iconName() const
-{
-    return "preferences-desktop-user";
-}
-
-QStringList UserAccountsPlugin::keywords() const
-{
-    return tr("user;account;password;administrator;real name").split(";");
-}
-
-VPreferencesModulePlugin::Category UserAccountsPlugin::category() const
-{
-    return VPreferencesModulePlugin::SystemCategory;
-}
-
-int UserAccountsPlugin::weight() const
-{
-    return 50;
-}
-
-VPreferencesModule *UserAccountsPlugin::module() const
-{
-    return new Preflet();
-}
-
-Q_EXPORT_PLUGIN2(user_accounts, UserAccountsPlugin)
 
 #include "moc_plugin.cpp"

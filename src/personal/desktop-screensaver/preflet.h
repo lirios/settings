@@ -44,6 +44,13 @@ public:
     explicit Preflet(QWidget *parent = 0);
     ~Preflet();
 
+    virtual QString name() const;
+    virtual QString comment() const;
+    virtual QString iconName() const;
+    virtual QStringList keywords() const;
+    virtual VPreferencesModule::Category category() const;
+    virtual int weight() const;
+
 private slots:
     void slotBackgroundModeSelected(int index);
     void slotBackgroundCategorySelected(const QModelIndex &index);

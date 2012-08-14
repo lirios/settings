@@ -23,46 +23,21 @@
 #include "plugin.h"
 #include "preflet.h"
 
-SoundPlugin::SoundPlugin() :
-    VPreferencesModulePlugin()
+SoundPlugin::SoundPlugin(QObject *parent)
+    : VPreferencesModulePlugin(parent)
 {
 }
 
-QString SoundPlugin::name() const
+QStringList SoundPlugin::keys() const
 {
-    return tr("Sound");
+    return QStringList() << "sound";
 }
 
-QString SoundPlugin::comment() const
+VPreferencesModule *SoundPlugin::create(const QString &key) const
 {
-    return tr("Configure sound.");
+    if (key.toLower() == "sound")
+        return new Preflet();
+    return 0;
 }
-
-QString SoundPlugin::iconName() const
-{
-    return "preferences-desktop-sound";
-}
-
-QStringList SoundPlugin::keywords() const
-{
-    return tr("sound;audio").split(";");
-}
-
-VPreferencesModulePlugin::Category SoundPlugin::category() const
-{
-    return VPreferencesModulePlugin::HardwareCategory;
-}
-
-int SoundPlugin::weight() const
-{
-    return 50;
-}
-
-VPreferencesModule *SoundPlugin::module() const
-{
-    return new Preflet();
-}
-
-Q_EXPORT_PLUGIN2(audio, SoundPlugin)
 
 #include "moc_plugin.cpp"

@@ -23,46 +23,21 @@
 #include "plugin.h"
 #include "preflet.h"
 
-DesktopScreenSaverPlugin::DesktopScreenSaverPlugin() :
-    VPreferencesModulePlugin()
+DesktopScreenSaverPlugin::DesktopScreenSaverPlugin(QObject *parent)
+    : VPreferencesModulePlugin(parent)
 {
 }
 
-QString DesktopScreenSaverPlugin::name() const
+QStringList DesktopScreenSaverPlugin::keys() const
 {
-    return tr("Desktop & Screen Saver");
+    return QStringList() << "desktop-screensaver";
 }
 
-QString DesktopScreenSaverPlugin::comment() const
+VPreferencesModule *DesktopScreenSaverPlugin::create(const QString &key) const
 {
-    return tr("Configure the desktop and the screen saver.");
+    if (key.toLower() == "desktop-screensaver")
+        return new Preflet();
+    return 0;
 }
-
-QString DesktopScreenSaverPlugin::iconName() const
-{
-    return "preferences-desktop-wallpaper";
-}
-
-QStringList DesktopScreenSaverPlugin::keywords() const
-{
-    return tr("desktop;background;wallpaper;screen saver").split(";");
-}
-
-VPreferencesModulePlugin::Category DesktopScreenSaverPlugin::category() const
-{
-    return VPreferencesModulePlugin::PersonalCategory;
-}
-
-int DesktopScreenSaverPlugin::weight() const
-{
-    return 50;
-}
-
-VPreferencesModule *DesktopScreenSaverPlugin::module() const
-{
-    return new Preflet();
-}
-
-Q_EXPORT_PLUGIN2(desktop_screensaver, DesktopScreenSaverPlugin)
 
 #include "moc_plugin.cpp"

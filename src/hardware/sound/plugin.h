@@ -23,26 +23,19 @@
 #ifndef PLUGIN_H
 #define PLUGIN_H
 
-#include <QObject>
-
 #include <VPreferencesModulePlugin>
 
 class VPreferencesModule;
 
-class SoundPlugin : public QObject, public VPreferencesModulePlugin
+class SoundPlugin : public VPreferencesModulePlugin
 {
     Q_OBJECT
-    Q_INTERFACES(VPreferencesModulePlugin)
+    Q_PLUGIN_METADATA(IID "org.maui.Vibe.VPreferencesModuleFactoryInterface" FILE "sound.json")
 public:
-    SoundPlugin();
+    explicit SoundPlugin(QObject *parent = 0);
 
-    virtual QString name() const;
-    virtual QString comment() const;
-    virtual QString iconName() const;
-    virtual QStringList keywords() const;
-    virtual VPreferencesModulePlugin::Category category() const;
-    virtual int weight() const;
-    virtual VPreferencesModule *module() const;
+    virtual QStringList keys() const;
+    virtual VPreferencesModule *create(const QString &key) const;
 };
 
 #endif // PLUGIN_H

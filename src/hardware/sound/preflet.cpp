@@ -55,6 +55,36 @@ Preflet::~Preflet()
     delete ui;
 }
 
+QString Preflet::name() const
+{
+    return tr("Sound");
+}
+
+QString Preflet::comment() const
+{
+    return tr("Configure sound.");
+}
+
+QString Preflet::iconName() const
+{
+    return "preferences-desktop-sound";
+}
+
+QStringList Preflet::keywords() const
+{
+    return tr("sound;audio").split(";");
+}
+
+VPreferencesModule::Category Preflet::category() const
+{
+    return VPreferencesModule::HardwareCategory;
+}
+
+int Preflet::weight() const
+{
+    return 50;
+}
+
 void Preflet::slotMuteClicked(bool state)
 {
     if (state) {

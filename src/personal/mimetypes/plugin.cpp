@@ -23,46 +23,16 @@
 #include "plugin.h"
 #include "preflet.h"
 
-MimeTypesPlugin::MimeTypesPlugin() :
-    VPreferencesModulePlugin()
+MimeTypesPlugin::MimeTypesPlugin(QObject *parent)
+    : VPreferencesModulePlugin(parent)
 {
 }
 
-QString MimeTypesPlugin::name() const
+VPreferencesModule *MimeTypesPlugin::create(const QString &key) const
 {
-    return tr("MIME Types");
+    if (key.toLower() == "mimetype")
+        return new Preflet();
+    return 0;
 }
-
-QString MimeTypesPlugin::comment() const
-{
-    return tr("Configure the association between MIME types and programs.");
-}
-
-QString MimeTypesPlugin::iconName() const
-{
-    return "preferences-desktop-wallpaper";
-}
-
-QStringList MimeTypesPlugin::keywords() const
-{
-    return tr("mime;types;association;program").split(";");
-}
-
-VPreferencesModulePlugin::Category MimeTypesPlugin::category() const
-{
-    return VPreferencesModulePlugin::PersonalCategory;
-}
-
-int MimeTypesPlugin::weight() const
-{
-    return 50;
-}
-
-VPreferencesModule *MimeTypesPlugin::module() const
-{
-    return new Preflet();
-}
-
-Q_EXPORT_PLUGIN2(mimetypes, MimeTypesPlugin)
 
 #include "moc_plugin.cpp"
