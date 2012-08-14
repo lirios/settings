@@ -23,8 +23,10 @@
 #define MENUITEM_H
 
 class QString;
-class VPreferencesModule;
+class QIcon;
 template<typename T> class QList;
+
+class VPreferencesModule;
 
 /**
  * @brief Provides a specific item in the list of modules or categories
@@ -104,6 +106,13 @@ public:
      * @returns The module object of this item if it has been set.
      */
     const VPreferencesModule *module() const;
+
+    /**
+     * Convenience function which provides the icon of the current item.
+     *
+     * @returns The icon of the item, if the module object has been set.
+     */
+    QIcon icon() const;
 
     /**
      * Convienence function which provides the name of the current item.

@@ -78,13 +78,13 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
     mi = static_cast<MenuItem *>(index.internalPointer());
     switch (role) {
         case Qt::DisplayRole:
-            theData.setValue(mi->module()->name());
+            theData.setValue(mi->name());
             break;
         case Qt::ToolTipRole:
             theData.setValue(mi->module()->comment());
             break;
         case Qt::DecorationRole:
-            theData = QVariant(QIcon::fromTheme(mi->module()->iconName()));
+            theData = mi->icon();
             break;
         case VCategorizedSortFilterProxyModel::CategorySortRole:
             if (mi->parent())

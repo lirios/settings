@@ -22,6 +22,7 @@
 #include <QList>
 #include <QString>
 #include <QVariant>
+#include <QIcon>
 
 #include <VPreferencesModule>
 
@@ -95,6 +96,13 @@ QList<MenuItem *>& MenuItem::children() const
 const VPreferencesModule *MenuItem::module() const
 {
     return d->module;
+}
+
+QIcon MenuItem::icon() const
+{
+    if (d->module)
+        return QIcon::fromTheme(d->module->iconName());
+    return QIcon();
 }
 
 QString MenuItem::name() const
