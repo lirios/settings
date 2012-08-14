@@ -1,5 +1,5 @@
 include_directories(
-    ${VibeWidgets_INCLUDEDIR}
+    ${VibeWidgets_INCLUDE_DIRS}
     ${CMAKE_CURRENT_BINARY_DIR}
 )
 
