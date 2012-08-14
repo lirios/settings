@@ -52,11 +52,13 @@ public:
 
 private:
     BackgroundCategoriesItem *m_rootItem;
-    BackgroundCategoriesItem *m_systemItem;
+    BackgroundCategoriesItem *m_coatingsItem;
     BackgroundCategoriesItem *m_foldersItem;
+    BackgroundCategoriesItem *m_colorsItem;
 
-    void populateSystem();
+    void populateCoatings();
     void populateFolders();
+    void populateColors();
 };
 
 #endif // BACKGROUNDCATEGORIESMODEL_H

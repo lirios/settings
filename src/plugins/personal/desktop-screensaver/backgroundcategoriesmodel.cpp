@@ -112,19 +112,23 @@ BackgroundCategoriesModel::BackgroundCategoriesModel(QObject *parent) :
 {
     m_rootItem = new BackgroundCategoriesItem("Root");
 
-    m_systemItem = new BackgroundCategoriesItem(tr("System"), m_rootItem);
-    populateSystem();
-    m_rootItem->appendChild(m_systemItem);
+    m_coatingsItem = new BackgroundCategoriesItem(tr("Coatings"), m_rootItem);
+    populateCoatings();
+    m_rootItem->appendChild(m_coatingsItem);
 
     m_foldersItem = new BackgroundCategoriesItem(tr("Folders"), m_rootItem);
     populateFolders();
     m_rootItem->appendChild(m_foldersItem);
+
+    m_colorsItem = new BackgroundCategoriesItem(tr("Colors and gradients"), m_rootItem);
+    populateColors();
+    m_rootItem->appendChild(m_colorsItem);
 }
 
 BackgroundCategoriesModel::~BackgroundCategoriesModel()
 {
     delete m_foldersItem;
-    delete m_systemItem;
+    delete m_coatingsItem;
     delete m_rootItem;
 }
 
@@ -198,9 +202,9 @@ int BackgroundCategoriesModel::rowCount(const QModelIndex &parent) const
     return parentItem->childCount();
 }
 
-void BackgroundCategoriesModel::populateSystem()
+void BackgroundCategoriesModel::populateCoatings()
 {
-    QString path = QString("%1/wallpapers").arg(findDirectory(SystemThemesDirectory));
+    QString path = QString("%1/wallpapers").arg(findDirectory(SystemDataDirectory));
     QDirIterator it(path, QDir::Dirs | QDir::Readable | QDir::NoDotAndDotDot,
                     QDirIterator::FollowSymlinks);
     while (it.hasNext()) {
@@ -210,14 +214,18 @@ void BackgroundCategoriesModel::populateSystem()
             VDesktopFile entry(file);
 
             BackgroundCategoriesItem *leaf = new BackgroundCategoriesItem(
-                QIcon::fromTheme("folder"), entry.name(), m_systemItem);
+                QIcon::fromTheme("folder"), entry.name(), m_coatingsItem);
             leaf->setDirectory(dir.path());
-            m_systemItem->appendChild(leaf);
+            m_coatingsItem->appendChild(leaf);
         }
     }
 }
 
 void BackgroundCategoriesModel::populateFolders()
+{
+}
+
+void BackgroundCategoriesModel::populateColors()
 {
 }
 
