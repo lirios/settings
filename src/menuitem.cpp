@@ -50,6 +50,7 @@ MenuItem::MenuItem(bool isMenu, MenuItem *itsParent)
 {
     d->parent = itsParent;
     d->menu = isMenu;
+    d->module = 0;
 
     if (d->parent)
         d->parent->children().append(this);
@@ -98,7 +99,9 @@ const VPreferencesModule *MenuItem::module() const
 
 QString MenuItem::name() const
 {
-    return d->module->name();
+    if (d->module)
+        return d->module->name();
+    return QString();
 }
 
 QString &MenuItem::category() const
@@ -118,6 +121,13 @@ bool MenuItem::menu() const
 
 void MenuItem::setModule(const VPreferencesModule *module)
 {
+    if (!module) {
+        d->module = 0;
+        d->category = QString();
+        d->weight = 100;
+        return;
+    }
+
     d->module = module;
     switch (module->category()) {
         case VPreferencesModule::PersonalCategory:
