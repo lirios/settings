@@ -84,7 +84,7 @@ QVariant BackgroundsModelItem::data(int role) const
         case Qt::ToolTipRole:
             return m_entry->comment();
         case BackgroundsModel::AuthorRole:
-            return m_entry->value("X-Mirage-PluginInfo-Author");
+            return m_entry->value("X-Hawaii-PluginInfo-Author");
         case BackgroundsModel::ResolutionRole:
             if (m_size.isValid())
                 return QString("%1x%2").arg(m_size.width()).arg(m_size.height());
