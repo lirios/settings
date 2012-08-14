@@ -45,5 +45,4 @@ void CategorizedView::setModel(QAbstractItemModel *model)
     }
 
     setGridSize(QSize(maxWidth, maxHeight));
-    //static_cast<VFileItemDelegate *>(itemDelegate())->setMaximumSize(QSize(maxWidth, maxHeight));
 }
