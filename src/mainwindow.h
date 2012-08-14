@@ -25,14 +25,15 @@
 
 #include <QMainWindow>
 
-#include "categoriesmodel.h"
-
+class QAction;
 class QLineEdit;
+class QStackedWidget;
 
-namespace Ui
-{
-    class MainWindow;
-}
+class CategoryDrawer;
+class CategorizedView;
+class MenuItem;
+class MenuModel;
+class MenuProxyModel;
 
 class MainWindow : public QMainWindow
 {
@@ -41,18 +42,21 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    void populate();
+
 private slots:
     void slotShowAllTriggered();
     void slotListViewClicked(const QModelIndex &index);
 
 private:
-    Ui::MainWindow *ui;
+    QAction *m_overviewAction;
     QLineEdit *m_search;
-    CategoriesModel *m_personalModel;
-    CategoriesModel *m_hardwareModel;
-    CategoriesModel *m_systemModel;
-    CategoriesModel *m_otherModel;
-    QHash<QString, QWidget *> m_modules;
+    QStackedWidget *m_stackedWidget;
+    CategoryDrawer *m_catDrawer;
+    CategorizedView *m_catView;
+    MenuItem *m_rootItem;
+    MenuModel *m_model;
+    MenuProxyModel *m_proxyModel;
 };
 
 #endif // MAINWINDOW_H
