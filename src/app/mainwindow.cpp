@@ -77,12 +77,11 @@ MainWindow::MainWindow(QWidget *parent)
     m_catView->setIconSize(QSize(64, 64));
     m_catView->setSpacing(6);
     ///    m_catView->setSpacing(QDialog::spacingHint());
-    m_catView->setSelectionMode(QAbstractItemView::SingleSelection);
+    m_catView->setSelectionMode(QAbstractItemView::NoSelection);
     m_catView->setCategoryDrawer(m_catDrawer);
     m_catView->setViewMode(QListView::IconMode);
     m_catView->setMouseTracking(true);
     m_catView->setFrameShape(QFrame::NoFrame);
-    m_catView->viewport()->setAttribute(Qt::WA_Hover);
 
     // Delegate
 #if 0
@@ -99,6 +98,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_proxyModel->setSourceModel(m_model);
     m_proxyModel->sort(0);
     m_catView->setModel(m_proxyModel);
+    connect(m_catView, SIGNAL(clicked(QModelIndex)),
+            m_catView, SIGNAL(activated(QModelIndex)));
     connect(m_catView, SIGNAL(activated(QModelIndex)),
             this, SLOT(slotListViewClicked(QModelIndex)));
 
