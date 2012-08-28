@@ -32,6 +32,11 @@ MimeTypesPlugin::MimeTypesPlugin(QObject *parent)
 {
 }
 
+QStringList MimeTypesPlugin::keys() const
+{
+    return QStringList() << "mimetype";
+}
+
 VPreferencesModule *MimeTypesPlugin::create(const QString &key) const
 {
     if (key.toLower() == "mimetype")
