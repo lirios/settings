@@ -74,8 +74,10 @@ MainWindow::MainWindow(QWidget *parent)
     // Main view
     m_catDrawer = new CategoryDrawer();
     m_catView = new CategorizedView(m_stackedWidget);
-    m_catView->setSelectionMode(QAbstractItemView::SingleSelection);
+    m_catView->setIconSize(QSize(64, 64));
+    m_catView->setSpacing(6);
     ///    m_catView->setSpacing(QDialog::spacingHint());
+    m_catView->setSelectionMode(QAbstractItemView::SingleSelection);
     m_catView->setCategoryDrawer(m_catDrawer);
     m_catView->setViewMode(QListView::IconMode);
     m_catView->setMouseTracking(true);
