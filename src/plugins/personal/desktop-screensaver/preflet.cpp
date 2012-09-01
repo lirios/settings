@@ -32,14 +32,14 @@
 #include "backgroundsmodel.h"
 #include "backgrounditemdelegate.h"
 
-Preflet::Preflet(QWidget *parent) :
-    VPreferencesModule(parent),
-    ui(new Ui::DesktopScreenSaverPreflet)
+Preflet::Preflet(QWidget *parent)
+    : VPreferencesModule(parent)
+    , ui(new Ui::DesktopScreenSaverPreflet)
 {
     ui->setupUi(this);
 
-    ui->addButton->setIcon(QIcon::fromTheme("list-add"));
-    ui->removeButton->setIcon(QIcon::fromTheme("list-remove"));
+    // Settings
+    m_settings = new VSettings("org.maui.desktop.background");
 
     // Categories
     m_catModel = new BackgroundCategoriesModel(this);
@@ -67,6 +67,7 @@ Preflet::~Preflet()
     delete ui;
     delete m_catModel;
     delete m_model;
+    delete m_settings;
 }
 
 QString Preflet::name() const

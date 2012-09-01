@@ -26,27 +26,53 @@
 
 #include <QApplication>
 #include <QDesktopWidget>
-#include <QSet>
 #include <QFileInfo>
 #include <QPixmap>
+#include <QPainter>
 
 #include <VDesktopFile>
 
 #include "backgroundsmodel.h"
+#include "wallpaperfinder.h"
 
 /*
- * BackgroundsModelItem
+ * ModelItem
  */
 
-static bool sizeGreaterThan(const QSize &s1, const QSize &s2)
+class ModelItem::Private
 {
-    return (s1.width() > s2.width()) || (s1.height() > s2.height());
+public:
+    Private() {}
+
+    ModelItem::ModelType type;
+};
+
+ModelItem::ModelItem(ModelType type)
+    : d(new Private())
+{
+    d->type = type;
 }
 
-BackgroundsModelItem::BackgroundsModelItem(const QDir &imagesDir,
-                                           const QString &entry,
-                                           const QString &previewFileName) :
-    m_previewFileName(previewFileName)
+ModelItem::ModelType ModelItem::type() const
+{
+    return d->type;
+}
+
+QVariant ModelItem::data(int role) const
+{
+	Q_UNUSED(role);
+    return QVariant();
+}
+
+/*
+ * WallpaperItem
+ */
+
+WallpaperItem::WallpaperItem(const QDir &imagesDir,
+                             const QString &entry,
+                             const QString &previewFileName)
+    : ModelItem(ModelItem::WallpaperType)
+    , m_previewFileName(previewFileName)
 {
     // Calculate aspect ratio
     QSize screenSize = qApp->desktop()->size();
@@ -58,23 +84,23 @@ BackgroundsModelItem::BackgroundsModelItem(const QDir &imagesDir,
     m_pixmap = m_pixmap.scaled(QSize(128 * ratio, 128));
 
     // Find best size
-    BackgroundSizeFinder *finder = new BackgroundSizeFinder(screenSize, imagesDir, this);
+    WallpaperSizeFinder *finder = new WallpaperSizeFinder(screenSize, imagesDir, this);
     connect(finder, SIGNAL(sizeFound(QSize)),
             this, SLOT(slotSizeFound(QSize)));
     finder->start(QThread::HighestPriority);
 }
 
-BackgroundsModelItem::~BackgroundsModelItem()
+WallpaperItem::~WallpaperItem()
 {
     delete m_entry;
 }
 
-QString BackgroundsModelItem::previewFileName() const
+QString WallpaperItem::previewFileName() const
 {
     return m_previewFileName;
 }
 
-QVariant BackgroundsModelItem::data(int role) const
+QVariant WallpaperItem::data(int role) const
 {
     switch (role) {
         case Qt::DisplayRole:
@@ -94,118 +120,90 @@ QVariant BackgroundsModelItem::data(int role) const
     return QVariant();
 }
 
-void BackgroundsModelItem::slotSizeFound(const QSize &size)
+void WallpaperItem::slotSizeFound(const QSize &size)
 {
     m_size = size;
     emit dataChanged(this);
 }
 
 /*
- * BackgroundSizeFinder
+ * ColorItem
  */
 
-BackgroundSizeFinder::BackgroundSizeFinder(const QSize &resolution,
-                                           const QDir &imagesDir, QObject *parent) :
-    QThread(parent),
-    m_resolution(resolution),
-    m_imagesDir(imagesDir)
+class ColorItem::Private
 {
+public:
+    Private() {}
+
+    QColor color1;
+    QColor color2;
+    bool solid : 1;
+    bool vertical : 1;
+    QString name;
+};
+
+ColorItem::ColorItem(const QColor &color1, const QColor &color2,
+                     bool vertical)
+    : ModelItem(ModelItem::ColorType)
+    , d(new Private())
+{
+    d->color1 = color1;
+    d->color2 = color2;
+    d->solid = false;
+    d->vertical = vertical;
+    if (vertical)
+        d->name = tr("Vertical Gradient");
+    else
+        d->name = tr("Horizontal Gradient");
 }
 
-BackgroundSizeFinder::~BackgroundSizeFinder()
+ColorItem::ColorItem(const QColor &color)
+    : ModelItem(ModelItem::ColorType)
+    , d(new Private())
 {
-    wait();
+    d->color1 = color;
+    d->solid = true;
+    d->name = tr("Solid Color");
 }
 
-void BackgroundSizeFinder::run()
+QVariant ColorItem::data(int role) const
 {
-    // Check for available resolutions
-    QList<QSize> resolutions;
-    QSet<QString> suffixes;
-    suffixes << "png" << "jpg" << "jpeg" << "svg" << "svgz";
-    QFileInfoList fileInfoList = m_imagesDir.entryInfoList(QDir::Files | QDir::Readable);
-    foreach(QFileInfo fileInfo, fileInfoList) {
-        if (suffixes.contains(fileInfo.suffix().toLower())) {
-            // Save resolutions
-            QImage image(fileInfo.absoluteFilePath());
-            resolutions.append(image.size());
-        }
-    }
+    switch (role) {
+        case Qt::DisplayRole:
+            return d->name;
+        case Qt::DecorationRole: {
+            QPixmap pixmap(64, 64);
+            QPainter painter(&pixmap);
 
-    // Sort resolutions list
-    qSort(resolutions.begin(), resolutions.end(), sizeGreaterThan);
-
-    // Find the resolution closest to the screen size
-    QSize closestSize;
-    for (int i = 0; i < resolutions.size(); i++) {
-        QSize currentSize = resolutions.at(i);
-        QSize size1(qAbs(currentSize.width() - m_resolution.width()),
-                    qAbs(currentSize.height() - m_resolution.height()));
-        QSize size2(qAbs(closestSize.width() - m_resolution.width()),
-                    qAbs(closestSize.height() - m_resolution.height()));
-        if ((size1.width() < size2.width()) && (size1.height() < size2.height()))
-            closestSize = currentSize;
-    }
-
-    if (closestSize.isValid())
-        emit sizeFound(closestSize);
-}
-
-/*
- * BackgroundFinder
- */
-
-BackgroundFinder::BackgroundFinder(const QString &path, QObject *parent) :
-    QThread(parent),
-    m_path(path)
-{
-}
-
-BackgroundFinder::~BackgroundFinder()
-{
-    wait();
-}
-
-void BackgroundFinder::run()
-{
-    QSet<QString> suffixes;
-    suffixes << "png" << "jpg" << "jpeg" << "svg" << "svgz";
-
-    QDir dir(m_path);
-    dir.setFilter(QDir::Dirs | QDir::Readable | QDir::NoDotAndDotDot);
-
-    // Loop over all directories under the current category
-    QFileInfoList list = dir.entryInfoList();
-    foreach(QFileInfo fileInfo, list) {
-        // Look for the metadata and preview files
-        QDir subDir(fileInfo.absoluteFilePath());
-        if (subDir.exists("metadata.desktop")) {
-            subDir = QDir(fileInfo.absoluteFilePath() + "/contents");
-            subDir.setNameFilters(QStringList() << "screenshot.*");
-            subDir.setFilter(QDir::Files | QDir::Readable);
-            foreach(QString previewFileName, subDir.entryList()) {
-                // Can continue only if preview has the right extension and wallpaper set has images
-                QFileInfo preview(subDir.absoluteFilePath(previewFileName));
-                if (preview.exists() && suffixes.contains(preview.suffix().toLower())) {
-                    QDir imagesDir(subDir.absolutePath() + "/images");
-                    imagesDir.setFilter(QDir::Files | QDir::Readable | QDir::NoDotAndDotDot);
-
-                    if (imagesDir.entryList().size() > 0)
-                        emit backgroundFound(imagesDir.absolutePath(),
-                                             fileInfo.absoluteFilePath() + "/metadata.desktop",
-                                             preview.absoluteFilePath());
-                }
+            if (d->solid)
+                painter.fillRect(pixmap.rect(), d->color1);
+            else if (d->vertical) {
+                QLinearGradient gradient(pixmap.rect().topLeft(), pixmap.rect().bottomLeft());
+                gradient.setColorAt(0, d->color1);
+                gradient.setColorAt(1, d->color2);
+                painter.fillRect(pixmap.rect(), gradient);
+            } else {
+                QLinearGradient gradient(pixmap.rect().topLeft(), pixmap.rect().topRight());
+                gradient.setColorAt(0, d->color1);
+                gradient.setColorAt(1, d->color2);
+                painter.fillRect(pixmap.rect(), gradient);
             }
+
+            return pixmap;
         }
-    }
+        default:
+            break;
+    };
+
+    return QVariant();
 }
 
 /*
  * BackgroundsModel
  */
 
-BackgroundsModel::BackgroundsModel(QObject *parent) :
-    QAbstractListModel(parent)
+BackgroundsModel::BackgroundsModel(QObject *parent)
+    : QAbstractListModel(parent)
 {
 }
 
@@ -231,7 +229,7 @@ void BackgroundsModel::setPath(const QString &path)
     m_path = path;
 
     // Find backgrounds in another thread
-    BackgroundFinder *finder = new BackgroundFinder(path, this);
+    WallpaperFinder *finder = new WallpaperFinder(path, this);
     connect(finder, SIGNAL(backgroundFound(QString, QString, QString)),
             this, SLOT(slotBackgroundFound(QString, QString, QString)));
     finder->start(QThread::HighPriority);
@@ -242,7 +240,7 @@ QVariant BackgroundsModel::data(const QModelIndex &index, int role) const
     if (!index.isValid())
         return QVariant();
 
-    BackgroundsModelItem *item = getItem(index);
+    ModelItem *item = getItem(index);
     if (!item)
         return QVariant();
     return item->data(role);
@@ -254,7 +252,7 @@ int BackgroundsModel::rowCount(const QModelIndex &parent) const
     return m_list.size();
 }
 
-BackgroundsModelItem *BackgroundsModel::getItem(const QModelIndex &index) const
+ModelItem *BackgroundsModel::getItem(const QModelIndex &index) const
 {
     if (!index.isValid())
         return 0;
@@ -267,19 +265,26 @@ void BackgroundsModel::slotBackgroundFound(const QString &wallpaperDir,
                                            const QString &previewImage)
 {
     beginInsertRows(QModelIndex(), m_list.size(), m_list.size());
-    BackgroundsModelItem *item = new BackgroundsModelItem(QDir(wallpaperDir), desktopEntry, previewImage);
-    connect(item, SIGNAL(dataChanged(BackgroundsModelItem *)),
-            this, SLOT(slotItemDataChanged(BackgroundsModelItem *)));
+    WallpaperItem *item = new WallpaperItem(QDir(wallpaperDir), desktopEntry, previewImage);
+    connect(item, SIGNAL(dataChanged(ModelItem *)),
+            this, SLOT(slotItemDataChanged(ModelItem *)));
     m_list.append(item);
     endInsertRows();
 }
 
-void BackgroundsModel::slotItemDataChanged(BackgroundsModelItem *item)
+void BackgroundsModel::slotItemDataChanged(ModelItem *item)
 {
     for (int i = 0; i < m_list.size(); i++) {
-        BackgroundsModelItem *curItem = m_list.at(i);
+	if (item->type() != ModelItem::WallpaperType)
+		continue;
 
-        if (curItem->previewFileName() == item->previewFileName()) {
+	WallpaperItem *reqItem = qobject_cast<WallpaperItem *>(item);
+        WallpaperItem *curItem = qobject_cast<WallpaperItem *>(m_list.at(i));
+
+	if (!reqItem || !curItem)
+		continue;
+
+        if (curItem->previewFileName() == reqItem->previewFileName()) {
             QModelIndex idx = index(i, 0);
             emit dataChanged(idx, idx);
             emit layoutAboutToBeChanged();

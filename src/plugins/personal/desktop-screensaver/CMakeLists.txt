@@ -11,14 +11,7 @@ set(SOURCES
     backgroundcategoriesmodel.cpp
     backgroundsmodel.cpp
     backgrounditemdelegate.cpp
-)
-
-set(HEADERS
-    preflet.h
-    plugin.h
-    backgroundcategoriesmodel.h
-    backgroundsmodel.h
-    backgrounditemdelegate.h
+    wallpaperfinder.cpp
 )
 
 set(FORMS

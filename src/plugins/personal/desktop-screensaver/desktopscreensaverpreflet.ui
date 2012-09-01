@@ -107,7 +107,7 @@
            <bool>false</bool>
           </property>
           <property name="dragDropMode">
-           <enum>QAbstractItemView::DropOnly</enum>
+           <enum>QAbstractItemView::DragDrop</enum>
           </property>
           <property name="iconSize">
            <size>
@@ -137,12 +137,18 @@
            <property name="text">
             <string/>
            </property>
+           <property name="icon">
+            <iconset theme="list-add-symbolic"/>
+           </property>
           </widget>
          </item>
          <item>
           <widget class="QToolButton" name="removeButton">
            <property name="text">
             <string/>
+           </property>
+           <property name="icon">
+            <iconset theme="list-remove-symbolic"/>
            </property>
           </widget>
          </item>

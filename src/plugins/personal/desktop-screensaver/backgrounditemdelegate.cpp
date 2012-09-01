@@ -36,8 +36,8 @@
 const int kScreenshotSize = 128;
 const int kMargin = 6;
 
-BackgroundItemDelegate::BackgroundItemDelegate(QObject *parent) :
-    QAbstractItemDelegate(parent)
+BackgroundItemDelegate::BackgroundItemDelegate(QObject *parent)
+    : QAbstractItemDelegate(parent)
 {
     // Background previews respect screen aspect ratio
     QSize screenSize = qApp->desktop()->size();
