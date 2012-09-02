@@ -24,22 +24,45 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef PLUGIN_H
-#define PLUGIN_H
+#ifndef WALLPAPERMODEL_H
+#define WALLPAPERMODEL_H
 
-#include <VPreferencesModulePlugin>
+#include <QAbstractListModel>
+#include <QDir>
 
-class VPreferencesModule;
+class BackgroundItem;
 
-class DesktopScreenSaverPlugin : public VPreferencesModulePlugin
+class WallpaperModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.maui.Vibe.VPreferencesModuleFactoryInterface" FILE "desktop-screensaver.json")
+    Q_ENUMS(AdditionalRoles)
 public:
-    explicit DesktopScreenSaverPlugin(QObject *parent = 0);
+    enum AdditionalRoles {
+        AuthorRole = Qt::UserRole + 1,
+        ResolutionRole = Qt::UserRole + 2
+    };
 
-    QStringList keys() const;
-    VPreferencesModule *create(const QString &key) const;
+    explicit WallpaperModel(QObject *parent = 0);
+    ~WallpaperModel();
+
+    void empty();
+
+    QStringList paths() const;
+    void addPath(const QString &path);
+
+    virtual QVariant data(const QModelIndex &index, int role) const;
+    virtual int rowCount(const QModelIndex &parent) const;
+
+private:
+    QStringList m_paths;
+    QList<BackgroundItem *> m_list;
+
+    BackgroundItem *getItem(const QModelIndex &index) const;
+
+private slots:
+    void slotBackgroundFound(const QString &wallpaperDir,
+                             const QString &desktopEntry, const QString &previewImage);
+    void slotItemDataChanged(BackgroundItem *item);
 };
 
-#endif // PLUGIN_H
+#endif // WALLPAPERMODEL_H

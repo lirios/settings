@@ -27,19 +27,19 @@
 #include "plugin.h"
 #include "preflet.h"
 
-DesktopScreenSaverPlugin::DesktopScreenSaverPlugin(QObject *parent)
+DesktopPlugin::DesktopPlugin(QObject *parent)
     : VPreferencesModulePlugin(parent)
 {
 }
 
-QStringList DesktopScreenSaverPlugin::keys() const
+QStringList DesktopPlugin::keys() const
 {
-    return QStringList() << "desktop-screensaver";
+    return QStringList() << "desktop";
 }
 
-VPreferencesModule *DesktopScreenSaverPlugin::create(const QString &key) const
+VPreferencesModule *DesktopPlugin::create(const QString &key) const
 {
-    if (key.toLower() == "desktop-screensaver")
+    if (key.toLower() == "desktop")
         return new Preflet();
     return 0;
 }

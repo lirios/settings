@@ -29,9 +29,9 @@
 
 #include <QAbstractListModel>
 
-class BackgroundCategoriesItem;
+class CategoryItem;
 
-class BackgroundCategoriesModel : public QAbstractItemModel
+class CategoryModel : public QAbstractItemModel
 {
     Q_OBJECT
     Q_ENUMS(AdditionalRoles)
@@ -40,8 +40,8 @@ public:
         AbsolutePath = Qt::UserRole + 1
     };
 
-    explicit BackgroundCategoriesModel(QObject *parent = 0);
-    ~BackgroundCategoriesModel();
+    explicit CategoryModel(QObject *parent = 0);
+    ~CategoryModel();
 
     virtual int columnCount(const QModelIndex &parent) const;
     virtual QVariant data(const QModelIndex &index, int role) const;
@@ -51,10 +51,10 @@ public:
     virtual int rowCount(const QModelIndex &parent) const;
 
 private:
-    BackgroundCategoriesItem *m_rootItem;
-    BackgroundCategoriesItem *m_coatingsItem;
-    BackgroundCategoriesItem *m_foldersItem;
-    BackgroundCategoriesItem *m_colorsItem;
+    CategoryItem *m_rootItem;
+    CategoryItem *m_coatingsItem;
+    CategoryItem *m_foldersItem;
+    CategoryItem *m_colorsItem;
 
     void populateCoatings();
     void populateFolders();

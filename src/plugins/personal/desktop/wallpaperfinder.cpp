@@ -25,18 +25,8 @@
  ***************************************************************************/
 
 #include <QSet>
-#include <QImage>
 
 #include "wallpaperfinder.h"
-
-static bool sizeGreaterThan(const QSize &s1, const QSize &s2)
-{
-    return (s1.width() > s2.width()) || (s1.height() > s2.height());
-}
-
-/*
- * WallpaperFinder
- */
 
 WallpaperFinder::WallpaperFinder(const QString &path, QObject *parent)
     : QThread(parent)
@@ -81,57 +71,6 @@ void WallpaperFinder::run()
             }
         }
     }
-}
-
-/*
- * WallpaperSizeFinder
- */
-
-WallpaperSizeFinder::WallpaperSizeFinder(const QSize &resolution,
-                                         const QDir &imagesDir, QObject *parent) :
-    QThread(parent),
-    m_resolution(resolution),
-    m_imagesDir(imagesDir)
-{
-}
-
-WallpaperSizeFinder::~WallpaperSizeFinder()
-{
-    wait();
-}
-
-void WallpaperSizeFinder::run()
-{
-    // Check for available resolutions
-    QList<QSize> resolutions;
-    QSet<QString> suffixes;
-    suffixes << "png" << "jpg" << "jpeg" << "svg" << "svgz";
-    QFileInfoList fileInfoList = m_imagesDir.entryInfoList(QDir::Files | QDir::Readable);
-    foreach(QFileInfo fileInfo, fileInfoList) {
-        if (suffixes.contains(fileInfo.suffix().toLower())) {
-            // Save resolutions
-            QImage image(fileInfo.absoluteFilePath());
-            resolutions.append(image.size());
-        }
-    }
-
-    // Sort resolutions list
-    qSort(resolutions.begin(), resolutions.end(), sizeGreaterThan);
-
-    // Find the resolution closest to the screen size
-    QSize closestSize;
-    for (int i = 0; i < resolutions.size(); i++) {
-        QSize currentSize = resolutions.at(i);
-        QSize size1(qAbs(currentSize.width() - m_resolution.width()),
-                    qAbs(currentSize.height() - m_resolution.height()));
-        QSize size2(qAbs(closestSize.width() - m_resolution.width()),
-                    qAbs(closestSize.height() - m_resolution.height()));
-        if ((size1.width() < size2.width()) && (size1.height() < size2.height()))
-            closestSize = currentSize;
-    }
-
-    if (closestSize.isValid())
-        emit sizeFound(closestSize);
 }
 
 #include "moc_wallpaperfinder.cpp"

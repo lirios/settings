@@ -1,0 +1,91 @@
+/****************************************************************************
+ * This file is part of System Preferences.
+ *
+ * Copyright (c) 2011-2012 Pier Luigi Fiorini
+ *
+ * Author(s):
+ *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ *
+ * $BEGIN_LICENSE:GPL$
+ *
+ * System Preferences is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * System Preferences is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with System Preferences.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * $END_LICENSE$
+ ***************************************************************************/
+
+#include "categoryitem.h"
+
+CategoryItem::CategoryItem(const QString &label, CategoryItem *parent)
+{
+    m_parentItem = parent;
+    m_label = label;
+}
+
+CategoryItem::CategoryItem(const QIcon &icon, const QString &label, CategoryItem *parent)
+{
+    m_parentItem = parent;
+    m_icon = icon;
+    m_label = label;
+}
+
+CategoryItem::~CategoryItem()
+{
+    qDeleteAll(m_childItems);
+}
+
+void CategoryItem::setDirectory(const QDir &dir)
+{
+    m_dir = dir;
+}
+
+void CategoryItem::appendChild(CategoryItem *item)
+{
+    m_childItems.append(item);
+}
+
+CategoryItem *CategoryItem::child(int row)
+{
+    return m_childItems.value(row);
+}
+
+int CategoryItem::childCount() const
+{
+    return m_childItems.count();
+}
+
+int CategoryItem::row() const
+{
+    if (m_parentItem)
+        return m_parentItem->m_childItems.indexOf(const_cast<BackgroundCategoriesItem *>(this));
+    return 0;
+}
+
+QVariant CategoryItem::data(int role)
+{
+    switch (role) {
+        case Qt::DecorationRole:
+            return m_icon;
+        case Qt::DisplayRole:
+            return m_label;
+        case BackgroundCategoriesModel::AbsolutePath:
+            return m_dir.absolutePath();
+    }
+
+    return QVariant();
+}
+
+CategoryItem *CategoryItem::parent() const
+{
+    return m_parentItem;
+}

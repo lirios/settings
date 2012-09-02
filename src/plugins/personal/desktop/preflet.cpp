@@ -24,70 +24,67 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include <QDirIterator>
+
 #include <VSettings>
+#include <VDesktopFile>
+#include <VStandardDirectories>
 
 #include "preflet.h"
-#include "ui_desktopscreensaverpreflet.h"
-#include "backgroundcategoriesmodel.h"
-#include "backgroundsmodel.h"
-#include "backgrounditemdelegate.h"
+#include "ui_desktoppreflet.h"
+#include "wallpapermodel.h"
+
+using namespace VStandardDirectories;
 
 Preflet::Preflet(QWidget *parent)
     : VPreferencesModule(parent)
-    , ui(new Ui::DesktopScreenSaverPreflet)
+    , ui(new Ui::DesktopPreflet)
 {
     ui->setupUi(this);
 
     // Settings
     m_settings = new VSettings("org.maui.desktop.background");
 
-    // Categories
-    m_catModel = new BackgroundCategoriesModel(this);
-    ui->categoriesTreeView->header()->hide();
-    ui->categoriesTreeView->setModel(m_catModel);
-    ui->categoriesTreeView->expandAll();
+    // Wallpapers model
+    m_wallpaperModel = new WallpaperModel(this);
+    ui->bgList->setModel(m_wallpaperModel);
 
-    // Backgrounds
-    m_model = new BackgroundsModel(this);
-    ui->backgroundsIconView->setItemDelegate(new BackgroundItemDelegate(this));
-    ui->backgroundsIconView->setModel(m_model);
-
-    connect(ui->backgroundModeCombo, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(slotBackgroundModeSelected(int)));
-    connect(ui->categoriesTreeView, SIGNAL(clicked(QModelIndex)),
-            this, SLOT(slotBackgroundCategorySelected(QModelIndex)));
-    connect(ui->backgroundsIconView, SIGNAL(clicked(QModelIndex)),
+    // Connect signals
+    connect(ui->launcherIconSizeSlider, SIGNAL(valueChanged(int)),
+            ui->launcherIconSizeSpin, SLOT(setValue(int)));
+    connect(ui->launcherIconSizeSpin, SIGNAL(valueChanged(int)),
+            ui->launcherIconSizeSlider, SLOT(setValue(int)));
+    connect(ui->bgCategory, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(slotBackgroundCategoryChanged(int)));
+    connect(ui->bgList, SIGNAL(activate(QModelIndex)),
             this, SLOT(slotBackgroundSelected(QModelIndex)));
-    connect(ui->changePictureCheckBox, SIGNAL(toggled(bool)),
-            ui->changePictureComboBox, SLOT(setEnabled(bool)));
 }
 
 Preflet::~Preflet()
 {
     delete ui;
-    delete m_catModel;
-    delete m_model;
+    delete m_wallpaperModel;
     delete m_settings;
 }
 
 QString Preflet::name() const
 {
-    return tr("Desktop & Screen Saver");
+    return tr("Desktop");
 }
 
 QString Preflet::comment() const
 {
-    return tr("Configure the desktop and the screen saver.");
+    return tr("Configure desktop, wallpaper and screen saver.");
 }
 
 QString Preflet::iconName() const
 {
-    return "preferences-desktop-wallpaper";
+    return "preferences-desktop";
 }
 
 QStringList Preflet::keywords() const
 {
-    return tr("desktop;background;wallpaper;screen saver").split(";");
+    return tr("desktop;launcher;wallpaper;screen saver;hot corner").split(";");
 }
 
 VPreferencesModule::Category Preflet::category() const
@@ -100,15 +97,27 @@ int Preflet::weight() const
     return 50;
 }
 
-void Preflet::slotBackgroundModeSelected(int index)
+void Preflet::slotBackgroundCategorySelected(int index)
 {
+    switch (index) {
+        case 0: {
+            QString path = QString("%1/wallpapers").arg(findDirectory(SystemDataDirectory));
+            QDirIterator it(path, QDir::Dirs | QDir::Readable | QDir::NoDotAndDotDot,
+                            QDirIterator::FollowSymlinks);
+            while (it.hasNext()) {
+                QDir dir(it.next());
+                if (dir.exists("metadata.desktop"))
+                    m_wallpaperModel->addPath(dir.absolutePath());
+            }
+        }
+        break;
+        default:
+            break;
+    }
 }
 
-void Preflet::slotBackgroundCategorySelected(const QModelIndex &index)
+void Preflet::slotBackgroundModeSelected(int index)
 {
-    // Ignore root elements because they don't contain any image
-    if (index.parent().isValid())
-        m_model->setPath(m_catModel->data(index, BackgroundCategoriesModel::AbsolutePath).toString());
 }
 
 void Preflet::slotBackgroundSelected(const QModelIndex &index)

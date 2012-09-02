@@ -24,52 +24,30 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef WALLPAPERFINDER_H
-#define WALLPAPERFINDER_H
+#ifndef BACKGROUNDITEM_H
+#define BACKGROUNDITEM_H
 
-#include <QThread>
-#include <QDir>
-#include <QSize>
+#include <QObject>
 
-class WallpaperFinder : public QThread
+class BackgroundItem : public QObject
 {
     Q_OBJECT
+    Q_ENUMS(Type)
 public:
-    explicit WallpaperFinder(const QString &path, QObject *parent = 0);
-    ~WallpaperFinder();
+    enum Type {
+        WallpaperType,
+        ColorType
+    };
 
-    QString path() const {
-        return m_path;
-    }
+    explicit BackgroundItem(Type type);
 
-signals:
-    void backgroundFound(const QString &wallpaperDir,
-                         const QString &desktopEntry, const QString &previewImage);
+    Type type() const;
 
-protected:
-    void run();
+    virtual QVariant data(int role) const;
 
 private:
-    QString m_path;
+    class Private;
+    Private *d;
 };
 
-class WallpaperSizeFinder : public QThread
-{
-    Q_OBJECT
-public:
-    explicit WallpaperSizeFinder(const QSize &resolution,
-                                 const QDir &imagesDir, QObject *parent = 0);
-    ~WallpaperSizeFinder();
-
-signals:
-    void sizeFound(const QSize &size);
-
-protected:
-    void run();
-
-private:
-    QSize m_resolution;
-    QDir m_imagesDir;
-};
-
-#endif // WALLPAPERFINDER_H
+#endif // BACKGROUNDITEM_H

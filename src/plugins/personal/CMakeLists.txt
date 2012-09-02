@@ -1,2 +1,2 @@
-add_subdirectory(desktop-screensaver)
+add_subdirectory(desktop)
 add_subdirectory(mimetypes)

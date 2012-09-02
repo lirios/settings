@@ -24,47 +24,37 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef PREFLET_H
-#define PREFLET_H
+#ifndef CATEGORYITEM_H
+#define CATEGORYITEM_H
 
-#include <VPreferencesModule>
-
-class QModelIndex;
-
-class VSettings;
-
-namespace Ui
+class CategoryItem
 {
-    class DesktopScreenSaverPreflet;
-}
-
-class BackgroundCategoriesModel;
-class BackgroundsModel;
-
-class Preflet : public VPreferencesModule
-{
-    Q_OBJECT
 public:
-    explicit Preflet(QWidget *parent = 0);
-    ~Preflet();
+    explicit CategoryItem(const QString &label, CategoryItem *parent = 0);
+    CategoryItem(const QIcon &icon, const QString &label, CategoryItem *parent = 0);
 
-    virtual QString name() const;
-    virtual QString comment() const;
-    virtual QString iconName() const;
-    virtual QStringList keywords() const;
-    virtual VPreferencesModule::Category category() const;
-    virtual int weight() const;
+    ~CategoryItem();
 
-private slots:
-    void slotBackgroundModeSelected(int index);
-    void slotBackgroundCategorySelected(const QModelIndex &index);
-    void slotBackgroundSelected(const QModelIndex &index);
+    void setDirectory(const QDir &dir);
+
+    void appendChild(CategoryItem *item);
+
+    CategoryItem *child(int row);
+
+    int childCount() const;
+
+    int row() const;
+
+    QVariant data(int role);
+
+    CategoryItem *parent() const;
 
 private:
-    Ui::DesktopScreenSaverPreflet *ui;
-    VSettings *m_settings;
-    BackgroundCategoriesModel *m_catModel;
-    BackgroundsModel *m_model;
+    QList<CategoryItem *> m_childItems;
+    QIcon m_icon;
+    QString m_label;
+    QDir m_dir;
+    CategoryItem *m_parentItem;
 };
 
-#endif // PREFLET_H
+#endif // CATEGORYITEM_H
