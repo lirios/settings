@@ -28,7 +28,6 @@
 #define WALLPAPERFINDER_H
 
 #include <QThread>
-#include <QSize>
 
 class WallpaperFinder : public QThread
 {

@@ -10,10 +10,11 @@ set(SOURCES
     plugin.cpp
     backgrounditem.cpp
     wallpaperitem.cpp
-    coloritem.cpp
+#    coloritem.cpp
     wallpapermodel.cpp
     wallpaperfinder.cpp
     wallpapersizefinder.cpp
+    backgrounditemdelegate.cpp
 )
 
 set(FORMS

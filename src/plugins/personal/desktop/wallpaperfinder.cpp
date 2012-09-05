@@ -24,6 +24,7 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include <QDir>
 #include <QSet>
 
 #include "wallpaperfinder.h"

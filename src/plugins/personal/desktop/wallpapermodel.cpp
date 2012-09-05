@@ -99,13 +99,13 @@ void WallpaperModel::slotBackgroundFound(const QString &wallpaperDir,
 {
     beginInsertRows(QModelIndex(), m_list.size(), m_list.size());
     WallpaperItem *item = new WallpaperItem(QDir(wallpaperDir), desktopEntry, previewImage);
-    connect(item, SIGNAL(dataChanged(BackgroundItem *)),
-            this, SLOT(slotItemDataChanged(BackgroundItem *)));
+    connect(item, SIGNAL(dataChanged(WallpaperItem *)),
+            this, SLOT(slotItemDataChanged(WallpaperItem *)));
     m_list.append(item);
     endInsertRows();
 }
 
-void WallpaperModel::slotItemDataChanged(BackgroundItem *item)
+void WallpaperModel::slotItemDataChanged(WallpaperItem *item)
 {
     for (int i = 0; i < m_list.size(); i++) {
         if (item->type() != BackgroundItem::WallpaperType)

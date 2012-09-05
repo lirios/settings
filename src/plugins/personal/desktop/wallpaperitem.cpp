@@ -30,6 +30,7 @@
 #include "wallpaperitem.h"
 #include "wallpapersizefinder.h"
 #include "wallpapermodel.h"
+#include "prefletdefines.h"
 
 WallpaperItem::WallpaperItem(const QDir &imagesDir,
                              const QString &entry,
@@ -44,7 +45,7 @@ WallpaperItem::WallpaperItem(const QDir &imagesDir,
     // Load metadata and preview image scaled down (preserving screen aspect ratio)
     m_entry = new VDesktopFile(entry);
     m_pixmap.load(previewFileName);
-    m_pixmap = m_pixmap.scaled(QSize(128 * ratio, 128));
+    m_pixmap = m_pixmap.scaled(QSize(kBackgroundSize * ratio, kBackgroundSize));
 
     // Find best size
     WallpaperSizeFinder *finder = new WallpaperSizeFinder(screenSize, imagesDir, this);
@@ -72,12 +73,19 @@ QVariant WallpaperItem::data(int role) const
             return QVariant::fromValue(m_pixmap);
         case Qt::ToolTipRole:
             return m_entry->comment();
+        case WallpaperModel::TypeRole:
+            return "wallpaper";
         case WallpaperModel::AuthorRole:
             return m_entry->value("X-Hawaii-PluginInfo-Author");
         case WallpaperModel::ResolutionRole:
             if (m_size.isValid())
                 return QString("%1x%2").arg(m_size.width()).arg(m_size.height());
             return QString();
+        case WallpaperModel::AbsolutePathRole:
+            return QFileInfo(m_entry->fileName()).absoluteDir().absoluteFilePath(
+                       QString("contents/%1x%2.jpg").arg(m_size.width()).arg(m_size.height()));
+        default:
+            break;
     }
 
     return QVariant();

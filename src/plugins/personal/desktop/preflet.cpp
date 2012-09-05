@@ -25,16 +25,16 @@
  ***************************************************************************/
 
 #include <QDirIterator>
+#include <QStandardPaths>
+#include <QDebug>
 
 #include <VSettings>
 #include <VDesktopFile>
-#include <VStandardDirectories>
 
 #include "preflet.h"
 #include "ui_desktoppreflet.h"
 #include "wallpapermodel.h"
-
-using namespace VStandardDirectories;
+#include "backgrounditemdelegate.h"
 
 Preflet::Preflet(QWidget *parent)
     : VPreferencesModule(parent)
@@ -47,6 +47,7 @@ Preflet::Preflet(QWidget *parent)
 
     // Wallpapers model
     m_wallpaperModel = new WallpaperModel(this);
+    ui->bgList->setItemDelegate(new BackgroundItemDelegate(this));
     ui->bgList->setModel(m_wallpaperModel);
 
     // Connect signals
@@ -55,9 +56,14 @@ Preflet::Preflet(QWidget *parent)
     connect(ui->launcherIconSizeSpin, SIGNAL(valueChanged(int)),
             ui->launcherIconSizeSlider, SLOT(setValue(int)));
     connect(ui->bgCategory, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(slotBackgroundCategoryChanged(int)));
-    connect(ui->bgList, SIGNAL(activate(QModelIndex)),
+            this, SLOT(slotBackgroundCategorySelected(int)));
+    connect(ui->bgList, SIGNAL(clicked(QModelIndex)),
+            ui->bgList, SIGNAL(activated(QModelIndex)));
+    connect(ui->bgList, SIGNAL(activated(QModelIndex)),
             this, SLOT(slotBackgroundSelected(QModelIndex)));
+
+    // Load all the coatings
+    slotBackgroundCategorySelected(0);
 }
 
 Preflet::~Preflet()
@@ -101,13 +107,17 @@ void Preflet::slotBackgroundCategorySelected(int index)
 {
     switch (index) {
         case 0: {
-            QString path = QString("%1/wallpapers").arg(findDirectory(SystemDataDirectory));
-            QDirIterator it(path, QDir::Dirs | QDir::Readable | QDir::NoDotAndDotDot,
-                            QDirIterator::FollowSymlinks);
-            while (it.hasNext()) {
-                QDir dir(it.next());
-                if (dir.exists("metadata.desktop"))
-                    m_wallpaperModel->addPath(dir.absolutePath());
+            // Populate the list with wallpapers
+            QStringList paths = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
+            foreach(QString dir, paths) {
+                QString path = QString("%1wallpapers").arg(dir);
+                QDirIterator it(path, QDir::Dirs | QDir::Readable | QDir::NoDotAndDotDot,
+                                QDirIterator::FollowSymlinks);
+                while (it.hasNext()) {
+                    QDir dir(it.next());
+                    if (dir.exists("metadata.desktop"))
+                        m_wallpaperModel->addPath(dir.absolutePath());
+                }
             }
         }
         break;
@@ -125,7 +135,18 @@ void Preflet::slotBackgroundSelected(const QModelIndex &index)
     if (!index.isValid())
         return;
 
-    //QString path = m_model->data(index, BackgroundsModel::AbsolutePath).toString();
+    QString type = m_wallpaperModel->data(index, WallpaperModel::TypeRole).toString();
+    if (type == "wallpaper") {
+        QString name = m_wallpaperModel->data(index, Qt::DisplayRole).toString();
+        QString resolution = m_wallpaperModel->data(index, WallpaperModel::ResolutionRole).toString();
+        QString path = m_wallpaperModel->data(index, WallpaperModel::AbsolutePathRole).toString();
+        ui->bgName->setText("<b>" + name + "</b>");
+        ui->bgSize->setText(resolution);
+
+        // Save settings
+        m_settings->setValue("type", "wallpaper");
+        m_settings->setValue("wallpaper-uri", path);
+    }
 }
 
 #include "moc_preflet.cpp"

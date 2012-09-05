@@ -37,8 +37,8 @@ class ColorItem::Private
 public:
     Private() {}
 
-    QColor color1;
-    QColor color2;
+    QColor firstColor;
+    QColor secondColor;
     bool solid : 1;
     bool vertical : 1;
     QString name;
@@ -49,8 +49,8 @@ ColorItem::ColorItem(const QColor &color1, const QColor &color2,
     : BackgroundItem(BackgroundItem::ColorType)
     , d(new Private())
 {
-    d->color1 = color1;
-    d->color2 = color2;
+    d->firstColor = color1;
+    d->secondColor = color2;
     d->solid = false;
     d->vertical = vertical;
     if (vertical)
@@ -63,7 +63,7 @@ ColorItem::ColorItem(const QColor &color)
     : BackgroundItem(BackgroundItem::ColorType)
     , d(new Private())
 {
-    d->color1 = color;
+    d->firstColor = color;
     d->solid = true;
     d->name = tr("Solid Color");
 }
@@ -78,16 +78,16 @@ QVariant ColorItem::data(int role) const
             QPainter painter(&pixmap);
 
             if (d->solid)
-                painter.fillRect(pixmap.rect(), d->color1);
+                painter.fillRect(pixmap.rect(), d->firstColor);
             else if (d->vertical) {
                 QLinearGradient gradient(pixmap.rect().topLeft(), pixmap.rect().bottomLeft());
-                gradient.setColorAt(0, d->color1);
-                gradient.setColorAt(1, d->color2);
+                gradient.setColorAt(0, d->firstColor);
+                gradient.setColorAt(1, d->secondColor);
                 painter.fillRect(pixmap.rect(), gradient);
             } else {
                 QLinearGradient gradient(pixmap.rect().topLeft(), pixmap.rect().topRight());
-                gradient.setColorAt(0, d->color1);
-                gradient.setColorAt(1, d->color2);
+                gradient.setColorAt(0, d->firstColor);
+                gradient.setColorAt(1, d->secondColor);
                 painter.fillRect(pixmap.rect(), gradient);
             }
 

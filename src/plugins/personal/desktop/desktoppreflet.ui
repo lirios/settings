@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>538</width>
-    <height>326</height>
+    <height>446</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -80,50 +80,9 @@
       <attribute name="title">
        <string>Background</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <layout class="QHBoxLayout" name="horizontalLayout_8">
        <item>
-        <widget class="QListView" name="bgList">
-         <property name="editTriggers">
-          <set>QAbstractItemView::NoEditTriggers</set>
-         </property>
-         <property name="showDropIndicator" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="dragDropMode">
-          <enum>QAbstractItemView::DragDrop</enum>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>128</width>
-           <height>80</height>
-          </size>
-         </property>
-         <property name="resizeMode">
-          <enum>QListView::Adjust</enum>
-         </property>
-         <property name="layoutMode">
-          <enum>QListView::Batched</enum>
-         </property>
-         <property name="viewMode">
-          <enum>QListView::IconMode</enum>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QLabel" name="label_2">
-           <property name="text">
-            <string>&amp;Category:</string>
-           </property>
-           <property name="buddy">
-            <cstring>bgCategory</cstring>
-           </property>
-          </widget>
-         </item>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
          <item>
           <widget class="QComboBox" name="bgCategory">
            <item>
@@ -144,71 +103,164 @@
           </widget>
          </item>
          <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+          <widget class="QListView" name="bgList">
+           <property name="editTriggers">
+            <set>QAbstractItemView::NoEditTriggers</set>
            </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
+           <property name="showDropIndicator" stdset="0">
+            <bool>false</bool>
            </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_3">
-           <property name="text">
-            <string>&amp;Mode:</string>
+           <property name="dragDropMode">
+            <enum>QAbstractItemView::DragDrop</enum>
            </property>
-           <property name="buddy">
-            <cstring>bgMode</cstring>
+           <property name="resizeMode">
+            <enum>QListView::Adjust</enum>
+           </property>
+           <property name="layoutMode">
+            <enum>QListView::Batched</enum>
+           </property>
+           <property name="viewMode">
+            <enum>QListView::IconMode</enum>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="bgMode">
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
            <item>
-            <property name="text">
-             <string>Fit to Screen</string>
-            </property>
+            <widget class="QToolButton" name="addBgButton">
+             <property name="icon">
+              <iconset theme="list-add-symbolic">
+               <normaloff/>
+              </iconset>
+             </property>
+            </widget>
            </item>
            <item>
-            <property name="text">
-             <string>Fill Screen</string>
-            </property>
+            <widget class="QToolButton" name="removeBgButton">
+             <property name="icon">
+              <iconset theme="list-remove-symbolic">
+               <normaloff/>
+              </iconset>
+             </property>
+            </widget>
            </item>
            <item>
-            <property name="text">
-             <string>Stretch to Fit Screen</string>
-            </property>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
            </item>
-           <item>
-            <property name="text">
-             <string>Center</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Tile</string>
-            </property>
-           </item>
-          </widget>
+          </layout>
          </item>
         </layout>
        </item>
        <item>
-        <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QLabel" name="bgName">
+             <property name="text">
+              <string>&lt;b&gt;$NAME&lt;/b&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="bgSize">
+             <property name="text">
+              <string>$SIZE</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="bgPreviw">
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>&amp;Mode:</string>
+             </property>
+             <property name="buddy">
+              <cstring>bgMode</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="bgMode">
+             <item>
+              <property name="text">
+               <string>Fit to Screen</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Fill Screen</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Stretch to Fit Screen</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Center</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Tile</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>

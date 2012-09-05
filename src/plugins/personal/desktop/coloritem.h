@@ -27,6 +27,8 @@
 #ifndef COLORITEM_H
 #define COLORITEM_H
 
+#include <QColor>
+
 #include "backgrounditem.h"
 
 class ColorItem : public BackgroundItem

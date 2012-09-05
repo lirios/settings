@@ -31,6 +31,7 @@
 #include <QDir>
 
 class BackgroundItem;
+class WallpaperItem;
 
 class WallpaperModel : public QAbstractListModel
 {
@@ -38,8 +39,10 @@ class WallpaperModel : public QAbstractListModel
     Q_ENUMS(AdditionalRoles)
 public:
     enum AdditionalRoles {
-        AuthorRole = Qt::UserRole + 1,
-        ResolutionRole = Qt::UserRole + 2
+        TypeRole = Qt::UserRole + 1,
+        AuthorRole = Qt::UserRole + 2,
+        ResolutionRole = Qt::UserRole + 3,
+        AbsolutePathRole = Qt::UserRole + 4
     };
 
     explicit WallpaperModel(QObject *parent = 0);
@@ -62,7 +65,7 @@ private:
 private slots:
     void slotBackgroundFound(const QString &wallpaperDir,
                              const QString &desktopEntry, const QString &previewImage);
-    void slotItemDataChanged(BackgroundItem *item);
+    void slotItemDataChanged(WallpaperItem *item);
 };
 
 #endif // WALLPAPERMODEL_H
