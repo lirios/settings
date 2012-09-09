@@ -43,7 +43,8 @@ Preflet::Preflet(QWidget *parent)
     ui->setupUi(this);
 
     // Settings
-    m_settings = new VSettings("org.maui.desktop.background");
+    m_launcherSettings = new VSettings("org.hawaii.greenisland.desktop");
+    m_bgSettings = new VSettings("org.maui.desktop.background");
 
     // Wallpapers model
     m_wallpaperModel = new WallpaperModel(this);
@@ -57,6 +58,8 @@ Preflet::Preflet(QWidget *parent)
             ui->launcherIconSizeSpin, SLOT(setValue(int)));
     connect(ui->launcherIconSizeSpin, SIGNAL(valueChanged(int)),
             ui->launcherIconSizeSlider, SLOT(setValue(int)));
+    connect(ui->launcherIconSizeSpin, SIGNAL(valueChanged(int)),
+            this, SLOT(slotLauncherIconSizeChanged(int)));
     connect(ui->bgCategory, SIGNAL(currentIndexChanged(int)),
             this, SLOT(slotBackgroundCategorySelected(int)));
     connect(ui->bgList, SIGNAL(clicked(QModelIndex)),
@@ -64,15 +67,16 @@ Preflet::Preflet(QWidget *parent)
     connect(ui->bgList, SIGNAL(activated(QModelIndex)),
             this, SLOT(slotBackgroundSelected(QModelIndex)));
 
-    // Load all the coatings
-    slotBackgroundCategorySelected(0);
+    // Load settings
+    loadSettings();
 }
 
 Preflet::~Preflet()
 {
     delete ui;
     delete m_wallpaperModel;
-    delete m_settings;
+    delete m_bgSettings;
+    delete m_launcherSettings;
 }
 
 QString Preflet::name() const
@@ -105,11 +109,25 @@ int Preflet::weight() const
     return 50;
 }
 
+void Preflet::loadSettings()
+{
+    // Launcher icon size
+    ui->launcherIconSizeSpin->setValue(m_launcherSettings->value("launcher-icon-size").toInt());
+
+    // Load all the coatings
+    slotBackgroundCategorySelected(0);
+}
+
+void Preflet::slotLauncherIconSizeChanged(int value)
+{
+    m_launcherSettings->setValue("launcher-icon-size", value);
+}
+
 void Preflet::slotAllWallpapersLoaded()
 {
     // Select the current configured wallpaper
     if (ui->bgCategory->currentIndex() == 0) {
-        QString wallpaperPath = m_settings->value("wallpaper-uri").toUrl().toLocalFile();
+        QString wallpaperPath = m_bgSettings->value("wallpaper-uri").toUrl().toLocalFile();
         ui->bgList->selectionModel()->select(m_wallpaperModel->indexOf(wallpaperPath),
                                              QItemSelectionModel::Select | QItemSelectionModel::Current);
         slotBackgroundSelected(m_wallpaperModel->indexOf(wallpaperPath));
@@ -157,8 +175,8 @@ void Preflet::slotBackgroundSelected(const QModelIndex &index)
         ui->bgSize->setText(resolution);
 
         // Save settings
-        m_settings->setValue("type", "wallpaper");
-        m_settings->setValue("wallpaper-uri", path);
+        m_bgSettings->setValue("type", "wallpaper");
+        m_bgSettings->setValue("wallpaper-uri", path);
     }
 }
 

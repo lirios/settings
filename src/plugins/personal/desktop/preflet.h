@@ -55,6 +55,8 @@ public:
     virtual int weight() const;
 
 private slots:
+    void slotLauncherIconSizeChanged(int value);
+
     void slotAllWallpapersLoaded();
     void slotBackgroundCategorySelected(int index);
     void slotBackgroundModeSelected(int index);
@@ -62,8 +64,11 @@ private slots:
 
 private:
     Ui::DesktopPreflet *ui;
-    VSettings *m_settings;
+    VSettings *m_launcherSettings;
+    VSettings *m_bgSettings;
     WallpaperModel *m_wallpaperModel;
+
+    void loadSettings();
 };
 
 #endif // PREFLET_H
