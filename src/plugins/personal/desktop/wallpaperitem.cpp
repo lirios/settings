@@ -36,6 +36,7 @@ WallpaperItem::WallpaperItem(const QDir &imagesDir,
                              const QString &entry,
                              const QString &previewFileName)
     : BackgroundItem(BackgroundItem::WallpaperType)
+    , m_imagesDir(imagesDir)
     , m_previewFileName(previewFileName)
 {
     // Calculate aspect ratio
@@ -81,7 +82,11 @@ QVariant WallpaperItem::data(int role) const
             if (m_size.isValid())
                 return QString("%1x%2").arg(m_size.width()).arg(m_size.height());
             return QString();
-        case WallpaperModel::AbsolutePathRole:
+    case WallpaperModel::AbsoluteContainerPathRole:
+        return QFileInfo(m_entry->fileName()).absoluteDir().absolutePath();
+    case WallpaperModel::AbsolutePathRole:
+        return m_imagesDir.absolutePath();
+        case WallpaperModel::AbsoluteFilePathRole:
             return QFileInfo(m_entry->fileName()).absoluteDir().absoluteFilePath(
                        QString("contents/%1x%2.jpg").arg(m_size.width()).arg(m_size.height()));
         default:

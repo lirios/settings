@@ -26,7 +26,7 @@
 
 #include <QDirIterator>
 #include <QStandardPaths>
-#include <QDebug>
+#include <QUrl>
 
 #include <VSettings>
 #include <VDesktopFile>
@@ -49,6 +49,8 @@ Preflet::Preflet(QWidget *parent)
     m_wallpaperModel = new WallpaperModel(this);
     ui->bgList->setItemDelegate(new BackgroundItemDelegate(this));
     ui->bgList->setModel(m_wallpaperModel);
+    connect(m_wallpaperModel, SIGNAL(wallpapersAdded()),
+            this, SLOT(slotAllWallpapersLoaded()));
 
     // Connect signals
     connect(ui->launcherIconSizeSlider, SIGNAL(valueChanged(int)),
@@ -103,6 +105,17 @@ int Preflet::weight() const
     return 50;
 }
 
+void Preflet::slotAllWallpapersLoaded()
+{
+    // Select the current configured wallpaper
+    if (ui->bgCategory->currentIndex() == 0) {
+        QString wallpaperPath = m_settings->value("wallpaper-uri").toUrl().toLocalFile();
+        ui->bgList->selectionModel()->select(m_wallpaperModel->indexOf(wallpaperPath),
+                                             QItemSelectionModel::Select | QItemSelectionModel::Current);
+        slotBackgroundSelected(m_wallpaperModel->indexOf(wallpaperPath));
+    }
+}
+
 void Preflet::slotBackgroundCategorySelected(int index)
 {
     switch (index) {
@@ -139,7 +152,7 @@ void Preflet::slotBackgroundSelected(const QModelIndex &index)
     if (type == "wallpaper") {
         QString name = m_wallpaperModel->data(index, Qt::DisplayRole).toString();
         QString resolution = m_wallpaperModel->data(index, WallpaperModel::ResolutionRole).toString();
-        QString path = m_wallpaperModel->data(index, WallpaperModel::AbsolutePathRole).toString();
+        QString path = m_wallpaperModel->data(index, WallpaperModel::AbsoluteFilePathRole).toString();
         ui->bgName->setText("<b>" + name + "</b>");
         ui->bgSize->setText(resolution);
 

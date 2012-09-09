@@ -30,6 +30,7 @@
 
 WallpaperModel::WallpaperModel(QObject *parent)
     : QAbstractListModel(parent)
+    , m_wallpapersCount(0)
 {
 }
 
@@ -68,6 +69,20 @@ void WallpaperModel::addPath(const QString &path)
     finder->start(QThread::HighPriority);
 }
 
+QModelIndex WallpaperModel::indexOf(const QString &path) const
+{
+    for (int i = 0; i < m_list.size(); i++) {
+        WallpaperItem *item = static_cast<WallpaperItem *>(m_list.at(i));
+        if (!item)
+            continue;
+
+        if (item->data(AbsolutePathRole).toString() == QFileInfo(path).canonicalPath())
+            return index(i);
+    }
+
+    return QModelIndex();
+}
+
 QVariant WallpaperModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
@@ -97,6 +112,12 @@ void WallpaperModel::slotBackgroundFound(const QString &wallpaperDir,
                                          const QString &desktopEntry,
                                          const QString &previewImage)
 {
+    // Increment a counter of added wallpaper items, once we retrieved
+    // all its information the counter will be decremented and once
+    // it reaches 0 we'll inform the world that the population is done
+    m_wallpapersCount.ref();
+
+    // Add the wallpaper
     beginInsertRows(QModelIndex(), m_list.size(), m_list.size());
     WallpaperItem *item = new WallpaperItem(QDir(wallpaperDir), desktopEntry, previewImage);
     connect(item, SIGNAL(dataChanged(WallpaperItem *)),
@@ -126,6 +147,12 @@ void WallpaperModel::slotItemDataChanged(WallpaperItem *item)
             break;
         }
     }
+
+    // Decrement the counter so that we'll know how many paths are not yet added,
+    // if it goes to 0 it means we populated the model with all the given wallpaper
+    // paths and we fire a signal
+    if (!m_wallpapersCount.deref())
+        emit wallpapersAdded();
 }
 
 #include "moc_wallpapermodel.cpp"

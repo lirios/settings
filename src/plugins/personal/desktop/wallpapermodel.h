@@ -29,6 +29,7 @@
 
 #include <QAbstractListModel>
 #include <QDir>
+#include <QAtomicInt>
 
 class BackgroundItem;
 class WallpaperItem;
@@ -42,7 +43,9 @@ public:
         TypeRole = Qt::UserRole + 1,
         AuthorRole = Qt::UserRole + 2,
         ResolutionRole = Qt::UserRole + 3,
-        AbsolutePathRole = Qt::UserRole + 4
+        AbsoluteContainerPathRole = Qt::UserRole + 4,
+        AbsolutePathRole = Qt::UserRole + 5,
+        AbsoluteFilePathRole = Qt::UserRole + 6
     };
 
     explicit WallpaperModel(QObject *parent = 0);
@@ -53,11 +56,17 @@ public:
     QStringList paths() const;
     void addPath(const QString &path);
 
+    QModelIndex indexOf(const QString &path) const;
+
     virtual QVariant data(const QModelIndex &index, int role) const;
     virtual int rowCount(const QModelIndex &parent) const;
 
+signals:
+    void wallpapersAdded();
+
 private:
     QStringList m_paths;
+    QAtomicInt m_wallpapersCount;
     QList<BackgroundItem *> m_list;
 
     BackgroundItem *getItem(const QModelIndex &index) const;

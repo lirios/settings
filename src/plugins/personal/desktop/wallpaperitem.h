@@ -27,6 +27,7 @@
 #ifndef WALLPAPERITEM_H
 #define WALLPAPERITEM_H
 
+#include <QDir>
 #include <QPixmap>
 
 #include <VDesktopFile>
@@ -49,6 +50,7 @@ signals:
     void dataChanged(WallpaperItem *);
 
 private:
+    QDir m_imagesDir;
     VDesktopFile *m_entry;
     QString m_previewFileName;
     QPixmap m_pixmap;

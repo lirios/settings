@@ -55,6 +55,7 @@ public:
     virtual int weight() const;
 
 private slots:
+    void slotAllWallpapersLoaded();
     void slotBackgroundCategorySelected(int index);
     void slotBackgroundModeSelected(int index);
     void slotBackgroundSelected(const QModelIndex &index);
