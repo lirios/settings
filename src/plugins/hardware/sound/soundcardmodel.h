@@ -29,9 +29,11 @@
 
 #include <QAbstractListModel>
 
-#include <VDevice>
+#include <solid/device.h>
 
-class VDeviceNotifier;
+namespace Solid {
+    class DeviceNotifier;
+}
 
 class SoundCardModel : public QAbstractListModel
 {
@@ -43,8 +45,8 @@ public:
     virtual int rowCount(const QModelIndex &parent) const;
 
 private:
-    VDeviceNotifier *m_notifier;
-    QList<VDevice> m_list;
+    Solid::DeviceNotifier *m_notifier;
+    QList<Solid::Device> m_list;
 };
 
 #endif // SOUNDCARDMODEL_H

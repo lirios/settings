@@ -27,16 +27,16 @@
 #include <QDebug>
 #include <QIcon>
 
-#include <VDeviceNotifier>
-#include <VAudioInterface>
+#include <solid/devicenotifier.h>
+#include <solid/audiointerface.h>
 
 #include "soundcardmodel.h"
 
 SoundCardModel::SoundCardModel(QObject *parent) :
     QAbstractListModel(parent)
 {
-    m_notifier = VDeviceNotifier::instance();
-    m_list = VDevice::listFromType(VDeviceInterface::AudioInterface);
+    m_notifier = Solid::DeviceNotifier::instance();
+    m_list = Solid::Device::listFromType(Solid::DeviceInterface::AudioInterface);
 }
 
 QVariant SoundCardModel::data(const QModelIndex &index, int role) const
@@ -49,17 +49,17 @@ QVariant SoundCardModel::data(const QModelIndex &index, int role) const
     if (role != Qt::DisplayRole && role != Qt::DecorationRole)
         return QVariant();
 
-    VDevice device = m_list.at(index.row());
-    VAudioInterface *audio = device.as<VAudioInterface>();
+    Solid::Device device = m_list.at(index.row());
+    Solid::AudioInterface *audio = device.as<Solid::AudioInterface>();
 
-    if (audio->deviceType() == VAudioInterface::AudioOutput) {
+    if (audio->deviceType() == Solid::AudioInterface::AudioOutput) {
         qDebug() << device.udi() << device.product() << device.parentUdi();
         switch (role) {
             case Qt::DisplayRole:
                 return audio->name();
             case Qt::DecorationRole:
                 switch (audio->soundcardType()) {
-                    case VAudioInterface::Headset:
+                    case Solid::AudioInterface::Headset:
                         return QIcon::fromTheme("audio-headset");
                     default:
                         return QIcon::fromTheme("audio-card");
