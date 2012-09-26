@@ -34,7 +34,7 @@ class VPreferencesModule;
 class DesktopPlugin : public VPreferencesModulePlugin
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.maui.Vibe.VPreferencesModuleFactoryInterface" FILE "desktop.json")
+    Q_PLUGIN_METADATA(IID "org.hawaii.Vibe.VPreferencesModuleFactoryInterface" FILE "desktop.json")
 public:
     explicit DesktopPlugin(QObject *parent = 0);
 

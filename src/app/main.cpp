@@ -34,8 +34,8 @@ int main(int argc, char *argv[])
     app.setApplicationName("System Preferences");
     app.setApplicationVersion("0.0.0");
     app.setOrganizationDomain("maui-project.org");
-    app.setOrganizationName("Maui");
-    app.setIdentifier("org.maui.SystemPreferences");
+    app.setOrganizationName("Maui Project");
+    app.setIdentifier("org.hawaii.SystemPreferences");
     app.setWindowIcon(QIcon::fromTheme("preferences-system"));
 
     MainWindow *win = new MainWindow();

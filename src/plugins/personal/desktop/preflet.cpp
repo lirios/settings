@@ -44,7 +44,7 @@ Preflet::Preflet(QWidget *parent)
 
     // Settings
     m_launcherSettings = new VSettings("org.hawaii.greenisland.desktop");
-    m_bgSettings = new VSettings("org.maui.desktop.background");
+    m_bgSettings = new VSettings("org.hawaii.desktop.background");
 
     // Wallpapers model
     m_wallpaperModel = new WallpaperModel(this);

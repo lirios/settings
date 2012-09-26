@@ -34,7 +34,7 @@ class VPreferencesModule;
 class MimeTypesPlugin : public VPreferencesModulePlugin
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.maui.Vibe.VPreferencesModuleFactoryInterface" FILE "mimetype.json")
+    Q_PLUGIN_METADATA(IID "org.hawaii.Vibe.VPreferencesModuleFactoryInterface" FILE "mimetype.json")
 public:
     explicit MimeTypesPlugin(QObject *parent = 0);
 

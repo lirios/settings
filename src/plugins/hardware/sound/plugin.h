@@ -34,7 +34,7 @@ class VPreferencesModule;
 class SoundPlugin : public VPreferencesModulePlugin
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.maui.Vibe.VPreferencesModuleFactoryInterface" FILE "sound.json")
+    Q_PLUGIN_METADATA(IID "org.hawaii.Vibe.VPreferencesModuleFactoryInterface" FILE "sound.json")
 public:
     explicit SoundPlugin(QObject *parent = 0);
 

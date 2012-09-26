@@ -34,7 +34,7 @@ class VPreferencesModule;
 class UserAccountsPlugin : public VPreferencesModulePlugin
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.maui.Vibe.VPreferencesModuleFactoryInterface" FILE "user-accounts.json")
+    Q_PLUGIN_METADATA(IID "org.hawaii.Vibe.VPreferencesModuleFactoryInterface" FILE "user-accounts.json")
 public:
     explicit UserAccountsPlugin(QObject *parent = 0);
 
