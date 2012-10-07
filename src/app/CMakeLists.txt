@@ -4,6 +4,9 @@ include_directories(
 
 add_definitions(${VibeWidgets_DEFINITIONS})
 
+# Create the cmakedirs.h header file
+configure_file(cmakedirs.h.in ${CMAKE_CURRENT_BINARY_DIR}/cmakedirs.h)
+
 set(SOURCES
     main.cpp
     mainwindow.cpp

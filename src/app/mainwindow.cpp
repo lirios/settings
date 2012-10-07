@@ -24,6 +24,7 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include <QDebug>
 #include <QDir>
 #include <QPluginLoader>
 #include <QToolBar>
@@ -31,9 +32,7 @@
 #include <QLineEdit>
 #include <QStackedWidget>
 #include <QStyledItemDelegate>
-#include <QDebug>
 
-#include <VStandardDirectories>
 #include <VPreferencesModulePlugin>
 
 #include "mainwindow.h"
@@ -42,8 +41,7 @@
 #include "menuitem.h"
 #include "menumodel.h"
 #include "menuproxymodel.h"
-
-using namespace VStandardDirectories;
+#include "cmakedirs.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -140,38 +138,33 @@ void MainWindow::createToolBar()
 
 void MainWindow::populate()
 {
-    QStringList dirs;
-    dirs << QString("%1/preferences").arg(findDirectory(CommonPluginsDirectory))
-         << QString("%1/preferences").arg(findDirectory(SystemPluginsDirectory));
-    foreach(QString dir, dirs) {
-        QDir pluginsDir(dir);
-        foreach(QString fileName, pluginsDir.entryList(QDir::Files)) {
-            QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));
-            VPreferencesModulePlugin *plugin = qobject_cast<VPreferencesModulePlugin *>(loader.instance());
-            if (!plugin)
-                continue;
+    QDir pluginsDir(QStringLiteral("%1/preferences").arg(INSTALL_PLUGINSDIR));
+    foreach(QString fileName, pluginsDir.entryList(QDir::Files)) {
+        QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));
+        VPreferencesModulePlugin *plugin = qobject_cast<VPreferencesModulePlugin *>(loader.instance());
+        if (!plugin)
+            continue;
 
-            foreach(QString key, plugin->keys()) {
-                VPreferencesModule *module = plugin->create(key);
+        foreach(QString key, plugin->keys()) {
+            VPreferencesModule *module = plugin->create(key);
 
-                // Create the category if needed
-                VPreferencesModule::Category category = module->category();
-                MenuItem *parent = m_categories.value(category, 0);
-                if (!parent) {
-                    parent = new MenuItem(m_rootItem);
-                    parent->setCategory(category);
-                    m_categories[category] = parent;
-                    m_model->addException(parent);
-                    qDebug() << "Create new category" << parent->name();
-                }
-
-                // Create the item and append its widget to the stack
-                MenuItem *item = new MenuItem(parent);
-                item->setModule(module);
-                m_stackedWidget->addWidget(module);
-                parent->sortChildrenByWeight();
-                qDebug() << "Added" << item->name() << "under category" << parent->name();
+            // Create the category if needed
+            VPreferencesModule::Category category = module->category();
+            MenuItem *parent = m_categories.value(category, 0);
+            if (!parent) {
+                parent = new MenuItem(m_rootItem);
+                parent->setCategory(category);
+                m_categories[category] = parent;
+                m_model->addException(parent);
+                qDebug() << "Create new category" << parent->name();
             }
+
+            // Create the item and append its widget to the stack
+            MenuItem *item = new MenuItem(parent);
+            item->setModule(module);
+            m_stackedWidget->addWidget(module);
+            parent->sortChildrenByWeight();
+            qDebug() << "Added" << item->name() << "under category" << parent->name();
         }
     }
 
