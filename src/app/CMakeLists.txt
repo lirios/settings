@@ -24,4 +24,4 @@ configure_file(system-preferences.desktop.in system-preferences.desktop)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/system-preferences.desktop DESTINATION ${CMAKE_INSTALL_APPSDIR})
 set_target_properties(system-preferences PROPERTIES COMPILE_FLAGS ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS})
-install(TARGETS system-preferences DESTINATION ${CMAKE_INSTALL_PROGSDIR})
+install(TARGETS system-preferences DESTINATION ${CMAKE_INSTALL_BINDIR})
