@@ -1,5 +1,5 @@
 /****************************************************************************
- * This file is part of Desktop Compositor.
+ * This file is part of System Preferences.
  *
  * Copyright (c) 2012 Pier Luigi Fiorini
  *
@@ -8,18 +8,18 @@
  *
  * $BEGIN_LICENSE:GPL$
  *
- * Desktop Compositor is free software: you can redistribute it and/or modify
+ * System Preferences is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Desktop Compositor is distributed in the hope that it will be useful,
+ * System Preferences is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Desktop Compositor.  If not, see <http://www.gnu.org/licenses/>.
+ * along with System Preferences.  If not, see <http://www.gnu.org/licenses/>.
  *
  * $END_LICENSE$
  ***************************************************************************/
@@ -27,26 +27,28 @@
 #ifndef CMAKEDIRS_H
 #define CMAKEDIRS_H
 
+// GNUInstallDirs
 #define INSTALL_PREFIX "@CMAKE_INSTALL_PREFIX@"
 #define INSTALL_BINDIR "@CMAKE_INSTALL_FULL_BINDIR@"
-#define INSTALL_APPSDIR "@CMAKE_INSTALL_FULL_APPSDIR@"
-#define INSTALL_PROGSDIR "@CMAKE_INSTALL_FULL_PROGSDIR@"
-#define INSTALL_BUNDLESDIR "@CMAKE_INSTALL_FULL_BUNDLESDIR@"
-#define INSTALL_SERVERSDIR "@CMAKE_INSTALL_FULL_SERVERSDIR@"
+#define INSTALL_SBINDIR "@CMAKE_INSTALL_FULL_SBINDIR@"
+#define INSTALL_LIBEXECDIR "@CMAKE_INSTALL_FULL_LIBEXECDIR@"
 #define INSTALL_SYSCONFDIR "@CMAKE_INSTALL_FULL_SYSCONFDIR@"
+#define INSTALL_SHAREDSTATEDIR "@CMAKE_INSTALL_FULL_SHAREDSTATEDIR@"
 #define INSTALL_LOCALSTATEDIR "@CMAKE_INSTALL_FULL_LOCALSTATEDIR@"
 #define INSTALL_LIBDIR "@CMAKE_INSTALL_FULL_LIBDIR@"
-#define INSTALL_PLUGINSDIR "@CMAKE_INSTALL_FULL_PLUGINSDIR@"
-#define INSTALL_IMPORTSDIR "@CMAKE_INSTALL_FULL_IMPORTSDIR@"
-#define INSTALL_DEVELOPDIR "@CMAKE_INSTALL_FULL_DEVELOPDIR@"
 #define INSTALL_INCLUDEDIR "@CMAKE_INSTALL_FULL_INCLUDEDIR@"
-#define INSTALL_PKGCONFIGDIR "@CMAKE_INSTALL_FULL_PKGCONFIGDIR@"
-#define INSTALL_CMAKEDIR "@CMAKE_INSTALL_FULL_CMAKEDIR@"
+#define INSTALL_OLDINCLUDEDIR "@CMAKE_INSTALL_FULL_OLDINCLUDEDIR@"
 #define INSTALL_DATAROOTDIR "@CMAKE_INSTALL_FULL_DATAROOTDIR@"
 #define INSTALL_DATADIR "@CMAKE_INSTALL_FULL_DATADIR@"
 #define INSTALL_INFODIR "@CMAKE_INSTALL_FULL_INFODIR@"
-#define INSTALL_MANDIR "@CMAKE_INSTALL_FULL_MANDIR@"
 #define INSTALL_LOCALEDIR "@CMAKE_INSTALL_FULL_LOCALEDIR@"
+#define INSTALL_MANDIR "@CMAKE_INSTALL_FULL_MANDIR@"
 #define INSTALL_DOCDIR "@CMAKE_INSTALL_FULL_DOCDIR@"
+
+// HawaiiInstallDirs
+#define INSTALL_PLUGINSDIR "@CMAKE_INSTALL_FULL_PLUGINSDIR@"
+#define INSTALL_IMPORTSDIR "@CMAKE_INSTALL_FULL_IMPORTSDIR@"
+#define INSTALL_APPSDIR "@CMAKE_INSTALL_FULL_APPSDIR@"
+#define INSTALL_SETTINGSDIR "@CMAKE_INSTALL_FULL_SETTINGSDIR@"
 
 #endif // CMAKEDIRS_H
