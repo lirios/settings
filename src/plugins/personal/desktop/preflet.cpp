@@ -43,8 +43,9 @@ Preflet::Preflet(QWidget *parent)
     ui->setupUi(this);
 
     // Settings
-    m_launcherSettings = new VSettings("org.hawaii.greenisland.desktop");
-    m_bgSettings = new VSettings("org.hawaii.desktop.background");
+    m_settings = new VSettings("org.hawaii.desktop");
+    connect(m_settings, SIGNAL(changed(QString)),
+            this, SLOT(slotSettingsChanged(QString)));
 
     // Wallpapers model
     m_wallpaperModel = new WallpaperModel(this);
@@ -53,11 +54,15 @@ Preflet::Preflet(QWidget *parent)
     connect(m_wallpaperModel, SIGNAL(wallpapersAdded()),
             this, SLOT(slotAllWallpapersLoaded()));
 
-    // Connect signals
+    // Load settings before connecting the signals to avoid changing the
+    // settings twice (if you take a look at the code below you will notice
+    // that for example the launcher icon size slider changes the spin box
+    // and vice-versa)
+    loadSettings();
+
+    // Connect signals for the UI
     connect(ui->launcherIconSizeSlider, SIGNAL(valueChanged(int)),
             ui->launcherIconSizeSpin, SLOT(setValue(int)));
-    connect(ui->launcherIconSizeSpin, SIGNAL(valueChanged(int)),
-            ui->launcherIconSizeSlider, SLOT(setValue(int)));
     connect(ui->launcherIconSizeSpin, SIGNAL(valueChanged(int)),
             this, SLOT(slotLauncherIconSizeChanged(int)));
     connect(ui->bgCategory, SIGNAL(currentIndexChanged(int)),
@@ -66,17 +71,13 @@ Preflet::Preflet(QWidget *parent)
             ui->bgList, SIGNAL(activated(QModelIndex)));
     connect(ui->bgList, SIGNAL(activated(QModelIndex)),
             this, SLOT(slotBackgroundSelected(QModelIndex)));
-
-    // Load settings
-    loadSettings();
 }
 
 Preflet::~Preflet()
 {
     delete ui;
     delete m_wallpaperModel;
-    delete m_bgSettings;
-    delete m_launcherSettings;
+    delete m_settings;
 }
 
 QString Preflet::name() const
@@ -112,7 +113,8 @@ int Preflet::weight() const
 void Preflet::loadSettings()
 {
     // Launcher icon size
-    ui->launcherIconSizeSpin->setValue(m_launcherSettings->value("launcher-icon-size").toInt());
+    ui->launcherIconSizeSpin->setValue(m_settings->value("shell/desktop/launcher-icon-size").toInt());
+    ui->launcherIconSizeSlider->setValue(ui->launcherIconSizeSpin->value());
 
     // Load all the coatings
     slotBackgroundCategorySelected(0);
@@ -120,14 +122,15 @@ void Preflet::loadSettings()
 
 void Preflet::slotLauncherIconSizeChanged(int value)
 {
-    m_launcherSettings->setValue("launcher-icon-size", value);
+    ui->launcherIconSizeSlider->setValue(value);
+    m_settings->setValue("shell/desktop/launcher-icon-size", QVariant(value));
 }
 
 void Preflet::slotAllWallpapersLoaded()
 {
     // Select the current configured wallpaper
     if (ui->bgCategory->currentIndex() == 0) {
-        QString wallpaperPath = m_bgSettings->value("wallpaper-uri").toUrl().toLocalFile();
+        QString wallpaperPath = m_settings->value("background/wallpaper-uri").toUrl().toLocalFile();
         ui->bgList->selectionModel()->select(m_wallpaperModel->indexOf(wallpaperPath),
                                              QItemSelectionModel::Select | QItemSelectionModel::Current);
         slotBackgroundSelected(m_wallpaperModel->indexOf(wallpaperPath));
@@ -175,9 +178,17 @@ void Preflet::slotBackgroundSelected(const QModelIndex &index)
         ui->bgSize->setText(resolution);
 
         // Save settings
-        m_bgSettings->setValue("type", "wallpaper");
-        m_bgSettings->setValue("wallpaper-uri", path);
+        m_settings->setValue("background/type", "wallpaper");
+        m_settings->setValue("background/wallpaper-uri", QVariant::fromValue(QUrl::fromLocalFile(path)));
     }
+}
+
+void Preflet::slotSettingsChanged(const QString &key)
+{
+    QVariant value = m_settings->value(key);
+
+    if (key == "shell/desktop/launcher-icon-size")
+        ui->launcherIconSizeSpin->setValue(value.toInt());
 }
 
 #include "moc_preflet.cpp"

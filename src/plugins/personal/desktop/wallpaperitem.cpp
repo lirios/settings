@@ -82,13 +82,13 @@ QVariant WallpaperItem::data(int role) const
             if (m_size.isValid())
                 return QString("%1x%2").arg(m_size.width()).arg(m_size.height());
             return QString();
-    case WallpaperModel::AbsoluteContainerPathRole:
-        return QFileInfo(m_entry->fileName()).absoluteDir().absolutePath();
-    case WallpaperModel::AbsolutePathRole:
-        return m_imagesDir.absolutePath();
+        case WallpaperModel::AbsoluteContainerPathRole:
+            return QFileInfo(m_entry->fileName()).absoluteDir().absolutePath();
+        case WallpaperModel::AbsolutePathRole:
+            return m_imagesDir.absolutePath();
         case WallpaperModel::AbsoluteFilePathRole:
             return QFileInfo(m_entry->fileName()).absoluteDir().absoluteFilePath(
-                       QString("contents/%1x%2.jpg").arg(m_size.width()).arg(m_size.height()));
+                       QString("contents/images/%1x%2.jpg").arg(m_size.width()).arg(m_size.height()));
         default:
             break;
     }
