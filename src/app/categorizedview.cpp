@@ -2,9 +2,11 @@
  * This file is part of System Preferences.
  *
  * Copyright (c) 2012 Pier Luigi Fiorini
+ * Copyright (c) 2009 Rafael Fernández López
  *
  * Author(s):
  *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ *    Rafael Fernández López <ereslibre@kde.org>
  *
  * $BEGIN_LICENSE:GPL$
  *

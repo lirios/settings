@@ -82,12 +82,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_catView->setFrameShape(QFrame::NoFrame);
 
     // Delegate
-#if 0
-    KFileItemDelegate *delegate = new KFileItemDelegate(m_catView);
-    delegate->setWrapMode(QTextOption::WordWrap);
-#else
     QStyledItemDelegate *delegate = new QStyledItemDelegate(m_catView);
-#endif
     m_catView->setItemDelegate(delegate);
 
     // Setup the model
