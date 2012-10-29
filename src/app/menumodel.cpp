@@ -94,7 +94,7 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
             return mi->icon();
         case VCategorizedSortFilterProxyModel::CategorySortRole:
             if (mi->parent())
-                return QString("%1%2").arg(QString::number(mi->parent()->weight()), 5, '0').arg(mi->parent()->name());
+                return mi->parent()->name();
             break;
         case VCategorizedSortFilterProxyModel::CategoryDisplayRole:
             if (mi->parent())
@@ -105,7 +105,7 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
         case MenuModel::UserFilterRole:
             return mi->keywords().join(QString());
         case MenuModel::UserSortRole:
-            return QString("%1").arg(QString::number(mi->weight()), 5, '0');
+            return mi->name();
         default:
             break;
     }

@@ -73,12 +73,6 @@ public:
     ~MenuItem();
 
     /**
-     * Sorts the children depending on the value of "X-KDE-Weight" in the desktop files of the
-     * category or module.
-     */
-    void sortChildrenByWeight();
-
-    /**
      * Provides the MenuItem for the child at the specified index.
      *
      * @param index The index of the child.
@@ -142,14 +136,6 @@ public:
      * @returns The category of the item, if the module object has been set.
      */
     QString categoryText() const;
-
-    /**
-     * Provides the weight of the current item, as determined by its module.
-     * If the module does not specify a weight, it is 100
-     *
-     * @returns The weight of the module
-     */
-    int weight() const;
 
     /**
      * Provides information on which type the current item is.

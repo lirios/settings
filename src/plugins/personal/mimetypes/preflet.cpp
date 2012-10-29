@@ -28,9 +28,9 @@
 #include "ui_mimetypespreflet.h"
 #include "typesmodel.h"
 
-Preflet::Preflet(QWidget *parent) :
-    VPreferencesModule(parent),
-    ui(new Ui::MimeTypesPreflet)
+Preflet::Preflet()
+    : VPreferencesModule()
+    , ui(new Ui::MimeTypesPreflet)
 {
     ui->setupUi(this);
 
@@ -74,11 +74,6 @@ QStringList Preflet::keywords() const
 VPreferencesModule::Category Preflet::category() const
 {
     return VPreferencesModule::PersonalCategory;
-}
-
-int Preflet::weight() const
-{
-    return 50;
 }
 
 #include "moc_preflet.cpp"

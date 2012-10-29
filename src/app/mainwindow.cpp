@@ -158,13 +158,9 @@ void MainWindow::populate()
             MenuItem *item = new MenuItem(parent);
             item->setModule(module);
             m_stackedWidget->addWidget(module);
-            parent->sortChildrenByWeight();
             qDebug() << "Added" << item->name() << "under category" << parent->name();
         }
     }
-
-    if (m_rootItem)
-        m_rootItem->sortChildrenByWeight();
 }
 
 void MainWindow::slotOverviewTriggered()

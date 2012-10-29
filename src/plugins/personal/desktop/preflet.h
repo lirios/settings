@@ -44,7 +44,7 @@ class Preflet : public VPreferencesModule
 {
     Q_OBJECT
 public:
-    explicit Preflet(QWidget *parent = 0);
+    explicit Preflet();
     ~Preflet();
 
     virtual QString name() const;
@@ -52,7 +52,6 @@ public:
     virtual QString iconName() const;
     virtual QStringList keywords() const;
     virtual VPreferencesModule::Category category() const;
-    virtual int weight() const;
 
 private slots:
     void slotSettingsChanged(const QString &key);

@@ -31,10 +31,10 @@
 #include "ui_preflet.h"
 #include "soundcardmodel.h"
 
-Preflet::Preflet(QWidget *parent) :
-    VPreferencesModule(parent),
-    ui(new Ui::Preflet),
-    m_savedVolume(0)
+Preflet::Preflet()
+    : VPreferencesModule()
+    , ui(new Ui::Preflet)
+    , m_savedVolume(0)
 {
     ui->setupUi(this);
 
@@ -82,11 +82,6 @@ QStringList Preflet::keywords() const
 VPreferencesModule::Category Preflet::category() const
 {
     return VPreferencesModule::HardwareCategory;
-}
-
-int Preflet::weight() const
-{
-    return 50;
 }
 
 void Preflet::slotMuteClicked(bool state)

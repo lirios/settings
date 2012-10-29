@@ -37,11 +37,6 @@
 
 #include "menuitem.h"
 
-static bool childIsLessThan(MenuItem *left, MenuItem *right)
-{
-    return left->weight() < right->weight();
-}
-
 class MenuItem::Private
 {
 public:
@@ -52,7 +47,6 @@ public:
     VPreferencesModule::Category category;
     QString name;
     QString categoryText;
-    int weight;
     QIcon icon;
     const VPreferencesModule *module;
 };
@@ -71,11 +65,6 @@ MenuItem::~MenuItem()
 {
     qDeleteAll(d->children);
     delete d;
-}
-
-void MenuItem::sortChildrenByWeight()
-{
-    qSort(d->children.begin(), d->children.end(), childIsLessThan);
 }
 
 MenuItem *MenuItem::child(int index)
@@ -135,11 +124,6 @@ QString MenuItem::categoryText() const
     return d->categoryText;
 }
 
-int MenuItem::weight() const
-{
-    return d->weight;
-}
-
 bool MenuItem::menu() const
 {
     if (d->module)
@@ -183,7 +167,6 @@ void MenuItem::setModule(const VPreferencesModule *module)
         d->name = QString();
         d->categoryText = QString();
         d->icon = QIcon();
-        d->weight = 100;
         return;
     }
 
@@ -204,9 +187,4 @@ void MenuItem::setModule(const VPreferencesModule *module)
             d->categoryText = QObject::tr("Other");
             break;
     }
-    const QVariant itemWeight = module->weight();
-    if (itemWeight.isValid())
-        d->weight = itemWeight.toInt();
-    else
-        d->weight = 100;
 }

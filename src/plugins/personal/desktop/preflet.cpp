@@ -36,8 +36,8 @@
 #include "wallpapermodel.h"
 #include "backgrounditemdelegate.h"
 
-Preflet::Preflet(QWidget *parent)
-    : VPreferencesModule(parent)
+Preflet::Preflet()
+    : VPreferencesModule()
     , ui(new Ui::DesktopPreflet)
 {
     ui->setupUi(this);
@@ -103,11 +103,6 @@ QStringList Preflet::keywords() const
 VPreferencesModule::Category Preflet::category() const
 {
     return VPreferencesModule::PersonalCategory;
-}
-
-int Preflet::weight() const
-{
-    return 50;
 }
 
 void Preflet::loadSettings()
