@@ -34,7 +34,7 @@
 class CategoryDrawer : public VCategoryDrawer
 {
 public:
-    explicit CategoryDrawer();
+    explicit CategoryDrawer(VCategorizedView *view = 0);
 
     virtual void drawCategory(const QModelIndex &index, int sortRole,
                               const QStyleOption &option,

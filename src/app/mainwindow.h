@@ -35,8 +35,8 @@ class QAction;
 class QLineEdit;
 class QStackedWidget;
 
-class CategoryDrawer;
-class CategorizedView;
+class VCategorizedView;
+
 class MenuItem;
 class MenuModel;
 class MenuProxyModel;
@@ -57,8 +57,7 @@ private:
     QLineEdit *m_search;
     QStackedWidget *m_stackedWidget;
     QMap<VPreferencesModule::Category, MenuItem *> m_categories;
-    CategoryDrawer *m_catDrawer;
-    CategorizedView *m_catView;
+    VCategorizedView *m_catView;
     MenuItem *m_rootItem;
     MenuModel *m_model;
     MenuProxyModel *m_proxyModel;

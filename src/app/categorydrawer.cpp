@@ -34,8 +34,8 @@
 
 #include "categorydrawer.h"
 
-CategoryDrawer::CategoryDrawer()
-    : VCategoryDrawer()
+CategoryDrawer::CategoryDrawer(VCategorizedView *view)
+    : VCategoryDrawer(view)
 {
     setLeftMargin(7);
     setRightMargin(7);

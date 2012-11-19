@@ -27,7 +27,6 @@
 #ifndef CATEGORIZED_VIEW
 #define CATEGORIZED_VIEW
 
-#include <VCategorizedView>
 
 class CategorizedView : public VCategorizedView
 {

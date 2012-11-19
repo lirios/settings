@@ -90,7 +90,7 @@ MenuItem *MenuItem::parent() const
     return d->parent;
 }
 
-QList<MenuItem *>& MenuItem::children() const
+QList<MenuItem *> &MenuItem::children() const
 {
     return d->children;
 }

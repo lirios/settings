@@ -100,7 +100,7 @@ public:
      *
      * @returns The list of children this has.
      */
-    QList<MenuItem *>& children() const;
+    QList<MenuItem *> &children() const;
 
     /**
      * Returns the module object of this item, which contains useful information about it.

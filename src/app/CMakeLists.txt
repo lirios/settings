@@ -11,7 +11,6 @@ set(SOURCES
     main.cpp
     mainwindow.cpp
     categorydrawer.cpp
-    categorizedview.cpp
     menuitem.cpp
     menumodel.cpp
     menuproxymodel.cpp

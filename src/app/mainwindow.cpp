@@ -34,10 +34,10 @@
 #include <QStyledItemDelegate>
 
 #include <VPreferencesModulePlugin>
+#include <VCategorizedView>
 
 #include "mainwindow.h"
 #include "categorydrawer.h"
-#include "categorizedview.h"
 #include "menuitem.h"
 #include "menumodel.h"
 #include "menuproxymodel.h"
@@ -70,20 +70,16 @@ MainWindow::MainWindow(QWidget *parent)
     populate();
 
     // Main view
-    m_catDrawer = new CategoryDrawer();
-    m_catView = new CategorizedView(m_stackedWidget);
+    m_catView = new VCategorizedView(m_stackedWidget);
+    m_catView->setViewMode(QListView::ListMode);
     m_catView->setIconSize(QSize(64, 64));
-    m_catView->setSpacing(6);
-    ///    m_catView->setSpacing(QDialog::spacingHint());
-    m_catView->setSelectionMode(QAbstractItemView::NoSelection);
-    m_catView->setCategoryDrawer(m_catDrawer);
-    m_catView->setViewMode(QListView::IconMode);
+    m_catView->setGridSizeOwn(QSize(128, 128));
+    m_catView->setWordWrap(true);
+    m_catView->setWrapping(true);
+    m_catView->setUniformItemSizes(true);
     m_catView->setMouseTracking(true);
-    m_catView->setFrameShape(QFrame::NoFrame);
-
-    // Delegate
-    QStyledItemDelegate *delegate = new QStyledItemDelegate(m_catView);
-    m_catView->setItemDelegate(delegate);
+    m_catView->setSelectionMode(QAbstractItemView::NoSelection);
+    m_catView->setCategoryDrawer(new CategoryDrawer(m_catView));
 
     // Setup the model
     m_proxyModel = new MenuProxyModel(this);
@@ -91,6 +87,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_proxyModel->setSourceModel(m_model);
     m_proxyModel->sort(0);
     m_catView->setModel(m_proxyModel);
+
     connect(m_catView, SIGNAL(clicked(QModelIndex)),
             m_catView, SIGNAL(activated(QModelIndex)));
     connect(m_catView, SIGNAL(activated(QModelIndex)),
