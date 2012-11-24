@@ -53,6 +53,8 @@ MainWindow::MainWindow(QWidget *parent)
     // Search field
     m_search = new QLineEdit(this);
     m_search->setPlaceholderText(tr("Keywords"));
+    connect(m_search, SIGNAL(textChanged(QString)),
+            this, SLOT(slotSearchChanged(QString)));
 
     // Actions
     createActions();
@@ -170,6 +172,11 @@ void MainWindow::slotOverviewTriggered()
 
     // Show the search field because now we need it
     m_search->show();
+}
+
+void MainWindow::slotSearchChanged(const QString &search)
+{
+    m_proxyModel->setFilterRegExp(search);
 }
 
 void MainWindow::slotListViewClicked(const QModelIndex &index)

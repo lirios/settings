@@ -50,6 +50,7 @@ public:
 
 private slots:
     void slotOverviewTriggered();
+    void slotSearchChanged(const QString &search);
     void slotListViewClicked(const QModelIndex &index);
 
 private:
