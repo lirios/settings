@@ -54,7 +54,8 @@ public:
     virtual VPreferencesModule::Category category() const;
 
 private slots:
-    void slotSettingsChanged(const QString &key);
+    void shellSettingsChanged();
+
     void slotLauncherIconSizeChanged(int value);
     void slotAllWallpapersLoaded();
     void slotBackgroundCategorySelected(int index);
@@ -64,6 +65,7 @@ private slots:
 private:
     Ui::DesktopPreflet *ui;
     VSettings *m_settings;
+    VSettings *m_shellSettings;
     WallpaperModel *m_wallpaperModel;
 
     void loadSettings();

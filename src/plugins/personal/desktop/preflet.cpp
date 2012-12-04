@@ -44,8 +44,9 @@ Preflet::Preflet()
 
     // Settings
     m_settings = new VSettings("org.hawaii.desktop");
-    connect(m_settings, SIGNAL(changed(QString)),
-            this, SLOT(slotSettingsChanged(QString)));
+    m_shellSettings = new VSettings("org.hawaii.greenisland");
+    connect(m_shellSettings, SIGNAL(changed()),
+            this, SLOT(shellSettingsChanged()));
 
     // Wallpapers model
     m_wallpaperModel = new WallpaperModel(this);
@@ -78,6 +79,7 @@ Preflet::~Preflet()
     delete ui;
     delete m_wallpaperModel;
     delete m_settings;
+    delete m_shellSettings;
 }
 
 QString Preflet::name() const
@@ -108,17 +110,23 @@ VPreferencesModule::Category Preflet::category() const
 void Preflet::loadSettings()
 {
     // Launcher icon size
-    ui->launcherIconSizeSpin->setValue(m_settings->value("shell/desktop/launcher-icon-size").toInt());
+    ui->launcherIconSizeSpin->setValue(m_shellSettings->value("launcher/icon-size").toInt());
     ui->launcherIconSizeSlider->setValue(ui->launcherIconSizeSpin->value());
 
     // Load all the coatings
     slotBackgroundCategorySelected(0);
 }
 
+void Preflet::shellSettingsChanged()
+{
+    QVariant value = m_shellSettings->value("launcher/icon-size");
+    ui->launcherIconSizeSpin->setValue(value.toInt());
+}
+
 void Preflet::slotLauncherIconSizeChanged(int value)
 {
     ui->launcherIconSizeSlider->setValue(value);
-    m_settings->setValue("shell/desktop/launcher-icon-size", QVariant(value));
+    m_shellSettings->setValue("launcher/icon-size", QVariant(value));
 }
 
 void Preflet::slotAllWallpapersLoaded()
@@ -176,14 +184,6 @@ void Preflet::slotBackgroundSelected(const QModelIndex &index)
         m_settings->setValue("background/type", "wallpaper");
         m_settings->setValue("background/wallpaper-uri", QVariant::fromValue(QUrl::fromLocalFile(path)));
     }
-}
-
-void Preflet::slotSettingsChanged(const QString &key)
-{
-    QVariant value = m_settings->value(key);
-
-    if (key == "shell/desktop/launcher-icon-size")
-        ui->launcherIconSizeSpin->setValue(value.toInt());
 }
 
 #include "moc_preflet.cpp"
