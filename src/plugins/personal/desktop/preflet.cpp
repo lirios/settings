@@ -43,6 +43,7 @@ Preflet::Preflet()
     ui->setupUi(this);
 
     // Load icons
+    ui->bgPreview->setPixmap(QIcon::fromTheme("monitor").pixmap(QSize(256, 256)));
     ui->monitorIcon->setPixmap(QIcon::fromTheme("monitor").pixmap(QSize(256, 256)));
 
     // Settings
@@ -97,7 +98,7 @@ QString Preflet::comment() const
 
 QString Preflet::iconName() const
 {
-    return "preferences-desktop";
+    return "preferences-desktop-wallpaper";
 }
 
 QStringList Preflet::keywords() const
