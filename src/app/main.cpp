@@ -24,19 +24,17 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include <VApplication>
+#include <QApplication>
 
 #include "mainwindow.h"
 
 int main(int argc, char *argv[])
 {
-    VApplication app(argc, argv);
+    QApplication app(argc, argv);
     app.setApplicationName("System Preferences");
     app.setApplicationVersion("0.0.0");
     app.setOrganizationDomain("maui-project.org");
-    app.setOrganizationName("Maui Project");
-    app.setIdentifier("org.hawaii.SystemPreferences");
-    app.setWindowIcon(QIcon::fromTheme("preferences-system"));
+    app.setOrganizationName("Hawaii");
 
     MainWindow *win = new MainWindow();
     win->show();
