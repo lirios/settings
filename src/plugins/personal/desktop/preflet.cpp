@@ -42,6 +42,9 @@ Preflet::Preflet()
 {
     ui->setupUi(this);
 
+    // Load icons
+    ui->monitorIcon->setPixmap(QIcon::fromTheme("monitor").pixmap(QSize(256, 256)));
+
     // Settings
     m_settings = new VSettings("org.hawaii.desktop");
     m_shellSettings = new VSettings("org.hawaii.greenisland");
