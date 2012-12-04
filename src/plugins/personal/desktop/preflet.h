@@ -57,6 +57,7 @@ private slots:
     void shellSettingsChanged();
 
     void slotLauncherIconSizeChanged(int value);
+    void slotLauncherAlignmentChanged(int index);
     void slotAllWallpapersLoaded();
     void slotBackgroundCategorySelected(int index);
     void slotBackgroundModeSelected(int index);

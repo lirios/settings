@@ -70,6 +70,8 @@ Preflet::Preflet()
             ui->launcherIconSizeSpin, SLOT(setValue(int)));
     connect(ui->launcherIconSizeSpin, SIGNAL(valueChanged(int)),
             this, SLOT(slotLauncherIconSizeChanged(int)));
+    connect(ui->launcherAlignment, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(slotLauncherAlignmentChanged(int)));
     connect(ui->bgCategory, SIGNAL(currentIndexChanged(int)),
             this, SLOT(slotBackgroundCategorySelected(int)));
     connect(ui->bgList, SIGNAL(clicked(QModelIndex)),
@@ -117,6 +119,10 @@ void Preflet::loadSettings()
     ui->launcherIconSizeSpin->setValue(m_shellSettings->value("launcher/icon-size").toInt());
     ui->launcherIconSizeSlider->setValue(ui->launcherIconSizeSpin->value());
 
+    // Launcher alignment
+    int alignment = m_shellSettings->value("launcher/alignment").toInt();
+    ui->launcherAlignment->setCurrentIndex(alignment);
+
     // Load all the coatings
     slotBackgroundCategorySelected(0);
 }
@@ -125,6 +131,14 @@ void Preflet::shellSettingsChanged()
 {
     QVariant value = m_shellSettings->value("launcher/icon-size");
     ui->launcherIconSizeSpin->setValue(value.toInt());
+
+    value = m_shellSettings->value("launcher/alignment");
+    ui->launcherAlignment->setCurrentIndex(value.toInt());
+}
+
+void Preflet::slotLauncherAlignmentChanged(int index)
+{
+    m_shellSettings->setValue("launcher/alignment", index);
 }
 
 void Preflet::slotLauncherIconSizeChanged(int value)
