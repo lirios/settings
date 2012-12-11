@@ -120,8 +120,13 @@ void Preflet::loadSettings()
     ui->launcherIconSizeSlider->setValue(ui->launcherIconSizeSpin->value());
 
     // Launcher alignment
-    int alignment = m_shellSettings->value("launcher/alignment").toInt();
-    ui->launcherAlignment->setCurrentIndex(alignment);
+    QString alignment = m_shellSettings->value("launcher/alignment").toString();
+    int index = 2;
+    if (alignment == QLatin1String("left"))
+        index = 0;
+    else if (alignment == QLatin1String("right"))
+        index = 1;
+    ui->launcherAlignment->setCurrentIndex(index);
 
     // Load all the coatings
     slotBackgroundCategorySelected(0);
@@ -132,13 +137,27 @@ void Preflet::shellSettingsChanged()
     QVariant value = m_shellSettings->value("launcher/icon-size");
     ui->launcherIconSizeSpin->setValue(value.toInt());
 
-    value = m_shellSettings->value("launcher/alignment");
-    ui->launcherAlignment->setCurrentIndex(value.toInt());
+    QString alignment = m_shellSettings->value("launcher/alignment").toString();
+    int index = 2;
+    if (alignment == QLatin1String("left"))
+        index = 0;
+    else if (alignment == QLatin1String("right"))
+        index = 1;
+    ui->launcherAlignment->setCurrentIndex(index);
 }
 
 void Preflet::slotLauncherAlignmentChanged(int index)
 {
-    m_shellSettings->setValue("launcher/alignment", index);
+    switch (index) {
+    case 0:
+        m_shellSettings->setValue("launcher/alignment", QLatin1String("left"));
+        break;
+    case 1:
+        m_shellSettings->setValue("launcher/alignment", QLatin1String("right"));
+        break;
+    default:
+        m_shellSettings->setValue("launcher/alignment", QLatin1String("bottom"));
+    }
 }
 
 void Preflet::slotLauncherIconSizeChanged(int value)
