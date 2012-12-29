@@ -8,6 +8,7 @@ add_definitions(-DQT_PLUGIN)
 set(SOURCES
     preflet.cpp
     plugin.cpp
+    usersmodel.cpp
 )
 
 set(FORMS

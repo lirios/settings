@@ -35,6 +35,7 @@ Preflet::Preflet()
 {
     ui->setupUi(this);
 
+    // Setup icons
     ui->addButton->setIcon(QIcon::fromTheme("list-add-symbolic"));
     ui->removeButton->setIcon(QIcon::fromTheme("list-remove-symbolic"));
     ui->pictureButton->setIcon(QIcon::fromTheme("list-add-symbolic"));

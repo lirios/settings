@@ -25,7 +25,7 @@
  ***************************************************************************/
 
 #include "usersmodel.h"
-#include "vusersmodel_p.h"
+#include "usersmodel_p.h"
 
 #include <sys/types.h>
 #include <pwd.h>
