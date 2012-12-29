@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ScreenPreflet</class>
+ <widget class="QWidget" name="ScreenPreflet">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>352</width>
+    <height>259</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Brightness</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QSlider" name="brightnessSlider">
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="dimCheckBox">
+        <property name="text">
+         <string>Dim screen to save power</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Turn screen off when inactive for:</string>
+          </property>
+          <property name="buddy">
+           <cstring>turnOffComboBox</cstring>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="turnOffComboBox">
+          <item>
+           <property name="text">
+            <string>1 minute</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>2 minutes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>3 minutes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>5 minutes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10 minutes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>30 minutes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>1 hour</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>Lock</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QCheckBox" name="lockSwitch">
+        <property name="text">
+         <string>Lock Screen</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Lock screen after:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="lockScreenComboBox">
+          <item>
+           <property name="text">
+            <string>Screen turns off</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>30 seconds</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>1 minute</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>2 minutes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>3 minutes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>5 minutes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10 minutes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>30 minutes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>1 hour</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="notificationsCheckBox">
+        <property name="text">
+         <string>Show notifications when locked</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
