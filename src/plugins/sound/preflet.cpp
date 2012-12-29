@@ -68,7 +68,7 @@ QString Preflet::name() const
 
 QString Preflet::comment() const
 {
-    return tr("Configure sound.");
+    return tr("Change sound volume and event sounds");
 }
 
 QString Preflet::iconName() const

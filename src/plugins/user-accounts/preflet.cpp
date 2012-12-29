@@ -47,13 +47,13 @@ Preflet::~Preflet()
 
 QString Preflet::name() const
 {
-    return tr("User Accounts");
+    return tr("Users");
 }
 
 QString Preflet::comment() const
 {
     return tr("Create new users, change users' details such as real name and " \
-              "icon, manage administrators and groups.");
+              "icon, manage administrators and groups");
 }
 
 QString Preflet::iconName() const
