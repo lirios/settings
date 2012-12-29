@@ -24,15 +24,17 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include <QSortFilterProxyModel>
+
 #include "preflet.h"
-#include "ui_preflet.h"
+#include "ui_userspreflet.h"
 #include "usersmodel.h"
 
 using namespace Hawaii::SystemPreferences;
 
 Preflet::Preflet()
     : PreferencesModule()
-    , ui(new Ui::Preflet)
+    , ui(new Ui::UsersPreflet)
 {
     ui->setupUi(this);
 
@@ -40,9 +42,6 @@ Preflet::Preflet()
     ui->addButton->setIcon(QIcon::fromTheme("list-add-symbolic"));
     ui->removeButton->setIcon(QIcon::fromTheme("list-remove-symbolic"));
     ui->pictureButton->setIcon(QIcon::fromTheme("list-add-symbolic"));
-
-    // Setup users list
-    ui->listView->setModel(new UsersModel(this));
 }
 
 Preflet::~Preflet()

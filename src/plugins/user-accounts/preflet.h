@@ -31,7 +31,7 @@
 
 namespace Ui
 {
-    class Preflet;
+    class UsersPreflet;
 }
 
 namespace Hawaii
@@ -52,7 +52,7 @@ namespace Hawaii
             virtual PreferencesModule::Category category() const;
 
         private:
-            Ui::Preflet *ui;
+            Ui::UsersPreflet *ui;
         };
     }
 }

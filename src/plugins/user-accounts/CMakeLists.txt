@@ -13,7 +13,7 @@ set(SOURCES
 )
 
 set(FORMS
-    preflet.ui
+    userspreflet.ui
 )
 
 set(RESOURCES
