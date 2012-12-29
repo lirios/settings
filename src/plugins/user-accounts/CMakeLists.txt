@@ -10,11 +10,6 @@ set(SOURCES
     plugin.cpp
 )
 
-set(HEADERS
-    preflet.h
-    plugin.h
-)
-
 set(FORMS
     preflet.ui
 )
