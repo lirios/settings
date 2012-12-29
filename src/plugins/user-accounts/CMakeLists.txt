@@ -1,6 +1,7 @@
 include_directories(
     ${CMAKE_SOURCE_DIR}/headers
     ${CMAKE_BINARY_DIR}/src/lib
+    ${VibeCore_INCLUDE_DIRS}
 )
 
 add_definitions(-DQT_PLUGIN)
@@ -24,7 +25,10 @@ qt5_wrap_ui(FORMS_HEADERS ${FORMS})
 add_library(user-accounts SHARED ${SOURCES} ${FORMS_HEADERS})
 set_target_properties(user-accounts PROPERTIES PREFIX "")
 qt5_use_modules(user-accounts Widgets)
-target_link_libraries(user-accounts HawaiiSystemPreferences)
+target_link_libraries(user-accounts
+    ${VibeCore_LIBRARIES}
+    HawaiiSystemPreferences
+)
 
 install(TARGETS user-accounts LIBRARY
     DESTINATION ${CMAKE_INSTALL_PLUGINSDIR}/preferences)

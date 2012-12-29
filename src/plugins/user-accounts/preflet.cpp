@@ -26,6 +26,7 @@
 
 #include "preflet.h"
 #include "ui_preflet.h"
+#include "usersmodel.h"
 
 using namespace Hawaii::SystemPreferences;
 
@@ -39,6 +40,9 @@ Preflet::Preflet()
     ui->addButton->setIcon(QIcon::fromTheme("list-add-symbolic"));
     ui->removeButton->setIcon(QIcon::fromTheme("list-remove-symbolic"));
     ui->pictureButton->setIcon(QIcon::fromTheme("list-add-symbolic"));
+
+    // Setup users list
+    ui->listView->setModel(new UsersModel(this));
 }
 
 Preflet::~Preflet()

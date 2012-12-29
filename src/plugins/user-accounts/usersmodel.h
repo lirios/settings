@@ -29,13 +29,28 @@
 
 #include <QAbstractListModel>
 
-#include <VGlobal>
+class UsersModelPrivate;
 
-class VIBE_EXPORT VUsersModel : public QAbstractListModel
+class UsersModel : public QAbstractListModel
 {
-Q_OBJECT:
+    Q_OBJECT
+    Q_ENUMS(Roles)
+    Q_DECLARE_PRIVATE(UsersModel)
 public:
-    explicit VUsersModel(QObject *parent = 0);
+    enum Roles {
+        UserNameRole = Qt::UserRole + 1,
+        RealNameRole
+    };
+
+    explicit UsersModel(QObject *parent = 0);
+
+    QHash<int, QByteArray> roleNames() const;
+
+    int rowCount(const QModelIndex &parent) const;
+    QVariant data(const QModelIndex &index, int role) const;
+
+private:
+    UsersModelPrivate *const d_ptr;
 };
 
 #endif // USERSMODEL_H

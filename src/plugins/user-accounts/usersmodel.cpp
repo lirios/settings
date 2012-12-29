@@ -24,64 +24,75 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include <QPixmap>
+
 #include "usersmodel.h"
 #include "usersmodel_p.h"
 
-#include <sys/types.h>
-#include <pwd.h>
-
 /*
- * VUserItem
+ * UsersModelPrivate
  */
 
-QString VUserItem::displayName() const
+UsersModelPrivate::UsersModelPrivate(UsersModel *self)
+    : q_ptr(self)
 {
-    if (realName.isEmpty())
-        return name;
+    manager = new VAccountsManager();
+    list = manager->listCachedUsers();
+}
 
-    return realName;
+UsersModelPrivate::~UsersModelPrivate()
+{
+    delete manager;
 }
 
 /*
- * VUsersModelPrivate
+ * UsersModel
  */
 
-VUsersModelPrivate::VUsersModelPrivate(VUsersModel *parent) :
-    q_ptr(parent)
+UsersModel::UsersModel(QObject *parent)
+    : QAbstractListModel(parent)
+    , d_ptr(new UsersModelPrivate(this))
 {
 }
 
-void VUsersModelPrivate::populate()
+QHash<int, QByteArray> UsersModel::roleNames() const
 {
-    Q_Q(VUsersModel);
+    QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
+    roles[UserNameRole] = "userName";
+    roles[RealNameRole] = "realName";
+    return roles;
+}
 
-    struct passwd *pwent = 0;
+int UsersModel::rowCount(const QModelIndex &parent) const
+{
+    Q_D(const UsersModel);
 
-    while ((pwent = getpwent()) != 0) {
-        VUserItem item;
-        item.uid = pwent->pw_uid;
-        item.gid = pwent->pw_gid;
-        item.name = QLatin1String(pwent->pw_name);
-        item.realName = QLatin1String(pwent->pw_gecos);
-        item.homeDirectory = QLatin1String(pwent->pw_dir);
-        item.shell = QLatin1String(pwent->pw_shell);
+    if (parent == QModelIndex())
+        return d->list.size();
+
+    return 0;
+}
+
+QVariant UsersModel::data(const QModelIndex &index, int role) const
+{
+    Q_D(const UsersModel);
+
+    if (!index.isValid())
+        return QVariant();
+
+    int row = index.row();
+    switch (role) {
+    case Qt::DisplayRole:
+        return d->list[row]->displayName();
+    case Qt::DecorationRole:
+        return QPixmap(d->list[row]->iconFileName());
+    case UsersModel::UserNameRole:
+        return d->list[row]->userName();
+    case UsersModel::RealNameRole:
+        return d->list[row]->realName();
     }
 
-    endpwent();
-
-    int rowCount =
+    return QVariant();
 }
 
-    /*
-     * VUsersModel
-     */
-
-    VUsersModel::VUsersModel(QObject *parent) :
-        QAbstractListModel(parent)
-{
-    // Extended roles, might also be useful for QML
-    QHash<int, QByteArray> roles = roleNames();
-    roles[NameRole] = "name";
-    roles[LoggedInRole] = "loggedIn";
-    setRoleNames(roles);
-}
+#include "moc_usersmodel.cpp"
