@@ -1,5 +1,5 @@
 /****************************************************************************
- * This file is part of Vibe.
+ * This file is part of System Preferences.
  *
  * Copyright (C) 2012 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
