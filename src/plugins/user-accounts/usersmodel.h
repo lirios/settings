@@ -38,7 +38,8 @@ class UsersModel : public QAbstractListModel
     Q_DECLARE_PRIVATE(UsersModel)
 public:
     enum Roles {
-        UserNameRole = Qt::UserRole + 1,
+        UserIdRole = Qt::UserRole + 1,
+        UserNameRole,
         RealNameRole
     };
 

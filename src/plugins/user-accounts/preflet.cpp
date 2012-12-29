@@ -42,6 +42,12 @@ Preflet::Preflet()
     ui->addButton->setIcon(QIcon::fromTheme("list-add-symbolic"));
     ui->removeButton->setIcon(QIcon::fromTheme("list-remove-symbolic"));
     ui->pictureButton->setIcon(QIcon::fromTheme("list-add-symbolic"));
+
+    // Setup users list
+    QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel(this);
+    proxyModel->setSourceModel(new UsersModel(this));
+    proxyModel->setSortRole(UsersModel::UserIdRole);
+    ui->listView->setModel(proxyModel);
 }
 
 Preflet::~Preflet()

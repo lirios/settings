@@ -58,6 +58,7 @@ UsersModel::UsersModel(QObject *parent)
 QHash<int, QByteArray> UsersModel::roleNames() const
 {
     QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
+    roles[UserIdRole] = "userId";
     roles[UserNameRole] = "userName";
     roles[RealNameRole] = "realName";
     return roles;
@@ -86,6 +87,8 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
         return d->list[row]->displayName();
     case Qt::DecorationRole:
         return QPixmap(d->list[row]->iconFileName());
+    case UsersModel::UserIdRole:
+        return d->list[row]->userId();
     case UsersModel::UserNameRole:
         return d->list[row]->userName();
     case UsersModel::RealNameRole:
