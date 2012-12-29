@@ -1,3 +1,4 @@
-add_subdirectory(personal)
-#add_subdirectory(hardware)
-#add_subdirectory(system)
+add_subdirectory(desktop)
+add_subdirectory(mimetypes)
+add_subdirectory(sound)
+add_subdirectory(user-accounts)
