@@ -1,18 +1,18 @@
 /****************************************************************************
  * This file is part of System Preferences.
  *
- * Copyright (c) 2012 Pier Luigi Fiorini
- * Copyright (c) 2009 Rafael Fernández López
+ * Copyright (C) 2012 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2009 Rafael Fernández López <ereslibre@kde.org>
  *
  * Author(s):
- *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
- *    Rafael Fernández López <ereslibre@kde.org>
+ *    Pier Luigi Fiorini
+ *    Rafael Fernández López
  *
- * $BEGIN_LICENSE:GPL3+$
+ * $BEGIN_LICENSE:GPL2+$
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
+ * the Free Software Foundation, either version 2 of the License, or
  * (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,

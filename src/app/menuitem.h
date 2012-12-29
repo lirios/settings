@@ -1,20 +1,20 @@
 /****************************************************************************
  * This file is part of System Preferences.
  *
- * Copyright (c) 2012 Pier Luigi Fiorini
- * Copyright (c) 2007 Will Stephenson
- * Copyright (c) 2009 Ben Cooksley
+ * Copyright (C) 2012 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2007 Will Stephenson <wstephenson@kde.org>
+ * Copyright (C) 2009 Ben Cooksley <bcooksley@kde.org>
  *
  * Author(s):
- *    Ben Cooksley <bcooksley@kde.org>
- *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
- *    Will Stephenson <wstephenson@kde.org>
+ *    Ben Cooksley
+ *    Pier Luigi Fiorini
+ *    Will Stephenson
  *
- * $BEGIN_LICENSE:GPL3+$
+ * $BEGIN_LICENSE:GPL2+$
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
+ * the Free Software Foundation, either version 2 of the License, or
  * (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
