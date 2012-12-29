@@ -73,7 +73,7 @@ QString Preflet::comment() const
 
 QString Preflet::iconName() const
 {
-    return "preferences-desktop-sound";
+    return QLatin1String("preferences-desktop-sound");
 }
 
 QStringList Preflet::keywords() const

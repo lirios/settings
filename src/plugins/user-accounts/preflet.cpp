@@ -58,7 +58,7 @@ QString Preflet::comment() const
 
 QString Preflet::iconName() const
 {
-    return "preferences-desktop-user";
+    return QLatin1String("preferences-desktop-user");
 }
 
 QStringList Preflet::keywords() const
