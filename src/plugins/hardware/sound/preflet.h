@@ -27,7 +27,7 @@
 #ifndef PREFLET_H
 #define PREFLET_H
 
-#include <VPreferencesModule>
+#include <Hawaii/SystemPreferences/PreferencesModule>
 
 namespace Ui
 {
@@ -36,26 +36,32 @@ namespace Ui
 
 class SoundCardModel;
 
-class Preflet : public VPreferencesModule
+namespace Hawaii
 {
-    Q_OBJECT
-public:
-    explicit Preflet();
-    ~Preflet();
+    namespace SystemPreferences
+    {
+        class Preflet : public PreferencesModule
+        {
+            Q_OBJECT
+        public:
+            explicit Preflet();
+            ~Preflet();
 
-    virtual QString name() const;
-    virtual QString comment() const;
-    virtual QString iconName() const;
-    virtual QStringList keywords() const;
-    virtual VPreferencesModule::Category category() const;
+            virtual QString name() const;
+            virtual QString comment() const;
+            virtual QString iconName() const;
+            virtual QStringList keywords() const;
+            virtual PreferencesModule::Category category() const;
 
-private:
-    Ui::Preflet *ui;
-    int m_savedVolume;
-    SoundCardModel *m_model;
+        private:
+            Ui::Preflet *ui;
+            int m_savedVolume;
+            SoundCardModel *m_model;
 
-private slots:
-    void slotMuteClicked(bool state);
-};
+        private slots:
+            void slotMuteClicked(bool state);
+        };
+    }
+}
 
 #endif // PREFLET_H

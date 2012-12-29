@@ -47,6 +47,10 @@ endif()
 include(GenerateExportHeader)
 
 # Find Vibe libraries
+find_package(VibeCore REQUIRED)
+if(NOT VibeCore_FOUND)
+    message(FATAL_ERROR "VibeCore module is required!")
+endif()
 find_package(VibeWidgets REQUIRED)
 if(NOT VibeWidgets_FOUND)
     message(FATAL_ERROR "VibeWidgets module is required!")

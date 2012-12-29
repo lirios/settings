@@ -27,19 +27,25 @@
 #ifndef PLUGIN_H
 #define PLUGIN_H
 
-#include <VPreferencesModulePlugin>
+#include <Hawaii/SystemPreferences/PreferencesModulePlugin>
 
-class VPreferencesModule;
-
-class MimeTypesPlugin : public VPreferencesModulePlugin
+namespace Hawaii
 {
-    Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.hawaii.Vibe.VPreferencesModuleFactoryInterface" FILE "mimetype.json")
-public:
-    explicit MimeTypesPlugin(QObject *parent = 0);
+    namespace SystemPreferences
+    {
+        class PreferencesModule;
 
-    virtual QStringList keys() const;
-    virtual VPreferencesModule *create(const QString &key) const;
-};
+        class MimeTypesPlugin : public PreferencesModulePlugin
+        {
+            Q_OBJECT
+            Q_PLUGIN_METADATA(IID "org.hawaii.SystemPreferences.PreferencesModuleFactoryInterface" FILE "mimetype.json")
+        public:
+            explicit MimeTypesPlugin(QObject *parent = 0);
+
+            virtual QStringList keys() const;
+            virtual PreferencesModule *create(const QString &key) const;
+        };
+    }
+}
 
 #endif // PLUGIN_H

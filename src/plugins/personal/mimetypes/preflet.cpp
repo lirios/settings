@@ -28,8 +28,10 @@
 #include "ui_mimetypespreflet.h"
 #include "typesmodel.h"
 
+using namespace Hawaii::SystemPreferences;
+
 Preflet::Preflet()
-    : VPreferencesModule()
+    : PreferencesModule()
     , ui(new Ui::MimeTypesPreflet)
 {
     ui->setupUi(this);
@@ -71,9 +73,9 @@ QStringList Preflet::keywords() const
     return tr("mime;types;association;program").split(";");
 }
 
-VPreferencesModule::Category Preflet::category() const
+PreferencesModule::Category Preflet::category() const
 {
-    return VPreferencesModule::PersonalCategory;
+    return PreferencesModule::PersonalCategory;
 }
 
 #include "moc_preflet.cpp"

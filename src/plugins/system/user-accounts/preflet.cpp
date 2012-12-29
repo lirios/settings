@@ -27,8 +27,10 @@
 #include "preflet.h"
 #include "ui_preflet.h"
 
+using namespace Hawaii::SystemPreferences;
+
 Preflet::Preflet()
-    : VPreferencesModule()
+    : PreferencesModule()
     , ui(new Ui::Preflet)
 {
     ui->setupUi(this);
@@ -64,9 +66,9 @@ QStringList Preflet::keywords() const
     return tr("user;account;password;administrator;real name").split(";");
 }
 
-VPreferencesModule::Category Preflet::category() const
+PreferencesModule::Category Preflet::category() const
 {
-    return VPreferencesModule::SystemCategory;
+    return PreferencesModule::SystemCategory;
 }
 
 #include "moc_preflet.cpp"

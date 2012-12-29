@@ -27,8 +27,10 @@
 #include "plugin.h"
 #include "preflet.h"
 
+using namespace Hawaii::SystemPreferences;
+
 MimeTypesPlugin::MimeTypesPlugin(QObject *parent)
-    : VPreferencesModulePlugin(parent)
+    : PreferencesModulePlugin(parent)
 {
 }
 
@@ -37,7 +39,7 @@ QStringList MimeTypesPlugin::keys() const
     return QStringList() << "mimetype";
 }
 
-VPreferencesModule *MimeTypesPlugin::create(const QString &key) const
+PreferencesModule *MimeTypesPlugin::create(const QString &key) const
 {
     if (key.toLower() == "mimetype")
         return new Preflet();

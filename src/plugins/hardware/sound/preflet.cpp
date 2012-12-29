@@ -31,8 +31,10 @@
 #include "ui_preflet.h"
 #include "soundcardmodel.h"
 
+using namespace Hawaii::SystemPreferences;
+
 Preflet::Preflet()
-    : VPreferencesModule()
+    : PreferencesModule()
     , ui(new Ui::Preflet)
     , m_savedVolume(0)
 {
@@ -79,9 +81,9 @@ QStringList Preflet::keywords() const
     return tr("sound;audio").split(";");
 }
 
-VPreferencesModule::Category Preflet::category() const
+PreferencesModule::Category Preflet::category() const
 {
-    return VPreferencesModule::HardwareCategory;
+    return PreferencesModule::HardwareCategory;
 }
 
 void Preflet::slotMuteClicked(bool state)

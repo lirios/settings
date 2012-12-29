@@ -27,19 +27,25 @@
 #ifndef PLUGIN_H
 #define PLUGIN_H
 
-#include <VPreferencesModulePlugin>
+#include <Hawaii/SystemPreferences/PreferencesModulePlugin>
 
-class VPreferencesModule;
-
-class DesktopPlugin : public VPreferencesModulePlugin
+namespace Hawaii
 {
-    Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.hawaii.Vibe.VPreferencesModuleFactoryInterface" FILE "desktop.json")
-public:
-    explicit DesktopPlugin(QObject *parent = 0);
+    namespace SystemPreferences
+    {
+        class PreferencesModule;
 
-    QStringList keys() const;
-    VPreferencesModule *create(const QString &key) const;
-};
+        class DesktopPlugin : public PreferencesModulePlugin
+        {
+            Q_OBJECT
+            Q_PLUGIN_METADATA(IID "org.hawaii.SystemPreferences.PreferencesModuleFactoryInterface" FILE "desktop.json")
+        public:
+            explicit DesktopPlugin(QObject *parent = 0);
+
+            QStringList keys() const;
+            PreferencesModule *create(const QString &key) const;
+        };
+    }
+}
 
 #endif // PLUGIN_H

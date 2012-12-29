@@ -27,8 +27,10 @@
 #include "plugin.h"
 #include "preflet.h"
 
+using namespace Hawaii::SystemPreferences;
+
 DesktopPlugin::DesktopPlugin(QObject *parent)
-    : VPreferencesModulePlugin(parent)
+    : PreferencesModulePlugin(parent)
 {
 }
 
@@ -37,7 +39,7 @@ QStringList DesktopPlugin::keys() const
     return QStringList() << "desktop";
 }
 
-VPreferencesModule *DesktopPlugin::create(const QString &key) const
+PreferencesModule *DesktopPlugin::create(const QString &key) const
 {
     if (key.toLower() == "desktop")
         return new Preflet();

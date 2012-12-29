@@ -27,7 +27,7 @@
 #ifndef PREFLET_H
 #define PREFLET_H
 
-#include <VPreferencesModule>
+#include <Hawaii/SystemPreferences/PreferencesModule>
 
 class QModelIndex;
 
@@ -40,36 +40,42 @@ namespace Ui
 
 class WallpaperModel;
 
-class Preflet : public VPreferencesModule
+namespace Hawaii
 {
-    Q_OBJECT
-public:
-    explicit Preflet();
-    ~Preflet();
+    namespace SystemPreferences
+    {
+        class Preflet : public PreferencesModule
+        {
+            Q_OBJECT
+        public:
+            explicit Preflet();
+            ~Preflet();
 
-    virtual QString name() const;
-    virtual QString comment() const;
-    virtual QString iconName() const;
-    virtual QStringList keywords() const;
-    virtual VPreferencesModule::Category category() const;
+            virtual QString name() const;
+            virtual QString comment() const;
+            virtual QString iconName() const;
+            virtual QStringList keywords() const;
+            virtual PreferencesModule::Category category() const;
 
-private slots:
-    void shellSettingsChanged();
+        private slots:
+            void shellSettingsChanged();
 
-    void slotLauncherIconSizeChanged(int value);
-    void slotLauncherAlignmentChanged(int index);
-    void slotAllWallpapersLoaded();
-    void slotBackgroundCategorySelected(int index);
-    void slotBackgroundModeSelected(int index);
-    void slotBackgroundSelected(const QModelIndex &index);
+            void slotLauncherIconSizeChanged(int value);
+            void slotLauncherAlignmentChanged(int index);
+            void slotAllWallpapersLoaded();
+            void slotBackgroundCategorySelected(int index);
+            void slotBackgroundModeSelected(int index);
+            void slotBackgroundSelected(const QModelIndex &index);
 
-private:
-    Ui::DesktopPreflet *ui;
-    VSettings *m_settings;
-    VSettings *m_shellSettings;
-    WallpaperModel *m_wallpaperModel;
+        private:
+            Ui::DesktopPreflet *ui;
+            VSettings *m_settings;
+            VSettings *m_shellSettings;
+            WallpaperModel *m_wallpaperModel;
 
-    void loadSettings();
-};
+            void loadSettings();
+        };
+    }
+}
 
 #endif // PREFLET_H

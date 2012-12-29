@@ -36,8 +36,10 @@
 #include "wallpapermodel.h"
 #include "backgrounditemdelegate.h"
 
+using namespace Hawaii::SystemPreferences;
+
 Preflet::Preflet()
-    : VPreferencesModule()
+    : PreferencesModule()
     , ui(new Ui::DesktopPreflet)
 {
     ui->setupUi(this);
@@ -108,9 +110,9 @@ QStringList Preflet::keywords() const
     return tr("desktop;launcher;wallpaper;screen saver;hot corner").split(";");
 }
 
-VPreferencesModule::Category Preflet::category() const
+PreferencesModule::Category Preflet::category() const
 {
-    return VPreferencesModule::PersonalCategory;
+    return PreferencesModule::PersonalCategory;
 }
 
 void Preflet::loadSettings()
@@ -149,14 +151,14 @@ void Preflet::shellSettingsChanged()
 void Preflet::slotLauncherAlignmentChanged(int index)
 {
     switch (index) {
-    case 0:
-        m_shellSettings->setValue("launcher/alignment", QLatin1String("left"));
-        break;
-    case 1:
-        m_shellSettings->setValue("launcher/alignment", QLatin1String("right"));
-        break;
-    default:
-        m_shellSettings->setValue("launcher/alignment", QLatin1String("bottom"));
+        case 0:
+            m_shellSettings->setValue("launcher/alignment", QLatin1String("left"));
+            break;
+        case 1:
+            m_shellSettings->setValue("launcher/alignment", QLatin1String("right"));
+            break;
+        default:
+            m_shellSettings->setValue("launcher/alignment", QLatin1String("bottom"));
     }
 }
 

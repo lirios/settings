@@ -31,7 +31,8 @@
 
 #include <solid/device.h>
 
-namespace Solid {
+namespace Solid
+{
     class DeviceNotifier;
 }
 

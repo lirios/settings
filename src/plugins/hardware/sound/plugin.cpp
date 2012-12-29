@@ -27,8 +27,10 @@
 #include "plugin.h"
 #include "preflet.h"
 
+using namespace Hawaii::SystemPreferences;
+
 SoundPlugin::SoundPlugin(QObject *parent)
-    : VPreferencesModulePlugin(parent)
+    : PreferencesModulePlugin(parent)
 {
 }
 
@@ -37,7 +39,7 @@ QStringList SoundPlugin::keys() const
     return QStringList() << "sound";
 }
 
-VPreferencesModule *SoundPlugin::create(const QString &key) const
+PreferencesModule *SoundPlugin::create(const QString &key) const
 {
     if (key.toLower() == "sound")
         return new Preflet();

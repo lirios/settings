@@ -27,8 +27,10 @@
 #include "plugin.h"
 #include "preflet.h"
 
+using namespace Hawaii::SystemPreferences;
+
 UserAccountsPlugin::UserAccountsPlugin(QObject *parent)
-    : VPreferencesModulePlugin(parent)
+    : PreferencesModulePlugin(parent)
 {
 }
 
@@ -37,7 +39,7 @@ QStringList UserAccountsPlugin::keys() const
     return QStringList() << "user-accounts";
 }
 
-VPreferencesModule *UserAccountsPlugin::create(const QString &key) const
+PreferencesModule *UserAccountsPlugin::create(const QString &key) const
 {
     if (key.toLower() == "user-accounts")
         return new Preflet();
