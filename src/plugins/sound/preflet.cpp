@@ -73,12 +73,12 @@ QString Preflet::comment() const
 
 QString Preflet::iconName() const
 {
-    return QLatin1String("preferences-desktop-sound");
+    return QLatin1String("multimedia-volume-control");
 }
 
 QStringList Preflet::keywords() const
 {
-    return tr("sound;audio").split(";");
+    return tr("sound;audio;card;volume;fade;balance;bluetooth;headset").split(";");
 }
 
 PreferencesModule::Category Preflet::category() const

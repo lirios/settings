@@ -58,12 +58,12 @@ QString Preflet::comment() const
 
 QString Preflet::iconName() const
 {
-    return QLatin1String("preferences-desktop-user");
+    return QLatin1String("system-users");
 }
 
 QStringList Preflet::keywords() const
 {
-    return tr("user;account;password;administrator;real name").split(";");
+    return tr("user;login;account;face;password;administrator;name;fingerprint").split(";");
 }
 
 PreferencesModule::Category Preflet::category() const
