@@ -76,7 +76,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Main view
     m_catView = new VCategorizedView(m_stackedWidget);
-    m_catView->setViewMode(QListView::ListMode);
+    m_catView->setViewMode(QListView::IconMode);
     m_catView->setIconSize(QSize(64, 64));
     m_catView->setGridSizeOwn(QSize(128, 128));
     m_catView->setWordWrap(true);
