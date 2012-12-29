@@ -43,6 +43,9 @@ if(CMAKE_BUILD_TYPE MATCHES "^[Rr]elease$")
     add_definitions(-DQT_NO_DEBUG_OUTPUT)
 endif()
 
+# Include important features
+include(GenerateExportHeader)
+
 # Find Vibe libraries
 find_package(VibeWidgets REQUIRED)
 if(NOT VibeWidgets_FOUND)
@@ -50,4 +53,5 @@ if(NOT VibeWidgets_FOUND)
 endif()
 
 # Subdirectories
+add_subdirectory(headers)
 add_subdirectory(src)
