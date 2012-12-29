@@ -29,7 +29,7 @@
 
 #include <QMainWindow>
 
-#include <VPreferencesModule>
+#include <Hawaii/SystemPreferences/PreferencesModule>
 
 class QAction;
 class QLineEdit;
@@ -57,7 +57,7 @@ private:
     QAction *m_overviewAction;
     QLineEdit *m_search;
     QStackedWidget *m_stackedWidget;
-    QMap<VPreferencesModule::Category, MenuItem *> m_categories;
+    QMap<Hawaii::SystemPreferences::PreferencesModule::Category, MenuItem *> m_categories;
     VCategorizedView *m_catView;
     MenuItem *m_rootItem;
     MenuModel *m_model;

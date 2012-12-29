@@ -33,8 +33,9 @@
 #include <QStackedWidget>
 #include <QStyledItemDelegate>
 
-#include <VPreferencesModulePlugin>
 #include <VCategorizedView>
+
+#include <Hawaii/SystemPreferences/PreferencesModulePlugin>
 
 #include "mainwindow.h"
 #include "categorydrawer.h"
@@ -42,6 +43,8 @@
 #include "menumodel.h"
 #include "menuproxymodel.h"
 #include "cmakedirs.h"
+
+using namespace Hawaii::SystemPreferences;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -135,15 +138,15 @@ void MainWindow::populate()
     QDir pluginsDir(QStringLiteral("%1/preferences").arg(INSTALL_PLUGINSDIR));
     foreach(QString fileName, pluginsDir.entryList(QDir::Files)) {
         QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));
-        VPreferencesModulePlugin *plugin = qobject_cast<VPreferencesModulePlugin *>(loader.instance());
+        PreferencesModulePlugin *plugin = qobject_cast<PreferencesModulePlugin *>(loader.instance());
         if (!plugin)
             continue;
 
         foreach(QString key, plugin->keys()) {
-            VPreferencesModule *module = plugin->create(key);
+            PreferencesModule *module = plugin->create(key);
 
             // Create the category if needed
-            VPreferencesModule::Category category = module->category();
+            PreferencesModule::Category category = module->category();
             MenuItem *parent = m_categories.value(category, 0);
             if (!parent) {
                 parent = new MenuItem(m_rootItem);
@@ -184,7 +187,7 @@ void MainWindow::slotListViewClicked(const QModelIndex &index)
     MenuItem *item = index.data(Qt::UserRole).value<MenuItem *>();
     if (item->module()) {
         // Show the module
-        m_stackedWidget->setCurrentWidget((VPreferencesModule *)item->module());
+        m_stackedWidget->setCurrentWidget((PreferencesModule *)item->module());
 
         // Enable the action to go to the first page
         m_overviewAction->setEnabled(true);

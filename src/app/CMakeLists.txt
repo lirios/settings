@@ -1,4 +1,6 @@
 include_directories(
+    ${CMAKE_SOURCE_DIR}/headers
+    ${CMAKE_BINARY_DIR}/src/lib
     ${VibeWidgets_INCLUDE_DIRS}
 )
 
@@ -17,10 +19,15 @@ set(SOURCES
 )
 
 add_executable(hawaii-system-preferences ${SOURCES})
-target_link_libraries(hawaii-system-preferences ${VibeWidgets_LIBRARIES})
+qt5_use_modules(hawaii-system-preferences Widgets)
+target_link_libraries(hawaii-system-preferences
+    ${VibeWidgets_LIBRARIES}
+    HawaiiSystemPreferences
+)
 
 configure_file(hawaii-system-preferences.desktop.in hawaii-system-preferences.desktop)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/hawaii-system-preferences.desktop DESTINATION ${CMAKE_INSTALL_APPLICATIONSDIR})
-set_target_properties(hawaii-system-preferences PROPERTIES COMPILE_FLAGS ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS})
-install(TARGETS hawaii-system-preferences DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/hawaii-system-preferences.desktop
+    DESTINATION ${CMAKE_INSTALL_APPLICATIONSDIR})
+install(TARGETS hawaii-system-preferences
+    DESTINATION ${CMAKE_INSTALL_BINDIR})

@@ -31,7 +31,7 @@
 #ifndef MENUITEM_H
 #define MENUITEM_H
 
-#include <VPreferencesModule>
+#include <Hawaii/SystemPreferences/PreferencesModule>
 
 class QString;
 class QIcon;
@@ -107,7 +107,7 @@ public:
      *
      * @returns The module object of this item if it has been set.
      */
-    const VPreferencesModule *module() const;
+    const Hawaii::SystemPreferences::PreferencesModule *module() const;
 
     /**
      * Convenience function which provides the icon of the current item.
@@ -145,8 +145,8 @@ public:
      */
     bool menu() const;
 
-    VPreferencesModule::Category category() const;
-    void setCategory(VPreferencesModule::Category category);
+    Hawaii::SystemPreferences::PreferencesModule::Category category() const;
+    void setCategory(Hawaii::SystemPreferences::PreferencesModule::Category category);
 
     /**
      * Sets the module object, which is used to provide the module information, name and keywords
@@ -154,7 +154,7 @@ public:
      *
      * @param module The module object to store.
      */
-    void setModule(const VPreferencesModule *module);
+    void setModule(const Hawaii::SystemPreferences::PreferencesModule *module);
 
 private:
     class Private;

@@ -30,8 +30,9 @@
 
 #include <QIcon>
 
-#include <VPreferencesModule>
 #include <VCategorizedSortFilterProxyModel>
+
+#include <Hawaii/SystemPreferences/PreferencesModule>
 
 #include "menuitem.h"
 #include "menumodel.h"

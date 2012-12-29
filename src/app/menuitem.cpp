@@ -33,9 +33,11 @@
 #include <QVariant>
 #include <QIcon>
 
-#include <VPreferencesModule>
+#include <Hawaii/SystemPreferences/PreferencesModule>
 
 #include "menuitem.h"
+
+using namespace Hawaii::SystemPreferences;
 
 class MenuItem::Private
 {
@@ -44,11 +46,11 @@ public:
 
     MenuItem *parent;
     QList<MenuItem *> children;
-    VPreferencesModule::Category category;
+    PreferencesModule::Category category;
     QString name;
     QString categoryText;
     QIcon icon;
-    const VPreferencesModule *module;
+    const PreferencesModule *module;
 };
 
 MenuItem::MenuItem(MenuItem *itsParent)
@@ -95,7 +97,7 @@ QList<MenuItem *> &MenuItem::children() const
     return d->children;
 }
 
-const VPreferencesModule *MenuItem::module() const
+const PreferencesModule *MenuItem::module() const
 {
     return d->module;
 }
@@ -131,36 +133,36 @@ bool MenuItem::menu() const
     return true;
 }
 
-VPreferencesModule::Category MenuItem::category() const
+PreferencesModule::Category MenuItem::category() const
 {
     return d->category;
 }
 
-void MenuItem::setCategory(VPreferencesModule::Category category)
+void MenuItem::setCategory(PreferencesModule::Category category)
 {
     setModule(0);
 
     switch (category) {
-        case VPreferencesModule::PersonalCategory:
+        case PreferencesModule::PersonalCategory:
             d->name = QObject::tr("Personal");
             d->icon = QIcon::fromTheme("preferences-personal");
             break;
-        case VPreferencesModule::HardwareCategory:
+        case PreferencesModule::HardwareCategory:
             d->name = QObject::tr("Hardware");
             d->icon = QIcon::fromTheme("preferences-hardware");
             break;
-        case VPreferencesModule::SystemCategory:
+        case PreferencesModule::SystemCategory:
             d->name = QObject::tr("System");
             d->icon = QIcon::fromTheme("preferences-system");
             break;
-        case VPreferencesModule::OtherCategory:
+        case PreferencesModule::OtherCategory:
             d->name = QObject::tr("Other");
             d->icon = QIcon::fromTheme("preferences-other");
             break;
     }
 }
 
-void MenuItem::setModule(const VPreferencesModule *module)
+void MenuItem::setModule(const PreferencesModule *module)
 {
     if (!module) {
         d->module = 0;
@@ -174,16 +176,16 @@ void MenuItem::setModule(const VPreferencesModule *module)
     d->name = module->name();
     d->icon = QIcon::fromTheme(module->iconName());
     switch (module->category()) {
-        case VPreferencesModule::PersonalCategory:
+        case PreferencesModule::PersonalCategory:
             d->categoryText = QObject::tr("Personal");
             break;
-        case VPreferencesModule::HardwareCategory:
+        case PreferencesModule::HardwareCategory:
             d->categoryText = QObject::tr("Hardware");
             break;
-        case VPreferencesModule::SystemCategory:
+        case PreferencesModule::SystemCategory:
             d->categoryText = QObject::tr("System");
             break;
-        case VPreferencesModule::OtherCategory:
+        case PreferencesModule::OtherCategory:
             d->categoryText = QObject::tr("Other");
             break;
     }
