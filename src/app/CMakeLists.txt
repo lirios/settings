@@ -18,7 +18,13 @@ set(SOURCES
     menuproxymodel.cpp
 )
 
-add_executable(hawaii-system-preferences ${SOURCES})
+set(QM_SOURCES
+    translations/it.ts
+)
+
+qt5_add_translation(QM_FILES ${QM_SOURCES})
+
+add_executable(hawaii-system-preferences ${SOURCES} ${QM_FILES})
 qt5_use_modules(hawaii-system-preferences Widgets)
 target_link_libraries(hawaii-system-preferences
     ${VibeWidgets_LIBRARIES}
@@ -31,3 +37,5 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/hawaii-system-preferences.desktop
     DESTINATION ${CMAKE_INSTALL_APPLICATIONSDIR})
 install(TARGETS hawaii-system-preferences
     DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(FILES ${QM_FILES}
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/hawaii-system-preferences/translations)
