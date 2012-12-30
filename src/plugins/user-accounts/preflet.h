@@ -31,6 +31,8 @@
 
 #include <Hawaii/SystemPreferences/PreferencesModule>
 
+class QTranslator;
+
 namespace Ui
 {
     class UsersPreflet;
@@ -55,10 +57,16 @@ namespace Hawaii
             virtual QStringList keywords() const;
             virtual PreferencesModule::Category category() const;
 
+        protected:
+            void changeEvent(QEvent *event);
+
         private:
             Ui::UsersPreflet *ui;
+            QTranslator *m_translator;
             UsersModel *m_model;
             QModelIndex m_currentIndex;
+
+            void loadTranslations();
 
         private slots:
             void userSelected(const QModelIndex &index);

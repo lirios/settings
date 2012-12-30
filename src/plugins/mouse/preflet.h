@@ -29,6 +29,8 @@
 
 #include <Hawaii/SystemPreferences/PreferencesModule>
 
+class QTranslator;
+
 namespace Ui
 {
     class MousePreflet;
@@ -51,8 +53,14 @@ namespace Hawaii
             virtual QStringList keywords() const;
             virtual PreferencesModule::Category category() const;
 
+        protected:
+            void changeEvent(QEvent *event);
+
         private:
             Ui::MousePreflet *ui;
+            QTranslator *m_translator;
+
+            void loadTranslations();
         };
     }
 }

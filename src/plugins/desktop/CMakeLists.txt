@@ -22,9 +22,14 @@ set(FORMS
     desktoppreflet.ui
 )
 
-qt5_wrap_ui(FORMS_HEADERS ${FORMS})
+set(QM_SOURCES
+    translations/it.ts
+)
 
-add_library(desktop SHARED ${SOURCES} ${FORMS_HEADERS})
+qt5_wrap_ui(FORMS_HEADERS ${FORMS})
+qt5_add_translation(QM_FILES ${QM_SOURCES})
+
+add_library(desktop SHARED ${SOURCES} ${FORMS_HEADERS} ${QM_FILES})
 set_target_properties(desktop PROPERTIES PREFIX "")
 qt5_use_modules(desktop Widgets)
 target_link_libraries(desktop
@@ -34,3 +39,5 @@ target_link_libraries(desktop
 
 install(TARGETS desktop LIBRARY
     DESTINATION ${CMAKE_INSTALL_PLUGINSDIR}/preferences)
+install(FILES ${QM_FILES}
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/hawaii-system-preferences/plugins/desktop/translations)

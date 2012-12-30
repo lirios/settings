@@ -29,6 +29,7 @@
 
 #include <Hawaii/SystemPreferences/PreferencesModule>
 
+class QTranslator;
 class QModelIndex;
 
 class VSettings;
@@ -57,6 +58,19 @@ namespace Hawaii
             virtual QStringList keywords() const;
             virtual PreferencesModule::Category category() const;
 
+        protected:
+            void changeEvent(QEvent *event);
+
+        private:
+            Ui::DesktopPreflet *ui;
+            QTranslator *m_translator;
+            VSettings *m_settings;
+            VSettings *m_shellSettings;
+            WallpaperModel *m_wallpaperModel;
+
+            void loadTranslations();
+            void loadSettings();
+
         private slots:
             void shellSettingsChanged();
 
@@ -66,14 +80,6 @@ namespace Hawaii
             void slotBackgroundCategorySelected(int index);
             void slotBackgroundModeSelected(int index);
             void slotBackgroundSelected(const QModelIndex &index);
-
-        private:
-            Ui::DesktopPreflet *ui;
-            VSettings *m_settings;
-            VSettings *m_shellSettings;
-            WallpaperModel *m_wallpaperModel;
-
-            void loadSettings();
         };
     }
 }

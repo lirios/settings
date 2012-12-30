@@ -29,6 +29,8 @@
 
 #include <Hawaii/SystemPreferences/PreferencesModule>
 
+class QTranslator;
+
 namespace Ui
 {
     class MimeTypesPreflet;
@@ -53,9 +55,15 @@ namespace Hawaii
             virtual QStringList keywords() const;
             virtual PreferencesModule::Category category() const;
 
+        protected:
+            void changeEvent(QEvent *event);
+
         private:
             Ui::MimeTypesPreflet *ui;
+            QTranslator *m_translator;
             TypesModel *m_model;
+
+            void loadTranslations();
         };
     }
 }

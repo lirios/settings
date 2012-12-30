@@ -24,6 +24,10 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include <QCoreApplication>
+#include <QStandardPaths>
+#include <QTranslator>
+
 #include "preflet.h"
 #include "ui_mimetypespreflet.h"
 #include "typesmodel.h"
@@ -33,8 +37,12 @@ using namespace Hawaii::SystemPreferences;
 Preflet::Preflet()
     : PreferencesModule()
     , ui(new Ui::MimeTypesPreflet)
+    , m_translator(0)
 {
     ui->setupUi(this);
+
+    // Load translations
+    loadTranslations();
 
     // Set icons
     ui->addButton->setIcon(QIcon::fromTheme("list-add"));
@@ -50,6 +58,7 @@ Preflet::Preflet()
 Preflet::~Preflet()
 {
     delete ui;
+    delete m_translator;
     delete m_model;
 }
 
@@ -76,6 +85,43 @@ QStringList Preflet::keywords() const
 PreferencesModule::Category Preflet::category() const
 {
     return PreferencesModule::PersonalCategory;
+}
+
+void Preflet::changeEvent(QEvent *event)
+{
+    switch (event->type()) {
+        case QEvent::LanguageChange:
+            ui->retranslateUi(this);
+            break;
+        case QEvent::LocaleChange:
+            loadTranslations();
+            break;
+        default:
+            break;
+    }
+
+    QWidget::changeEvent(event);
+}
+
+void Preflet::loadTranslations()
+{
+    // Current locale
+    const QString locale = QLocale::system().name();
+
+    // Remove translation of the previously loaded locale
+    if (m_translator) {
+        QCoreApplication::instance()->removeTranslator(m_translator);
+        delete m_translator;
+    }
+
+    // Load translations
+    m_translator = new QTranslator(this);
+    QString localeDir = QStandardPaths::locate(
+                            QStandardPaths::GenericDataLocation,
+                            QLatin1String("hawaii-system-preferences/plugins/mimetypes/translations"),
+                            QStandardPaths::LocateDirectory);
+    m_translator->load(locale, localeDir);
+    QCoreApplication::instance()->installTranslator(m_translator);
 }
 
 #include "moc_preflet.cpp"

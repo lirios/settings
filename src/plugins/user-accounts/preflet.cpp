@@ -24,8 +24,11 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include <QCoreApplication>
 #include <QDebug>
 #include <QSortFilterProxyModel>
+#include <QStandardPaths>
+#include <QTranslator>
 
 #include <VUserAccount>
 
@@ -38,8 +41,12 @@ using namespace Hawaii::SystemPreferences;
 Preflet::Preflet()
     : PreferencesModule()
     , ui(new Ui::UsersPreflet)
+    , m_translator(0)
 {
     ui->setupUi(this);
+
+    // Load translations
+    loadTranslations();
 
     // Setup icons
     ui->addButton->setIcon(QIcon::fromTheme("list-add-symbolic"));
@@ -68,6 +75,7 @@ Preflet::Preflet()
 Preflet::~Preflet()
 {
     delete ui;
+    delete m_translator;
 }
 
 QString Preflet::name() const
@@ -96,6 +104,43 @@ PreferencesModule::Category Preflet::category() const
     return PreferencesModule::SystemCategory;
 }
 
+void Preflet::changeEvent(QEvent *event)
+{
+    switch (event->type()) {
+        case QEvent::LanguageChange:
+            ui->retranslateUi(this);
+            break;
+        case QEvent::LocaleChange:
+            loadTranslations();
+            break;
+        default:
+            break;
+    }
+
+    QWidget::changeEvent(event);
+}
+
+void Preflet::loadTranslations()
+{
+    // Current locale
+    const QString locale = QLocale::system().name();
+
+    // Remove translation of the previously loaded locale
+    if (m_translator) {
+        QCoreApplication::instance()->removeTranslator(m_translator);
+        delete m_translator;
+    }
+
+    // Load translations
+    m_translator = new QTranslator(this);
+    QString localeDir = QStandardPaths::locate(
+                            QStandardPaths::GenericDataLocation,
+                            QLatin1String("hawaii-system-preferences/plugins/user-accounts/translations"),
+                            QStandardPaths::LocateDirectory);
+    m_translator->load(locale, localeDir);
+    QCoreApplication::instance()->installTranslator(m_translator);
+}
+
 void Preflet::userSelected(const QModelIndex &index)
 {
     m_currentIndex = index;
@@ -108,14 +153,14 @@ void Preflet::userSelected(const QModelIndex &index)
 
     int accountType = m_model->data(index, UsersModel::AccountTypeRole).toInt();
     switch (accountType) {
-    case VUserAccount::StandardAccountType:
-        ui->accountTypeLabel->setText(tr("Standard"));
-        break;
-    case VUserAccount::AdministratorAccountType:
-        ui->accountTypeLabel->setText(tr("Administrator"));
-        break;
-    default:
-        break;
+        case VUserAccount::StandardAccountType:
+            ui->accountTypeLabel->setText(tr("Standard"));
+            break;
+        case VUserAccount::AdministratorAccountType:
+            ui->accountTypeLabel->setText(tr("Administrator"));
+            break;
+        default:
+            break;
     }
 }
 

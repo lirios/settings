@@ -29,6 +29,8 @@
 
 #include <Hawaii/SystemPreferences/PreferencesModule>
 
+class QTranslator;
+
 namespace Ui
 {
     class Preflet;
@@ -53,10 +55,16 @@ namespace Hawaii
             virtual QStringList keywords() const;
             virtual PreferencesModule::Category category() const;
 
+        protected:
+            void changeEvent(QEvent *event);
+
         private:
             Ui::Preflet *ui;
+            QTranslator *m_translator;
             int m_savedVolume;
             SoundCardModel *m_model;
+
+            void loadTranslations();
 
         private slots:
             void slotMuteClicked(bool state);
