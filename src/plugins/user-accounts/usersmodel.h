@@ -40,7 +40,10 @@ public:
     enum Roles {
         UserIdRole = Qt::UserRole + 1,
         UserNameRole,
-        RealNameRole
+        RealNameRole,
+        IconFileNameRole,
+        AccountTypeRole,
+        LanguageRole
     };
 
     explicit UsersModel(QObject *parent = 0);
@@ -48,7 +51,9 @@ public:
     QHash<int, QByteArray> roleNames() const;
 
     int rowCount(const QModelIndex &parent) const;
+
     QVariant data(const QModelIndex &index, int role) const;
+    bool setData(const QModelIndex &index, const QVariant &value, int role);
 
 private:
     UsersModelPrivate *const d_ptr;

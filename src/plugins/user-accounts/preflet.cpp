@@ -24,7 +24,10 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include <QDebug>
 #include <QSortFilterProxyModel>
+
+#include <VUserAccount>
 
 #include "preflet.h"
 #include "ui_userspreflet.h"
@@ -41,13 +44,25 @@ Preflet::Preflet()
     // Setup icons
     ui->addButton->setIcon(QIcon::fromTheme("list-add-symbolic"));
     ui->removeButton->setIcon(QIcon::fromTheme("list-remove-symbolic"));
-    ui->pictureButton->setIcon(QIcon::fromTheme("list-add-symbolic"));
 
     // Setup users list
     QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel(this);
-    proxyModel->setSourceModel(new UsersModel(this));
+    m_model = new UsersModel(this);
+    proxyModel->setSourceModel(m_model);
     proxyModel->setSortRole(UsersModel::UserIdRole);
     ui->listView->setModel(proxyModel);
+
+    // Connect signals
+    connect(ui->listView, SIGNAL(clicked(QModelIndex)),
+            ui->listView, SIGNAL(activated(QModelIndex)));
+    connect(ui->listView, SIGNAL(clicked(QModelIndex)),
+            this, SLOT(userSelected(QModelIndex)));
+    connect(ui->realNameButton, SIGNAL(clicked()),
+            this, SLOT(realNameClicked()));
+    connect(ui->realName, SIGNAL(returnPressed()),
+            this, SLOT(realNameChanged()));
+    connect(ui->realName, SIGNAL(editingFinished()),
+            this, SLOT(realNameEditingFinished()));
 }
 
 Preflet::~Preflet()
@@ -79,6 +94,52 @@ QStringList Preflet::keywords() const
 PreferencesModule::Category Preflet::category() const
 {
     return PreferencesModule::SystemCategory;
+}
+
+void Preflet::userSelected(const QModelIndex &index)
+{
+    m_currentIndex = index;
+
+    QString avatarFileName = m_model->data(index, UsersModel::IconFileNameRole).toString();
+    ui->pictureButton->setIcon(QIcon(avatarFileName));
+
+    ui->realNameButton->setText(m_model->data(index, UsersModel::RealNameRole).toString());
+    ui->realName->setText(ui->realNameButton->text());
+
+    int accountType = m_model->data(index, UsersModel::AccountTypeRole).toInt();
+    switch (accountType) {
+    case VUserAccount::StandardAccountType:
+        ui->accountTypeLabel->setText(tr("Standard"));
+        break;
+    case VUserAccount::AdministratorAccountType:
+        ui->accountTypeLabel->setText(tr("Administrator"));
+        break;
+    default:
+        break;
+    }
+}
+
+void Preflet::realNameClicked()
+{
+    if (ui->realNameStack->currentIndex() == 0) {
+        ui->realNameStack->setCurrentIndex(1);
+        ui->realName->setFocus();
+    } else
+        ui->realNameStack->setCurrentIndex(0);
+}
+
+void Preflet::realNameChanged()
+{
+    if (m_currentIndex.isValid()) {
+        QString name = ui->realName->text();
+        m_model->setData(m_currentIndex, QVariant(name), UsersModel::RealNameRole);
+        ui->realNameButton->setText(name);
+    }
+}
+
+void Preflet::realNameEditingFinished()
+{
+    ui->realNameStack->setCurrentIndex(0);
 }
 
 #include "moc_preflet.cpp"

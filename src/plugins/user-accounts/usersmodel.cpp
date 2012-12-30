@@ -61,6 +61,9 @@ QHash<int, QByteArray> UsersModel::roleNames() const
     roles[UserIdRole] = "userId";
     roles[UserNameRole] = "userName";
     roles[RealNameRole] = "realName";
+    roles[IconFileNameRole] = "iconFileName";
+    roles[AccountTypeRole] = "accountType";
+    roles[LanguageRole] = "language";
     return roles;
 }
 
@@ -82,6 +85,7 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
         return QVariant();
 
     int row = index.row();
+
     switch (role) {
     case Qt::DisplayRole:
         return d->list[row]->displayName();
@@ -93,9 +97,47 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
         return d->list[row]->userName();
     case UsersModel::RealNameRole:
         return d->list[row]->realName();
+    case UsersModel::IconFileNameRole:
+        return d->list[row]->iconFileName();
+    case UsersModel::AccountTypeRole:
+        return d->list[row]->accountType();
+    case UsersModel::LanguageRole:
+        return d->list[row]->language();
     }
 
     return QVariant();
+}
+
+bool UsersModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    Q_D(UsersModel);
+
+    if (!index.isValid())
+        return false;
+
+    VUserAccount *user = d->list[index.row()];
+
+    switch (role) {
+    case UsersModel::UserNameRole:
+        user->setUserName(value.toString());
+        break;
+    case UsersModel::RealNameRole:
+        user->setRealName(value.toString());
+        break;
+    case UsersModel::IconFileNameRole:
+        user->setIconFileName(value.toString());
+        break;
+    case UsersModel::AccountTypeRole:
+        user->setAccountType((VUserAccount::AccountType) value.toInt());
+        break;
+    case UsersModel::LanguageRole:
+        user->setLanguage(value.toString());
+        break;
+    default:
+        return false;
+    }
+
+    return true;
 }
 
 #include "moc_usersmodel.cpp"

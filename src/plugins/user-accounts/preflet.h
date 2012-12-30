@@ -27,12 +27,16 @@
 #ifndef PREFLET_H
 #define PREFLET_H
 
+#include <QModelIndex>
+
 #include <Hawaii/SystemPreferences/PreferencesModule>
 
 namespace Ui
 {
     class UsersPreflet;
 }
+
+class UsersModel;
 
 namespace Hawaii
 {
@@ -53,6 +57,14 @@ namespace Hawaii
 
         private:
             Ui::UsersPreflet *ui;
+            UsersModel *m_model;
+            QModelIndex m_currentIndex;
+
+        private slots:
+            void userSelected(const QModelIndex &index);
+            void realNameClicked();
+            void realNameChanged();
+            void realNameEditingFinished();
         };
     }
 }
