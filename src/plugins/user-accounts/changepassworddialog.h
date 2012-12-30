@@ -29,7 +29,7 @@
 
 #include <QDialog>
 
-#include <VUserAccount>
+#include <QtAccountsService/UserAccount>
 
 namespace Ui
 {
@@ -44,11 +44,11 @@ public:
     explicit ChangePasswordDialog(QWidget *parent = 0);
     ~ChangePasswordDialog();
 
-    void setUserAccount(VUserAccount *account);
+    void setUserAccount(QtAddOn::AccountsService::UserAccount *account);
 
 private:
     Ui::ChangePasswordDialog *ui;
-    VUserAccount *m_account;
+    QtAddOn::AccountsService::UserAccount *m_account;
 
 private slots:
     void changeClicked();

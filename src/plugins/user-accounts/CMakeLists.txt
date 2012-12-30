@@ -9,7 +9,6 @@ add_definitions(-DQT_PLUGIN)
 set(SOURCES
     preflet.cpp
     plugin.cpp
-    usersmodel.cpp
     changepassworddialog.cpp
 )
 
@@ -27,7 +26,7 @@ qt5_add_translation(QM_FILES ${QM_SOURCES})
 
 add_library(user-accounts SHARED ${SOURCES} ${FORMS_HEADERS} ${QM_FILES})
 set_target_properties(user-accounts PROPERTIES PREFIX "")
-qt5_use_modules(user-accounts Widgets)
+qt5_use_modules(user-accounts Widgets AccountsService)
 target_link_libraries(user-accounts
     ${VibeCore_LIBRARIES}
     HawaiiSystemPreferences

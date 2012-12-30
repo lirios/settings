@@ -51,7 +51,7 @@ ChangePasswordDialog::~ChangePasswordDialog()
     delete ui;
 }
 
-void ChangePasswordDialog::setUserAccount(VUserAccount *account)
+void ChangePasswordDialog::setUserAccount(QtAddOn::AccountsService::UserAccount *account)
 {
     m_account = account;
 
@@ -64,7 +64,7 @@ void ChangePasswordDialog::setUserAccount(VUserAccount *account)
 
 void ChangePasswordDialog::changeClicked()
 {
-    m_account->setPasswordMode((VUserAccount::PasswordMode) ui->action->currentIndex());
+    m_account->setPasswordMode((QtAddOn::AccountsService::UserAccount::PasswordMode) ui->action->currentIndex());
 
     accept();
 }

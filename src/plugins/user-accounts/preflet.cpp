@@ -30,7 +30,7 @@
 #include <QStandardPaths>
 #include <QTranslator>
 
-#include <VUserAccount>
+#include <QtAccountsService/UserAccount>
 
 #include "preflet.h"
 #include "ui_userspreflet.h"
@@ -55,9 +55,9 @@ Preflet::Preflet()
 
     // Setup users list
     QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel(this);
-    m_model = new UsersModel(this);
+    m_model = new QtAddOn::AccountsService::UsersModel(this);
     proxyModel->setSourceModel(m_model);
-    proxyModel->setSortRole(UsersModel::UserIdRole);
+    proxyModel->setSortRole(QtAddOn::AccountsService::UsersModel::UserIdRole);
     ui->listView->setModel(proxyModel);
 
     // Connect signals
@@ -146,7 +146,7 @@ void Preflet::loadTranslations()
 
 void Preflet::userSelected(const QModelIndex &index)
 {
-    VUserAccount *account = m_model->userAccount(index);
+    QtAddOn::AccountsService::UserAccount *account = m_model->userAccount(index);
     if (!account) {
         qWarning() << "Couldn't get selected user account!";
         m_currentIndex = QModelIndex();
@@ -174,7 +174,7 @@ void Preflet::realNameChanged()
 {
     if (m_currentIndex.isValid()) {
         QString name = ui->realName->text();
-        m_model->setData(m_currentIndex, QVariant(name), UsersModel::RealNameRole);
+        m_model->setData(m_currentIndex, QVariant(name), QtAddOn::AccountsService::UsersModel::RealNameRole);
         ui->realNameButton->setText(name);
     }
 }

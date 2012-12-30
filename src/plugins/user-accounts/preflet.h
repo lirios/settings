@@ -38,7 +38,13 @@ namespace Ui
     class UsersPreflet;
 }
 
-class UsersModel;
+namespace QtAddOn
+{
+    namespace AccountsService
+    {
+        class UsersModel;
+    }
+}
 
 namespace Hawaii
 {
@@ -63,7 +69,7 @@ namespace Hawaii
         private:
             Ui::UsersPreflet *ui;
             QTranslator *m_translator;
-            UsersModel *m_model;
+            QtAddOn::AccountsService::UsersModel *m_model;
             QModelIndex m_currentIndex;
 
             void loadTranslations();
