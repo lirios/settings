@@ -73,6 +73,7 @@ namespace Hawaii
             void realNameClicked();
             void realNameChanged();
             void realNameEditingFinished();
+            void changePasswordClicked();
         };
     }
 }

@@ -10,10 +10,12 @@ set(SOURCES
     preflet.cpp
     plugin.cpp
     usersmodel.cpp
+    changepassworddialog.cpp
 )
 
 set(FORMS
     userspreflet.ui
+    changepassworddialog.ui
 )
 
 set(QM_SOURCES

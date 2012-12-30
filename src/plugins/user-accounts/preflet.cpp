@@ -35,6 +35,7 @@
 #include "preflet.h"
 #include "ui_userspreflet.h"
 #include "usersmodel.h"
+#include "changepassworddialog.h"
 
 using namespace Hawaii::SystemPreferences;
 
@@ -70,6 +71,8 @@ Preflet::Preflet()
             this, SLOT(realNameChanged()));
     connect(ui->realName, SIGNAL(editingFinished()),
             this, SLOT(realNameEditingFinished()));
+    connect(ui->passwordButton, SIGNAL(clicked()),
+            this, SLOT(changePasswordClicked()));
 }
 
 Preflet::~Preflet()
@@ -143,25 +146,19 @@ void Preflet::loadTranslations()
 
 void Preflet::userSelected(const QModelIndex &index)
 {
+    VUserAccount *account = m_model->userAccount(index);
+    if (!account) {
+        qWarning() << "Couldn't get selected user account!";
+        m_currentIndex = QModelIndex();
+        return;
+    }
+
     m_currentIndex = index;
 
-    QString avatarFileName = m_model->data(index, UsersModel::IconFileNameRole).toString();
-    ui->pictureButton->setIcon(QIcon(avatarFileName));
-
-    ui->realNameButton->setText(m_model->data(index, UsersModel::RealNameRole).toString());
+    ui->pictureButton->setIcon(QIcon(account->iconFileName()));
+    ui->realNameButton->setText(account->realName());
     ui->realName->setText(ui->realNameButton->text());
-
-    int accountType = m_model->data(index, UsersModel::AccountTypeRole).toInt();
-    switch (accountType) {
-        case VUserAccount::StandardAccountType:
-            ui->accountTypeLabel->setText(tr("Standard"));
-            break;
-        case VUserAccount::AdministratorAccountType:
-            ui->accountTypeLabel->setText(tr("Administrator"));
-            break;
-        default:
-            break;
-    }
+    ui->accountType->setCurrentIndex(account->accountType());
 }
 
 void Preflet::realNameClicked()
@@ -185,6 +182,13 @@ void Preflet::realNameChanged()
 void Preflet::realNameEditingFinished()
 {
     ui->realNameStack->setCurrentIndex(0);
+}
+
+void Preflet::changePasswordClicked()
+{
+    ChangePasswordDialog dialog(this);
+    dialog.setUserAccount(m_model->userAccount(m_currentIndex));
+    dialog.exec();
 }
 
 #include "moc_preflet.cpp"

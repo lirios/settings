@@ -140,4 +140,14 @@ bool UsersModel::setData(const QModelIndex &index, const QVariant &value, int ro
     return true;
 }
 
+VUserAccount *UsersModel::userAccount(const QModelIndex &index)
+{
+    Q_D(UsersModel);
+
+    if (!index.isValid())
+        return 0;
+
+    return d->list[index.row()];
+}
+
 #include "moc_usersmodel.cpp"

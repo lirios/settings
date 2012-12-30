@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of System Preferences.
  *
- * Copyright (C) 2011-2012 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2012 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * Author(s):
  *    Pier Luigi Fiorini
@@ -24,43 +24,34 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef USERSMODEL_H
-#define USERSMODEL_H
+#ifndef CHANGEPASSWORDDIALOG_H
+#define CHANGEPASSWORDDIALOG_H
 
-#include <QAbstractListModel>
+#include <QDialog>
 
-class VUserAccount;
+#include <VUserAccount>
 
-class UsersModelPrivate;
+namespace Ui
+{
+    class ChangePasswordDialog;
+}
 
-class UsersModel : public QAbstractListModel
+class ChangePasswordDialog : public QDialog
 {
     Q_OBJECT
-    Q_ENUMS(Roles)
-    Q_DECLARE_PRIVATE(UsersModel)
+
 public:
-    enum Roles {
-        UserIdRole = Qt::UserRole + 1,
-        UserNameRole,
-        RealNameRole,
-        IconFileNameRole,
-        AccountTypeRole,
-        LanguageRole
-    };
+    explicit ChangePasswordDialog(QWidget *parent = 0);
+    ~ChangePasswordDialog();
 
-    explicit UsersModel(QObject *parent = 0);
-
-    QHash<int, QByteArray> roleNames() const;
-
-    int rowCount(const QModelIndex &parent) const;
-
-    QVariant data(const QModelIndex &index, int role) const;
-    bool setData(const QModelIndex &index, const QVariant &value, int role);
-
-    VUserAccount *userAccount(const QModelIndex &index);
+    void setUserAccount(VUserAccount *account);
 
 private:
-    UsersModelPrivate *const d_ptr;
+    Ui::ChangePasswordDialog *ui;
+    VUserAccount *m_account;
+
+private slots:
+    void changeClicked();
 };
 
-#endif // USERSMODEL_H
+#endif // CHANGEPASSWORDDIALOG_H
