@@ -87,22 +87,22 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
     int row = index.row();
 
     switch (role) {
-    case Qt::DisplayRole:
-        return d->list[row]->displayName();
-    case Qt::DecorationRole:
-        return QPixmap(d->list[row]->iconFileName());
-    case UsersModel::UserIdRole:
-        return d->list[row]->userId();
-    case UsersModel::UserNameRole:
-        return d->list[row]->userName();
-    case UsersModel::RealNameRole:
-        return d->list[row]->realName();
-    case UsersModel::IconFileNameRole:
-        return d->list[row]->iconFileName();
-    case UsersModel::AccountTypeRole:
-        return d->list[row]->accountType();
-    case UsersModel::LanguageRole:
-        return d->list[row]->language();
+        case Qt::DisplayRole:
+            return d->list[row]->displayName();
+        case Qt::DecorationRole:
+            return QPixmap(d->list[row]->iconFileName());
+        case UsersModel::UserIdRole:
+            return d->list[row]->userId();
+        case UsersModel::UserNameRole:
+            return d->list[row]->userName();
+        case UsersModel::RealNameRole:
+            return d->list[row]->realName();
+        case UsersModel::IconFileNameRole:
+            return d->list[row]->iconFileName();
+        case UsersModel::AccountTypeRole:
+            return d->list[row]->accountType();
+        case UsersModel::LanguageRole:
+            return d->list[row]->language();
     }
 
     return QVariant();
@@ -118,23 +118,23 @@ bool UsersModel::setData(const QModelIndex &index, const QVariant &value, int ro
     VUserAccount *user = d->list[index.row()];
 
     switch (role) {
-    case UsersModel::UserNameRole:
-        user->setUserName(value.toString());
-        break;
-    case UsersModel::RealNameRole:
-        user->setRealName(value.toString());
-        break;
-    case UsersModel::IconFileNameRole:
-        user->setIconFileName(value.toString());
-        break;
-    case UsersModel::AccountTypeRole:
-        user->setAccountType((VUserAccount::AccountType) value.toInt());
-        break;
-    case UsersModel::LanguageRole:
-        user->setLanguage(value.toString());
-        break;
-    default:
-        return false;
+        case UsersModel::UserNameRole:
+            user->setUserName(value.toString());
+            break;
+        case UsersModel::RealNameRole:
+            user->setRealName(value.toString());
+            break;
+        case UsersModel::IconFileNameRole:
+            user->setIconFileName(value.toString());
+            break;
+        case UsersModel::AccountTypeRole:
+            user->setAccountType((VUserAccount::AccountType) value.toInt());
+            break;
+        case UsersModel::LanguageRole:
+            user->setLanguage(value.toString());
+            break;
+        default:
+            return false;
     }
 
     return true;
