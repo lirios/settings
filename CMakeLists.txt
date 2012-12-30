@@ -47,6 +47,10 @@ endif()
 include(GenerateExportHeader)
 
 # Find Qt
+find_package(Qt5AccountsService REQUIRED)
+if(NOT Qt5AccountsService_FOUND)
+    message(FATAL_ERROR "Qt5AccountsService module is required!")
+endif()
 find_package(Qt5LinguistTools REQUIRED)
 if(NOT Qt5LinguistTools_FOUND)
     message(FATAL_ERROR "Qt5LinguistTools module is required!")
