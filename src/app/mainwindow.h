@@ -34,6 +34,7 @@
 class QAction;
 class QLineEdit;
 class QStackedWidget;
+class QTranslator;
 
 class VCategorizedView;
 
@@ -48,12 +49,16 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+protected:
+    void changeEvent(QEvent *event);
+
 private slots:
     void slotOverviewTriggered();
     void slotSearchChanged(const QString &search);
     void slotListViewClicked(const QModelIndex &index);
 
 private:
+    QTranslator *m_translator;
     QAction *m_overviewAction;
     QLineEdit *m_search;
     QStackedWidget *m_stackedWidget;
@@ -63,6 +68,7 @@ private:
     MenuModel *m_model;
     MenuProxyModel *m_proxyModel;
 
+    void loadTranslations();
     void createActions();
     void createToolBar();
     void populate();

@@ -24,14 +24,18 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include <QCoreApplication>
 #include <QDebug>
 #include <QDir>
 #include <QPluginLoader>
 #include <QToolBar>
 #include <QAction>
+#include <QLibraryInfo>
 #include <QLineEdit>
 #include <QStackedWidget>
+#include <QStandardPaths>
 #include <QStyledItemDelegate>
+#include <QTranslator>
 
 #include <VCategorizedView>
 
@@ -48,7 +52,11 @@ using namespace Hawaii::SystemPreferences;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
+    , m_translator(0)
 {
+    // Load translations
+    loadTranslations();
+
     // Set window icon and title
     setWindowTitle(tr("System Preferences"));
     setWindowIcon(QIcon::fromTheme("preferences-system"));
@@ -105,7 +113,49 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    delete m_translator;
     delete m_rootItem;
+}
+
+void MainWindow::changeEvent(QEvent *event)
+{
+    switch (event->type()) {
+        case QEvent::LanguageChange:
+        case QEvent::LocaleChange:
+            loadTranslations();
+            break;
+        default:
+            break;
+    }
+
+    QMainWindow::changeEvent(event);
+}
+
+void MainWindow::loadTranslations()
+{
+    // Locale name
+    const QString locale = QLocale::system().name();
+
+    // Qt translations
+    QTranslator qtTranslator;
+    qtTranslator.load("qt_" + locale,
+                      QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    QCoreApplication::instance()->installTranslator(&qtTranslator);
+
+    // Remove translation of the previously loaded locale
+    if (m_translator) {
+        QCoreApplication::instance()->removeTranslator(m_translator);
+        delete m_translator;
+    }
+
+    // Load our translations for the current locale
+    m_translator = new QTranslator(this);
+    QString localeDir = QStandardPaths::locate(
+                            QStandardPaths::GenericDataLocation,
+                            QLatin1String("hawaii-system-preferences/translations"),
+                            QStandardPaths::LocateDirectory);
+    m_translator->load(locale, localeDir);
+    QCoreApplication::instance()->installTranslator(m_translator);
 }
 
 void MainWindow::createActions()
@@ -153,7 +203,7 @@ void MainWindow::populate()
                 parent->setCategory(category);
                 m_categories[category] = parent;
                 m_model->addException(parent);
-                qDebug() << "Create new category" << parent->name();
+                qDebug() << "Created new category" << parent->name();
             }
 
             // Create the item and append its widget to the stack
