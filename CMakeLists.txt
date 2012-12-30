@@ -46,6 +46,12 @@ endif()
 # Include important features
 include(GenerateExportHeader)
 
+# Find Qt
+find_package(Qt5LinguistTools REQUIRED)
+if(NOT Qt5LinguistTools_FOUND)
+    message(FATAL_ERROR "Qt5LinguistTools module is required!")
+endif()
+
 # Find Vibe libraries
 find_package(VibeCore REQUIRED)
 if(NOT VibeCore_FOUND)

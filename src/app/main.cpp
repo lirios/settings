@@ -25,17 +25,39 @@
  ***************************************************************************/
 
 #include <QApplication>
+#include <QLibraryInfo>
+#include <QStandardPaths>
+#include <QTranslator>
 
 #include "mainwindow.h"
 
 int main(int argc, char *argv[])
 {
+    // Setup application
     QApplication app(argc, argv);
     app.setApplicationName("System Preferences");
     app.setApplicationVersion("0.0.0");
     app.setOrganizationDomain("maui-project.org");
     app.setOrganizationName("Hawaii");
 
+    // Locale name
+    const QString locale = QLocale::system().name();
+
+    // Translations
+    QTranslator qtTranslator;
+    qtTranslator.load("qt_" + locale,
+                      QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    app.installTranslator(&qtTranslator);
+
+    QTranslator translator;
+    QString localeDir = QStandardPaths::locate(
+                            QStandardPaths::GenericDataLocation,
+                            QLatin1String("hawaii-system-preferences/translations"),
+                            QStandardPaths::LocateDirectory);
+    translator.load(locale, localeDir);
+    app.installTranslator(&translator);
+
+    // Show main window
     MainWindow *win = new MainWindow();
     win->show();
 
