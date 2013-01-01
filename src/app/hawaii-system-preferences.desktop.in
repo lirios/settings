@@ -12,6 +12,3 @@ TryExec=hawaii-system-preferences
 Categories=Qt;Hawaii;Settings;Core;
 Terminal=false
 OnlyShowIn=Hawaii;
-
-X-Hawaii-Identifier=org.hawaii.SystemPreferences
-X-Hawaii-Version=@SYSTEMPREFERENCES_VERSION_STRING@
