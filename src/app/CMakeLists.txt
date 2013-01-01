@@ -29,10 +29,6 @@ target_link_libraries(hawaii-system-preferences
     HawaiiSystemPreferences
 )
 
-configure_file(hawaii-system-preferences.desktop.in hawaii-system-preferences.desktop)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/hawaii-system-preferences.desktop
-    DESTINATION ${CMAKE_INSTALL_APPLICATIONSDIR})
 install(TARGETS hawaii-system-preferences
     DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(FILES ${QM_FILES}

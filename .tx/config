@@ -7,6 +7,12 @@ source_lang = en
 source_file = src/app/translations/template.ts
 file_filter = src/app/translations/<lang>.ts
 
+[hawaii.system-preferences-desktop-file]
+type = DESKTOP
+source_lang = en
+source_file = data/hawaii-system-preferences.desktop
+file_filter = data/hawaii-system-preferences_<lang>.desktop
+
 [hawaii.system-preferences-desktop-preflet]
 type = QT
 source_lang = en
