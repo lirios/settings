@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of System Preferences.
  *
- * Copyright (C) 2012 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2012-2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  * Copyright (C) 2007 Will Stephenson <wstephenson@kde.org>
  * Copyright (C) 2009 Ben Cooksley <bcooksley@kde.org>
  *
