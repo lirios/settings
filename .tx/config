@@ -1,0 +1,44 @@
+[main]
+host = https://www.transifex.com
+
+[hawaii.system-preferences]
+type = QT
+source_lang = en
+source_file = src/app/translations/template.ts
+file_filter = src/app/translations/<lang>.ts
+
+[hawaii.system-preferences-desktop-preflet]
+type = QT
+source_lang = en
+source_file = src/plugins/desktop/translations/template.ts
+file_filter = src/plugins/desktop/translations/<lang>.ts
+
+[hawaii.system-preferences-mime-types-preflet]
+type = QT
+source_lang = en
+source_file = src/plugins/mimetypes/translations/template.ts
+file_filter = src/plugins/mimetypes/translations/<lang>.ts
+
+[hawaii.system-preferences-mouse-preflet]
+type = QT
+source_lang = en
+source_file = src/plugins/mouse/translations/template.ts
+file_filter = src/plugins/mouse/translations/<lang>.ts
+
+[hawaii.system-preferences-screen-preflet]
+type = QT
+source_lang = en
+source_file = src/plugins/screen/translations/template.ts
+file_filter = src/plugins/screen/translations/<lang>.ts
+
+[hawaii.system-preferences-sound-preflet]
+type = QT
+source_lang = en
+source_file = src/plugins/sound/translations/template.ts
+file_filter = src/plugins/sound/translations/<lang>.ts
+
+[hawaii.system-preferences-users-preflet]
+type = QT
+source_lang = en
+source_file = src/plugins/user-accounts/translations/template.ts
+file_filter = src/plugins/user-accounts/translations/<lang>.ts
