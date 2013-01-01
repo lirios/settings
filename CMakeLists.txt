@@ -1,10 +1,12 @@
 project(SystemPreferences)
 
-cmake_minimum_required(VERSION 2.8.7)
+cmake_minimum_required(VERSION 2.8.9)
 
-# Enable automoc and include current directory
-set(CMAKE_AUTOMOC ON)
+# Find includes in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+# Instruct CMake to run moc automatically when needed
+set(CMAKE_AUTOMOC ON)
 
 # Set version
 set(SYSTEMPREFERENCES_VERSION_MAJOR 0)
@@ -14,6 +16,9 @@ set(SYSTEMPREFERENCES_VERSION_STRING "${SYSTEMPREFERENCES_VERSION_MAJOR}.${SYSTE
 
 # Installation directories
 include(HawaiiInstallDirs)
+
+# Log features
+include(MacroLogFeature)
 
 # Add custom uninstall target
 configure_file(
@@ -55,6 +60,8 @@ find_package(Qt5LinguistTools REQUIRED)
 if(NOT Qt5LinguistTools_FOUND)
     message(FATAL_ERROR "Qt5LinguistTools module is required!")
 endif()
+macro_log_feature(Qt5AccountsService_FOUND "Qt5AccountsService" "Support for Qt5AccountsService" "http://qt-project.org" "")
+macro_log_feature(Qt5LinguistTools_FOUND "Qt5LinguistTools" "Support for Qt5LinguistTools" "http://qt-project.org" "")
 
 # Find Vibe libraries
 find_package(VibeCore REQUIRED)
@@ -65,7 +72,12 @@ find_package(VibeWidgets REQUIRED)
 if(NOT VibeWidgets_FOUND)
     message(FATAL_ERROR "VibeWidgets module is required!")
 endif()
+macro_log_feature(VibeCore_FOUND "VibeCore" "Support for VibeCore" "http://www.maui-project.org" "")
+macro_log_feature(VibeWidgets_FOUND "VibeWidgets" "Support for VibeWidgets" "http://www.maui-project.org" "")
 
 # Subdirectories
 add_subdirectory(headers)
 add_subdirectory(src)
+
+# Display featute log
+macro_display_feature_log()
