@@ -37,6 +37,7 @@
 #include "usersmodel.h"
 #include "changepassworddialog.h"
 
+using namespace QtAddOn::AccountsService;
 using namespace Hawaii::SystemPreferences;
 
 Preflet::Preflet()
@@ -55,9 +56,9 @@ Preflet::Preflet()
 
     // Setup users list
     QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel(this);
-    m_model = new QtAddOn::AccountsService::UsersModel(this);
+    m_model = new UsersModel(this);
     proxyModel->setSourceModel(m_model);
-    proxyModel->setSortRole(QtAddOn::AccountsService::UsersModel::UserIdRole);
+    proxyModel->setSortRole(UsersModel::UserIdRole);
     ui->listView->setModel(proxyModel);
 
     // Connect signals
@@ -146,7 +147,7 @@ void Preflet::loadTranslations()
 
 void Preflet::userSelected(const QModelIndex &index)
 {
-    QtAddOn::AccountsService::UserAccount *account = m_model->userAccount(index);
+    UserAccount *account = m_model->userAccount(index);
     if (!account) {
         qWarning() << "Couldn't get selected user account!";
         m_currentIndex = QModelIndex();
@@ -174,7 +175,7 @@ void Preflet::realNameChanged()
 {
     if (m_currentIndex.isValid()) {
         QString name = ui->realName->text();
-        m_model->setData(m_currentIndex, QVariant(name), QtAddOn::AccountsService::UsersModel::RealNameRole);
+        m_model->setData(m_currentIndex, QVariant(name), UsersModel::RealNameRole);
         ui->realNameButton->setText(name);
     }
 }
