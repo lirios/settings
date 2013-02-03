@@ -66,6 +66,7 @@ private slots:
 private:
     QTranslator *m_translator;
     QAction *m_overviewAction;
+    QAction *m_searchAction;
     PolkitQt1::Gui::Action *m_unlockAction;
     QToolBar *m_toolBar;
     QLineEdit *m_search;

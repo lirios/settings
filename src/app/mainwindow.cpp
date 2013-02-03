@@ -194,9 +194,9 @@ void MainWindow::createToolBar()
     spacerWidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Maximum);
     m_toolBar->addWidget(spacerWidget);
 
-    QAction *searchAction = m_toolBar->addWidget(m_search);
-    searchAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_F));
-    connect(searchAction, SIGNAL(triggered()),
+    m_searchAction = m_toolBar->addWidget(m_search);
+    m_searchAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_F));
+    connect(m_searchAction, SIGNAL(triggered()),
             m_search, SLOT(setFocus()));
 
     addToolBar(m_toolBar);
@@ -250,7 +250,7 @@ void MainWindow::slotOverviewTriggered()
     }
 
     // Show the search field because now we need it
-    m_search->show();
+    m_searchAction->setVisible(true);
 }
 
 void MainWindow::slotSearchChanged(const QString &search)
@@ -270,7 +270,7 @@ void MainWindow::slotListViewClicked(const QModelIndex &index)
         createUnlockAction(const_cast<PreferencesModule *>(item->module()));
 
         // Hide the search field because it cannot be used now
-        m_search->hide();
+        m_searchAction->setVisible(false);
     }
 }
 
