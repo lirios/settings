@@ -35,6 +35,7 @@
 #include <QStackedWidget>
 #include <QStandardPaths>
 #include <QStyledItemDelegate>
+#include <QToolButton>
 #include <QTranslator>
 
 #include <PolkitQt1/Gui/Action>
@@ -69,9 +70,6 @@ MainWindow::MainWindow(QWidget *parent)
     m_search->setPlaceholderText(tr("Keywords"));
     connect(m_search, SIGNAL(textChanged(QString)),
             this, SLOT(slotSearchChanged(QString)));
-
-    // Actions
-    createActions();
 
     // Tool bar
     createToolBar();
@@ -161,14 +159,6 @@ void MainWindow::loadTranslations()
     QCoreApplication::instance()->installTranslator(m_translator);
 }
 
-void MainWindow::createActions()
-{
-    m_overviewAction = new QAction(QIcon::fromTheme("view-grid-symbolic"), tr("Overview"), this);
-    m_overviewAction->setEnabled(false);
-    connect(m_overviewAction, SIGNAL(triggered()),
-            this, SLOT(slotOverviewTriggered()));
-}
-
 void MainWindow::createUnlockAction(PreferencesModule *module)
 {
     if (!module->requiresAdministrativePrivileges())
@@ -195,8 +185,13 @@ void MainWindow::createToolBar()
 {
     m_toolBar = new QToolBar(tr("Tool Bar"), this);
     m_toolBar->setMovable(false);
+    m_toolBar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
-    m_toolBar->addAction(m_overviewAction);
+    m_overviewButton = new QToolButton(this);
+    m_overviewButton->setIcon(QIcon::fromTheme("view-grid-symbolic"));
+    m_overviewButton->setEnabled(false);
+    connect(m_overviewButton, SIGNAL(clicked()), this, SLOT(overview()));
+    m_toolBar->addWidget(m_overviewButton);
 
     QWidget *spacerWidget = new QWidget(this);
     spacerWidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Maximum);
@@ -242,13 +237,13 @@ void MainWindow::populate()
     }
 }
 
-void MainWindow::slotOverviewTriggered()
+void MainWindow::overview()
 {
     // Go to the first page
     m_stackedWidget->setCurrentIndex(0);
 
     // Now that we are on the first page the action must be disabled
-    m_overviewAction->setEnabled(false);
+    m_overviewButton->setEnabled(false);
 
     // Hide the unlock button
     if (m_unlockAction) {
@@ -274,7 +269,7 @@ void MainWindow::slotListViewClicked(const QModelIndex &index)
         m_stackedWidget->setCurrentWidget(const_cast<PreferencesModule *>(item->module()));
 
         // Enable the overview button and show the unlock button if neccessary
-        m_overviewAction->setEnabled(true);
+        m_overviewButton->setEnabled(true);
         createUnlockAction(const_cast<PreferencesModule *>(item->module()));
 
         // Hide the search field because it cannot be used now

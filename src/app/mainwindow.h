@@ -34,6 +34,7 @@
 class QAction;
 class QLineEdit;
 class QStackedWidget;
+class QToolButton;
 class QTranslator;
 
 namespace PolkitQt1 {
@@ -59,13 +60,13 @@ protected:
     void changeEvent(QEvent *event);
 
 private slots:
-    void slotOverviewTriggered();
+    void overview();
     void slotSearchChanged(const QString &search);
     void slotListViewClicked(const QModelIndex &index);
 
 private:
     QTranslator *m_translator;
-    QAction *m_overviewAction;
+    QToolButton *m_overviewButton;
     QAction *m_searchAction;
     PolkitQt1::Gui::Action *m_unlockAction;
     QToolBar *m_toolBar;
@@ -78,7 +79,6 @@ private:
     MenuProxyModel *m_proxyModel;
 
     void loadTranslations();
-    void createActions();
     void createUnlockAction(Hawaii::SystemPreferences::PreferencesModule *module);
     void createToolBar();
     void populate();
