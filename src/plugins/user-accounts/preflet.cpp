@@ -48,6 +48,7 @@ Preflet::Preflet()
     : PreferencesModule()
     , ui(new Ui::UsersPreflet)
     , m_translator(0)
+    , m_currentAccount(0)
 {
     ui->setupUi(this);
 
@@ -77,6 +78,8 @@ Preflet::Preflet()
             this, SLOT(realNameEditingFinished()));
     connect(ui->passwordButton, SIGNAL(clicked()),
             this, SLOT(changePasswordClicked()));
+    connect(ui->autologin, SIGNAL(clicked(bool)),
+            this, SLOT(toggleAutologin(bool)));
     connect(ui->addButton, SIGNAL(clicked()),
             this, SLOT(addUser()));
     connect(ui->removeButton, SIGNAL(clicked()),
@@ -185,19 +188,16 @@ void Preflet::clearUserSelection()
     setUiEnabled(false);
 }
 
-void Preflet::userSelected(const QModelIndex &index)
+void Preflet::populateUi(UserAccount *account)
 {
-    UserAccount *account = m_model->userAccount(index);
-    if (!account) {
-        qWarning() << "Couldn't get selected user account!";
-        m_currentIndex = QModelIndex();
-        return;
-    }
+    // Change password button text, if the account is not locked set it to
+    // some circles to fake a password field
+    if (account->isLocked())
+        ui->passwordButton->setText(tr("Account disabled"));
+    else
+        ui->passwordButton->setText(QStringLiteral("●●●●"));
 
-    m_currentIndex = index;
-
-    setUiEnabled(true);
-
+    // Set picture and other information
     QFileInfo fileInfo(account->iconFileName());
     QIcon userIcon;
     if (fileInfo.exists())
@@ -207,8 +207,33 @@ void Preflet::userSelected(const QModelIndex &index)
     ui->pictureButton->setIcon(userIcon);
     ui->realNameButton->setText(account->realName());
     ui->realName->setText(ui->realNameButton->text());
-    ui->accountType->setCurrentIndex(account->accountType());
+    ui->accountType->setCurrentIndex((int)account->accountType());
+    ui->autologin->setChecked(account->automaticLogin());
+}
 
+void Preflet::userSelected(const QModelIndex &index)
+{
+    // Currently selected account
+    UserAccount *account = m_model->userAccount(index);
+    if (!account) {
+        qWarning() << "Couldn't get selected user account!";
+        m_currentIndex = QModelIndex();
+        m_currentAccount = 0;
+        return;
+    }
+
+    // Save current index and account
+    m_currentIndex = index;
+    m_currentAccount = account;
+
+    // Enable and populate UI
+    setUiEnabled(true);
+    populateUi(account);
+
+    // Keep in sync
+    connect(account, SIGNAL(accountChanged()), this, SLOT(accountChanged()));
+
+    // Add and remove buttons can now be enabled
     ui->addButton->setEnabled(true);
     ui->removeButton->setEnabled(true);
 }
@@ -254,6 +279,12 @@ void Preflet::changePasswordClicked()
     dialog.exec();
 }
 
+void Preflet::toggleAutologin(bool enabled)
+{
+    if (m_currentAccount)
+        m_currentAccount->setAutomaticLogin(enabled);
+}
+
 void Preflet::addUser()
 {
     AddAccountDialog dialog(this);
@@ -262,11 +293,13 @@ void Preflet::addUser()
 
 void Preflet::removeUser()
 {
-    UserAccount *account = m_model->userAccount(m_currentIndex);
+    if (!m_currentAccount)
+        return;
 
     QMessageBox dialog(this);
     dialog.setIcon(QMessageBox::Question);
-    dialog.setText(tr("<b>Do you want to keep %1's files?</b>").arg(account->realName()));
+    dialog.setText(tr("<b>Do you want to keep %1's files?</b>")
+                   .arg(m_currentAccount->realName()));
     dialog.setInformativeText(tr("It is possible to keep the home directory, "
                                  "mail spool and temporary files around when "
                                  "deleting a user account."));
@@ -281,9 +314,21 @@ void Preflet::removeUser()
 
     if (button == removeFilesButton || button == keepFilesButton) {
         AccountsManager *manager = new AccountsManager();
-        manager->deleteUser(account, button == removeFilesButton);
+        manager->deleteUser(m_currentAccount, button == removeFilesButton);
         return;
     }
+}
+
+void Preflet::accountChanged()
+{
+    UserAccount *account = qobject_cast<UserAccount *>(sender());
+
+    // If this is not the selected account we can't change the UI
+    if (m_currentAccount != account)
+        return;
+
+    // Let's popule the UI
+    populateUi(account);
 }
 
 #include "moc_preflet.cpp"

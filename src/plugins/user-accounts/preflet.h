@@ -69,10 +69,12 @@ namespace Hawaii
             QTranslator *m_translator;
             UsersModel *m_model;
             QModelIndex m_currentIndex;
+            UserAccount *m_currentAccount;
 
             void loadTranslations();
             void setUiEnabled(bool enabled);
             void clearUserSelection();
+            void populateUi(UserAccount *account);
 
         private slots:
             void userSelected(const QModelIndex &index);
@@ -81,8 +83,10 @@ namespace Hawaii
             void realNameChanged();
             void realNameEditingFinished();
             void changePasswordClicked();
+            void toggleAutologin(bool enabled);
             void addUser();
             void removeUser();
+            void accountChanged();
         };
     }
 }

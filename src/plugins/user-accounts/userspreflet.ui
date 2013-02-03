@@ -269,7 +269,7 @@
          </layout>
         </item>
         <item>
-         <widget class="QCheckBox" name="checkBox">
+         <widget class="QCheckBox" name="autologin">
           <property name="text">
            <string>Automatic Login</string>
           </property>
