@@ -2,6 +2,7 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/headers
     ${CMAKE_BINARY_DIR}/src/lib
     ${VibeWidgets_INCLUDE_DIRS}
+    ${POLKITQT-1_INCLUDE_DIR}
 )
 
 # Create the cmakedirs.h header file
@@ -26,6 +27,7 @@ add_executable(hawaii-system-preferences ${SOURCES} ${QM_FILES})
 qt5_use_modules(hawaii-system-preferences Widgets)
 target_link_libraries(hawaii-system-preferences
     ${VibeWidgets_LIBRARIES}
+    ${POLKITQT-1_GUI_LIBRARY}
     HawaiiSystemPreferences
 )
 

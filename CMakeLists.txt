@@ -75,6 +75,13 @@ endif()
 macro_log_feature(VibeCore_FOUND "VibeCore" "Support for VibeCore" "http://www.maui-project.org" "")
 macro_log_feature(VibeWidgets_FOUND "VibeWidgets" "Support for VibeWidgets" "http://www.maui-project.org" "")
 
+# Find PolicyKit wrapper for Qt
+find_package(PolkitQt-1 REQUIRED)
+if(NOT PolkitQt-1_FOUND)
+    message(FATAL_ERROR "PolkitQt-1 module is required!")
+endif()
+macro_log_feature(PolkitQt-1_FOUND "PolkitQt-1" "Support for PolicyKit" "http://www.freedesktop.org/wiki/Software/PolicyKit" "")
+
 # Subdirectories
 add_subdirectory(headers)
 add_subdirectory(src)

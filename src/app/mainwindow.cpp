@@ -37,6 +37,8 @@
 #include <QStyledItemDelegate>
 #include <QTranslator>
 
+#include <PolkitQt1/Gui/Action>
+
 #include <VCategorizedView>
 
 #include <Hawaii/SystemPreferences/PreferencesModulePlugin>
@@ -53,6 +55,7 @@ using namespace Hawaii::SystemPreferences;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , m_translator(0)
+    , m_unlockAction(0)
 {
     // Load translations
     loadTranslations();
@@ -120,12 +123,12 @@ MainWindow::~MainWindow()
 void MainWindow::changeEvent(QEvent *event)
 {
     switch (event->type()) {
-        case QEvent::LanguageChange:
-        case QEvent::LocaleChange:
-            loadTranslations();
-            break;
-        default:
-            break;
+    case QEvent::LanguageChange:
+    case QEvent::LocaleChange:
+        loadTranslations();
+        break;
+    default:
+        break;
     }
 
     QMainWindow::changeEvent(event);
@@ -151,9 +154,9 @@ void MainWindow::loadTranslations()
     // Load our translations for the current locale
     m_translator = new QTranslator(this);
     QString localeDir = QStandardPaths::locate(
-                            QStandardPaths::GenericDataLocation,
-                            QLatin1String("hawaii-system-preferences/translations"),
-                            QStandardPaths::LocateDirectory);
+                QStandardPaths::GenericDataLocation,
+                QLatin1String("hawaii-system-preferences/translations"),
+                QStandardPaths::LocateDirectory);
     m_translator->load(locale, localeDir);
     QCoreApplication::instance()->installTranslator(m_translator);
 }
@@ -166,21 +169,37 @@ void MainWindow::createActions()
             this, SLOT(slotOverviewTriggered()));
 }
 
+void MainWindow::createUnlockAction(PreferencesModule *module)
+{
+    if (!module->requiresAdministrativePrivileges())
+        return;
+
+    m_unlockAction = new PolkitQt1::Gui::Action(module->administrativeActionId(), this);
+    m_unlockAction->setIcon(QIcon::fromTheme("changes-allow"));
+    m_unlockAction->setToolTip(tr("Dialog is locked, click to make changes"));
+    m_unlockAction->setTargetPID(QCoreApplication::instance()->applicationPid());
+    m_toolBar->addAction(m_unlockAction);
+    connect(m_unlockAction, SIGNAL(triggered()),
+            m_unlockAction, SLOT(activate()));
+}
+
 void MainWindow::createToolBar()
 {
-    QToolBar *toolBar = new QToolBar(tr("Tool Bar"), this);
-    toolBar->addAction(m_overviewAction);
+    m_toolBar = new QToolBar(tr("Tool Bar"), this);
+    m_toolBar->setMovable(false);
+
+    m_toolBar->addAction(m_overviewAction);
 
     QWidget *spacerWidget = new QWidget(this);
     spacerWidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Maximum);
-    toolBar->addWidget(spacerWidget);
+    m_toolBar->addWidget(spacerWidget);
 
-    QAction *searchAction = toolBar->addWidget(m_search);
+    QAction *searchAction = m_toolBar->addWidget(m_search);
     searchAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_F));
     connect(searchAction, SIGNAL(triggered()),
             m_search, SLOT(setFocus()));
 
-    addToolBar(toolBar);
+    addToolBar(m_toolBar);
 }
 
 void MainWindow::populate()
@@ -223,6 +242,13 @@ void MainWindow::slotOverviewTriggered()
     // Now that we are on the first page the action must be disabled
     m_overviewAction->setEnabled(false);
 
+    // Hide the unlock button
+    if (m_unlockAction) {
+        m_toolBar->removeAction(m_unlockAction);
+        delete m_unlockAction;
+        m_unlockAction = 0;
+    }
+
     // Show the search field because now we need it
     m_search->show();
 }
@@ -237,10 +263,11 @@ void MainWindow::slotListViewClicked(const QModelIndex &index)
     MenuItem *item = index.data(Qt::UserRole).value<MenuItem *>();
     if (item->module()) {
         // Show the module
-        m_stackedWidget->setCurrentWidget((PreferencesModule *)item->module());
+        m_stackedWidget->setCurrentWidget(const_cast<PreferencesModule *>(item->module()));
 
-        // Enable the action to go to the first page
+        // Enable the overview button and show the unlock button if neccessary
         m_overviewAction->setEnabled(true);
+        createUnlockAction(const_cast<PreferencesModule *>(item->module()));
 
         // Hide the search field because it cannot be used now
         m_search->hide();

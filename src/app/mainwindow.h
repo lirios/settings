@@ -36,6 +36,12 @@ class QLineEdit;
 class QStackedWidget;
 class QTranslator;
 
+namespace PolkitQt1 {
+    namespace Gui {
+        class Action;
+    }
+}
+
 class VCategorizedView;
 
 class MenuItem;
@@ -60,6 +66,8 @@ private slots:
 private:
     QTranslator *m_translator;
     QAction *m_overviewAction;
+    PolkitQt1::Gui::Action *m_unlockAction;
+    QToolBar *m_toolBar;
     QLineEdit *m_search;
     QStackedWidget *m_stackedWidget;
     QMap<Hawaii::SystemPreferences::PreferencesModule::Category, MenuItem *> m_categories;
@@ -70,6 +78,7 @@ private:
 
     void loadTranslations();
     void createActions();
+    void createUnlockAction(Hawaii::SystemPreferences::PreferencesModule *module);
     void createToolBar();
     void populate();
 };
