@@ -76,7 +76,7 @@ macro_log_feature(VibeCore_FOUND "VibeCore" "Support for VibeCore" "http://www.m
 macro_log_feature(VibeWidgets_FOUND "VibeWidgets" "Support for VibeWidgets" "http://www.maui-project.org" "")
 
 # Find PolicyKit wrapper for Qt
-find_package(PolkitQt-1 REQUIRED)
+find_package(PolkitQt-1 "0.103.0" REQUIRED)
 if(NOT PolkitQt-1_FOUND)
     message(FATAL_ERROR "PolkitQt-1 module is required!")
 endif()

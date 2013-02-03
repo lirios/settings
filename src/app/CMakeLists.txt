@@ -25,6 +25,9 @@ qt5_add_translation(QM_FILES ${QM_SOURCES})
 
 add_executable(hawaii-system-preferences ${SOURCES} ${QM_FILES})
 qt5_use_modules(hawaii-system-preferences Widgets)
+set_target_properties(hawaii-system-preferences PROPERTIES
+    LINK_FLAGS "-L${POLKITQT-1_LIB_DIR}"
+)
 target_link_libraries(hawaii-system-preferences
     ${VibeWidgets_LIBRARIES}
     ${POLKITQT-1_GUI_LIBRARY}
