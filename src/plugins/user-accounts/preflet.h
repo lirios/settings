@@ -58,6 +58,8 @@ namespace Hawaii
             virtual QString iconName() const;
             virtual QStringList keywords() const;
             virtual PreferencesModule::Category category() const;
+            virtual bool requiresAdministrativePrivileges() const;
+            virtual QString administrativeActionId() const;
 
         protected:
             void changeEvent(QEvent *event);

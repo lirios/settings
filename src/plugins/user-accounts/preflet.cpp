@@ -115,6 +115,16 @@ PreferencesModule::Category Preflet::category() const
     return PreferencesModule::SystemCategory;
 }
 
+bool Preflet::requiresAdministrativePrivileges() const
+{
+    return true;
+}
+
+QString Preflet::administrativeActionId() const
+{
+    return QStringLiteral("org.freedesktop.accounts.user-administration");
+}
+
 void Preflet::changeEvent(QEvent *event)
 {
     switch (event->type()) {
