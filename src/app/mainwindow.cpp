@@ -160,7 +160,7 @@ void MainWindow::loadTranslations()
 
 void MainWindow::createActions()
 {
-    m_overviewAction = new QAction(tr("Overview"), this);
+    m_overviewAction = new QAction(QIcon::fromTheme("view-grid-symbolic"), tr("Overview"), this);
     m_overviewAction->setEnabled(false);
     connect(m_overviewAction, SIGNAL(triggered()),
             this, SLOT(slotOverviewTriggered()));
