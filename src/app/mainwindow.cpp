@@ -175,8 +175,16 @@ void MainWindow::createUnlockAction(PreferencesModule *module)
         return;
 
     m_unlockAction = new PolkitQt1::Gui::Action(module->administrativeActionId(), this);
-    m_unlockAction->setIcon(QIcon::fromTheme("changes-allow"));
-    m_unlockAction->setToolTip(tr("Dialog is locked, click to make changes"));
+    m_unlockAction->setIcon(QIcon::fromTheme("changes-allow"),
+                            PolkitQt1::Gui::Action::Auth);
+    m_unlockAction->setText(tr("Unlock"), PolkitQt1::Gui::Action::Auth);
+    m_unlockAction->setToolTip(tr("Dialog is locked, click to make changes"),
+                               PolkitQt1::Gui::Action::Auth);
+    m_unlockAction->setText(tr("Lock"), PolkitQt1::Gui::Action::SelfBlocked);
+    m_unlockAction->setIcon(QIcon::fromTheme("changes-prevent"),
+                            PolkitQt1::Gui::Action::SelfBlocked);
+    m_unlockAction->setToolTip(tr("Dialog is unlocked, click to prevent further changes"),
+                               PolkitQt1::Gui::Action::SelfBlocked);
     m_unlockAction->setTargetPID(QCoreApplication::instance()->applicationPid());
     m_toolBar->addAction(m_unlockAction);
     connect(m_unlockAction, SIGNAL(triggered()),
