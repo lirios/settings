@@ -39,6 +39,11 @@ namespace Hawaii
         {
             return false;
         }
+
+        QString PreferencesModule::administrativeActionId() const
+        {
+            return QStringLiteral("");
+        }
     }
 }
 

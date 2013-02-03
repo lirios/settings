@@ -202,6 +202,15 @@ namespace Hawaii
              * This method returns false by default.
              */
             virtual bool requiresAdministrativePrivileges() const;
+
+            /**
+             * @returns the identifier for the action that requires
+             * administrative privileges.
+             *
+             * If this module doesn't require administrative privileges, this
+             * methods returns an empty string.
+             */
+            virtual QString administrativeActionId() const;
         };
     }
 }
