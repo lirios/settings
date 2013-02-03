@@ -29,6 +29,8 @@
 
 #include <QModelIndex>
 
+#include <QtAccountsService/UsersModel>
+
 #include <Hawaii/SystemPreferences/PreferencesModule>
 
 class QTranslator;
@@ -38,13 +40,7 @@ namespace Ui
     class UsersPreflet;
 }
 
-namespace QtAddOn
-{
-    namespace AccountsService
-    {
-        class UsersModel;
-    }
-}
+QT_USE_NAMESPACE_ACCOUNTSSERVICE
 
 namespace Hawaii
 {
@@ -69,7 +65,7 @@ namespace Hawaii
         private:
             Ui::UsersPreflet *ui;
             QTranslator *m_translator;
-            QtAddOn::AccountsService::UsersModel *m_model;
+            UsersModel *m_model;
             QModelIndex m_currentIndex;
 
             void loadTranslations();

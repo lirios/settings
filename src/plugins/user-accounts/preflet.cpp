@@ -26,6 +26,7 @@
 
 #include <QCoreApplication>
 #include <QDebug>
+#include <QFileInfo>
 #include <QSortFilterProxyModel>
 #include <QStandardPaths>
 #include <QTranslator>
@@ -34,10 +35,9 @@
 
 #include "preflet.h"
 #include "ui_userspreflet.h"
-#include "usersmodel.h"
+#include "useritemdelegate.h"
 #include "changepassworddialog.h"
 
-using namespace QtAddOn::AccountsService;
 using namespace Hawaii::SystemPreferences;
 
 Preflet::Preflet()
@@ -60,6 +60,8 @@ Preflet::Preflet()
     proxyModel->setSourceModel(m_model);
     proxyModel->setSortRole(UsersModel::UserIdRole);
     ui->listView->setModel(proxyModel);
+    ui->listView->setItemDelegate(new UserItemDelegate(this));
+    //ui->listView->selectionModel()->select(m_model->indexFromUserAccount())
 
     // Connect signals
     connect(ui->listView, SIGNAL(clicked(QModelIndex)),
@@ -156,7 +158,13 @@ void Preflet::userSelected(const QModelIndex &index)
 
     m_currentIndex = index;
 
-    ui->pictureButton->setIcon(QIcon(account->iconFileName()));
+    QFileInfo fileInfo(account->iconFileName());
+    QIcon userIcon;
+    if (fileInfo.exists())
+        userIcon = QIcon(account->iconFileName());
+    else
+        userIcon = QIcon::fromTheme("avatar-default");
+    ui->pictureButton->setIcon(userIcon);
     ui->realNameButton->setText(account->realName());
     ui->realName->setText(ui->realNameButton->text());
     ui->accountType->setCurrentIndex(account->accountType());

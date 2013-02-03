@@ -51,7 +51,7 @@
           <enum>Qt::Horizontal</enum>
          </property>
          <property name="sizeType">
-          <enum>QSizePolicy::Minimum</enum>
+          <enum>QSizePolicy::Preferred</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -111,7 +111,7 @@
               <string>Click to change user's name</string>
              </property>
              <property name="text">
-              <string>$NAME$</string>
+              <string notr="true">$NAME$</string>
              </property>
              <property name="autoRaise">
               <bool>true</bool>

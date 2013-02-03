@@ -8,6 +8,7 @@ add_definitions(-DQT_PLUGIN)
 
 set(SOURCES
     preflet.cpp
+    useritemdelegate.cpp
     plugin.cpp
     changepassworddialog.cpp
 )
