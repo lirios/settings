@@ -69,13 +69,18 @@ namespace Hawaii
             QModelIndex m_currentIndex;
 
             void loadTranslations();
+            void setUiEnabled(bool enabled);
+            void clearUserSelection();
 
         private slots:
             void userSelected(const QModelIndex &index);
+            void modelRowsRemoved(const QModelIndex &parent, int first, int last);
             void realNameClicked();
             void realNameChanged();
             void realNameEditingFinished();
             void changePasswordClicked();
+            void addUser();
+            void removeUser();
         };
     }
 }

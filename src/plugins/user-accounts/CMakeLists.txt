@@ -10,11 +10,13 @@ set(SOURCES
     preflet.cpp
     useritemdelegate.cpp
     plugin.cpp
+    addaccountdialog.cpp
     changepassworddialog.cpp
 )
 
 set(FORMS
     userspreflet.ui
+    addaccountdialog.ui
     changepassworddialog.ui
 )
 

@@ -27,15 +27,19 @@
 #include <QCoreApplication>
 #include <QDebug>
 #include <QFileInfo>
+#include <QMessageBox>
+#include <QPushButton>
 #include <QSortFilterProxyModel>
 #include <QStandardPaths>
 #include <QTranslator>
 
+#include <QtAccountsService/AccountsManager>
 #include <QtAccountsService/UserAccount>
 
 #include "preflet.h"
 #include "ui_userspreflet.h"
 #include "useritemdelegate.h"
+#include "addaccountdialog.h"
 #include "changepassworddialog.h"
 
 using namespace Hawaii::SystemPreferences;
@@ -50,10 +54,6 @@ Preflet::Preflet()
     // Load translations
     loadTranslations();
 
-    // Setup icons
-    ui->addButton->setIcon(QIcon::fromTheme("list-add-symbolic"));
-    ui->removeButton->setIcon(QIcon::fromTheme("list-remove-symbolic"));
-
     // Setup users list
     QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel(this);
     m_model = new UsersModel(this);
@@ -61,13 +61,14 @@ Preflet::Preflet()
     proxyModel->setSortRole(UsersModel::UserIdRole);
     ui->listView->setModel(proxyModel);
     ui->listView->setItemDelegate(new UserItemDelegate(this));
-    //ui->listView->selectionModel()->select(m_model->indexFromUserAccount())
 
     // Connect signals
     connect(ui->listView, SIGNAL(clicked(QModelIndex)),
             ui->listView, SIGNAL(activated(QModelIndex)));
     connect(ui->listView, SIGNAL(clicked(QModelIndex)),
             this, SLOT(userSelected(QModelIndex)));
+    connect(m_model, SIGNAL(rowsRemoved(QModelIndex,int,int)),
+            this, SLOT(modelRowsRemoved(QModelIndex,int,int)));
     connect(ui->realNameButton, SIGNAL(clicked()),
             this, SLOT(realNameClicked()));
     connect(ui->realName, SIGNAL(returnPressed()),
@@ -76,6 +77,10 @@ Preflet::Preflet()
             this, SLOT(realNameEditingFinished()));
     connect(ui->passwordButton, SIGNAL(clicked()),
             this, SLOT(changePasswordClicked()));
+    connect(ui->addButton, SIGNAL(clicked()),
+            this, SLOT(addUser()));
+    connect(ui->removeButton, SIGNAL(clicked()),
+            this, SLOT(removeUser()));
 }
 
 Preflet::~Preflet()
@@ -113,14 +118,14 @@ PreferencesModule::Category Preflet::category() const
 void Preflet::changeEvent(QEvent *event)
 {
     switch (event->type()) {
-        case QEvent::LanguageChange:
-            ui->retranslateUi(this);
-            break;
-        case QEvent::LocaleChange:
-            loadTranslations();
-            break;
-        default:
-            break;
+    case QEvent::LanguageChange:
+        ui->retranslateUi(this);
+        break;
+    case QEvent::LocaleChange:
+        loadTranslations();
+        break;
+    default:
+        break;
     }
 
     QWidget::changeEvent(event);
@@ -140,11 +145,34 @@ void Preflet::loadTranslations()
     // Load translations
     m_translator = new QTranslator(this);
     QString localeDir = QStandardPaths::locate(
-                            QStandardPaths::GenericDataLocation,
-                            QLatin1String("hawaii-system-preferences/plugins/user-accounts/translations"),
-                            QStandardPaths::LocateDirectory);
+                QStandardPaths::GenericDataLocation,
+                QLatin1String("hawaii-system-preferences/plugins/user-accounts/translations"),
+                QStandardPaths::LocateDirectory);
     m_translator->load(locale, localeDir);
     QCoreApplication::instance()->installTranslator(m_translator);
+}
+
+void Preflet::setUiEnabled(bool enabled)
+{
+    ui->pictureButton->setEnabled(enabled);
+    ui->realNameStack->setEnabled(enabled);
+    ui->accountTypeLabel->setEnabled(enabled);
+    ui->languageLabel->setEnabled(enabled);
+    ui->accountType->setEnabled(enabled);
+    ui->language->setEnabled(enabled);
+    ui->groupBox->setEnabled(enabled);
+}
+
+void Preflet::clearUserSelection()
+{
+    ui->listView->clearSelection();
+    ui->pictureButton->setIcon(QIcon());
+    ui->realNameButton->setText(QStringLiteral(""));
+    ui->realName->setText(QStringLiteral(""));
+    ui->accountType->setCurrentIndex(0);
+    ui->language->setCurrentIndex(0);
+    ui->passwordButton->setText(QStringLiteral(""));
+    setUiEnabled(false);
 }
 
 void Preflet::userSelected(const QModelIndex &index)
@@ -158,6 +186,8 @@ void Preflet::userSelected(const QModelIndex &index)
 
     m_currentIndex = index;
 
+    setUiEnabled(true);
+
     QFileInfo fileInfo(account->iconFileName());
     QIcon userIcon;
     if (fileInfo.exists())
@@ -168,6 +198,20 @@ void Preflet::userSelected(const QModelIndex &index)
     ui->realNameButton->setText(account->realName());
     ui->realName->setText(ui->realNameButton->text());
     ui->accountType->setCurrentIndex(account->accountType());
+
+    ui->addButton->setEnabled(true);
+    ui->removeButton->setEnabled(true);
+}
+
+void Preflet::modelRowsRemoved(const QModelIndex &parent, int first, int last)
+{
+    Q_UNUSED(parent);
+
+    // When an item is removed we clear the selection
+    if (m_currentIndex.isValid() &&
+            m_currentIndex.row() >= first &&
+            m_currentIndex.row() <= last)
+        clearUserSelection();
 }
 
 void Preflet::realNameClicked()
@@ -198,6 +242,38 @@ void Preflet::changePasswordClicked()
     ChangePasswordDialog dialog(this);
     dialog.setUserAccount(m_model->userAccount(m_currentIndex));
     dialog.exec();
+}
+
+void Preflet::addUser()
+{
+    AddAccountDialog dialog(this);
+    dialog.exec();
+}
+
+void Preflet::removeUser()
+{
+    UserAccount *account = m_model->userAccount(m_currentIndex);
+
+    QMessageBox dialog(this);
+    dialog.setIcon(QMessageBox::Question);
+    dialog.setText(tr("<b>Do you want to keep %1's files?</b>").arg(account->realName()));
+    dialog.setInformativeText(tr("It is possible to keep the home directory, "
+                                 "mail spool and temporary files around when "
+                                 "deleting a user account."));
+    QPushButton *removeFilesButton =
+            dialog.addButton(tr("Delete Files"), QMessageBox::NoRole);
+    QPushButton *keepFilesButton =
+            dialog.addButton(tr("Keep Files"), QMessageBox::YesRole);
+    dialog.addButton(QMessageBox::Cancel);
+    dialog.exec();
+
+    QAbstractButton *button = dialog.clickedButton();
+
+    if (button == removeFilesButton || button == keepFilesButton) {
+        AccountsManager *manager = new AccountsManager();
+        manager->deleteUser(account, button == removeFilesButton);
+        return;
+    }
 }
 
 #include "moc_preflet.cpp"
