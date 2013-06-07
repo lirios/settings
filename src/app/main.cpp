@@ -24,22 +24,45 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include <QApplication>
+#include <QtWidgets/QApplication>
+#include <QtQml/QQmlEngine>
+#include <QtQml/QQmlComponent>
+#include <QtQuick/QQuickWindow>
 
-#include "mainwindow.h"
+#include "categoriesmodel.h"
+#include "prefletsmodel.h"
+#include "prefletsproxymodel.h"
 
 int main(int argc, char *argv[])
 {
     // Setup application
     QApplication app(argc, argv);
     app.setApplicationName("System Preferences");
-    app.setApplicationVersion("0.0.0");
+    app.setApplicationVersion("0.1.90");
     app.setOrganizationDomain("maui-project.org");
     app.setOrganizationName("Hawaii");
 
-    // Show main window
-    MainWindow *win = new MainWindow();
-    win->show();
+    QQmlEngine engine;
 
+    qmlRegisterType<CategoriesModel>("Hawaii.SystemPreferences", 0, 1, "CategoriesModel");
+    qmlRegisterType<PrefletsModel>("Hawaii.SystemPreferences", 0, 1, "PrefletsModel");
+    qmlRegisterType<PrefletsProxyModel>("Hawaii.SystemPreferences", 0, 1, "PrefletsProxyModel");
+
+    QQmlComponent component(&engine);
+    component.loadUrl(QUrl("qrc:/qml/main.qml"));
+    if (!component.isReady()) {
+        qWarning("%s", qPrintable(component.errorString()));
+        return 1;
+    }
+
+    QObject *topLevel = component.create();
+    QQuickWindow *window = qobject_cast<QQuickWindow *>(topLevel);
+    if (!window) {
+        qWarning("Error: Your root item has to be a Window");
+        return 1;
+    }
+
+    QObject::connect(&engine, SIGNAL(quit()), &app, SLOT(quit()));
+    window->show();
     return app.exec();
 }

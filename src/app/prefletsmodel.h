@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of System Preferences.
  *
- * Copyright (C) 2012-2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * Author(s):
  *    Pier Luigi Fiorini
@@ -24,16 +24,38 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef CATEGORIZED_VIEW
-#define CATEGORIZED_VIEW
+#ifndef PREFLETSMODEL_H
+#define PREFLETSMODEL_H
 
+#include <QtCore/QAbstractListModel>
 
-class CategorizedView : public VCategorizedView
+#include <Hawaii/SystemPreferences/PreferencesModule>
+
+using namespace Hawaii::SystemPreferences;
+
+class PrefletsModel : public QAbstractListModel
 {
+    Q_OBJECT
+    Q_ENUMS(Roles)
 public:
-    explicit CategorizedView(QWidget *parent = 0);
+    enum Roles {
+        TitleRole = Qt::UserRole + 1,
+        CommentRole,
+        IconNameRole,
+        CategoryRole,
+        CategoryNameRole
+    };
 
-    virtual void setModel(QAbstractItemModel *model);
+    explicit PrefletsModel(QObject *parent = 0);
+
+    QHash<int, QByteArray> roleNames() const;
+
+    QVariant data(const QModelIndex &index, int role) const;
+
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+
+private:
+    QList<PreferencesModule *> m_modules;
 };
 
-#endif // CATEGORIZED_VIEW
+#endif // PREFLETSMODEL_H

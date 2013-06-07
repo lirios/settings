@@ -1,12 +1,10 @@
 /****************************************************************************
  * This file is part of System Preferences.
  *
- * Copyright (C) 2012-2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
- * Copyright (C) 2009 Rafael Fernández López <ereslibre@kde.org>
+ * Copyright (C) 2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * Author(s):
  *    Pier Luigi Fiorini
- *    Rafael Fernández López
  *
  * $BEGIN_LICENSE:GPL2+$
  *
@@ -26,25 +24,16 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include "categorizedview.h"
+#ifndef PREFLETSPROXYMODEL_H
+#define PREFLETSPROXYMODEL_H
 
-CategorizedView::CategorizedView(QWidget *parent)
-    : VCategorizedView(parent)
+#include <QtCore/QSortFilterProxyModel>
+
+class PrefletsProxyModel : public QSortFilterProxyModel
 {
-    setWordWrap(true);
-}
+    Q_OBJECT
+public:
+    explicit PrefletsProxyModel(QObject *parent = 0);
+};
 
-void CategorizedView::setModel(QAbstractItemModel *model)
-{
-    VCategorizedView::setModel(model);
-
-    int maxWidth = -1, maxHeight = -1;
-    for (int i = 0; i < model->rowCount(); ++i) {
-        const QModelIndex index = model->index(i, modelColumn(), rootIndex());
-        const QSize size = sizeHintForIndex(index);
-        maxWidth = qMax(maxWidth, size.width());
-        maxHeight = qMax(maxHeight, size.height());
-    }
-
-    setGridSize(QSize(maxWidth, maxHeight));
-}
+#endif // PREFLETSPROXYMODEL_H

@@ -10,11 +10,9 @@ configure_file(cmakedirs.h.in ${CMAKE_CURRENT_BINARY_DIR}/cmakedirs.h)
 
 set(SOURCES
     main.cpp
-    mainwindow.cpp
-    categorydrawer.cpp
-    menuitem.cpp
-    menumodel.cpp
-    menuproxymodel.cpp
+    categoriesmodel.cpp
+    prefletsmodel.cpp
+    prefletsproxymodel.cpp
 )
 
 set(QM_SOURCES
@@ -23,8 +21,10 @@ set(QM_SOURCES
 
 qt5_add_translation(QM_FILES ${QM_SOURCES})
 
-add_executable(hawaii-system-preferences ${SOURCES} ${QM_FILES})
-qt5_use_modules(hawaii-system-preferences Widgets)
+qt5_add_resources(RESOURCES system-preferences.qrc)
+
+add_executable(hawaii-system-preferences ${SOURCES} ${QM_FILES} ${RESOURCES})
+qt5_use_modules(hawaii-system-preferences Qml Quick Widgets)
 set_target_properties(hawaii-system-preferences PROPERTIES
     LINK_FLAGS "-L${POLKITQT-1_LIB_DIR}"
 )

@@ -1,12 +1,10 @@
 /****************************************************************************
  * This file is part of System Preferences.
  *
- * Copyright (C) 2012-2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
- * Copyright (C) 2009 Rafael Fernández López <ereslibre@kde.org>
+ * Copyright (C) 2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * Author(s):
  *    Pier Luigi Fiorini
- *    Rafael Fernández López
  *
  * $BEGIN_LICENSE:GPL2+$
  *
@@ -26,22 +24,45 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef CATEGORYDRAWER_H
-#define CATEGORYDRAWER_H
+#ifndef CATEGORIESMODEL_H
+#define CATEGORIESMODEL_H
 
-#include <VCategoryDrawer>
+#include <QtCore/QAbstractListModel>
 
-class CategoryDrawer : public VCategoryDrawer
+#include <Hawaii/SystemPreferences/PreferencesModule>
+
+using namespace Hawaii::SystemPreferences;
+
+struct CategoryItem
 {
-public:
-    explicit CategoryDrawer(VCategorizedView *view = 0);
-
-    virtual void drawCategory(const QModelIndex &index, int sortRole,
-                              const QStyleOption &option,
-                              QPainter *painter) const;
-
-    virtual int categoryHeight(const QModelIndex &index,
-                               const QStyleOption &option) const;
+    PreferencesModule::Category type;
+    QString name;
+    QString label;
 };
 
-#endif // CATEGORYDRAWER_H
+class CategoriesModel : public QAbstractListModel
+{
+    Q_OBJECT
+    Q_ENUMS(Roles)
+public:
+    enum Roles {
+        TypeRole = Qt::UserRole + 1,
+        NameRole,
+        LabelRole
+    };
+
+    explicit CategoriesModel(QObject *parent = 0);
+
+    QHash<int, QByteArray> roleNames() const;
+
+    QVariant data(const QModelIndex &index, int role) const;
+
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+
+private:
+    QList<CategoryItem> m_categories;
+
+    void appendCategory(PreferencesModule::Category type);
+};
+
+#endif // CATEGORIESMODEL_H
