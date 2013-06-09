@@ -73,11 +73,10 @@ ApplicationWindow {
                             GridView {
                                 id: gridView
                                 model: PrefletsProxyModel {}
+                                cellWidth: width / 6
                                 delegate: GridDelegate {
                                     width: gridView.cellWidth
                                 }
-                                clip: true
-                                cellWidth: 100
 
                                 Component.onCompleted: gridView.model.setFilterFixedString(name)
                             }
