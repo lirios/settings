@@ -98,6 +98,29 @@ ApplicationWindow {
 
                     GroupBox {
                         title: label
+                        style: GroupBoxStyle {
+                            padding {
+                                top: (control.title.length > 0 || control.checkable ? 16 : 0) + 20
+                                left: 16
+                            }
+
+                            panel: Rectangle {
+                                anchors.fill: parent
+                                color: index % 2 ? palette.window : palette.alternateBase
+
+                                Label {
+                                    anchors {
+                                        top: parent.top
+                                        leftMargin: 4
+                                        topMargin: 4
+                                        rightMargin: 4
+                                    }
+                                    text: control.title
+                                    font.bold: true
+                                    renderType: Text.NativeRendering
+                                }
+                            }
+                        }
 
                         Layout.fillWidth: true
                         Layout.fillHeight: true
