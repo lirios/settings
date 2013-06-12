@@ -26,8 +26,8 @@
 
 #include <QIcon>
 #include <QDirIterator>
+#include <QStandardPaths>
 
-#include <VStandardDirectories>
 #include <VDesktopFile>
 
 #include "backgroundcategoriesmodel.h"
@@ -131,7 +131,8 @@ int CategoryModel::rowCount(const QModelIndex &parent) const
 
 void CategoryModel::populateCoatings()
 {
-    QString path = QString("%1/wallpapers").arg(findDirectory(SystemDataDirectory));
+    QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
+			                              QStandardPaths::LocateDirectory);
     QDirIterator it(path, QDir::Dirs | QDir::Readable | QDir::NoDotAndDotDot,
                     QDirIterator::FollowSymlinks);
     while (it.hasNext()) {
