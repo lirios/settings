@@ -32,8 +32,6 @@ ColumnLayout {
     Image {
         source: "image://desktoptheme/" + model.iconName
         sourceSize: Qt.size(48, 48)
-        width: 48
-        height: 48
 
         Layout.alignment: Qt.AlignCenter
     }

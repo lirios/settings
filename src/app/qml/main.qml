@@ -97,7 +97,7 @@ ApplicationWindow {
                     model: CategoriesModel {}
 
                     GroupBox {
-                        title: label
+                        title: model.label
                         style: GroupBoxStyle {
                             padding {
                                 top: (control.title.length > 0 || control.checkable ? 16 : 0) + 20
@@ -108,16 +108,19 @@ ApplicationWindow {
                                 anchors.fill: parent
                                 color: index % 2 ? palette.window : palette.alternateBase
 
-                                Label {
-                                    anchors {
-                                        top: parent.top
-                                        leftMargin: 4
-                                        topMargin: 4
-                                        rightMargin: 4
+                                RowLayout {
+                                    Image {
+                                        source: "image://desktoptheme/" + model.iconName
+                                        sourceSize: Qt.size(22, 22)
+                                        width: 22
+                                        height: 22
                                     }
-                                    text: control.title
-                                    font.bold: true
-                                    renderType: Text.NativeRendering
+
+                                    Label {
+                                        text: control.title
+                                        font.bold: true
+                                        renderType: Text.NativeRendering
+                                    }
                                 }
                             }
                         }

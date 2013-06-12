@@ -40,6 +40,7 @@ QHash<int, QByteArray> CategoriesModel::roleNames() const
     roles[TypeRole] = "type";
     roles[NameRole] = "name";
     roles[LabelRole] = "label";
+    roles[IconNameRole] = "iconName";
     return roles;
 }
 
@@ -55,6 +56,8 @@ QVariant CategoriesModel::data(const QModelIndex &index, int role) const
         return item.type;
     case NameRole:
         return item.name;
+    case IconNameRole:
+        return item.iconName;
     default:
         break;
     }
@@ -77,14 +80,17 @@ void CategoriesModel::appendCategory(PreferencesModule::Category type)
     case PreferencesModule::PersonalCategory:
         item.name = QStringLiteral("personal");
         item.label = tr("Personal");
+        item.iconName = "avatar-default";
         break;
     case PreferencesModule::HardwareCategory:
         item.name = QStringLiteral("hardware");
         item.label = tr("Hardware");
+        item.iconName = "applications-system";
         break;
     case PreferencesModule::SystemCategory:
         item.name = QStringLiteral("system");
         item.label = tr("System");
+        item.iconName = "system";
         break;
     }
 

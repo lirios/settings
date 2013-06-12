@@ -38,6 +38,7 @@ struct CategoryItem
     PreferencesModule::Category type;
     QString name;
     QString label;
+    QString iconName;
 };
 
 class CategoriesModel : public QAbstractListModel
@@ -48,7 +49,8 @@ public:
     enum Roles {
         TypeRole = Qt::UserRole + 1,
         NameRole,
-        LabelRole
+        LabelRole,
+        IconNameRole
     };
 
     explicit CategoriesModel(QObject *parent = 0);
