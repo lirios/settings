@@ -40,6 +40,7 @@ ApplicationWindow {
 
     toolBar: ToolBar {
         id: mainToolBar
+        height: searchEntry.height
 
         RowLayout {
             anchors.fill: parent
@@ -63,7 +64,8 @@ ApplicationWindow {
             TextField {
                 id: searchEntry
                 placeholderText: qsTr("Keywords")
-                visible: pageStack.depth === 1
+                //visible: pageStack.depth === 1
+                visible: false
 
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
             }
