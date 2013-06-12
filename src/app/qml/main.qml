@@ -40,13 +40,13 @@ ApplicationWindow {
 
     toolBar: ToolBar {
         id: mainToolBar
-        height: searchEntry.height
+        height: Math.max(backButton.height, searchEntry.height) + 10
 
         RowLayout {
             anchors.fill: parent
-            //spacing: 10
 
             ToolButton {
+                id: backButton
                 action: actionBack
                 visible: pageStack.depth > 1
             }
