@@ -230,7 +230,7 @@ void Preflet::slotBackgroundCategorySelected(int index)
             // Populate the list with wallpapers
             QStringList paths = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
             foreach(QString dir, paths) {
-                QString path = QString("%1wallpapers").arg(dir);
+                QString path = QString("%1/wallpapers").arg(dir);
                 QDirIterator it(path, QDir::Dirs | QDir::Readable | QDir::NoDotAndDotDot,
                                 QDirIterator::FollowSymlinks);
                 while (it.hasNext()) {
