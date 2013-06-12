@@ -160,9 +160,7 @@ namespace Hawaii
                 //! Hardware preferences.
                 HardwareCategory,
                 //! System preferences.
-                SystemCategory,
-                //! Other preferences.
-                OtherCategory,
+                SystemCategory
             };
 
             /**

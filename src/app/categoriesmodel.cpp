@@ -32,7 +32,6 @@ CategoriesModel::CategoriesModel(QObject *parent)
     appendCategory(PreferencesModule::PersonalCategory);
     appendCategory(PreferencesModule::HardwareCategory);
     appendCategory(PreferencesModule::SystemCategory);
-    appendCategory(PreferencesModule::OtherCategory);
 }
 
 QHash<int, QByteArray> CategoriesModel::roleNames() const
@@ -86,10 +85,6 @@ void CategoriesModel::appendCategory(PreferencesModule::Category type)
     case PreferencesModule::SystemCategory:
         item.name = QStringLiteral("system");
         item.label = tr("System");
-        break;
-    case PreferencesModule::OtherCategory:
-        item.name = QStringLiteral("other");
-        item.label = tr("Other");
         break;
     }
 

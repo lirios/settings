@@ -86,8 +86,6 @@ QVariant PrefletsModel::data(const QModelIndex &index, int role) const
             return QStringLiteral("hardware");
         case PreferencesModule::SystemCategory:
             return QStringLiteral("system");
-        case PreferencesModule::OtherCategory:
-            return QStringLiteral("other");
         }
     }
     case ItemRole:
