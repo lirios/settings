@@ -78,7 +78,7 @@ ApplicationWindow {
 
     Action {
         id: actionBack
-        iconName: "go-previous-symbolic"
+        iconName: "go-previous"
         onTriggered: pageStack.pop()
     }
 
