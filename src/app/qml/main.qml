@@ -45,6 +45,7 @@ ApplicationWindow {
     Action {
         id: actionBack
         iconName: "view-grid-symbolic"
+        onTriggered: pageStack.pop()
     }
 
     StackView {
@@ -76,6 +77,11 @@ ApplicationWindow {
                                 cellWidth: width / 6
                                 delegate: GridDelegate {
                                     width: gridView.cellWidth
+
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        onClicked: pageStack.push({item: model.item, properties: {stackView: pageStack}})
+                                    }
                                 }
 
                                 Component.onCompleted: gridView.model.setFilterFixedString(name)
