@@ -20,7 +20,7 @@ generate_export_header(HawaiiSystemPreferences
     BASE_NAME systempreferences
     DEPRECATED_MACRO_NAME HAWAII_SYSTEM_PREFERENCES_DEPRECATED
 )
-qt5_use_modules(HawaiiSystemPreferences Widgets)
+qt5_use_modules(HawaiiSystemPreferences Quick)
 set_target_properties(HawaiiSystemPreferences PROPERTIES
     VERSION ${SYSTEMPREFERENCES_VERSION_STRING}
     SOVERSION ${SYSTEMPREFERENCES_VERSION_MAJOR}.${SYSTEMPREFERENCES_VERSION_MINOR}.${SYSTEMPREFERENCES_VERSION_PATCH})

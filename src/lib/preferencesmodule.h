@@ -27,7 +27,7 @@
 #ifndef SYSTEMPREFERENCES_PREFERENCESMODULE_H
 #define SYSTEMPREFERENCES_PREFERENCESMODULE_H
 
-#include <QWidget>
+#include <QtQuick/QQuickItem>
 
 #include <Hawaii/SystemPreferences/SystemPreferencesExport>
 
@@ -148,7 +148,7 @@ namespace Hawaii
          *
          * \author Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
          */
-        class SYSTEMPREFERENCES_EXPORT PreferencesModule : public QWidget
+        class SYSTEMPREFERENCES_EXPORT PreferencesModule : public QObject
         {
             Q_OBJECT
             Q_PROPERTY(bool requiresAdministrativePrivileges READ requiresAdministrativePrivileges)
@@ -168,7 +168,7 @@ namespace Hawaii
             /**
              * Constructs a PreferencesModule object.
              */
-            explicit PreferencesModule();
+            explicit PreferencesModule(QObject *parent = 0);
 
             /**
              * @returns the module's name.
@@ -211,6 +211,11 @@ namespace Hawaii
              * methods returns an empty string.
              */
             virtual QString administrativeActionId() const;
+
+            /**
+             * @returns the QtQuick item for this module.
+             */
+            virtual QQuickItem *item() const = 0;
         };
     }
 }

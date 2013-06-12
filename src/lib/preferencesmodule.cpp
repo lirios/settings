@@ -30,8 +30,8 @@ namespace Hawaii
 {
     namespace SystemPreferences
     {
-        PreferencesModule::PreferencesModule()
-            : QWidget()
+        PreferencesModule::PreferencesModule(QObject *parent)
+            : QObject(parent)
         {
         }
 
