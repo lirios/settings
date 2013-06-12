@@ -58,6 +58,7 @@ QHash<int, QByteArray> PrefletsModel::roleNames() const
     roles[CommentRole] = "comment";
     roles[CategoryRole] = "category";
     roles[CategoryNameRole] = "categoryName";
+    roles[ItemRole] = "item";
     return roles;
 }
 
@@ -89,6 +90,8 @@ QVariant PrefletsModel::data(const QModelIndex &index, int role) const
             return QStringLiteral("other");
         }
     }
+    case ItemRole:
+        return QVariant::fromValue(module->item());
     default:
         break;
     }

@@ -43,7 +43,8 @@ public:
         CommentRole,
         IconNameRole,
         CategoryRole,
-        CategoryNameRole
+        CategoryNameRole,
+        ItemRole
     };
 
     explicit PrefletsModel(QObject *parent = 0);
