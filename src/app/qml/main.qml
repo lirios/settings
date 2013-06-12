@@ -40,23 +40,30 @@ ApplicationWindow {
 
     toolBar: ToolBar {
         id: mainToolBar
-        width: parent.width
 
         RowLayout {
             anchors.fill: parent
-            spacing: 10
+            //spacing: 10
 
             ToolButton {
                 action: actionBack
+                visible: pageStack.depth > 1
             }
 
-            Item {
+            Label {
+                id: prefletTitle
+                font.bold: true
+                horizontalAlignment: Qt.AlignHCenter
+                visible: pageStack.depth > 1
+
                 Layout.fillWidth: true
+                Layout.alignment: Qt.AlignCenter
             }
 
             TextField {
                 id: searchEntry
                 placeholderText: qsTr("Keywords")
+                visible: pageStack.depth === 1
 
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
             }
@@ -69,7 +76,7 @@ ApplicationWindow {
 
     Action {
         id: actionBack
-        iconName: "view-grid-symbolic"
+        iconName: "go-previous-symbolic"
         onTriggered: pageStack.pop()
     }
 
@@ -105,7 +112,10 @@ ApplicationWindow {
 
                                     MouseArea {
                                         anchors.fill: parent
-                                        onClicked: pageStack.push({item: model.item, properties: {stackView: pageStack}})
+                                        onClicked: {
+                                            prefletTitle.text = model.title;
+                                            pageStack.push({item: model.item, properties: {stackView: pageStack}})
+                                        }
                                     }
                                 }
 
