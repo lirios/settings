@@ -60,9 +60,32 @@ Item {
                     source: "file://" + (model.hasMetadata ? model.miniatureFileName : model.fileName)
                     sourceSize: Qt.size(parent.width - cellPadding * 2, parent.height - cellPadding * 2)
 
-                    MouseArea {
+                    Rectangle {
+                        id: infoOverlay
                         anchors.fill: parent
+                        color: "#b3000000"
+                        visible: false
+
+                        Label {
+                            anchors.fill: parent
+                            color: "white"
+                            verticalAlignment: Qt.AlignBottom
+                            wrapMode:  Text.Wrap
+                            font.bold: true
+                            text: model.name
+                        }
+                    }
+
+                    MouseArea {
+                        id: mouse
+                        anchors.fill: parent
+                        hoverEnabled: true
                         onClicked: gridView.currentIndex = index
+                        onEntered: {
+                            if (model.hasMetadata)
+                                infoOverlay.visible = true;
+                        }
+                        onExited: infoOverlay.visible = false
                     }
                 }
             }
