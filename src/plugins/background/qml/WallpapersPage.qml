@@ -48,6 +48,7 @@ Item {
             model: WallpapersModel {}
             cellWidth: parent.width / columns
             cellHeight: cellWidth / aspectRatio
+            cacheBuffer: 1000
             delegate: Item {
                 width: gridView.cellWidth
                 height: gridView.cellHeight
