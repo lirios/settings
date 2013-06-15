@@ -1,7 +1,6 @@
 include_directories(
     ${CMAKE_SOURCE_DIR}/headers
     ${CMAKE_BINARY_DIR}/src/lib
-    ${VibeWidgets_INCLUDE_DIRS}
     ${POLKITQT-1_INCLUDE_DIR}
 )
 
@@ -29,7 +28,6 @@ set_target_properties(hawaii-system-preferences PROPERTIES
     LINK_FLAGS "-L${POLKITQT-1_LIB_DIR}"
 )
 target_link_libraries(hawaii-system-preferences
-    ${VibeWidgets_LIBRARIES}
     ${POLKITQT-1_GUI_LIBRARY}
     HawaiiSystemPreferences
 )
