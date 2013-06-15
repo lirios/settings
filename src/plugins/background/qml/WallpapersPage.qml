@@ -26,7 +26,7 @@
 
 import QtQuick 2.1
 import QtQuick.Controls 1.0
-import Qt.labs.folderlistmodel 1.0
+import Hawaii.SystemPreferences.Background 0.1
 
 Item {
     property int columns: 3
@@ -37,12 +37,6 @@ Item {
         id: palette
     }
 
-    FolderListModel {
-        id: folderModel
-        folder: "file:///usr/share/backgrounds/gnome"
-        nameFilters: ["*.png", "*.jpg", "*.jpeg", "*.gif"]
-    }
-
     ScrollView {
         anchors {
             fill: parent
@@ -51,7 +45,7 @@ Item {
 
         GridView {
             id: gridView
-            model: folderModel
+            model: WallpapersModel {}
             cellWidth: parent.width / columns
             cellHeight: cellWidth / aspectRatio
             delegate: Item {
@@ -63,7 +57,7 @@ Item {
                         fill: parent
                         margins: cellPadding
                     }
-                    source: "file://" + filePath
+                    source: "file://" + model.fileName
                     sourceSize: Qt.size(parent.width - cellPadding * 2, parent.height - cellPadding * 2)
 
                     MouseArea {

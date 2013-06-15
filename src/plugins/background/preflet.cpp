@@ -32,6 +32,7 @@
 #include <QtQml/QQmlComponent>
 
 #include "preflet.h"
+#include "wallpapersmodel.h"
 
 using namespace Hawaii::SystemPreferences;
 
@@ -40,6 +41,10 @@ Preflet::Preflet()
     , m_translator(0)
     , m_engine(new QQmlEngine())
 {
+    // Register QML types
+    qmlRegisterType<WallpapersModel>("Hawaii.SystemPreferences.Background",
+                                     0, 1, "WallpapersModel");
+
     // Load translations
     loadTranslations();
 

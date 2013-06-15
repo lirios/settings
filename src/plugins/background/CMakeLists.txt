@@ -9,6 +9,8 @@ add_definitions(-DQT_PLUGIN)
 set(SOURCES
     preflet.cpp
     plugin.cpp
+    wallpapersmodel.cpp
+    wallpaperitem.cpp
 )
 
 set(QM_SOURCES
