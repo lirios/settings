@@ -5,7 +5,11 @@ System preferences for the Hawaii desktop environment.
 
 ## Dependencies
 
-In order to build and install System Preferences you need Vibe.
+In order to build and install System Preferences you need:
+
+ * Qt 5
+ * QtXdg (https://github.com/hawaii-desktop/qtxdg)
+ * QtAccountsService (https://github.com/hawaii-desktop/qt-accountsservice-addon)
 
 ## Build
 
