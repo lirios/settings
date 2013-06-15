@@ -39,6 +39,7 @@ public:
 
 private:
     QString m_fileName;
+    QString m_thumbnailFileName;
 };
 
 #endif // BACKGROUNDITEM_H

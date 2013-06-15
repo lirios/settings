@@ -58,8 +58,9 @@ Item {
                         fill: parent
                         margins: cellPadding
                     }
-                    source: "file://" + (model.hasMetadata ? model.miniatureFileName : model.fileName)
-                    sourceSize: Qt.size(parent.width - cellPadding * 2, parent.height - cellPadding * 2)
+                    source: "file://" + model.miniatureFileName
+                    width: parent.width - cellPadding * 2
+                    height: parent.height - cellPadding * 2
 
                     Rectangle {
                         id: infoOverlay
