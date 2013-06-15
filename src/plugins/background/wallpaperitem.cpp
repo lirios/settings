@@ -62,7 +62,7 @@ QVariant WallpaperItem::data(int role) const
     switch (role) {
     case WallpapersModel::FileNameRole:
         return m_dir.absoluteFilePath("metadata.desktop");
-    case WallpapersModel::MiniatureFileNameRole:
+    case WallpapersModel::ThumbnailFileNameRole:
         return m_screenshotFileName;
     case WallpapersModel::ChangesThroughoutDayRole:
         return false;

@@ -69,7 +69,7 @@ QVariant BackgroundItem::data(int role) const
     switch (role) {
     case WallpapersModel::FileNameRole:
         return m_fileName;
-    case WallpapersModel::MiniatureFileNameRole:
+    case WallpapersModel::ThumbnailFileNameRole:
         return m_thumbnailFileName;
     case WallpapersModel::ChangesThroughoutDayRole:
         return false;

@@ -59,7 +59,7 @@ QHash<int, QByteArray> WallpapersModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[FileNameRole] = "fileName";
-    roles[MiniatureFileNameRole] = "miniatureFileName";
+    roles[ThumbnailFileNameRole] = "thumbnailFileName";
     roles[ChangesThroughoutDayRole] = "changesThroughoutDay";
     roles[HasMetadataRole] = "hasMetadata";
     roles[NameRole] = "name";

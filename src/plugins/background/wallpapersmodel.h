@@ -38,7 +38,7 @@ class WallpapersModel : public QAbstractListModel
 public:
     enum Roles {
         FileNameRole = Qt::UserRole + 1,
-        MiniatureFileNameRole,
+        ThumbnailFileNameRole,
         ChangesThroughoutDayRole,
         HasMetadataRole,
         NameRole,

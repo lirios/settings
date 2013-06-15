@@ -58,7 +58,7 @@ Item {
                         fill: parent
                         margins: cellPadding
                     }
-                    source: "file://" + model.miniatureFileName
+                    source: "file://" + model.thumbnailFileName
                     width: parent.width - cellPadding * 2
                     height: parent.height - cellPadding * 2
 
