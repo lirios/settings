@@ -29,21 +29,25 @@
 #include <QDebug>
 
 #include "wallpapersmodel.h"
+#include "backgrounditem.h"
+#include "wallpaperitem.h"
 
 WallpapersModel::WallpapersModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    QStringList subfolders;
-    subfolders << "backgrounds" << "wallpapers";
+    QStringList paths;
 
-    foreach (QString subfolder, subfolders) {
-        QStringList paths =
-                QStandardPaths::locateAll(
-                    QStandardPaths::GenericDataLocation,
-                    subfolder, QStandardPaths::LocateDirectory);
-        foreach (QString path, paths)
-            addFolder(path);
-    }
+    paths = QStandardPaths::locateAll(
+                QStandardPaths::GenericDataLocation,
+                "backgrounds", QStandardPaths::LocateDirectory);
+    foreach (QString path, paths)
+        addFolder(path);
+
+    paths = QStandardPaths::locateAll(
+                QStandardPaths::GenericDataLocation,
+                "wallpapers", QStandardPaths::LocateDirectory);
+    foreach (QString path, paths)
+        addWallpapersFolder(path);
 }
 
 WallpapersModel::~WallpapersModel()
@@ -54,9 +58,11 @@ WallpapersModel::~WallpapersModel()
 QHash<int, QByteArray> WallpapersModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[NameRole] = "name";
     roles[FileNameRole] = "fileName";
     roles[MiniatureFileNameRole] = "miniatureFileName";
+    roles[ChangesThroughoutDayRole] = "changesThroughoutDay";
+    roles[HasMetadataRole] = "hasMetadata";
+    roles[NameRole] = "name";
     roles[AuthorNameRole] = "authorName";
     roles[AuthorEmailRole] = "authorEmail";
     roles[LicenseRole] = "license";
@@ -75,7 +81,7 @@ QVariant WallpapersModel::data(const QModelIndex &index, int role) const
     if (!index.isValid())
         return QVariant();
 
-    WallpaperItem *item = m_items.at(index.row());
+    AbstractItem *item = m_items.at(index.row());
     if (!item)
         return QVariant();
 
@@ -92,7 +98,23 @@ void WallpapersModel::addFolder(const QString &path)
     QDirIterator::IteratorFlags flags =
             QDirIterator::Subdirectories | QDirIterator::FollowSymlinks;
 
-    qDebug() << "path" << path;
+    QDirIterator it(path, glob, filters, flags);
+    while (it.hasNext()) {
+        BackgroundItem *item = new BackgroundItem(it.next(), this);
+        m_items.append(item);
+    }
+}
+
+void WallpapersModel::addWallpapersFolder(const QString &path)
+{
+    QStringList glob;
+    glob << "*.desktop";
+
+    QDir::Filters filters =
+            QDir::NoDotAndDotDot | QDir::Readable | QDir::Files;
+    QDirIterator::IteratorFlags flags =
+            QDirIterator::Subdirectories | QDirIterator::FollowSymlinks;
+
     QDirIterator it(path, glob, filters, flags);
     while (it.hasNext()) {
         WallpaperItem *item = new WallpaperItem(it.next(), this);

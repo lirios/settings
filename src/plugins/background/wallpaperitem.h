@@ -27,20 +27,25 @@
 #ifndef WALLPAPERITEM_H
 #define WALLPAPERITEM_H
 
-#include <QtCore/QObject>
-#include <QtCore/QFileInfo>
+#include <QtCore/QDir>
 
-class WallpaperItem : public QObject
+#include "abstractitem.h"
+
+class QDesktopFile;
+
+class WallpaperItem : public AbstractItem
 {
     Q_OBJECT
 public:
-    explicit WallpaperItem(const QString &fileName, QObject *parent = 0);
+    explicit WallpaperItem(const QString &path, QObject *parent = 0);
+    ~WallpaperItem();
 
     QVariant data(int role) const;
 
 private:
-    QString m_fileName;
-    QFileInfo m_fileInfo;
+    QDir m_dir;
+    QString m_screenshotFileName;
+    QDesktopFile *m_metadata;
 };
 
 #endif // WALLPAPERITEM_H

@@ -57,7 +57,7 @@ Item {
                         fill: parent
                         margins: cellPadding
                     }
-                    source: "file://" + model.fileName
+                    source: "file://" + (model.hasMetadata ? model.miniatureFileName : model.fileName)
                     sourceSize: Qt.size(parent.width - cellPadding * 2, parent.height - cellPadding * 2)
 
                     MouseArea {

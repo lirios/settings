@@ -24,45 +24,21 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef WALLPAPERSMODEL_H
-#define WALLPAPERSMODEL_H
-
-#include <QtCore/QAbstractListModel>
+#ifndef BACKGROUNDITEM_H
+#define BACKGROUNDITEM_H
 
 #include "abstractitem.h"
 
-class WallpapersModel : public QAbstractListModel
+class BackgroundItem : public AbstractItem
 {
     Q_OBJECT
-    Q_ENUMS(Roles)
 public:
-    enum Roles {
-        FileNameRole = Qt::UserRole + 1,
-        MiniatureFileNameRole,
-        ChangesThroughoutDayRole,
-        HasMetadataRole,
-        NameRole,
-        AuthorNameRole,
-        AuthorEmailRole,
-        LicenseRole,
-        ResolutionRole
-    };
+    explicit BackgroundItem(const QString &fileName, QObject *parent = 0);
 
-    explicit WallpapersModel(QObject *parent = 0);
-    ~WallpapersModel();
-
-    QHash<int, QByteArray> roleNames() const;
-
-    int rowCount(const QModelIndex &parent) const;
-
-    QVariant data(const QModelIndex &index, int role) const;
-
-public Q_SLOTS:
-    void addFolder(const QString &path);
-    void addWallpapersFolder(const QString &path);
+    QVariant data(int role) const;
 
 private:
-    QList<AbstractItem *> m_items;
+    QString m_fileName;
 };
 
-#endif // WALLPAPERSMODEL_H
+#endif // BACKGROUNDITEM_H

@@ -24,24 +24,62 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include <QtCore/QDirIterator>
+#include <QtXdg/QDesktopFile>
+
 #include "wallpaperitem.h"
 #include "wallpapersmodel.h"
 
-WallpaperItem::WallpaperItem(const QString &fileName, QObject *parent)
-    : QObject(parent)
-    , m_fileName(fileName)
-    , m_fileInfo(fileName)
+WallpaperItem::WallpaperItem(const QString &path, QObject *parent)
+    : AbstractItem(parent)
+    , m_dir(path)
 {
+    m_dir.cdUp();
+
+    QStringList glob;
+    glob << "screenshot.png" << "screenshot.jpg" << "screenshot.jpeg";
+
+    QDir::Filters filters =
+            QDir::NoDotAndDotDot | QDir::Readable | QDir::Files;
+    QDirIterator::IteratorFlags flags = QDirIterator::FollowSymlinks;
+
+    QDirIterator it(m_dir.absoluteFilePath("contents"), glob, filters, flags);
+    while (it.hasNext()) {
+        m_screenshotFileName = it.next();
+        break;
+    }
+
+    m_metadata = new QDesktopFile(m_dir.absoluteFilePath("metadata.desktop"));
+}
+
+WallpaperItem::~WallpaperItem()
+{
+    delete m_metadata;
 }
 
 QVariant WallpaperItem::data(int role) const
 {
     switch (role) {
+    case WallpapersModel::FileNameRole:
+        return m_dir.absoluteFilePath("metadata.desktop");
+    case WallpapersModel::MiniatureFileNameRole:
+        return m_screenshotFileName;
+    case WallpapersModel::ChangesThroughoutDayRole:
+        return false;
+    case WallpapersModel::HasMetadataRole:
+        return true;
     case Qt::DisplayRole:
     case WallpapersModel::NameRole:
-        return m_fileInfo.baseName();
-    case WallpapersModel::FileNameRole:
-        return m_fileName;
+        return m_metadata->name();
+    case WallpapersModel::AuthorNameRole:
+        return m_metadata->value("X-KDE-PluginInfo-Author");
+    case WallpapersModel::AuthorEmailRole:
+        return m_metadata->value("X-KDE-PluginInfo-Email");
+    case WallpapersModel::LicenseRole:
+        return m_metadata->value("X-KDE-PluginInfo-License");
+    case WallpapersModel::ResolutionRole:
+        // TODO: Detect resolution
+        return "1920x1080";
     }
 
     return QVariant();
