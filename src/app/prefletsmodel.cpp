@@ -37,13 +37,13 @@ PrefletsModel::PrefletsModel(QObject *parent)
     : QAbstractListModel(parent)
 {
     QDir pluginsDir(QStringLiteral("%1/preferences").arg(INSTALL_PLUGINSDIR));
-    foreach(QString fileName, pluginsDir.entryList(QDir::Files)) {
+    foreach (QString fileName, pluginsDir.entryList(QDir::NoDotAndDotDot | QDir::Files)) {
         QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));
         PreferencesModulePlugin *plugin = qobject_cast<PreferencesModulePlugin *>(loader.instance());
         if (!plugin)
             continue;
 
-        foreach(QString key, plugin->keys()) {
+        foreach (QString key, plugin->keys()) {
             PreferencesModule *module = plugin->create(key);
             m_modules.append(module);
         }
