@@ -213,7 +213,7 @@ namespace Hawaii
             /**
              * @returns the QtQuick item for this module.
              */
-            virtual QQuickItem *item() const = 0;
+            virtual QQuickItem *item() = 0;
         };
     }
 }
