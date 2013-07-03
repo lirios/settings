@@ -48,11 +48,10 @@ namespace Hawaii
             QStringList keywords() const;
             PreferencesModule::Category category() const;
 
-            QQuickItem *item() const;
+            QQuickItem *item();
 
         private:
             QTranslator *m_translator;
-            QQmlEngine *m_engine;
             QQuickItem *m_item;
 
             void loadTranslations();

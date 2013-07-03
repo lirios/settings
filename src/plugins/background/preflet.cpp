@@ -39,7 +39,7 @@ using namespace Hawaii::SystemPreferences;
 Preflet::Preflet()
     : PreferencesModule()
     , m_translator(0)
-    , m_engine(new QQmlEngine())
+    , m_item(0)
 {
     // Register QML types
     qmlRegisterType<WallpapersModel>("Hawaii.SystemPreferences.Background",
@@ -47,18 +47,12 @@ Preflet::Preflet()
 
     // Load translations
     loadTranslations();
-
-    // Create the QtQuick item
-    QQmlComponent component(m_engine, QUrl("qrc:/qml/Preflet.qml"));
-    QObject *object = component.create();
-    m_item = qobject_cast<QQuickItem*>(object);
 }
 
 Preflet::~Preflet()
 {
     delete m_translator;
     delete m_item;
-    delete m_engine;
 }
 
 QString Preflet::name() const
@@ -86,8 +80,17 @@ PreferencesModule::Category Preflet::category() const
     return PreferencesModule::PersonalCategory;
 }
 
-QQuickItem *Preflet::item() const
+QQuickItem *Preflet::item()
 {
+    // Return QtQuick item immediately if it was already created
+    if (m_item)
+        return m_item;
+
+    // Create the QtQuick item
+    QQmlEngine *engine = new QQmlEngine(this);
+    QQmlComponent component(engine, QUrl("qrc:/qml/Preflet.qml"));
+    QObject *object = component.create();
+    m_item = qobject_cast<QQuickItem*>(object);
     return m_item;
 }
 
