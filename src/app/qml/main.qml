@@ -133,7 +133,9 @@ ApplicationWindow {
 
                             GridView {
                                 id: gridView
-                                model: PrefletsProxyModel {}
+                                model: PrefletsProxyModel {
+                                    filter: name
+                                }
                                 cellWidth: width / 6
                                 delegate: GridDelegate {
                                     width: gridView.cellWidth
@@ -146,8 +148,6 @@ ApplicationWindow {
                                         }
                                     }
                                 }
-
-                                Component.onCompleted: gridView.model.setFilterFixedString(name)
                             }
                         }
                     }

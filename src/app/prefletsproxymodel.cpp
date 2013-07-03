@@ -34,4 +34,18 @@ PrefletsProxyModel::PrefletsProxyModel(QObject *parent)
     setFilterRole(PrefletsModel::CategoryNameRole);
 }
 
+QString PrefletsProxyModel::filter() const
+{
+    return m_filter;
+}
+
+void PrefletsProxyModel::setFilter(const QString &val)
+{
+    if (m_filter != val) {
+        m_filter = val;
+        setFilterFixedString(m_filter);
+        emit filterChanged();
+    }
+}
+
 #include "moc_prefletsproxymodel.cpp"

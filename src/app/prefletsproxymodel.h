@@ -32,8 +32,18 @@
 class PrefletsProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    Q_PROPERTY(QString filter READ filter WRITE setFilter NOTIFY filterChanged)
 public:
     explicit PrefletsProxyModel(QObject *parent = 0);
+
+    QString filter() const;
+    void setFilter(const QString &val);
+
+Q_SIGNALS:
+    void filterChanged();
+
+private:
+    QString m_filter;
 };
 
 #endif // PREFLETSPROXYMODEL_H
