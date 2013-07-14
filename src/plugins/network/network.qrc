@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/NetworkPreflet.qml</file>
+        <file>qml/ProfileDialog.qml</file>
+        <file>qml/DetailsPane.qml</file>
+        <file>qml/SecurityPane.qml</file>
+        <file>qml/IdentityPane.qml</file>
+        <file>qml/IPv4Pane.qml</file>
+        <file>qml/IPv6Pane.qml</file>
+        <file>qml/ResetPane.qml</file>
+        <file>qml/WiredPage.qml</file>
+        <file>qml/WiredInformation.qml</file>
+        <file>qml/WirelessPage.qml</file>
+        <file>qml/HiddenWifiDialog.qml</file>
+    </qresource>
+</RCC>
