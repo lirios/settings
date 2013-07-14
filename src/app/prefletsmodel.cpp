@@ -24,6 +24,7 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include <QtCore/QCoreApplication>
 #include <QtCore/QDir>
 #include <QtCore/QPluginLoader>
 #include <QtGui/QIcon>
@@ -36,16 +37,23 @@
 PrefletsModel::PrefletsModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    QDir pluginsDir(QStringLiteral("%1/preferences").arg(INSTALL_PLUGINSDIR));
-    foreach (QString fileName, pluginsDir.entryList(QDir::NoDotAndDotDot | QDir::Files)) {
-        QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));
-        PreferencesModulePlugin *plugin = qobject_cast<PreferencesModulePlugin *>(loader.instance());
-        if (!plugin)
+    const QStringList libPaths = QCoreApplication::libraryPaths();
+    const QString pathSuffix = QStringLiteral("/hawaii/preferences/");
+    foreach (const QString &libPath, libPaths) {
+        QDir dir(libPath + pathSuffix);
+        if (!dir.exists())
             continue;
 
-        foreach (QString key, plugin->keys()) {
-            PreferencesModule *module = plugin->create(key);
-            m_modules.append(module);
+        foreach (const QString &fileName, dir.entryList(QDir::Files)) {
+            QPluginLoader loader(fileName);
+            PreferencesModulePlugin *plugin = qobject_cast<PreferencesModulePlugin *>(loader.instance());
+            if (!plugin)
+                continue;
+
+            foreach (const QString &key, plugin->keys()) {
+                PreferencesModule *module = plugin->create(key);
+                m_modules.append(module);
+            }
         }
     }
 }

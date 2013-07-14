@@ -28,6 +28,6 @@ qt5_use_modules(background Quick Xdg)
 target_link_libraries(background HawaiiSystemPreferences)
 
 install(TARGETS background LIBRARY
-    DESTINATION ${CMAKE_INSTALL_PLUGINSDIR}/preferences)
+    DESTINATION ${QT_PLUGINS_DIR}/hawaii/preferences)
 #install(FILES ${QM_FILES}
 #    DESTINATION ${CMAKE_INSTALL_DATADIR}/hawaii-system-preferences/plugins/background/translations)
