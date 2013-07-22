@@ -74,6 +74,7 @@ endif()
 macro_log_feature(PolkitQt-1_FOUND "PolkitQt-1" "Support for PolicyKit" "http://www.freedesktop.org/wiki/Software/PolicyKit" "")
 
 # Subdirectories
+add_subdirectory(data)
 add_subdirectory(headers)
 add_subdirectory(src)
 
