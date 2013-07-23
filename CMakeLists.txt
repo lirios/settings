@@ -17,8 +17,8 @@ set(SYSTEMPREFERENCES_VERSION_STRING "${SYSTEMPREFERENCES_VERSION_MAJOR}.${SYSTE
 # Installation directories
 include(GNUInstallDirs)
 
-# Log features
-include(MacroLogFeature)
+# Macro to print feature summary
+include(FeatureSummary)
 
 # Add custom uninstall target
 configure_file(
@@ -58,21 +58,17 @@ find_package(Qt5LinguistTools REQUIRED)
 if(NOT Qt5LinguistTools_FOUND)
     message(FATAL_ERROR "Qt5LinguistTools module is required!")
 endif()
-macro_log_feature(Qt5AccountsService_FOUND "Qt5Xdg" "Support for Desktop Entry specification" "http://www.maui-project.org" "")
-macro_log_feature(Qt5AccountsService_FOUND "Qt5AccountsService" "Support for AccountsService" "http://www.maui-project.org" "")
-macro_log_feature(Qt5LinguistTools_FOUND "Qt5LinguistTools" "Support for Qt5LinguistTools" "http://qt-project.org" "")
 
 # Find PolicyKit wrapper for Qt
 find_package(PolkitQt-1 "0.103.1" REQUIRED)
 if(NOT PolkitQt-1_FOUND)
     message(FATAL_ERROR "PolkitQt-1 module is required!")
 endif()
-macro_log_feature(PolkitQt-1_FOUND "PolkitQt-1" "Support for PolicyKit" "http://www.freedesktop.org/wiki/Software/PolicyKit" "")
 
 # Subdirectories
 add_subdirectory(data)
 add_subdirectory(headers)
 add_subdirectory(src)
 
-# Display featute log
-macro_display_feature_log()
+# Display featute summary
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
