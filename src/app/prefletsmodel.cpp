@@ -38,7 +38,7 @@ PrefletsModel::PrefletsModel(QObject *parent)
     : QAbstractListModel(parent)
 {
     const QStringList libPaths = QCoreApplication::libraryPaths();
-    const QString pathSuffix = QStringLiteral("/hawaii/preferences/");
+    const QString pathSuffix = QStringLiteral("/preferences/");
     foreach (const QString &libPath, libPaths) {
         QDir dir(libPath + pathSuffix);
         if (!dir.exists())

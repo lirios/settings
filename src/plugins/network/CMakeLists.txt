@@ -24,6 +24,6 @@ qt5_use_modules(network Quick)
 target_link_libraries(network HawaiiSystemPreferences)
 
 install(TARGETS network LIBRARY
-    DESTINATION ${QT_PLUGINS_DIR}/hawaii/preferences)
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/hawaii/plugins/preferences)
 #install(FILES ${QM_FILES}
 #    DESTINATION ${CMAKE_INSTALL_DATADIR}/hawaii-system-preferences/plugins/network/translations)

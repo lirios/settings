@@ -62,10 +62,6 @@ macro_log_feature(Qt5AccountsService_FOUND "Qt5Xdg" "Support for Desktop Entry s
 macro_log_feature(Qt5AccountsService_FOUND "Qt5AccountsService" "Support for AccountsService" "http://www.maui-project.org" "")
 macro_log_feature(Qt5LinguistTools_FOUND "Qt5LinguistTools" "Support for Qt5LinguistTools" "http://qt-project.org" "")
 
-# Find Qt plugins dir
-get_target_property(QMAKE_EXECUTABLE Qt5::qmake LOCATION)
-exec_program(${QMAKE_EXECUTABLE} ARGS "-query QT_INSTALL_PLUGINS" RETURN_VALUE return_code OUTPUT_VARIABLE QT_PLUGINS_DIR)
-
 # Find PolicyKit wrapper for Qt
 find_package(PolkitQt-1 "0.103.1" REQUIRED)
 if(NOT PolkitQt-1_FOUND)
