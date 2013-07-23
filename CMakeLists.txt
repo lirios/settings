@@ -60,7 +60,7 @@ if(NOT Qt5LinguistTools_FOUND)
 endif()
 
 # Find PolicyKit wrapper for Qt
-find_package(PolkitQt-1 "0.103.1" REQUIRED)
+find_package(PolkitQt-1 "0.103.0" REQUIRED)
 if(NOT PolkitQt-1_FOUND)
     message(FATAL_ERROR "PolkitQt-1 module is required!")
 endif()
