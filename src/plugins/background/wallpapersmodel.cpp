@@ -88,6 +88,13 @@ QVariant WallpapersModel::data(const QModelIndex &index, int role) const
     return item->data(role);
 }
 
+AbstractItem *WallpapersModel::get(int index) const
+{
+    if (index < 0 || index > m_items.size())
+        return 0;
+    return m_items.at(index);
+}
+
 void WallpapersModel::addFolder(const QString &path)
 {
     QStringList glob;

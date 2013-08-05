@@ -65,6 +65,10 @@ if(NOT PolkitQt-1_FOUND)
     message(FATAL_ERROR "PolkitQt-1 module is required!")
 endif()
 
+# KCoreAddons and KConfig
+find_package(KCoreAddons REQUIRED)
+find_package(KConfig REQUIRED)
+
 # Subdirectories
 add_subdirectory(data)
 add_subdirectory(headers)

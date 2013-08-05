@@ -32,8 +32,11 @@
 class AbstractItem : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString fileName READ fileName)
 public:
     explicit AbstractItem(QObject *parent = 0);
+
+    virtual QString fileName() const;
 
     virtual QVariant data(int role) const;
 };

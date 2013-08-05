@@ -33,6 +33,8 @@
 
 #include "preflet.h"
 #include "wallpapersmodel.h"
+#include "abstractitem.h"
+#include "backgroundsettings.h"
 
 using namespace Hawaii::SystemPreferences;
 
@@ -44,6 +46,10 @@ Preflet::Preflet()
     // Register QML types
     qmlRegisterType<WallpapersModel>("Hawaii.SystemPreferences.Background",
                                      0, 1, "WallpapersModel");
+    qmlRegisterType<AbstractItem>("Hawaii.SystemPreferences.Background",
+                                  0, 1, "AbstractItem");
+    qmlRegisterType<BackgroundSettings>("Hawaii.SystemPreferences.Background",
+                                        0, 1, "BackgroundSettings");
 
     // Load translations
     loadTranslations();

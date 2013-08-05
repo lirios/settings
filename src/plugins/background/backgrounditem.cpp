@@ -64,6 +64,11 @@ BackgroundItem::BackgroundItem(const QString &fileName, QObject *parent)
     }
 }
 
+QString BackgroundItem::fileName() const
+{
+    return m_fileName;
+}
+
 QVariant BackgroundItem::data(int role) const
 {
     switch (role) {

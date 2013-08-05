@@ -35,6 +35,8 @@ class BackgroundItem : public AbstractItem
 public:
     explicit BackgroundItem(const QString &fileName, QObject *parent = 0);
 
+    QString fileName() const;
+
     QVariant data(int role) const;
 
 private:

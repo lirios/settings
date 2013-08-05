@@ -57,6 +57,8 @@ public:
 
     QVariant data(const QModelIndex &index, int role) const;
 
+    Q_INVOKABLE AbstractItem *get(int index) const;
+
 public Q_SLOTS:
     void addFolder(const QString &path);
     void addWallpapersFolder(const QString &path);

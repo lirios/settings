@@ -33,6 +33,11 @@ AbstractItem::AbstractItem(QObject *parent)
 {
 }
 
+QString AbstractItem::fileName() const
+{
+    return QString("");
+}
+
 QVariant AbstractItem::data(int role) const
 {
     Q_UNUSED(role);

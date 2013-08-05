@@ -37,6 +37,11 @@ Item {
         id: palette
     }
 
+    BackgroundSettings {
+        id: settings
+        onTypeChanged: changeWallpaper()
+    }
+
     ScrollView {
         anchors {
             fill: parent
@@ -58,7 +63,7 @@ Item {
                         fill: parent
                         margins: cellPadding
                     }
-                    source: "file://" + model.thumbnailFileName
+                    source: model.thumbnailFileName ? "file://" + model.thumbnailFileName : ""
                     width: parent.width - cellPadding * 2
                     height: parent.height - cellPadding * 2
 
@@ -82,12 +87,17 @@ Item {
                         id: mouse
                         anchors.fill: parent
                         hoverEnabled: true
-                        onClicked: gridView.currentIndex = index
                         onEntered: {
                             if (model.hasMetadata)
                                 infoOverlay.visible = true;
                         }
                         onExited: infoOverlay.visible = false
+                        onClicked: {
+                            gridView.currentIndex = index;
+                            settings.type = BackgroundSettings.WallpaperBackground;
+                            settings.wallpaperUrl = "file://" + model.fileName;
+                            console.log(settings.wallpaperUrl);
+                        }
                     }
                 }
             }
@@ -97,4 +107,20 @@ Item {
             }
         }
     }
+
+    function changeWallpaper() {
+        if (settings.type == BackgroundSettings.WallpaperBackground) {
+            for (var i = 0; i < gridView.count; i++) {
+                var url = "file://" + gridView.model.get(i).fileName;
+                if (url == settings.wallpaperUrl.toString()) {
+                    gridView.currentIndex = i;
+                    return;
+                }
+            }
+        }
+
+        gridView.currentIndex = -1;
+    }
+
+    Component.onCompleted: changeWallpaper()
 }

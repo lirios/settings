@@ -27,6 +27,7 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
+import Hawaii.SystemPreferences.Background 0.1
 
 Item {
     id: root
@@ -34,21 +35,48 @@ Item {
     property variant stackView
     property real aspectRatio: 1.6
 
+    BackgroundSettings {
+        id: settings
+    }
+
     Button {
         anchors.centerIn: parent
         width: root.width * 0.75
         height: width / aspectRatio
 
         Image {
+            id: wallpaperPreview
             anchors {
                 fill: parent
                 margins: 20
             }
-            source: "file:///usr/share/backgrounds/gnome/Sunset.png"
+            source: settings.wallpaperUrl
             sourceSize {
                 width: width
                 height: height
             }
+            visible: settings.type == BackgroundSettings.WallpaperBackground
+        }
+
+        Rectangle {
+            id: colorPreview
+            anchors {
+                fill: parent
+                margins: 20
+            }
+            color: settings.primaryColor
+            visible: settings.type == BackgroundSettings.ColorBackground &&
+                     settings.colorShading == BackgroundSettings.SolidColorShading
+        }
+
+        Item {
+            id: gradientPreview
+            anchors {
+                fill: parent
+                margins: 20
+            }
+            visible: settings.type == BackgroundSettings.ColorBackground &&
+                     settings.colorShading != BackgroundSettings.SolidColorShading
         }
 
         onClicked: stackView.push(Qt.resolvedUrl("Selector.qml"))
