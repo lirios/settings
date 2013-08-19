@@ -51,13 +51,8 @@ endif()
 # Include important features
 include(GenerateExportHeader)
 
-# Find Qt
-find_package(Qt5Xdg)
-find_package(Qt5AccountsService)
-find_package(Qt5LinguistTools REQUIRED)
-if(NOT Qt5LinguistTools_FOUND)
-    message(FATAL_ERROR "Qt5LinguistTools module is required!")
-endif()
+# Find Qt5
+find_package(Qt5 5.1.0 REQUIRED COMPONENTS Xdg AccountsService LinguistTools)
 
 # Find PolicyKit wrapper for Qt
 find_package(PolkitQt-1 "0.103.0" REQUIRED)
