@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     app.setApplicationName("System Preferences");
     app.setApplicationVersion("0.1.90");
-    app.setOrganizationDomain("maui-project.org");
+    app.setOrganizationDomain("hawaii.org");
     app.setOrganizationName("Hawaii");
 
     QQmlEngine engine;

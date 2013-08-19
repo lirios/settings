@@ -52,17 +52,13 @@ endif()
 include(GenerateExportHeader)
 
 # Find Qt5
-find_package(Qt5 5.1.0 REQUIRED COMPONENTS Xdg AccountsService LinguistTools)
+find_package(Qt5 5.1.0 REQUIRED COMPONENTS Configuration Xdg AccountsService LinguistTools)
 
 # Find PolicyKit wrapper for Qt
 find_package(PolkitQt-1 "0.103.0" REQUIRED)
 if(NOT PolkitQt-1_FOUND)
     message(FATAL_ERROR "PolkitQt-1 module is required!")
 endif()
-
-# KCoreAddons and KConfig
-find_package(KCoreAddons REQUIRED)
-find_package(KConfig REQUIRED)
 
 # Subdirectories
 add_subdirectory(data)
