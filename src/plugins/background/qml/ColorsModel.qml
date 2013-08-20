@@ -28,12 +28,19 @@ import QtQuick 2.1
 
 ListModel {
     id: colorsModel
-    ListElement { color: "#000000" }
-    ListElement { color: "#7a644c" }
-    ListElement { color: "#435366" }
-    ListElement { color: "#485c53" }
-    ListElement { color: "#888888" }
-    ListElement { color: "#7a8aa2" }
+    ListElement { color: "#db5d33" }
+    ListElement { color: "#008094" }
+    ListElement { color: "#5d479d" }
+    ListElement { color: "#ab2876" }
+    ListElement { color: "#fad166" }
+    ListElement { color: "#437740" }
+    ListElement { color: "#d272c4" }
+    ListElement { color: "#ed9116" }
     ListElement { color: "#ff89a9" }
-    ListElement { color: "#ec9117" }
+    ListElement { color: "#7a8aa2" }
+    ListElement { color: "#888888" }
+    ListElement { color: "#475b52" }
+    ListElement { color: "#425265" }
+    ListElement { color: "#7a634b" }
+    ListElement { color: "#000000" }
 }
