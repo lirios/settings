@@ -40,6 +40,7 @@ Item {
     BackgroundSettings {
         id: settings
         onTypeChanged: changeWallpaper()
+        onWallpaperUrlChanged: changeWallpaper()
     }
 
     ScrollView {
@@ -93,7 +94,6 @@ Item {
                         }
                         onExited: infoOverlay.visible = false
                         onClicked: {
-                            gridView.currentIndex = index;
                             settings.type = BackgroundSettings.WallpaperBackground;
                             settings.wallpaperUrl = "file://" + model.fileName;
                         }

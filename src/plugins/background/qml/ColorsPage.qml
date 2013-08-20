@@ -26,6 +26,7 @@
 
 import QtQuick 2.1
 import QtQuick.Controls 1.0
+import Hawaii.SystemPreferences.Background 0.1
 
 Item {
     property int columns: 3
@@ -34,6 +35,13 @@ Item {
 
     SystemPalette {
         id: palette
+    }
+
+    BackgroundSettings {
+        id: settings
+        onTypeChanged: changeBackground()
+        onColorShadingChanged: changeBackground()
+        onPrimaryColorChanged: changeBackground()
     }
 
     ScrollView {
@@ -60,7 +68,11 @@ Item {
 
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: gridView.currentIndex = index
+                        onClicked: {
+                            settings.type = BackgroundSettings.ColorBackground;
+                            settings.colorShading = BackgroundSettings.SolidColorShading;
+                            settings.primaryColor = model.color;
+                        }
                     }
                 }
             }
@@ -70,4 +82,21 @@ Item {
             }
         }
     }
+
+    function changeBackground() {
+        if (settings.type == BackgroundSettings.ColorBackground &&
+                settings.colorShading == BackgroundSettings.SolidColorShading) {
+            for (var i = 0; i < gridView.count; i++) {
+                var color = gridView.model.get(i).color;
+                if (color == settings.primaryColor) {
+                    gridView.currentIndex = i;
+                    return;
+                }
+            }
+        }
+
+        gridView.currentIndex = -1;
+    }
+
+    Component.onCompleted: changeBackground()
 }
