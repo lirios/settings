@@ -96,7 +96,6 @@ Item {
                             gridView.currentIndex = index;
                             settings.type = BackgroundSettings.WallpaperBackground;
                             settings.wallpaperUrl = "file://" + model.fileName;
-                            console.log(settings.wallpaperUrl);
                         }
                     }
                 }

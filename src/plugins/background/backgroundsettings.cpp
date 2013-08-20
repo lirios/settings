@@ -108,7 +108,6 @@ QUrl BackgroundSettings::wallpaperUrl() const
 
 void BackgroundSettings::setWallpaperUrl(const QUrl &value)
 {
-    qDebug() << "old" << m_url << "new" << value;
     if (m_url != value) {
         m_url = value;
         Q_EMIT wallpaperUrlChanged(value);
