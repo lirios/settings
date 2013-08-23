@@ -1,0 +1,20 @@
+[Desktop Entry]
+Type=Application
+Name=System Preferences
+GenericName=System Preferences
+Comment=Manages system preferences
+Icon=preferences-system
+Exec=hawaii-system-preferences
+TryExec=hawaii-system-preferences
+Terminal=false
+StartupNotify=true
+Categories=Qt;Hawaii;Settings;Core;
+OnlyShowIn=Hawaii;
+Keywords=Preferences;Settings;
+
+
+# Translations
+Comment[el]=Διαχειρίζεται τις προτιμήσεις συστήματος
+GenericName[el]=Προτιμήσεις συστήματος
+Name[el]=Προτιμήσεις συστήματος
+Icon[el]=preferences-desktop

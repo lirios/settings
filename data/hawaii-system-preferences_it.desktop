@@ -3,15 +3,14 @@ Type=Application
 Name=System Preferences
 GenericName=System Preferences
 Comment=Manages system preferences
-Icon=preferences-desktop
+Icon=preferences-system
 Exec=hawaii-system-preferences
 TryExec=hawaii-system-preferences
-Categories=Qt;Hawaii;Settings;Core;
 Terminal=false
+StartupNotify=true
+Categories=Qt;Hawaii;Settings;Core;
 OnlyShowIn=Hawaii;
-
-X-Hawaii-Identifier=org.hawaii.SystemPreferences
-X-Hawaii-Version=@SYSTEMPREFERENCES_VERSION_STRING@
+Keywords=Preferences;Settings;
 
 
 # Translations

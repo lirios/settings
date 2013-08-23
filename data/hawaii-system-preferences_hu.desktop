@@ -1,0 +1,20 @@
+[Desktop Entry]
+Type=Application
+Name=System Preferences
+GenericName=System Preferences
+Comment=Manages system preferences
+Icon=preferences-system
+Exec=hawaii-system-preferences
+TryExec=hawaii-system-preferences
+Terminal=false
+StartupNotify=true
+Categories=Qt;Hawaii;Settings;Core;
+OnlyShowIn=Hawaii;
+Keywords=Preferences;Settings;
+
+
+# Translations
+Comment[hu]=Rendszerbeállítások kezelése
+GenericName[hu]=Rendszerbeállítások
+Name[hu]=Rendszerbeállítások
+Icon[hu]=preferences-desktop

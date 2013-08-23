@@ -1,54 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="it">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="it" version="2.0">
+<context>
+    <name>CategoriesModel</name>
+    <message>
+        <location filename="../categoriesmodel.cpp" line="82"/>
+        <source>Personal</source>
+        <translation>Personale</translation>
+    </message>
+    <message>
+        <location filename="../categoriesmodel.cpp" line="87"/>
+        <source>Hardware</source>
+        <translation>Hardware</translation>
+    </message>
+    <message>
+        <location filename="../categoriesmodel.cpp" line="92"/>
+        <source>System</source>
+        <translation>Sistema</translation>
+    </message>
+</context>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="53"/>
+        <location filename="../mainwindow.cpp" line="65"/>
         <source>System Preferences</source>
         <translation>Preferenze di sistema</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="58"/>
+        <location filename="../mainwindow.cpp" line="70"/>
         <source>Keywords</source>
         <translation>Parole chiave</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="113"/>
-        <source>Overview</source>
-        <translation>Panoramica</translation>
+        <location filename="../mainwindow.cpp" line="170"/>
+        <source>Unlock</source>
+        <translation>Sblocca</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="121"/>
+        <location filename="../mainwindow.cpp" line="171"/>
+        <source>Dialog is locked, click to make changes</source>
+        <translation>La finestra di dialog è bloccata, cliccare per effettuare modifiche</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="173"/>
+        <source>Lock</source>
+        <translation>Blocca</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="176"/>
+        <source>Dialog is unlocked, click to prevent further changes</source>
+        <translation>La finestra di dialog è sbloccata, cliccare per impedire ulteriori modifiche</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="186"/>
         <source>Tool Bar</source>
         <translation>Barra degli strumenti</translation>
     </message>
 </context>
 <context>
-    <name>QObject</name>
+    <name>main</name>
     <message>
-        <location filename="../menuitem.cpp" line="147"/>
-        <location filename="../menuitem.cpp" line="180"/>
-        <source>Personal</source>
-        <translation>Personale</translation>
+        <location filename="../qml/main.qml" line="36"/>
+        <source>System Preferences</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../menuitem.cpp" line="151"/>
-        <location filename="../menuitem.cpp" line="183"/>
-        <source>Hardware</source>
-        <translation>Hardware</translation>
-    </message>
-    <message>
-        <location filename="../menuitem.cpp" line="155"/>
-        <location filename="../menuitem.cpp" line="186"/>
-        <source>System</source>
-        <translation>Sistema</translation>
-    </message>
-    <message>
-        <location filename="../menuitem.cpp" line="159"/>
-        <location filename="../menuitem.cpp" line="189"/>
-        <source>Other</source>
-        <translation>Altro</translation>
+        <location filename="../qml/main.qml" line="67"/>
+        <source>Keywords</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
