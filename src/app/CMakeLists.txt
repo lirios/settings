@@ -7,6 +7,12 @@ include_directories(
 # Create the cmakedirs.h header file
 configure_file(cmakedirs.h.in ${CMAKE_CURRENT_BINARY_DIR}/cmakedirs.h)
 
+# Create the config.h header file
+configure_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/config.h.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/config.h" @ONLY
+)
+
 set(SOURCES
     main.cpp
     categoriesmodel.cpp

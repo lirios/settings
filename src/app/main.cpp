@@ -29,6 +29,7 @@
 #include <QtQml/QQmlComponent>
 #include <QtQuick/QQuickWindow>
 
+#include "config.h"
 #include "categoriesmodel.h"
 #include "prefletsmodel.h"
 #include "prefletsproxymodel.h"
@@ -38,7 +39,7 @@ int main(int argc, char *argv[])
     // Setup application
     QApplication app(argc, argv);
     app.setApplicationName("System Preferences");
-    app.setApplicationVersion("0.1.90");
+    app.setApplicationVersion(SYSTEMPREFERENCES_VERSION_STRING);
     app.setOrganizationDomain("hawaii.org");
     app.setOrganizationName("Hawaii");
 
