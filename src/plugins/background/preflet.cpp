@@ -30,6 +30,7 @@
 #include <QtCore/QUrl>
 #include <QtQml/QQmlEngine>
 #include <QtQml/QQmlComponent>
+#include <QtQml/QQmlContext>
 
 #include "preflet.h"
 #include "wallpapersmodel.h"
@@ -92,10 +93,14 @@ QQuickItem *Preflet::item()
     if (m_item)
         return m_item;
 
+    // Pictures location
+    QString picturesPath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+
     // Create the QtQuick item
     QQmlEngine *engine = new QQmlEngine(this);
+    engine->rootContext()->setContextProperty(QStringLiteral("picturesPath"), picturesPath);
     QQmlComponent component(engine, QUrl("qrc:/qml/Preflet.qml"));
-    QObject *object = component.create();
+    QObject *object = component.create(engine->rootContext());
     m_item = qobject_cast<QQuickItem*>(object);
     return m_item;
 }

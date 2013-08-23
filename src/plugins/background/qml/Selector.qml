@@ -40,9 +40,13 @@ Item {
             WallpapersPage {}
         }
 
+        /*
         Tab {
             title: qsTr("Pictures")
+
+            PicturesPage {}
         }
+        */
 
         Tab {
             title: qsTr("Colors")
