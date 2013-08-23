@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of System Preferences.
  *
- * Copyright (C) 2011-2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * Author(s):
  *    Pier Luigi Fiorini
@@ -24,37 +24,36 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef CATEGORYITEM_H
-#define CATEGORYITEM_H
+import QtQuick 2.1
+import QtQuick.Controls 1.0
+import QtQuick.Layouts 1.0
+import Hawaii.SystemPreferences.Desktop 0.1
 
-class CategoryItem
-{
-public:
-    explicit CategoryItem(const QString &label, CategoryItem *parent = 0);
-    CategoryItem(const QIcon &icon, const QString &label, CategoryItem *parent = 0);
+Item {
+    property variant stackView
 
-    ~CategoryItem();
+    TabView {
+        anchors {
+            fill: parent
+            margins: 11
+        }
 
-    void setDirectory(const QDir &dir);
+        Tab {
+            title: qsTr("Launcher")
 
-    void appendChild(CategoryItem *item);
+            LauncherPage {}
+        }
 
-    CategoryItem *child(int row);
+        Tab {
+            title: qsTr("Hot Corners")
 
-    int childCount() const;
+            ColumnLayout {
+                Label {
+                    text: "Not yet implemented"
 
-    int row() const;
-
-    QVariant data(int role);
-
-    CategoryItem *parent() const;
-
-private:
-    QList<CategoryItem *> m_childItems;
-    QIcon m_icon;
-    QString m_label;
-    QDir m_dir;
-    CategoryItem *m_parentItem;
-};
-
-#endif // CATEGORYITEM_H
+                    Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+                }
+            }
+        }
+    }
+}

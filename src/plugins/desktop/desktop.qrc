@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/desktop">
+        <file>qml/Preflet.qml</file>
+        <file>qml/LauncherPage.qml</file>
+    </qresource>
+</RCC>

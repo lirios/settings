@@ -32,15 +32,6 @@
 class QTranslator;
 class QModelIndex;
 
-class VSettings;
-
-namespace Ui
-{
-    class DesktopPreflet;
-}
-
-class WallpaperModel;
-
 namespace Hawaii
 {
     namespace SystemPreferences
@@ -49,37 +40,23 @@ namespace Hawaii
         {
             Q_OBJECT
         public:
-            explicit Preflet();
+            Preflet();
             ~Preflet();
 
-            virtual QString name() const;
-            virtual QString comment() const;
-            virtual QString iconName() const;
-            virtual QStringList keywords() const;
-            virtual PreferencesModule::Category category() const;
+            QString name() const;
+            QString comment() const;
+            QString iconName() const;
+            QStringList keywords() const;
+            PreferencesModule::Category category() const;
 
-        protected:
-            void changeEvent(QEvent *event);
+            QQuickItem *item();
 
         private:
-            Ui::DesktopPreflet *ui;
             QTranslator *m_translator;
-            VSettings *m_settings;
-            VSettings *m_shellSettings;
-            WallpaperModel *m_wallpaperModel;
+            QQuickItem *m_item;
 
             void loadTranslations();
             void loadSettings();
-
-        private slots:
-            void shellSettingsChanged();
-
-            void slotLauncherIconSizeChanged(int value);
-            void slotLauncherAlignmentChanged(int index);
-            void slotAllWallpapersLoaded();
-            void slotBackgroundCategorySelected(int index);
-            void slotBackgroundModeSelected(int index);
-            void slotBackgroundSelected(const QModelIndex &index);
         };
     }
 }

@@ -9,17 +9,7 @@ add_definitions(-DQT_PLUGIN)
 set(SOURCES
     preflet.cpp
     plugin.cpp
-    backgrounditem.cpp
-    wallpaperitem.cpp
-#    coloritem.cpp
-    wallpapermodel.cpp
-    wallpaperfinder.cpp
-    wallpapersizefinder.cpp
-    backgrounditemdelegate.cpp
-)
-
-set(FORMS
-    desktoppreflet.ui
+    launchersettings.cpp
 )
 
 set(QM_SOURCES
@@ -27,17 +17,16 @@ set(QM_SOURCES
 )
 
 qt5_wrap_ui(FORMS_HEADERS ${FORMS})
-qt5_add_translation(QM_FILES ${QM_SOURCES})
+qt5_add_resources(RESOURCES desktop.qrc)
+#qt5_add_translation(QM_FILES ${QM_SOURCES})
 
-add_library(desktop SHARED ${SOURCES} ${FORMS_HEADERS} ${QM_FILES})
+#add_library(desktop SHARED ${SOURCES} ${QM_FILES} ${RESOURCES})
+add_library(desktop SHARED ${SOURCES} ${QM_FILES} ${RESOURCES})
 set_target_properties(desktop PROPERTIES PREFIX "")
-qt5_use_modules(desktop Widgets)
-target_link_libraries(desktop
-    ${VibeCore_LIBRARIES}
-    HawaiiSystemPreferences
-)
+qt5_use_modules(desktop Quick Configuration)
+target_link_libraries(desktop HawaiiSystemPreferences)
 
 install(TARGETS desktop LIBRARY
-    DESTINATION ${CMAKE_INSTALL_PLUGINSDIR}/preferences)
-install(FILES ${QM_FILES}
-    DESTINATION ${CMAKE_INSTALL_DATADIR}/hawaii-system-preferences/plugins/desktop/translations)
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/hawaii/plugins/preferences)
+#install(FILES ${QM_FILES}
+#    DESTINATION ${CMAKE_INSTALL_DATADIR}/hawaii-system-preferences/plugins/desktop/translations)
