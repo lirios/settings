@@ -26,6 +26,7 @@
 
 import QtQuick 2.1
 import QtQuick.Controls 1.0
+import QtQuick.Layouts 1.0
 import Hawaii.SystemPreferences.Background 0.1
 
 Item {
@@ -43,67 +44,91 @@ Item {
         onWallpaperUrlChanged: changeWallpaper()
     }
 
-    ScrollView {
+    ColumnLayout {
         anchors {
             fill: parent
             margins: 11
         }
 
-        GridView {
-            id: gridView
-            model: WallpapersModel {}
-            cellWidth: parent.width / columns
-            cellHeight: cellWidth / aspectRatio
-            cacheBuffer: 1000
-            delegate: Item {
-                width: gridView.cellWidth
-                height: gridView.cellHeight
+        ScrollView {
+            GridView {
+                id: gridView
+                model: WallpapersModel {}
+                cellWidth: parent.width / columns
+                cellHeight: cellWidth / aspectRatio
+                cacheBuffer: 1000
+                delegate: Item {
+                    width: gridView.cellWidth
+                    height: gridView.cellHeight
 
-                Image {
-                    anchors {
-                        fill: parent
-                        margins: cellPadding
-                    }
-                    source: model.thumbnailFileName ? "file://" + model.thumbnailFileName : ""
-                    width: parent.width - cellPadding * 2
-                    height: parent.height - cellPadding * 2
+                    Image {
+                        anchors {
+                            fill: parent
+                            margins: cellPadding
+                        }
+                        source: model.thumbnailFileName ? "file://" + model.thumbnailFileName : ""
+                        width: parent.width - cellPadding * 2
+                        height: parent.height - cellPadding * 2
 
-                    Rectangle {
-                        id: infoOverlay
-                        anchors.fill: parent
-                        color: "#b3000000"
-                        visible: false
-
-                        Label {
+                        Rectangle {
+                            id: infoOverlay
                             anchors.fill: parent
-                            color: "white"
-                            verticalAlignment: Qt.AlignBottom
-                            wrapMode:  Text.Wrap
-                            font.bold: true
-                            text: model.name
-                        }
-                    }
+                            color: "#b3000000"
+                            visible: false
 
-                    MouseArea {
-                        id: mouse
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        onEntered: {
-                            if (model.hasMetadata)
-                                infoOverlay.visible = true;
+                            Label {
+                                anchors.fill: parent
+                                color: "white"
+                                verticalAlignment: Qt.AlignBottom
+                                wrapMode:  Text.Wrap
+                                font.bold: true
+                                text: model.name
+                            }
                         }
-                        onExited: infoOverlay.visible = false
-                        onClicked: {
-                            settings.type = BackgroundSettings.WallpaperBackground;
-                            settings.wallpaperUrl = "file://" + model.fileName;
+
+                        MouseArea {
+                            id: mouse
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            onEntered: {
+                                if (model.hasMetadata)
+                                    infoOverlay.visible = true;
+                            }
+                            onExited: infoOverlay.visible = false
+                            onClicked: {
+                                settings.type = BackgroundSettings.WallpaperBackground;
+                                settings.wallpaperUrl = "file://" + model.fileName;
+                            }
                         }
                     }
                 }
+                highlight: Rectangle {
+                    radius: 4
+                    color: palette.highlight
+                }
             }
-            highlight: Rectangle {
-                radius: 4
-                color: palette.highlight
+
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+        }
+
+        GridLayout {
+            columns: 2
+
+            Label {
+                text: qsTr("Fill Mode:")
+                horizontalAlignment: Qt.AlignRight
             }
+
+            ComboBox {
+                model: [ qsTr("Stretched"), qsTr("Scaled"), qsTr("Cropped"),
+                    qsTr("Centered"), qsTr("Tiled") ]
+                currentIndex: settings.fillMode
+                onCurrentIndexChanged: settings.fillMode = currentIndex
+            }
+
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         }
     }
 

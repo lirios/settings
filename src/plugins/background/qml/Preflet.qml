@@ -55,6 +55,8 @@ Item {
                 width: width
                 height: height
             }
+            fillMode: convertFillMode(settings.fillMode)
+            clip: wallpaperPreview.fillMode == Image.PreserveAspectCrop
             visible: settings.type == BackgroundSettings.WallpaperBackground
         }
 
@@ -80,5 +82,20 @@ Item {
         }
 
         onClicked: stackView.push(Qt.resolvedUrl("Selector.qml"))
+    }
+
+    function convertFillMode(value) {
+        switch (value) {
+        case BackgroundSettings.Scaled:
+            return Image.PreserveAspectFit;
+        case BackgroundSettings.Cropped:
+            return Image.PreserveAspectCrop;
+        case BackgroundSettings.Centered:
+            return Image.Pad;
+        case BackgroundSettings.Tiled:
+            return Image.Tile;
+        default:
+            return Image.Stretch;
+        }
     }
 }
