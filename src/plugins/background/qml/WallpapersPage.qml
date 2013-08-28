@@ -69,6 +69,7 @@ Item {
                         source: model.thumbnailFileName ? "file://" + model.thumbnailFileName : ""
                         width: parent.width - cellPadding * 2
                         height: parent.height - cellPadding * 2
+                        asynchronous: true
 
                         Rectangle {
                             id: infoOverlay
