@@ -155,5 +155,28 @@ ApplicationWindow {
                 }
             }
         }
+        delegate: StackViewDelegate {
+            function transitionFinished(properties) {
+                properties.exitItem.opacity = 1;
+            }
+
+            property Component pushTransition: StackViewTransition {
+                PropertyAnimation {
+                    target: enterItem
+                    property: "opacity"
+                    from: 0
+                    to: 1
+                    duration: 400
+                }
+
+                PropertyAnimation {
+                    target: exitItem
+                    property: "opacity"
+                    from: 1
+                    to: 0
+                    duration: 200
+                }
+            }
+        }
     }
 }
