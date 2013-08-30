@@ -66,10 +66,14 @@ Item {
                             fill: parent
                             margins: cellPadding
                         }
-                        source: model.thumbnailFileName ? "file://" + model.thumbnailFileName : ""
+                        source: model.fileName ? "file://" + model.fileName : ""
+                        sourceSize.width: width
+                        sourceSize.height: height
                         width: parent.width - cellPadding * 2
                         height: parent.height - cellPadding * 2
+                        fillMode: Image.PreserveAspectFit
                         asynchronous: true
+                        cache: true
 
                         Rectangle {
                             id: infoOverlay
