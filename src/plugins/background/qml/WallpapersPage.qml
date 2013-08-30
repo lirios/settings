@@ -78,7 +78,7 @@ Item {
                             id: infoOverlay
                             anchors.fill: parent
                             color: "#b3000000"
-                            visible: false
+                            visible: model.hasMetadata
 
                             Label {
                                 anchors.fill: parent
@@ -94,7 +94,7 @@ Item {
                             id: mouse
                             anchors.fill: parent
                             hoverEnabled: model.hasMetadata
-                            onEntered: infoOverlay.visible = true
+                            onEntered: infoOverlay.visible = model.hasMetadata
                             onExited: infoOverlay.visible = false
                             onClicked: {
                                 settings.type = BackgroundSettings.WallpaperBackground;
