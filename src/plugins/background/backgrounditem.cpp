@@ -24,12 +24,6 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include <QtCore/QCryptographicHash>
-#include <QtCore/QDir>
-#include <QtCore/QFileInfo>
-#include <QtCore/QStandardPaths>
-#include <QtGui/QImage>
-
 #include "backgrounditem.h"
 #include "wallpapersmodel.h"
 
@@ -37,31 +31,6 @@ BackgroundItem::BackgroundItem(const QString &fileName, QObject *parent)
     : AbstractItem(parent)
     , m_fileName(fileName)
 {
-    // Thumbnail file name is based on a hash of the source background file name
-    QByteArray hash = QCryptographicHash::hash(fileName.toUtf8(),
-                                               QCryptographicHash::Sha1);
-
-    // Determine thumbnail file name
-    m_thumbnailFileName = QString("%1/backgrounds/%2.jpg")
-            .arg(QStandardPaths::writableLocation(QStandardPaths::CacheLocation))
-            .arg(hash.toHex().constData());
-    QFileInfo fileInfo(m_thumbnailFileName);
-    fileInfo.dir().mkpath(".");
-
-    // Check whether we already has a thumbnail file
-    if (!fileInfo.exists()) {
-        // Create a thumbnail, first resize 4 times the target size and
-        // then resize again with a smooth transformation to the
-        // target size (faster than resizing one time with a smooth
-        // transformation)
-        QImage img(m_fileName);
-        QImage result = img.scaled(1600, 1000).scaled(400, 250,
-                                                      Qt::IgnoreAspectRatio,
-                                                      Qt::SmoothTransformation);
-
-        // Save the thumbnail to the cache directory
-        result.save(m_thumbnailFileName);
-    }
 }
 
 QString BackgroundItem::fileName() const
@@ -74,8 +43,6 @@ QVariant BackgroundItem::data(int role) const
     switch (role) {
     case WallpapersModel::FileNameRole:
         return m_fileName;
-    case WallpapersModel::ThumbnailFileNameRole:
-        return m_thumbnailFileName;
     case WallpapersModel::ChangesThroughoutDayRole:
         return false;
     case WallpapersModel::HasMetadataRole:
