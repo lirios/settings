@@ -51,12 +51,12 @@ Item {
                 margins: 20
             }
             source: settings.wallpaperUrl
-            sourceSize {
-                width: width
-                height: height
-            }
+            sourceSize.width: width
+            sourceSize.height: height
             fillMode: convertFillMode(settings.fillMode)
             clip: wallpaperPreview.fillMode == Image.PreserveAspectCrop
+            asynchronous: true
+            cache: true
             visible: settings.type == BackgroundSettings.WallpaperBackground
         }
 
