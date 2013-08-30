@@ -93,11 +93,8 @@ Item {
                         MouseArea {
                             id: mouse
                             anchors.fill: parent
-                            hoverEnabled: true
-                            onEntered: {
-                                if (model.hasMetadata)
-                                    infoOverlay.visible = true;
-                            }
+                            hoverEnabled: model.hasMetadata
+                            onEntered: infoOverlay.visible = true
                             onExited: infoOverlay.visible = false
                             onClicked: {
                                 settings.type = BackgroundSettings.WallpaperBackground;
