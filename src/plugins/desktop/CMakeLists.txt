@@ -38,7 +38,6 @@ set(QM_SOURCES
     translations/zh_CN.ts
 )
 
-qt5_wrap_ui(FORMS_HEADERS ${FORMS})
 qt5_add_resources(RESOURCES desktop.qrc)
 qt5_add_translation(QM_FILES ${QM_SOURCES})
 
