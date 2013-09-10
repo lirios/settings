@@ -31,7 +31,7 @@
 
 #include "abstractitem.h"
 
-class QDesktopFile;
+class XdgDesktopFile;
 
 class WallpaperItem : public AbstractItem
 {
@@ -45,7 +45,7 @@ public:
 private:
     QDir m_dir;
     QString m_screenshotFileName;
-    QDesktopFile *m_metadata;
+    XdgDesktopFile *m_metadata;
 };
 
 #endif // WALLPAPERITEM_H

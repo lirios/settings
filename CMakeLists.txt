@@ -52,7 +52,7 @@ endif()
 include(GenerateExportHeader)
 
 # Find Qt5
-find_package(Qt5 5.1.0 REQUIRED COMPONENTS Configuration Xdg AccountsService LinguistTools)
+find_package(Qt5 5.1.0 REQUIRED COMPONENTS Configuration AccountsService LinguistTools)
 
 # Find PolicyKit wrapper for Qt
 find_package(PolkitQt-1 "0.103.0" REQUIRED)

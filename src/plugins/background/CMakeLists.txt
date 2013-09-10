@@ -1,6 +1,7 @@
 include_directories(
     ${KCoreAddons_INCLUDE_DIRS}
     ${KConfig_INCLUDE_DIRS}
+    ${CMAKE_SOURCE_DIR}/3rdparty/libqtxdg
     ${CMAKE_SOURCE_DIR}/headers
     ${CMAKE_BINARY_DIR}/src/lib
     ${CMAKE_BINARY_DIR}/src/app
@@ -9,6 +10,7 @@ include_directories(
 add_definitions(-DQT_PLUGIN)
 
 set(SOURCES
+    ${CMAKE_SOURCE_DIR}/3rdparty/libqtxdg/xdgdesktopfile.cpp
     preflet.cpp
     plugin.cpp
     abstractitem.cpp

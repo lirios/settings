@@ -25,10 +25,10 @@
  ***************************************************************************/
 
 #include <QtCore/QDirIterator>
-#include <QtXdg/QDesktopFile>
 
 #include "wallpaperitem.h"
 #include "wallpapersmodel.h"
+#include "xdgdesktopfile.h"
 
 WallpaperItem::WallpaperItem(const QString &path, QObject *parent)
     : AbstractItem(parent)
@@ -49,12 +49,11 @@ WallpaperItem::WallpaperItem(const QString &path, QObject *parent)
         break;
     }
 
-    m_metadata = new QDesktopFile(m_dir.absoluteFilePath("metadata.desktop"));
+    m_metadata = XdgDesktopFileCache::getFile(m_dir.absoluteFilePath("metadata.desktop"));
 }
 
 WallpaperItem::~WallpaperItem()
 {
-    delete m_metadata;
 }
 
 QVariant WallpaperItem::data(int role) const
