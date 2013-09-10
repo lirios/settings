@@ -25,13 +25,14 @@
  ***************************************************************************/
 
 import QtQuick 2.1
+import QtQuick.Window 2.1
 import QtQuick.Controls 1.0
 import Hawaii.SystemPreferences.Background 0.1
 
 Item {
     property int columns: 4
     property int cellPadding: 10
-    property real aspectRatio: 1.6
+    property real aspectRatio: Screen.width / Screen.height
 
     SystemPalette {
         id: palette

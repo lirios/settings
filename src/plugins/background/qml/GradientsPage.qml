@@ -25,13 +25,14 @@
  ***************************************************************************/
 
 import QtQuick 2.1
+import QtQuick.Window 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 
 Item {
     property int columns: 3
     property int cellPadding: 10
-    property real aspectRatio: 1.6
+    property real aspectRatio: Screen.width / Screen.height
 
     SystemPalette {
         id: palette
