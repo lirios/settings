@@ -1,5 +1,3 @@
-if(Qt5Xdg_FOUND)
-    add_subdirectory(background)
-endif()
+add_subdirectory(background)
 add_subdirectory(desktop)
 add_subdirectory(network)
