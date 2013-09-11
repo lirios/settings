@@ -29,16 +29,22 @@ import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 
 ColumnLayout {
+    property int iconSize: 48
+
     Image {
         source: "image://desktoptheme/" + model.iconName
-        sourceSize: Qt.size(48, 48)
+        sourceSize.width: iconSize
+        sourceSize.height: iconSize
+        width: iconSize
+        height: iconSize
 
-        Layout.alignment: Qt.AlignCenter
+        Layout.alignment: Qt.AlignHCenter
     }
 
     Label {
         text: title
         horizontalAlignment: Qt.AlignHCenter
+        verticalAlignment: Qt.AlignTop
         wrapMode: Text.Wrap
 
         Layout.fillWidth: true

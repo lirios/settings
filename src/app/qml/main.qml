@@ -39,6 +39,9 @@ ApplicationWindow {
     minimumWidth: 640
     minimumHeight: 640
 
+    property int categoryIconSize: 22
+    property int itemSize: 96
+
     toolBar: ToolBar {
         id: mainToolBar
         height: Math.max(backButton.height, searchEntry.height) + 10
@@ -112,9 +115,10 @@ ApplicationWindow {
                                 RowLayout {
                                     Image {
                                         source: "image://desktoptheme/" + model.iconName
-                                        sourceSize: Qt.size(22, 22)
-                                        width: 22
-                                        height: 22
+                                        sourceSize.width: width
+                                        sourceSize.height: height
+                                        width: categoryIconSize
+                                        height: categoryIconSize
                                     }
 
                                     Label {
@@ -125,6 +129,7 @@ ApplicationWindow {
                                 }
                             }
                         }
+                        height: root.height / 3
 
                         Layout.fillWidth: true
                         Layout.fillHeight: true
@@ -137,9 +142,11 @@ ApplicationWindow {
                                 model: PrefletsProxyModel {
                                     filter: name
                                 }
-                                cellWidth: width / 6
+                                cellWidth: itemSize
+                                cellHeight: itemSize
                                 delegate: GridDelegate {
                                     width: gridView.cellWidth
+                                    height: gridView.cellHeight
 
                                     MouseArea {
                                         anchors.fill: parent
