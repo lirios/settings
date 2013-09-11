@@ -51,7 +51,7 @@ qt5_add_resources(RESOURCES background.qrc)
 
 add_library(background SHARED ${SOURCES} ${QM_FILES} ${RESOURCES})
 set_target_properties(background PROPERTIES PREFIX "")
-qt5_use_modules(background Quick Configuration Xdg)
+qt5_use_modules(background Quick Configuration)
 target_link_libraries(background HawaiiSystemPreferences)
 
 install(TARGETS background LIBRARY
