@@ -60,6 +60,9 @@ public:
     Q_INVOKABLE AbstractItem *get(int index) const;
 
 public Q_SLOTS:
+    void addStandardPaths();
+    void addUserPaths();
+
     void addFolder(const QString &path);
     void addWallpapersFolder(const QString &path);
 

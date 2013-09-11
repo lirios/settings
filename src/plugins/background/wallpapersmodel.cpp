@@ -35,19 +35,7 @@
 WallpapersModel::WallpapersModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    QStringList paths;
-
-    paths = QStandardPaths::locateAll(
-                QStandardPaths::GenericDataLocation,
-                "backgrounds", QStandardPaths::LocateDirectory);
-    foreach (QString path, paths)
-        addFolder(path);
-
-    paths = QStandardPaths::locateAll(
-                QStandardPaths::GenericDataLocation,
-                "wallpapers", QStandardPaths::LocateDirectory);
-    foreach (QString path, paths)
-        addWallpapersFolder(path);
+    addStandardPaths();
 }
 
 WallpapersModel::~WallpapersModel()
@@ -93,6 +81,31 @@ AbstractItem *WallpapersModel::get(int index) const
     if (index < 0 || index > m_items.size())
         return 0;
     return m_items.at(index);
+}
+
+void WallpapersModel::addStandardPaths()
+{
+    QStringList paths;
+
+    paths = QStandardPaths::locateAll(
+                QStandardPaths::GenericDataLocation,
+                "backgrounds", QStandardPaths::LocateDirectory);
+    foreach (QString path, paths)
+        addFolder(path);
+
+    paths = QStandardPaths::locateAll(
+                QStandardPaths::GenericDataLocation,
+                "wallpapers", QStandardPaths::LocateDirectory);
+    foreach (QString path, paths)
+        addWallpapersFolder(path);
+}
+
+void WallpapersModel::addUserPaths()
+{
+    QStringList paths =
+        QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
+    foreach (QString path, paths)
+        addFolder(path);
 }
 
 void WallpapersModel::addFolder(const QString &path)
