@@ -29,15 +29,20 @@ import QtQuick.Controls 1.0
 
 Item {
     TabView {
-        anchors {
-            fill: parent
-            margins: 11
-        }
+        id: tabView
+        anchors.fill: parent
 
         Tab {
+            id: wallpapersTab
             title: qsTr("Wallpapers")
+            onActiveChanged: item.loadSettings()
 
-            WallpapersPage {}
+            WallpapersPage {
+                onItemSelected: {
+                    if (colorsTab.item)
+                        colorsTab.item.resetSelection();
+                }
+            }
         }
 
         /*
@@ -49,9 +54,16 @@ Item {
         */
 
         Tab {
+            id: colorsTab
             title: qsTr("Colors")
+            onActiveChanged: item.loadSettings()
 
-            ColorsPage {}
+            ColorsPage {
+                onItemSelected: {
+                    if (wallpapersTab.item)
+                        wallpapersTab.item.resetSelection();
+                }
+            }
         }
 
         /*
@@ -61,5 +73,17 @@ Item {
             GradientsPage {}
         }
         */
+    }
+
+    function selectDefaultTab() {
+        tabView.currentIndex = 0;
+    }
+
+    function loadSettings() {
+        tabView.getTab(tabView.currentIndex).item.loadSettings();
+    }
+
+    function saveSettings() {
+        tabView.getTab(tabView.currentIndex).item.saveSettings();
     }
 }

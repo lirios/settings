@@ -152,7 +152,7 @@ ApplicationWindow {
                                         anchors.fill: parent
                                         onClicked: {
                                             prefletTitle.text = model.title;
-                                            pageStack.push({item: model.item, properties: {stackView: pageStack}})
+                                            pageStack.push({item: model.item});
                                         }
                                     }
                                 }

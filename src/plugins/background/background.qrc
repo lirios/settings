@@ -6,6 +6,7 @@
         <file>qml/PicturesPage.qml</file>
         <file>qml/Preflet.qml</file>
         <file>qml/Selector.qml</file>
+        <file>qml/SelectorDialog.qml</file>
         <file>qml/WallpapersPage.qml</file>
     </qresource>
 </RCC>

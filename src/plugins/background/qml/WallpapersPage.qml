@@ -31,9 +31,13 @@ import QtQuick.Layouts 1.0
 import Hawaii.SystemPreferences.Background 0.1
 
 Item {
+    id: root
+
     property int columns: 3
     property int cellPadding: 10
     property real aspectRatio: Screen.width / Screen.height
+
+    signal itemSelected()
 
     SystemPalette {
         id: palette
@@ -41,8 +45,8 @@ Item {
 
     BackgroundSettings {
         id: settings
-        onTypeChanged: changeWallpaper()
-        onWallpaperUrlChanged: changeWallpaper()
+        //onTypeChanged: loadSettings()
+        //onWallpaperUrlChanged: loadSettings()
     }
 
     ColumnLayout {
@@ -57,6 +61,8 @@ Item {
                 model: WallpapersModel {}
                 cellWidth: parent.width / columns
                 cellHeight: cellWidth / aspectRatio
+                currentIndex: -1
+                highlightMoveDuration: 0
                 delegate: Item {
                     width: gridView.cellWidth
                     height: gridView.cellHeight
@@ -98,8 +104,8 @@ Item {
                             onEntered: infoOverlay.visible = model.hasMetadata
                             onExited: infoOverlay.visible = false
                             onClicked: {
-                                settings.type = BackgroundSettings.WallpaperBackground;
-                                settings.wallpaperUrl = "file://" + model.fileName;
+                                gridView.currentIndex = index;
+                                root.itemSelected();
                             }
                         }
                     }
@@ -134,11 +140,15 @@ Item {
         }
     }
 
-    function changeWallpaper() {
+    function resetSelection() {
+        gridView.currentIndex = -1;
+    }
+
+    function loadSettings() {
         if (settings.type == BackgroundSettings.WallpaperBackground) {
             for (var i = 0; i < gridView.count; i++) {
                 var url = "file://" + gridView.model.get(i).fileName;
-                if (url == settings.wallpaperUrl.toString()) {
+                if (url === settings.wallpaperUrl.toString()) {
                     gridView.currentIndex = i;
                     return;
                 }
@@ -148,5 +158,11 @@ Item {
         gridView.currentIndex = -1;
     }
 
-    Component.onCompleted: changeWallpaper()
+    function saveSettings() {
+        if (gridView.currentIndex == -1)
+            return;
+
+        settings.type = BackgroundSettings.WallpaperBackground;
+        settings.wallpaperUrl = "file://" + gridView.model.get(gridView.currentIndex).fileName;
+    }
 }

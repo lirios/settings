@@ -30,9 +30,13 @@ import QtQuick.Controls 1.0
 import Hawaii.SystemPreferences.Background 0.1
 
 Item {
+    id: root
+
     property int columns: 4
     property int cellPadding: 10
     property real aspectRatio: Screen.width / Screen.height
+
+    signal itemSelected()
 
     SystemPalette {
         id: palette
@@ -40,9 +44,9 @@ Item {
 
     BackgroundSettings {
         id: settings
-        onTypeChanged: changeBackground()
-        onColorShadingChanged: changeBackground()
-        onPrimaryColorChanged: changeBackground()
+        //onTypeChanged: loadSettings()
+        //onColorShadingChanged: loadSettings()
+        //onPrimaryColorChanged: loadSettings()
     }
 
     ScrollView {
@@ -56,6 +60,8 @@ Item {
             model: ColorsModel {}
             cellWidth: parent.width / columns
             cellHeight: cellWidth / aspectRatio
+            currentIndex: -1
+            highlightMoveDuration: 0
             delegate: Item {
                 width: gridView.cellWidth
                 height: gridView.cellHeight
@@ -70,9 +76,8 @@ Item {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            settings.type = BackgroundSettings.ColorBackground;
-                            settings.colorShading = BackgroundSettings.SolidColorShading;
-                            settings.primaryColor = model.color;
+                            gridView.currentIndex = index;
+                            root.itemSelected();
                         }
                     }
                 }
@@ -84,7 +89,11 @@ Item {
         }
     }
 
-    function changeBackground() {
+    function resetSelection() {
+        gridView.currentIndex = -1;
+    }
+
+    function loadSettings() {
         if (settings.type == BackgroundSettings.ColorBackground &&
                 settings.colorShading == BackgroundSettings.SolidColorShading) {
             for (var i = 0; i < gridView.count; i++) {
@@ -99,5 +108,12 @@ Item {
         gridView.currentIndex = -1;
     }
 
-    Component.onCompleted: changeBackground()
+    function saveSettings() {
+        if (gridView.currentIndex == -1)
+            return;
+
+        settings.type = BackgroundSettings.ColorBackground;
+        settings.colorShading = BackgroundSettings.SolidColorShading;
+        settings.primaryColor = gridView.model.get(gridView.currentIndex).color;
+    }
 }

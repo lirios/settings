@@ -40,10 +40,16 @@ Item {
         id: settings
     }
 
+    SelectorDialog {
+        id: selectorDialog
+        visible: false
+    }
+
     Button {
         anchors.centerIn: parent
         width: root.width * 0.75
         height: width / aspectRatio
+        onClicked: selectorDialog.visible = true
 
         Image {
             id: wallpaperPreview
@@ -81,8 +87,6 @@ Item {
             visible: settings.type == BackgroundSettings.ColorBackground &&
                      settings.colorShading != BackgroundSettings.SolidColorShading
         }
-
-        onClicked: stackView.push(Qt.resolvedUrl("Selector.qml"))
     }
 
     function convertFillMode(value) {
