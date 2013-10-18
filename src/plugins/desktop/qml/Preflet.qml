@@ -30,8 +30,6 @@ import QtQuick.Layouts 1.0
 import Hawaii.SystemPreferences.Desktop 0.1
 
 Item {
-    property variant stackView
-
     TabView {
         anchors {
             fill: parent

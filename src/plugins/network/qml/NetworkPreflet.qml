@@ -36,7 +36,6 @@ Item {
     width: 800
     height: 600
 
-    property variant stackView
     property var profileDialog: ProfileDialog {}
 
     SystemPalette {

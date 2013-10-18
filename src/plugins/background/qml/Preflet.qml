@@ -33,7 +33,6 @@ import Hawaii.SystemPreferences.Background 0.1
 Item {
     id: root
 
-    property variant stackView
     property real aspectRatio: Screen.width / Screen.height
 
     BackgroundSettings {
