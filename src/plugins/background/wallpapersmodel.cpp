@@ -93,11 +93,13 @@ void WallpapersModel::addStandardPaths()
     foreach (QString path, paths)
         addFolder(path);
 
+    /*
     paths = QStandardPaths::locateAll(
                 QStandardPaths::GenericDataLocation,
                 "wallpapers", QStandardPaths::LocateDirectory);
     foreach (QString path, paths)
         addWallpapersFolder(path);
+    */
 }
 
 void WallpapersModel::addUserPaths()
