@@ -51,41 +51,54 @@ Item {
         height: width / aspectRatio
         onClicked: selectorDialog.visible = true
 
-        Image {
-            id: wallpaperPreview
-            anchors {
-                fill: parent
-                margins: 20
-            }
-            source: settings.wallpaperUrl
-            sourceSize.width: width
-            sourceSize.height: height
-            fillMode: convertFillMode(settings.fillMode)
-            clip: wallpaperPreview.fillMode == Image.PreserveAspectCrop
-            asynchronous: true
-            cache: true
-            visible: settings.type == BackgroundSettings.WallpaperBackground
-        }
-
-        Rectangle {
-            id: colorPreview
-            anchors {
-                fill: parent
-                margins: 20
-            }
-            color: settings.primaryColor
-            visible: settings.type == BackgroundSettings.ColorBackground &&
-                     settings.colorShading == BackgroundSettings.SolidColorShading
-        }
-
         Item {
-            id: gradientPreview
+            id: container
             anchors {
-                fill: parent
+                left: parent.left
+                top: parent.top
                 margins: 20
             }
-            visible: settings.type == BackgroundSettings.ColorBackground &&
-                     settings.colorShading != BackgroundSettings.SolidColorShading
+            width: parent.width - 40
+            height: parent.height - label.paintedHeight - 40
+
+            Image {
+                id: wallpaperPreview
+                anchors.fill: parent
+                source: settings.wallpaperUrl
+                sourceSize.width: width
+                sourceSize.height: height
+                fillMode: convertFillMode(settings.fillMode)
+                clip: wallpaperPreview.fillMode == Image.PreserveAspectCrop
+                asynchronous: true
+                cache: true
+                visible: settings.type == BackgroundSettings.WallpaperBackground
+            }
+
+            Rectangle {
+                id: colorPreview
+                anchors.fill: parent
+                color: settings.primaryColor
+                visible: settings.type == BackgroundSettings.ColorBackground &&
+                         settings.colorShading == BackgroundSettings.SolidColorShading
+            }
+
+            Item {
+                id: gradientPreview
+                anchors.fill: parent
+                visible: settings.type == BackgroundSettings.ColorBackground &&
+                         settings.colorShading != BackgroundSettings.SolidColorShading
+            }
+        }
+
+        Text {
+            id: label
+            anchors {
+                top: container.bottom
+                horizontalCenter: container.horizontalCenter
+                margins: 10
+            }
+
+            text: qsTr("Background")
         }
     }
 
