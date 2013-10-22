@@ -23,6 +23,7 @@ Qt 5 binaries can be downloaded from http://qt-project.org/downloads
 The following additional libraries are needed:
 
 * QtAccountsService (https://github.com/hawaii-desktop/qt-accountsservice-addon)
+* QtConfiguration (https://github.com/hawaii-desktop/qtconfiguration)
 
 ## Build
 
