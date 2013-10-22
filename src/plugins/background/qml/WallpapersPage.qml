@@ -90,7 +90,7 @@ Item {
                             id: infoOverlay
                             anchors.fill: parent
                             color: "#b3000000"
-                            visible: model.hasMetadata
+                            visible: false
 
                             Label {
                                 anchors.fill: parent
