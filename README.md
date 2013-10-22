@@ -5,7 +5,7 @@ System preferences for the Hawaii desktop environment.
 
 ## Dependencies
 
-In order to build and install System Preferences you need Qt 5.1 or better with
+In order to build and install System Preferences you need Qt 5.2 or better with
 at least the following modules:
 
 * qtbase
