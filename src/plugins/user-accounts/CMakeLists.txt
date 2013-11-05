@@ -1,3 +1,6 @@
+# Find QtAccountsService
+find_package(QtAccountsService REQUIRED)
+
 include_directories(
     ${CMAKE_SOURCE_DIR}/headers
     ${CMAKE_BINARY_DIR}/src/lib
@@ -29,9 +32,10 @@ qt5_add_translation(QM_FILES ${QM_SOURCES})
 
 add_library(user-accounts SHARED ${SOURCES} ${FORMS_HEADERS} ${QM_FILES})
 set_target_properties(user-accounts PROPERTIES PREFIX "")
-qt5_use_modules(user-accounts Widgets AccountsService)
+qt5_use_modules(user-accounts Widgets)
 target_link_libraries(user-accounts
     ${VibeCore_LIBRARIES}
+    ${QtAccountsService_LIBRARIES}
     HawaiiSystemPreferences
 )
 
