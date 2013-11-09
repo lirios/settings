@@ -77,7 +77,7 @@ Item {
                         sourceSize.height: height
                         width: parent.width - cellPadding * 2
                         height: parent.height - cellPadding * 2
-                        fillMode: Image.PreserveAspectFit
+                        fillMode: Image.PreserveAspectCrop
                         asynchronous: true
                         cache: true
 
