@@ -31,6 +31,7 @@
 #include <QtQml/QQmlEngine>
 #include <QtQml/QQmlComponent>
 #include <QtQml/QQmlContext>
+#include <QtCore/QDebug>
 
 #include "preflet.h"
 #include "wallpapersmodel.h"
@@ -102,6 +103,8 @@ QQuickItem *Preflet::item()
     QQmlComponent component(engine, QUrl("qrc:/qml/Preflet.qml"));
     QObject *object = component.create(engine->rootContext());
     m_item = qobject_cast<QQuickItem*>(object);
+    if (component.status() != QQmlComponent::Ready)
+        qWarning() << component.errorString();
     return m_item;
 }
 
