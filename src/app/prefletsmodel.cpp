@@ -79,7 +79,7 @@ QVariant PrefletsModel::data(const QModelIndex &index, int role) const
         return QIcon::fromTheme(module->iconName());
     case Qt::DisplayRole:
     case TitleRole:
-        return module->name();
+        return module->title();
     case IconNameRole:
         return module->iconName();
     case CommentRole:

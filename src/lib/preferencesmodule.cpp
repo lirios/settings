@@ -24,15 +24,72 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include <QtCore/QCoreApplication>
+#include <QtCore/QStandardPaths>
+#include <QtCore/QTranslator>
+
 #include "preferencesmodule.h"
+#include "preferencesmodule_p.h"
 
 namespace Hawaii
 {
     namespace SystemPreferences
     {
-        PreferencesModule::PreferencesModule(QObject *parent)
-            : QObject(parent)
+        /*
+         * PreferencesModulePrivate
+         */
+
+        PreferencesModulePrivate::PreferencesModulePrivate(PreferencesModule *parent)
+            : q_ptr(parent)
+            , translator(0)
         {
+        }
+
+        void PreferencesModulePrivate::loadTranslations()
+        {
+            // Current locale
+            const QString locale = QLocale::system().name();
+
+            // Remove translation of the previously loaded locale
+            if (translator) {
+                QCoreApplication::instance()->removeTranslator(translator);
+                translator->deleteLater();
+                translator = 0;
+            }
+
+            // Load translations
+            const QString directory = QString("hawaii-system-preferences/plugins/%1/translations").arg(name);
+            translator = new QTranslator(q_ptr);
+            QString localeDir = QStandardPaths::locate(
+                                    QStandardPaths::GenericDataLocation,
+                                    directory,
+                                    QStandardPaths::LocateDirectory);
+            translator->load(locale, localeDir);
+            QCoreApplication::instance()->installTranslator(translator);
+        }
+
+        /*
+         * PreferencesModule
+         */
+
+        PreferencesModule::PreferencesModule(const QString &name, QObject *parent)
+            : QObject(parent)
+            , d_ptr(new PreferencesModulePrivate(this))
+        {
+            Q_D(PreferencesModule);
+            d->name = name;
+            d->loadTranslations();
+        }
+
+        PreferencesModule::~PreferencesModule()
+        {
+            delete d_ptr;
+        }
+
+        QString PreferencesModule::name() const
+        {
+            Q_D(const PreferencesModule);
+            return d->name;
         }
 
         bool PreferencesModule::requiresAdministrativePrivileges() const

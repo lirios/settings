@@ -37,6 +37,8 @@ namespace Hawaii
 {
     namespace SystemPreferences
     {
+        class PreferencesModulePrivate;
+
         /**
          * \brief Base class for all preferences modules.
          *
@@ -166,12 +168,22 @@ namespace Hawaii
             /**
              * Constructs a PreferencesModule object.
              */
-            explicit PreferencesModule(QObject *parent = 0);
+            explicit PreferencesModule(const QString &name, QObject *parent = 0);
+
+            /**
+             * Destructs a PreferencesModule object.
+             */
+            ~PreferencesModule();
 
             /**
              * @returns the module's name.
              */
-            virtual QString name() const = 0;
+            QString name() const;
+
+            /**
+             * @returns the module's title.
+             */
+            virtual QString title() const = 0;
 
             /**
              * @returns the module's comment.
@@ -214,6 +226,10 @@ namespace Hawaii
              * @returns the QtQuick item for this module.
              */
             virtual QQuickItem *item() = 0;
+
+        private:
+            Q_DECLARE_PRIVATE(PreferencesModule)
+            PreferencesModulePrivate *const d_ptr;
         };
     }
 }

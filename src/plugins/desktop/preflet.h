@@ -29,7 +29,6 @@
 
 #include <Hawaii/SystemPreferences/PreferencesModule>
 
-class QTranslator;
 class QModelIndex;
 
 namespace Hawaii
@@ -43,7 +42,7 @@ namespace Hawaii
             Preflet();
             ~Preflet();
 
-            QString name() const;
+            QString title() const;
             QString comment() const;
             QString iconName() const;
             QStringList keywords() const;
@@ -52,10 +51,8 @@ namespace Hawaii
             QQuickItem *item();
 
         private:
-            QTranslator *m_translator;
             QQuickItem *m_item;
 
-            void loadTranslations();
             void loadSettings();
         };
     }

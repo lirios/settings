@@ -36,21 +36,17 @@
 using namespace Hawaii::SystemPreferences;
 
 NetworkPreflet::NetworkPreflet()
-    : PreferencesModule()
-    , m_translator(0)
+    : PreferencesModule(QStringLiteral("network"))
     , m_item(0)
 {
-    // Load translations
-    loadTranslations();
 }
 
 NetworkPreflet::~NetworkPreflet()
 {
-    delete m_translator;
     delete m_item;
 }
 
-QString NetworkPreflet::name() const
+QString NetworkPreflet::title() const
 {
     return tr("Network");
 }
@@ -87,27 +83,6 @@ QQuickItem *NetworkPreflet::item()
     QObject *object = component.create();
     m_item = qobject_cast<QQuickItem*>(object);
     return m_item;
-}
-
-void NetworkPreflet::loadTranslations()
-{
-    // Current locale
-    const QString locale = QLocale::system().name();
-
-    // Remove translation of the previously loaded locale
-    if (m_translator) {
-        QCoreApplication::instance()->removeTranslator(m_translator);
-        delete m_translator;
-    }
-
-    // Load translations
-    m_translator = new QTranslator(this);
-    QString localeDir = QStandardPaths::locate(
-                QStandardPaths::GenericDataLocation,
-                QStringLiteral("hawaii-system-preferences/plugins/network/translations"),
-                QStandardPaths::LocateDirectory);
-    m_translator->load(locale, localeDir);
-    QCoreApplication::instance()->installTranslator(m_translator);
 }
 
 #include "moc_networkpreflet.cpp"

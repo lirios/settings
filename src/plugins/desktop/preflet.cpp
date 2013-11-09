@@ -24,9 +24,7 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include <QtCore/QCoreApplication>
 #include <QtCore/QStandardPaths>
-#include <QtCore/QTranslator>
 #include <QtQml/QQmlEngine>
 #include <QtQml/QQmlComponent>
 
@@ -36,25 +34,20 @@
 using namespace Hawaii::SystemPreferences;
 
 Preflet::Preflet()
-    : PreferencesModule()
-    , m_translator(0)
+    : PreferencesModule(QStringLiteral("desktop"))
     , m_item(0)
 {
     // Register QML types
     qmlRegisterType<LauncherSettings>("Hawaii.SystemPreferences.Desktop",
                                       0, 1, "LauncherSettings");
-
-    // Load translations
-    loadTranslations();
 }
 
 Preflet::~Preflet()
 {
-    delete m_translator;
     delete m_item;
 }
 
-QString Preflet::name() const
+QString Preflet::title() const
 {
     return tr("Desktop");
 }
@@ -91,27 +84,6 @@ QQuickItem *Preflet::item()
     QObject *object = component.create();
     m_item = qobject_cast<QQuickItem*>(object);
     return m_item;
-}
-
-void Preflet::loadTranslations()
-{
-    // Current locale
-    const QString locale = QLocale::system().name();
-
-    // Remove translation of the previously loaded locale
-    if (m_translator) {
-        QCoreApplication::instance()->removeTranslator(m_translator);
-        delete m_translator;
-    }
-
-    // Load translations
-    m_translator = new QTranslator(this);
-    QString localeDir = QStandardPaths::locate(
-                QStandardPaths::GenericDataLocation,
-                QLatin1String("hawaii-system-preferences/plugins/desktop/translations"),
-                QStandardPaths::LocateDirectory);
-    m_translator->load(locale, localeDir);
-    QCoreApplication::instance()->installTranslator(m_translator);
 }
 
 #include "moc_preflet.cpp"

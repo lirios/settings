@@ -24,9 +24,7 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include <QtCore/QCoreApplication>
 #include <QtCore/QStandardPaths>
-#include <QtCore/QTranslator>
 #include <QtCore/QUrl>
 #include <QtQml/QQmlEngine>
 #include <QtQml/QQmlComponent>
@@ -41,8 +39,7 @@
 using namespace Hawaii::SystemPreferences;
 
 Preflet::Preflet()
-    : PreferencesModule()
-    , m_translator(0)
+    : PreferencesModule(QStringLiteral("background"))
     , m_item(0)
 {
     // Register QML types
@@ -52,18 +49,14 @@ Preflet::Preflet()
                                   0, 1, "AbstractItem");
     qmlRegisterType<BackgroundSettings>("Hawaii.SystemPreferences.Background",
                                         0, 1, "BackgroundSettings");
-
-    // Load translations
-    loadTranslations();
 }
 
 Preflet::~Preflet()
 {
-    delete m_translator;
     delete m_item;
 }
 
-QString Preflet::name() const
+QString Preflet::title() const
 {
     return tr("Background");
 }
@@ -106,27 +99,6 @@ QQuickItem *Preflet::item()
     if (component.status() != QQmlComponent::Ready)
         qWarning() << component.errorString();
     return m_item;
-}
-
-void Preflet::loadTranslations()
-{
-    // Current locale
-    const QString locale = QLocale::system().name();
-
-    // Remove translation of the previously loaded locale
-    if (m_translator) {
-        QCoreApplication::instance()->removeTranslator(m_translator);
-        delete m_translator;
-    }
-
-    // Load translations
-    m_translator = new QTranslator(this);
-    QString localeDir = QStandardPaths::locate(
-                            QStandardPaths::GenericDataLocation,
-                            QStringLiteral("hawaii-system-preferences/plugins/background/translations"),
-                            QStandardPaths::LocateDirectory);
-    m_translator->load(locale, localeDir);
-    QCoreApplication::instance()->installTranslator(m_translator);
 }
 
 #include "moc_preflet.cpp"

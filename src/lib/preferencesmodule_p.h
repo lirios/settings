@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of System Preferences.
  *
- * Copyright (C) 2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2012-2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * Author(s):
  *    Pier Luigi Fiorini
@@ -24,34 +24,28 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef PREFLET_H
-#define PREFLET_H
+#ifndef PREFERENCESMODULE_P_H
+#define PREFERENCESMODULE_P_H
 
-#include <Hawaii/SystemPreferences/PreferencesModule>
+class QTranslator;
 
 namespace Hawaii
 {
     namespace SystemPreferences
     {
-        class Preflet : public PreferencesModule
+        class PreferencesModulePrivate
         {
-            Q_OBJECT
+            Q_DECLARE_PUBLIC(PreferencesModule)
         public:
-            explicit Preflet();
-            ~Preflet();
+            PreferencesModulePrivate(PreferencesModule *parent);
 
-            QString title() const;
-            QString comment() const;
-            QString iconName() const;
-            QStringList keywords() const;
-            PreferencesModule::Category category() const;
+            void loadTranslations();
 
-            QQuickItem *item();
-
-        private:
-            QQuickItem *m_item;
+            PreferencesModule *q_ptr;
+            QString name;
+            QTranslator *translator;
         };
     }
 }
 
-#endif // PREFLET_H
+#endif // PREFERENCESMODULE_P_H
