@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/background">
         <file>qml/ColorsModel.qml</file>
         <file>qml/ColorsPage.qml</file>
         <file>qml/GradientsPage.qml</file>

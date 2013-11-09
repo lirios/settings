@@ -79,7 +79,7 @@ QQuickItem *NetworkPreflet::item()
 
     // Create the QtQuick item
     QQmlEngine *engine = new QQmlEngine(this);
-    QQmlComponent component(engine, QUrl("qrc:/qml/NetworkPreflet.qml"));
+    QQmlComponent component(engine, QUrl("qrc:/network/qml/NetworkPreflet.qml"));
     QObject *object = component.create();
     m_item = qobject_cast<QQuickItem*>(object);
     return m_item;

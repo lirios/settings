@@ -93,7 +93,7 @@ QQuickItem *Preflet::item()
     // Create the QtQuick item
     QQmlEngine *engine = new QQmlEngine(this);
     engine->rootContext()->setContextProperty(QStringLiteral("picturesPath"), picturesPath);
-    QQmlComponent component(engine, QUrl("qrc:/qml/Preflet.qml"));
+    QQmlComponent component(engine, QUrl("qrc:/background/qml/Preflet.qml"));
     QObject *object = component.create(engine->rootContext());
     m_item = qobject_cast<QQuickItem*>(object);
     if (component.status() != QQmlComponent::Ready)

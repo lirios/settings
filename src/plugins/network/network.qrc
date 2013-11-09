@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/network">
         <file>qml/NetworkPreflet.qml</file>
         <file>qml/ProfileDialog.qml</file>
         <file>qml/DetailsPane.qml</file>
