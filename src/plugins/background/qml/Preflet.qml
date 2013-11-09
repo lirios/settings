@@ -26,7 +26,7 @@
 
 import QtQuick 2.1
 import QtQuick.Window 2.1
-import QtQuick.Controls 1.0
+import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
 import Hawaii.SystemPreferences.Background 0.1
 
@@ -88,6 +88,11 @@ Item {
                 anchors.fill: parent
                 visible: settings.type == BackgroundSettings.ColorBackground &&
                          settings.colorShading != BackgroundSettings.SolidColorShading
+            }
+
+            BusyIndicator {
+                anchors.centerIn: parent
+                running: wallpaperPreview.visible && wallpaperPreview.status == Image.Loading
             }
         }
 
