@@ -41,6 +41,8 @@ Item {
 
     SelectorDialog {
         id: selectorDialog
+        width: root.width
+        height: root.height
         visible: false
     }
 
