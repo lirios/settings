@@ -1,6 +1,5 @@
 include_directories(
-    ${KCoreAddons_INCLUDE_DIRS}
-    ${KConfig_INCLUDE_DIRS}
+    ${QtConfiguration_INCLUDE_DIRS}
     ${CMAKE_SOURCE_DIR}/3rdparty/libqtxdg
     ${CMAKE_SOURCE_DIR}/headers
     ${CMAKE_BINARY_DIR}/src/lib
@@ -51,8 +50,11 @@ qt5_add_resources(RESOURCES background.qrc)
 
 add_library(background SHARED ${SOURCES} ${QM_FILES} ${RESOURCES})
 set_target_properties(background PROPERTIES PREFIX "")
-qt5_use_modules(background Quick Configuration)
-target_link_libraries(background HawaiiSystemPreferences)
+qt5_use_modules(background Quick)
+target_link_libraries(background
+    HawaiiSystemPreferences
+    ${QtConfiguration_LIBRARIES}
+)
 
 install(TARGETS background LIBRARY
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/hawaii/plugins/preferences)

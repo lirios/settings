@@ -1,7 +1,7 @@
 include_directories(
+    ${QtConfiguration_INCLUDE_DIRS}
     ${CMAKE_SOURCE_DIR}/headers
     ${CMAKE_BINARY_DIR}/src/lib
-    ${VibeCore_INCLUDE_DIRS}
 )
 
 add_definitions(-DQT_PLUGIN)
@@ -43,8 +43,11 @@ qt5_add_translation(QM_FILES ${QM_SOURCES})
 
 add_library(desktop SHARED ${SOURCES} ${QM_FILES} ${RESOURCES})
 set_target_properties(desktop PROPERTIES PREFIX "")
-qt5_use_modules(desktop Quick Configuration)
-target_link_libraries(desktop HawaiiSystemPreferences)
+qt5_use_modules(desktop Quick)
+target_link_libraries(desktop
+    HawaiiSystemPreferences
+    ${QtConfiguration_LIBRARIES}
+)
 
 install(TARGETS desktop LIBRARY
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/hawaii/plugins/preferences)
