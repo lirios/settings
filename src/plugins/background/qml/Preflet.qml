@@ -36,6 +36,7 @@ Item {
     readonly property real aspectRatio: Screen.width / Screen.height
     readonly property real thumbWidth: root.width * 0.5
     readonly property real thumbHeight: thumbWidth / aspectRatio
+    property bool completed: false
 
     BackgroundSettings {
         id: settings
@@ -72,21 +73,23 @@ Item {
                 sourceSize.height: height
                 fillMode: convertFillMode(settings.fillMode)
                 clip: wallpaperPreview.fillMode == Image.PreserveAspectCrop
-                visible: settings.type == BackgroundSettings.WallpaperBackground
+                visible: completed && settings.type == BackgroundSettings.WallpaperBackground
             }
 
             Rectangle {
                 id: colorPreview
                 anchors.fill: parent
                 color: settings.primaryColor
-                visible: settings.type == BackgroundSettings.ColorBackground &&
+                visible: completed &&
+                         settings.type == BackgroundSettings.ColorBackground &&
                          settings.colorShading == BackgroundSettings.SolidColorShading
             }
 
             Item {
                 id: gradientPreview
                 anchors.fill: parent
-                visible: settings.type == BackgroundSettings.ColorBackground &&
+                visible: completed &&
+                         settings.type == BackgroundSettings.ColorBackground &&
                          settings.colorShading != BackgroundSettings.SolidColorShading
             }
         }
@@ -102,6 +105,8 @@ Item {
             text: qsTr("Background")
         }
     }
+
+    Component.onCompleted: root.completed = true
 
     function convertFillMode(value) {
         switch (value) {
