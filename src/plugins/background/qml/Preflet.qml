@@ -33,7 +33,9 @@ import Hawaii.SystemPreferences.Background 0.1
 Item {
     id: root
 
-    property real aspectRatio: Screen.width / Screen.height
+    readonly property real aspectRatio: Screen.width / Screen.height
+    readonly property real thumbWidth: root.width * 0.5
+    readonly property real thumbHeight: thumbWidth / aspectRatio
 
     BackgroundSettings {
         id: settings
@@ -48,8 +50,8 @@ Item {
 
     Button {
         anchors.centerIn: parent
-        width: root.width * 0.75
-        height: width / aspectRatio
+        width: thumbWidth
+        height: thumbHeight
         onClicked: selectorDialog.visible = true
 
         Item {
