@@ -72,8 +72,6 @@ Item {
                 sourceSize.height: height
                 fillMode: convertFillMode(settings.fillMode)
                 clip: wallpaperPreview.fillMode == Image.PreserveAspectCrop
-                asynchronous: true
-                cache: true
                 visible: settings.type == BackgroundSettings.WallpaperBackground
             }
 
@@ -90,11 +88,6 @@ Item {
                 anchors.fill: parent
                 visible: settings.type == BackgroundSettings.ColorBackground &&
                          settings.colorShading != BackgroundSettings.SolidColorShading
-            }
-
-            BusyIndicator {
-                anchors.centerIn: parent
-                running: wallpaperPreview.visible && wallpaperPreview.status == Image.Loading
             }
         }
 
