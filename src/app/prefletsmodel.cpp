@@ -47,8 +47,10 @@ PrefletsModel::PrefletsModel(QObject *parent)
         foreach (const QString &fileName, dir.entryList(QDir::Files)) {
             QPluginLoader loader(dir.absoluteFilePath(fileName));
             PreferencesModulePlugin *plugin = qobject_cast<PreferencesModulePlugin *>(loader.instance());
-            if (!plugin)
+            if (!plugin) {
+                qWarning() << "Couldn't load" << fileName << loader.errorString();
                 continue;
+            }
 
             foreach (const QString &key, plugin->keys()) {
                 PreferencesModule *module = plugin->create(key);
