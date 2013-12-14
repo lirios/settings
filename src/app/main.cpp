@@ -30,6 +30,7 @@
 #include <QtQuick/QQuickWindow>
 
 #include "config.h"
+#include "cmakedirs.h"
 #include "categoriesmodel.h"
 #include "prefletsmodel.h"
 #include "prefletsproxymodel.h"
@@ -42,6 +43,7 @@ int main(int argc, char *argv[])
     app.setApplicationVersion(SYSTEMPREFERENCES_VERSION_STRING);
     app.setOrganizationDomain("hawaii.org");
     app.setOrganizationName("Hawaii");
+    app.addLibraryPath(QStringLiteral(INSTALL_LIBDIR "/hawaii/plugins"));
 
     QQmlEngine engine;
 
