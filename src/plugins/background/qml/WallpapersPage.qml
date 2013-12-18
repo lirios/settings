@@ -79,7 +79,6 @@ Item {
                         height: parent.height - cellPadding * 2
                         fillMode: Image.PreserveAspectCrop
                         asynchronous: true
-                        cache: true
 
                         BusyIndicator {
                             anchors.centerIn: parent
