@@ -37,6 +37,18 @@ source_lang = en
 source_file = src/plugins/desktop/hawaii-desktop-panel.desktop.in.in
 file_filter = src/plugins/desktop/translations/hawaii-desktop-panel_<lang>.desktop
 
+[hawaii.system-preferences-keyboard-preflet]
+type = QT
+source_lang = en
+source_file = src/plugins/keyboard/translations/template.ts
+file_filter = src/plugins/keyboard/translations/<lang>.ts
+
+[hawaii.system-preferences-keyboard-metadata]
+type = DESKTOP
+source_lang = en
+source_file = src/plugins/keyboard/hawaii-keyboard-panel.desktop.in.in
+file_filter = src/plugins/keyboard/translations/hawaii-keyboard-panel_<lang>.desktop
+
 [hawaii.system-preferences-mime-types-preflet]
 type = QT
 source_lang = en
