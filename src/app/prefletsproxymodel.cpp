@@ -48,4 +48,12 @@ void PrefletsProxyModel::setFilter(const QString &val)
     }
 }
 
+QQuickItem *PrefletsProxyModel::createItem(int row)
+{
+    PrefletsModel *model = qobject_cast<PrefletsModel *>(sourceModel());
+    if (model)
+        return model->createItem(mapToSource(index(row, 0)).row());
+    return nullptr;
+}
+
 #include "moc_prefletsproxymodel.cpp"

@@ -40,7 +40,6 @@ using namespace Hawaii::SystemPreferences;
 
 Preflet::Preflet()
     : PreferencesModule(QStringLiteral("background"))
-    , m_item(0)
 {
     // Register QML types
     qmlRegisterType<WallpapersModel>("Hawaii.SystemPreferences.Background",
@@ -49,11 +48,6 @@ Preflet::Preflet()
                                   0, 1, "AbstractItem");
     qmlRegisterType<BackgroundSettings>("Hawaii.SystemPreferences.Background",
                                         0, 1, "BackgroundSettings");
-}
-
-Preflet::~Preflet()
-{
-    delete m_item;
 }
 
 QString Preflet::title() const
@@ -81,24 +75,11 @@ PreferencesModule::Category Preflet::category() const
     return PreferencesModule::PersonalCategory;
 }
 
-QQuickItem *Preflet::item()
+QQmlComponent *Preflet::createComponent(QQmlEngine *engine, QObject *parent)
 {
-    // Return QtQuick item immediately if it was already created
-    if (m_item)
-        return m_item;
-
-    // Pictures location
-    QString picturesPath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
-
-    // Create the QtQuick item
-    QQmlEngine *engine = new QQmlEngine(this);
-    engine->rootContext()->setContextProperty(QStringLiteral("picturesPath"), picturesPath);
-    QQmlComponent component(engine, QUrl("qrc:/background/qml/Preflet.qml"));
-    QObject *object = component.create(engine->rootContext());
-    m_item = qobject_cast<QQuickItem*>(object);
-    if (component.status() != QQmlComponent::Ready)
-        qWarning() << component.errorString();
-    return m_item;
+    return new QQmlComponent(engine,
+                             QUrl("qrc:/background/qml/Preflet.qml"),
+                             parent);
 }
 
 #include "moc_preflet.cpp"

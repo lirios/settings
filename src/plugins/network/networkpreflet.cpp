@@ -37,13 +37,7 @@ using namespace Hawaii::SystemPreferences;
 
 NetworkPreflet::NetworkPreflet()
     : PreferencesModule(QStringLiteral("network"))
-    , m_item(0)
 {
-}
-
-NetworkPreflet::~NetworkPreflet()
-{
-    delete m_item;
 }
 
 QString NetworkPreflet::title() const
@@ -71,18 +65,12 @@ PreferencesModule::Category NetworkPreflet::category() const
     return PreferencesModule::HardwareCategory;
 }
 
-QQuickItem *NetworkPreflet::item()
-{
-    // Return QtQuick item immediately if it was already created
-    if (m_item)
-        return m_item;
 
-    // Create the QtQuick item
-    QQmlEngine *engine = new QQmlEngine(this);
-    QQmlComponent component(engine, QUrl("qrc:/network/qml/NetworkPreflet.qml"));
-    QObject *object = component.create();
-    m_item = qobject_cast<QQuickItem*>(object);
-    return m_item;
+QQmlComponent *NetworkPreflet::createComponent(QQmlEngine *engine, QObject *parent)
+{
+    return new QQmlComponent(engine,
+                             QUrl("qrc:/network/qml/NetworkPreflet.qml"),
+                             parent);
 }
 
 #include "moc_networkpreflet.cpp"

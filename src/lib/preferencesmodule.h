@@ -223,9 +223,9 @@ namespace Hawaii
             virtual QString administrativeActionId() const;
 
             /**
-             * @returns the QtQuick item for this module.
+             * Creates a QQmlComponent object for this module.
              */
-            virtual QQuickItem *item() = 0;
+            virtual QQmlComponent *createComponent(QQmlEngine *engine, QObject *parent = 0) = 0;
 
         private:
             Q_DECLARE_PRIVATE(PreferencesModule)

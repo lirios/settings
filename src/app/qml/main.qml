@@ -140,6 +140,7 @@ ApplicationWindow {
                             GridView {
                                 id: gridView
                                 model: PrefletsProxyModel {
+                                    id: proxyModel
                                     filter: name
                                 }
                                 cellWidth: itemSize
@@ -151,8 +152,12 @@ ApplicationWindow {
                                     MouseArea {
                                         anchors.fill: parent
                                         onClicked: {
+                                            var item = model.item;
+                                            if (!item)
+                                                item = proxyModel.createItem(index);
+
                                             prefletTitle.text = model.title;
-                                            pageStack.push({item: model.item});
+                                            pageStack.push({item: item});
                                         }
                                     }
                                 }

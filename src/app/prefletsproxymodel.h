@@ -28,6 +28,7 @@
 #define PREFLETSPROXYMODEL_H
 
 #include <QtCore/QSortFilterProxyModel>
+#include <QtQuick/QQuickItem>
 
 class PrefletsProxyModel : public QSortFilterProxyModel
 {
@@ -38,6 +39,8 @@ public:
 
     QString filter() const;
     void setFilter(const QString &val);
+
+    Q_INVOKABLE QQuickItem *createItem(int row);
 
 Q_SIGNALS:
     void filterChanged();

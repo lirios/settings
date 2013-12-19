@@ -35,16 +35,10 @@ using namespace Hawaii::SystemPreferences;
 
 Preflet::Preflet()
     : PreferencesModule(QStringLiteral("desktop"))
-    , m_item(0)
 {
     // Register QML types
     qmlRegisterType<LauncherSettings>("Hawaii.SystemPreferences.Desktop",
                                       0, 1, "LauncherSettings");
-}
-
-Preflet::~Preflet()
-{
-    delete m_item;
 }
 
 QString Preflet::title() const
@@ -72,18 +66,11 @@ PreferencesModule::Category Preflet::category() const
     return PreferencesModule::PersonalCategory;
 }
 
-QQuickItem *Preflet::item()
+QQmlComponent *Preflet::createComponent(QQmlEngine *engine, QObject *parent)
 {
-    // Return QtQuick item immediately if it was already created
-    if (m_item)
-        return m_item;
-
-    // Create the QtQuick item
-    QQmlEngine *engine = new QQmlEngine(this);
-    QQmlComponent component(engine, QUrl("qrc:/desktop/qml/Preflet.qml"));
-    QObject *object = component.create();
-    m_item = qobject_cast<QQuickItem*>(object);
-    return m_item;
+    return new QQmlComponent(engine,
+                             QUrl("qrc:/desktop/qml/Preflet.qml"),
+                             parent);
 }
 
 #include "moc_preflet.cpp"

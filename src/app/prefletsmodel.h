@@ -31,6 +31,10 @@
 
 #include <Hawaii/SystemPreferences/PreferencesModule>
 
+class QQmlEngine;
+class QQmlContext;
+class QQmlComponent;
+
 using namespace Hawaii::SystemPreferences;
 
 class PrefletsModel : public QAbstractListModel
@@ -55,8 +59,15 @@ public:
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
 
+    QQuickItem *createItem(int index);
+
 private:
+    QQmlEngine *m_engine;
     QList<PreferencesModule *> m_modules;
+    QHash<QString, QQmlComponent *> m_components;
+    QHash<QString, QQuickItem *> m_items;
+
+    void populate();
 };
 
 #endif // PREFLETSMODEL_H

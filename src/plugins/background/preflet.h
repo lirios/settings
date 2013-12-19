@@ -37,8 +37,7 @@ namespace Hawaii
         {
             Q_OBJECT
         public:
-            explicit Preflet();
-            ~Preflet();
+            Preflet();
 
             QString title() const;
             QString comment() const;
@@ -46,10 +45,7 @@ namespace Hawaii
             QStringList keywords() const;
             PreferencesModule::Category category() const;
 
-            QQuickItem *item();
-
-        private:
-            QQuickItem *m_item;
+            QQmlComponent *createComponent(QQmlEngine *engine, QObject *parent = 0);
         };
     }
 }
