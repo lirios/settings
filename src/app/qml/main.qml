@@ -90,75 +90,71 @@ ApplicationWindow {
         id: pageStack
         anchors.fill: parent
 
-        initialItem: Item {
+        initialItem: ColumnLayout {
             width: parent.width
             height: parent.height
 
-            ColumnLayout {
-                anchors.fill: parent
+            Repeater {
+                model: CategoriesModel {}
 
-                Repeater {
-                    model: CategoriesModel {}
+                GroupBox {
+                    title: model.label
+                    style: GroupBoxStyle {
+                        padding {
+                            top: (control.title.length > 0 || control.checkable ? 16 : 0) + 20
+                            left: 16
+                        }
 
-                    GroupBox {
-                        title: model.label
-                        style: GroupBoxStyle {
-                            padding {
-                                top: (control.title.length > 0 || control.checkable ? 16 : 0) + 20
-                                left: 16
-                            }
+                        panel: Rectangle {
+                            anchors.fill: parent
+                            color: index % 2 ? palette.window : palette.alternateBase
 
-                            panel: Rectangle {
-                                anchors.fill: parent
-                                color: index % 2 ? palette.window : palette.alternateBase
+                            RowLayout {
+                                Image {
+                                    source: "image://desktoptheme/" + model.iconName
+                                    sourceSize.width: width
+                                    sourceSize.height: height
+                                    width: categoryIconSize
+                                    height: categoryIconSize
+                                }
 
-                                RowLayout {
-                                    Image {
-                                        source: "image://desktoptheme/" + model.iconName
-                                        sourceSize.width: width
-                                        sourceSize.height: height
-                                        width: categoryIconSize
-                                        height: categoryIconSize
-                                    }
-
-                                    Label {
-                                        text: control.title
-                                        font.bold: true
-                                        renderType: Text.NativeRendering
-                                    }
+                                Label {
+                                    text: control.title
+                                    font.bold: true
+                                    renderType: Text.NativeRendering
                                 }
                             }
                         }
-                        height: root.height / 3
+                    }
+                    height: root.height / 3
 
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
 
-                        ScrollView {
-                            anchors.fill: parent
+                    ScrollView {
+                        anchors.fill: parent
 
-                            GridView {
-                                id: gridView
-                                model: PrefletsProxyModel {
-                                    id: proxyModel
-                                    filter: name
-                                }
-                                cellWidth: itemSize
-                                cellHeight: itemSize
-                                delegate: GridDelegate {
-                                    width: gridView.cellWidth
-                                    height: gridView.cellHeight
+                        GridView {
+                            id: gridView
+                            model: PrefletsProxyModel {
+                                id: proxyModel
+                                filter: name
+                            }
+                            cellWidth: itemSize
+                            cellHeight: itemSize
+                            delegate: GridDelegate {
+                                width: gridView.cellWidth
+                                height: gridView.cellHeight
 
-                                    MouseArea {
-                                        anchors.fill: parent
-                                        onClicked: {
-                                            var item = model.item;
-                                            if (!item)
-                                                item = proxyModel.createItem(index);
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: {
+                                        var item = model.item;
+                                        if (!item)
+                                            item = proxyModel.createItem(index);
 
-                                            prefletTitle.text = model.title;
-                                            pageStack.push({item: item});
-                                        }
+                                        prefletTitle.text = model.title;
+                                        pageStack.push({item: item});
                                     }
                                 }
                             }
