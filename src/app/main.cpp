@@ -30,7 +30,6 @@
 
 #include "config.h"
 #include "cmakedirs.h"
-#include "categoriesmodel.h"
 #include "prefletsmodel.h"
 #include "prefletsproxymodel.h"
 
@@ -45,7 +44,6 @@ int main(int argc, char *argv[])
     app.addLibraryPath(QStringLiteral(INSTALL_LIBDIR "/hawaii/plugins"));
 
     // Register types
-    qmlRegisterType<CategoriesModel>("Hawaii.SystemPreferences", 0, 1, "CategoriesModel");
     qmlRegisterType<PrefletsModel>("Hawaii.SystemPreferences", 0, 1, "PrefletsModel");
     qmlRegisterType<PrefletsProxyModel>("Hawaii.SystemPreferences", 0, 1, "PrefletsProxyModel");
 

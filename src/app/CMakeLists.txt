@@ -15,7 +15,6 @@ configure_file(
 
 set(SOURCES
     main.cpp
-    categoriesmodel.cpp
     prefletsmodel.cpp
     prefletsproxymodel.cpp
 )
