@@ -26,24 +26,21 @@
 
 import QtQuick 2.1
 import QtQuick.Controls 1.0
-import QtQuick.Controls.Styles 1.0
-import QtQuick.Controls.Private 1.0
 import QtQuick.Layouts 1.0
-import Hawaii.SystemPreferences 0.1
 
 ApplicationWindow {
     id: root
     title: qsTr("System Preferences")
-    width: 640
-    height: 640
-    minimumWidth: 640
-    minimumHeight: 640
+    width: 480
+    height: 480
+    minimumWidth: 48
+    minimumHeight: 48
 
-    property int categoryIconSize: 22
     property int itemSize: 96
 
     toolBar: ToolBar {
         id: mainToolBar
+        width: root.width
         height: Math.max(backButton.height, searchEntry.height) + 10
 
         RowLayout {
@@ -76,10 +73,6 @@ ApplicationWindow {
         }
     }
 
-    SystemPalette {
-        id: palette
-    }
-
     Action {
         id: actionBack
         iconName: "go-previous"
@@ -90,74 +83,50 @@ ApplicationWindow {
         id: pageStack
         anchors.fill: parent
 
-        initialItem: ColumnLayout {
+        initialItem: Item {
             width: parent.width
             height: parent.height
 
-            Repeater {
-                model: CategoriesModel {}
+            ScrollView {
+                anchors.fill: parent
 
-                GroupBox {
-                    title: model.label
-                    style: GroupBoxStyle {
-                        padding {
-                            top: (control.title.length > 0 || control.checkable ? 16 : 0) + 20
-                            left: 16
+                Flickable {
+                    anchors.fill: parent
+                    contentWidth: mainLayout.childrenRect.width
+                    contentHeight: mainLayout.childrenRect.height
+                    boundsBehavior: (contentHeight > root.width) ? Flickable.DragAndOvershootBounds : Flickable.StopAtBounds
+
+                    ColumnLayout {
+                        id: mainLayout
+
+                        CategoryGrid {
+                            categoryTitle: qsTr("Personal")
+                            categoryName: "personal"
+                            categoryIconName: "avatar-default"
+                            categoryIndex: 0
+
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
                         }
 
-                        panel: Rectangle {
-                            anchors.fill: parent
-                            color: index % 2 ? palette.window : palette.alternateBase
+                        CategoryGrid {
+                            categoryTitle: qsTr("Hardware")
+                            categoryName: "hardware"
+                            categoryIconName: "applications-system"
+                            categoryIndex: 1
 
-                            RowLayout {
-                                Image {
-                                    source: "image://desktoptheme/" + model.iconName
-                                    sourceSize.width: width
-                                    sourceSize.height: height
-                                    width: categoryIconSize
-                                    height: categoryIconSize
-                                }
-
-                                Label {
-                                    text: control.title
-                                    font.bold: true
-                                    renderType: Text.NativeRendering
-                                }
-                            }
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
                         }
-                    }
-                    height: root.height / 3
 
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
+                        CategoryGrid {
+                            categoryTitle: qsTr("System")
+                            categoryName: "system"
+                            categoryIconName: "system"
+                            categoryIndex: 2
 
-                    ScrollView {
-                        anchors.fill: parent
-
-                        GridView {
-                            id: gridView
-                            model: PrefletsProxyModel {
-                                id: proxyModel
-                                filter: name
-                            }
-                            cellWidth: itemSize
-                            cellHeight: itemSize
-                            delegate: GridDelegate {
-                                width: gridView.cellWidth
-                                height: gridView.cellHeight
-
-                                MouseArea {
-                                    anchors.fill: parent
-                                    onClicked: {
-                                        var item = model.item;
-                                        if (!item)
-                                            item = proxyModel.createItem(index);
-
-                                        prefletTitle.text = model.title;
-                                        pageStack.push({item: item});
-                                    }
-                                }
-                            }
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
                         }
                     }
                 }

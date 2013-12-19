@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>qml/main.qml</file>
         <file>qml/GridDelegate.qml</file>
+        <file>qml/CategoryGroupBoxStyle.qml</file>
+        <file>qml/CategoryGrid.qml</file>
     </qresource>
 </RCC>
