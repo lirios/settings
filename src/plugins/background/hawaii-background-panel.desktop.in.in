@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=Background
+Comment=Change your background image to a wallpaper, photo or solid color
+Exec=hawaii-system-preferences background
+Icon=preferences-desktop-wallpaper
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=X-Hawaii;Qt;Settings;X-Hawaii-PersonalSettings;
+OnlyShowIn=X-Hawaii;
+Keywords=Wallpaper;Screen;Desktop;
+X-Hawaii-ModuleName=background
+X-Hawaii-ModulePath=@CMAKE_INSTALL_FULL_LIBDIR@/hawaii/plugins/preferences/background.so
+X-Hawaii-FormFactors=desktop;

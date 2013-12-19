@@ -26,10 +26,13 @@
 
 #include <QtWidgets/QApplication>
 #include <QtQml/QQmlApplicationEngine>
+#include <QtQml/QQmlContext>
 #include <QtQuick/QQuickWindow>
+#include <QDebug>
 
 #include "config.h"
 #include "cmakedirs.h"
+#include "pluginmanager.h"
 #include "prefletsmodel.h"
 #include "prefletsproxymodel.h"
 
@@ -44,6 +47,8 @@ int main(int argc, char *argv[])
     app.addLibraryPath(QStringLiteral(INSTALL_LIBDIR "/hawaii/plugins"));
 
     // Register types
+    qmlRegisterType<QAbstractItemModel>();
+    qmlRegisterType<PluginManager>("Hawaii.SystemPreferences", 0, 1, "PluginManager");
     qmlRegisterType<PrefletsModel>("Hawaii.SystemPreferences", 0, 1, "PrefletsModel");
     qmlRegisterType<PrefletsProxyModel>("Hawaii.SystemPreferences", 0, 1, "PrefletsProxyModel");
 

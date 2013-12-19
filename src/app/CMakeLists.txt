@@ -1,6 +1,8 @@
 include_directories(
+    ${CMAKE_SOURCE_DIR}/3rdparty/libqtxdg
     ${CMAKE_SOURCE_DIR}/headers
     ${CMAKE_BINARY_DIR}/src/lib
+    ${CMAKE_SOURCE_DIR}/src/lib
     ${POLKITQT-1_INCLUDE_DIR}
 )
 
@@ -17,6 +19,9 @@ set(SOURCES
     main.cpp
     prefletsmodel.cpp
     prefletsproxymodel.cpp
+    plugin.cpp
+    pluginmanager.cpp
+    ${CMAKE_SOURCE_DIR}/3rdparty/libqtxdg/xdgdesktopfile.cpp
 )
 
 set(QM_SOURCES

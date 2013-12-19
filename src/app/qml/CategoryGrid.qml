@@ -30,15 +30,11 @@ import QtQuick.Layouts 1.0
 import Hawaii.SystemPreferences 0.1
 
 GroupBox {
-    property string categoryTitle
     property string categoryName
     property string categoryIconName
-    property int categoryIndex
     readonly property int itemSize: 96
 
-    title: categoryTitle
     style: CategoryGroupBoxStyle {
-        index: categoryIndex
         iconName: categoryIconName
     }
 
@@ -46,10 +42,7 @@ GroupBox {
         anchors.fill: parent
 
         Repeater {
-            model: PrefletsProxyModel {
-                id: proxyModel
-                filter: categoryName
-            }
+            model: pluginManager.itemModel(categoryName)
             delegate: GridDelegate {
                 width: itemSize
                 height: itemSize
@@ -57,15 +50,14 @@ GroupBox {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        var item = model.item;
-                        if (!item)
-                            item = proxyModel.createItem(index);
-
                         prefletTitle.text = model.title;
-                        pageStack.push({item: item});
+                        pageStack.push({item: model.item});
                     }
                 }
             }
         }
     }
+
+    Layout.minimumHeight: 100
+    Layout.fillWidth: true
 }

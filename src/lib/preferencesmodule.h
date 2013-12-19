@@ -81,12 +81,6 @@ namespace Hawaii
          *     Q_INTERFACES(PreferencesModule)
          * public:
          *     explicit MyPreferences();
-         *
-         *     QString name() const;
-         *     QString comment() const;
-         *     QString iconName() const;
-         *     QStringList keywords() const;
-         *     PreferencesModule::Category category() const;
          * };
          * @endcode
          *
@@ -121,31 +115,6 @@ namespace Hawaii
          * {
          *     // ... Create the UI here ...
          * }
-         *
-         * QString MyPreferences::name() const
-         * {
-         *     return tr("Name");
-         * }
-         *
-         * QString MyPreferences::comment() const
-         * {
-         *     return tr("Configure something.");
-         * }
-         *
-         * QString MyPreferences::iconName() const
-         * {
-         *     return QLatin1String("preferences-something");
-         * }
-         *
-         * QStringList MyPreferences::keywords() const
-         * {
-         *     return tr("something;something else").split(QLatin1Char(';'));
-         * }
-         *
-         * PreferencesModule::Category category() const
-         * {
-         *     return PreferencesModule::PersonalCategory;
-         * }
          * @endcode
          *
          * \author Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
@@ -154,17 +123,7 @@ namespace Hawaii
         {
             Q_OBJECT
             Q_PROPERTY(bool requiresAdministrativePrivileges READ requiresAdministrativePrivileges)
-            Q_ENUMS(Category)
         public:
-            enum Category {
-                //! Personal preferences.
-                PersonalCategory,
-                //! Hardware preferences.
-                HardwareCategory,
-                //! System preferences.
-                SystemCategory
-            };
-
             /**
              * Constructs a PreferencesModule object.
              */
@@ -181,34 +140,9 @@ namespace Hawaii
             QString name() const;
 
             /**
-             * @returns the module's title.
-             */
-            virtual QString title() const = 0;
-
-            /**
-             * @returns the module's comment.
-             */
-            virtual QString comment() const = 0;
-
-            /**
-             * @returns the module's icon name.
-             */
-            virtual QString iconName() const = 0;
-
-            /**
-             * @returns the keywords associated with this module.
-             */
-            virtual QStringList keywords() const = 0;
-
-            /**
-             * @returns the category for this module.
-             */
-            virtual Category category() const = 0;
-
-            /**
              * Some preference modules requires administrative privileges
              * to configure their settings.  If your preferences modules
-             * requires administrative privileges return true.
+             * requires administrative privileges this returns true.
              * This method returns false by default.
              */
             virtual bool requiresAdministrativePrivileges() const;

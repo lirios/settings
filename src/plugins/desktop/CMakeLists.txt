@@ -4,6 +4,9 @@ include_directories(
     ${CMAKE_BINARY_DIR}/src/lib
 )
 
+configure_file(hawaii-desktop-panel.desktop.in
+               ${CMAKE_CURRENT_BINARY_DIR}/hawaii-desktop-panel.desktop)
+
 add_definitions(-DQT_PLUGIN)
 
 set(SOURCES
@@ -53,3 +56,5 @@ install(TARGETS desktop LIBRARY
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/hawaii/plugins/preferences)
 install(FILES ${QM_FILES}
     DESTINATION ${CMAKE_INSTALL_DATADIR}/hawaii-system-preferences/plugins/desktop/translations)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/hawaii-desktop-panel.desktop
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)

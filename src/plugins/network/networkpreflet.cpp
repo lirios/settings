@@ -40,32 +40,6 @@ NetworkPreflet::NetworkPreflet()
 {
 }
 
-QString NetworkPreflet::title() const
-{
-    return tr("Network");
-}
-
-QString NetworkPreflet::comment() const
-{
-    return tr("Control how you connect to the Internet");
-}
-
-QString NetworkPreflet::iconName() const
-{
-    return "preferences-system-network";
-}
-
-QStringList NetworkPreflet::keywords() const
-{
-    return tr("net;network;ethernet;wifi;wired;wireless").split(";");
-}
-
-PreferencesModule::Category NetworkPreflet::category() const
-{
-    return PreferencesModule::HardwareCategory;
-}
-
-
 QQmlComponent *NetworkPreflet::createComponent(QQmlEngine *engine, QObject *parent)
 {
     return new QQmlComponent(engine,

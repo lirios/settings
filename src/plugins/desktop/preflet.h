@@ -41,12 +41,6 @@ namespace Hawaii
         public:
             Preflet();
 
-            QString title() const;
-            QString comment() const;
-            QString iconName() const;
-            QStringList keywords() const;
-            PreferencesModule::Category category() const;
-
             QQmlComponent *createComponent(QQmlEngine *engine, QObject *parent = 0);
 
         private:

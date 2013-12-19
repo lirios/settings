@@ -41,31 +41,6 @@ Preflet::Preflet()
                                       0, 1, "LauncherSettings");
 }
 
-QString Preflet::title() const
-{
-    return tr("Desktop");
-}
-
-QString Preflet::comment() const
-{
-    return tr("Configure desktop preferences");
-}
-
-QString Preflet::iconName() const
-{
-    return "preferences-desktop";
-}
-
-QStringList Preflet::keywords() const
-{
-    return tr("desktop;launcher;hot;corner").split(";");
-}
-
-PreferencesModule::Category Preflet::category() const
-{
-    return PreferencesModule::PersonalCategory;
-}
-
 QQmlComponent *Preflet::createComponent(QQmlEngine *engine, QObject *parent)
 {
     return new QQmlComponent(engine,

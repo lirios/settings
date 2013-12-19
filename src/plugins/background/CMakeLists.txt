@@ -8,6 +8,9 @@ include_directories(
 
 add_definitions(-DQT_PLUGIN)
 
+configure_file(hawaii-background-panel.desktop.in
+               ${CMAKE_CURRENT_BINARY_DIR}/hawaii-background-panel.desktop)
+
 set(SOURCES
     ${CMAKE_SOURCE_DIR}/3rdparty/libqtxdg/xdgdesktopfile.cpp
     preflet.cpp
@@ -60,3 +63,5 @@ install(TARGETS background LIBRARY
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/hawaii/plugins/preferences)
 install(FILES ${QM_FILES}
     DESTINATION ${CMAKE_INSTALL_DATADIR}/hawaii-system-preferences/plugins/background/translations)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/hawaii-background-panel.desktop
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)

@@ -19,11 +19,23 @@ source_lang = en
 source_file = src/plugins/background/translations/template.ts
 file_filter = src/plugins/background/translations/<lang>.ts
 
+[hawaii.system-preferences-background-metadata]
+type = DESKTOP
+source_lang = en
+source_file = src/plugins/background/hawaii-background-panel.desktop.in.in
+file_filter = src/plugins/background/translations/hawaii-background-panel_<lang>.desktop
+
 [hawaii.system-preferences-desktop-preflet]
 type = QT
 source_lang = en
 source_file = src/plugins/desktop/translations/template.ts
 file_filter = src/plugins/desktop/translations/<lang>.ts
+
+[hawaii.system-preferences-desktop-metadata]
+type = DESKTOP
+source_lang = en
+source_file = src/plugins/desktop/hawaii-desktop-panel.desktop.in.in
+file_filter = src/plugins/desktop/translations/hawaii-desktop-panel_<lang>.desktop
 
 [hawaii.system-preferences-mime-types-preflet]
 type = QT
@@ -36,6 +48,18 @@ type = QT
 source_lang = en
 source_file = src/plugins/mouse/translations/template.ts
 file_filter = src/plugins/mouse/translations/<lang>.ts
+
+[hawaii.system-preferences-network-preflet]
+type = QT
+source_lang = en
+source_file = src/plugins/network/translations/template.ts
+file_filter = src/plugins/network/translations/<lang>.ts
+
+[hawaii.system-preferences-network-metadata]
+type = DESKTOP
+source_lang = en
+source_file = src/plugins/network/hawaii-network-panel.desktop.in.in
+file_filter = src/plugins/network/translations/hawaii-network-panel_<lang>.desktop
 
 [hawaii.system-preferences-screen-preflet]
 type = QT

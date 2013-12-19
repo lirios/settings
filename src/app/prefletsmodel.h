@@ -29,13 +29,9 @@
 
 #include <QtCore/QAbstractListModel>
 
-#include <Hawaii/SystemPreferences/PreferencesModule>
+#include "pluginmanager.h"
 
-class QQmlEngine;
-class QQmlContext;
-class QQmlComponent;
-
-using namespace Hawaii::SystemPreferences;
+class PrefletsModelPrivate;
 
 class PrefletsModel : public QAbstractListModel
 {
@@ -59,15 +55,11 @@ public:
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
 
-    QQuickItem *createItem(int index);
+    void setPlugins(const PluginMap &plugins);
 
 private:
-    QQmlEngine *m_engine;
-    QList<PreferencesModule *> m_modules;
-    QHash<QString, QQmlComponent *> m_components;
-    QHash<QString, QQuickItem *> m_items;
-
-    void populate();
+    Q_DECLARE_PRIVATE(PrefletsModel)
+    PrefletsModelPrivate *const d_ptr;
 };
 
 #endif // PREFLETSMODEL_H

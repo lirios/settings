@@ -30,7 +30,6 @@ import QtQuick.Controls.Private 1.0
 import QtQuick.Layouts 1.0
 
 GroupBoxStyle {
-    property int index
     property string iconName
     readonly property int iconSize: 22
 

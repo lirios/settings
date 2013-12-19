@@ -27,6 +27,7 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
+import Hawaii.SystemPreferences 0.1
 
 ApplicationWindow {
     id: root
@@ -79,6 +80,10 @@ ApplicationWindow {
         onTriggered: pageStack.pop()
     }
 
+    PluginManager {
+        id: pluginManager
+    }
+
     StackView {
         id: pageStack
         anchors.fill: parent
@@ -100,33 +105,21 @@ ApplicationWindow {
                         id: mainLayout
 
                         CategoryGrid {
-                            categoryTitle: qsTr("Personal")
+                            title: qsTr("Personal")
                             categoryName: "personal"
                             categoryIconName: "avatar-default"
-                            categoryIndex: 0
-
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
                         }
 
                         CategoryGrid {
-                            categoryTitle: qsTr("Hardware")
+                            title: qsTr("Hardware")
                             categoryName: "hardware"
                             categoryIconName: "applications-system"
-                            categoryIndex: 1
-
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
                         }
 
                         CategoryGrid {
-                            categoryTitle: qsTr("System")
+                            title: qsTr("System")
                             categoryName: "system"
                             categoryIconName: "system"
-                            categoryIndex: 2
-
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
                         }
                     }
                 }

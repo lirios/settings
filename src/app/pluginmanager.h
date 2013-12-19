@@ -24,27 +24,42 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#ifndef PLUGINMANAGER_H
+#define PLUGINMANAGER_H
+
+#include <QtCore/QObject>
+#include <QtCore/QAbstractItemModel>
+#include <QtQml/QQmlParserStatus>
+
 #include "prefletsproxymodel.h"
-#include "prefletsmodel.h"
 
-PrefletsProxyModel::PrefletsProxyModel(QObject *parent)
-    : QSortFilterProxyModel(parent)
+class Plugin;
+class PluginManagerPrivate;
+
+typedef QMap<QString, Plugin *> PluginMap;
+typedef QMap<QString, PluginMap> PluginsCollection;
+typedef QList<Plugin *> PluginsList;
+typedef QHash<QString, PrefletsProxyModel *> ModelHash;
+
+class PluginManager : public QObject, public QQmlParserStatus
 {
-    setFilterRole(PrefletsModel::CategoryNameRole);
-}
+    Q_OBJECT
+    Q_INTERFACES(QQmlParserStatus)
+public:
+    explicit PluginManager(QObject *parent = 0);
+    ~PluginManager();
 
-QString PrefletsProxyModel::filter() const
-{
-    return m_filter;
-}
+    PluginMap plugins(const QString &category) const;
 
-void PrefletsProxyModel::setFilter(const QString &val)
-{
-    if (m_filter != val) {
-        m_filter = val;
-        setFilterFixedString(m_filter);
-        emit filterChanged();
-    }
-}
+    Q_INVOKABLE QAbstractItemModel *itemModel(const QString &category);
+    Q_INVOKABLE QObject *getByName(const QString &name) const;
 
-#include "moc_prefletsproxymodel.cpp"
+    void classBegin();
+    void componentComplete();
+
+private:
+    Q_DECLARE_PRIVATE(PluginManager);
+    PluginManagerPrivate *const d_ptr;
+};
+
+#endif // PLUGINMANAGER_H

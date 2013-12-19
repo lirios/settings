@@ -24,27 +24,38 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include "prefletsproxymodel.h"
-#include "prefletsmodel.h"
+#ifndef PLUGIN_P_H
+#define PLUGIN_P_H
 
-PrefletsProxyModel::PrefletsProxyModel(QObject *parent)
-    : QSortFilterProxyModel(parent)
+#include <QtCore/QPluginLoader>
+
+#include "xdgdesktopfile.h"
+#include "preferencesmodule.h"
+#include "preferencesmoduleplugin.h"
+
+class QQmlComponent;
+class QQuickItem;
+
+class Plugin;
+
+class PluginPrivate
 {
-    setFilterRole(PrefletsModel::CategoryNameRole);
-}
+    Q_DECLARE_PUBLIC(Plugin)
+public:
+    PluginPrivate(Plugin *plugin);
+    ~PluginPrivate();
 
-QString PrefletsProxyModel::filter() const
-{
-    return m_filter;
-}
+    void load();
 
-void PrefletsProxyModel::setFilter(const QString &val)
-{
-    if (m_filter != val) {
-        m_filter = val;
-        setFilterFixedString(m_filter);
-        emit filterChanged();
-    }
-}
+    XdgDesktopFile entry;
+    QPluginLoader *loader;
+    Hawaii::SystemPreferences::PreferencesModulePlugin *plugin;
+    Hawaii::SystemPreferences::PreferencesModule *module;
+    QQmlComponent *component;
+    QQuickItem *item;
 
-#include "moc_prefletsproxymodel.cpp"
+protected:
+    Plugin *q_ptr;
+};
+
+#endif // PLUGIN_P_H

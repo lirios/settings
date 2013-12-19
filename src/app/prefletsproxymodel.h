@@ -40,8 +40,6 @@ public:
     QString filter() const;
     void setFilter(const QString &val);
 
-    Q_INVOKABLE QQuickItem *createItem(int row);
-
 Q_SIGNALS:
     void filterChanged();
 

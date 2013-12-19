@@ -24,27 +24,15 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include "prefletsproxymodel.h"
-#include "prefletsmodel.h"
+#ifndef PREFLETSMODEL_P_H
+#define PREFLETSMODEL_P_H
 
-PrefletsProxyModel::PrefletsProxyModel(QObject *parent)
-    : QSortFilterProxyModel(parent)
+class PrefletsModelPrivate
 {
-    setFilterRole(PrefletsModel::CategoryNameRole);
-}
+public:
+    PrefletsModelPrivate();
 
-QString PrefletsProxyModel::filter() const
-{
-    return m_filter;
-}
+    PluginsList plugins;
+};
 
-void PrefletsProxyModel::setFilter(const QString &val)
-{
-    if (m_filter != val) {
-        m_filter = val;
-        setFilterFixedString(m_filter);
-        emit filterChanged();
-    }
-}
-
-#include "moc_prefletsproxymodel.cpp"
+#endif // PREFLETSMODEL_P_H

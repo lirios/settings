@@ -50,31 +50,6 @@ Preflet::Preflet()
                                         0, 1, "BackgroundSettings");
 }
 
-QString Preflet::title() const
-{
-    return tr("Background");
-}
-
-QString Preflet::comment() const
-{
-    return tr("Change your background image to a wallpaper or photo");
-}
-
-QString Preflet::iconName() const
-{
-    return "preferences-desktop-wallpaper";
-}
-
-QStringList Preflet::keywords() const
-{
-    return tr("wallpaper;screen;desktop").split(";");
-}
-
-PreferencesModule::Category Preflet::category() const
-{
-    return PreferencesModule::PersonalCategory;
-}
-
 QQmlComponent *Preflet::createComponent(QQmlEngine *engine, QObject *parent)
 {
     return new QQmlComponent(engine,
