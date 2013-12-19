@@ -25,8 +25,7 @@
  ***************************************************************************/
 
 #include <QtWidgets/QApplication>
-#include <QtQml/QQmlEngine>
-#include <QtQml/QQmlComponent>
+#include <QtQml/QQmlApplicationEngine>
 #include <QtQuick/QQuickWindow>
 
 #include "config.h"
@@ -45,27 +44,15 @@ int main(int argc, char *argv[])
     app.setOrganizationName("Hawaii");
     app.addLibraryPath(QStringLiteral(INSTALL_LIBDIR "/hawaii/plugins"));
 
-    QQmlEngine engine;
-
+    // Register types
     qmlRegisterType<CategoriesModel>("Hawaii.SystemPreferences", 0, 1, "CategoriesModel");
     qmlRegisterType<PrefletsModel>("Hawaii.SystemPreferences", 0, 1, "PrefletsModel");
     qmlRegisterType<PrefletsProxyModel>("Hawaii.SystemPreferences", 0, 1, "PrefletsProxyModel");
 
-    QQmlComponent component(&engine);
-    component.loadUrl(QUrl("qrc:/qml/main.qml"));
-    if (!component.isReady()) {
-        qWarning("%s", qPrintable(component.errorString()));
-        return 1;
-    }
-
-    QObject *topLevel = component.create();
-    QQuickWindow *window = qobject_cast<QQuickWindow *>(topLevel);
-    if (!window) {
-        qWarning("Error: Your root item has to be a Window");
-        return 1;
-    }
-
-    QObject::connect(&engine, SIGNAL(quit()), &app, SLOT(quit()));
+    // Setup QML engine and show the main window
+    QQmlApplicationEngine engine(QUrl("qrc:///qml/main.qml"));
+    QQuickWindow *window = qobject_cast<QQuickWindow *>(engine.rootObjects().at(0));
     window->show();
+
     return app.exec();
 }
