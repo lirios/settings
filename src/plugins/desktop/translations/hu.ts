@@ -18,46 +18,46 @@
     <name>LauncherPage</name>
     <message>
         <source>Icon Size:</source>
-        <translation type="unfinished"/>
+        <translation>Ikonméret:</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Kicsi</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Közepes</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Nagy</translation>
     </message>
     <message>
         <source>Huge</source>
-        <translation type="unfinished"/>
+        <translation>Óriási</translation>
     </message>
     <message>
         <source>Alignment:</source>
-        <translation type="unfinished"/>
+        <translation>Igazítás:</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>Balra</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>Jobbra</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"/>
+        <translation>Lentre</translation>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
         <source>Launcher</source>
-        <translation type="unfinished"/>
+        <translation>Indító</translation>
     </message>
     <message>
         <source>Hot Corners</source>

@@ -4,17 +4,17 @@
     <message>
         <location filename="../categoriesmodel.cpp" line="82"/>
         <source>Personal</source>
-        <translation type="unfinished"/>
+        <translation>個人設定</translation>
     </message>
     <message>
         <location filename="../categoriesmodel.cpp" line="87"/>
         <source>Hardware</source>
-        <translation type="unfinished"/>
+        <translation>ハードウェア</translation>
     </message>
     <message>
         <location filename="../categoriesmodel.cpp" line="92"/>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>システム</translation>
     </message>
 </context>
 <context>
@@ -32,22 +32,22 @@
     <message>
         <location filename="../mainwindow.cpp" line="170"/>
         <source>Unlock</source>
-        <translation type="unfinished"/>
+        <translation>アンロック</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="171"/>
         <source>Dialog is locked, click to make changes</source>
-        <translation type="unfinished"/>
+        <translation>ダイアログはロックされています。変更するにはクリック</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="173"/>
         <source>Lock</source>
-        <translation type="unfinished"/>
+        <translation>ロック</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="176"/>
         <source>Dialog is unlocked, click to prevent further changes</source>
-        <translation type="unfinished"/>
+        <translation>ダイアログはアンロックされています。これ以上の変更を防ぐにはクリック</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="186"/>
@@ -60,12 +60,12 @@
     <message>
         <location filename="../qml/main.qml" line="36"/>
         <source>System Preferences</source>
-        <translation type="unfinished"/>
+        <translation>システム環境設定</translation>
     </message>
     <message>
         <location filename="../qml/main.qml" line="67"/>
         <source>Keywords</source>
-        <translation type="unfinished"/>
+        <translation>キーワード</translation>
     </message>
 </context>
 </TS>

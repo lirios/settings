@@ -3,26 +3,26 @@
     <name>GradientsPage</name>
     <message>
         <source>First color</source>
-        <translation type="unfinished"/>
+        <translation>Első szín</translation>
     </message>
     <message>
         <source>Second color</source>
-        <translation type="unfinished"/>
+        <translation>Második szín</translation>
     </message>
     <message>
         <source>Gradient Type:</source>
-        <translation type="unfinished"/>
+        <translation>Átmenet típusa:</translation>
     </message>
 </context>
 <context>
     <name>Hawaii::SystemPreferences::Preflet</name>
     <message>
         <source>Background</source>
-        <translation type="unfinished"/>
+        <translation>Háttér</translation>
     </message>
     <message>
         <source>Change your background image to a wallpaper or photo</source>
-        <translation type="unfinished"/>
+        <translation>Cseréld ki a háttérképed egy mintára vagy fényképre</translation>
     </message>
     <message>
         <source>wallpaper;screen;desktop</source>
@@ -33,15 +33,15 @@
     <name>Selector</name>
     <message>
         <source>Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Háttérképek</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation type="unfinished"/>
+        <translation>Képek</translation>
     </message>
     <message>
         <source>Colors</source>
-        <translation type="unfinished"/>
+        <translation>Színek</translation>
     </message>
 </context>
 </TS>
