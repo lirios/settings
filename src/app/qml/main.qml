@@ -126,4 +126,15 @@ ApplicationWindow {
             }
         }
     }
+
+    Component.onCompleted: {
+        // Load the plugin specified by the command line
+        if (Qt.application.arguments.length >= 2) {
+            var plugin = pluginManager.getByName(Qt.application.arguments[1]);
+            if (plugin) {
+                prefletTitle.text = plugin.title;
+                pageStack.push({item: plugin.item});
+            }
+        }
+    }
 }
