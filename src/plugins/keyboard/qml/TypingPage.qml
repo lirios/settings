@@ -34,15 +34,19 @@ ColumnLayout {
         id: settings
 
         Component.onCompleted: {
+            repeatKeysGroup.checked = settings.keyboardRepeatEnabled;
             inputIntervalSlider.value = inputIntervalSlider.maximumValue - settings.keyboardInputInterval;
             autoRepeatRateSlider.value = autoRepeatRateSlider.maximumValue - settings.keyboardAutoRepeatRate;
+            cursorBlinkingGroup.checked = settings.cursorFlashEnabled;
             cursorFlashTimeSlider.value = settings.cursorFlashTime - settings.cursorFlashTime;
         }
     }
 
     GroupBox {
+        id: repeatKeysGroup
         title: qsTr("Repeat Keys")
         checkable: true
+        onCheckedChanged: settings.keyboardRepeatEnabled = checked
 
         GridLayout {
             rows: 2
@@ -101,8 +105,10 @@ ColumnLayout {
     }
 
     GroupBox {
+        id: cursorBlinkingGroup
         title: qsTr("Cursor Blinking")
         checkable: true
+        onCheckedChanged: settings.cursorFlashEnabled = checked
 
         GridLayout {
             rows: 1
