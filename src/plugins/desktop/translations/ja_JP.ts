@@ -1,52 +1,37 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ja_JP" version="2.0">
-<context>
-    <name>Hawaii::SystemPreferences::Preflet</name>
-    <message>
-        <source>Desktop</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Configure desktop preferences</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>desktop;launcher;hot;corner</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ja_JP" version="2.1">
 <context>
     <name>LauncherPage</name>
     <message>
         <source>Icon Size:</source>
-        <translation type="unfinished"/>
+        <translation>アイコンの大きさ</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>小</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>中</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>大</translation>
     </message>
     <message>
         <source>Huge</source>
-        <translation type="unfinished"/>
+        <translation>極大</translation>
     </message>
     <message>
         <source>Alignment:</source>
-        <translation type="unfinished"/>
+        <translation>アライメント</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>左</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>右</translation>
     </message>
     <message>
         <source>Bottom</source>
@@ -57,7 +42,7 @@
     <name>Preflet</name>
     <message>
         <source>Launcher</source>
-        <translation type="unfinished"/>
+        <translation>ランチャー</translation>
     </message>
     <message>
         <source>Hot Corners</source>

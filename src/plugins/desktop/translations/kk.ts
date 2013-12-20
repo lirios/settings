@@ -1,67 +1,52 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="kk" version="2.0">
-<context>
-    <name>Hawaii::SystemPreferences::Preflet</name>
-    <message>
-        <source>Desktop</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Configure desktop preferences</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>desktop;launcher;hot;corner</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="kk" version="2.1">
 <context>
     <name>LauncherPage</name>
     <message>
         <source>Icon Size:</source>
-        <translation type="unfinished"/>
+        <translation>Таңбаша өлшемі:</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Кіші</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Орташа</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Үлкен</translation>
     </message>
     <message>
         <source>Huge</source>
-        <translation type="unfinished"/>
+        <translation>Өте үлкен</translation>
     </message>
     <message>
         <source>Alignment:</source>
-        <translation type="unfinished"/>
+        <translation>Туралауы:</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>Сол жақ</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>Оң жақ</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"/>
+        <translation>Төмен</translation>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
         <source>Launcher</source>
-        <translation type="unfinished"/>
+        <translation>Жөнелткіш</translation>
     </message>
     <message>
         <source>Hot Corners</source>
-        <translation type="unfinished"/>
+        <translation>Ыстық бұрыштар</translation>
     </message>
 </context>
 </TS>

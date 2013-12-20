@@ -1,67 +1,52 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sk" version="2.0">
-<context>
-    <name>Hawaii::SystemPreferences::Preflet</name>
-    <message>
-        <source>Desktop</source>
-        <translation>Pracovná plocha</translation>
-    </message>
-    <message>
-        <source>Configure desktop preferences</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>desktop;launcher;hot;corner</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sk" version="2.1">
 <context>
     <name>LauncherPage</name>
     <message>
         <source>Icon Size:</source>
-        <translation type="unfinished"/>
+        <translation>Veľkosť ikon:</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Malé</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Stredné</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Veľké</translation>
     </message>
     <message>
         <source>Huge</source>
-        <translation type="unfinished"/>
+        <translation>Obrovské</translation>
     </message>
     <message>
         <source>Alignment:</source>
-        <translation type="unfinished"/>
+        <translation>Zarovnanie:</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>Naľavo</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>Napravo</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"/>
+        <translation>Nadol</translation>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
         <source>Launcher</source>
-        <translation type="unfinished"/>
+        <translation>Spúšťač</translation>
     </message>
     <message>
         <source>Hot Corners</source>
-        <translation type="unfinished"/>
+        <translation>Aktívne rohy</translation>
     </message>
 </context>
 </TS>

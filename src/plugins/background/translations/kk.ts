@@ -1,31 +1,23 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="kk" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="kk" version="2.1">
 <context>
     <name>GradientsPage</name>
     <message>
         <source>First color</source>
-        <translation type="unfinished"/>
+        <translation>Бірінші түс</translation>
     </message>
     <message>
         <source>Second color</source>
-        <translation type="unfinished"/>
+        <translation>Екінші түс</translation>
     </message>
     <message>
         <source>Gradient Type:</source>
-        <translation type="unfinished"/>
+        <translation>Градиент түрі:</translation>
     </message>
 </context>
 <context>
-    <name>Hawaii::SystemPreferences::Preflet</name>
+    <name>Preflet</name>
     <message>
         <source>Background</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Change your background image to a wallpaper or photo</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>wallpaper;screen;desktop</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -33,14 +25,52 @@
     <name>Selector</name>
     <message>
         <source>Wallpapers</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Pictures</source>
-        <translation type="unfinished"/>
+        <translation>Түсқағаздар</translation>
     </message>
     <message>
         <source>Colors</source>
+        <translation>Түстер</translation>
+    </message>
+</context>
+<context>
+    <name>SelectorDialog</name>
+    <message>
+        <source>Select a background</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>WallpapersPage</name>
+    <message>
+        <source>Fill Mode:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stretched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scaled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cropped</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Centered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tiled</source>
         <translation type="unfinished"/>
     </message>
 </context>

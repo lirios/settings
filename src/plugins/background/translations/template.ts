@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.1">
 <context>
     <name>GradientsPage</name>
     <message>
@@ -17,17 +17,9 @@
     </message>
 </context>
 <context>
-    <name>Hawaii::SystemPreferences::Preflet</name>
+    <name>Preflet</name>
     <message>
         <source>Background</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Change your background image to a wallpaper or photo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>wallpaper;screen;desktop</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -38,11 +30,49 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Pictures</source>
+        <source>Colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SelectorDialog</name>
+    <message>
+        <source>Select a background</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Colors</source>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WallpapersPage</name>
+    <message>
+        <source>Fill Mode:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stretched</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scaled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cropped</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Centered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tiled</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

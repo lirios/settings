@@ -1,19 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs_CZ" version="2.0">
-<context>
-    <name>Hawaii::SystemPreferences::Preflet</name>
-    <message>
-        <source>Desktop</source>
-        <translation>Desktop</translation>
-    </message>
-    <message>
-        <source>Configure desktop preferences</source>
-        <translation>Nastavit vlastnosti pracovní plochy</translation>
-    </message>
-    <message>
-        <source>desktop;launcher;hot;corner</source>
-        <translation>desktop;launcher;hot;corner</translation>
-    </message>
-</context>
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs_CZ" version="2.1">
 <context>
     <name>LauncherPage</name>
     <message>

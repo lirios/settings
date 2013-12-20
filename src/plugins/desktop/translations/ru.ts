@@ -1,19 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.0">
-<context>
-    <name>Hawaii::SystemPreferences::Preflet</name>
-    <message>
-        <source>Desktop</source>
-        <translation>Рабочий стол</translation>
-    </message>
-    <message>
-        <source>Configure desktop preferences</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>desktop;launcher;hot;corner</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.1">
 <context>
     <name>LauncherPage</name>
     <message>

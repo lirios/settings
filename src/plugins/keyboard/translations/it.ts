@@ -17,10 +17,6 @@
         <translation>Ripetizione dei tasti</translation>
     </message>
     <message>
-        <source>Key presses repeat when key is held down</source>
-        <translation>Ripetere il carattere finché il tasto è premuto</translation>
-    </message>
-    <message>
         <source>Delay:</source>
         <translation>Ritardo:</translation>
     </message>
@@ -47,10 +43,6 @@
     <message>
         <source>Cursor Blinking</source>
         <translation>Intermittenza del cursore</translation>
-    </message>
-    <message>
-        <source>Cursor blinks in text fields</source>
-        <translation>Cursore intermittente in campi di testo</translation>
     </message>
 </context>
 </TS>

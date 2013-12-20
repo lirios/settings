@@ -17,10 +17,6 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Key presses repeat when key is held down</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Delay:</source>
         <translation type="unfinished"/>
     </message>
@@ -46,10 +42,6 @@
     </message>
     <message>
         <source>Cursor Blinking</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cursor blinks in text fields</source>
         <translation type="unfinished"/>
     </message>
 </context>

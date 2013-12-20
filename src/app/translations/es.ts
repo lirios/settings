@@ -1,70 +1,55 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.0">
-<context>
-    <name>CategoriesModel</name>
-    <message>
-        <location filename="../categoriesmodel.cpp" line="82"/>
-        <source>Personal</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../categoriesmodel.cpp" line="87"/>
-        <source>Hardware</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../categoriesmodel.cpp" line="92"/>
-        <source>System</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="65"/>
         <source>System Preferences</source>
-        <translation type="unfinished"/>
+        <translation>Preferencias del sistema</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="70"/>
         <source>Keywords</source>
-        <translation type="unfinished"/>
+        <translation>Palabras clave</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="170"/>
         <source>Unlock</source>
-        <translation type="unfinished"/>
+        <translation>Desbloquear</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="171"/>
         <source>Dialog is locked, click to make changes</source>
-        <translation type="unfinished"/>
+        <translation>El diálogo está bloqueado, haga click para realizar cambios</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="173"/>
         <source>Lock</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="176"/>
         <source>Dialog is unlocked, click to prevent further changes</source>
-        <translation type="unfinished"/>
+        <translation>El diálogo está desbloqueado, haga click para prevenir futuros cambios</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="186"/>
         <source>Tool Bar</source>
-        <translation type="unfinished"/>
+        <translation>Barra de Herramientas</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
-        <location filename="../qml/main.qml" line="36"/>
         <source>System Preferences</source>
+        <translation>Preferencias del sistema</translation>
+    </message>
+    <message>
+        <source>Keywords</source>
+        <translation>Palabras clave</translation>
+    </message>
+    <message>
+        <source>Personal</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="67"/>
-        <source>Keywords</source>
+        <source>Hardware</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System</source>
         <translation type="unfinished"/>
     </message>
 </context>

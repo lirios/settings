@@ -1,19 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="it" version="2.0">
-<context>
-    <name>Hawaii::SystemPreferences::Preflet</name>
-    <message>
-        <source>Desktop</source>
-        <translation>Scrivania</translation>
-    </message>
-    <message>
-        <source>Configure desktop preferences</source>
-        <translation>Configura le preferenze della scrivania</translation>
-    </message>
-    <message>
-        <source>desktop;launcher;hot;corner</source>
-        <translation>scrivania;launcher;angoli;attivi</translation>
-    </message>
-</context>
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="it" version="2.1">
 <context>
     <name>LauncherPage</name>
     <message>

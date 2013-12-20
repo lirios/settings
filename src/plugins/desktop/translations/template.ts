@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
-<context>
-    <name>Hawaii::SystemPreferences::Preflet</name>
-    <message>
-        <source>Desktop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Configure desktop preferences</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>desktop;launcher;hot;corner</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
+<TS version="2.1">
 <context>
     <name>LauncherPage</name>
     <message>
