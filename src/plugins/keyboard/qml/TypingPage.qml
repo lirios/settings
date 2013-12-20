@@ -42,123 +42,97 @@ ColumnLayout {
 
     GroupBox {
         title: qsTr("Repeat Keys")
+        checkable: true
 
-        ColumnLayout {
-            RowLayout {
-                Label {
-                    text: qsTr("Key presses repeat when key is held down")
-                }
+        GridLayout {
+            rows: 2
+            columns: 4
+            enabled: repeatKeysSwitch.checked
 
-                Switch {
-                    id: repeatKeysSwitch
-                    checked: settings.keyboardRepeatEnabled
-                    onCheckedChanged: settings.keyboardRepeatEnabled = checked
-                }
+            Label {
+                text: qsTr("Delay:")
+
+                Layout.alignment: Qt.AlignRight
             }
 
-            GridLayout {
-                rows: 2
-                columns: 4
-                enabled: repeatKeysSwitch.checked
+            Label {
+                text: qsTr("Short")
+                scale: 0.82999999999999996
+            }
 
-                Label {
-                    text: qsTr("Delay:")
+            Slider {
+                id: inputIntervalSlider
+                minimumValue: 0
+                maximumValue: 1000
+                onValueChanged: settings.keyboardInputInterval = maximumValue - value
 
-                    Layout.alignment: Qt.AlignRight
-                }
+                Layout.fillWidth: true
+            }
 
-                Label {
-                    text: qsTr("Short")
-                    scale: 0.82999999999999996
-                }
+            Label {
+                text: qsTr("Long")
+                scale: 0.82999999999999996
+            }
 
-                Slider {
-                    id: inputIntervalSlider
-                    minimumValue: 0
-                    maximumValue: 1000
-                    onValueChanged: settings.keyboardInputInterval = maximumValue - value
+            Label {
+                text: qsTr("Speed:")
 
-                    Layout.fillWidth: true
-                }
+                Layout.alignment: Qt.AlignRight
+            }
 
-                Label {
-                    text: qsTr("Long")
-                    scale: 0.82999999999999996
-                }
+            Label {
+                text: qsTr("Slow")
+                scale: 0.82999999999999996
+            }
 
-                Label {
-                    text: qsTr("Speed:")
+            Slider {
+                id: autoRepeatRateSlider
+                minimumValue: 0
+                maximumValue: 1000
+                onValueChanged: settings.keyboardAutoRepeatRate = maximumValue - value
 
-                    Layout.alignment: Qt.AlignRight
-                }
+                Layout.fillWidth: true
+            }
 
-                Label {
-                    text: qsTr("Slow")
-                    scale: 0.82999999999999996
-                }
-
-                Slider {
-                    id: autoRepeatRateSlider
-                    minimumValue: 0
-                    maximumValue: 1000
-                    onValueChanged: settings.keyboardAutoRepeatRate = maximumValue - value
-
-                    Layout.fillWidth: true
-                }
-
-                Label {
-                    text: qsTr("Fast")
-                    scale: 0.82999999999999996
-                }
+            Label {
+                text: qsTr("Fast")
+                scale: 0.82999999999999996
             }
         }
     }
 
     GroupBox {
         title: qsTr("Cursor Blinking")
+        checkable: true
 
-        ColumnLayout {
-            RowLayout {
-                Label {
-                    text: qsTr("Cursor blinks in text fields")
-                }
+        GridLayout {
+            rows: 1
+            columns: 4
+            enabled: cursorBlinkingSwitch.checked
 
-                Switch {
-                    id: cursorBlinkingSwitch
-                    checked: settings.cursorFlashEnabled
-                    onCheckedChanged: settings.cursorFlashEnabled = checked
-                }
+            Label {
+                text: qsTr("Speed:")
+
+                Layout.alignment: Qt.AlignRight
             }
 
-            GridLayout {
-                rows: 1
-                columns: 4
-                enabled: cursorBlinkingSwitch.checked
+            Label {
+                text: qsTr("Slow")
+                scale: 0.82999999999999996
+            }
 
-                Label {
-                    text: qsTr("Speed:")
+            Slider {
+                id: cursorFlashTimeSlider
+                minimumValue: 0
+                maximumValue: 1000
+                onValueChanged: settings.cursorFlashTime = maximumValue - value
 
-                    Layout.alignment: Qt.AlignRight
-                }
+                Layout.fillWidth: true
+            }
 
-                Label {
-                    text: qsTr("Slow")
-                    scale: 0.82999999999999996
-                }
-
-                Slider {
-                    id: cursorFlashTimeSlider
-                    minimumValue: 0
-                    maximumValue: 1000
-                    onValueChanged: settings.cursorFlashTime = maximumValue - value
-
-                    Layout.fillWidth: true
-                }
-
-                Label {
-                    text: qsTr("Fast")
-                    scale: 0.82999999999999996
-                }
+            Label {
+                text: qsTr("Fast")
+                scale: 0.82999999999999996
             }
         }
     }
