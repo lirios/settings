@@ -14,7 +14,36 @@ set(SOURCES
 )
 
 set(QM_SOURCES
+    translations/af.ts
+    translations/ar.ts
+    translations/ast.ts
+    translations/bg.ts
+    translations/cs_CZ.ts
+    translations/de.ts
+    translations/el.ts
+    translations/es_AR.ts
+    translations/es.ts
+    translations/fa_IR.ts
+    translations/fr.ts
+    translations/hu.ts
+    translations/id.ts
+    translations/it_IT.ts
     translations/it.ts
+    translations/ja_JP.ts
+    translations/kk.ts
+    translations/nl_NL.ts
+    translations/nl.ts
+    translations/no.ts
+    translations/pl.ts
+    translations/pt_BR.ts
+    translations/pt.ts
+    translations/ru.ts
+    translations/si_LK.ts
+    translations/sk.ts
+    translations/template.ts
+    translations/tr.ts
+    translations/vi.ts
+    translations/zh_CN.ts
 )
 
 qt5_add_translation(QM_FILES ${QM_SOURCES})
