@@ -47,7 +47,6 @@ ColumnLayout {
         GridLayout {
             rows: 2
             columns: 4
-            enabled: repeatKeysSwitch.checked
 
             Label {
                 text: qsTr("Delay:")
@@ -108,7 +107,6 @@ ColumnLayout {
         GridLayout {
             rows: 1
             columns: 4
-            enabled: cursorBlinkingSwitch.checked
 
             Label {
                 text: qsTr("Speed:")
