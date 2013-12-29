@@ -166,7 +166,7 @@ Item {
         if (gridView.currentIndex == -1)
             return;
 
-        settings.type = BackgroundSettings.WallpaperBackground;
         settings.wallpaperUrl = "file://" + gridView.model.get(gridView.currentIndex).fileName;
+        settings.type = BackgroundSettings.WallpaperBackground;
     }
 }

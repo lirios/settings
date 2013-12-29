@@ -112,8 +112,8 @@ Item {
         if (gridView.currentIndex == -1)
             return;
 
-        settings.type = BackgroundSettings.ColorBackground;
-        settings.colorShading = BackgroundSettings.SolidColorShading;
         settings.primaryColor = gridView.model.get(gridView.currentIndex).color;
+        settings.colorShading = BackgroundSettings.SolidColorShading;
+        settings.type = BackgroundSettings.ColorBackground;
     }
 }
