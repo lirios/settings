@@ -70,5 +70,14 @@ add_subdirectory(data)
 add_subdirectory(headers)
 add_subdirectory(src)
 
+# Translation custom target
+add_custom_target(update-translations DEPENDS
+    update-translations-app
+    update-translations-background
+    update-translations-desktop
+    update-translations-keyboard
+    update-translations-network
+)
+
 # Display featute summary
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

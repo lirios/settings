@@ -13,44 +13,27 @@ set(SOURCES
     networkplugin.cpp
 )
 
-set(QM_SOURCES
-    translations/af.ts
-    translations/ar.ts
-    translations/ast.ts
-    translations/bg.ts
-    translations/cs_CZ.ts
-    translations/de.ts
-    translations/el.ts
-    translations/es_AR.ts
-    translations/es.ts
-    translations/fa_IR.ts
-    translations/fr.ts
-    translations/hu.ts
-    translations/id.ts
-    translations/it_IT.ts
-    translations/it.ts
-    translations/ja_JP.ts
-    translations/kk.ts
-    translations/nl_NL.ts
-    translations/nl.ts
-    translations/no.ts
-    translations/pl.ts
-    translations/pt_BR.ts
-    translations/pt.ts
-    translations/ru.ts
-    translations/si_LK.ts
-    translations/sk.ts
-    translations/template.ts
-    translations/tr.ts
-    translations/vi.ts
-    translations/zh_CN.ts
-)
+##############################################################################
+# Translations
+##############################################################################
+set(TS_TEMPLATE ${CMAKE_SOURCE_DIR}/translations/plugins/network/template.ts)
+file(GLOB QM_SOURCES ${CMAKE_SOURCE_DIR}/translations/plugins/network/*.ts)
+list(REMOVE_ITEM QM_SOURCES ${TS_TEMPLATE})
 
-qt5_add_translation(QM_FILES ${QM_SOURCES})
+if(REFRESH_TRANSLATIONS)
+    file(GLOB_RECURSE TS_CPP_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+    file(GLOB_RECURSE TS_QML_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*.qml)
+    set(TS_SOURCES ${TS_CPP_FILES} ${TS_QML_FILES})
+
+    qt5_create_translation(QM_FILES ${TS_SOURCES} ${QM_SOURCES})
+else()
+    qt5_add_translation(QM_FILES ${QM_SOURCES})
+endif()
+##############################################################################
+
 qt5_add_resources(RESOURCES network.qrc)
 
-#add_library(network SHARED ${SOURCES} ${QM_FILES} ${RESOURCES})
-add_library(network SHARED ${SOURCES} ${RESOURCES})
+add_library(network SHARED ${SOURCES} ${QM_SOURCES} ${RESOURCES})
 set_target_properties(network PROPERTIES PREFIX "")
 qt5_use_modules(network Quick)
 target_link_libraries(network HawaiiSystemPreferences)
