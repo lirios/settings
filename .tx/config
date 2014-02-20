@@ -4,8 +4,8 @@ host = https://www.transifex.com
 [hawaii.system-preferences-desktop-file]
 type = DESKTOP
 source_lang = en
-source_file = data/hawaii-system-preferences.desktop.in
-file_filter = data/translations/hawaii-system-preferences_<lang>.desktop
+source_file = src/app/hawaii-system-preferences.desktop.in
+file_filter = translations/app/hawaii-system-preferences_<lang>.desktop
 
 [hawaii.system-preferences]
 type = QT
