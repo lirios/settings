@@ -10,14 +10,14 @@ file_filter = data/translations/hawaii-system-preferences_<lang>.desktop
 [hawaii.system-preferences]
 type = QT
 source_lang = en
-source_file = src/app/translations/template.ts
-file_filter = src/app/translations/<lang>.ts
+source_file = translations/app/template.ts
+file_filter = translations/app/<lang>.ts
 
 [hawaii.system-preferences-background-preflet]
 type = QT
 source_lang = en
-source_file = src/plugins/background/translations/template.ts
-file_filter = src/plugins/background/translations/<lang>.ts
+source_file = translations/plugins/background/template.ts
+file_filter = translations/plugins/background/<lang>.ts
 
 [hawaii.system-preferences-background-metadata]
 type = DESKTOP
@@ -28,8 +28,8 @@ file_filter = src/plugins/background/translations/hawaii-background-panel_<lang>
 [hawaii.system-preferences-desktop-preflet]
 type = QT
 source_lang = en
-source_file = src/plugins/desktop/translations/template.ts
-file_filter = src/plugins/desktop/translations/<lang>.ts
+source_file = translations/plugins/desktop/template.ts
+file_filter = translations/plugins/desktop/<lang>.ts
 
 [hawaii.system-preferences-desktop-metadata]
 type = DESKTOP
@@ -40,8 +40,8 @@ file_filter = src/plugins/desktop/translations/hawaii-desktop-panel_<lang>.deskt
 [hawaii.system-preferences-keyboard-preflet]
 type = QT
 source_lang = en
-source_file = src/plugins/keyboard/translations/template.ts
-file_filter = src/plugins/keyboard/translations/<lang>.ts
+source_file = translations/plugins/keyboard/template.ts
+file_filter = translations/plugins/keyboard/<lang>.ts
 
 [hawaii.system-preferences-keyboard-metadata]
 type = DESKTOP
@@ -52,20 +52,20 @@ file_filter = src/plugins/keyboard/translations/hawaii-keyboard-panel_<lang>.des
 [hawaii.system-preferences-mime-types-preflet]
 type = QT
 source_lang = en
-source_file = src/plugins/mimetypes/translations/template.ts
-file_filter = src/plugins/mimetypes/translations/<lang>.ts
+source_file = translations/plugins/mimetypes/template.ts
+file_filter = translations/plugins/mimetypes/<lang>.ts
 
 [hawaii.system-preferences-mouse-preflet]
 type = QT
 source_lang = en
-source_file = src/plugins/mouse/translations/template.ts
-file_filter = src/plugins/mouse/translations/<lang>.ts
+source_file = translations/plugins/mouse/template.ts
+file_filter = translations/plugins/mouse/<lang>.ts
 
 [hawaii.system-preferences-network-preflet]
 type = QT
 source_lang = en
-source_file = src/plugins/network/translations/template.ts
-file_filter = src/plugins/network/translations/<lang>.ts
+source_file = translations/plugins/network/template.ts
+file_filter = translations/plugins/network/<lang>.ts
 
 [hawaii.system-preferences-network-metadata]
 type = DESKTOP
@@ -76,17 +76,17 @@ file_filter = src/plugins/network/translations/hawaii-network-panel_<lang>.deskt
 [hawaii.system-preferences-screen-preflet]
 type = QT
 source_lang = en
-source_file = src/plugins/screen/translations/template.ts
-file_filter = src/plugins/screen/translations/<lang>.ts
+source_file = translations/plugins/screen/template.ts
+file_filter = translations/plugins/screen/<lang>.ts
 
 [hawaii.system-preferences-sound-preflet]
 type = QT
 source_lang = en
-source_file = src/plugins/sound/translations/template.ts
-file_filter = src/plugins/sound/translations/<lang>.ts
+source_file = translations/plugins/sound/template.ts
+file_filter = translations/plugins/sound/<lang>.ts
 
 [hawaii.system-preferences-users-preflet]
 type = QT
 source_lang = en
-source_file = src/plugins/user-accounts/translations/template.ts
-file_filter = src/plugins/user-accounts/translations/<lang>.ts
+source_file = translations/plugins/user-accounts/template.ts
+file_filter = translations/plugins/user-accounts/<lang>.ts
