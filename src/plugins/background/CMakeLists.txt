@@ -11,6 +11,7 @@ configure_file(hawaii-background-panel.desktop.in
 
 set(SOURCES
     backgroundsmodel.cpp
+    colorsmodel.cpp
     preflet.cpp
     plugin.cpp
 )

@@ -33,6 +33,7 @@
 
 #include "preflet.h"
 #include "backgroundsmodel.h"
+#include "colorsmodel.h"
 
 using namespace Hawaii::SystemPreferences;
 
@@ -42,6 +43,8 @@ Preflet::Preflet()
     // Register QML types
     qmlRegisterType<BackgroundsModel>("Hawaii.SystemPreferences.Background",
                                       0, 1, "BackgroundsModel");
+    qmlRegisterType<ColorsModel>("Hawaii.SystemPreferences.Background",
+                                 0, 1, "ColorsModel");
 }
 
 QQmlComponent *Preflet::createComponent(QQmlEngine *engine, QObject *parent)
