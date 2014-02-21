@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of System Preferences.
  *
- * Copyright (C) 2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2013-2014 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * Author(s):
  *    Pier Luigi Fiorini
@@ -24,32 +24,24 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef WALLPAPERSMODEL_H
-#define WALLPAPERSMODEL_H
+#ifndef BACKGROUNDSMODEL_H
+#define BACKGROUNDSMODEL_H
 
 #include <QtCore/QAbstractListModel>
 
-#include "abstractitem.h"
+class BackgroundsModelPrivate;
 
-class WallpapersModel : public QAbstractListModel
+class BackgroundsModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_ENUMS(Roles)
 public:
     enum Roles {
-        FileNameRole = Qt::UserRole + 1,
-        ThumbnailFileNameRole,
-        ChangesThroughoutDayRole,
-        HasMetadataRole,
-        NameRole,
-        AuthorNameRole,
-        AuthorEmailRole,
-        LicenseRole,
-        ResolutionRole
+        NameRole = Qt::UserRole + 1,
+        FileNameRole
     };
 
-    explicit WallpapersModel(QObject *parent = 0);
-    ~WallpapersModel();
+    explicit BackgroundsModel(QObject *parent = 0);
 
     QHash<int, QByteArray> roleNames() const;
 
@@ -57,17 +49,19 @@ public:
 
     QVariant data(const QModelIndex &index, int role) const;
 
-    Q_INVOKABLE AbstractItem *get(int index) const;
+    Q_INVOKABLE QString get(int index) const;
 
 public Q_SLOTS:
     void addStandardPaths();
     void addUserPaths();
 
     void addFolder(const QString &path);
-    void addWallpapersFolder(const QString &path);
+
+    void clear();
 
 private:
-    QList<AbstractItem *> m_items;
+    Q_DECLARE_PRIVATE(BackgroundsModel)
+    BackgroundsModelPrivate *const d_ptr;
 };
 
-#endif // WALLPAPERSMODEL_H
+#endif // BACKGROUNDSMODEL_H

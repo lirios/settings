@@ -1,6 +1,4 @@
 include_directories(
-    ${QtConfiguration_INCLUDE_DIRS}
-    ${CMAKE_SOURCE_DIR}/3rdparty/libqtxdg
     ${CMAKE_SOURCE_DIR}/headers
     ${CMAKE_BINARY_DIR}/src/lib
     ${CMAKE_BINARY_DIR}/src/app
@@ -12,14 +10,9 @@ configure_file(hawaii-background-panel.desktop.in
                ${CMAKE_CURRENT_BINARY_DIR}/hawaii-background-panel.desktop)
 
 set(SOURCES
-    ${CMAKE_SOURCE_DIR}/3rdparty/libqtxdg/xdgdesktopfile.cpp
+    backgroundsmodel.cpp
     preflet.cpp
     plugin.cpp
-    abstractitem.cpp
-    backgrounditem.cpp
-    wallpaperitem.cpp
-    wallpapersmodel.cpp
-    backgroundsettings.cpp
 )
 
 ##############################################################################
@@ -45,10 +38,7 @@ qt5_add_resources(RESOURCES background.qrc)
 add_library(background SHARED ${SOURCES} ${QM_FILES} ${RESOURCES})
 set_target_properties(background PROPERTIES PREFIX "")
 qt5_use_modules(background Quick)
-target_link_libraries(background
-    HawaiiSystemPreferences
-    ${QtConfiguration_LIBRARIES}
-)
+target_link_libraries(background HawaiiSystemPreferences)
 
 install(TARGETS background LIBRARY
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/hawaii/plugins/preferences)

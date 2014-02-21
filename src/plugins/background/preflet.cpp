@@ -32,9 +32,7 @@
 #include <QtCore/QDebug>
 
 #include "preflet.h"
-#include "wallpapersmodel.h"
-#include "abstractitem.h"
-#include "backgroundsettings.h"
+#include "backgroundsmodel.h"
 
 using namespace Hawaii::SystemPreferences;
 
@@ -42,12 +40,8 @@ Preflet::Preflet()
     : PreferencesModule(QStringLiteral("background"))
 {
     // Register QML types
-    qmlRegisterType<WallpapersModel>("Hawaii.SystemPreferences.Background",
-                                     0, 1, "WallpapersModel");
-    qmlRegisterType<AbstractItem>("Hawaii.SystemPreferences.Background",
-                                  0, 1, "AbstractItem");
-    qmlRegisterType<BackgroundSettings>("Hawaii.SystemPreferences.Background",
-                                        0, 1, "BackgroundSettings");
+    qmlRegisterType<BackgroundsModel>("Hawaii.SystemPreferences.Background",
+                                      0, 1, "BackgroundsModel");
 }
 
 QQmlComponent *Preflet::createComponent(QQmlEngine *engine, QObject *parent)
