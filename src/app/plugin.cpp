@@ -77,6 +77,11 @@ void PluginPrivate::load()
 
     QQmlContext *context = QQmlEngine::contextForObject(q);
     component = module->createComponent(context->engine(), q);
+    if (component->isError()) {
+        qDebug() << "Errors loading" << moduleName;
+        for (QQmlError error: component->errors())
+            qWarning("\t\%s", qPrintable(error.toString()));
+    }
 }
 
 /*
