@@ -25,101 +25,96 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Window 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
-import Hawaii.SystemPreferences.Background 0.1
+import Hawaii.Configuration 1.0
+import Hawaii.Shell.Core 1.0
 
 Item {
     id: root
 
-    readonly property real aspectRatio: Screen.width / Screen.height
-    readonly property real thumbWidth: root.width * 0.5
-    readonly property real thumbHeight: thumbWidth / aspectRatio
-    property bool completed: false
+    property int minimumWidth: 800
+    property int minimumHeight: 600
 
-    BackgroundSettings {
+    Configuration {
         id: settings
+        category: "shell"
+
+        property string background: "org.hawaii.backgrounds.wallpaper"
     }
 
-    SelectorDialog {
-        id: selectorDialog
-        width: root.width
-        height: root.height
-        visible: false
-    }
+    PackagesModel {
+        id: packages
+        type: PackagesModel.BackgroundPackage
 
-    Button {
-        anchors.centerIn: parent
-        width: thumbWidth
-        height: thumbHeight
-        onClicked: selectorDialog.visible = true
-
-        Item {
-            id: container
-            anchors {
-                left: parent.left
-                top: parent.top
-                margins: 20
-            }
-            width: parent.width - 40
-            height: parent.height - label.paintedHeight - 40
-
-            Image {
-                id: wallpaperPreview
-                anchors.fill: parent
-                source: settings.wallpaperUrl
-                sourceSize.width: width
-                sourceSize.height: height
-                fillMode: convertFillMode(settings.fillMode)
-                clip: wallpaperPreview.fillMode == Image.PreserveAspectCrop
-                visible: completed && settings.type == BackgroundSettings.WallpaperBackground
+        function findCurrentIndex() {
+            for (var i = 0; i < packages.count; i++) {
+                if (packages.get(i).identifier == settings.background)
+                    return i;
             }
 
-            Rectangle {
-                id: colorPreview
-                anchors.fill: parent
-                color: settings.primaryColor
-                visible: completed &&
-                         settings.type == BackgroundSettings.ColorBackground &&
-                         settings.colorShading == BackgroundSettings.SolidColorShading
-            }
-
-            Item {
-                id: gradientPreview
-                anchors.fill: parent
-                visible: completed &&
-                         settings.type == BackgroundSettings.ColorBackground &&
-                         settings.colorShading != BackgroundSettings.SolidColorShading
-            }
+            return -1;
         }
 
-        Text {
-            id: label
-            anchors {
-                top: container.bottom
-                horizontalCenter: container.horizontalCenter
-                margins: 10
+        function setBackgroundType(index) {
+            var item = packages.get(index);
+            if (!item) {
+                console.log("Invalid index " + index);
+                return;
             }
 
-            text: qsTr("Background")
+            settings.background = item.identifier;
+            loader.source = item.filePath("preferencesview");
+        }
+
+        Component.onCompleted: {
+            for (var i = 0; i < packages.count; i++) {
+                var item = packages.get(i);
+                if (item.identifier == settings.background) {
+                    comboBox.currentIndex = i;
+                    loader.source = item.filePath("preferencesview");
+                    return;
+                }
+            }
         }
     }
 
-    Component.onCompleted: root.completed = true
+    ColumnLayout {
+        anchors.fill: parent
+        anchors.margins: 11
 
-    function convertFillMode(value) {
-        switch (value) {
-        case BackgroundSettings.Scaled:
-            return Image.PreserveAspectFit;
-        case BackgroundSettings.Cropped:
-            return Image.PreserveAspectCrop;
-        case BackgroundSettings.Centered:
-            return Image.Pad;
-        case BackgroundSettings.Tiled:
-            return Image.Tile;
-        default:
-            return Image.Stretch;
+        GridLayout {
+            columns: 2
+
+            Label {
+                text: qsTr("Type:")
+                horizontalAlignment: Qt.AlignRight
+            }
+
+            ComboBox {
+                id: comboBox
+                model: packages
+                textRole: "name"
+                onActivated: packages.setBackgroundType(index)
+
+                Layout.minimumWidth: 120
+            }
+
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+        }
+
+        Loader {
+            id: loader
+            asynchronous: true
+
+            BusyIndicator {
+                anchors.centerIn: parent
+                visible: parent.status != Loader.Ready
+            }
+
+            Layout.fillWidth: true
+            Layout.fillHeight: true
         }
     }
 }

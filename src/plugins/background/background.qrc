@@ -1,12 +1,5 @@
 <RCC>
     <qresource prefix="/background">
-        <file>qml/ColorsModel.qml</file>
-        <file>qml/ColorsPage.qml</file>
-        <file>qml/GradientsPage.qml</file>
-        <file>qml/PicturesPage.qml</file>
         <file>qml/Preflet.qml</file>
-        <file>qml/Selector.qml</file>
-        <file>qml/SelectorDialog.qml</file>
-        <file>qml/WallpapersPage.qml</file>
     </qresource>
 </RCC>
