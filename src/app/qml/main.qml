@@ -32,11 +32,15 @@ import Hawaii.SystemPreferences 0.1
 ApplicationWindow {
     id: root
     title: qsTr("System Preferences")
-    width: 480
-    height: 480
-    minimumWidth: 48
-    minimumHeight: 48
+    width: minimumWidth
+    height: minimumHeight
+    minimumWidth: defaultMinimumWidth
+    minimumHeight: defaultMinimumHeight
+    maximumWidth: minimumWidth
+    maximumHeight: minimumHeight
 
+    property int defaultMinimumWidth: 480
+    property int defaultMinimumHeight: 480
     property int itemSize: 96
 
     toolBar: ToolBar {
@@ -77,7 +81,11 @@ ApplicationWindow {
     Action {
         id: actionBack
         iconName: "go-previous"
-        onTriggered: pageStack.pop()
+        onTriggered: {
+            root.minimumWidth = root.defaultMinimumWidth;
+            root.minimumHeight = root.defaultMinimumHeight;
+            pageStack.pop();
+        }
     }
 
     PluginManager {
@@ -133,6 +141,8 @@ ApplicationWindow {
             var plugin = pluginManager.getByName(Qt.application.arguments[1]);
             if (plugin) {
                 prefletTitle.text = plugin.title;
+                root.width = plugin.item.width;
+                root.height = plugin.item.height;
                 pageStack.push({item: plugin.item});
             }
         }

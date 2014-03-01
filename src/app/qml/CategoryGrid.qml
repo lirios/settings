@@ -51,6 +51,12 @@ GroupBox {
                     anchors.fill: parent
                     onClicked: {
                         prefletTitle.text = model.title;
+
+                        if (typeof(model.item.minimumWidth) != "undefined")
+                            root.minimumWidth = model.item.minimumWidth;
+                        if (typeof(model.item.minimumHeight) != "undefined")
+                            root.minimumHeight = model.item.minimumHeight;
+
                         pageStack.push({item: model.item});
                     }
                 }
