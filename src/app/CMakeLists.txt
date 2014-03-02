@@ -1,5 +1,4 @@
 include_directories(
-    ${CMAKE_SOURCE_DIR}/3rdparty/libqtxdg
     ${CMAKE_SOURCE_DIR}/headers
     ${CMAKE_BINARY_DIR}/src/lib
     ${CMAKE_SOURCE_DIR}/src/lib
@@ -21,7 +20,7 @@ set(SOURCES
     prefletsproxymodel.cpp
     plugin.cpp
     pluginmanager.cpp
-    ${CMAKE_SOURCE_DIR}/3rdparty/libqtxdg/xdgdesktopfile.cpp
+    xdgdesktopfile.cpp
 )
 
 ##############################################################################
