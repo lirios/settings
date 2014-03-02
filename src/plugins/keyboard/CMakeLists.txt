@@ -12,7 +12,6 @@ add_definitions(-DQT_PLUGIN)
 set(SOURCES
     preflet.cpp
     plugin.cpp
-    keyboardsettings.cpp
 )
 
 ##############################################################################

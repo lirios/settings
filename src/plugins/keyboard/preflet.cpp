@@ -35,9 +35,6 @@ using namespace Hawaii::SystemPreferences;
 Preflet::Preflet()
     : PreferencesModule(QStringLiteral("keyboard"))
 {
-    // Register QML types
-    qmlRegisterType<KeyboardSettings>("Hawaii.SystemPreferences.Keyboard",
-                                      0, 1, "KeyboardSettings");
 }
 
 QQmlComponent *Preflet::createComponent(QQmlEngine *engine, QObject *parent)

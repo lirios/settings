@@ -27,11 +27,18 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
-import Hawaii.SystemPreferences.Keyboard 0.1
+import Hawaii.Configuration 1.0
 
 ColumnLayout {
-    KeyboardSettings {
+    Configuration {
         id: settings
+        category: "peripherals/keyboard"
+
+        property bool keyboardRepeatEnabled: true
+        property int keyboardInputInterval: 30
+        property int keyboardAutoRepeatRate: 500
+        property bool cursorFlashEnabled: true
+        property int cursorFlashTime: 400
 
         Component.onCompleted: {
             repeatKeysGroup.checked = settings.keyboardRepeatEnabled;
