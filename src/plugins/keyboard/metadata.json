@@ -1,0 +1,17 @@
+{
+    "Name": "org.hawaii.preferences.keyboard",
+    "Type": "preferences",
+    "Version": "1.0",
+    "License": "GPLv2+",
+    "Title": "Keyboard",
+    "Description": "View and change keyboard shortcuts and set your typing preferences",
+    "IconName": "input-keyboard",
+    "Authors": [
+        {
+            "Name": "Pier Luigi Fiorini",
+            "Email": "pierluigi.fiorini@gmail.com"
+        }
+    ],
+    "WebSite": "http://www.maui-project.org",
+    "MainScript": "ui/Preflet.qml"
+}

@@ -11,6 +11,3 @@ StartupNotify=true
 Categories=X-Hawaii;Qt;Settings;HardwareSettings;
 OnlyShowIn=X-Hawaii;
 Keywords=Net;Network;Ethernet;WiFi;Wired;Wireless;
-X-Hawaii-ModuleName=network
-X-Hawaii-ModulePath=@CMAKE_INSTALL_FULL_LIBDIR@/hawaii/plugins/preferences/network.so
-X-Hawaii-FormFactors=desktop;

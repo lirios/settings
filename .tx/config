@@ -22,7 +22,7 @@ file_filter = translations/plugins/background/<lang>.ts
 [hawaii.system-preferences-background-metadata]
 type = DESKTOP
 source_lang = en
-source_file = src/plugins/background/hawaii-background-panel.desktop.in.in
+source_file = data/hawaii-background-panel.desktop.in
 file_filter = translations/plugins/background/hawaii-background-panel_<lang>.desktop
 
 [hawaii.system-preferences-desktop-preflet]
@@ -34,7 +34,7 @@ file_filter = translations/plugins/desktop/<lang>.ts
 [hawaii.system-preferences-desktop-metadata]
 type = DESKTOP
 source_lang = en
-source_file = src/plugins/desktop/hawaii-desktop-panel.desktop.in.in
+source_file = data/hawaii-desktop-panel.desktop.in
 file_filter = translations/plugins/desktop/hawaii-desktop-panel_<lang>.desktop
 
 [hawaii.system-preferences-keyboard-preflet]
@@ -46,7 +46,7 @@ file_filter = translations/plugins/keyboard/<lang>.ts
 [hawaii.system-preferences-keyboard-metadata]
 type = DESKTOP
 source_lang = en
-source_file = src/plugins/keyboard/hawaii-keyboard-panel.desktop.in.in
+source_file = data/hawaii-keyboard-panel.desktop.in
 file_filter = translations/plugins/keyboard/hawaii-keyboard-panel_<lang>.desktop
 
 [hawaii.system-preferences-mime-types-preflet]
@@ -70,7 +70,7 @@ file_filter = translations/plugins/network/<lang>.ts
 [hawaii.system-preferences-network-metadata]
 type = DESKTOP
 source_lang = en
-source_file = src/plugins/network/hawaii-network-panel.desktop.in.in
+source_file = data/hawaii-network-panel.desktop.in
 file_filter = translations/plugins/network/hawaii-network-panel_<lang>.desktop
 
 [hawaii.system-preferences-screen-preflet]

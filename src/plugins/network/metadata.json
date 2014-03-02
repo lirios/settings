@@ -1,0 +1,17 @@
+{
+    "Name": "org.hawaii.preferences.network",
+    "Type": "preferences",
+    "Version": "1.0",
+    "License": "GPLv2+",
+    "Title": "Network",
+    "Description": "Control how you connect to the Internet",
+    "IconName": "preferences-system-network",
+    "Authors": [
+        {
+            "Name": "Pier Luigi Fiorini",
+            "Email": "pierluigi.fiorini@gmail.com"
+        }
+    ],
+    "WebSite": "http://www.maui-project.org",
+    "MainScript": "ui/Preflet.qml"
+}

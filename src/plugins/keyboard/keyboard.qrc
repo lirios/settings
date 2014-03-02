@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/keyboard">
-        <file>qml/Preflet.qml</file>
-        <file>qml/TypingPage.qml</file>
-    </qresource>
-</RCC>

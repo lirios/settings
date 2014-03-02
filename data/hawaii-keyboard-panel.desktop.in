@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Keyboard
 Comment=View and change keyboard shortcuts and set your typing preferences
-Exec=hawaii-system-preferences keyboard
+Exec=hawaii-system-preferences org.hawaii.preferences.keyboard
 Icon=input-keyboard
 Terminal=false
 Type=Application
@@ -9,6 +9,3 @@ StartupNotify=true
 Categories=X-Hawaii;Qt;Settings;HardwareSettings;
 OnlyShowIn=X-Hawaii;
 Keywords=Shortcut;Repeat;Blink;
-X-Hawaii-ModuleName=keyboard
-X-Hawaii-ModulePath=@CMAKE_INSTALL_FULL_LIBDIR@/hawaii/plugins/preferences/keyboard.so
-X-Hawaii-FormFactors=desktop;

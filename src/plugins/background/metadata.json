@@ -1,0 +1,17 @@
+{
+    "Name": "org.hawaii.preferences.background",
+    "Type": "preferences",
+    "Version": "1.0",
+    "License": "GPLv2+",
+    "Title": "Background",
+    "Description": "Change your background image to a wallpaper, photo or solid color",
+    "IconName": "preferences-desktop-wallpaper",
+    "Authors": [
+        {
+            "Name": "Pier Luigi Fiorini",
+            "Email": "pierluigi.fiorini@gmail.com"
+        }
+    ],
+    "WebSite": "http://www.maui-project.org",
+    "MainScript": "ui/Preflet.qml"
+}

@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of System Preferences.
  *
- * Copyright (C) 2011-2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2013-2014 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * Author(s):
  *    Pier Luigi Fiorini
@@ -24,34 +24,27 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include <QtCore/QStandardPaths>
-#include <QtCore/QUrl>
-#include <QtQml/QQmlEngine>
+#include <QtQml/QQmlExtensionPlugin>
 #include <QtQml/QQmlComponent>
-#include <QtQml/QQmlContext>
-#include <QtCore/QDebug>
 
-#include "preflet.h"
 #include "backgroundsmodel.h"
 #include "colorsmodel.h"
 
-using namespace Hawaii::SystemPreferences;
-
-Preflet::Preflet()
-    : PreferencesModule(QStringLiteral("background"))
+class BackgroundCorePlugin : public QQmlExtensionPlugin
 {
-    // Register QML types
-    qmlRegisterType<BackgroundsModel>("Hawaii.SystemPreferences.Background",
-                                      1, 0, "BackgroundsModel");
-    qmlRegisterType<ColorsModel>("Hawaii.SystemPreferences.Background",
-                                 1, 0, "ColorsModel");
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface/1.0")
+public:
+    void registerTypes(const char *uri);
+};
+
+void BackgroundCorePlugin::registerTypes(const char *uri)
+{
+    Q_ASSERT(QByteArray(uri) == QByteArray("Hawaii.SystemPreferences.Background"));
+
+    // @uri Hawaii.SystemPreferences.Background
+    qmlRegisterType<BackgroundsModel>(uri, 1, 0, "BackgroundsModel");
+    qmlRegisterType<ColorsModel>(uri, 1, 0, "ColorsModel");
 }
 
-QQmlComponent *Preflet::createComponent(QQmlEngine *engine, QObject *parent)
-{
-    return new QQmlComponent(engine,
-                             QUrl("qrc:/background/qml/Preflet.qml"),
-                             parent);
-}
-
-#include "moc_preflet.cpp"
+#include "plugin.moc"

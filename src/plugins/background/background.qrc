@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/background">
-        <file>qml/Preflet.qml</file>
-    </qresource>
-</RCC>
