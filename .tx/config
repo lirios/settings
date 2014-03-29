@@ -19,11 +19,17 @@ source_lang = en
 source_file = translations/plugins/background/template.ts
 file_filter = translations/plugins/background/<lang>.ts
 
-[hawaii.system-preferences-background-metadata]
+[hawaii.system-preferences-background-desktop]
 type = DESKTOP
 source_lang = en
 source_file = data/hawaii-background-panel.desktop.in
 file_filter = translations/plugins/background/hawaii-background-panel_<lang>.desktop
+
+[hawaii.system-preferences-background-metadata]
+type = DESKTOP
+source_lang = en
+source_file = data/plugins/background/metadata.desktop
+file_filter = translations/plugins/background/metadata_<lang>.desktop
 
 [hawaii.system-preferences-desktop-preflet]
 type = QT
@@ -31,11 +37,17 @@ source_lang = en
 source_file = translations/plugins/desktop/template.ts
 file_filter = translations/plugins/desktop/<lang>.ts
 
-[hawaii.system-preferences-desktop-metadata]
+[hawaii.system-preferences-desktop-desktop]
 type = DESKTOP
 source_lang = en
 source_file = data/hawaii-desktop-panel.desktop.in
 file_filter = translations/plugins/desktop/hawaii-desktop-panel_<lang>.desktop
+
+[hawaii.system-preferences-desktop-metadata]
+type = DESKTOP
+source_lang = en
+source_file = data/plugins/desktop/metadata.desktop
+file_filter = translations/plugins/desktop/metadata_<lang>.desktop
 
 [hawaii.system-preferences-keyboard-preflet]
 type = QT
@@ -43,11 +55,17 @@ source_lang = en
 source_file = translations/plugins/keyboard/template.ts
 file_filter = translations/plugins/keyboard/<lang>.ts
 
-[hawaii.system-preferences-keyboard-metadata]
+[hawaii.system-preferences-keyboard-desktop]
 type = DESKTOP
 source_lang = en
 source_file = data/hawaii-keyboard-panel.desktop.in
 file_filter = translations/plugins/keyboard/hawaii-keyboard-panel_<lang>.desktop
+
+[hawaii.system-preferences-keyboard-metadata]
+type = DESKTOP
+source_lang = en
+source_file = data/plugins/keyboard/metadata.desktop
+file_filter = translations/plugins/keyboard/metadata_<lang>.desktop
 
 [hawaii.system-preferences-mime-types-preflet]
 type = QT
@@ -67,11 +85,17 @@ source_lang = en
 source_file = translations/plugins/network/template.ts
 file_filter = translations/plugins/network/<lang>.ts
 
-[hawaii.system-preferences-network-metadata]
+[hawaii.system-preferences-network-desktop]
 type = DESKTOP
 source_lang = en
 source_file = data/hawaii-network-panel.desktop.in
 file_filter = translations/plugins/network/hawaii-network-panel_<lang>.desktop
+
+[hawaii.system-preferences-network-metadata]
+type = DESKTOP
+source_lang = en
+source_file = data/plugins/network/metadata.desktop
+file_filter = translations/plugins/network/metadata_<lang>.desktop
 
 [hawaii.system-preferences-screen-preflet]
 type = QT

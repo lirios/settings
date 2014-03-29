@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Desktop
+Comment=Configure desktop preferences
+Icon=preferences-desktop
+Keywords=Desktop;Launcher;Hot;Corner;
+X-Hawaii-PluginInfo-Type=HawaiiSystemPreferences
+X-Hawaii-PluginInfo-Name=org.hawaii.preferences.desktop
+X-Hawaii-PluginInfo-Author=Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+X-Hawaii-PluginInfo-Email=pierluigi.fiorini@gmail.com
+X-Hawaii-PluginInfo-Website=http://www.maui-project.org
+X-Hawaii-PluginInfo-License=GPLv2+
+X-Hawaii-PluginInfo-MainScript=ui/Preflet.qml
+X-Hawaii-HawaiiSystemPreferences-Category=Personal

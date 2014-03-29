@@ -1,17 +1,31 @@
 {
-    "Name": "org.hawaii.preferences.desktop",
-    "Type": "preferences",
-    "Version": "1.0",
-    "License": "GPLv2+",
-    "Title": "Desktop",
-    "Description": "Configure desktop preferences",
-    "IconName": "preferences-desktop",
-    "Authors": [
-        {
-            "Name": "Pier Luigi Fiorini",
-            "Email": "pierluigi.fiorini@gmail.com"
-        }
-    ],
-    "WebSite": "http://www.maui-project.org",
-    "MainScript": "ui/Preflet.qml"
+    "HawaiiSystemPreferences": {
+        "Category": "Personal"
+    },
+    "PluginInfo": {
+        "Authors": [
+            "Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>"
+        ],
+        "Contact": {
+            "Email": "pierluigi.fiorini@gmail.com",
+            "Website": "http://www.maui-project.org"
+        },
+        "Description": {
+            "en": {
+                "Comment": "Configure desktop preferences",
+                "Keywords": [
+                    "Desktop",
+                    "Launcher",
+                    "Hot",
+                    "Corner"
+                ],
+                "Name": "Desktop"
+            }
+        },
+        "Icon": "preferences-desktop",
+        "Implements": "HawaiiSystemPreferences",
+        "InternalName": "org.hawaii.preferences.desktop",
+        "License": "GPLv2+",
+        "MainScript": "ui/Preflet.qml"
+    }
 }

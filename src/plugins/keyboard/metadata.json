@@ -1,17 +1,30 @@
 {
-    "Name": "org.hawaii.preferences.keyboard",
-    "Type": "preferences",
-    "Version": "1.0",
-    "License": "GPLv2+",
-    "Title": "Keyboard",
-    "Description": "View and change keyboard shortcuts and set your typing preferences",
-    "IconName": "input-keyboard",
-    "Authors": [
-        {
-            "Name": "Pier Luigi Fiorini",
-            "Email": "pierluigi.fiorini@gmail.com"
-        }
-    ],
-    "WebSite": "http://www.maui-project.org",
-    "MainScript": "ui/Preflet.qml"
+    "HawaiiSystemPreferences": {
+        "Category": "Hardware"
+    },
+    "PluginInfo": {
+        "Authors": [
+            "Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>"
+        ],
+        "Contact": {
+            "Email": "pierluigi.fiorini@gmail.com",
+            "Website": "http://www.maui-project.org"
+        },
+        "Description": {
+            "en": {
+                "Comment": "View and change keyboard shortcuts and set your typing preferences",
+                "Keywords": [
+                    "Shortcut",
+                    "Repeat",
+                    "Blink"
+                ],
+                "Name": "Keyboard"
+            }
+        },
+        "Icon": "input-keyboard",
+        "Implements": "HawaiiSystemPreferences",
+        "InternalName": "org.hawaii.preferences.keyboard",
+        "License": "GPLv2+",
+        "MainScript": "ui/Preflet.qml"
+    }
 }

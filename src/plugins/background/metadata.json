@@ -1,17 +1,30 @@
 {
-    "Name": "org.hawaii.preferences.background",
-    "Type": "preferences",
-    "Version": "1.0",
-    "License": "GPLv2+",
-    "Title": "Background",
-    "Description": "Change your background image to a wallpaper, photo or solid color",
-    "IconName": "preferences-desktop-wallpaper",
-    "Authors": [
-        {
-            "Name": "Pier Luigi Fiorini",
-            "Email": "pierluigi.fiorini@gmail.com"
-        }
-    ],
-    "WebSite": "http://www.maui-project.org",
-    "MainScript": "ui/Preflet.qml"
+    "HawaiiSystemPreferences": {
+        "Category": "Personal"
+    },
+    "PluginInfo": {
+        "Authors": [
+            "Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>"
+        ],
+        "Contact": {
+            "Email": "pierluigi.fiorini@gmail.com",
+            "Website": "http://www.maui-project.org"
+        },
+        "Description": {
+            "en": {
+                "Comment": "Change your background image to a wallpaper, photo or solid color",
+                "Keywords": [
+                    "Wallpaper",
+                    "Screen",
+                    "Desktop"
+                ],
+                "Name": "Background"
+            }
+        },
+        "Icon": "preferences-desktop-wallpaper",
+        "Implements": "HawaiiSystemPreferences",
+        "InternalName": "org.hawaii.preferences.background",
+        "License": "GPLv2+",
+        "MainScript": "ui/Preflet.qml"
+    }
 }
