@@ -25,16 +25,17 @@
  ***************************************************************************/
 
 #include <QtCore/QCoreApplication>
-#include <QtCore/QDir>
-#include <QtCore/QStandardPaths>
 #include <QtQml/QQmlContext>
 #include <QtQml/QQmlEngine>
+
+#include <HawaiiShell/PluginLoader>
 
 #include "pluginmanager.h"
 #include "pluginmanager_p.h"
 #include "plugin.h"
 #include "prefletsmodel.h"
-#include "xdgdesktopfile.h"
+
+using namespace Hawaii::Shell;
 
 /*
  * PluginManagerPrivate
@@ -73,43 +74,28 @@ void PluginManagerPrivate::populate()
     // Context for the plugins
     QQmlContext *context = QQmlEngine::contextForObject(q);
 
-    // Search through the desktop entries
-    QStringList directories =
-            QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
-                                      QStringLiteral("applications"),
-                                      QStandardPaths::LocateDirectory);
-    for (QString directory: directories) {
-        QStringList filters;
-        filters << QStringLiteral("hawaii-*-panel.desktop");
+    // Search preference plugins
+    QStringList pluginList = PluginLoader::instance()->listPlugins(
+                PluginLoader::PreferencesPlugin);
+    for (QString plugin: pluginList) {
+        // Load its package
+        Package package = PluginLoader::instance()->loadPackage(
+                    PluginLoader::PreferencesPlugin);
+        package.setPath(plugin);
 
-        QDir dir(directory);
-        dir.setNameFilters(filters);
+        if (!package.isValid())
+            continue;
 
-        for (QString fileName: dir.entryList()) {
-            XdgDesktopFile entry;
-            if (entry.load(dir.absoluteFilePath(fileName))) {
-                // Skip desktop entries not meant for Hawaii
-                QStringList onlyShowIn = entry.value(QStringLiteral("OnlyShowIn")).toString().split(";", QString::SkipEmptyParts);
-                if (!onlyShowIn.contains(QStringLiteral("X-Hawaii")))
-                    continue;
+        // Append only if we haven't got any plugin with this name yet
+        QString internalName = package.metadata().internalName();
+        if (!plugins.contains(internalName)) {
+            // Create a plugin instance
+            Plugin *plugin = new Plugin(package, q);
+            QQmlEngine::setContextForObject(plugin, context);
 
-                // Module name
-                QString moduleName = entry.value(QStringLiteral("X-Hawaii-ModuleName")).toString();
-
-                // Append only if we haven't got any module with this name yet
-                if (!plugins.contains(moduleName)) {
-                    // Create a plugin instance
-                    Plugin *plugin = new Plugin(entry, q);
-                    QQmlEngine::setContextForObject(plugin, context);
-
-                    // Load the plugin information
-                    if (plugin->load()) {
-                        // Insert plugin map
-                        PluginMap &map = plugins[plugin->categoryName()];
-                        map.insert(moduleName, plugin);
-                    }
-                }
-            }
+            // Insert the plugin map
+            PluginMap &map = plugins[plugin->categoryName()];
+            map.insert(internalName, plugin);
         }
     }
 }

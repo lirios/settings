@@ -50,6 +50,9 @@ GroupBox {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
+                        if (!model.item)
+                            return;
+
                         prefletTitle.text = model.title;
 
                         if (typeof(model.item.minimumWidth) != "undefined")

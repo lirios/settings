@@ -44,6 +44,7 @@ public:
         IconNameRole,
         CategoryRole,
         CategoryNameRole,
+        MainScriptRole,
         ItemRole
     };
 

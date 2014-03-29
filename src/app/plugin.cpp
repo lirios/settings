@@ -24,76 +24,42 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include <QtQml/QQmlContext>
-#include <QtQml/QQmlEngine>
+#include <HawaiiShell/QmlObject>
 
 #include "plugin.h"
-#include "plugin_p.h"
 
-using namespace Hawaii::SystemPreferences;
+using namespace Hawaii::Shell;
 
 /*
  * PluginPrivate
  */
 
-PluginPrivate::PluginPrivate(Plugin *plugin)
-    : loader(new QPluginLoader())
-    , plugin(nullptr)
-    , module(nullptr)
-    , component(nullptr)
-    , item(nullptr)
-    , q_ptr(plugin)
+class PluginPrivate
 {
-}
-
-PluginPrivate::~PluginPrivate()
-{
-    delete component;
-    delete module;
-    delete plugin;
-    delete loader;
-}
-
-void PluginPrivate::load()
-{
-    Q_Q(Plugin);
-
-    QString fileName = entry.value(QStringLiteral("X-Hawaii-ModulePath")).toString();
-    loader->setFileName(fileName);
-
-    plugin = qobject_cast<PreferencesModulePlugin *>(loader->instance());
-    if (!plugin) {
-        qWarning() << "Couldn't load" << fileName << loader->errorString();
-        return;
+public:
+    PluginPrivate()
+        : qmlObject(nullptr)
+    {
     }
 
-    QString moduleName = entry.value(QStringLiteral("X-Hawaii-ModuleName")).toString();
-    module = plugin->create(moduleName);
-    if (!module) {
-        delete plugin;
-        plugin = nullptr;
-        return;
-    }
-
-    QQmlContext *context = QQmlEngine::contextForObject(q);
-    component = module->createComponent(context->engine(), q);
-    if (component->isError()) {
-        qDebug() << "Errors loading" << moduleName;
-        for (QQmlError error: component->errors())
-            qWarning("\t\%s", qPrintable(error.toString()));
-    }
-}
+    Package package;
+    QmlObject *qmlObject;
+};
 
 /*
  * Plugin
  */
 
-Plugin::Plugin(const XdgDesktopFile &entry, QObject *parent)
+Plugin::Plugin(Package package, QObject *parent)
     : QObject(parent)
-    , d_ptr(new PluginPrivate(this))
+    , d_ptr(new PluginPrivate())
 {
     Q_D(Plugin);
-    d->entry = entry;
+    d->package = package;
+    d->qmlObject = new QmlObject(this);
+    d->qmlObject->setInitializationDelayed(true);
+    d->qmlObject->setSource(mainScript());
+    d->qmlObject->completeInitialization();
 }
 
 Plugin::~Plugin()
@@ -101,26 +67,19 @@ Plugin::~Plugin()
     delete d_ptr;
 }
 
-bool Plugin::load()
-{
-    Q_D(Plugin);
-    d->load();
-    return d->plugin != nullptr;
-}
-
 Plugin::Category Plugin::category() const
 {
     Q_D(const Plugin);
 
-    QStringList categories = d->entry.value("Categories").toString().split(";", QString::SkipEmptyParts);
-    for (QString categoryString: categories) {
-        if (categoryString == QStringLiteral("X-Hawaii-PersonalSettings"))
-            return Plugin::PersonalCategory;
-        if (categoryString == QStringLiteral("HardwareSettings"))
-            return Plugin::HardwareCategory;
-        if (categoryString == QStringLiteral("X-Hawaii-SystemSettings"))
-            return Plugin::SystemCategory;
-    }
+    QVariantMap map = d->package.metadata().value(QStringLiteral("HawaiiSystemPreferences")).toMap();
+
+    QString category = map.value(QStringLiteral("Category")).toString();
+    if (category == QStringLiteral("Personal"))
+        return Plugin::PersonalCategory;
+    else if (category == QStringLiteral("Hardware"))
+        return Plugin::HardwareCategory;
+    else if (category == QStringLiteral("System"))
+        return Plugin::SystemCategory;
 
     return Plugin::NoCategory;
 }
@@ -144,55 +103,52 @@ QString Plugin::categoryName() const
 QString Plugin::name() const
 {
     Q_D(const Plugin);
-    return d->entry.value("X-Hawaii-ModuleName").toString();
+    return d->package.metadata().internalName();
 }
 
 QString Plugin::title() const
 {
     Q_D(const Plugin);
-    return d->entry.localizedValue("Name").toString();
+    return d->package.metadata().name();
 }
 
 QString Plugin::comment() const
 {
     Q_D(const Plugin);
-    return d->entry.localizedValue("Comment").toString();
+    return d->package.metadata().comment();
 }
 
 QString Plugin::iconName() const
 {
     Q_D(const Plugin);
-    return d->entry.value("Icon").toString();
+    return d->package.metadata().iconName();
 }
 
 QStringList Plugin::keywords() const
 {
     Q_D(const Plugin);
-    return d->entry.localizedValue("Keywords").toString().split(";", QString::SkipEmptyParts);
+    return d->package.metadata().keywords();
 }
 
-QStringList Plugin::formFactors() const
+QStringList Plugin::platformHints() const
 {
     Q_D(const Plugin);
-    return d->entry.value("X-Hawaii-Settings-Panel/FormFactors").toString().split(";", QString::SkipEmptyParts);
+
+    QVariantMap map = d->package.metadata().value(QStringLiteral("HawaiiSystemPreferences")).toMap();
+    return map.value(QStringLiteral("PlatformHints")).toStringList();
 }
 
-QQmlComponent *Plugin::component() const
+QUrl Plugin::mainScript() const
 {
     Q_D(const Plugin);
-    return d->component;
+    QString path = d->package.filePath(nullptr, d->package.metadata().mainScript());
+    return QUrl::fromLocalFile(path);
 }
 
 QQuickItem *Plugin::item()
 {
     Q_D(Plugin);
-
-    if (!d->plugin)
-        return nullptr;
-
-    if (!d->item)
-        d->item = qobject_cast<QQuickItem *>(d->component->create());
-    return d->item;
+    return qobject_cast<QQuickItem *>(d->qmlObject->rootObject());
 }
 
 #include "moc_plugin.cpp"

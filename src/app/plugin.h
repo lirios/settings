@@ -28,10 +28,11 @@
 #define PLUGIN_H
 
 #include <QtCore/QObject>
-#include <QtQml/QQmlComponent>
+#include <QtCore/QUrl>
 #include <QtQuick/QQuickItem>
 
-class XdgDesktopFile;
+#include <HawaiiShell/Package>
+
 class PluginPrivate;
 
 class Plugin : public QObject
@@ -44,8 +45,8 @@ class Plugin : public QObject
     Q_PROPERTY(QString comment READ comment CONSTANT)
     Q_PROPERTY(QString iconName READ iconName CONSTANT)
     Q_PROPERTY(QStringList keywords READ keywords CONSTANT)
-    Q_PROPERTY(QStringList formFactors READ formFactors CONSTANT)
-    Q_PROPERTY(QQmlComponent *component READ component CONSTANT)
+    Q_PROPERTY(QStringList platformHints READ platformHints CONSTANT)
+    Q_PROPERTY(QUrl mainScript READ mainScript CONSTANT)
     Q_PROPERTY(QQuickItem *item READ item CONSTANT)
     Q_ENUMS(Category)
 public:
@@ -56,7 +57,7 @@ public:
         SystemCategory
     };
 
-    explicit Plugin(const XdgDesktopFile &entry, QObject *parent = 0);
+    explicit Plugin(Hawaii::Shell::Package package, QObject *parent = 0);
     ~Plugin();
 
     bool load();
@@ -68,9 +69,8 @@ public:
     QString comment() const;
     QString iconName() const;
     QStringList keywords() const;
-    QStringList formFactors() const;
-
-    QQmlComponent *component() const;
+    QStringList platformHints() const;
+    QUrl mainScript() const;
     QQuickItem *item();
 
 private:

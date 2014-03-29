@@ -25,11 +25,7 @@
  ***************************************************************************/
 
 #include <QtCore/QCoreApplication>
-#include <QtCore/QDir>
-#include <QtCore/QPluginLoader>
 #include <QtGui/QIcon>
-#include <QtQml/QQmlEngine>
-#include <QtQml/QQmlComponent>
 
 #include <Hawaii/SystemPreferences/PreferencesModulePlugin>
 
@@ -64,6 +60,7 @@ QHash<int, QByteArray> PrefletsModel::roleNames() const
     roles[CommentRole] = "comment";
     roles[CategoryRole] = "category";
     roles[CategoryNameRole] = "categoryName";
+    roles[MainScriptRole] = "mainScript";
     roles[ItemRole] = "item";
     return roles;
 }
@@ -91,6 +88,8 @@ QVariant PrefletsModel::data(const QModelIndex &index, int role) const
         return plugin->category();
     case CategoryNameRole:
         return plugin->categoryName();
+    case MainScriptRole:
+        return plugin->mainScript();
     case ItemRole:
         return QVariant::fromValue(const_cast<Plugin *>(plugin)->item());
     default:

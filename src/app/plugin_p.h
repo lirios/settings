@@ -27,35 +27,11 @@
 #ifndef PLUGIN_P_H
 #define PLUGIN_P_H
 
-#include <QtCore/QPluginLoader>
-
-#include "xdgdesktopfile.h"
-#include "preferencesmodule.h"
-#include "preferencesmoduleplugin.h"
-
 class QQmlComponent;
 class QQuickItem;
 
 class Plugin;
 
-class PluginPrivate
-{
-    Q_DECLARE_PUBLIC(Plugin)
-public:
-    PluginPrivate(Plugin *plugin);
-    ~PluginPrivate();
 
-    void load();
-
-    XdgDesktopFile entry;
-    QPluginLoader *loader;
-    Hawaii::SystemPreferences::PreferencesModulePlugin *plugin;
-    Hawaii::SystemPreferences::PreferencesModule *module;
-    QQmlComponent *component;
-    QQuickItem *item;
-
-protected:
-    Plugin *q_ptr;
-};
 
 #endif // PLUGIN_P_H
