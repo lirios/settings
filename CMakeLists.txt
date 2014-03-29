@@ -59,6 +59,9 @@ find_package(Qt5 5.2 REQUIRED COMPONENTS Quick LinguistTools)
 # Find QtConfiguration
 find_package(QtConfiguration REQUIRED)
 
+# Find Hawaii Shell
+find_package(HF1HawaiiShell REQUIRED)
+
 # Find PolicyKit wrapper for Qt
 find_package(PolkitQt5-1 "0.103.0" REQUIRED)
 if(NOT PolkitQt5-1_FOUND)
