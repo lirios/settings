@@ -106,7 +106,6 @@ Item {
 
         Loader {
             id: loader
-            asynchronous: true
 
             BusyIndicator {
                 anchors.centerIn: parent
