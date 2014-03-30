@@ -27,8 +27,6 @@
 #include <QtCore/QCoreApplication>
 #include <QtGui/QIcon>
 
-#include <Hawaii/SystemPreferences/PreferencesModulePlugin>
-
 #include "prefletsmodel.h"
 #include "prefletsmodel_p.h"
 #include "plugin.h"

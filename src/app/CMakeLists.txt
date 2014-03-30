@@ -51,7 +51,6 @@ set_target_properties(hawaii-system-preferences PROPERTIES
 target_link_libraries(hawaii-system-preferences
     ${POLKITQT-1_GUI_LIBRARY}
     ${HawaiiShell_LIBRARIES}
-    HawaiiSystemPreferences
 )
 
 install(TARGETS hawaii-system-preferences
