@@ -49,7 +49,7 @@ Item {
 
         function findCurrentIndex() {
             for (var i = 0; i < packages.count; i++) {
-                if (packages.get(i).identifier == settings.background)
+                if (packages.get(i).internalName == settings.background)
                     return i;
             }
 
@@ -63,14 +63,14 @@ Item {
                 return;
             }
 
-            settings.background = item.identifier;
+            settings.background = item.internalName;
             loader.source = item.filePath("preferencesview");
         }
 
         Component.onCompleted: {
             for (var i = 0; i < packages.count; i++) {
                 var item = packages.get(i);
-                if (item.identifier == settings.background) {
+                if (item.internalName == settings.background) {
                     comboBox.currentIndex = i;
                     loader.source = item.filePath("preferencesview");
                     return;
