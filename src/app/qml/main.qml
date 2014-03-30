@@ -95,6 +95,7 @@ ApplicationWindow {
     StackView {
         id: pageStack
         anchors.fill: parent
+/*
         delegate: StackViewDelegate {
             function transitionFinished(properties) {
                 properties.exitItem.opacity = 1.0;
@@ -105,7 +106,7 @@ ApplicationWindow {
                 PropertyAnimation { target: exitItem; property: "opacity"; from: 1.0; to: 0.0 }
             }
         }
-
+*/
         initialItem: Item {
             width: parent.width
             height: parent.height
