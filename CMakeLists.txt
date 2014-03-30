@@ -50,9 +50,6 @@ if(CMAKE_BUILD_TYPE MATCHES "^[Rr]elease$")
     add_definitions(-DQT_NO_DEBUG_OUTPUT)
 endif()
 
-# Include important features
-include(GenerateExportHeader)
-
 # Find Qt5
 find_package(Qt5 5.2 REQUIRED COMPONENTS Quick LinguistTools)
 
@@ -70,7 +67,6 @@ endif()
 
 # Subdirectories
 add_subdirectory(data)
-add_subdirectory(headers)
 add_subdirectory(src)
 
 # Translation custom target
