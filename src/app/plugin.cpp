@@ -28,7 +28,7 @@
 
 #include "plugin.h"
 
-using namespace Hawaii::Shell;
+using namespace Hawaii;
 
 /*
  * PluginPrivate

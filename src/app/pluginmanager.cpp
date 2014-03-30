@@ -28,14 +28,14 @@
 #include <QtQml/QQmlContext>
 #include <QtQml/QQmlEngine>
 
-#include <HawaiiShell/PluginLoader>
+#include <Hawaii/PluginLoader>
 
 #include "pluginmanager.h"
 #include "pluginmanager_p.h"
 #include "plugin.h"
 #include "prefletsmodel.h"
 
-using namespace Hawaii::Shell;
+using namespace Hawaii;
 
 /*
  * PluginManagerPrivate

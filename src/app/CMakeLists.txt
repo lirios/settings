@@ -1,7 +1,6 @@
 include_directories(
-    ${HF1HawaiiShell_INCLUDE_DIRS}
-    ${HawaiiShell_INCLUDE_DIRS}
     ${POLKITQT-1_INCLUDE_DIR}
+    ${HawaiiShell_INCLUDE_DIRS}
     ${CMAKE_SOURCE_DIR}/headers
     ${CMAKE_BINARY_DIR}/src/lib
     ${CMAKE_SOURCE_DIR}/src/lib
@@ -50,8 +49,8 @@ set_target_properties(hawaii-system-preferences PROPERTIES
     LINK_FLAGS "-L${POLKITQT-1_LIB_DIR}"
 )
 target_link_libraries(hawaii-system-preferences
-    HF1::HawaiiShell
     ${POLKITQT-1_GUI_LIBRARY}
+    ${HawaiiShell_LIBRARIES}
     HawaiiSystemPreferences
 )
 

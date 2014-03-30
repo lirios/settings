@@ -31,7 +31,7 @@
 #include <QtCore/QUrl>
 #include <QtQuick/QQuickItem>
 
-#include <HawaiiShell/Package>
+#include <Hawaii/Package>
 
 class PluginPrivate;
 
@@ -57,7 +57,7 @@ public:
         SystemCategory
     };
 
-    explicit Plugin(Hawaii::Shell::Package package, QObject *parent = 0);
+    explicit Plugin(Hawaii::Package package, QObject *parent = 0);
     ~Plugin();
 
     bool load();
