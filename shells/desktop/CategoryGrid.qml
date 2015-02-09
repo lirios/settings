@@ -27,12 +27,13 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
-import Hawaii.SystemPreferences 0.1
+import org.hawaii.systempreferences 0.1
 
 GroupBox {
     property string categoryName
     property string categoryIconName
     readonly property int itemSize: 96
+    property alias model: repeater.model
 
     style: CategoryGroupBoxStyle {
         iconName: categoryIconName
@@ -42,7 +43,7 @@ GroupBox {
         anchors.fill: parent
 
         Repeater {
-            model: pluginManager.itemModel(categoryName)
+            id: repeater
             delegate: GridDelegate {
                 width: itemSize
                 height: itemSize

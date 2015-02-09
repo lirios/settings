@@ -25,6 +25,9 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings)
 
+# Include our macros
+include(HawaiiSystemPreferences)
+
 # Macro to print feature summary
 include(FeatureSummary)
 
@@ -65,6 +68,7 @@ set(QT_MIN_VERSION "5.2.0")
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
              Core
              Gui
+             Widgets
              Qml
              Quick
              LinguistTools)
@@ -77,7 +81,9 @@ endif()
 
 # Subdirectories
 add_subdirectory(data)
-add_subdirectory(src)
+add_subdirectory(modules)
+add_subdirectory(settings)
+add_subdirectory(shells)
 
 # Translation custom target
 add_custom_target(update-translations DEPENDS

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Background
+Comment=Change your background image to a wallpaper, photo or solid color
+Encoding=UTF-8
+Type=Service
+Icon=preferences-desktop-wallpaper
+Categories=Qt;X-Hawaii;Settings;
+OnlyShowIn=X-Hawaii;
+X-Hawaii-SystemPreferences-Category=personal

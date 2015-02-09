@@ -24,36 +24,47 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include <QtWidgets/QApplication>
+#include <QtCore/QLoggingCategory>
+#include <QtCore/QStandardPaths>
+#include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QQmlContext>
 #include <QtQuick/QQuickWindow>
-#include <QDebug>
 
 #include "config.h"
 #include "cmakedirs.h"
 #include "pluginmanager.h"
-#include "prefletsmodel.h"
 #include "prefletsproxymodel.h"
+
+Q_DECLARE_LOGGING_CATEGORY(PREFERENCES)
+Q_LOGGING_CATEGORY(PREFERENCES, "hawaii.systempreferences")
 
 int main(int argc, char *argv[])
 {
     // Setup application
-    QApplication app(argc, argv);
+    QGuiApplication app(argc, argv);
     app.setApplicationName("System Preferences");
     app.setApplicationVersion(SYSTEMPREFERENCES_VERSION_STRING);
     app.setOrganizationDomain("hawaii.org");
     app.setOrganizationName("Hawaii");
-    app.addLibraryPath(QStringLiteral(INSTALL_LIBDIR "/hawaii/plugins"));
 
     // Register types
-    qmlRegisterType<QAbstractItemModel>();
-    qmlRegisterType<PluginManager>("Hawaii.SystemPreferences", 0, 1, "PluginManager");
-    qmlRegisterType<PrefletsModel>("Hawaii.SystemPreferences", 0, 1, "PrefletsModel");
-    qmlRegisterType<PrefletsProxyModel>("Hawaii.SystemPreferences", 0, 1, "PrefletsProxyModel");
+    qmlRegisterType<Plugin>();
+    qmlRegisterType<PluginManager>("org.hawaii.systempreferences", 0, 1, "PluginManager");
+    //qmlRegisterType<PrefletsProxyModel>("org.hawaii.systempreferences", 0, 1, "PrefletsProxyModel");
+
+    // Find plugin
+    const QString plugin = QStringLiteral("org.hawaii.systempreferences");
+    QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
+                                              QStringLiteral("hawaii-system-preferences/shells/%1/main.qml").arg(plugin));
+    if (fileName.isEmpty()) {
+        qCWarning(PREFERENCES) << "Failed to find" << plugin << "plugin, aborting...";
+        return 1;
+    }
 
     // Setup QML engine and show the main window
-    QQmlApplicationEngine engine(QUrl("qrc:///qml/main.qml"));
+    qCDebug(PREFERENCES) << "Loading:" << fileName;
+    QQmlApplicationEngine engine(QUrl::fromLocalFile(fileName));
     QQuickWindow *window = qobject_cast<QQuickWindow *>(engine.rootObjects().at(0));
     window->show();
 

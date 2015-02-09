@@ -27,7 +27,7 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
-import Hawaii.SystemPreferences 0.1
+import org.hawaii.systempreferences 0.1
 
 ApplicationWindow {
     id: root
@@ -127,18 +127,21 @@ ApplicationWindow {
                             title: qsTr("Personal")
                             categoryName: "personal"
                             categoryIconName: "avatar-default"
+                            model: pluginManager.personalPlugins
                         }
 
                         CategoryGrid {
                             title: qsTr("Hardware")
                             categoryName: "hardware"
                             categoryIconName: "applications-system"
+                            model: pluginManager.hardwarePlugins
                         }
 
                         CategoryGrid {
                             title: qsTr("System")
                             categoryName: "system"
                             categoryIconName: "system"
+                            model: pluginManager.systemPlugins
                         }
                     }
                 }

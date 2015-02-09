@@ -16,10 +16,9 @@ configure_file(
 
 set(SOURCES
     main.cpp
-    prefletsmodel.cpp
-    prefletsproxymodel.cpp
     plugin.cpp
     pluginmanager.cpp
+    xdgdesktopfile.cpp
 )
 
 ##############################################################################
@@ -40,15 +39,12 @@ else()
 endif()
 ##############################################################################
 
-qt5_add_resources(RESOURCES system-preferences.qrc)
-
-add_executable(hawaii-system-preferences ${SOURCES} ${QM_FILES} ${RESOURCES})
+add_executable(hawaii-system-preferences ${SOURCES} ${QM_FILES})
 target_link_libraries(hawaii-system-preferences
                       Qt5::Qml
                       Qt5::Quick
-                      Qt5::Widgets
-                      ${POLKITQT-1_GUI_LIBRARY}
 )
+#                      ${POLKITQT-1_GUI_LIBRARY}
 
 install(TARGETS hawaii-system-preferences
     DESTINATION ${CMAKE_INSTALL_BINDIR})

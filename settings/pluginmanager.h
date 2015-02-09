@@ -28,37 +28,51 @@
 #define PLUGINMANAGER_H
 
 #include <QtCore/QObject>
-#include <QtCore/QAbstractItemModel>
-#include <QtQml/QQmlParserStatus>
+#include <QtQml/QQmlListProperty>
 
-#include "prefletsproxymodel.h"
+#include "plugin.h"
 
-class Plugin;
 class PluginManagerPrivate;
 
-typedef QMap<QString, Plugin *> PluginMap;
-typedef QMap<QString, PluginMap> PluginsCollection;
-typedef QList<Plugin *> PluginsList;
-typedef QHash<QString, PrefletsProxyModel *> ModelHash;
-
-class PluginManager : public QObject, public QQmlParserStatus
+class PluginManager : public QObject
 {
     Q_OBJECT
-    Q_INTERFACES(QQmlParserStatus)
+    Q_PROPERTY(QString vendor READ vendor WRITE setVendor NOTIFY vendorChanged)
+    Q_PROPERTY(QQmlListProperty<Plugin> personalPlugins READ personalPlugins NOTIFY personalPluginsChanged)
+    Q_PROPERTY(QQmlListProperty<Plugin> hardwarePlugins READ hardwarePlugins NOTIFY hardwarePluginsChanged)
+    Q_PROPERTY(QQmlListProperty<Plugin> systemPlugins READ systemPlugins NOTIFY systemPluginsChanged)
+    Q_ENUMS(Roles)
 public:
-    explicit PluginManager(QObject *parent = 0);
+    enum Roles {
+        TitleRole = Qt::UserRole,
+        CommentRole,
+        IconNameRole,
+        CategoryRole,
+        CategoryNameRole,
+        MainScriptRole
+    };
+
+    PluginManager(QObject *parent = 0);
     ~PluginManager();
 
-    PluginMap plugins(const QString &category) const;
+    QString vendor() const;
+    void setVendor(const QString &vendor);
 
-    Q_INVOKABLE QAbstractItemModel *itemModel(const QString &category);
-    Q_INVOKABLE QObject *getByName(const QString &name) const;
+    QQmlListProperty<Plugin> personalPlugins();
+    QQmlListProperty<Plugin> hardwarePlugins();
+    QQmlListProperty<Plugin> systemPlugins();
 
-    void classBegin();
-    void componentComplete();
+Q_SIGNALS:
+    void vendorChanged();
+    void personalPluginsChanged();
+    void hardwarePluginsChanged();
+    void systemPluginsChanged();
+
+public Q_SLOTS:
+    void populate();
 
 private:
-    Q_DECLARE_PRIVATE(PluginManager);
+    Q_DECLARE_PRIVATE(PluginManager)
     PluginManagerPrivate *const d_ptr;
 };
 

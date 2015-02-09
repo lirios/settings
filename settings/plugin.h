@@ -29,9 +29,6 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QUrl>
-#include <QtQuick/QQuickItem>
-
-#include <Hawaii/Package>
 
 class PluginPrivate;
 
@@ -45,9 +42,7 @@ class Plugin : public QObject
     Q_PROPERTY(QString comment READ comment CONSTANT)
     Q_PROPERTY(QString iconName READ iconName CONSTANT)
     Q_PROPERTY(QStringList keywords READ keywords CONSTANT)
-    Q_PROPERTY(QStringList platformHints READ platformHints CONSTANT)
     Q_PROPERTY(QUrl mainScript READ mainScript CONSTANT)
-    Q_PROPERTY(QQuickItem *item READ item CONSTANT)
     Q_ENUMS(Category)
 public:
     enum Category {
@@ -57,7 +52,7 @@ public:
         SystemCategory
     };
 
-    explicit Plugin(Hawaii::Package package, QObject *parent = 0);
+    Plugin(const QString &fileName, QObject *parent = 0);
     ~Plugin();
 
     bool load();
@@ -69,9 +64,7 @@ public:
     QString comment() const;
     QString iconName() const;
     QStringList keywords() const;
-    QStringList platformHints() const;
     QUrl mainScript() const;
-    QQuickItem *item();
 
 private:
     Q_DECLARE_PRIVATE(Plugin)

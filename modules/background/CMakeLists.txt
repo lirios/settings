@@ -17,3 +17,5 @@ install(TARGETS backgroundplugin LIBRARY
     DESTINATION ${QML_INSTALL_DIR}/org/hawaii/systempreferences/background)
 install(FILES ${FILES}
     DESTINATION ${QML_INSTALL_DIR}/org/hawaii/systempreferences/background)
+
+hawaii_install_module(org.hawaii.systempreferences.background contents hawaii)

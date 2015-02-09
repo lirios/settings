@@ -24,11 +24,8 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include <HawaiiShell/QmlObject>
-
 #include "plugin.h"
-
-using namespace Hawaii;
+#include "xdgdesktopfile.h"
 
 /*
  * PluginPrivate
@@ -37,29 +34,40 @@ using namespace Hawaii;
 class PluginPrivate
 {
 public:
-    PluginPrivate()
-        : qmlObject(nullptr)
+    PluginPrivate(const QString &fileName)
     {
+        entry = XdgDesktopFileCache::getFile(fileName);
     }
 
-    Package package;
-    QmlObject *qmlObject;
+    ~PluginPrivate()
+    {
+        delete entry;
+    }
+
+    XdgDesktopFile *entry;
+    Plugin::Category category;
+    QString categoryName;
 };
 
 /*
  * Plugin
  */
 
-Plugin::Plugin(Package package, QObject *parent)
+Plugin::Plugin(const QString &fileName, QObject *parent)
     : QObject(parent)
-    , d_ptr(new PluginPrivate())
+    , d_ptr(new PluginPrivate(fileName))
 {
     Q_D(Plugin);
-    d->package = package;
-    d->qmlObject = new QmlObject(this);
-    d->qmlObject->setInitializationDelayed(true);
-    d->qmlObject->setSource(mainScript());
-    d->qmlObject->completeInitialization();
+    d->categoryName = d->entry->value(QStringLiteral("X-Hawaii-SystemPreferences-Category"),
+                                      QStringLiteral("personal")).toString();
+    if (d->categoryName == QStringLiteral("personal"))
+        d->category = Plugin::PersonalCategory;
+    else if (d->categoryName == QStringLiteral("hardware"))
+        d->category = Plugin::HardwareCategory;
+    else if (d->categoryName == QStringLiteral("system"))
+        d->category = Plugin::SystemCategory;
+    else
+        d->category = Plugin::NoCategory;
 }
 
 Plugin::~Plugin()
@@ -70,85 +78,53 @@ Plugin::~Plugin()
 Plugin::Category Plugin::category() const
 {
     Q_D(const Plugin);
-
-    QVariantMap map = d->package.metadata().value(QStringLiteral("HawaiiSystemPreferences")).toMap();
-
-    QString category = map.value(QStringLiteral("Category")).toString();
-    if (category == QStringLiteral("Personal"))
-        return Plugin::PersonalCategory;
-    else if (category == QStringLiteral("Hardware"))
-        return Plugin::HardwareCategory;
-    else if (category == QStringLiteral("System"))
-        return Plugin::SystemCategory;
-
-    return Plugin::NoCategory;
+    return d->category;
 }
 
 QString Plugin::categoryName() const
 {
-    switch (category()) {
-    case Plugin::PersonalCategory:
-        return QStringLiteral("personal");
-    case Plugin::HardwareCategory:
-        return QStringLiteral("hardware");
-    case Plugin::SystemCategory:
-        return QStringLiteral("system");
-    default:
-        break;
-    }
-
-    return QString();
+    Q_D(const Plugin);
+    return d->categoryName;
 }
 
 QString Plugin::name() const
 {
     Q_D(const Plugin);
-    return d->package.metadata().internalName();
+    return d->entry->value(QStringLiteral("X-Hawaii-SystemPreferences-InternalName")).toString();
 }
 
 QString Plugin::title() const
 {
     Q_D(const Plugin);
-    return d->package.metadata().name();
+    return d->entry->value(QStringLiteral("Name")).toString();
 }
 
 QString Plugin::comment() const
 {
     Q_D(const Plugin);
-    return d->package.metadata().comment();
+    return d->entry->value(QStringLiteral("Comment")).toString();
 }
 
 QString Plugin::iconName() const
 {
     Q_D(const Plugin);
-    return d->package.metadata().iconName();
+    return d->entry->value(QStringLiteral("Icon")).toString();
 }
 
 QStringList Plugin::keywords() const
 {
     Q_D(const Plugin);
-    return d->package.metadata().keywords();
-}
-
-QStringList Plugin::platformHints() const
-{
-    Q_D(const Plugin);
-
-    QVariantMap map = d->package.metadata().value(QStringLiteral("HawaiiSystemPreferences")).toMap();
-    return map.value(QStringLiteral("PlatformHints")).toStringList();
+    return d->entry->value(QStringLiteral("Keywords")).toStringList();
 }
 
 QUrl Plugin::mainScript() const
 {
     Q_D(const Plugin);
+    return QUrl();
+#if 0
     QString path = d->package.filePath(nullptr, d->package.metadata().mainScript());
     return QUrl::fromLocalFile(path);
-}
-
-QQuickItem *Plugin::item()
-{
-    Q_D(Plugin);
-    return qobject_cast<QQuickItem *>(d->qmlObject->rootObject());
+#endif
 }
 
 #include "moc_plugin.cpp"

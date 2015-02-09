@@ -1,4 +1,0 @@
-hawaiishell_install_package(preferences org.hawaii.preferences.background background)
-hawaiishell_install_package(preferences org.hawaii.preferences.desktop desktop)
-hawaiishell_install_package(preferences org.hawaii.preferences.keyboard keyboard)
-hawaiishell_install_package(preferences org.hawaii.preferences.network network)

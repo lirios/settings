@@ -27,24 +27,17 @@
 #ifndef PLUGINMANAGER_P_H
 #define PLUGINMANAGER_P_H
 
-class Plugin;
-class PluginManager;
-
 class PluginManagerPrivate
 {
-    Q_DECLARE_PUBLIC(PluginManager)
 public:
-    PluginManagerPrivate(PluginManager *manager);
-    ~PluginManagerPrivate();
+    PluginManagerPrivate(PluginManager *parent);
 
-    PluginsCollection plugins;
-    ModelHash models;
-
-    void clear();
-    void populate();
-
-protected:
-    PluginManager *const q_ptr;
+    QString vendor;
+    bool populated;
+    QTimer *populateTimer;
+    QList<Plugin *> personal;
+    QList<Plugin *> hardware;
+    QList<Plugin *> system;
 };
 
 #endif // PLUGINMANAGER_P_H
