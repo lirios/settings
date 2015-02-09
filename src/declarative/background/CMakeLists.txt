@@ -11,9 +11,9 @@ set(FILES
 )
 
 add_library(backgroundplugin SHARED ${SOURCES})
-qt5_use_modules(backgroundplugin Qml Quick)
+target_link_libraries(backgroundplugin Qt5::Qml Qt5::Quick)
 
 install(TARGETS backgroundplugin LIBRARY
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/hawaii/qml/Hawaii/SystemPreferences/Background)
+    DESTINATION ${QML_INSTALL_DIR}/org/hawaii/systempreferences/background)
 install(FILES ${FILES}
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/hawaii/qml/Hawaii/SystemPreferences/Background)
+    DESTINATION ${QML_INSTALL_DIR}/org/hawaii/systempreferences/background)

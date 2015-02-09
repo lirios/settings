@@ -1,6 +1,5 @@
 include_directories(
     ${POLKITQT-1_INCLUDE_DIR}
-    ${HawaiiShell_INCLUDE_DIRS}
     ${CMAKE_SOURCE_DIR}/headers
     ${CMAKE_BINARY_DIR}/src/lib
     ${CMAKE_SOURCE_DIR}/src/lib
@@ -44,13 +43,11 @@ endif()
 qt5_add_resources(RESOURCES system-preferences.qrc)
 
 add_executable(hawaii-system-preferences ${SOURCES} ${QM_FILES} ${RESOURCES})
-qt5_use_modules(hawaii-system-preferences Qml Quick Widgets)
-set_target_properties(hawaii-system-preferences PROPERTIES
-    LINK_FLAGS "-L${POLKITQT-1_LIB_DIR}"
-)
 target_link_libraries(hawaii-system-preferences
-    ${POLKITQT-1_GUI_LIBRARY}
-    ${HawaiiShell_LIBRARIES}
+                      Qt5::Qml
+                      Qt5::Quick
+                      Qt5::Widgets
+                      ${POLKITQT-1_GUI_LIBRARY}
 )
 
 install(TARGETS hawaii-system-preferences

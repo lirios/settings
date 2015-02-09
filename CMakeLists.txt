@@ -1,6 +1,6 @@
 project(SystemPreferences)
 
-cmake_minimum_required(VERSION 2.8.9)
+cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 
 # Find includes in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -14,8 +14,16 @@ set(SYSTEMPREFERENCES_VERSION_MINOR 3)
 set(SYSTEMPREFERENCES_VERSION_PATCH 0)
 set(SYSTEMPREFERENCES_VERSION_STRING "${SYSTEMPREFERENCES_VERSION_MAJOR}.${SYSTEMPREFERENCES_VERSION_MINOR}.${SYSTEMPREFERENCES_VERSION_PATCH}")
 
+# ECM
+find_package(ECM 0.0.11 REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+
 # Installation directories
-include(GNUInstallDirs)
+include(KDEInstallDirs)
+
+# Other macros
+include(KDECMakeSettings)
+include(KDECompilerSettings)
 
 # Macro to print feature summary
 include(FeatureSummary)
@@ -38,7 +46,7 @@ include(CPack)
 add_custom_target(dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
 
 # Build flags
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -fvisibility-inlines-hidden -Wall -std=c++0x")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -fvisibility-inlines-hidden -Wall -Wextra -Wno-unused-parameter -std=c++11")
 
 # Assume release build by default
 if(NOT CMAKE_BUILD_TYPE)
@@ -50,14 +58,16 @@ if(CMAKE_BUILD_TYPE MATCHES "^[Rr]elease$")
     add_definitions(-DQT_NO_DEBUG_OUTPUT)
 endif()
 
+# Minimum version requirements
+set(QT_MIN_VERSION "5.2.0")
+
 # Find Qt5
-find_package(Qt5 5.2 REQUIRED COMPONENTS Quick LinguistTools)
-
-# Find QtConfiguration
-find_package(QtConfiguration REQUIRED)
-
-# Find libhawaii
-find_package(HawaiiShell REQUIRED)
+find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+             Core
+             Gui
+             Qml
+             Quick
+             LinguistTools)
 
 # Find PolicyKit wrapper for Qt
 find_package(PolkitQt5-1 "0.103.0" REQUIRED)
