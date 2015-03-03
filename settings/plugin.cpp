@@ -24,6 +24,9 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include <QtCore/QDir>
+#include <QtCore/QFileInfo>
+
 #include "plugin.h"
 #include "xdgdesktopfile.h"
 
@@ -120,11 +123,9 @@ QStringList Plugin::keywords() const
 QUrl Plugin::mainScript() const
 {
     Q_D(const Plugin);
-    return QUrl();
-#if 0
-    QString path = d->package.filePath(nullptr, d->package.metadata().mainScript());
-    return QUrl::fromLocalFile(path);
-#endif
+
+    QFileInfo info(d->entry->fileName());
+    return QUrl::fromLocalFile(info.absoluteDir().absoluteFilePath(QStringLiteral("Preflet.qml")));
 }
 
 #include "moc_plugin.cpp"
