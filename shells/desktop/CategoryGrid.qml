@@ -51,17 +51,24 @@ GroupBox {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        if (!model.item)
+                        if (!model.mainScript)
                             return;
 
+                        var component = Qt.createComponent(model.mainScript);
+                        if (component.status !== Component.Ready) {
+                            console.error(component.errorString());
+                            return;
+                        }
+
+                        var item = component.createObject(null);
+
+                        if (typeof(item.minimumWidth) != "undefined")
+                            root.minimumWidth = item.minimumWidth;
+                        if (typeof(item.minimumHeight) != "undefined")
+                            root.minimumHeight = item.minimumHeight;
+
                         prefletTitle.text = model.title;
-
-                        if (typeof(model.item.minimumWidth) != "undefined")
-                            root.minimumWidth = model.item.minimumWidth;
-                        if (typeof(model.item.minimumHeight) != "undefined")
-                            root.minimumHeight = model.item.minimumHeight;
-
-                        pageStack.push({item: model.item});
+                        pageStack.push({item: item});
                     }
                 }
             }
