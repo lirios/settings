@@ -27,8 +27,6 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
-import Hawaii.Configuration 1.0
-import Hawaii.Shell.Core 1.0
 
 Item {
     id: root
@@ -36,47 +34,12 @@ Item {
     property int minimumWidth: 800
     property int minimumHeight: 600
 
-    Configuration {
-        id: settings
-        category: "shell"
+    ListModel {
+        id: bgTypes
 
-        property string background: "org.hawaii.backgrounds.wallpaper"
-    }
-
-    PackagesModel {
-        id: packages
-        type: PackagesModel.BackgroundPackage
-
-        function findCurrentIndex() {
-            for (var i = 0; i < packages.count; i++) {
-                if (packages.get(i).internalName == settings.background)
-                    return i;
-            }
-
-            return -1;
-        }
-
-        function setBackgroundType(index) {
-            var item = packages.get(index);
-            if (!item) {
-                console.log("Invalid index " + index);
-                return;
-            }
-
-            settings.background = item.internalName;
-            loader.source = item.filePath("preferencesview");
-        }
-
-        Component.onCompleted: {
-            for (var i = 0; i < packages.count; i++) {
-                var item = packages.get(i);
-                if (item.internalName == settings.background) {
-                    comboBox.currentIndex = i;
-                    loader.source = item.filePath("preferencesview");
-                    return;
-                }
-            }
-        }
+        ListElement { label: qsTr("Wallpaper"); url: "Wallpaper.qml" }
+        ListElement { label: qsTr("Solid"); url: "Solid.qml" }
+        ListElement { label: qsTr("Gradient"); url: "Gradient.qml" }
     }
 
     ColumnLayout {
@@ -93,9 +56,9 @@ Item {
 
             ComboBox {
                 id: comboBox
-                model: packages
-                textRole: "name"
-                onActivated: packages.setBackgroundType(index)
+                model: bgTypes
+                textRole: "label"
+                onActivated: loader.source = model.url
 
                 Layout.minimumWidth: 120
             }
@@ -106,6 +69,7 @@ Item {
 
         Loader {
             id: loader
+            asynchronous: true
 
             BusyIndicator {
                 anchors.centerIn: parent
@@ -115,5 +79,10 @@ Item {
             Layout.fillWidth: true
             Layout.fillHeight: true
         }
+    }
+
+    Component.onCompleted: {
+        comboBox.currentIndex = 0;
+        loader.source = "Wallpaper.qml";
     }
 }
