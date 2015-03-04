@@ -39,17 +39,6 @@ Item {
         }
 
         Tab {
-            title: qsTr("Typing")
-
-            TypingPage {
-                anchors {
-                    fill: parent
-                    margins: 11
-                }
-            }
-        }
-
-        Tab {
             title: qsTr("Shortcuts")
 
             ColumnLayout {
@@ -57,6 +46,17 @@ Item {
                     text: "Not yet implemented"
 
                     Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+                }
+            }
+        }
+
+        Tab {
+            title: qsTr("Behavior")
+
+            TypingPage {
+                anchors {
+                    fill: parent
+                    margins: 11
                 }
             }
         }
