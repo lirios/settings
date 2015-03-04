@@ -27,9 +27,9 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
-import Hawaii.Configuration 1.0
 
 ColumnLayout {
+/*
     Configuration {
         id: settings
         category: "peripherals/keyboard"
@@ -48,6 +48,7 @@ ColumnLayout {
             cursorFlashTimeSlider.value = settings.cursorFlashTime - settings.cursorFlashTime;
         }
     }
+*/
 
     GroupBox {
         id: repeatKeysGroup
