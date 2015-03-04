@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Keyboard
+Comment=View and change keyboard shortcuts and set your typing preferences
+Keywords=shortcut;repeat;blink;
+Encoding=UTF-8
+Type=Service
+Icon=input-keyboard
+Categories=Qt;X-Hawaii;Settings;
+OnlyShowIn=X-Hawaii;
+X-Hawaii-SystemPreferences-Category=hardware
