@@ -128,6 +128,7 @@ ApplicationWindow {
                             categoryName: "personal"
                             categoryIconName: "avatar-default"
                             model: pluginManager.personalPlugins
+                            visible: pluginManager.personalPlugins.length > 0
                         }
 
                         CategoryGrid {
@@ -135,6 +136,7 @@ ApplicationWindow {
                             categoryName: "hardware"
                             categoryIconName: "applications-system"
                             model: pluginManager.hardwarePlugins
+                            visible: pluginManager.hardwarePlugins.length > 0
                         }
 
                         CategoryGrid {
@@ -142,6 +144,7 @@ ApplicationWindow {
                             categoryName: "system"
                             categoryIconName: "system"
                             model: pluginManager.systemPlugins
+                            visible: pluginManager.systemPlugins.length > 0
                         }
                     }
                 }
