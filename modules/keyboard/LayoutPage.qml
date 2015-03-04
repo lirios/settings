@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of System Preferences.
  *
- * Copyright (C) 2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2015 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * Author(s):
  *    Pier Luigi Fiorini
@@ -25,51 +25,35 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Controls 1.0
+import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
 
-Item {
-    width: 500
-    height: 500
+ColumnLayout {
+    ListModel {
+        id: layoutModel
 
-    TabView {
-        anchors {
-            fill: parent
-            margins: 11
+        ListElement { label: "English" }
+    }
+
+    ColumnLayout {
+        ScrollView {
+            TableView {
+                TableViewColumn {
+                    role: "label"
+                    title: qsTr("Layout")
+                }
+                model: layoutModel
+                headerVisible: false
+            }
+
+            Layout.fillWidth: true
+            Layout.fillHeight: true
         }
 
-        Tab {
-            title: qsTr("Typing")
+        TextField {
+            placeholderText: qsTr("Type to test the layout...")
 
-            TypingPage {
-                anchors {
-                    fill: parent
-                    margins: 11
-                }
-            }
-        }
-
-        Tab {
-            title: qsTr("Shortcuts")
-
-            ColumnLayout {
-                Label {
-                    text: "Not yet implemented"
-
-                    Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-                }
-            }
-        }
-
-        Tab {
-            title: qsTr("Layout")
-
-            LayoutPage {
-                anchors {
-                    fill: parent
-                    margins: 11
-                }
-            }
+            Layout.fillWidth: true
         }
     }
 }
