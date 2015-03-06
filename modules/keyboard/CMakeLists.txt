@@ -2,6 +2,9 @@ add_definitions(-DQT_PLUGIN)
 
 set(SOURCES
     keyboarddata.cpp
+    keyboardmodel.cpp
+    keyboardlayout.cpp
+    keyboardlayoutvariant.cpp
     plugin.cpp
 )
 
