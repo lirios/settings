@@ -5,25 +5,19 @@ System preferences for the Hawaii desktop environment.
 
 ## Dependencies
 
-In order to build and install System Preferences you need Qt 5.2 or better with
-at least the following modules:
+You need the following modules and their dependencies:
+
+* [hawaii-shell](https://github.com/hawaii-desktop/hawaii-shell)
+
+Make sure you also have Qt 5.4 or better with the following modules:
 
 * qtbase
 * qtdeclarative
 * qtquickcontrols
 
-You can either build Qt from git yourself or download binaries.
+Other dependencies:
 
-More information about building Qt 5 from can be found here:
-
-  http://qt-project.org/wiki/Building-Qt-5-from-Git
-
-Qt 5 binaries can be downloaded from http://qt-project.org/downloads
-
-The following additional libraries are needed:
-
-* QtAccountsService (https://github.com/hawaii-desktop/qt-accountsservice-addon)
-* QtConfiguration (https://github.com/hawaii-desktop/qtconfiguration)
+* xkeyboard-config
 
 ## Build
 
