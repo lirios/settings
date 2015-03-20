@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of Hawaii Shell.
  *
- * Copyright (C) 2013-2014 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2013-2015 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * Author(s):
  *    Pier Luigi Fiorini
@@ -28,6 +28,8 @@ import QtQuick 2.1
 import QtQuick.Window 2.0
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
+import Hawaii.Themes 1.0 as Themes
+import org.hawaii.settings 0.1 as Settings
 import org.hawaii.systempreferences.background 1.0
 
 Item {
@@ -36,30 +38,36 @@ Item {
     property real aspectRatio: Screen.width / Screen.height
 
     id: root
-    width: 640
-    height: 480
+    width: Themes.Units.dp(640)
+    height: Themes.Units.dp(480)
 
     SystemPalette {
         id: palette
     }
 
-/*
-    Configuration {
-        id: settings
-        category: "shell/backgrounds/org.hawaii.backgrounds.wallpaper"
+    Settings.ConfigGroup {
+        id: bgConfig
+        file: "hawaii/shellrc"
+        group: "Background"
 
-        property color color: "#336699"
-        property url wallpaperUrl: FluidCore.StandardPaths.locateFile(FluidCore.StandardPaths.GenericDataLocation, "backgrounds/hawaii/Also_Calm.png")
-        property int fillMode: Image.Stretch
+        function loadSettings() {
+            bgSettings.pictureUrl = bgConfig.readEntry("PictureUrl");
+            bgSettings.fillMode = bgConfig.readEntry("FillMode", Image.Stretch);
+        }
+
+        function saveSettings() {
+            bgConfig.writeEntry("Mode", "wallpaper");
+            bgConfig.writeEntry("PictureUrl", bgSettings.pictureUrl);
+            bgConfig.writeEntry("FillMode", bgSettings.fillMode);
+        }
     }
 
-    Configuration {
-        id: shellSettings
-        category: "shell"
+    QtObject {
+        id: bgSettings
 
-        property string background
+        property url pictureUrl
+        property int fillMode
     }
-*/
 
     ColumnLayout {
         anchors.fill: parent
@@ -90,6 +98,7 @@ Item {
                         height: parent.height - cellPadding * 2
                         fillMode: Image.PreserveAspectCrop
                         asynchronous: true
+                        cache: false
 
                         BusyIndicator {
                             anchors.centerIn: parent
@@ -101,14 +110,14 @@ Item {
                             anchors.fill: parent
                             onClicked: {
                                 gridView.currentIndex = index;
-                                settings.wallpaperUrl = "file://" + backgroundsModel.get(index);
-                                shellSettings.background = "org.hawaii.backgrounds.wallpaper";
+                                bgSettings.pictureUrl = "file://" + backgroundsModel.get(index);
+                                bgConfig.saveSettings();
                             }
                         }
                     }
                 }
                 highlight: Rectangle {
-                    radius: 4
+                    radius: Themes.Units.dp(4)
                     color: palette.highlight
                 }
             }
@@ -133,8 +142,13 @@ Item {
                     qsTr("Centered"),
                     qsTr("Tiled")
                 ]
-                currentIndex: mapFillModeToIndex(settings.fillMode)
-                onActivated: settings.fillMode = mapIndexToFillMode(index)
+                currentIndex: mapFillModeToIndex(bgSettings.fillMode)
+                onActivated: {
+                    bgSettings.fillMode = mapIndexToFillMode(index);
+                    bgConfig.saveSettings();
+                }
+
+                Layout.minimumWidth: Themes.Units.gu(10)
             }
 
             Layout.fillWidth: true
@@ -182,9 +196,10 @@ Item {
         //backgroundsModel.addUserPaths();
 
         // Load settings
+        bgConfig.loadSettings();
         for (var i = 0; i < gridView.count; i++) {
             var url = "file://" + gridView.model.get(i);
-            if (url === settings.wallpaperUrl.toString()) {
+            if (url === bgSettings.pictureUrl.toString()) {
                 gridView.currentIndex = i;
                 return;
             }

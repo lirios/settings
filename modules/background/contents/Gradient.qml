@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of Hawaii Shell.
  *
- * Copyright (C) 2013-2014 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2013-2015 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * Author(s):
  *    Pier Luigi Fiorini
@@ -27,30 +27,41 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
+import Hawaii.Themes 1.0 as Themes
+import org.hawaii.settings 0.1 as Settings
 
 Item {
     id: root
+    width: Themes.Units.dp(640)
+    height: Themes.Units.dp(480)
 
-/*
-    Configuration {
-        id: settings
-        category: "shell/backgrounds/org.hawaii.backgrounds.gradient"
+    Settings.ConfigGroup {
+        id: bgConfig
+        file: "hawaii/shellrc"
+        group: "Background"
 
-        property string type: "vertical"
-        property color primaryColor: "#336699"
-        property color secondaryColor: "#334455"
+        function loadSettings() {
+            bgSettings.primaryColor = bgConfig.readEntry("PrimaryColor");
+            bgSettings.secondaryColor = bgConfig.readEntry("SecondaryColor");
+        }
+
+        function saveSettings() {
+            bgConfig.writeEntry("Mode", bgSettings.vertical ? "vgradient" : "hgradient");
+            bgConfig.writeEntry("PrimaryColor", bgSettings.primaryColor);
+            bgConfig.writeEntry("SecondaryColor", bgSettings.secondaryColor);
+        }
     }
 
-    Configuration {
-        id: shellSettings
-        category: "shell"
+    QtObject {
+        id: bgSettings
 
-        property string background
+        property bool vertical
+        property color primaryColor
+        property color secondaryColor
     }
-*/
 
     RowLayout {
-        anchors.fill: parent
+        anchors.centerIn: parent
 
         ComboBox {
             model: [
@@ -58,28 +69,28 @@ Item {
                 qsTr("Vertical")
             ]
             onActivated: {
-                settings.type = index == 0 ? "horizontal" : "vertical";
-                shellSettings.background = "org.hawaii.backgrounds.gradient";
+                bgSettings.vertical = index == 1
+                bgConfig.saveSettings();
             }
 
-            Layout.minimumWidth: 100
+            Layout.minimumWidth: Themes.Units.gu(10)
         }
 
         ColorButton {
             id: colorButton1
-            color: settings.primaryColor
+            color: bgSettings.primaryColor
             onColorChanged: {
-                settings.primaryColor = color;
-                shellSettings.background = "org.hawaii.backgrounds.gradient";
+                bgSettings.primaryColor = color;
+                bgConfig.saveSettings();
             }
         }
 
         ColorButton {
             id: colorButton2
-            color: settings.secondaryColor
+            color: bgSettings.secondaryColor
             onColorChanged: {
-                settings.secondaryColor = color;
-                shellSettings.background = "org.hawaii.backgrounds.gradient";
+                bgSettings.secondaryColor = color;
+                bgConfig.saveSettings();
             }
         }
     }

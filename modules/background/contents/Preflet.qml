@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of System Preferences.
  *
- * Copyright (C) 2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2013-2015 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * Author(s):
  *    Pier Luigi Fiorini
@@ -58,7 +58,7 @@ Item {
                 id: comboBox
                 model: bgTypes
                 textRole: "label"
-                onActivated: loader.source = model.url
+                onCurrentIndexChanged: loader.source = bgTypes.get(currentIndex).url
 
                 Layout.minimumWidth: 120
             }
@@ -69,7 +69,7 @@ Item {
 
         Loader {
             id: loader
-            asynchronous: true
+            //asynchronous: true
 
             BusyIndicator {
                 anchors.centerIn: parent
@@ -81,8 +81,5 @@ Item {
         }
     }
 
-    Component.onCompleted: {
-        comboBox.currentIndex = 0;
-        loader.source = "Wallpaper.qml";
-    }
+    Component.onCompleted: comboBox.currentIndex = 0
 }

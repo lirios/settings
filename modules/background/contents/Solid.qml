@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of Hawaii Shell.
  *
- * Copyright (C) 2013-2014 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2013-2015 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * Author(s):
  *    Pier Luigi Fiorini
@@ -27,6 +27,8 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
+import Hawaii.Themes 1.0 as Themes
+import org.hawaii.settings 0.1 as Settings
 import org.hawaii.systempreferences.background 1.0
 
 Item {
@@ -35,28 +37,33 @@ Item {
     property real aspectRatio: root.width / root.height
 
     id: root
-    width: 800
-    height: 600
+    width: Themes.Units.dp(640)
+    height: Themes.Units.dp(480)
+
+    Settings.ConfigGroup {
+        id: bgConfig
+        file: "hawaii/shellrc"
+        group: "Background"
+
+        function loadSettings() {
+            bgSettings.primaryColor = bgConfig.readEntry("PrimaryColor");
+        }
+
+        function saveSettings() {
+            bgConfig.writeEntry("Mode", "solid");
+            bgConfig.writeEntry("PrimaryColor", bgSettings.primaryColor);
+        }
+    }
+
+    QtObject {
+        id: bgSettings
+
+        property color primaryColor
+    }
 
     SystemPalette {
         id: palette
     }
-
-/*
-    Configuration {
-        id: settings
-        category: "shell/backgrounds/org.hawaii.backgrounds.solid"
-
-        property color color: "#336699"
-    }
-
-    Configuration {
-        id: shellSettings
-        category: "shell"
-
-        property string background
-    }
-*/
 
     ScrollView {
         anchors.fill: parent
@@ -84,14 +91,14 @@ Item {
                         anchors.fill: parent
                         onClicked: {
                             gridView.currentIndex = index;
-                            settings.color = parent.color;
-                            shellSettings.background = "org.hawaii.backgrounds.solid";
+                            bgSettings.primaryColor = parent.color;
+                            bgConfig.saveSettings();
                         }
                     }
                 }
             }
             highlight: Rectangle {
-                radius: 4
+                radius: Themes.Units.dp(4)
                 color: palette.highlight
             }
         }
@@ -102,9 +109,10 @@ Item {
 
     Component.onCompleted: {
         // Load settings
+        bgConfig.loadSettings();
         for (var i = 0; i < gridView.count; i++) {
             var color = gridView.model.get(i).color;
-            if (settings.color === color) {
+            if (bgSettings.primaryColor === color) {
                 gridView.currentIndex = i;
                 return;
             }
