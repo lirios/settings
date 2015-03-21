@@ -27,12 +27,13 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
+import Hawaii.Themes 1.0 as Themes
 
 Item {
     id: root
 
-    property int minimumWidth: 800
-    property int minimumHeight: 600
+    property int minimumWidth: Themes.Units.dp(800)
+    property int minimumHeight: Themes.Units.dp(600)
 
     ListModel {
         id: bgTypes
