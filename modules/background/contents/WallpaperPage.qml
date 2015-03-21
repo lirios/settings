@@ -33,13 +33,12 @@ import org.hawaii.settings 0.1 as Settings
 import org.hawaii.systempreferences.background 1.0
 
 Item {
-    property int columns: 4
-    property int cellPadding: 5
+    property alias type: bgConfig.group
+    property int columns: 3
+    property int cellPadding: Themes.Units.smallSpacing
     property real aspectRatio: Screen.width / Screen.height
 
     id: root
-    width: Themes.Units.dp(640)
-    height: Themes.Units.dp(480)
 
     SystemPalette {
         id: palette
@@ -48,17 +47,10 @@ Item {
     Settings.ConfigGroup {
         id: bgConfig
         file: "hawaii/shellrc"
-        group: "Background"
 
         function loadSettings() {
             bgSettings.pictureUrl = bgConfig.readEntry("PictureUrl");
             bgSettings.fillMode = bgConfig.readEntry("FillMode", Image.Stretch);
-        }
-
-        function saveSettings() {
-            bgConfig.writeEntry("Mode", "wallpaper");
-            bgConfig.writeEntry("PictureUrl", bgSettings.pictureUrl);
-            bgConfig.writeEntry("FillMode", bgSettings.fillMode);
         }
     }
 
@@ -111,7 +103,6 @@ Item {
                             onClicked: {
                                 gridView.currentIndex = index;
                                 bgSettings.pictureUrl = "file://" + backgroundsModel.get(index);
-                                bgConfig.saveSettings();
                             }
                         }
                     }
@@ -143,10 +134,7 @@ Item {
                     qsTr("Tiled")
                 ]
                 currentIndex: mapFillModeToIndex(bgSettings.fillMode)
-                onActivated: {
-                    bgSettings.fillMode = mapIndexToFillMode(index);
-                    bgConfig.saveSettings();
-                }
+                onActivated: bgSettings.fillMode = mapIndexToFillMode(index)
 
                 Layout.minimumWidth: Themes.Units.gu(10)
             }
@@ -188,6 +176,12 @@ Item {
         }
 
         return Image.Stretch;
+    }
+
+    function saveSettings() {
+        bgConfig.writeEntry("Mode", "wallpaper");
+        bgConfig.writeEntry("PictureUrl", bgSettings.pictureUrl);
+        bgConfig.writeEntry("FillMode", bgSettings.fillMode);
     }
 
     Component.onCompleted: {

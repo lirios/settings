@@ -32,26 +32,19 @@ import org.hawaii.settings 0.1 as Settings
 import org.hawaii.systempreferences.background 1.0
 
 Item {
-    property int columns: 6
-    property int cellPadding: 5
+    property alias type: bgConfig.group
+    property int columns: 4
+    property int cellPadding: Themes.Units.smallSpacing
     property real aspectRatio: root.width / root.height
 
     id: root
-    width: Themes.Units.dp(640)
-    height: Themes.Units.dp(480)
 
     Settings.ConfigGroup {
         id: bgConfig
         file: "hawaii/shellrc"
-        group: "Background"
 
         function loadSettings() {
-            bgSettings.primaryColor = bgConfig.readEntry("PrimaryColor");
-        }
-
-        function saveSettings() {
-            bgConfig.writeEntry("Mode", "solid");
-            bgConfig.writeEntry("PrimaryColor", bgSettings.primaryColor);
+            bgSettings.primaryColor = bgConfig.readEntry("PrimaryColor", Qt.rgba(0, 0, 0, 0));
         }
     }
 
@@ -92,7 +85,6 @@ Item {
                         onClicked: {
                             gridView.currentIndex = index;
                             bgSettings.primaryColor = parent.color;
-                            bgConfig.saveSettings();
                         }
                     }
                 }
@@ -107,11 +99,18 @@ Item {
         Layout.fillHeight: true
     }
 
+
+    function saveSettings() {
+        bgConfig.writeEntry("Mode", "solid");
+        bgConfig.writeEntry("PrimaryColor", bgSettings.primaryColor);
+    }
+
     Component.onCompleted: {
         // Load settings
         bgConfig.loadSettings();
-        for (var i = 0; i < gridView.count; i++) {
-            var color = gridView.model.get(i).color;
+        var i, color;
+        for (i = 0; i < gridView.count; i++) {
+            color = gridView.model.get(i);
             if (bgSettings.primaryColor === color) {
                 gridView.currentIndex = i;
                 return;

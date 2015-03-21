@@ -31,24 +31,18 @@ import Hawaii.Themes 1.0 as Themes
 import org.hawaii.settings 0.1 as Settings
 
 Item {
+    property alias type: bgConfig.group
+
     id: root
-    width: Themes.Units.dp(640)
-    height: Themes.Units.dp(480)
 
     Settings.ConfigGroup {
         id: bgConfig
         file: "hawaii/shellrc"
-        group: "Background"
 
         function loadSettings() {
-            bgSettings.primaryColor = bgConfig.readEntry("PrimaryColor");
-            bgSettings.secondaryColor = bgConfig.readEntry("SecondaryColor");
-        }
-
-        function saveSettings() {
-            bgConfig.writeEntry("Mode", bgSettings.vertical ? "vgradient" : "hgradient");
-            bgConfig.writeEntry("PrimaryColor", bgSettings.primaryColor);
-            bgConfig.writeEntry("SecondaryColor", bgSettings.secondaryColor);
+            bgSettings.vertical = bgConfig.readEntry("Mode") === "vgradient";
+            bgSettings.primaryColor = bgConfig.readEntry("PrimaryColor", Qt.rgba(0, 0, 0, 0));
+            bgSettings.secondaryColor = bgConfig.readEntry("SecondaryColor", Qt.rgba(0, 0, 0, 0));
         }
     }
 
@@ -68,10 +62,8 @@ Item {
                 qsTr("Horizontal"),
                 qsTr("Vertical")
             ]
-            onActivated: {
-                bgSettings.vertical = index == 1
-                bgConfig.saveSettings();
-            }
+            currentIndex: bgSettings.vertical ? 1 : 0
+            onActivated: bgSettings.vertical = index == 1
 
             Layout.minimumWidth: Themes.Units.gu(10)
         }
@@ -79,20 +71,20 @@ Item {
         ColorButton {
             id: colorButton1
             color: bgSettings.primaryColor
-            onColorChanged: {
-                bgSettings.primaryColor = color;
-                bgConfig.saveSettings();
-            }
+            onColorChanged: bgSettings.primaryColor = color
         }
 
         ColorButton {
             id: colorButton2
             color: bgSettings.secondaryColor
-            onColorChanged: {
-                bgSettings.secondaryColor = color;
-                bgConfig.saveSettings();
-            }
+            onColorChanged: bgSettings.secondaryColor = color
         }
+    }
+
+    function saveSettings() {
+        bgConfig.writeEntry("Mode", bgSettings.vertical ? "vgradient" : "hgradient");
+        bgConfig.writeEntry("PrimaryColor", bgSettings.primaryColor);
+        bgConfig.writeEntry("SecondaryColor", bgSettings.secondaryColor);
     }
 
     Component.onCompleted: {

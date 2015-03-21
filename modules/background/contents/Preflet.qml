@@ -24,9 +24,7 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.1
-import QtQuick.Controls 1.1
-import QtQuick.Layouts 1.0
+import QtQuick 2.0
 import Hawaii.Themes 1.0 as Themes
 
 Item {
@@ -35,52 +33,21 @@ Item {
     property int minimumWidth: Themes.Units.dp(800)
     property int minimumHeight: Themes.Units.dp(600)
 
-    ListModel {
-        id: bgTypes
+    Row {
+        anchors {
+            centerIn: parent
+            margins: Themes.Units.largeSpacing
+        }
+        spacing: Themes.Units.largeSpacing
 
-        ListElement { label: qsTr("Wallpaper"); url: "Wallpaper.qml" }
-        ListElement { label: qsTr("Solid"); url: "Solid.qml" }
-        ListElement { label: qsTr("Gradient"); url: "Gradient.qml" }
-    }
-
-    ColumnLayout {
-        anchors.fill: parent
-        anchors.margins: 11
-
-        GridLayout {
-            columns: 2
-
-            Label {
-                text: qsTr("Type:")
-                horizontalAlignment: Qt.AlignRight
-            }
-
-            ComboBox {
-                id: comboBox
-                model: bgTypes
-                textRole: "label"
-                onCurrentIndexChanged: loader.source = bgTypes.get(currentIndex).url
-
-                Layout.minimumWidth: 120
-            }
-
-            Layout.fillWidth: true
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+        Selector {
+            type: "Background"
+            text: qsTr("Background")
         }
 
-        Loader {
-            id: loader
-            //asynchronous: true
-
-            BusyIndicator {
-                anchors.centerIn: parent
-                visible: parent.status != Loader.Ready
-            }
-
-            Layout.fillWidth: true
-            Layout.fillHeight: true
+        Selector {
+            type: "LockScreen"
+            text: qsTr("Lock Screen")
         }
     }
-
-    Component.onCompleted: comboBox.currentIndex = 0
 }
