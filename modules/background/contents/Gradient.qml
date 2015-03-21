@@ -94,4 +94,9 @@ Item {
             }
         }
     }
+
+    Component.onCompleted: {
+        // Load settings
+        bgConfig.loadSettings();
+    }
 }
