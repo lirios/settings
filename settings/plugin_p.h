@@ -1,7 +1,7 @@
 /****************************************************************************
- * This file is part of System Preferences.
+ * This file is part of Hawaii.
  *
- * Copyright (C) 2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2013-2015 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * Author(s):
  *    Pier Luigi Fiorini
@@ -31,7 +31,5 @@ class QQmlComponent;
 class QQuickItem;
 
 class Plugin;
-
-
 
 #endif // PLUGIN_P_H
