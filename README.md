@@ -17,6 +17,7 @@ Make sure you also have Qt 5.4 or better with the following modules:
 
 Other dependencies:
 
+* polkit-qt5-1
 * xkeyboard-config
 
 Build time dependencies:
