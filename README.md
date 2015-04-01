@@ -19,6 +19,10 @@ Other dependencies:
 
 * xkeyboard-config
 
+Build time dependencies:
+
+* qttools
+
 ## Build
 
 Building System Preferences is a piece of cake.
