@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of System Preferences.
  *
- * Copyright (C) 2011-2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2015 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * Author(s):
  *    Pier Luigi Fiorini
@@ -24,26 +24,26 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include "plugin.h"
-#include "preflet.h"
+import QtQuick 2.0
+import QtQuick.Controls 1.0
+import Hawaii.Themes 1.0 as Themes
+import org.hawaii.systempreferences.display 1.0 as CppDisplay
 
-using namespace Hawaii::SystemPreferences;
+Item {
+    id: root
 
-ScreenPlugin::ScreenPlugin(QObject *parent)
-    : PreferencesModulePlugin(parent)
-{
+    property int minimumWidth: Themes.Units.dp(800)
+    property int minimumHeight: Themes.Units.dp(600)
+
+    CppDisplay.OutputsModel {
+        id: outputsModel
+    }
+
+    TableView {
+        model: outputsModel
+
+        TableViewColumn {
+            role: "name"
+        }
+    }
 }
-
-QStringList ScreenPlugin::keys() const
-{
-    return QStringList() << "screen";
-}
-
-PreferencesModule *ScreenPlugin::create(const QString &key) const
-{
-    if (key.toLower() == "screen")
-        return new Preflet();
-    return 0;
-}
-
-#include "moc_plugin.cpp"

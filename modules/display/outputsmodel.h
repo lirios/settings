@@ -1,7 +1,7 @@
 /****************************************************************************
- * This file is part of System Preferences.
+ * This file is part of Hawaii.
  *
- * Copyright (C) 2011-2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2015 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * Author(s):
  *    Pier Luigi Fiorini
@@ -24,28 +24,38 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef PLUGIN_H
-#define PLUGIN_H
+#ifndef OUTPUTSMODEL_H
+#define OUTPUTSMODEL_H
 
-#include <Hawaii/SystemPreferences/PreferencesModulePlugin>
+#include <QtCore/QAbstractItemModel>
 
-namespace Hawaii
+#include <KScreen/Config>
+
+class OutputsModel : public QAbstractListModel
 {
-    namespace SystemPreferences
-    {
-        class PreferencesModule;
+    Q_OBJECT
+    Q_ENUMS(Roles)
+public:
+    enum Roles {
+        NameRole = Qt::UserRole + 1,
+        VendorRole,
+        ModelRole
+    };
 
-        class ScreenPlugin : public PreferencesModulePlugin
-        {
-            Q_OBJECT
-            Q_PLUGIN_METADATA(IID "org.hawaii.SystemPreferences.PreferencesModuleFactoryInterface" FILE "screen.json")
-        public:
-            explicit ScreenPlugin(QObject *parent = 0);
+    OutputsModel(QObject *parent = 0);
+    ~OutputsModel();
 
-            virtual QStringList keys() const;
-            virtual PreferencesModule *create(const QString &key) const;
-        };
-    }
-}
+    QHash<int, QByteArray> roleNames() const;
 
-#endif // PLUGIN_H
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
+
+Q_SIGNALS:
+    void error(const QString &msg);
+
+private:
+    KScreen::ConfigPtr m_config;
+    QList<KScreen::OutputPtr> m_list;
+};
+
+#endif // OUTPUTSMODEL_H
