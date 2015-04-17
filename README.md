@@ -20,6 +20,10 @@ Other dependencies:
 * polkit-qt5-1
 * xkeyboard-config
 
+Optional dependencies:
+
+* libkscreen
+
 Build time dependencies:
 
 * qttools

@@ -1,6 +1,3 @@
-# Find KScreen
-find_package(KF5Screen 5.2 REQUIRED)
-
 add_definitions(-DQT_PLUGIN)
 
 set(SOURCES

@@ -81,6 +81,9 @@ if(NOT PolkitQt5-1_FOUND)
     message(FATAL_ERROR "PolkitQt5-1 module is required!")
 endif()
 
+# Find KScreen
+find_package(KF5Screen "5.2.0")
+
 # Subdirectories
 add_subdirectory(data)
 add_subdirectory(modules)

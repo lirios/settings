@@ -1,3 +1,5 @@
 add_subdirectory(background)
-add_subdirectory(display)
+if(KF5Screen_FOUND)
+    add_subdirectory(display)
+endif()
 add_subdirectory(keyboard)
