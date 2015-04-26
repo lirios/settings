@@ -38,8 +38,20 @@ class OutputsModel : public QAbstractListModel
 public:
     enum Roles {
         NameRole = Qt::UserRole + 1,
+        NumberRole,
+        DeviceIdRole,
         VendorRole,
-        ModelRole
+        ModelRole,
+        SerialRole,
+        PrimaryRole,
+        ConnectedRole,
+        EnabledRole,
+        AspectRatioRole,
+        AspectRatioStringRole,
+        PositionRole,
+        DiagonalSizeRole,
+        ResolutionRole,
+        ModesRole
     };
 
     OutputsModel(QObject *parent = 0);
