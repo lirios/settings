@@ -30,16 +30,16 @@ import QtQuick.Window 2.0
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
 import Hawaii.Themes 1.0 as Themes
-import org.hawaii.settings 0.1
+import org.hawaii.settings 0.2
 import org.hawaii.systempreferences.keyboard 1.0
 
 ColumnLayout {
     spacing: Themes.Units.smallSpacing
 
-    ConfigGroup {
-        id: layoutConfig
-        file: "hawaii/keyboardrc"
-        group: "Layout"
+    Settings {
+        id: keyboardSettings
+        schema.id: "org.hawaii.desktop.peripherals.keyboard"
+        schema.path: "/org/hawaii/desktop/peripherals/keyboard/"
     }
 
     KeyboardData {
@@ -58,10 +58,10 @@ ColumnLayout {
         }
 
         Component.onCompleted: {
-            var i, numLayouts = parseInt(layoutConfig.readEntry("NumLayouts", 0));
-            for (i = 1; i <= numLayouts; i++) {
-                var layoutName = layoutConfig.readEntry("Layout" + i);
-                var variantName = layoutConfig.readEntry("Variant" + i);
+            var i, numLayouts = keyboardSettings.layouts.length;
+            for (i = 0; i < numLayouts; i++) {
+                var layoutName = keyboardSettings.layouts[i];
+                var variantName = keyboardSettings.variants[i];
                 appendLayout(layoutName, variantName);
             }
         }
@@ -136,11 +136,17 @@ ColumnLayout {
                         onClicked: {
                             var layout = data.layouts[layoutComboBox.currentIndex];
                             var variant = layout.variants[variantComboBox.currentIndex];
-                            var numLayouts = parseInt(layoutConfig.readEntry("NumLayouts", 0));
-                            layoutConfig.writeEntry("NumLayouts", ++numLayouts);
-                            layoutConfig.writeEntry("Layout" + numLayouts, layout.name);
-                            layoutConfig.writeEntry("Variant" + numLayouts, variant.name);
+
+                            var layouts = keyboardSettings.layouts;
+                            layouts.push(layout.name);
+                            keyboardSettings.layouts = layouts;
+
+                            var variants = keyboardSettings.variants;
+                            variants.push(variant ? variant.name : "");
+                            keyboardSettings.variants = variants;
+
                             layoutModel.appendLayout(layout.name, variant.name);
+
                             addDialog.close();
                         }
                     }
@@ -182,16 +188,17 @@ ColumnLayout {
                     enabled: savedLayouts.selection.count > 0
                     onClicked: {
                         savedLayouts.selection.forEach(function(rowIndex) {
+                            // Remove entry from settings
+                            var layouts = keyboardSettings.layouts;
+                            layouts.splice(rowIndex, 1);
+                            keyboardSettings.layouts = layouts;
+
+                            var variants = keyboardSettings.variants;
+                            variants.splice(rowIndex, 1);
+                            keyboardSettings.variants = variants;
+
                             // Remove row from model
                             layoutModel.remove(rowIndex);
-
-                            // Remove entry from settings
-                            var numLayouts = parseInt(layoutConfig.readEntry("NumLayouts", 0));
-                            if (numLayouts > 0) {
-                                layoutConfig.deleteEntry("Layout" + numLayouts);
-                                layoutConfig.deleteEntry("Variant" + numLayouts);
-                                layoutConfig.writeEntry("NumLayouts", numLayouts - 1);
-                            }
                         });
                     }
                 }
@@ -212,12 +219,12 @@ ColumnLayout {
                 id: modelComboBox
                 model: data.models
                 textRole: "description"
-                onActivated: layoutConfig.writeEntry("Model", data.models[index].name)
+                onActivated: keyboardSettings.model = data.models[index].name
 
                 Layout.fillWidth: true
 
                 Component.onCompleted: {
-                    var i, value = layoutConfig.readEntry("Model");
+                    var i, value = keyboardSettings.model;
                     for (i = 0; i < data.models.length; i++) {
                         if (data.models[i].name === value) {
                             modelComboBox.currentIndex = i;

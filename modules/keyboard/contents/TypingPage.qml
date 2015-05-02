@@ -27,38 +27,34 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
+import org.hawaii.settings 0.2
 
 ColumnLayout {
-/*
-    Configuration {
-        id: settings
-        category: "peripherals/keyboard"
-
-        property bool keyboardRepeatEnabled: true
-        property int keyboardInputInterval: 30
-        property int keyboardAutoRepeatRate: 500
-        property bool cursorFlashEnabled: true
-        property int cursorFlashTime: 400
-
-        Component.onCompleted: {
-            repeatKeysGroup.checked = settings.keyboardRepeatEnabled;
-            inputIntervalSlider.value = inputIntervalSlider.maximumValue - settings.keyboardInputInterval;
-            autoRepeatRateSlider.value = autoRepeatRateSlider.maximumValue - settings.keyboardAutoRepeatRate;
-            cursorBlinkingGroup.checked = settings.cursorFlashEnabled;
-            cursorFlashTimeSlider.value = settings.cursorFlashTime - settings.cursorFlashTime;
-        }
+    Settings {
+        id: keyboardSettings
+        schema.id: "org.hawaii.desktop.peripherals.keyboard"
+        schema.path: "/org/hawaii/desktop/peripherals/keyboard/"
     }
-*/
+
+    Settings {
+        id: uiSettings
+        schema.id: "org.hawaii.desktop.interface"
+        schema.path: "/org/hawaii/desktop/interface/"
+    }
 
     GroupBox {
         id: repeatKeysGroup
         title: qsTr("Repeat Keys")
         checkable: true
-        onCheckedChanged: settings.keyboardRepeatEnabled = checked
+        onCheckedChanged: keyboardSettings.repeat = checked
 
         GridLayout {
             rows: 2
             columns: 4
+
+            /*
+             * Delay
+             */
 
             Label {
                 text: qsTr("Delay:")
@@ -75,7 +71,7 @@ ColumnLayout {
                 id: inputIntervalSlider
                 minimumValue: 0
                 maximumValue: 1000
-                onValueChanged: settings.keyboardInputInterval = maximumValue - value
+                onValueChanged: keyboardSettings.repeatInterval = maximumValue - value
 
                 Layout.fillWidth: true
             }
@@ -84,6 +80,10 @@ ColumnLayout {
                 text: qsTr("Long")
                 scale: 0.82999999999999996
             }
+
+            /*
+             * Speed
+             */
 
             Label {
                 text: qsTr("Speed:")
@@ -100,7 +100,7 @@ ColumnLayout {
                 id: autoRepeatRateSlider
                 minimumValue: 0
                 maximumValue: 1000
-                onValueChanged: settings.keyboardAutoRepeatRate = maximumValue - value
+                onValueChanged: keyboardSettings.delay = maximumValue - value
 
                 Layout.fillWidth: true
             }
@@ -116,11 +116,15 @@ ColumnLayout {
         id: cursorBlinkingGroup
         title: qsTr("Cursor Blinking")
         checkable: true
-        onCheckedChanged: settings.cursorFlashEnabled = checked
+        onCheckedChanged: uiSettings.cursorBlink = checked
 
         GridLayout {
-            rows: 1
+            rows: 2
             columns: 4
+
+            /*
+             * Blink Time
+             */
 
             Label {
                 text: qsTr("Speed:")
@@ -135,9 +139,38 @@ ColumnLayout {
 
             Slider {
                 id: cursorFlashTimeSlider
-                minimumValue: 0
-                maximumValue: 1000
-                onValueChanged: settings.cursorFlashTime = maximumValue - value
+                minimumValue: 100
+                maximumValue: 2500
+                onValueChanged: uiSettings.cursorBlinkTime = maximumValue - value
+
+                Layout.fillWidth: true
+            }
+
+            Label {
+                text: qsTr("Fast")
+                scale: 0.82999999999999996
+            }
+
+            /*
+             * Blink Timeout
+             */
+
+            Label {
+                text: qsTr("Speed:")
+
+                Layout.alignment: Qt.AlignRight
+            }
+
+            Label {
+                text: qsTr("Slow")
+                scale: 0.82999999999999996
+            }
+
+            Slider {
+                id: cursorFlashTimeoutSlider
+                minimumValue: 1
+                maximumValue: 2147483647
+                onValueChanged: uiSettings.cursorBlinkTimeout = maximumValue - value
 
                 Layout.fillWidth: true
             }
