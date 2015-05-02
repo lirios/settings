@@ -30,8 +30,7 @@ import QtQuick.Layouts 1.0
 import Hawaii.Themes 1.0 as Themes
 
 Item {
-    property string type
-    property string mode: "wallpaper"
+    property var settings: null
 
     id: root
 
@@ -47,7 +46,7 @@ Item {
         id: wallpaper
 
         WallpaperPage {
-            type: root.type
+            settings: root.settings
         }
     }
 
@@ -55,7 +54,7 @@ Item {
         id: solid
 
         SolidPage {
-            type: root.type
+            settings: root.settings
         }
     }
 
@@ -63,7 +62,7 @@ Item {
         id: gradient
 
         GradientPage {
-            type: root.type
+            settings: root.settings
         }
     }
 
@@ -122,13 +121,8 @@ Item {
         }
     }
 
-    function saveSettings() {
-        if (loader.item)
-            loader.item.saveSettings();
-    }
-
-    Component.onCompleted: {
-        switch (root.mode) {
+    function select() {
+        switch (settings.mode) {
         case "wallpaper":
             comboBox.currentIndex = 0;
             break;
@@ -142,6 +136,13 @@ Item {
         default:
             break;
         }
+
+        loader.item.loadSettings();
+    }
+
+    function saveSettings() {
+        if (loader.item)
+            loader.item.saveSettings();
     }
 }
 

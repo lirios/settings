@@ -28,31 +28,16 @@ import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
 import Hawaii.Themes 1.0 as Themes
-import org.hawaii.settings 0.1 as Settings
 
 Item {
-    property alias type: bgConfig.group
+    property var settings: null
+
+    // Cached settings
+    property bool vertical
+    property color primaryColor
+    property color secondaryColor
 
     id: root
-
-    Settings.ConfigGroup {
-        id: bgConfig
-        file: "hawaii/shellrc"
-
-        function loadSettings() {
-            bgSettings.vertical = bgConfig.readEntry("Mode") === "vgradient";
-            bgSettings.primaryColor = bgConfig.readEntry("PrimaryColor", Qt.rgba(0, 0, 0, 0));
-            bgSettings.secondaryColor = bgConfig.readEntry("SecondaryColor", Qt.rgba(0, 0, 0, 0));
-        }
-    }
-
-    QtObject {
-        id: bgSettings
-
-        property bool vertical
-        property color primaryColor
-        property color secondaryColor
-    }
 
     RowLayout {
         anchors.centerIn: parent
@@ -62,33 +47,35 @@ Item {
                 qsTr("Horizontal"),
                 qsTr("Vertical")
             ]
-            currentIndex: bgSettings.vertical ? 1 : 0
-            onActivated: bgSettings.vertical = index == 1
+            currentIndex: vertical ? 1 : 0
+            onActivated: vertical = index == 1
 
             Layout.minimumWidth: Themes.Units.gu(10)
         }
 
         ColorButton {
             id: colorButton1
-            color: bgSettings.primaryColor
-            onColorChanged: bgSettings.primaryColor = color
+            color: primaryColor
+            onColorChanged: primaryColor = color
         }
 
         ColorButton {
             id: colorButton2
-            color: bgSettings.secondaryColor
-            onColorChanged: bgSettings.secondaryColor = color
+            color: secondaryColor
+            onColorChanged: secondaryColor = color
         }
     }
 
-    function saveSettings() {
-        bgConfig.writeEntry("Mode", bgSettings.vertical ? "vgradient" : "hgradient");
-        bgConfig.writeEntry("PrimaryColor", bgSettings.primaryColor);
-        bgConfig.writeEntry("SecondaryColor", bgSettings.secondaryColor);
+    function loadSettings() {
+        // Load settings
+        vertical = settings.mode === "vgradient";
+        primaryColor = settings.primaryColor;
+        secondaryColor = settings.secondaryColor;
     }
 
-    Component.onCompleted: {
-        // Load settings
-        bgConfig.loadSettings();
+    function saveSettings() {
+        settings.primaryColor = primaryColor;
+        settings.secondaryColor = secondaryColor;
+        settings.mode = vertical ? "vgradient" : "hgradient";
     }
 }

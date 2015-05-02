@@ -31,11 +31,18 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import QtQuick.Dialogs 1.2
 import Hawaii.Themes 1.0 as Themes
-import org.hawaii.settings 0.1 as Settings
+import org.hawaii.settings 0.2 as Settings
 
 Button {
     readonly property real aspectRatio: Screen.width / Screen.height
-    property alias type: bgConfig.group
+    property string type: "background"
+    readonly property var settingsObject: {
+        if (type == "background")
+            return backgroundSettings;
+        else if (type == "lockscreen")
+            return lockScreenSettings;
+        return null;
+    }
 
     style: ButtonStyle {
         label: Item {
@@ -56,7 +63,7 @@ Button {
                     width: height * aspectRatio
                     height: wrapper.implicitHeight - label.paintedHeight - (2 * Themes.Units.largeSpacing)
                     sourceComponent: {
-                        switch (bgSettings.mode) {
+                        switch (settingsObject.mode) {
                         case "solid":
                             return solid;
                         case "hgradient":
@@ -81,32 +88,21 @@ Button {
             }
         }
     }
-    onClicked: dialog.open()
-
-    Settings.ConfigGroup {
-        id: bgConfig
-        file: "hawaii/shellrc"
-        group: "Background"
-        onGroupChanged: loadSettings()
-        onConfigChanged: loadSettings()
-
-        function loadSettings() {
-            bgSettings.mode = bgConfig.readEntry("Mode");
-            bgSettings.primaryColor = bgConfig.readEntry("PrimaryColor", Qt.rgba(0, 0, 0, 0));
-            bgSettings.secondaryColor = bgConfig.readEntry("SecondaryColor", Qt.rgba(0, 0, 0, 0));
-            bgSettings.pictureUrl = bgConfig.readEntry("PictureUrl");
-            bgSettings.fillMode = bgConfig.readEntry("FillMode", Image.Stretch);
-        }
+    onClicked: {
+        selectorDialog.select();
+        dialog.open();
     }
 
-    QtObject {
-        id: bgSettings
+    Settings.Settings {
+        id: backgroundSettings
+        schema.id: "org.hawaii.desktop.background"
+        schema.path: "/org/hawaii/desktop/background/"
+    }
 
-        property string mode
-        property color primaryColor
-        property color secondaryColor
-        property url pictureUrl
-        property int fillMode
+    Settings.Settings {
+        id: lockScreenSettings
+        schema.id: "org.hawaii.desktop.lockscreen"
+        schema.path: "/org/hawaii/desktop/lockscreen/"
     }
 
     Dialog {
@@ -129,8 +125,7 @@ Button {
 
                 SelectorDialog {
                     id: selectorDialog
-                    type: bgConfig.group
-                    mode: bgSettings.mode
+                    settings: settingsObject
 
                     Layout.fillWidth: true
                     Layout.fillHeight: true
@@ -164,7 +159,7 @@ Button {
         id: solid
 
         Rectangle {
-            color: bgSettings.primaryColor
+            color: settingsObject.primaryColor
         }
     }
 
@@ -172,16 +167,16 @@ Button {
         id: gradient
 
         Rectangle {
-            property bool vertical: bgSettings.mode == "vgradient"
+            property bool vertical: settingsObject.mode === "vgradient"
 
             gradient: Gradient {
                 GradientStop {
                     position: 0
-                    color: bgSettings.primaryColor
+                    color: settingsObject.primaryColor
                 }
                 GradientStop {
                     position: 1
-                    color: bgSettings.secondaryColor
+                    color: settingsObject.secondaryColor
                 }
             }
             rotation: vertical ? 270 : 0
@@ -193,13 +188,32 @@ Button {
         id: wallpaper
 
         Image {
-            source: bgSettings.pictureUrl
+            source: settingsObject.pictureUrl
             sourceSize.width: width
             sourceSize.height: height
-            fillMode: bgSettings.fillMode
+            fillMode: mapFillModeToImage()
+
+            function mapFillModeToImage() {
+                switch (settingsObject.fillMode) {
+                case "preserve-aspect-fit":
+                    return Image.PreserveAspectFit;
+                case "preserve-aspect-crop":
+                    return Image.PreserveAspectCrop;
+                case "tile":
+                    return Image.Tile;
+                case "tile-vertically":
+                    return Image.TileVertically;
+                case "tile-horizontally":
+                    return Image.TileHorizontally;
+                case "pad":
+                    return Image.Pad;
+                default:
+                    break;
+                }
+
+                return Image.Stretch;
+            }
         }
     }
-
-    Component.onCompleted: bgConfig.loadSettings()
 }
 

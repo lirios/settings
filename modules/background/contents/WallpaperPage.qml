@@ -29,36 +29,22 @@ import QtQuick.Window 2.0
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
 import Hawaii.Themes 1.0 as Themes
-import org.hawaii.settings 0.1 as Settings
 import org.hawaii.systempreferences.background 1.0
 
 Item {
-    property alias type: bgConfig.group
+    property var settings: null
     property int columns: 3
     property int cellPadding: Themes.Units.smallSpacing
     property real aspectRatio: Screen.width / Screen.height
+
+    // Cached settings
+    property url pictureUrl
+    property string fillMode
 
     id: root
 
     SystemPalette {
         id: palette
-    }
-
-    Settings.ConfigGroup {
-        id: bgConfig
-        file: "hawaii/shellrc"
-
-        function loadSettings() {
-            bgSettings.pictureUrl = bgConfig.readEntry("PictureUrl");
-            bgSettings.fillMode = bgConfig.readEntry("FillMode", Image.Stretch);
-        }
-    }
-
-    QtObject {
-        id: bgSettings
-
-        property url pictureUrl
-        property int fillMode
     }
 
     ColumnLayout {
@@ -102,7 +88,7 @@ Item {
                             anchors.fill: parent
                             onClicked: {
                                 gridView.currentIndex = index;
-                                bgSettings.pictureUrl = "file://" + backgroundsModel.get(index);
+                                pictureUrl = "file://" + backgroundsModel.get(index);
                             }
                         }
                     }
@@ -130,11 +116,13 @@ Item {
                     qsTr("Stretched"),
                     qsTr("Scaled"),
                     qsTr("Cropped"),
-                    qsTr("Centered"),
-                    qsTr("Tiled")
+                    qsTr("Tiled"),
+                    qsTr("Tiled Vertically"),
+                    qsTr("Tiled Horizontally"),
+                    qsTr("Centered")
                 ]
-                currentIndex: mapFillModeToIndex(bgSettings.fillMode)
-                onActivated: bgSettings.fillMode = mapIndexToFillMode(index)
+                currentIndex: mapFillModeToIndex(fillMode)
+                onActivated: fillMode = mapIndexToFillMode(index)
 
                 Layout.minimumWidth: Themes.Units.gu(10)
             }
@@ -146,14 +134,18 @@ Item {
 
     function mapFillModeToIndex(fillMode) {
         switch (fillMode) {
-        case Image.PreserveAspectFit:
+        case "preserve-aspect-fit":
             return 1;
-        case Image.PreserveAspectCrop:
+        case "preserve-aspect-crop":
             return 2;
-        case Image.Pad:
+        case "tile":
             return 3;
-        case Image.Tile:
+        case "tile-vertically":
             return 4;
+        case "tile-horizontally":
+            return 5;
+        case "pad":
+            return 6;
         default:
             break;
         }
@@ -164,40 +156,47 @@ Item {
     function mapIndexToFillMode(index) {
         switch (index) {
         case 1:
-            return Image.PreserveAspectFit;
+            return "preserve-aspect-fit";
         case 2:
-            return Image.PreserveAspectCrop;
+            return "preserve-aspect-crop";
         case 3:
-            return Image.Pad;
+            return "tile";
         case 4:
-            return Image.Tile;
+            return "tile-vertically";
+        case 5:
+            return "tile-horizontally";
+        case 6:
+            return "pad";
         default:
             break;
         }
 
-        return Image.Stretch;
+        return "stretch";
+    }
+
+    function loadSetting() {
+        // Load settings
+        pictureUrl = settings.pictureUrl;
+        fillMode = settings.fillMode;
+        for (var i = 0; i < gridView.count; i++) {
+            var url = "file://" + gridView.model.get(i);
+            if (url === pictureUrl.toString()) {
+                gridView.currentIndex = i;
+                return;
+            }
+        }
+        gridView.currentIndex = -1;
     }
 
     function saveSettings() {
-        bgConfig.writeEntry("Mode", "wallpaper");
-        bgConfig.writeEntry("PictureUrl", bgSettings.pictureUrl);
-        bgConfig.writeEntry("FillMode", bgSettings.fillMode);
+        settings.pictureUrl = pictureUrl;
+        settings.fillMode = fillMode;
+        settings.mode = "wallpaper";
     }
 
     Component.onCompleted: {
         // Load backgrounds
         backgroundsModel.addStandardPaths();
         //backgroundsModel.addUserPaths();
-
-        // Load settings
-        bgConfig.loadSettings();
-        for (var i = 0; i < gridView.count; i++) {
-            var url = "file://" + gridView.model.get(i);
-            if (url === bgSettings.pictureUrl.toString()) {
-                gridView.currentIndex = i;
-                return;
-            }
-        }
-        gridView.currentIndex = -1;
     }
 }

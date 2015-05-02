@@ -28,31 +28,18 @@ import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
 import Hawaii.Themes 1.0 as Themes
-import org.hawaii.settings 0.1 as Settings
 import org.hawaii.systempreferences.background 1.0
 
 Item {
-    property alias type: bgConfig.group
+    property var settings: null
     property int columns: 4
     property int cellPadding: Themes.Units.smallSpacing
     property real aspectRatio: root.width / root.height
 
+    // Cached settings
+    property color primaryColor
+
     id: root
-
-    Settings.ConfigGroup {
-        id: bgConfig
-        file: "hawaii/shellrc"
-
-        function loadSettings() {
-            bgSettings.primaryColor = bgConfig.readEntry("PrimaryColor", Qt.rgba(0, 0, 0, 0));
-        }
-    }
-
-    QtObject {
-        id: bgSettings
-
-        property color primaryColor
-    }
 
     SystemPalette {
         id: palette
@@ -84,7 +71,7 @@ Item {
                         anchors.fill: parent
                         onClicked: {
                             gridView.currentIndex = index;
-                            bgSettings.primaryColor = parent.color;
+                            primaryColor = parent.color;
                         }
                     }
                 }
@@ -99,23 +86,22 @@ Item {
         Layout.fillHeight: true
     }
 
-
-    function saveSettings() {
-        bgConfig.writeEntry("Mode", "solid");
-        bgConfig.writeEntry("PrimaryColor", bgSettings.primaryColor);
-    }
-
-    Component.onCompleted: {
+    function loadSettings() {
         // Load settings
-        bgConfig.loadSettings();
+        primaryColor = settings.primaryColor;
         var i, color;
         for (i = 0; i < gridView.count; i++) {
             color = gridView.model.get(i);
-            if (bgSettings.primaryColor === color) {
+            if (primaryColor === color) {
                 gridView.currentIndex = i;
                 return;
             }
         }
         gridView.currentIndex = -1;
+    }
+
+    function saveSettings() {
+        settings.primaryColor = primaryColor;
+        settings.mode = "solid";
     }
 }

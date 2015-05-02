@@ -41,12 +41,12 @@ Item {
         spacing: Themes.Units.largeSpacing
 
         Selector {
-            type: "Background"
+            type: "background"
             text: qsTr("Background")
         }
 
         Selector {
-            type: "LockScreen"
+            type: "lockscreen"
             text: qsTr("Lock Screen")
         }
     }
