@@ -174,7 +174,7 @@ Item {
         return "stretch";
     }
 
-    function loadSetting() {
+    function loadSettings() {
         // Load settings
         pictureUrl = settings.pictureUrl;
         fillMode = settings.fillMode;
