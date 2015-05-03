@@ -48,43 +48,48 @@ Button {
         label: Item {
             id: wrapper
             implicitWidth: implicitHeight * aspectRatio
-            implicitHeight: Themes.Units.dp(200)
+            implicitHeight: loader.height + label.paintedHeight +
+                            Themes.Units.smallSpacing * 2
 
-            Column {
+            Loader {
+                id: loader
                 anchors {
-                    centerIn: parent
-                    margins: Themes.Units.largeSpacing
+                    top: parent.top
+                    horizontalCenter: parent.horizontalCenter
+                    leftMargin: Themes.Units.smallSpacing
+                    topMargin: Themes.Units.smallSpacing
+                    rightMargin: Themes.Units.smallSpacing
                 }
-                spacing: Themes.Units.largeSpacing
-
-                Loader {
-                    id: loader
-                    asynchronous: true
-                    width: height * aspectRatio
-                    height: wrapper.implicitHeight - label.paintedHeight - (2 * Themes.Units.largeSpacing)
-                    sourceComponent: {
-                        switch (settingsObject.mode) {
-                        case "solid":
-                            return solid;
-                        case "hgradient":
-                        case "vgradient":
-                            return gradient;
-                        case "wallpaper":
-                            return wallpaper;
-                        default:
-                            break;
-                        }
-
-                        return null;
+                asynchronous: true
+                width: height * aspectRatio
+                height: Themes.Units.dp(50)
+                sourceComponent: {
+                    switch (settingsObject.mode) {
+                    case "solid":
+                        return solid;
+                    case "hgradient":
+                    case "vgradient":
+                        return gradient;
+                    case "wallpaper":
+                        return wallpaper;
+                    default:
+                        break;
                     }
-                }
 
-                Text {
-                    id: label
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    renderType: Text.NativeRendering
-                    text: control.text
+                    return null;
                 }
+            }
+
+            Text {
+                id: label
+                anchors {
+                    top: loader.bottom
+                    horizontalCenter: parent.horizontalCenter
+                    topMargin: Themes.Units.smallSpacing
+                    bottomMargin: Themes.Units.smallSpacing
+                }
+                renderType: Text.NativeRendering
+                text: control.text
             }
         }
     }

@@ -30,8 +30,7 @@ import Hawaii.Themes 1.0 as Themes
 Item {
     id: root
 
-    property int minimumWidth: Themes.Units.dp(800)
-    property int minimumHeight: Themes.Units.dp(600)
+    property int minimumHeight: Themes.Units.dp(440)
 
     Row {
         anchors {
