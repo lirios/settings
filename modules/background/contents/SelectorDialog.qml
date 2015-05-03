@@ -110,6 +110,7 @@ Item {
         Loader {
             id: loader
             //asynchronous: true
+            onItemChanged: if (item) item.loadSettings()
 
             BusyIndicator {
                 anchors.centerIn: parent
@@ -136,8 +137,6 @@ Item {
         default:
             break;
         }
-
-        loader.item.loadSettings();
     }
 
     function saveSettings() {
