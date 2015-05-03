@@ -27,6 +27,7 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
+import Hawaii.Themes 1.0 as Themes
 import org.hawaii.systempreferences 0.1
 
 ApplicationWindow {
@@ -39,14 +40,14 @@ ApplicationWindow {
     maximumWidth: minimumWidth
     maximumHeight: minimumHeight
 
-    property int defaultMinimumWidth: 480
-    property int defaultMinimumHeight: 480
-    property int itemSize: 96
+    property real defaultMinimumWidth: Themes.Units.dp(640)
+    property real defaultMinimumHeight: Themes.Units.dp(540)
+    property real itemSize: Themes.Units.iconSizes.large
 
     toolBar: ToolBar {
         id: mainToolBar
         width: root.width
-        height: Math.max(backButton.height, searchEntry.height) + 10
+        height: Math.max(backButton.height, searchEntry.height) + Themes.Units.dp(10)
 
         RowLayout {
             anchors.fill: parent
