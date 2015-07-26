@@ -42,15 +42,15 @@
     </message>
     <message>
         <source>Personal</source>
-        <translation type="unfinished"/>
+        <translation>Osobní</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished"/>
+        <translation>Vybavení</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Systém</translation>
     </message>
 </context>
 </TS>

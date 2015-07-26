@@ -42,15 +42,15 @@
     </message>
     <message>
         <source>Personal</source>
-        <translation type="unfinished"/>
+        <translation>Kişisel</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished"/>
+        <translation>Donanım</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistem</translation>
     </message>
 </context>
 </TS>

@@ -11,19 +11,19 @@
     </message>
     <message>
         <source>Unlock</source>
-        <translation type="unfinished"/>
+        <translation>Feloldás</translation>
     </message>
     <message>
         <source>Dialog is locked, click to make changes</source>
-        <translation type="unfinished"/>
+        <translation>Párbeszédablak zárolva, kattintson a módosításhoz</translation>
     </message>
     <message>
         <source>Lock</source>
-        <translation type="unfinished"/>
+        <translation>Zárolás</translation>
     </message>
     <message>
         <source>Dialog is unlocked, click to prevent further changes</source>
-        <translation type="unfinished"/>
+        <translation>Párbeszédablak feloldva, kattintson a további módosítás elkerüléséért</translation>
     </message>
     <message>
         <source>Tool Bar</source>
@@ -34,23 +34,23 @@
     <name>main</name>
     <message>
         <source>System Preferences</source>
-        <translation type="unfinished"/>
+        <translation>Rendszerbeállítások</translation>
     </message>
     <message>
         <source>Keywords</source>
-        <translation type="unfinished"/>
+        <translation>Kulcsszavak</translation>
     </message>
     <message>
         <source>Personal</source>
-        <translation type="unfinished"/>
+        <translation>Személyes</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished"/>
+        <translation>Hardver</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Rendszer</translation>
     </message>
 </context>
 </TS>

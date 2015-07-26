@@ -11,19 +11,19 @@
     </message>
     <message>
         <source>Unlock</source>
-        <translation type="unfinished"/>
+        <translation>Разблокировать</translation>
     </message>
     <message>
         <source>Dialog is locked, click to make changes</source>
-        <translation type="unfinished"/>
+        <translation>Диалог заблокирован, нажмите чтобы внести изменения</translation>
     </message>
     <message>
         <source>Lock</source>
-        <translation type="unfinished"/>
+        <translation>Заблокировать</translation>
     </message>
     <message>
         <source>Dialog is unlocked, click to prevent further changes</source>
-        <translation type="unfinished"/>
+        <translation>Диалог разблокирован, нажмите чтобы предотвратить дальнейшие изменения</translation>
     </message>
     <message>
         <source>Tool Bar</source>
@@ -34,23 +34,23 @@
     <name>main</name>
     <message>
         <source>System Preferences</source>
-        <translation type="unfinished"/>
+        <translation>Системные параметры</translation>
     </message>
     <message>
         <source>Keywords</source>
-        <translation type="unfinished"/>
+        <translation>Ключевые слова</translation>
     </message>
     <message>
         <source>Personal</source>
-        <translation type="unfinished"/>
+        <translation>Персональные</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished"/>
+        <translation>Оборудование</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Система</translation>
     </message>
 </context>
 </TS>

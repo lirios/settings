@@ -34,23 +34,23 @@
     <name>main</name>
     <message>
         <source>System Preferences</source>
-        <translation type="unfinished"/>
+        <translation>Preferenze di sistema</translation>
     </message>
     <message>
         <source>Keywords</source>
-        <translation type="unfinished"/>
+        <translation>Parole chiave</translation>
     </message>
     <message>
         <source>Personal</source>
-        <translation type="unfinished"/>
+        <translation>Personale</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished"/>
+        <translation>Hardware</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema</translation>
     </message>
 </context>
 </TS>

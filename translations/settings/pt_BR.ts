@@ -11,19 +11,19 @@
     </message>
     <message>
         <source>Unlock</source>
-        <translation type="unfinished"/>
+        <translation>Desbloquear</translation>
     </message>
     <message>
         <source>Dialog is locked, click to make changes</source>
-        <translation type="unfinished"/>
+        <translation>O diálogo está bloqueado, clique para fazer alterações</translation>
     </message>
     <message>
         <source>Lock</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear</translation>
     </message>
     <message>
         <source>Dialog is unlocked, click to prevent further changes</source>
-        <translation type="unfinished"/>
+        <translation>O diálogo está desbloqueado, clique para prevenir futuras alterações</translation>
     </message>
     <message>
         <source>Tool Bar</source>
@@ -34,23 +34,23 @@
     <name>main</name>
     <message>
         <source>System Preferences</source>
-        <translation type="unfinished"/>
+        <translation>Preferências do sistema</translation>
     </message>
     <message>
         <source>Keywords</source>
-        <translation type="unfinished"/>
+        <translation>Palavras chave</translation>
     </message>
     <message>
         <source>Personal</source>
-        <translation type="unfinished"/>
+        <translation>Pessoal</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished"/>
+        <translation>Hardware</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema</translation>
     </message>
 </context>
 </TS>
