@@ -28,8 +28,11 @@ import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
 import org.hawaii.settings 0.2
+import Hawaii.Themes 1.0 as Themes
 
 ColumnLayout {
+    spacing: Themes.Units.smallSpacing
+
     Settings {
         id: keyboardSettings
         schema.id: "org.hawaii.desktop.peripherals.keyboard"
@@ -69,6 +72,7 @@ ColumnLayout {
 
             Slider {
                 id: inputIntervalSlider
+                stepSize: 1
                 minimumValue: 0
                 maximumValue: 1000
                 onValueChanged: keyboardSettings.repeatInterval = maximumValue - value
@@ -98,6 +102,7 @@ ColumnLayout {
 
             Slider {
                 id: autoRepeatRateSlider
+                stepSize: 1
                 minimumValue: 0
                 maximumValue: 1000
                 onValueChanged: keyboardSettings.delay = maximumValue - value
@@ -110,6 +115,8 @@ ColumnLayout {
                 scale: 0.82999999999999996
             }
         }
+
+        Layout.fillWidth: true
     }
 
     GroupBox {
@@ -139,6 +146,7 @@ ColumnLayout {
 
             Slider {
                 id: cursorFlashTimeSlider
+                stepSize: 1
                 minimumValue: 100
                 maximumValue: 2500
                 onValueChanged: uiSettings.cursorBlinkTime = maximumValue - value
@@ -156,18 +164,20 @@ ColumnLayout {
              */
 
             Label {
-                text: qsTr("Speed:")
+                text: qsTr("Timeout:")
 
                 Layout.alignment: Qt.AlignRight
             }
 
             Label {
                 text: qsTr("Slow")
+                font.pointSize: Themes.Theme.fontPointSize()
                 scale: 0.82999999999999996
             }
 
             Slider {
                 id: cursorFlashTimeoutSlider
+                stepSize: 1
                 minimumValue: 1
                 maximumValue: 2147483647
                 onValueChanged: uiSettings.cursorBlinkTimeout = maximumValue - value
@@ -180,6 +190,8 @@ ColumnLayout {
                 scale: 0.82999999999999996
             }
         }
+
+        Layout.fillWidth: true
     }
 
     Item {
