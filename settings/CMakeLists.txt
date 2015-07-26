@@ -24,8 +24,8 @@ set(SOURCES
 ##############################################################################
 # Translations
 ##############################################################################
-set(TS_TEMPLATE ${CMAKE_SOURCE_DIR}/translations/app/template.ts)
-file(GLOB QM_SOURCES ${CMAKE_SOURCE_DIR}/translations/app/*.ts)
+set(TS_TEMPLATE ${CMAKE_SOURCE_DIR}/translations/settings/template.ts)
+file(GLOB QM_SOURCES ${CMAKE_SOURCE_DIR}/translations/settings/*.ts)
 list(REMOVE_ITEM QM_SOURCES ${TS_TEMPLATE})
 
 if(REFRESH_TRANSLATIONS)
