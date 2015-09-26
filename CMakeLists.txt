@@ -7,34 +7,32 @@ if(POLICY CMP0063)
     cmake_policy(SET CMP0063 NEW)
 endif()
 
-# Find includes in corresponding build directories
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
-# Instruct CMake to run moc automatically when needed
-set(CMAKE_AUTOMOC ON)
-
 # Set version
-set(SYSTEMPREFERENCES_VERSION_MAJOR 0)
-set(SYSTEMPREFERENCES_VERSION_MINOR 4)
-set(SYSTEMPREFERENCES_VERSION_PATCH 0)
-set(SYSTEMPREFERENCES_VERSION_STRING "${SYSTEMPREFERENCES_VERSION_MAJOR}.${SYSTEMPREFERENCES_VERSION_MINOR}.${SYSTEMPREFERENCES_VERSION_PATCH}")
+set(PROJECT_VERSION "0.4.0")
+set(PROJECT_VERSION_MAJOR 0)
+set(PROJECT_SOVERSION 0)
+
+# Set up packaging
+set(CPACK_PACKAGE_NAME "hawaii-system-preferences")
+set(CPACK_PACKAGE_VERSION "${PROJECT_VERSION}")
+set(CPACK_GENERATOR "TGZ")
+set(CPACK_SET_DESTDIR FALSE)
+set(CPACK_SOURCE_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}")
+set(CPACK_SOURCE_IGNORE_FILES "/build/;/.git;/.tx/;~$;${CPACK_SOURCE_IGNORE_FILES}")
+include(CPack)
+add_custom_target(dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
+
+# Assume release build by default
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING "" FORCE)
+endif()
+
+# Build flags
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -fvisibility-inlines-hidden -Wall -Wextra -Wno-unused-parameter -std=c++11")
 
 # ECM
-find_package(ECM 0.0.11 REQUIRED NO_MODULE)
+find_package(ECM 1.4.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
-
-# Installation directories
-include(KDEInstallDirs)
-
-# Other macros
-include(KDECMakeSettings)
-include(KDECompilerSettings)
-
-# Include our macros
-include(HawaiiSystemPreferences)
-
-# Macro to print feature summary
-include(FeatureSummary)
 
 # Add custom uninstall target
 if ("${ECM_VERSION}" VERSION_LESS "1.7.0")
@@ -45,34 +43,18 @@ if ("${ECM_VERSION}" VERSION_LESS "1.7.0")
     add_custom_target(uninstall "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
 endif()
 
-# Set up packaging
-set(CPACK_PACKAGE_NAME "hawaii-system-preferences")
-set(CPACK_PACKAGE_VERSION "${SYSTEMPREFERENCES_VERSION_STRING}")
-set(CPACK_GENERATOR "TGZ")
-set(CPACK_SET_DESTDIR FALSE)
-set(CPACK_SOURCE_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}")
-set(CPACK_SOURCE_IGNORE_FILES "/build/;/.git;/.tx/;~$;${CPACK_SOURCE_IGNORE_FILES}")
-include(CPack)
-add_custom_target(dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
+# Macros
+include(FeatureSummary)
+include(KDEInstallDirs)
+include(KDECompilerSettings)
+include(KDECMakeSettings)
 
-# Build flags
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -fvisibility-inlines-hidden -Wall -Wextra -Wno-unused-parameter -std=c++11")
-
-# Assume release build by default
-if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING "" FORCE)
-endif()
-
-# Disable debug output for release builds
-if(CMAKE_BUILD_TYPE MATCHES "^[Rr]elease$")
-    add_definitions(-DQT_NO_DEBUG_OUTPUT)
-endif()
-
-# Minimum version requirements
-set(QT_MIN_VERSION "5.2.0")
+# Include our macros
+include(HawaiiSystemPreferences)
 
 # Find Qt5
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+set(REQUIRED_QT_VERSION "5.2.0")
+find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED COMPONENTS
              Core
              Gui
              Widgets
@@ -82,9 +64,6 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
 
 # Find PolicyKit wrapper for Qt
 find_package(PolkitQt5-1 "0.103.0" REQUIRED)
-if(NOT PolkitQt5-1_FOUND)
-    message(FATAL_ERROR "PolkitQt5-1 module is required!")
-endif()
 
 # Find KScreen
 find_package(KF5Screen "5.2.0")
