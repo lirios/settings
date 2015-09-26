@@ -30,16 +30,16 @@ import QtQuick.Window 2.0
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
 import Hawaii.Themes 1.0 as Themes
-import org.hawaii.settings 0.2
-import org.hawaii.systempreferences.keyboard 1.0
+import org.hawaiios.settings 0.2
+import org.hawaiios.systempreferences.keyboard 1.0
 
 ColumnLayout {
     spacing: Themes.Units.smallSpacing
 
     Settings {
         id: keyboardSettings
-        schema.id: "org.hawaii.desktop.peripherals.keyboard"
-        schema.path: "/org/hawaii/desktop/peripherals/keyboard/"
+        schema.id: "org.hawaiios.desktop.peripherals.keyboard"
+        schema.path: "/org.hawaiios/desktop/peripherals/keyboard/"
     }
 
     KeyboardData {

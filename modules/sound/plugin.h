@@ -38,7 +38,7 @@ namespace Hawaii
         class SoundPlugin : public PreferencesModulePlugin
         {
             Q_OBJECT
-            Q_PLUGIN_METADATA(IID "org.hawaii.SystemPreferences.PreferencesModuleFactoryInterface" FILE "sound.json")
+            Q_PLUGIN_METADATA(IID "org.hawaiios.SystemPreferences.PreferencesModuleFactoryInterface" FILE "sound.json")
         public:
             explicit SoundPlugin(QObject *parent = 0);
 

@@ -42,9 +42,9 @@ public:
 
 void KeyboardPlugin::registerTypes(const char *uri)
 {
-    Q_ASSERT(QByteArray(uri) == QByteArray("org.hawaii.systempreferences.keyboard"));
+    Q_ASSERT(QByteArray(uri) == QByteArray("org.hawaiios.systempreferences.keyboard"));
 
-    // @uri org.hawaii.systempreferences.keyboard
+    // @uri org.hawaiios.systempreferences.keyboard
     qmlRegisterType<KeyboardData>(uri, 1, 0, "KeyboardData");
     qmlRegisterUncreatableType<KeyboardModel>(uri, 1, 0, "KeyboardModel",
                                               QStringLiteral("Cannot create KeyboardModel"));

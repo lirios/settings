@@ -31,7 +31,7 @@ import QtQuick.Controls.Styles 1.0
 import QtQuick.Layouts 1.0
 import QtQuick.Dialogs 1.2
 import Hawaii.Themes 1.0 as Themes
-import org.hawaii.settings 0.2 as Settings
+import org.hawaiios.settings 0.2 as Settings
 
 Button {
     readonly property real aspectRatio: Screen.width / Screen.height
@@ -100,14 +100,14 @@ Button {
 
     Settings.Settings {
         id: backgroundSettings
-        schema.id: "org.hawaii.desktop.background"
-        schema.path: "/org/hawaii/desktop/background/"
+        schema.id: "org.hawaiios.desktop.background"
+        schema.path: "/org.hawaiios/desktop/background/"
     }
 
     Settings.Settings {
         id: lockScreenSettings
-        schema.id: "org.hawaii.desktop.lockscreen"
-        schema.path: "/org/hawaii/desktop/lockscreen/"
+        schema.id: "org.hawaiios.desktop.lockscreen"
+        schema.path: "/org.hawaiios/desktop/lockscreen/"
     }
 
     Dialog {

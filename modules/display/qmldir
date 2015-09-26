@@ -1,2 +1,2 @@
-module org.hawaii.systempreferences.display
+module org.hawaiios.systempreferences.display
 plugin displayplugin

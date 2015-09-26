@@ -1,2 +1,2 @@
-module org.hawaii.systempreferences.keyboard
+module org.hawaiios.systempreferences.keyboard
 plugin keyboardplugin

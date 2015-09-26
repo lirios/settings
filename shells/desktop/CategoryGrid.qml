@@ -27,7 +27,7 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
-import org.hawaii.systempreferences 0.1
+import org.hawaiios.systempreferences 0.1
 
 GroupBox {
     property string categoryName

@@ -38,7 +38,7 @@ namespace Hawaii
         class UserAccountsPlugin : public PreferencesModulePlugin
         {
             Q_OBJECT
-            Q_PLUGIN_METADATA(IID "org.hawaii.SystemPreferences.PreferencesModuleFactoryInterface" FILE "user-accounts.json")
+            Q_PLUGIN_METADATA(IID "org.hawaiios.SystemPreferences.PreferencesModuleFactoryInterface" FILE "user-accounts.json")
         public:
             explicit UserAccountsPlugin(QObject *parent = 0);
 

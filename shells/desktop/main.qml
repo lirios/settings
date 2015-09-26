@@ -28,7 +28,7 @@ import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import Hawaii.Themes 1.0 as Themes
-import org.hawaii.systempreferences 0.1
+import org.hawaiios.systempreferences 0.1
 
 ApplicationWindow {
     id: root

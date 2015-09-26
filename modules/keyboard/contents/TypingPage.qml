@@ -27,7 +27,7 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
-import org.hawaii.settings 0.2
+import org.hawaiios.settings 0.2
 import Hawaii.Themes 1.0 as Themes
 
 ColumnLayout {
@@ -35,14 +35,14 @@ ColumnLayout {
 
     Settings {
         id: keyboardSettings
-        schema.id: "org.hawaii.desktop.peripherals.keyboard"
-        schema.path: "/org/hawaii/desktop/peripherals/keyboard/"
+        schema.id: "org.hawaiios.desktop.peripherals.keyboard"
+        schema.path: "/org.hawaiios/desktop/peripherals/keyboard/"
     }
 
     Settings {
         id: uiSettings
-        schema.id: "org.hawaii.desktop.interface"
-        schema.path: "/org/hawaii/desktop/interface/"
+        schema.id: "org.hawaiios.desktop.interface"
+        schema.path: "/org.hawaiios/desktop/interface/"
     }
 
     GroupBox {

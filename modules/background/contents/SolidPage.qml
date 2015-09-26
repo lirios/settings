@@ -28,7 +28,7 @@ import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
 import Hawaii.Themes 1.0 as Themes
-import org.hawaii.systempreferences.background 1.0
+import org.hawaiios.systempreferences.background 1.0
 
 Item {
     property var settings: null

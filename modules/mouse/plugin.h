@@ -38,7 +38,7 @@ namespace Hawaii
         class MousePlugin : public PreferencesModulePlugin
         {
             Q_OBJECT
-            Q_PLUGIN_METADATA(IID "org.hawaii.SystemPreferences.PreferencesModuleFactoryInterface" FILE "mouse.json")
+            Q_PLUGIN_METADATA(IID "org.hawaiios.SystemPreferences.PreferencesModuleFactoryInterface" FILE "mouse.json")
         public:
             explicit MousePlugin(QObject *parent = 0);
 

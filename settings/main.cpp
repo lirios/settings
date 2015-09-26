@@ -50,11 +50,11 @@ int main(int argc, char *argv[])
 
     // Register types
     qmlRegisterType<Plugin>();
-    qmlRegisterType<PluginManager>("org.hawaii.systempreferences", 0, 1, "PluginManager");
-    //qmlRegisterType<PrefletsProxyModel>("org.hawaii.systempreferences", 0, 1, "PrefletsProxyModel");
+    qmlRegisterType<PluginManager>("org.hawaiios.systempreferences", 0, 1, "PluginManager");
+    //qmlRegisterType<PrefletsProxyModel>("org.hawaiios.systempreferences", 0, 1, "PrefletsProxyModel");
 
     // Find plugin
-    const QString plugin = QStringLiteral("org.hawaii.systempreferences");
+    const QString plugin = QStringLiteral("org.hawaiios.systempreferences");
     QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
                                               QStringLiteral("hawaii-system-preferences/shells/%1/main.qml").arg(plugin));
     if (fileName.isEmpty()) {

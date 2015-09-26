@@ -1,2 +1,2 @@
-module org.hawaii.systempreferences.background
+module org.hawaiios.systempreferences.background
 plugin backgroundplugin

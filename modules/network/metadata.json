@@ -26,7 +26,7 @@
         },
         "Icon": "preferences-system-network",
         "Implements": "HawaiiSystemPreferences",
-        "InternalName": "org.hawaii.preferences.network",
+        "InternalName": "org.hawaiios.preferences.network",
         "License": "GPLv2+",
         "MainScript": "ui/Preflet.qml"
     }

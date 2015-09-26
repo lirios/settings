@@ -1,1 +1,1 @@
-hawaii_install_shell(org.hawaii.systempreferences desktop)
+hawaii_install_shell(org.hawaiios.systempreferences desktop)

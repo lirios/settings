@@ -28,7 +28,7 @@ import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import Hawaii.Themes 1.0 as Themes
-import org.hawaii.systempreferences.display 1.0 as CppDisplay
+import org.hawaiios.systempreferences.display 1.0 as CppDisplay
 
 Item {
     id: root
