@@ -1,5 +1,3 @@
-add_definitions(-DQT_PLUGIN)
-
 set(SOURCES
     backgroundsmodel.cpp
     colorsmodel.cpp
@@ -10,7 +8,7 @@ set(FILES
     qmldir
 )
 
-add_library(backgroundplugin SHARED ${SOURCES})
+add_library(backgroundplugin MODULE ${SOURCES})
 target_link_libraries(backgroundplugin Qt5::Qml Qt5::Quick)
 
 install(TARGETS backgroundplugin LIBRARY

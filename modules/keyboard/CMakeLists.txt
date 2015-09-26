@@ -1,5 +1,3 @@
-add_definitions(-DQT_PLUGIN)
-
 set(SOURCES
     keyboarddata.cpp
     keyboardmodel.cpp
@@ -12,7 +10,7 @@ set(FILES
     qmldir
 )
 
-add_library(keyboardplugin SHARED ${SOURCES})
+add_library(keyboardplugin MODULE ${SOURCES})
 target_link_libraries(keyboardplugin Qt5::Qml Qt5::Quick)
 
 install(TARGETS keyboardplugin LIBRARY
