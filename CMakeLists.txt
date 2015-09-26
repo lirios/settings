@@ -2,6 +2,11 @@ project(SystemPreferences)
 
 cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 
+# Silence CMake warnings
+if(POLICY CMP0063)
+    cmake_policy(SET CMP0063 NEW)
+endif()
+
 # Find includes in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
