@@ -40,9 +40,9 @@ public:
 
 void BackgroundCorePlugin::registerTypes(const char *uri)
 {
-    Q_ASSERT(QByteArray(uri) == QByteArray("Hawaii.SystemPreferences.Background"));
+    Q_ASSERT(QByteArray(uri) == QByteArray("org.hawaiios.systempreferences.background"));
 
-    // @uri Hawaii.SystemPreferences.Background
+    // @uri org.hawaiios.systempreferences.background
     qmlRegisterType<BackgroundsModel>(uri, 1, 0, "BackgroundsModel");
     qmlRegisterType<ColorsModel>(uri, 1, 0, "ColorsModel");
 }

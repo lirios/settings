@@ -41,7 +41,7 @@ void DisplayPlugin::registerTypes(const char *uri)
 {
     Q_ASSERT(QByteArray(uri) == QByteArray("org.hawaiios.systempreferences.display"));
 
-    // @uri Hawaii.SystemPreferences.Display
+    // @uri org.hawaiios.systempreferences.display
     qmlRegisterType<OutputsModel>(uri, 1, 0, "OutputsModel");
 }
 
