@@ -7,7 +7,7 @@ set(FILES
     qmldir
 )
 
-add_library(displayplugin MODULE ${SOURCES})
+add_library(displayplugin SHARED ${SOURCES})
 target_link_libraries(displayplugin Qt5::Qml Qt5::Quick KF5::Screen)
 
 install(TARGETS displayplugin LIBRARY

@@ -8,7 +8,7 @@ set(FILES
     qmldir
 )
 
-add_library(backgroundplugin MODULE ${SOURCES})
+add_library(backgroundplugin SHARED ${SOURCES})
 target_link_libraries(backgroundplugin Qt5::Qml Qt5::Quick)
 
 install(TARGETS backgroundplugin LIBRARY
