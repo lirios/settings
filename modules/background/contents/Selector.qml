@@ -101,13 +101,13 @@ Button {
     Settings.Settings {
         id: backgroundSettings
         schema.id: "org.hawaiios.desktop.background"
-        schema.path: "/org.hawaiios/desktop/background/"
+        schema.path: "/org/hawaiios/desktop/background/"
     }
 
     Settings.Settings {
         id: lockScreenSettings
         schema.id: "org.hawaiios.desktop.lockscreen"
-        schema.path: "/org.hawaiios/desktop/lockscreen/"
+        schema.path: "/org/hawaiios/desktop/lockscreen/"
     }
 
     Dialog {

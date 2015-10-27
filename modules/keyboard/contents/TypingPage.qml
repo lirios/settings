@@ -36,13 +36,13 @@ ColumnLayout {
     Settings {
         id: keyboardSettings
         schema.id: "org.hawaiios.desktop.peripherals.keyboard"
-        schema.path: "/org.hawaiios/desktop/peripherals/keyboard/"
+        schema.path: "/org/hawaiios/desktop/peripherals/keyboard/"
     }
 
     Settings {
         id: uiSettings
         schema.id: "org.hawaiios.desktop.interface"
-        schema.path: "/org.hawaiios/desktop/interface/"
+        schema.path: "/org/hawaiios/desktop/interface/"
     }
 
     GroupBox {

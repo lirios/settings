@@ -39,7 +39,7 @@ ColumnLayout {
     Settings {
         id: keyboardSettings
         schema.id: "org.hawaiios.desktop.peripherals.keyboard"
-        schema.path: "/org.hawaiios/desktop/peripherals/keyboard/"
+        schema.path: "/org/hawaiios/desktop/peripherals/keyboard/"
     }
 
     KeyboardData {
