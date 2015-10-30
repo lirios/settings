@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Power
+Comment=View your battery status and change power saving settings
+Exec=hawaii-system-preferences org.hawaiios.systempreferences.power
+Icon=preferences-system-power-management
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Qt;Settings;X-Hawaii;X-Hawaii-HardwareSettings;
+OnlyShowIn=X-Hawaii;
+Keywords=Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS;Idle;
