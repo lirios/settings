@@ -84,13 +84,17 @@ Item {
                         spacing: Themes.Units.smallSpacing
 
                         Label {
-                            text: {
-                                if (vendor !== "" && model !== "")
-                                    return qsTranslate("Output name label", "%1 %2 (%3)", "vendor model (name)").arg(vendor).arg(model).arg(name)
-                                return name;
-                            }
+                            text: vendor
                             font.bold: true
                             color: listView.currentIndex === index ? syspal.highlightedText : syspal.text
+                            wrapMode: Text.WrapAnywhere
+                        }
+
+                        Label {
+                            text: model
+                            font.bold: true
+                            color: listView.currentIndex === index ? syspal.highlightedText : syspal.text
+                            wrapMode: Text.WrapAnywhere
                         }
 
                         Label {
@@ -210,6 +214,15 @@ Item {
         spacing: Themes.Units.smallSpacing
         width: Themes.Units.gu(20)
 
+        TableView {
+            id: listView
+            model: outputsModel
+
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+        }
+
+        /*
         ListView {
             id: listView
             model: outputsModel
@@ -220,6 +233,7 @@ Item {
             Layout.fillWidth: true
             Layout.fillHeight: true
         }
+        */
 
         Button {
             text: qsTr("Arrange Combined Displays")
