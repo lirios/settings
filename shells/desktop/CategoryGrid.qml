@@ -26,7 +26,9 @@
 
 import QtQuick 2.1
 import QtQuick.Controls 1.0
-import QtQuick.Layouts 1.0
+import Qt.labs.controls 1.0
+import Hawaii.Components 1.0 as Components
+import Hawaii.Themes 1.0 as Themes
 import org.hawaiios.systempreferences 0.1
 
 GroupBox {
@@ -35,8 +37,19 @@ GroupBox {
     readonly property int itemSize: 96
     property alias model: repeater.model
 
-    style: CategoryGroupBoxStyle {
-        iconName: categoryIconName
+    frame: Item {}
+    label: Row {
+        spacing: Themes.Units.smallSpacing
+
+        Components.Icon {
+            iconName: categoryIconName + "-symbolic"
+            width: Themes.Units.iconSizes.small
+            height: width
+        }
+
+        Label {
+            text: title
+        }
     }
 
     Grid {
@@ -74,7 +87,4 @@ GroupBox {
             }
         }
     }
-
-    Layout.minimumHeight: 100
-    Layout.fillWidth: true
 }

@@ -24,12 +24,11 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.0
-import QtQuick.Window 2.0
-import QtQuick.Controls 1.0
-import QtQuick.Controls.Styles 1.0
+import QtQuick 2.2
+import QtQuick.Window 2.2
 import QtQuick.Layouts 1.0
 import QtQuick.Dialogs 1.2
+import Qt.labs.controls 1.0
 import Hawaii.Themes 1.0 as Themes
 import org.hawaiios.settings 0.2 as Settings
 
@@ -44,55 +43,53 @@ Button {
         return null;
     }
 
-    style: ButtonStyle {
-        label: Item {
-            id: wrapper
-            implicitWidth: implicitHeight * aspectRatio
-            implicitHeight: loader.height + label.paintedHeight +
-                            Themes.Units.smallSpacing * 2
+    label: Item {
+        id: wrapper
+        implicitWidth: implicitHeight * aspectRatio
+        implicitHeight: loader.height + label.paintedHeight +
+                        Themes.Units.smallSpacing * 2
 
-            Loader {
-                id: loader
-                anchors {
-                    top: parent.top
-                    horizontalCenter: parent.horizontalCenter
-                    leftMargin: Themes.Units.smallSpacing
-                    topMargin: Themes.Units.smallSpacing
-                    rightMargin: Themes.Units.smallSpacing
-                }
-                asynchronous: true
-                width: height * aspectRatio
-                height: Themes.Units.dp(50)
-                sourceComponent: {
-                    switch (settingsObject.mode) {
-                    case "solid":
-                        return solid;
-                    case "hgradient":
-                    case "vgradient":
-                        return gradient;
-                    case "wallpaper":
-                        return wallpaper;
-                    default:
-                        break;
-                    }
-
-                    return null;
-                }
+        Loader {
+            id: loader
+            anchors {
+                top: parent.top
+                horizontalCenter: parent.horizontalCenter
+                leftMargin: Themes.Units.smallSpacing
+                topMargin: Themes.Units.smallSpacing
+                rightMargin: Themes.Units.smallSpacing
             }
-
-            Text {
-                id: label
-                anchors {
-                    top: loader.bottom
-                    horizontalCenter: parent.horizontalCenter
-                    topMargin: Themes.Units.smallSpacing
-                    bottomMargin: Themes.Units.smallSpacing
+            asynchronous: true
+            width: height * aspectRatio
+            height: Themes.Units.dp(50)
+            sourceComponent: {
+                switch (settingsObject.mode) {
+                case "solid":
+                    return solid;
+                case "hgradient":
+                case "vgradient":
+                    return gradient;
+                case "wallpaper":
+                    return wallpaper;
+                default:
+                    break;
                 }
-                renderType: Text.NativeRendering
-                text: control.text
+
+                return null;
             }
         }
+
+        Label {
+            id: label
+            anchors {
+                top: loader.bottom
+                horizontalCenter: parent.horizontalCenter
+                topMargin: Themes.Units.smallSpacing
+                bottomMargin: Themes.Units.smallSpacing
+            }
+            text: parent.control.text
+        }
     }
+
     onClicked: {
         selectorDialog.select();
         dialog.open();

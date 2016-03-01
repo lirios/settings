@@ -24,9 +24,12 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.1
-import QtQuick.Controls 1.0
+import QtQuick 2.2
+import QtQuick.Window 2.2
+import QtQuick.Controls 1.0 as QtCC
 import QtQuick.Layouts 1.0
+import Qt.labs.controls 1.0
+import Hawaii.Components 1.0 as Components
 import Hawaii.Themes 1.0 as Themes
 import org.hawaiios.systempreferences 0.1
 
@@ -44,18 +47,24 @@ ApplicationWindow {
     property real defaultMinimumHeight: Themes.Units.dp(540)
     property real itemSize: Themes.Units.iconSizes.large
 
-    toolBar: ToolBar {
-        id: mainToolBar
-        width: root.width
-        height: Math.max(backButton.height, searchEntry.height) + Themes.Units.dp(10)
-
+    header: ToolBar {
         RowLayout {
             anchors.fill: parent
 
             ToolButton {
                 id: backButton
-                action: actionBack
+                indicator: Components.Icon {
+                    anchors.centerIn: parent
+                    iconName: "go-previous"
+                    width: Themes.Units.iconSizes.smallMedium
+                    height: width
+                }
                 visible: pageStack.depth > 1
+                onClicked: {
+                    root.minimumWidth = root.defaultMinimumWidth;
+                    root.minimumHeight = root.defaultMinimumHeight;
+                    pageStack.pop();
+                }
             }
 
             Label {
@@ -71,21 +80,10 @@ ApplicationWindow {
             TextField {
                 id: searchEntry
                 placeholderText: qsTr("Keywords")
-                //visible: pageStack.depth === 1
-                visible: false
+                visible: pageStack.depth === 1
 
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
             }
-        }
-    }
-
-    Action {
-        id: actionBack
-        iconName: "go-previous"
-        onTriggered: {
-            root.minimumWidth = root.defaultMinimumWidth;
-            root.minimumHeight = root.defaultMinimumHeight;
-            pageStack.pop();
         }
     }
 
@@ -93,15 +91,15 @@ ApplicationWindow {
         id: pluginManager
     }
 
-    StackView {
+    QtCC.StackView {
         id: pageStack
         anchors.fill: parent
-        delegate: StackViewDelegate {
+        delegate: QtCC.StackViewDelegate {
             function transitionFinished(properties) {
                 properties.exitItem.opacity = 1.0;
             }
 
-            pushTransition: StackViewTransition {
+            pushTransition: QtCC.StackViewTransition {
                 PropertyAnimation { target: enterItem; property: "opacity"; from: 0.0; to: 1.0 }
                 PropertyAnimation { target: exitItem; property: "opacity"; from: 1.0; to: 0.0 }
             }
@@ -110,43 +108,41 @@ ApplicationWindow {
             width: parent.width
             height: parent.height
 
-            ScrollView {
+            Flickable {
                 anchors.fill: parent
+                contentWidth: mainLayout.childrenRect.width
+                contentHeight: mainLayout.childrenRect.height
+                boundsBehavior: (contentHeight > root.width) ? Flickable.DragAndOvershootBounds : Flickable.StopAtBounds
 
-                Flickable {
-                    anchors.fill: parent
-                    contentWidth: mainLayout.childrenRect.width
-                    contentHeight: mainLayout.childrenRect.height
-                    boundsBehavior: (contentHeight > root.width) ? Flickable.DragAndOvershootBounds : Flickable.StopAtBounds
+                ColumnLayout {
+                    id: mainLayout
 
-                    ColumnLayout {
-                        id: mainLayout
+                    CategoryGrid {
+                        title: qsTr("Personal")
+                        categoryName: "personal"
+                        categoryIconName: "avatar-default"
+                        model: pluginManager.personalPlugins
+                        visible: pluginManager.personalPlugins.length > 0
+                    }
 
-                        CategoryGrid {
-                            title: qsTr("Personal")
-                            categoryName: "personal"
-                            categoryIconName: "avatar-default"
-                            model: pluginManager.personalPlugins
-                            visible: pluginManager.personalPlugins.length > 0
-                        }
+                    CategoryGrid {
+                        title: qsTr("Hardware")
+                        categoryName: "hardware"
+                        categoryIconName: "applications-system"
+                        model: pluginManager.hardwarePlugins
+                        visible: pluginManager.hardwarePlugins.length > 0
+                    }
 
-                        CategoryGrid {
-                            title: qsTr("Hardware")
-                            categoryName: "hardware"
-                            categoryIconName: "applications-system"
-                            model: pluginManager.hardwarePlugins
-                            visible: pluginManager.hardwarePlugins.length > 0
-                        }
-
-                        CategoryGrid {
-                            title: qsTr("System")
-                            categoryName: "system"
-                            categoryIconName: "system"
-                            model: pluginManager.systemPlugins
-                            visible: pluginManager.systemPlugins.length > 0
-                        }
+                    CategoryGrid {
+                        title: qsTr("System")
+                        categoryName: "system"
+                        categoryIconName: "system"
+                        model: pluginManager.systemPlugins
+                        visible: pluginManager.systemPlugins.length > 0
                     }
                 }
+
+                ScrollBar.vertical: ScrollBar {}
             }
         }
     }
