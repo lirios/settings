@@ -29,8 +29,7 @@ import QtQuick.Window 2.2
 import QtQuick.Controls 1.0 as QtCC
 import QtQuick.Layouts 1.0
 import Qt.labs.controls 1.0
-import Hawaii.Components 1.0 as Components
-import Hawaii.Themes 1.0 as Themes
+import Fluid.Ui 1.0 as FluidUi
 import org.hawaiios.systempreferences 0.1
 
 ApplicationWindow {
@@ -43,9 +42,9 @@ ApplicationWindow {
     maximumWidth: minimumWidth
     maximumHeight: minimumHeight
 
-    property real defaultMinimumWidth: Themes.Units.dp(640)
-    property real defaultMinimumHeight: Themes.Units.dp(540)
-    property real itemSize: Themes.Units.iconSizes.large
+    property real defaultMinimumWidth: FluidUi.Units.dp(640)
+    property real defaultMinimumHeight: FluidUi.Units.dp(540)
+    property real itemSize: FluidUi.Units.iconSizes.large
 
     header: ToolBar {
         RowLayout {
@@ -53,10 +52,10 @@ ApplicationWindow {
 
             ToolButton {
                 id: backButton
-                indicator: Components.Icon {
+                indicator: FluidUi.Icon {
                     anchors.centerIn: parent
                     iconName: "go-previous"
-                    width: Themes.Units.iconSizes.smallMedium
+                    width: FluidUi.Units.iconSizes.smallMedium
                     height: width
                 }
                 visible: pageStack.depth > 1

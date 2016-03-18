@@ -27,8 +27,7 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.0
 import Qt.labs.controls 1.0
-import Hawaii.Components 1.0 as Components
-import Hawaii.Themes 1.0 as Themes
+import Fluid.Ui 1.0 as FluidUi
 import org.hawaiios.systempreferences 0.1
 
 GroupBox {
@@ -39,11 +38,11 @@ GroupBox {
 
     frame: Item {}
     label: Row {
-        spacing: Themes.Units.smallSpacing
+        spacing: FluidUi.Units.smallSpacing
 
-        Components.Icon {
+        FluidUi.Icon {
             iconName: categoryIconName + "-symbolic"
-            width: Themes.Units.iconSizes.small
+            width: FluidUi.Units.iconSizes.small
             height: width
         }
 
