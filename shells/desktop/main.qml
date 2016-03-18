@@ -29,6 +29,7 @@ import QtQuick.Window 2.2
 import QtQuick.Controls 1.0 as QtCC
 import QtQuick.Layouts 1.0
 import Qt.labs.controls 1.0
+import Qt.labs.controls.material 1.0
 import Fluid.Ui 1.0 as FluidUi
 import org.hawaiios.systempreferences 0.1
 
@@ -85,6 +86,9 @@ ApplicationWindow {
             }
         }
     }
+
+    Material.accent: Material.Orange
+    Material.primary: Material.DeepOrange
 
     PluginManager {
         id: pluginManager
