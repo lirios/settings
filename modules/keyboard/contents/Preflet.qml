@@ -27,8 +27,9 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.3
 import Qt.labs.controls 1.0
+import Hawaii.SystemPreferences 1.0
 
-Item {
+PrefletPage {
     TabBar {
         id: bar
         width: parent.width

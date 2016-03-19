@@ -28,9 +28,10 @@ import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import Fluid.Ui 1.0 as FluidUi
+import Hawaii.SystemPreferences 1.0
 import org.hawaiios.systempreferences.display 1.0 as CppDisplay
 
-Item {
+PrefletPage {
     id: root
 
     property int minimumWidth: FluidUi.Units.dp(800)

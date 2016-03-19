@@ -26,8 +26,9 @@
 
 import QtQuick 2.0
 import Fluid.Ui 1.0 as FluidUi
+import Hawaii.SystemPreferences 1.0
 
-Item {
+PrefletPage {
     id: root
 
     property int minimumHeight: FluidUi.Units.dp(440)
