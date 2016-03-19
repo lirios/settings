@@ -70,6 +70,7 @@ find_package(KF5Screen "5.2.0")
 
 # Subdirectories
 add_subdirectory(data)
+add_subdirectory(declarative)
 add_subdirectory(modules)
 add_subdirectory(settings)
 add_subdirectory(shells)
