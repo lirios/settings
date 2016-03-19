@@ -28,13 +28,13 @@ import QtQuick 2.1
 import QtQuick.Window 2.0
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
-import Hawaii.Themes 1.0 as Themes
+import Fluid.Ui 1.0 as FluidUi
 import org.hawaiios.systempreferences.background 1.0
 
 Item {
     property var settings: null
     property int columns: 3
-    property int cellPadding: Themes.Units.smallSpacing
+    property int cellPadding: FluidUi.Units.smallSpacing
     property real aspectRatio: Screen.width / Screen.height
 
     // Cached settings
@@ -94,7 +94,7 @@ Item {
                     }
                 }
                 highlight: Rectangle {
-                    radius: Themes.Units.dp(4)
+                    radius: FluidUi.Units.dp(4)
                     color: palette.highlight
                 }
             }
@@ -124,7 +124,7 @@ Item {
                 currentIndex: mapFillModeToIndex(fillMode)
                 onActivated: fillMode = mapIndexToFillMode(index)
 
-                Layout.minimumWidth: Themes.Units.gu(10)
+                Layout.minimumWidth: FluidUi.Units.gu(10)
             }
 
             Layout.fillWidth: true

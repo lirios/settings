@@ -27,14 +27,14 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
-import Hawaii.Themes 1.0 as Themes
+import Fluid.Ui 1.0 as FluidUi
 import org.hawaiios.systempreferences.display 1.0 as CppDisplay
 
 Item {
     id: root
 
-    property int minimumWidth: Themes.Units.dp(800)
-    property int minimumHeight: Themes.Units.dp(600)
+    property int minimumWidth: FluidUi.Units.dp(800)
+    property int minimumHeight: FluidUi.Units.dp(600)
 
     CppDisplay.OutputsModel {
         id: outputsModel
@@ -56,13 +56,13 @@ Item {
             readonly property var outputModes: modes
 
             width: listView.width
-            height: row.implicitHeight + (Themes.Units.largeSpacing * 2)
+            height: row.implicitHeight + (FluidUi.Units.largeSpacing * 2)
             onClicked: listView.currentIndex = index
 
             Rectangle {
                 anchors {
                     fill: parent
-                    margins: Themes.Units.smallSpacing
+                    margins: FluidUi.Units.smallSpacing
                 }
                 color: listView.currentIndex === index ? syspal.highlight : syspal.base
 
@@ -70,18 +70,18 @@ Item {
                     id: row
                     anchors {
                         fill: parent
-                        margins: Themes.Units.smallSpacing
+                        margins: FluidUi.Units.smallSpacing
                     }
-                    spacing: Themes.Units.smallSpacing
+                    spacing: FluidUi.Units.smallSpacing
 
                     OutputPreview {
                         outputId: number
-                        width: Themes.Units.dp(50)
+                        width: FluidUi.Units.dp(50)
                         height: width / aspectRatio
                     }
 
                     Column {
-                        spacing: Themes.Units.smallSpacing
+                        spacing: FluidUi.Units.smallSpacing
 
                         Label {
                             text: vendor
@@ -117,11 +117,11 @@ Item {
         id: panelComponent
 
         ColumnLayout {
-            spacing: Themes.Units.smallSpacing
+            spacing: FluidUi.Units.smallSpacing
 
             OutputPreview {
                 outputId: listView.currentItem.outputId
-                width: Themes.Units.gu(20)
+                width: FluidUi.Units.gu(20)
                 height: width / listView.currentItem.outputAspectRatio
 
                 Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
@@ -188,7 +188,7 @@ Item {
                     model: listView.currentItem.outputModes
                     textRole: "name"
 
-                    Layout.preferredWidth: Themes.Units.dp(150)
+                    Layout.preferredWidth: FluidUi.Units.dp(150)
                 }
 
                 Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
@@ -209,10 +209,10 @@ Item {
             left: parent.left
             top: parent.top
             bottom: parent.bottom
-            margins: Themes.Units.largeSpacing
+            margins: FluidUi.Units.largeSpacing
         }
-        spacing: Themes.Units.smallSpacing
-        width: Themes.Units.gu(20)
+        spacing: FluidUi.Units.smallSpacing
+        width: FluidUi.Units.gu(20)
 
         TableView {
             id: listView
@@ -247,7 +247,7 @@ Item {
             top: leftColumn.top
             right: parent.right
             bottom: parent.bottom
-            margins: Themes.Units.largeSpacing
+            margins: FluidUi.Units.largeSpacing
         }
     }
 }

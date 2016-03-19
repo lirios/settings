@@ -29,12 +29,12 @@ import QtQuick.Dialogs 1.2
 import QtQuick.Window 2.0
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
-import Hawaii.Themes 1.0 as Themes
+import Fluid.Ui 1.0 as FluidUi
 import org.hawaiios.settings 0.2
 import org.hawaiios.systempreferences.keyboard 1.0
 
 ColumnLayout {
-    spacing: Themes.Units.smallSpacing
+    spacing: FluidUi.Units.smallSpacing
 
     Settings {
         id: keyboardSettings
@@ -69,8 +69,8 @@ ColumnLayout {
 
     Dialog {
         id: addDialog
-        width: Themes.Units.dp(200)
-        height: Themes.Units.dp(100)
+        width: FluidUi.Units.dp(200)
+        height: FluidUi.Units.dp(100)
         contentItem: Rectangle {
             color: syspal.window
 
@@ -80,11 +80,11 @@ ColumnLayout {
 
             ColumnLayout {
                 anchors.fill: parent
-                anchors.margins: Themes.Units.largeSpacing
-                spacing: Themes.Units.smallSpacing
+                anchors.margins: FluidUi.Units.largeSpacing
+                spacing: FluidUi.Units.smallSpacing
 
                 RowLayout {
-                    spacing: Themes.Units.smallSpacing
+                    spacing: FluidUi.Units.smallSpacing
 
                     Label {
                         text: qsTr("Layout:")
@@ -104,7 +104,7 @@ ColumnLayout {
                 }
 
                 RowLayout {
-                    spacing: Themes.Units.smallSpacing
+                    spacing: FluidUi.Units.smallSpacing
 
                     Label {
                         text: qsTr("Variant:")
@@ -120,7 +120,7 @@ ColumnLayout {
                 }
 
                 RowLayout {
-                    spacing: Themes.Units.smallSpacing
+                    spacing: FluidUi.Units.smallSpacing
 
                     Item {
                         Layout.fillWidth: true
@@ -156,7 +156,7 @@ ColumnLayout {
     }
 
     ColumnLayout {
-        spacing: Themes.Units.smallSpacing
+        spacing: FluidUi.Units.smallSpacing
 
         ColumnLayout {
             TableView {
@@ -176,14 +176,14 @@ ColumnLayout {
             Row {
                 ToolButton {
                     iconName: "list-add"
-                    width: Themes.Units.iconSizes.smallMedium
+                    width: FluidUi.Units.iconSizes.smallMedium
                     height: width
                     onClicked: addDialog.open()
                 }
 
                 ToolButton {
                     iconName: "list-remove"
-                    width: Themes.Units.iconSizes.smallMedium
+                    width: FluidUi.Units.iconSizes.smallMedium
                     height: width
                     enabled: savedLayouts.selection.count > 0
                     onClicked: {
@@ -209,7 +209,7 @@ ColumnLayout {
         }
 
         RowLayout {
-            spacing: Themes.Units.smallSpacing
+            spacing: FluidUi.Units.smallSpacing
 
             Label {
                 text: qsTr("Keyboard model:")

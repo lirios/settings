@@ -25,19 +25,19 @@
  ***************************************************************************/
 
 import QtQuick 2.0
-import Hawaii.Themes 1.0 as Themes
+import Fluid.Ui 1.0 as FluidUi
 
 Item {
     id: root
 
-    property int minimumHeight: Themes.Units.dp(440)
+    property int minimumHeight: FluidUi.Units.dp(440)
 
     Row {
         anchors {
             centerIn: parent
-            margins: Themes.Units.largeSpacing
+            margins: FluidUi.Units.largeSpacing
         }
-        spacing: Themes.Units.largeSpacing
+        spacing: FluidUi.Units.largeSpacing
 
         Selector {
             type: "background"

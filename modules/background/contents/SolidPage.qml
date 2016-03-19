@@ -27,13 +27,13 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
-import Hawaii.Themes 1.0 as Themes
+import Fluid.Ui 1.0 as FluidUi
 import org.hawaiios.systempreferences.background 1.0
 
 Item {
     property var settings: null
     property int columns: 4
-    property int cellPadding: Themes.Units.smallSpacing
+    property int cellPadding: FluidUi.Units.smallSpacing
     property real aspectRatio: root.width / root.height
 
     // Cached settings
@@ -77,7 +77,7 @@ Item {
                 }
             }
             highlight: Rectangle {
-                radius: Themes.Units.dp(4)
+                radius: FluidUi.Units.dp(4)
                 color: palette.highlight
             }
         }

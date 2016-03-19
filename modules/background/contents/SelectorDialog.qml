@@ -27,7 +27,7 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
-import Hawaii.Themes 1.0 as Themes
+import Fluid.Ui 1.0 as FluidUi
 
 Item {
     property var settings: null
@@ -69,7 +69,7 @@ Item {
     ColumnLayout {
         anchors {
             fill: parent
-            margins: Themes.Units.largeSpacing
+            margins: FluidUi.Units.largeSpacing
         }
 
         GridLayout {
@@ -100,7 +100,7 @@ Item {
                     }
                 }
 
-                Layout.minimumWidth: Themes.Units.gu(10)
+                Layout.minimumWidth: FluidUi.Units.gu(10)
             }
 
             Layout.fillWidth: true

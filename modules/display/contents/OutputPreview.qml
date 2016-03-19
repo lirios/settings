@@ -26,6 +26,7 @@
 
 import QtQuick 2.0
 import QtQuick.Controls 1.0
+import Fluid.Ui 1.0 as FluidUi
 import Hawaii.Themes 1.0 as Themes
 
 Rectangle {
@@ -37,18 +38,18 @@ Rectangle {
         anchors {
             left: parent.left
             top: parent.top
-            margins: Themes.Units.smallSpacing
+            margins: FluidUi.Units.smallSpacing
         }
         color: "black"
-        radius: Themes.Units.dp(6)
-        width: label.paintedWidth + Themes.Units.largeSpacing
+        radius: FluidUi.Units.dp(6)
+        width: label.paintedWidth + FluidUi.Units.largeSpacing
         height: width
 
         Label {
             id: label
             anchors {
                 centerIn: parent
-                margins: Themes.Units.smallSpacing
+                margins: FluidUi.Units.smallSpacing
             }
             font.pointSize: Themes.Theme.defaultFont.pointSize * 0.8
             color: "white"

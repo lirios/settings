@@ -29,7 +29,7 @@ import QtQuick.Window 2.2
 import QtQuick.Layouts 1.0
 import QtQuick.Dialogs 1.2
 import Qt.labs.controls 1.0
-import Hawaii.Themes 1.0 as Themes
+import Fluid.Ui 1.0 as FluidUi
 import org.hawaiios.settings 0.2 as Settings
 
 Button {
@@ -47,20 +47,20 @@ Button {
         id: wrapper
         implicitWidth: implicitHeight * aspectRatio
         implicitHeight: loader.height + label.paintedHeight +
-                        Themes.Units.smallSpacing * 2
+                        FluidUi.Units.smallSpacing * 2
 
         Loader {
             id: loader
             anchors {
                 top: parent.top
                 horizontalCenter: parent.horizontalCenter
-                leftMargin: Themes.Units.smallSpacing
-                topMargin: Themes.Units.smallSpacing
-                rightMargin: Themes.Units.smallSpacing
+                leftMargin: FluidUi.Units.smallSpacing
+                topMargin: FluidUi.Units.smallSpacing
+                rightMargin: FluidUi.Units.smallSpacing
             }
             asynchronous: true
             width: height * aspectRatio
-            height: Themes.Units.dp(50)
+            height: FluidUi.Units.dp(50)
             sourceComponent: {
                 switch (settingsObject.mode) {
                 case "solid":
@@ -83,8 +83,8 @@ Button {
             anchors {
                 top: loader.bottom
                 horizontalCenter: parent.horizontalCenter
-                topMargin: Themes.Units.smallSpacing
-                bottomMargin: Themes.Units.smallSpacing
+                topMargin: FluidUi.Units.smallSpacing
+                bottomMargin: FluidUi.Units.smallSpacing
             }
             text: parent.control.text
         }
@@ -121,9 +121,9 @@ Button {
             ColumnLayout {
                 anchors {
                     fill: parent
-                    margins: Themes.Units.largeSpacing
+                    margins: FluidUi.Units.largeSpacing
                 }
-                spacing: Themes.Units.smallSpacing
+                spacing: FluidUi.Units.smallSpacing
 
                 SelectorDialog {
                     id: selectorDialog
@@ -134,7 +134,7 @@ Button {
                 }
 
                 RowLayout {
-                    spacing: Themes.Units.smallSpacing
+                    spacing: FluidUi.Units.smallSpacing
 
                     Button {
                         text: qsTr("Cancel")
@@ -153,8 +153,8 @@ Button {
                 }
             }
         }
-        width: Themes.Units.dp(800)
-        height: Themes.Units.dp(450)
+        width: FluidUi.Units.dp(800)
+        height: FluidUi.Units.dp(450)
     }
 
     Component {
