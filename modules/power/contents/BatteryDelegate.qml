@@ -25,8 +25,8 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
+import Qt.labs.controls 1.0
 import org.hawaiios.hardware 0.1
 
 RowLayout {
@@ -37,12 +37,12 @@ RowLayout {
     }
 
     Label {
-        text: qsTr("%1%").arg(battery.chargePercent)
+        text: battery.chargePercent + "%"
     }
 
     ProgressBar {
-        minimumValue: 0
-        maximumValue: 100
+        from: 0
+        to: 100
         value: battery.chargePercent
 
         Layout.fillWidth: true

@@ -25,14 +25,14 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
+import Qt.labs.controls 1.0
 import Fluid.Ui 1.0 as FluidUi
 
 Item {
     property var settings: null
 
-    id: root
+    id: selectorDialog
 
     ListModel {
         id: bgTypes
@@ -46,7 +46,7 @@ Item {
         id: wallpaper
 
         WallpaperPage {
-            settings: root.settings
+            settings: selectorDialog.settings
         }
     }
 
@@ -54,7 +54,7 @@ Item {
         id: solid
 
         SolidPage {
-            settings: root.settings
+            settings: selectorDialog.settings
         }
     }
 
@@ -62,49 +62,51 @@ Item {
         id: gradient
 
         GradientPage {
-            settings: root.settings
+            settings: selectorDialog.settings
         }
     }
 
     ColumnLayout {
         anchors {
             fill: parent
-            margins: FluidUi.Units.largeSpacing
+            margins: FluidUi.Units.smallSpacing
         }
 
-        GridLayout {
-            columns: 2
+        Pane {
+            GridLayout {
+                anchors.centerIn: parent
+                columns: 2
 
-            Label {
-                text: qsTr("Type:")
-                horizontalAlignment: Qt.AlignRight
-            }
-
-            ComboBox {
-                id: comboBox
-                model: bgTypes
-                textRole: "label"
-                onCurrentIndexChanged: {
-                    switch (bgTypes.get(currentIndex).component) {
-                    case "wallpaper":
-                        loader.sourceComponent = wallpaper;
-                        break;
-                    case "solid":
-                        loader.sourceComponent = solid;
-                        break;
-                    case "gradient":
-                        loader.sourceComponent = gradient;
-                        break;
-                    default:
-                        break;
-                    }
+                Label {
+                    text: qsTr("Type:")
+                    horizontalAlignment: Qt.AlignRight
                 }
 
-                Layout.minimumWidth: FluidUi.Units.gu(10)
+                ComboBox {
+                    id: comboBox
+                    model: bgTypes
+                    textRole: "label"
+                    onCurrentIndexChanged: {
+                        switch (bgTypes.get(currentIndex).component) {
+                        case "wallpaper":
+                            loader.sourceComponent = wallpaper;
+                            break;
+                        case "solid":
+                            loader.sourceComponent = solid;
+                            break;
+                        case "gradient":
+                            loader.sourceComponent = gradient;
+                            break;
+                        default:
+                            break;
+                        }
+                    }
+
+                    Layout.minimumWidth: FluidUi.Units.gu(10)
+                }
             }
 
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         }
 
         Loader {

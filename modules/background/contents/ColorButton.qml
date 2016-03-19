@@ -32,15 +32,17 @@ Button {
     property alias color: dialog.color
 
     id: button
-    onClicked: dialog.visible = true
-
-    Rectangle {
+    label: Rectangle {
         anchors {
             fill: parent
-            margins: 11
+            leftMargin: button.leftPadding
+            topMargin: button.topPadding
+            rightMargin: button.rightPadding
+            bottomMargin: button.bottomPadding
         }
         color: button.color
     }
+    onClicked: dialog.visible = true
 
     ColorDialog {
         id: dialog

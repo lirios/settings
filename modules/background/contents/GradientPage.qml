@@ -25,8 +25,8 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
+import Qt.labs.controls 1.0
 import Fluid.Ui 1.0 as FluidUi
 
 Item {
@@ -36,8 +36,6 @@ Item {
     property bool vertical
     property color primaryColor
     property color secondaryColor
-
-    id: root
 
     RowLayout {
         anchors.centerIn: parent

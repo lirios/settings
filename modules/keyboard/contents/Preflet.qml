@@ -28,28 +28,33 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.3
 import Qt.labs.controls 1.0
 import Hawaii.SystemPreferences 1.0
+import Fluid.Ui 1.0 as FluidUi
 
 PrefletPage {
-    TabBar {
-        id: bar
-        width: parent.width
+    header: ToolBar {
+        height: bar.height
 
-        TabButton {
-            text: qsTr("Shortcuts")
-        }
+        TabBar {
+            id: bar
+            width: parent.width
 
-        TabButton {
-            text: qsTr("Behavior")
-        }
+            TabButton {
+                text: qsTr("Shortcuts")
+            }
 
-        TabButton {
-            text: qsTr("Layout")
+            TabButton {
+                text: qsTr("Behavior")
+            }
+
+            TabButton {
+                text: qsTr("Layout")
+            }
         }
     }
 
     StackLayout {
-        y: bar.height
-        width: parent.width
+        anchors.fill: parent
+        anchors.margins: FluidUi.Units.largeSpacing
         currentIndex: bar.currentIndex
 
         ColumnLayout {

@@ -33,7 +33,11 @@ import Fluid.Ui 1.0 as FluidUi
 import org.hawaiios.systempreferences 0.1
 
 ApplicationWindow {
-    id: root
+    property real defaultMinimumWidth: FluidUi.Units.dp(640)
+    property real defaultMinimumHeight: FluidUi.Units.dp(540)
+    property real itemSize: FluidUi.Units.iconSizes.large
+
+    id: window
     title: qsTr("System Preferences")
     width: minimumWidth
     height: minimumHeight
@@ -41,11 +45,6 @@ ApplicationWindow {
     minimumHeight: defaultMinimumHeight
     maximumWidth: minimumWidth
     maximumHeight: minimumHeight
-
-    property real defaultMinimumWidth: FluidUi.Units.dp(640)
-    property real defaultMinimumHeight: FluidUi.Units.dp(540)
-    property real itemSize: FluidUi.Units.iconSizes.large
-
     header: ToolBar {
         RowLayout {
             anchors.fill: parent
@@ -60,12 +59,12 @@ ApplicationWindow {
                         iconName: "go-previous-symbolic"
                         width: FluidUi.Units.iconSizes.smallMedium
                         height: width
-                        color: "white"
+                        color: searchEntry.color
                     }
                     visible: pageStack.depth > 1
                     onClicked: {
-                        root.minimumWidth = root.defaultMinimumWidth;
-                        root.minimumHeight = root.defaultMinimumHeight;
+                        window.minimumWidth = window.defaultMinimumWidth;
+                        window.minimumHeight = window.defaultMinimumHeight;
                         pageStack.pop();
                     }
                 }
@@ -77,7 +76,7 @@ ApplicationWindow {
                 id: prefletTitle
                 font.bold: true
                 horizontalAlignment: Qt.AlignHCenter
-                color: "white"
+                color: searchEntry.color
                 visible: pageStack.depth > 1
 
                 Layout.fillWidth: true
@@ -89,10 +88,10 @@ ApplicationWindow {
                 TextField {
                     id: searchEntry
                     placeholderText: qsTr("Keywords")
-                    color: "white"
+                    color: Material.primaryHighlightedTextColor
                     visible: pageStack.depth === 1
 
-                    Layout.alignment: Qt.AlignVCenter
+                    Layout.minimumWidth: FluidUi.Units.gu(15)
                 }
 
                 Layout.alignment: Qt.AlignRight
@@ -114,12 +113,14 @@ ApplicationWindow {
         initialItem: Item {
             Flickable {
                 anchors.fill: parent
+                anchors.margins: FluidUi.Units.largeSpacing
                 contentWidth: mainLayout.childrenRect.width
                 contentHeight: mainLayout.childrenRect.height
-                boundsBehavior: (contentHeight > root.width) ? Flickable.DragAndOvershootBounds : Flickable.StopAtBounds
+                boundsBehavior: (contentHeight > window.width) ? Flickable.DragAndOvershootBounds : Flickable.StopAtBounds
 
                 ColumnLayout {
                     id: mainLayout
+                    spacing: FluidUi.Units.smallSpacing
 
                     CategoryGrid {
                         title: qsTr("Personal")
@@ -157,8 +158,8 @@ ApplicationWindow {
             var plugin = pluginManager.getByName(Qt.application.arguments[1]);
             if (plugin) {
                 prefletTitle.text = plugin.title;
-                root.width = plugin.item.width;
-                root.height = plugin.item.height;
+                window.width = plugin.item.width;
+                window.height = plugin.item.height;
                 pageStack.push(plugin.item);
             }
         }

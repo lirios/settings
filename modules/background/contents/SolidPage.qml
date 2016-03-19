@@ -25,65 +25,59 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Controls 1.1
+import QtQuick.Window 2.0
 import QtQuick.Layouts 1.0
+import Qt.labs.controls 1.0
+import Qt.labs.controls.material 1.0
 import Fluid.Ui 1.0 as FluidUi
 import org.hawaiios.systempreferences.background 1.0
 
 Item {
     property var settings: null
     property int columns: 4
-    property int cellPadding: FluidUi.Units.smallSpacing
-    property real aspectRatio: root.width / root.height
+    property real aspectRatio: Screen.width / Screen.height
 
     // Cached settings
     property color primaryColor
 
-    id: root
-
-    SystemPalette {
-        id: palette
-    }
-
-    ScrollView {
+    GridView {
+        id: gridView
         anchors.fill: parent
+        model: ColorsModel {}
+        clip: true
+        cellWidth: parent.width / columns
+        cellHeight: cellWidth / aspectRatio
+        currentIndex: -1
+        highlightMoveDuration: 0
+        delegate: Item {
+            width: gridView.cellWidth
+            height: gridView.cellHeight
 
-        GridView {
-            id: gridView
-            model: ColorsModel {}
-            cellWidth: parent.width / columns
-            cellHeight: cellWidth / aspectRatio
-            currentIndex: -1
-            highlightMoveDuration: 0
-            delegate: Item {
-                width: gridView.cellWidth
-                height: gridView.cellHeight
+            Rectangle {
+                anchors {
+                    fill: parent
+                    margins: FluidUi.Units.smallSpacing
+                }
+                color: model.color
 
-                Rectangle {
-                    anchors {
-                        fill: parent
-                        margins: cellPadding
-                    }
-                    color: model.color
-
-                    MouseArea {
-                        id: mouse
-                        anchors.fill: parent
-                        onClicked: {
-                            gridView.currentIndex = index;
-                            primaryColor = parent.color;
-                        }
+                MouseArea {
+                    id: mouse
+                    anchors.fill: parent
+                    onClicked: {
+                        gridView.currentIndex = index;
+                        primaryColor = parent.color;
                     }
                 }
             }
-            highlight: Rectangle {
-                radius: FluidUi.Units.dp(4)
-                color: palette.highlight
-            }
+        }
+        highlight: Rectangle {
+            radius: FluidUi.Units.dp(4)
+            color: Material.accentColor
         }
 
         Layout.fillWidth: true
         Layout.fillHeight: true
+        ScrollBar.vertical: ScrollBar {}
     }
 
     function loadSettings() {

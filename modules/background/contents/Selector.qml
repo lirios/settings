@@ -29,116 +29,67 @@ import QtQuick.Window 2.2
 import QtQuick.Layouts 1.0
 import QtQuick.Dialogs 1.2
 import Qt.labs.controls 1.0
+import Qt.labs.controls.material 1.0
 import Fluid.Ui 1.0 as FluidUi
-import org.hawaiios.settings 0.2 as Settings
 
-Button {
+ColumnLayout {
     readonly property real aspectRatio: Screen.width / Screen.height
     property string type: "background"
-    readonly property var settingsObject: {
-        if (type == "background")
-            return backgroundSettings;
-        else if (type == "lockscreen")
-            return lockScreenSettings;
-        return null;
-    }
+    property alias text: label.text
+    property var settingsObject
 
-    label: Item {
-        id: wrapper
-        implicitWidth: implicitHeight * aspectRatio
-        implicitHeight: loader.height + label.paintedHeight +
-                        FluidUi.Units.smallSpacing * 2
-
-        Loader {
-            id: loader
-            anchors {
-                top: parent.top
-                horizontalCenter: parent.horizontalCenter
-                leftMargin: FluidUi.Units.smallSpacing
-                topMargin: FluidUi.Units.smallSpacing
-                rightMargin: FluidUi.Units.smallSpacing
-            }
-            asynchronous: true
-            width: height * aspectRatio
-            height: FluidUi.Units.dp(50)
-            sourceComponent: {
-                switch (settingsObject.mode) {
-                case "solid":
-                    return solid;
-                case "hgradient":
-                case "vgradient":
-                    return gradient;
-                case "wallpaper":
-                    return wallpaper;
-                default:
-                    break;
-                }
-
-                return null;
-            }
-        }
-
-        Label {
-            id: label
-            anchors {
-                top: loader.bottom
-                horizontalCenter: parent.horizontalCenter
-                topMargin: FluidUi.Units.smallSpacing
-                bottomMargin: FluidUi.Units.smallSpacing
-            }
-            text: parent.control.text
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            selectorDialog.select();
+            dialog.open();
         }
     }
 
-    onClicked: {
-        selectorDialog.select();
-        dialog.open();
+    Connections {
+        target: settingsObject
+        onModeChanged: setLoaderComponent()
     }
 
-    Settings.Settings {
-        id: backgroundSettings
-        schema.id: "org.hawaiios.desktop.background"
-        schema.path: "/org/hawaiios/desktop/background/"
+    Loader {
+        id: loader
+
+        Layout.alignment: Qt.AlignHCenter
+        Layout.preferredWidth: Layout.preferredHeight * aspectRatio
+        Layout.preferredHeight: FluidUi.Units.dp(50)
     }
 
-    Settings.Settings {
-        id: lockScreenSettings
-        schema.id: "org.hawaiios.desktop.lockscreen"
-        schema.path: "/org/hawaiios/desktop/lockscreen/"
+    Label {
+        id: label
+    }
+
+    Rectangle {
+        height: FluidUi.Units.dp(1)
+        color: Material.dividerColor
+
+        Layout.fillWidth: true
     }
 
     Dialog {
         id: dialog
         title: qsTr("Pick a background")
         modality: Qt.ApplicationModal
-        contentItem: Rectangle {
-            color: palette.window
-
-            SystemPalette {
-                id: palette
-            }
-
-            ColumnLayout {
-                anchors {
-                    fill: parent
-                    margins: FluidUi.Units.largeSpacing
-                }
-                spacing: FluidUi.Units.smallSpacing
-
-                SelectorDialog {
-                    id: selectorDialog
-                    settings: settingsObject
-
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                }
-
+        contentItem: Page {
+            header: ToolBar {
                 RowLayout {
-                    spacing: FluidUi.Units.smallSpacing
+                    anchors.fill: parent
+                    anchors.leftMargin: parent.leftPadding
+                    anchors.topMargin: parent.topPadding
+                    anchors.rightMargin: parent.rightPadding
+                    anchors.bottomMargin: parent.bottomPadding
 
                     Button {
                         text: qsTr("Cancel")
                         onClicked: dialog.close()
+                    }
+
+                    Item {
+                        Layout.fillWidth: true
                     }
 
                     Button {
@@ -148,9 +99,13 @@ Button {
                             dialog.close();
                         }
                     }
-
-                    Layout.alignment: Qt.AlignRight
                 }
+            }
+
+            SelectorDialog {
+                id: selectorDialog
+                anchors.fill: parent
+                settings: settingsObject
             }
         }
         width: FluidUi.Units.dp(800)
@@ -162,6 +117,8 @@ Button {
 
         Rectangle {
             color: settingsObject.primaryColor
+            width: height * aspectRatio
+            height: FluidUi.Units.dp(50)
         }
     }
 
@@ -183,6 +140,8 @@ Button {
             }
             rotation: vertical ? 270 : 0
             scale: vertical ? 0.5 : 1
+            width: height * aspectRatio
+            height: FluidUi.Units.dp(50)
         }
     }
 
@@ -194,6 +153,8 @@ Button {
             sourceSize.width: width
             sourceSize.height: height
             fillMode: mapFillModeToImage()
+            width: height * aspectRatio
+            height: FluidUi.Units.dp(50)
 
             function mapFillModeToImage() {
                 switch (settingsObject.fillMode) {
@@ -217,5 +178,24 @@ Button {
             }
         }
     }
+
+    function setLoaderComponent() {
+        switch (settingsObject.mode) {
+        case "solid":
+            loader.sourceComponent = solid;
+            break;
+        case "hgradient":
+        case "vgradient":
+            loader.sourceComponent = gradient;
+            break;
+        case "wallpaper":
+            loader.sourceComponent = wallpaper;
+            break;
+        default:
+            break;
+        }
+    }
+
+    Component.onCompleted: setLoaderComponent()
 }
 

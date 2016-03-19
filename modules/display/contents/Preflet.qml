@@ -25,25 +25,21 @@
  ***************************************************************************/
 
 import QtQuick 2.0
-import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
+import Qt.labs.controls 1.0
+import Qt.labs.controls.material 1.0
 import Fluid.Ui 1.0 as FluidUi
 import Hawaii.SystemPreferences 1.0
 import org.hawaiios.systempreferences.display 1.0 as CppDisplay
 
 PrefletPage {
-    id: root
-
     property int minimumWidth: FluidUi.Units.dp(800)
     property int minimumHeight: FluidUi.Units.dp(600)
 
+    id: root
+
     CppDisplay.OutputsModel {
         id: outputsModel
-    }
-
-    SystemPalette {
-        id: syspal
-        colorGroup: SystemPalette.Active
     }
 
     Component {
@@ -65,7 +61,7 @@ PrefletPage {
                     fill: parent
                     margins: FluidUi.Units.smallSpacing
                 }
-                color: listView.currentIndex === index ? syspal.highlight : syspal.base
+                color: listView.currentIndex === index ? Material.backgroundColor : Material.primaryColor
 
                 Row {
                     id: row
@@ -215,7 +211,7 @@ PrefletPage {
         spacing: FluidUi.Units.smallSpacing
         width: FluidUi.Units.gu(20)
 
-        TableView {
+        ListView {
             id: listView
             model: outputsModel
 

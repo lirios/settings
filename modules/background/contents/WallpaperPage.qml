@@ -26,109 +26,106 @@
 
 import QtQuick 2.1
 import QtQuick.Window 2.0
-import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
+import Qt.labs.controls 1.0
+import Qt.labs.controls.material 1.0
 import Fluid.Ui 1.0 as FluidUi
 import org.hawaiios.systempreferences.background 1.0
 
 Item {
     property var settings: null
     property int columns: 3
-    property int cellPadding: FluidUi.Units.smallSpacing
+    property real cellPadding: FluidUi.Units.smallSpacing
     property real aspectRatio: Screen.width / Screen.height
 
     // Cached settings
     property url pictureUrl
     property string fillMode
 
-    id: root
-
-    SystemPalette {
-        id: palette
-    }
-
     ColumnLayout {
         anchors.fill: parent
 
-        ScrollView {
-            GridView {
-                id: gridView
-                model: BackgroundsModel {
-                    id: backgroundsModel
-                }
-                cellWidth: parent.width / columns
-                cellHeight: cellWidth / aspectRatio
-                currentIndex: -1
-                highlightMoveDuration: 0
-                delegate: Item {
-                    width: gridView.cellWidth
-                    height: gridView.cellHeight
+        GridView {
+            id: gridView
+            model: BackgroundsModel {
+                id: backgroundsModel
+            }
+            clip: true
+            cellWidth: parent.width / columns
+            cellHeight: cellWidth / aspectRatio
+            currentIndex: -1
+            highlightMoveDuration: 0
+            delegate: Item {
+                width: gridView.cellWidth
+                height: gridView.cellHeight
 
-                    Image {
-                        anchors {
-                            fill: parent
-                            margins: cellPadding
-                        }
-                        source: model.fileName ? "file://" + model.fileName : ""
-                        sourceSize.width: width
-                        sourceSize.height: height
-                        width: parent.width - cellPadding * 2
-                        height: parent.height - cellPadding * 2
-                        fillMode: Image.PreserveAspectCrop
-                        asynchronous: true
-                        cache: false
+                Image {
+                    anchors {
+                        fill: parent
+                        margins: cellPadding
+                    }
+                    source: model.fileName ? "file://" + model.fileName : ""
+                    sourceSize.width: width
+                    sourceSize.height: height
+                    width: parent.width - cellPadding * 2
+                    height: parent.height - cellPadding * 2
+                    fillMode: Image.PreserveAspectCrop
+                    asynchronous: true
+                    cache: false
 
-                        BusyIndicator {
-                            anchors.centerIn: parent
-                            running: parent.status == Image.Loading
-                        }
+                    BusyIndicator {
+                        anchors.centerIn: parent
+                        running: parent.status == Image.Loading
+                    }
 
-                        MouseArea {
-                            id: mouse
-                            anchors.fill: parent
-                            onClicked: {
-                                gridView.currentIndex = index;
-                                pictureUrl = "file://" + backgroundsModel.get(index);
-                            }
+                    MouseArea {
+                        id: mouse
+                        anchors.fill: parent
+                        onClicked: {
+                            gridView.currentIndex = index;
+                            pictureUrl = "file://" + backgroundsModel.get(index);
                         }
                     }
                 }
-                highlight: Rectangle {
-                    radius: FluidUi.Units.dp(4)
-                    color: palette.highlight
-                }
+            }
+            highlight: Rectangle {
+                radius: FluidUi.Units.dp(4)
+                color: Material.accentColor
             }
 
             Layout.fillWidth: true
             Layout.fillHeight: true
+            ScrollBar.vertical: ScrollBar {}
         }
 
-        GridLayout {
-            columns: 2
+        Pane {
+            GridLayout {
+                anchors.centerIn: parent
+                columns: 2
 
-            Label {
-                text: qsTr("Fill Mode:")
-                horizontalAlignment: Qt.AlignRight
-            }
+                Label {
+                    text: qsTr("Fill Mode:")
+                    horizontalAlignment: Qt.AlignRight
+                }
 
-            ComboBox {
-                model: [
-                    qsTr("Stretched"),
-                    qsTr("Scaled"),
-                    qsTr("Cropped"),
-                    qsTr("Tiled"),
-                    qsTr("Tiled Vertically"),
-                    qsTr("Tiled Horizontally"),
-                    qsTr("Centered")
-                ]
-                currentIndex: mapFillModeToIndex(fillMode)
-                onActivated: fillMode = mapIndexToFillMode(index)
+                ComboBox {
+                    model: [
+                        qsTr("Stretched"),
+                        qsTr("Scaled"),
+                        qsTr("Cropped"),
+                        qsTr("Tiled"),
+                        qsTr("Tiled Vertically"),
+                        qsTr("Tiled Horizontally"),
+                        qsTr("Centered")
+                    ]
+                    currentIndex: mapFillModeToIndex(fillMode)
+                    onActivated: fillMode = mapIndexToFillMode(index)
 
-                Layout.minimumWidth: FluidUi.Units.gu(10)
+                    Layout.minimumWidth: FluidUi.Units.gu(10)
+                }
             }
 
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         }
     }
 

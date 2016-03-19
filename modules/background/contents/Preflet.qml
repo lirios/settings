@@ -27,11 +27,22 @@
 import QtQuick 2.0
 import Fluid.Ui 1.0 as FluidUi
 import Hawaii.SystemPreferences 1.0
+import org.hawaiios.settings 0.2 as Settings
 
 PrefletPage {
-    id: root
-
     property int minimumHeight: FluidUi.Units.dp(440)
+
+    Settings.Settings {
+        id: backgroundSettings
+        schema.id: "org.hawaiios.desktop.background"
+        schema.path: "/org/hawaiios/desktop/background/"
+    }
+
+    Settings.Settings {
+        id: lockScreenSettings
+        schema.id: "org.hawaiios.desktop.lockscreen"
+        schema.path: "/org/hawaiios/desktop/lockscreen/"
+    }
 
     Row {
         anchors {
@@ -41,12 +52,12 @@ PrefletPage {
         spacing: FluidUi.Units.largeSpacing
 
         Selector {
-            type: "background"
+            settingsObject: backgroundSettings
             text: qsTr("Background")
         }
 
         Selector {
-            type: "lockscreen"
+            settingsObject: lockScreenSettings
             text: qsTr("Lock Screen")
         }
     }

@@ -74,9 +74,9 @@ GroupBox {
                         var item = component.createObject(null);
 
                         if (typeof(item.minimumWidth) != "undefined")
-                            root.minimumWidth = item.minimumWidth;
+                            window.minimumWidth = item.minimumWidth;
                         if (typeof(item.minimumHeight) != "undefined")
-                            root.minimumHeight = item.minimumHeight;
+                            window.minimumHeight = item.minimumHeight;
 
                         prefletTitle.text = model.title;
                         pageStack.push(item);

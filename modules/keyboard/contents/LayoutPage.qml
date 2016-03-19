@@ -25,7 +25,6 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Controls 1.1 as QtQC
 import QtQuick.Layouts 1.0
 import Qt.labs.controls 1.0
 import Fluid.Ui 1.0 as FluidUi
@@ -74,30 +73,34 @@ ColumnLayout {
         spacing: FluidUi.Units.smallSpacing
 
         ColumnLayout {
-            QtQC.TableView {
-                QtQC.TableViewColumn {
-                    role: "label"
-                    title: qsTr("Layout")
-                }
+            Frame {
+                ListView {
+                    id: savedLayouts
+                    anchors.fill: parent
+                    model: layoutModel
+                    clip: true
+                    delegate: ItemDelegate {
+                        text: model.label
+                        width: savedLayouts.width
+                    }
 
-                id: savedLayouts
-                model: layoutModel
-                headerVisible: false
+                    ScrollBar.vertical: ScrollBar {}
+                }
 
                 Layout.fillWidth: true
                 Layout.fillHeight: true
             }
 
             Row {
-                QtQC.ToolButton {
-                    iconName: "list-add-symbolic"
+                ToolButton {
+                    //iconName: "list-add-symbolic"
                     width: FluidUi.Units.iconSizes.smallMedium
                     height: width
                     onClicked: addDialog.open()
                 }
 
-                QtQC.ToolButton {
-                    iconName: "list-remove-symbolic"
+                ToolButton {
+                    //iconName: "list-remove-symbolic"
                     width: FluidUi.Units.iconSizes.smallMedium
                     height: width
                     enabled: savedLayouts.selection.count > 0
