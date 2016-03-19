@@ -50,44 +50,59 @@ ApplicationWindow {
         RowLayout {
             anchors.fill: parent
 
-            ToolButton {
-                id: backButton
-                indicator: FluidUi.Icon {
-                    anchors.centerIn: parent
-                    iconName: "go-previous-symbolic"
-                    width: FluidUi.Units.iconSizes.smallMedium
-                    height: width
+            RowLayout {
+                id: leftRow
+
+                ToolButton {
+                    id: backButton
+                    indicator: FluidUi.Icon {
+                        anchors.centerIn: parent
+                        iconName: "go-previous-symbolic"
+                        width: FluidUi.Units.iconSizes.smallMedium
+                        height: width
+                        color: "white"
+                    }
+                    visible: pageStack.depth > 1
+                    onClicked: {
+                        root.minimumWidth = root.defaultMinimumWidth;
+                        root.minimumHeight = root.defaultMinimumHeight;
+                        pageStack.pop();
+                    }
                 }
-                visible: pageStack.depth > 1
-                onClicked: {
-                    root.minimumWidth = root.defaultMinimumWidth;
-                    root.minimumHeight = root.defaultMinimumHeight;
-                    pageStack.pop();
-                }
+
+                Layout.alignment: Qt.AlignLeft
             }
 
             Label {
                 id: prefletTitle
                 font.bold: true
                 horizontalAlignment: Qt.AlignHCenter
+                color: "white"
                 visible: pageStack.depth > 1
 
                 Layout.fillWidth: true
-                Layout.alignment: Qt.AlignCenter
             }
 
-            TextField {
-                id: searchEntry
-                placeholderText: qsTr("Keywords")
-                visible: pageStack.depth === 1
+            RowLayout {
+                id: rightRow
 
-                Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+                TextField {
+                    id: searchEntry
+                    placeholderText: qsTr("Keywords")
+                    color: "white"
+                    visible: pageStack.depth === 1
+
+                    Layout.alignment: Qt.AlignVCenter
+                }
+
+                Layout.alignment: Qt.AlignRight
             }
         }
     }
 
-    Material.accent: Material.Orange
-    Material.primary: Material.DeepOrange
+    Material.accent: Material.Blue
+    Material.primary: Material.color(Material.BlueGrey, Material.theme === Material.Light
+                                     ? Material.Shade700 : Material.Shade800)
 
     PluginManager {
         id: pluginManager
