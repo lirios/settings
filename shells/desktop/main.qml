@@ -26,7 +26,6 @@
 
 import QtQuick 2.2
 import QtQuick.Window 2.2
-import QtQuick.Controls 1.0 as QtCC
 import QtQuick.Layouts 1.0
 import Qt.labs.controls 1.0
 import Qt.labs.controls.material 1.0
@@ -55,7 +54,7 @@ ApplicationWindow {
                 id: backButton
                 indicator: FluidUi.Icon {
                     anchors.centerIn: parent
-                    iconName: "go-previous"
+                    iconName: "go-previous-symbolic"
                     width: FluidUi.Units.iconSizes.smallMedium
                     height: width
                 }
@@ -94,23 +93,10 @@ ApplicationWindow {
         id: pluginManager
     }
 
-    QtCC.StackView {
+    StackView {
         id: pageStack
         anchors.fill: parent
-        delegate: QtCC.StackViewDelegate {
-            function transitionFinished(properties) {
-                properties.exitItem.opacity = 1.0;
-            }
-
-            pushTransition: QtCC.StackViewTransition {
-                PropertyAnimation { target: enterItem; property: "opacity"; from: 0.0; to: 1.0 }
-                PropertyAnimation { target: exitItem; property: "opacity"; from: 1.0; to: 0.0 }
-            }
-        }
         initialItem: Item {
-            width: parent.width
-            height: parent.height
-
             Flickable {
                 anchors.fill: parent
                 contentWidth: mainLayout.childrenRect.width
@@ -158,7 +144,7 @@ ApplicationWindow {
                 prefletTitle.text = plugin.title;
                 root.width = plugin.item.width;
                 root.height = plugin.item.height;
-                pageStack.push({item: plugin.item});
+                pageStack.push(plugin.item);
             }
         }
     }

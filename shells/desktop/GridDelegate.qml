@@ -25,7 +25,6 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Controls 1.0 as QtCC
 import QtQuick.Layouts 1.0
 import Qt.labs.controls 1.0
 import Fluid.Ui 1.0 as FluidUi
