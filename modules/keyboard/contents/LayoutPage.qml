@@ -25,16 +25,15 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Dialogs 1.2
-import QtQuick.Window 2.0
-import QtQuick.Controls 1.1
+import QtQuick.Controls 1.1 as QtQC
 import QtQuick.Layouts 1.0
+import Qt.labs.controls 1.0
 import Fluid.Ui 1.0 as FluidUi
 import org.hawaiios.settings 0.2
 import org.hawaiios.systempreferences.keyboard 1.0
 
 ColumnLayout {
-    spacing: FluidUi.Units.smallSpacing
+    spacing: FluidUi.Units.largeSpacing
 
     Settings {
         id: keyboardSettings
@@ -43,18 +42,18 @@ ColumnLayout {
     }
 
     KeyboardData {
-        id: data
+        id: keyboardData
     }
 
     ListModel {
         id: layoutModel
 
         function appendLayout(layoutName, variantName) {
-            var layoutDescr = data.layoutDescription(layoutName);
-            var variantDescr = data.variantDescription(layoutName, variantName);
+            var layoutDescr = keyboardData.layoutDescription(layoutName);
+            var variantDescr = keyboardData.variantDescription(layoutName, variantName);
             layoutModel.append({"label": layoutDescr,
-                                "layout": layoutName,
-                                "variant": variantName});
+                                   "layout": layoutName,
+                                   "variant": variantName});
         }
 
         Component.onCompleted: {
@@ -67,100 +66,16 @@ ColumnLayout {
         }
     }
 
-    Dialog {
+    AddDialog {
         id: addDialog
-        width: FluidUi.Units.dp(200)
-        height: FluidUi.Units.dp(100)
-        contentItem: Rectangle {
-            color: syspal.window
-
-            SystemPalette {
-                id: syspal
-            }
-
-            ColumnLayout {
-                anchors.fill: parent
-                anchors.margins: FluidUi.Units.largeSpacing
-                spacing: FluidUi.Units.smallSpacing
-
-                RowLayout {
-                    spacing: FluidUi.Units.smallSpacing
-
-                    Label {
-                        text: qsTr("Layout:")
-                        horizontalAlignment: Qt.AlignRight
-                    }
-
-                    ComboBox {
-                        id: layoutComboBox
-                        model: data.layouts
-                        textRole: "description"
-                        onCurrentIndexChanged: {
-                            variantComboBox.model = data.layouts[currentIndex].variants;
-                        }
-
-                        Layout.fillWidth: true
-                    }
-                }
-
-                RowLayout {
-                    spacing: FluidUi.Units.smallSpacing
-
-                    Label {
-                        text: qsTr("Variant:")
-                        horizontalAlignment: Qt.AlignRight
-                    }
-
-                    ComboBox {
-                        id: variantComboBox
-                        textRole: "description"
-
-                        Layout.fillWidth: true
-                    }
-                }
-
-                RowLayout {
-                    spacing: FluidUi.Units.smallSpacing
-
-                    Item {
-                        Layout.fillWidth: true
-                    }
-
-                    Button {
-                        text: qsTr("Cancel")
-                        onClicked: addDialog.close()
-                    }
-
-                    Button {
-                        text: qsTr("OK")
-                        onClicked: {
-                            var layout = data.layouts[layoutComboBox.currentIndex];
-                            var variant = layout.variants[variantComboBox.currentIndex];
-
-                            var layouts = keyboardSettings.layouts;
-                            layouts.push(layout.name);
-                            keyboardSettings.layouts = layouts;
-
-                            var variants = keyboardSettings.variants;
-                            variants.push(variant ? variant.name : "");
-                            keyboardSettings.variants = variants;
-
-                            layoutModel.appendLayout(layout.name, variant.name);
-
-                            addDialog.close();
-                        }
-                    }
-                }
-            }
-        }
     }
 
     ColumnLayout {
         spacing: FluidUi.Units.smallSpacing
 
         ColumnLayout {
-            TableView {
-                TableViewColumn {
+            QtQC.TableView {
+                QtQC.TableViewColumn {
                     role: "label"
                     title: qsTr("Layout")
                 }
@@ -174,15 +89,15 @@ ColumnLayout {
             }
 
             Row {
-                ToolButton {
-                    iconName: "list-add"
+                QtQC.ToolButton {
+                    iconName: "list-add-symbolic"
                     width: FluidUi.Units.iconSizes.smallMedium
                     height: width
                     onClicked: addDialog.open()
                 }
 
-                ToolButton {
-                    iconName: "list-remove"
+                QtQC.ToolButton {
+                    iconName: "list-remove-symbolic"
                     width: FluidUi.Units.iconSizes.smallMedium
                     height: width
                     enabled: savedLayouts.selection.count > 0
@@ -217,16 +132,16 @@ ColumnLayout {
 
             ComboBox {
                 id: modelComboBox
-                model: data.models
+                model: keyboardData.models
                 textRole: "description"
-                onActivated: keyboardSettings.model = data.models[index].name
+                onActivated: keyboardSettings.model = keyboardData.models[index].name
 
                 Layout.fillWidth: true
 
                 Component.onCompleted: {
                     var i, value = keyboardSettings.model;
-                    for (i = 0; i < data.models.length; i++) {
-                        if (data.models[i].name === value) {
+                    for (i = 0; i < keyboardData.models.length; i++) {
+                        if (keyboardData.models[i].name === value) {
                             modelComboBox.currentIndex = i;
                             return;
                         }
@@ -238,8 +153,11 @@ ColumnLayout {
             }
         }
 
-        TextField {
-            placeholderText: qsTr("Type to test the layout...")
+        Pane {
+            TextField {
+                anchors.fill: parent
+                placeholderText: qsTr("Type to test the layout...")
+            }
 
             Layout.fillWidth: true
         }

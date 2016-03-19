@@ -25,11 +25,10 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.0
+import Qt.labs.controls 1.0
 import org.hawaiios.settings 0.2
 import Fluid.Ui 1.0 as FluidUi
-import Hawaii.Themes 1.0 as Themes
 
 ColumnLayout {
     spacing: FluidUi.Units.smallSpacing
@@ -48,9 +47,10 @@ ColumnLayout {
 
     GroupBox {
         id: repeatKeysGroup
-        title: qsTr("Repeat Keys")
-        checkable: true
-        onCheckedChanged: keyboardSettings.repeat = checked
+        label: CheckBox {
+            text: qsTr("Repeat Keys")
+            onCheckedChanged: keyboardSettings.repeat = checked
+        }
 
         GridLayout {
             rows: 2
@@ -74,9 +74,9 @@ ColumnLayout {
             Slider {
                 id: inputIntervalSlider
                 stepSize: 1
-                minimumValue: 0
-                maximumValue: 1000
-                onValueChanged: keyboardSettings.repeatInterval = maximumValue - value
+                from: 0
+                to: 1000
+                onValueChanged: keyboardSettings.repeatInterval = to - value
 
                 Layout.fillWidth: true
             }
@@ -104,9 +104,9 @@ ColumnLayout {
             Slider {
                 id: autoRepeatRateSlider
                 stepSize: 1
-                minimumValue: 0
-                maximumValue: 1000
-                onValueChanged: keyboardSettings.delay = maximumValue - value
+                from: 0
+                to: 1000
+                onValueChanged: keyboardSettings.delay = to - value
 
                 Layout.fillWidth: true
             }
@@ -122,9 +122,10 @@ ColumnLayout {
 
     GroupBox {
         id: cursorBlinkingGroup
-        title: qsTr("Cursor Blinking")
-        checkable: true
-        onCheckedChanged: uiSettings.cursorBlink = checked
+        label: CheckBox {
+            text: qsTr("Cursor Blinking")
+            onCheckedChanged: uiSettings.cursorBlink = checked
+        }
 
         GridLayout {
             rows: 2
@@ -148,9 +149,9 @@ ColumnLayout {
             Slider {
                 id: cursorFlashTimeSlider
                 stepSize: 1
-                minimumValue: 100
-                maximumValue: 2500
-                onValueChanged: uiSettings.cursorBlinkTime = maximumValue - value
+                from: 100
+                to: 2500
+                onValueChanged: uiSettings.cursorBlinkTime = to - value
 
                 Layout.fillWidth: true
             }
@@ -172,16 +173,15 @@ ColumnLayout {
 
             Label {
                 text: qsTr("Slow")
-                font.pointSize: Themes.Theme.fontPointSize()
                 scale: 0.82999999999999996
             }
 
             Slider {
                 id: cursorFlashTimeoutSlider
                 stepSize: 1
-                minimumValue: 1
-                maximumValue: 2147483647
-                onValueChanged: uiSettings.cursorBlinkTimeout = maximumValue - value
+                from: 1
+                to: 2147483647
+                onValueChanged: uiSettings.cursorBlinkTimeout = to - value
 
                 Layout.fillWidth: true
             }
@@ -197,5 +197,13 @@ ColumnLayout {
 
     Item {
         Layout.fillHeight: true
+    }
+
+    Component.onCompleted: {
+        repeatKeysGroup.label.checked = keyboardSettings.repeat;
+        cursorBlinkingGroup.label.checked = uiSettings.cursorBlink;
+        inputIntervalSlider.value = inputIntervalSlider.to - keyboardSettings.repeatInterval;
+        autoRepeatRateSlider.value = autoRepeatRateSlider.to - keyboardSettings.delay;
+        cursorFlashTimeSlider.value = cursorFlashTimeSlider.to - uiSettings.cursorBlinkTime;
     }
 }

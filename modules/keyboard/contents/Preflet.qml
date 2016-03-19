@@ -25,51 +25,42 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Controls 1.0
-import QtQuick.Layouts 1.0
+import QtQuick.Layouts 1.3
+import Qt.labs.controls 1.0
 
 Item {
-    width: 500
-    height: 500
+    TabBar {
+        id: bar
+        width: parent.width
 
-    TabView {
-        anchors {
-            fill: parent
-            margins: 11
+        TabButton {
+            text: qsTr("Shortcuts")
         }
 
-        Tab {
-            title: qsTr("Shortcuts")
+        TabButton {
+            text: qsTr("Behavior")
+        }
 
-            ColumnLayout {
-                Label {
-                    text: "Not yet implemented"
+        TabButton {
+            text: qsTr("Layout")
+        }
+    }
 
-                    Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-                }
+    StackLayout {
+        y: bar.height
+        width: parent.width
+        currentIndex: bar.currentIndex
+
+        ColumnLayout {
+            Label {
+                text: "Not yet implemented"
+
+                Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             }
         }
 
-        Tab {
-            title: qsTr("Behavior")
+        TypingPage {}
 
-            TypingPage {
-                anchors {
-                    fill: parent
-                    margins: 11
-                }
-            }
-        }
-
-        Tab {
-            title: qsTr("Layout")
-
-            LayoutPage {
-                anchors {
-                    fill: parent
-                    margins: 11
-                }
-            }
-        }
+        LayoutPage {}
     }
 }
