@@ -1,116 +1,62 @@
 [main]
 host = https://www.transifex.com
 
-[hawaii.system-preferences-desktop-file]
+[system-preferences.shells-desktop]
+type = QT
+source_lang = en
+source_file = translations/shells/desktop/shells-desktop.ts
+file_filter = translations/shells/desktop/shells-desktop_<lang>.ts
+
+[system-preferences.desktop-file]
 type = DESKTOP
 source_lang = en
-source_file = src/app/hawaii-system-preferences.desktop.in
-file_filter = translations/app/hawaii-system-preferences_<lang>.desktop
+source_file = translations/settings/hawaii-system-preferences.desktop
+file_filter = translations/settings/hawaii-system-preferences_<lang>.desktop
 
-[hawaii.system-preferences]
+[system-preferences.background-preflet]
 type = QT
 source_lang = en
-source_file = translations/settings/template.ts
-file_filter = translations/settings/<lang>.ts
+source_file = translations/modules/background/background.ts
+file_filter = translations/modules/background/background_<lang>.ts
 
-[hawaii.system-preferences-background-preflet]
-type = QT
-source_lang = en
-source_file = translations/plugins/background/template.ts
-file_filter = translations/plugins/background/<lang>.ts
-
-[hawaii.system-preferences-background-desktop]
+[system-preferences.background-desktop]
 type = DESKTOP
 source_lang = en
-source_file = data/plugins/background/hawaii-background-panel.desktop.in
-file_filter = translations/plugins/background/hawaii-background-panel_<lang>.desktop
+source_file = translations/modules/background/background.desktop
+file_filter = translations/modules/background/background_<lang>.desktop
 
-[hawaii.system-preferences-background-metadata]
+[system-preferences.display-preflet]
+type = QT
+source_lang = en
+source_file = translations/modules/display/display.ts
+file_filter = translations/modules/display/display_<lang>.ts
+
+[system-preferences.display-desktop]
 type = DESKTOP
 source_lang = en
-source_file = data/plugins/background/metadata.desktop
-file_filter = translations/plugins/background/metadata_<lang>.desktop
+source_file = translations/modules/display/display.desktop
+file_filter = translations/modules/display/display_<lang>.desktop
 
-[hawaii.system-preferences-desktop-preflet]
+[system-preferences.keyboard-preflet]
 type = QT
 source_lang = en
-source_file = translations/plugins/desktop/template.ts
-file_filter = translations/plugins/desktop/<lang>.ts
+source_file = translations/modules/keyboard/keyboard.ts
+file_filter = translations/modules/keyboard/keyboard_<lang>.ts
 
-[hawaii.system-preferences-desktop-desktop]
+[system-preferences.keyboard-desktop]
 type = DESKTOP
 source_lang = en
-source_file = data/plugins/background/hawaii-desktop-panel.desktop.in
-file_filter = translations/plugins/desktop/hawaii-desktop-panel_<lang>.desktop
+source_file = translations/modules/keyboard/keyboard.desktop
+file_filter = translations/modules/keyboard/keyboard_<lang>.desktop
 
-[hawaii.system-preferences-desktop-metadata]
+[system-preferences.power-preflet]
+type = QT
+source_lang = en
+source_file = translations/modules/power/power.ts
+file_filter = translations/modules/power/power_<lang>.ts
+
+[system-preferences.power-desktop]
 type = DESKTOP
 source_lang = en
-source_file = data/plugins/desktop/metadata.desktop
-file_filter = translations/plugins/desktop/metadata_<lang>.desktop
-
-[hawaii.system-preferences-keyboard-preflet]
-type = QT
-source_lang = en
-source_file = translations/plugins/keyboard/template.ts
-file_filter = translations/plugins/keyboard/<lang>.ts
-
-[hawaii.system-preferences-keyboard-desktop]
-type = DESKTOP
-source_lang = en
-source_file = data/plugins/keyboard/hawaii-keyboard-panel.desktop.in
-file_filter = translations/plugins/keyboard/hawaii-keyboard-panel_<lang>.desktop
-
-[hawaii.system-preferences-keyboard-metadata]
-type = DESKTOP
-source_lang = en
-source_file = data/plugins/keyboard/metadata.desktop
-file_filter = translations/plugins/keyboard/metadata_<lang>.desktop
-
-[hawaii.system-preferences-mime-types-preflet]
-type = QT
-source_lang = en
-source_file = translations/plugins/mimetypes/template.ts
-file_filter = translations/plugins/mimetypes/<lang>.ts
-
-[hawaii.system-preferences-mouse-preflet]
-type = QT
-source_lang = en
-source_file = translations/plugins/mouse/template.ts
-file_filter = translations/plugins/mouse/<lang>.ts
-
-[hawaii.system-preferences-network-preflet]
-type = QT
-source_lang = en
-source_file = translations/plugins/network/template.ts
-file_filter = translations/plugins/network/<lang>.ts
-
-[hawaii.system-preferences-network-desktop]
-type = DESKTOP
-source_lang = en
-source_file = data/plugins/network/hawaii-network-panel.desktop.in
-file_filter = translations/plugins/network/hawaii-network-panel_<lang>.desktop
-
-[hawaii.system-preferences-network-metadata]
-type = DESKTOP
-source_lang = en
-source_file = data/plugins/network/metadata.desktop
-file_filter = translations/plugins/network/metadata_<lang>.desktop
-
-[hawaii.system-preferences-screen-preflet]
-type = QT
-source_lang = en
-source_file = translations/plugins/screen/template.ts
-file_filter = translations/plugins/screen/<lang>.ts
-
-[hawaii.system-preferences-sound-preflet]
-type = QT
-source_lang = en
-source_file = translations/plugins/sound/template.ts
-file_filter = translations/plugins/sound/<lang>.ts
-
-[hawaii.system-preferences-users-preflet]
-type = QT
-source_lang = en
-source_file = translations/plugins/user-accounts/template.ts
-file_filter = translations/plugins/user-accounts/<lang>.ts
+source_file = translations/modules/power/power.desktop
+file_filter = translations/modules/power/power_<lang>.desktop

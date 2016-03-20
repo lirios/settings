@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Name=System Preferences
+GenericName=System Preferences
+Comment=Manages system preferences
+Keywords=Preferences;Settings;
+
+
+# Translations
+
+
+# Translations
+Comment[ast]=Alministra les preferencies del sistema
+GenericName[ast]=Preferencies del sistema
+Name[ast]=Preferencies del sistema
