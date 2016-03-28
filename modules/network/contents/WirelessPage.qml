@@ -25,10 +25,10 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
-import FluidUi 0.2 as FluidUi
-import FluidUi.ListItems 0.2 as ListItem
+import Qt.labs.controls 1.0
+import Fluid.Ui 1.0 as FluidUi
+import Fluid.Controls 1.0 as FluidControls
 import MeeGo.Connman 0.2
 
 Item {
@@ -49,8 +49,8 @@ Item {
         RowLayout {
             FluidUi.Icon {
                 iconName: wirelessModel.available ? "network-wireless" : "network-wireless-disconnected"
-                width: 48
-                height: 48
+                width: FluidUi.Units.iconSizes.smallMedium
+                height: width
             }
 
             ColumnLayout {
@@ -98,16 +98,16 @@ Item {
                     ToolButton {
                         FluidUi.Icon {
                             iconName: "emblem-system-symbolic"
-                            width: 16
-                            height: 16
+                            width: FluidUi.Units.iconSizes.small
+                            height: width
                             color:__syspal.text
                         }
                     }
 
                     FluidUi.Icon {
                         iconName: "network-wireless-encrypted-symbolic"
-                        width: 16
-                        height: 16
+                        width: FluidUi.Units.iconSizes.small
+                        height: width
                         color: __syspal.text
                         visible: !(model.networkService.security.length === 0 && model.networkService.security.contains("none"))
                     }
@@ -124,8 +124,8 @@ Item {
                                 return "network-wireless-signal-weak-symbolic";
                             return "network-wireless-signal-none-symbolic";
                         }
-                        width: 16
-                        height: 16
+                        width: FluidUi.Units.iconSizes.small
+                        height: width
                         color: __syspal.text
                     }
                 }

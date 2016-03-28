@@ -26,11 +26,11 @@
 
 import QtQuick 2.1
 import QtQuick.Window 2.0
-import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
+import Qt.labs.controls 1.0
 import MeeGo.Connman 0.2
 
-Window {
+Dialog {
     title: service ? service.name : ""
     width: 640
     height: 480

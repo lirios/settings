@@ -25,10 +25,10 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
-import FluidUi 0.2 as FluidUi
-import FluidUi.ListItems 0.2 as ListItem
+import Qt.labs.controls 1.0
+import Fluid.Ui 1.0 as FluidUi
+import Fluid.Controls 1.0 as FluidControls
 import MeeGo.Connman 0.2
 
 Item {

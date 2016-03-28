@@ -26,34 +26,28 @@
 
 import QtQuick 2.1
 import QtQuick.Window 2.1
-import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
-import FluidUi 0.2 as FluidUi
+import Qt.labs.controls 1.0
+import Fluid.Ui 1.0 as FluidUi
 
-Window {
+Dialog {
     id: hiddenWifiDialog
     title: qsTr("Connect to a hidden Wi-Fi network")
-    flags: Qt.Dialog
     modality: Qt.ApplicationModal
-    width: 400
-    height: 250
-    color: palette.window
-
-    SystemPalette {
-        id: palette
-    }
+    width: FluidUi.Units.dp(400)
+    height: FluidUi.Units.dp(250)
 
     ColumnLayout {
         anchors {
             fill: parent
-            margins: 11
+            margins: FluidUi.Units.largeSpacing
         }
 
         RowLayout {
             FluidUi.Icon {
                 iconName: "network-wireless"
-                width: 48
-                height: 48
+                width: FluidUi.Units.iconSizes.smallMedium
+                height: width
 
                 Layout.alignment: Qt.AlignTop
             }

@@ -25,16 +25,16 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
-import FluidUi 0.2 as FluidUi
-import FluidUi.ListItems 0.2 as ListItem
+import Qt.labs.controls 1.0
+import Fluid.Ui 1.0 as FluidUi
+import Fluid.Controls 1.0 as FluidControls
 import MeeGo.Connman 0.2
 
 Item {
     id: networkPreflet
-    width: 800
-    height: 600
+    width: FluidUi.Units.dp(800)
+    height: FluidUi.Units.dp(600)
 
     property var profileDialog: ProfileDialog {}
 

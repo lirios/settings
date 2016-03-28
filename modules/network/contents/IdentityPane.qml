@@ -25,8 +25,8 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
+import Qt.labs.controls 1.0
 import MeeGo.Connman 0.2
 
 Item {
