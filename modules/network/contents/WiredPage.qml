@@ -29,19 +29,12 @@ import QtQuick.Layouts 1.0
 import Qt.labs.controls 1.0
 import Fluid.Ui 1.0 as FluidUi
 import Fluid.Controls 1.0 as FluidControls
-import MeeGo.Connman 0.2
+import org.hawaiios.networkmanager 0.1 as NM
 
 Item {
+    property var wiredModel
+
     id: wiredPage
-
-    SystemPalette {
-        id: palette
-    }
-
-    TechnologyModel {
-        id: wiredModel
-        name: "ethernet"
-    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -49,21 +42,36 @@ Item {
         RowLayout {
             FluidUi.Icon {
                 iconName: wiredModel.connected ? "network-wired" : "network-wired-disconnected"
-                width: 48
-                height: 48
+                width: FluidUi.Units.iconSizes.large
+                height: width
             }
 
             ColumnLayout {
                 Label {
-                    text: qsTr("Wired")
+                    text: wiredModel.Name
                     font.bold: true
                 }
 
                 Label {
                     text: {
-                        if (wiredModel.powered)
-                            return wiredModel.connected ? qsTr("Connected") : qsTr("Disconnected");
-                        return qsTr("Unavailable");
+                        if (wiredModel.ConnectionState === NM.Enums.Activating) {
+                            if (wiredModel.Type === NM.Enums.Vpn)
+                                return wiredModel.VpnState;
+                            else
+                                return wiredModel.DeviceState;
+                        } else if (wiredModel.ConnectionState === NM.Enums.Deactivating) {
+                            if (wiredModel.Type === NM.Enums.Vpn)
+                                return wiredModel.VpnState;
+                            else
+                                return wiredModel.DeviceState;
+                        } else if (wiredModel.ConnectionState === NM.Enums.Deactivated) {
+                            var result = wiredModel.LastUsed;
+                            if (wiredModel.SecurityType > NM.Enums.None)
+                                result += ", " + wiredModel.SecurityTypeString;
+                            return result;
+                        } else if (wiredModel.ConnectionState === NM.Enums.Activated) {
+                            return qsTr("Connected");
+                        }
                     }
                 }
             }
@@ -72,42 +80,51 @@ Item {
                 Layout.fillWidth: true
             }
 
-            Button {
-                property NetworkService service: wiredModel.get(0)
-
-                text: wiredModel.connected ? qsTr("Disconnect") : qsTr("Connect")
-                onClicked: wiredModel.connected ? service.requestDisconnect() : service.requestConnect()
-            }
-
-            CheckBox {
-                text: qsTr("Enable")
-                checked: wiredModel.powered
-                onClicked: wiredModel.powered = !wiredModel.powered
+            Switch {
+                checked: wiredModel.ConnectionState === NM.Enums.Activated
+                onCheckedChanged: {
+                    if (wiredModel.ConnectionState === NM.Enums.Deactivated) {
+                        if (!wiredModel.Uuid) {
+                            handler.addAndActivateConnection(wiredModel.DevicePath, wiredModel.SpecificPath);
+                        } else {
+                            // ask pass
+                        }
+                    } else {
+                        handler.deactivateConnection(wiredModel.ConnectionPath, wiredModel.DevicePath);
+                    }
+                }
             }
 
             Layout.fillWidth: true
         }
 
-        ListView {
-            id: profilesList
-            model: wiredModel
-            delegate: ListItem.Standard {
-                text: model.networkService.name
+        GridLayout {
+            columns: 2
+            rows: wiredModel.ConnectionDetails.length / 2
+            columnSpacing: FluidUi.Units.smallSpacing
+            rowSpacing: FluidUi.Units.smallSpacing
+            flow: GridLayout.TopToBottom
+
+            Repeater {
+                model: wiredModel.ConnectionDetails.length / 2
+
+                Label {
+                    text: wiredModel.ConnectionDetails[index * 2] + ":"
+                    font.bold: true
+
+                    Layout.alignment: Qt.AlignRight
+                }
             }
-            visible: count > 1
+
+            Repeater {
+                model: wiredModel.ConnectionDetails.length / 2
+
+                Label {
+                    text: wiredModel.ConnectionDetails[(index * 2) + 1]
+                }
+            }
 
             Layout.fillWidth: true
-            Layout.fillHeight: true
-        }
-
-        WiredInformation {
-            service: wiredModel.get(0)
-            visible: profilesList.count == 1
-
-            Layout.fillWidth: true
-        }
-
-        Item {
             Layout.fillHeight: true
         }
 
@@ -131,9 +148,8 @@ Item {
                     anchors.fill:parent
                     anchors.margins:4
                     iconName: "emblem-system-symbolic"
-                    width: 22
-                    height: 22
-                    color: palette.text
+                    width: FluidUi.Units.iconSizes.small
+                    height: width
                 }
 
                 Layout.maximumWidth: 32
@@ -141,6 +157,10 @@ Item {
             }
 
             Layout.fillWidth: true
+        }
+
+        Item {
+            Layout.fillHeight: true
         }
     }
 }

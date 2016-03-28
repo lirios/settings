@@ -29,18 +29,14 @@ import QtQuick.Layouts 1.0
 import Qt.labs.controls 1.0
 import Fluid.Ui 1.0 as FluidUi
 import Fluid.Controls 1.0 as FluidControls
-import MeeGo.Connman 0.2
 
 Item {
+    property var wirelessModel
+
     id: wirelessPage
 
     property var __syspal: SystemPalette {
         colorGroup: SystemPalette.Active
-    }
-
-    TechnologyModel {
-        id: wirelessModel
-        name: "wifi"
     }
 
     ColumnLayout {
@@ -91,7 +87,7 @@ Item {
             id: servicesList
             model: wirelessModel
             clip: true
-            delegate: ListItem.Standard {
+            delegate: FluidControls.StandardListItem {
                 text: model.networkService.name
 
                 RowLayout {

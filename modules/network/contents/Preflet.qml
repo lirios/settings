@@ -25,133 +25,130 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Layouts 1.0
+import QtQuick.Layouts 1.3
 import Qt.labs.controls 1.0
+import Hawaii.SystemPreferences 1.0
 import Fluid.Ui 1.0 as FluidUi
 import Fluid.Controls 1.0 as FluidControls
-import MeeGo.Connman 0.2
+import org.hawaiios.networkmanager 0.1 as NM
 
-Item {
+PrefletPage {
     id: networkPreflet
     width: FluidUi.Units.dp(800)
     height: FluidUi.Units.dp(600)
 
-    property var profileDialog: ProfileDialog {}
+    //property var profileDialog: ProfileDialog {}
 
-    SystemPalette {
-        id: palette
+    NM.ConnectionIcon {
+        id: connectionIconProvider
+
+        function massageIconName(iconName) {
+            var newName = iconName.replace("-activated", "");
+            if (newName !== "")
+                return newName + "-symbolic";
+            return newName;
+        }
     }
 
-    NetworkManagerFactory {
-        id: networkManager
+    NM.Handler {
+        id: handler
     }
 
-    RowLayout {
+    Component {
+        id: wiredComponent
+
+        WiredPage {}
+    }
+
+    Component {
+        id: wirelessComponent
+
+        WirelessPage {}
+    }
+
+    StackLayout {
         anchors.fill: parent
+        currentIndex: connectionIconProvider.connectionIcon == "network-unavailable" ? 1 : 0
 
-        ListView {
-            id: technologiesView
-            focus: true
-            model: networkManager.instance.technologiesList()
-            delegate: ListItem.Standard {
-                property NetworkTechnology technology: networkManager.instance.getTechnology(modelData)
+        RowLayout {
+            ListView {
+                id: technologiesView
+                focus: true
+                model: NM.AppletProxyModel {}
+                section.property: "Section"
+                delegate: FluidControls.StandardListItem {
+                    iconName: {
+                        if (modelData == "ethernet")
+                            return "network-wired" + (technology.connected ? "" : "-disconnected") + "-symbolic";
+                        else if (modelData == "wifi")
+                            return "network-wireless-signal-" + (technology.connected ? "excellent" : "none") + "-symbolic";
+                        return "network-vpn-symbolic";
+                    }
+                    text: model.Name
+                    onClicked: {
+                        ListView.currentIndex = index;
+                        technologiesView.switchPage(model.Type, model);
+                    }
+                }
+                visible: connectionIconProvider.connectionIcon !== "network-unavailable"
 
-                iconName: {
-                    if (modelData == "ethernet")
-                        return "network-wired" + (technology.connected ? "" : "-disconnected") + "-symbolic";
-                    else if (modelData == "wifi")
-                        return "network-wireless-signal-" + (technology.connected ? "excellent" : "none") + "-symbolic";
-                    return "network-vpn-symbolic";
+                ScrollBar.vertical: ScrollBar {}
+                Layout.fillHeight: true
+                Layout.preferredWidth: FluidUi.Units.gu(12)
+
+                Component.onCompleted: {
+                    if (visible)
+                        switchPage(model[currentIndex])
                 }
-                text: {
-                    if (modelData == "ethernet")
-                        return qsTr("Wired");
-                    else if (modelData == "wifi")
-                        return qsTr("Wireless");
-                    return qsTr("Unknown");
-                }
-                onClicked: {
-                    ListView.currentIndex = index;
-                    technologiesView.switchPage(modelData);
+
+                function switchPage(type, model) {
+                    switch (type) {
+                    case NM.Enums.Wired:
+                        pageStack.push(wiredComponent, {"wiredModel": model});
+                        break;
+                    case NM.Enums.Wireless:
+                        pageStack.push(wirelessComponent, {"wirelessModel": model});
+                        break;
+                    default:
+                        break;
+                    }
                 }
             }
-            width: parent.width / 6
-            visible: networkManager.instance.available
 
+            StackView {
+                id: pageStack
+
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+            }
+
+            Layout.fillWidth: true
             Layout.fillHeight: true
-
-            Component.onCompleted: {
-                if (visible)
-                    switchPage(model[currentIndex])
-            }
-
-            function switchPage(tech) {
-                switch (tech) {
-                case "ethernet":
-                    pageStack.push(Qt.resolvedUrl("WiredPage.qml"));
-                    break;
-                case "wifi":
-                    pageStack.push(Qt.resolvedUrl("WirelessPage.qml"));
-                    break;
-                default:
-                    break;
-                }
-            }
         }
 
-        StackView {
-            id: pageStack
-            delegate: StackViewDelegate {
-                function transitionFinished(properties) {
-                    properties.exitItem.opacity = 1;
-                }
+        ColumnLayout {
+            spacing: FluidUi.Units.largeSpacing
 
-                property Component pushTransition: StackViewTransition {
-                    PropertyAnimation {
-                        target: enterItem
-                        property: "opacity"
-                        from: 0
-                        to: 1
-                    }
-                    PropertyAnimation {
-                        target: exitItem
-                        property: "opacity"
-                        from: 1
-                        to: 0
-                    }
-                }
-            }
-            initialItem: Item {
-                width: parent.width
-                height: parent.height
-                visible: !networkManager.instance.available
-
-                RowLayout {
-                    spacing: 11
-
-                    FluidUi.Icon {
-                        iconName: "computer-fail"
-                        width: 48
-                        height: 48
-                    }
-
-                    ColumnLayout {
-                        Label {
-                            font.bold: true
-                            text: qsTr("Network service unavailable");
-                        }
-
-                        Label {
-                            text: qsTr("Please make sure the \"connman\" service is running.");
-                        }
-
-                        Layout.fillWidth: true
-                    }
-                }
+            FluidUi.Icon {
+                iconName: "computer-fail"
+                width: FluidUi.Units.iconSizes.enormous
+                height: width
             }
 
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+            Label {
+                font.bold: true
+                text: qsTr("Network service unavailable");
+            }
+
+            Label {
+                text: qsTr("Please make sure the \"NetworkManager\" service is running.");
+            }
+
+            Item {
+                Layout.fillHeight: true
+            }
+
+            Layout.alignment: Qt.AlignHCenter
         }
     }
 }
