@@ -13,7 +13,10 @@ macro(hawaii_install_module module srcpath dstpath)
             PATTERN .svn EXCLUDE
             PATTERN CMakeLists.txt EXCLUDE
             PATTERN Messages.sh EXCLUDE
-            PATTERN dummydata EXCLUDE)
+            PATTERN dummydata EXCLUDE
+            PATTERN *.desktop.in EXCLUDE
+            PATTERN resources EXCLUDE
+            PATTERN translations EXCLUDE)
 endmacro()
 
 #
@@ -30,5 +33,8 @@ macro(hawaii_install_shell shell srcpath)
             PATTERN .svn EXCLUDE
             PATTERN CMakeLists.txt EXCLUDE
             PATTERN Messages.sh EXCLUDE
-            PATTERN dummydata EXCLUDE)
+            PATTERN dummydata EXCLUDE
+            PATTERN *.desktop.in EXCLUDE
+            PATTERN resources EXCLUDE
+            PATTERN translations EXCLUDE)
 endmacro()
