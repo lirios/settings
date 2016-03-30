@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Power
+Comment=View your battery status and change power saving settings
+Keywords=Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS;Idle;
+
+
+# Translations
+Comment[pt]=Ver o estado da sua bateria e alterar definições de poupança de energia
+Name[pt]=Energia
