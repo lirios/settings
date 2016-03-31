@@ -77,3 +77,21 @@ make install
 ```
 
 from the build directory.
+
+## Translations
+
+We use Transifex to translate this project, please submit your
+translations [here](https://www.transifex.com/hawaii/system-preferences/dashboard/).
+
+Developers can refresh translations with the `-DUPDATE_TRANSLATIONS` argument to cmake
+and then upload the sources to Transifex with:
+
+```sh
+tx push -s
+```
+
+New translations can be pulled from Transifex with:
+
+```sh
+tx pull -s --minimum-perc=10
+```

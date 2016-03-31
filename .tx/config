@@ -4,59 +4,59 @@ host = https://www.transifex.com
 [system-preferences.shells-desktop]
 type = QT
 source_lang = en
-source_file = translations/shells/desktop/shells-desktop.ts
-file_filter = translations/shells/desktop/shells-desktop_<lang>.ts
+source_file = shells/translations/desktopshell.ts
+file_filter = shells/translations/desktopshell_<lang>.ts
 
 [system-preferences.desktop-file]
 type = DESKTOP
 source_lang = en
-source_file = translations/settings/hawaii-system-preferences.desktop
-file_filter = translations/settings/hawaii-system-preferences_<lang>.desktop
+source_file = settings/hawaii-system-preferences.desktop.in
+file_filter = settings/translations/hawaii-system-preferences_<lang>.desktop
 
 [system-preferences.background-preflet]
 type = QT
 source_lang = en
-source_file = translations/modules/background/background.ts
-file_filter = translations/modules/background/background_<lang>.ts
+source_file = modules/background/translations/background.ts
+file_filter = modules/background/translations/background_<lang>.ts
 
 [system-preferences.background-desktop]
 type = DESKTOP
 source_lang = en
-source_file = translations/modules/background/background.desktop
-file_filter = translations/modules/background/background_<lang>.desktop
+source_file = modules/background/metadata.desktop.in
+file_filter = modules/background/translations/metadata_<lang>.desktop
 
 [system-preferences.display-preflet]
 type = QT
 source_lang = en
-source_file = translations/modules/display/display.ts
-file_filter = translations/modules/display/display_<lang>.ts
+source_file = modules/display/translations/display.ts
+file_filter = modules/display/translations/display_<lang>.ts
 
 [system-preferences.display-desktop]
 type = DESKTOP
 source_lang = en
-source_file = translations/modules/display/display.desktop
-file_filter = translations/modules/display/display_<lang>.desktop
+source_file = modules/display/metadata.desktop.in
+file_filter = modules/display/translations/metadata_<lang>.desktop
 
 [system-preferences.keyboard-preflet]
 type = QT
 source_lang = en
-source_file = translations/modules/keyboard/keyboard.ts
-file_filter = translations/modules/keyboard/keyboard_<lang>.ts
+source_file = modules/keyboard/translations/keyboard.ts
+file_filter = modules/keyboard/translations/keyboard_<lang>.ts
 
 [system-preferences.keyboard-desktop]
 type = DESKTOP
 source_lang = en
-source_file = translations/modules/keyboard/keyboard.desktop
-file_filter = translations/modules/keyboard/keyboard_<lang>.desktop
+source_file = modules/keyboard/metadata.desktop.in
+file_filter = modules/keyboard/translations/metadata_<lang>.desktop
 
 [system-preferences.power-preflet]
 type = QT
 source_lang = en
-source_file = translations/modules/power/power.ts
-file_filter = translations/modules/power/power_<lang>.ts
+source_file = modules/power/translations/power.ts
+file_filter = modules/power/translations/power_<lang>.ts
 
 [system-preferences.power-desktop]
 type = DESKTOP
 source_lang = en
-source_file = translations/modules/power/power.desktop
-file_filter = translations/modules/power/power_<lang>.desktop
+source_file = modules/power/metadata.desktop.in
+file_filter = modules/power/translations/metadata_<lang>.desktop

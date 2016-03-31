@@ -1,11 +1,13 @@
 [Desktop Entry]
-Name=Displays
-Comment=Choose how to use connected monitors and projectors
 Encoding=UTF-8
 Type=Application
+Name=Displays
+Comment=Choose how to use connected monitors and projectors
 Icon=preferences-desktop-display
 TryExec=hawaii-system-preferences
 Exec=hawaii-system-preferences display
 Categories=Qt;X-Hawaii;Settings;HardwareSettings;
 OnlyShowIn=X-Hawaii;
 X-Hawaii-SystemPreferences-Category=hardware
+
+#TRANSLATIONS_DIR=translations
