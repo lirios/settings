@@ -34,6 +34,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -fvisibility-inlines
 find_package(ECM 1.4.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
+# Find libhawaii
+set(REQUIRED_HAWAII_VERSION "0.6.90")
+find_package(Hawaii ${REQUIRED_HAWAII_VERSION} REQUIRED)
+
 # Add custom uninstall target
 if ("${ECM_VERSION}" VERSION_LESS "1.7.0")
     configure_file(
@@ -50,7 +54,7 @@ include(KDECompilerSettings)
 include(KDECMakeSettings)
 
 # Include our macros
-include(HawaiiSystemPreferences)
+include(${CMAKE_SOURCE_DIR}/settings/HawaiiSystemPreferencesMacros.cmake)
 
 # Find Qt5
 set(REQUIRED_QT_VERSION "5.2.0")

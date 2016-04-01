@@ -1,3 +1,24 @@
+include(ECMPackageConfigHelpers)
+include(ECMSetupVersion)
+
+ecm_setup_version(${PROJECT_VERSION} VARIABLE_PREFIX HAWAII_SYSTEM_PREFERENCES
+    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/HawaiiSystemPreferencesConfigVersion.cmake")
+
+set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/HawaiiSystemPreferences")
+
+ecm_configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/HawaiiSystemPreferencesConfig.cmake.in"
+                                  "${CMAKE_CURRENT_BINARY_DIR}/HawaiiSystemPreferencesConfig.cmake"
+                                  INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
+                                  )
+
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/HawaiiSystemPreferencesConfig.cmake"
+              "${CMAKE_CURRENT_BINARY_DIR}/HawaiiSystemPreferencesConfigVersion.cmake"
+              "${CMAKE_CURRENT_SOURCE_DIR}/HawaiiSystemPreferencesMacros.cmake"
+        DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+        COMPONENT Devel)
+
+##############################################################################
+
 include_directories(
     ${POLKITQT-1_INCLUDE_DIR}
     ${CMAKE_SOURCE_DIR}/headers
@@ -20,24 +41,6 @@ set(SOURCES
     pluginmanager.cpp
     xdgdesktopfile.cpp
 )
-
-##############################################################################
-# Translations
-##############################################################################
-set(TS_TEMPLATE ${CMAKE_SOURCE_DIR}/translations/settings/template.ts)
-file(GLOB QM_SOURCES ${CMAKE_SOURCE_DIR}/translations/settings/*.ts)
-list(REMOVE_ITEM QM_SOURCES ${TS_TEMPLATE})
-
-if(REFRESH_TRANSLATIONS)
-    file(GLOB_RECURSE TS_CPP_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
-    file(GLOB_RECURSE TS_QML_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*.qml)
-    set(TS_SOURCES ${TS_CPP_FILES} ${TS_QML_FILES})
-
-    qt5_create_translation(QM_FILES ${TS_SOURCES} ${QM_SOURCES})
-else()
-    qt5_add_translation(QM_FILES ${QM_SOURCES})
-endif()
-##############################################################################
 
 add_executable(hawaii-system-preferences ${SOURCES} ${QM_FILES})
 target_link_libraries(hawaii-system-preferences
