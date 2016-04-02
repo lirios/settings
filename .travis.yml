@@ -24,6 +24,9 @@ before_script:
   - export PATH=`pwd`/.cmake/bin:`pwd`/.qt/5.6/5.6/gcc_64/bin:$PATH
   - export LD_LIBRARY_PATH=`pwd`/.qt/5.6/5.6/gcc_64/lib:$LD_LIBRARY_PATH
   - export CMAKE_PREFIX_PATH=`pwd`/.qt/5.6/5.6/gcc_64/lib/cmake
+  # Setup compilers
+  - export CC=gcc-4.8
+  - export CXX=g++-4.8
   # xvfb for unit tests
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
