@@ -195,6 +195,26 @@ ColumnLayout {
         Layout.fillWidth: true
     }
 
+    GroupBox {
+        id: inputSourcesGroup
+        title: qsTr("Input Sources")
+
+        RowLayout {
+            spacing: FluidUi.Units.smallSpacing
+
+            Switch {
+                id: virtualKeyboardSwitch
+                onCheckedChanged: uiSettings.inputMethod = checked ? "qtvirtualkeyboard" : ""
+            }
+
+            Label {
+                text: qsTr("Virtual Keyboard")
+            }
+        }
+
+        Layout.fillWidth: true
+    }
+
     Item {
         Layout.fillHeight: true
     }
@@ -205,5 +225,6 @@ ColumnLayout {
         inputIntervalSlider.value = inputIntervalSlider.to - keyboardSettings.repeatInterval;
         autoRepeatRateSlider.value = autoRepeatRateSlider.to - keyboardSettings.delay;
         cursorFlashTimeSlider.value = cursorFlashTimeSlider.to - uiSettings.cursorBlinkTime;
+        virtualKeyboardSwitch.checked = uiSettings.inputMethod == "qtvirtualkeyboard"
     }
 }
