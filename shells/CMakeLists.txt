@@ -1,5 +1,5 @@
 add_hawaii_preferences_shell(
-    VENDOR org.hawaiios.systempreferences
+    VENDOR hawaii
     NAME desktopshell
     CONTENTS_DIR desktop
 )

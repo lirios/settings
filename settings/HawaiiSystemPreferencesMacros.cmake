@@ -8,7 +8,6 @@
 # ::
 #
 #   add_hawaii_preflet(VENDOR <vendor>
-#                      DOMAIN <reverse_domain>
 #                      NAME <name>
 #                      CONTENTS_DIR <qml_contents_directory>
 #                      METADATA_TEMPLATE <metadata_desktop>
@@ -19,12 +18,15 @@
 #                      [DESKTOP_FILE_VAR <desktop_file_var>]
 #
 # Install the <qml_contents_directory> directory to the preflet location for
-# the vendor <vendor>, ``<sharedir>/hawaii-system-preferences/<reverse_domain>.<name>``.
+# the vendor <vendor>, ``<sharedir>/hawaii-system-preferences/modules/<vendor>/<name>``.
 #
 # ``add_hawaii_preflet`` creates the ``<name>_translations`` target that will
 # build the .qm files for translations and the metadata.desktop with
 # translated entries from the "translations" directory relative to the
 # sources directory.
+#
+# Translations will be installed into
+# ``<sharedir>/hawaii-system-preferences/translations/modules/<vendor>``.
 #
 # Pass UPDATE_TRANSLATIONS to update the translation template and all
 # translations.
@@ -40,10 +42,13 @@
 #                                [QM_FILES_VAR <qm_files_var>])
 #
 # Installs the <qml_contents_directory> directory to the shells location
-# for the vendor <vendor>, ``<sharedir>/hawaii-system-preferences/<vendor>``.
+# for the vendor <vendor>, ``<sharedir>/hawaii-system-preferences/shells/<vendor>/<name>``.
 #
 # ``add_hawaii_preferences_shell`` creates the ``<name>_translations``
 # target that will build the .qm files for translations.
+#
+# Translations will be installed into
+# ``<sharedir>/hawaii-system-preferences/translations/shells/<vendor>``.
 #
 # Pass UPDATE_TRANSLATIONS to update the translation template and all
 # translations.
@@ -69,7 +74,7 @@ include(CMakeParseArguments)
 function(add_hawaii_preflet)
     # Parse arguments
     set(options UPDATE_TRANSLATIONS)
-    set(oneValueArgs VENDOR DOMAIN NAME METADATA_TEMPLATE CONTENTS_DIR COMPONENT QM_FILES_VAR DESKTOP_FILE_VAR)
+    set(oneValueArgs VENDOR NAME METADATA_TEMPLATE CONTENTS_DIR COMPONENT QM_FILES_VAR DESKTOP_FILE_VAR)
     set(multiValueArgs SOURCES)
     cmake_parse_arguments(ARGS "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
@@ -81,7 +86,8 @@ function(add_hawaii_preflet)
         set(ARGS_COMPONENT "Runtime")
     endif()
 
-    set(install_dir "${DATA_INSTALL_DIR}/hawaii-system-preferences/modules/${ARGS_VENDOR}/${ARGS_DOMAIN}.${ARGS_NAME}")
+    set(install_dir "${DATA_INSTALL_DIR}/hawaii-system-preferences/modules/${ARGS_VENDOR}/${ARGS_NAME}")
+    set(translations_dir "${DATA_INSTALL_DIR}/hawaii-system-preferences/translations/modules/${ARGS_VENDOR}")
 
     install(DIRECTORY ${ARGS_CONTENTS_DIR}/
             DESTINATION ${install_dir}
@@ -105,14 +111,14 @@ function(add_hawaii_preflet)
         hawaii_translate_ts(qm_files
                             SOURCES ${ARGS_CONTENTS_DIR} ${ARGS_SOURCES}
                             TEMPLATE ${ARGS_NAME}
-                            INSTALL_DIR ${install_dir}/i18n
+                            INSTALL_DIR ${translations_dir}
                             UPDATE_TRANSLATIONS
                             COMPONENT "${ARGS_COMPONENT}")
     else()
         hawaii_translate_ts(qm_files
                             SOURCES ${ARGS_CONTENTS_DIR} ${ARGS_SOURCES}
                             TEMPLATE ${ARGS_NAME}
-                            INSTALL_DIR ${install_dir}/i18n
+                            INSTALL_DIR ${translations_dir}
                             COMPONENT "${ARGS_COMPONENT}")
     endif()
 
@@ -143,7 +149,8 @@ function(add_hawaii_preferences_shell)
         set(ARGS_COMPONENT "Runtime")
     endif()
 
-    set(install_dir "${DATA_INSTALL_DIR}/hawaii-system-preferences/shells/${ARGS_VENDOR}")
+    set(install_dir "${DATA_INSTALL_DIR}/hawaii-system-preferences/shells/${ARGS_VENDOR}/${ARGS_NAME}")
+    set(translations_dir "${DATA_INSTALL_DIR}/hawaii-system-preferences/translations/shells/${ARGS_VENDOR}/${ARGS_NAME}")
 
     install(DIRECTORY ${ARGS_CONTENTS_DIR}/
             DESTINATION ${install_dir}
@@ -160,14 +167,14 @@ function(add_hawaii_preferences_shell)
         hawaii_translate_ts(qm_files
                             SOURCES ${ARGS_CONTENTS_DIR} ${ARGS_SOURCES}
                             TEMPLATE ${ARGS_NAME}
-                            INSTALL_DIR ${install_dir}/i18n
+                            INSTALL_DIR ${translations_dir}
                             UPDATE_TRANSLATIONS
                             COMPONENT "${ARGS_COMPONENT}")
     else()
         hawaii_translate_ts(qm_files
                             SOURCES ${ARGS_CONTENTS_DIR} ${ARGS_SOURCES}
                             TEMPLATE ${ARGS_NAME}
-                            INSTALL_DIR ${install_dir}/i18n
+                            INSTALL_DIR ${translations_dir}
                             COMPONENT "${ARGS_COMPONENT}")
     endif()
 

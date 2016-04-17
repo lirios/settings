@@ -10,7 +10,6 @@ set(FILES
 
 add_hawaii_preflet(
     VENDOR hawaii
-    DOMAIN org.hawaiios.systempreferences
     NAME background
     CONTENTS_DIR contents
     METADATA_TEMPLATE metadata.desktop.in

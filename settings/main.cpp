@@ -72,9 +72,11 @@ int main(int argc, char *argv[])
     //qmlRegisterType<PrefletsProxyModel>("org.hawaiios.systempreferences", 0, 1, "PrefletsProxyModel");
 
     // Find plugin
-    const QString plugin = QLatin1String("org.hawaiios.systempreferences");
+    const QString vendor = QLatin1String("hawaii");
+    const QString plugin = QLatin1String("desktopshell");
+    const QString path = QLatin1String("hawaii-system-preferences/shells/%1/%2/main.qml");
     QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
-                                              QStringLiteral("hawaii-system-preferences/shells/%1/main.qml").arg(plugin));
+                                              path.arg(vendor, plugin));
     if (fileName.isEmpty()) {
         qCWarning(PREFERENCES) << "Failed to find" << plugin << "plugin, aborting...";
         return 1;
