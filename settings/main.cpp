@@ -43,10 +43,10 @@ int main(int argc, char *argv[])
 {
     // Setup application
     QGuiApplication app(argc, argv);
-    app.setApplicationName("System Preferences");
-    app.setApplicationVersion(SYSTEMPREFERENCES_VERSION_STRING);
-    app.setOrganizationDomain("hawaii.org");
-    app.setOrganizationName("Hawaii");
+    app.setApplicationName(QLatin1String("System Preferences"));
+    app.setApplicationVersion(QLatin1String(SYSTEMPREFERENCES_VERSION_STRING));
+    app.setOrganizationDomain(QLatin1String("hawaii.org"));
+    app.setOrganizationName(QLatin1String("Hawaii"));
 
     // Register types
     qmlRegisterType<Plugin>();
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
     //qmlRegisterType<PrefletsProxyModel>("org.hawaiios.systempreferences", 0, 1, "PrefletsProxyModel");
 
     // Find plugin
-    const QString plugin = QStringLiteral("org.hawaiios.systempreferences");
+    const QString plugin = QLatin1String("org.hawaiios.systempreferences");
     QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
                                               QStringLiteral("hawaii-system-preferences/shells/%1/main.qml").arg(plugin));
     if (fileName.isEmpty()) {
