@@ -3,18 +3,18 @@
     <name>ColorButton</name>
     <message>
         <source>Choose a color</source>
-        <translation type="unfinished"/>
+        <translation>Vyberte barvu</translation>
     </message>
 </context>
 <context>
     <name>GradientPage</name>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished"/>
+        <translation>Vodorovně</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished"/>
+        <translation>Svisle</translation>
     </message>
 </context>
 <context>
@@ -25,14 +25,14 @@
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Uzamknutí obrazovky</translation>
     </message>
 </context>
 <context>
     <name>Selector</name>
     <message>
         <source>Pick a background</source>
-        <translation type="unfinished"/>
+        <translation>Vyberte pozadí</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -51,7 +51,7 @@
     </message>
     <message>
         <source>Solid</source>
-        <translation type="unfinished"/>
+        <translation>Jedna</translation>
     </message>
     <message>
         <source>Gradient</source>
@@ -59,7 +59,7 @@
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"/>
+        <translation>Typ:</translation>
     </message>
 </context>
 <context>
@@ -86,11 +86,11 @@
     </message>
     <message>
         <source>Tiled Vertically</source>
-        <translation type="unfinished"/>
+        <translation>Dlážděno svisle</translation>
     </message>
     <message>
         <source>Tiled Horizontally</source>
-        <translation type="unfinished"/>
+        <translation>Dlážděno vodorovně</translation>
     </message>
     <message>
         <source>Centered</source>

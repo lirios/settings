@@ -3,11 +3,11 @@
     <name>AddDialog</name>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"/>
+        <translation>Disposició:</translation>
     </message>
     <message>
         <source>Variant:</source>
-        <translation type="unfinished"/>
+        <translation>Variant:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>D&apos;acord</translation>
     </message>
 </context>
 <context>
@@ -29,11 +29,11 @@
     <name>LayoutPage</name>
     <message>
         <source>Keyboard model:</source>
-        <translation type="unfinished"/>
+        <translation>Model del teclat:</translation>
     </message>
     <message>
         <source>Type to test the layout...</source>
-        <translation type="unfinished"/>
+        <translation>Escriviu per provar-ne la disposició...</translation>
     </message>
 </context>
 <context>
@@ -44,11 +44,11 @@
     </message>
     <message>
         <source>Behavior</source>
-        <translation type="unfinished"/>
+        <translation>Comportament</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Disposició</translation>
     </message>
 </context>
 <context>
@@ -87,7 +87,7 @@
     </message>
     <message>
         <source>Timeout:</source>
-        <translation type="unfinished"/>
+        <translation>Temps d&apos;espera:</translation>
     </message>
 </context>
 </TS>

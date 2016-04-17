@@ -3,11 +3,11 @@
     <name>AddDialog</name>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"/>
+        <translation>Mappa:</translation>
     </message>
     <message>
         <source>Variant:</source>
-        <translation type="unfinished"/>
+        <translation>Variante:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -29,11 +29,11 @@
     <name>LayoutPage</name>
     <message>
         <source>Keyboard model:</source>
-        <translation type="unfinished"/>
+        <translation>Modello:</translation>
     </message>
     <message>
         <source>Type to test the layout...</source>
-        <translation type="unfinished"/>
+        <translation>Scrivi per testare la mappa...</translation>
     </message>
 </context>
 <context>
@@ -44,11 +44,11 @@
     </message>
     <message>
         <source>Behavior</source>
-        <translation type="unfinished"/>
+        <translation>Comportamento</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Mappa</translation>
     </message>
 </context>
 <context>

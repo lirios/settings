@@ -3,18 +3,18 @@
     <name>ColorButton</name>
     <message>
         <source>Choose a color</source>
-        <translation type="unfinished"/>
+        <translation>Trieu un color</translation>
     </message>
 </context>
 <context>
     <name>GradientPage</name>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished"/>
+        <translation>Horitzontal</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished"/>
+        <translation>Vertical</translation>
     </message>
 </context>
 <context>
@@ -32,7 +32,7 @@
     <name>Selector</name>
     <message>
         <source>Pick a background</source>
-        <translation type="unfinished"/>
+        <translation>Trieu un fons</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -47,15 +47,15 @@
     <name>SelectorDialog</name>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Fons</translation>
     </message>
     <message>
         <source>Solid</source>
-        <translation type="unfinished"/>
+        <translation>Sòlid</translation>
     </message>
     <message>
         <source>Gradient</source>
-        <translation type="unfinished"/>
+        <translation>Degradat</translation>
     </message>
     <message>
         <source>Type:</source>
@@ -86,11 +86,11 @@
     </message>
     <message>
         <source>Tiled Vertically</source>
-        <translation type="unfinished"/>
+        <translation>Mosaic vertical</translation>
     </message>
     <message>
         <source>Tiled Horizontally</source>
-        <translation type="unfinished"/>
+        <translation>Mosaic horitzontal</translation>
     </message>
     <message>
         <source>Centered</source>

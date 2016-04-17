@@ -3,18 +3,18 @@
     <name>ColorButton</name>
     <message>
         <source>Choose a color</source>
-        <translation type="unfinished"/>
+        <translation>Izaberi boju</translation>
     </message>
 </context>
 <context>
     <name>GradientPage</name>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished"/>
+        <translation>Vodoravno</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished"/>
+        <translation>Okomito</translation>
     </message>
 </context>
 <context>
@@ -32,7 +32,7 @@
     <name>Selector</name>
     <message>
         <source>Pick a background</source>
-        <translation type="unfinished"/>
+        <translation>Izaberi pozadinu</translation>
     </message>
     <message>
         <source>Cancel</source>

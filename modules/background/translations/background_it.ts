@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Blocco Schermo</translation>
     </message>
 </context>
 <context>
@@ -70,7 +70,7 @@
     </message>
     <message>
         <source>Stretched</source>
-        <translation type="unfinished"/>
+        <translation>Ridimensionata</translation>
     </message>
     <message>
         <source>Scaled</source>

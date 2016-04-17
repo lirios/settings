@@ -3,11 +3,11 @@
     <name>AddDialog</name>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"/>
+        <translation>Rozložení:</translation>
     </message>
     <message>
         <source>Variant:</source>
-        <translation type="unfinished"/>
+        <translation>Varianta:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -29,11 +29,11 @@
     <name>LayoutPage</name>
     <message>
         <source>Keyboard model:</source>
-        <translation type="unfinished"/>
+        <translation>Model klávesnice:</translation>
     </message>
     <message>
         <source>Type to test the layout...</source>
-        <translation type="unfinished"/>
+        <translation>Pište pro vyzkoušení rozložení...</translation>
     </message>
 </context>
 <context>
@@ -44,11 +44,11 @@
     </message>
     <message>
         <source>Behavior</source>
-        <translation type="unfinished"/>
+        <translation>Chování</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Rozložení</translation>
     </message>
 </context>
 <context>
@@ -87,7 +87,7 @@
     </message>
     <message>
         <source>Timeout:</source>
-        <translation type="unfinished"/>
+        <translation>Časové omezení:</translation>
     </message>
 </context>
 </TS>

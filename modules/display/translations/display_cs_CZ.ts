@@ -9,12 +9,12 @@
     <message>
         <location filename="../../../modules/display/contents/Preflet.qml" line="102"/>
         <source>Primary</source>
-        <translation type="unfinished"/>
+        <translation>Hlavní</translation>
     </message>
     <message>
         <location filename="../../../modules/display/contents/Preflet.qml" line="103"/>
         <source>Secondary</source>
-        <translation type="unfinished"/>
+        <translation>Vedlejší</translation>
     </message>
 </context>
 <context>
@@ -27,17 +27,17 @@
     <message>
         <location filename="../../../modules/display/contents/Preflet.qml" line="164"/>
         <source>Aspect Ratio</source>
-        <translation type="unfinished"/>
+        <translation>Poměr stran</translation>
     </message>
     <message>
         <location filename="../../../modules/display/contents/Preflet.qml" line="178"/>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>Rozlišení</translation>
     </message>
     <message>
         <location filename="../../../modules/display/contents/Preflet.qml" line="236"/>
         <source>Arrange Combined Displays</source>
-        <translation type="unfinished"/>
+        <translation>Uspořádat sdružené obrazovky</translation>
     </message>
 </context>
 </TS>

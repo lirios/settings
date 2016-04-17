@@ -9,12 +9,12 @@
     <message>
         <location filename="../../../modules/display/contents/Preflet.qml" line="102"/>
         <source>Primary</source>
-        <translation type="unfinished"/>
+        <translation>Primària</translation>
     </message>
     <message>
         <location filename="../../../modules/display/contents/Preflet.qml" line="103"/>
         <source>Secondary</source>
-        <translation type="unfinished"/>
+        <translation>Secundària</translation>
     </message>
 </context>
 <context>
@@ -27,17 +27,17 @@
     <message>
         <location filename="../../../modules/display/contents/Preflet.qml" line="164"/>
         <source>Aspect Ratio</source>
-        <translation type="unfinished"/>
+        <translation>Relació d&apos;aspecte</translation>
     </message>
     <message>
         <location filename="../../../modules/display/contents/Preflet.qml" line="178"/>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>Resolució</translation>
     </message>
     <message>
         <location filename="../../../modules/display/contents/Preflet.qml" line="236"/>
         <source>Arrange Combined Displays</source>
-        <translation type="unfinished"/>
+        <translation>Disposició de les pantalles combinades</translation>
     </message>
 </context>
 </TS>

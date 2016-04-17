@@ -10,11 +10,11 @@
     <name>GradientPage</name>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished"/>
+        <translation>Горизонтально</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished"/>
+        <translation>Вертикально</translation>
     </message>
 </context>
 <context>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Экран блокировки</translation>
     </message>
 </context>
 <context>
@@ -51,11 +51,11 @@
     </message>
     <message>
         <source>Solid</source>
-        <translation type="unfinished"/>
+        <translation>Сплошной</translation>
     </message>
     <message>
         <source>Gradient</source>
-        <translation type="unfinished"/>
+        <translation>Градиент</translation>
     </message>
     <message>
         <source>Type:</source>
@@ -86,11 +86,11 @@
     </message>
     <message>
         <source>Tiled Vertically</source>
-        <translation type="unfinished"/>
+        <translation>Замостить по вертикали</translation>
     </message>
     <message>
         <source>Tiled Horizontally</source>
-        <translation type="unfinished"/>
+        <translation>Замостить по горизонтали</translation>
     </message>
     <message>
         <source>Centered</source>

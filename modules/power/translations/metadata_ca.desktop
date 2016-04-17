@@ -5,4 +5,5 @@ Keywords=Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS
 
 
 # Translations
+Comment[ca]=Vegeu l'estat de la bateria i canvieu els paràmetres d'estalvi d'energia
 Name[ca]=Energia

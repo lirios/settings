@@ -3,18 +3,18 @@
     <name>ColorButton</name>
     <message>
         <source>Choose a color</source>
-        <translation type="unfinished"/>
+        <translation>Wählen Sie eine Farbe aus</translation>
     </message>
 </context>
 <context>
     <name>GradientPage</name>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished"/>
+        <translation>Horizontal</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished"/>
+        <translation>Vertikal</translation>
     </message>
 </context>
 <context>
@@ -25,14 +25,14 @@
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirmsperre</translation>
     </message>
 </context>
 <context>
     <name>Selector</name>
     <message>
         <source>Pick a background</source>
-        <translation type="unfinished"/>
+        <translation>Wählen Sie einen Hintergrund aus</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -59,7 +59,7 @@
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"/>
+        <translation>Typ:</translation>
     </message>
 </context>
 <context>
@@ -86,11 +86,11 @@
     </message>
     <message>
         <source>Tiled Vertically</source>
-        <translation type="unfinished"/>
+        <translation>Vertikal gekachelt</translation>
     </message>
     <message>
         <source>Tiled Horizontally</source>
-        <translation type="unfinished"/>
+        <translation>Horizontal gekachelt</translation>
     </message>
     <message>
         <source>Centered</source>

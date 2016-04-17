@@ -3,19 +3,19 @@
     <name>AddDialog</name>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"/>
+        <translation>Išdėstymas:</translation>
     </message>
     <message>
         <source>Variant:</source>
-        <translation type="unfinished"/>
+        <translation>Variantas:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Atšaukti</translation>
+        <translation>Atsisakyti</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>Gerai</translation>
     </message>
 </context>
 <context>
@@ -29,33 +29,33 @@
     <name>LayoutPage</name>
     <message>
         <source>Keyboard model:</source>
-        <translation type="unfinished"/>
+        <translation>Klaviatūros modelis:</translation>
     </message>
     <message>
         <source>Type to test the layout...</source>
-        <translation type="unfinished"/>
+        <translation>Rašykite, kad išbandytumėte išdėstymą...</translation>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Trumpiniai</translation>
     </message>
     <message>
         <source>Behavior</source>
-        <translation type="unfinished"/>
+        <translation>Elgsena</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Išdėstymas</translation>
     </message>
 </context>
 <context>
     <name>TypingPage</name>
     <message>
         <source>Repeat Keys</source>
-        <translation type="unfinished"/>
+        <translation>Kartoti klavišus</translation>
     </message>
     <message>
         <source>Delay:</source>
@@ -63,11 +63,11 @@
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>Trumpai</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>Ilgai</translation>
     </message>
     <message>
         <source>Speed:</source>
@@ -83,7 +83,7 @@
     </message>
     <message>
         <source>Cursor Blinking</source>
-        <translation>Žymeklio Mirksėjimas</translation>
+        <translation>Žymeklio mirksėjimas</translation>
     </message>
     <message>
         <source>Timeout:</source>

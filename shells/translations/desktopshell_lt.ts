@@ -3,7 +3,7 @@
     <name>main</name>
     <message>
         <source>System Preferences</source>
-        <translation>Sistemos Nuostatos</translation>
+        <translation>Sistemos nuostatos</translation>
     </message>
     <message>
         <source>Keywords</source>
@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>Hardware</source>
-        <translation>Aparatinė Įranga</translation>
+        <translation>Aparatinė įranga</translation>
     </message>
     <message>
         <source>System</source>
