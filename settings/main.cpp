@@ -24,6 +24,7 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include <QtCore/QDir>
 #include <QtCore/QFileInfo>
 #include <QtCore/QLoggingCategory>
 #include <QtCore/QStandardPaths>
@@ -81,6 +82,41 @@ static void loadShellTranslations(const QString &vendor, const QString &name)
 #endif
 }
 
+static void loadModuleTranslations(const QString &vendor)
+{
+#ifndef QT_NO_TRANSLATION
+    QString locale = QLocale::system().name();
+
+    // Load translations of each module
+    const QString rootDir = QLatin1String("hawaii-system-preferences/modules/%1");
+    const QString modulesPath =
+            QStandardPaths::locate(QStandardPaths::GenericDataLocation,
+                                   rootDir.arg(vendor),
+                                   QStandardPaths::LocateDirectory);
+    QDir modulesDir(modulesPath);
+    Q_FOREACH (const QFileInfo &info, modulesDir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot)) {
+        const QString name = info.fileName();
+
+        // Find the translations directory
+        const QString path = QLatin1String("hawaii-system-preferences/translations/modules/%1");
+        const QString translationsDir =
+            QStandardPaths::locate(QStandardPaths::GenericDataLocation,
+                                   path.arg(vendor),
+                                   QStandardPaths::LocateDirectory);
+
+        // Load shell translations
+        QTranslator *appTranslator = new QTranslator(qGuiApp);
+        if (appTranslator->load(QStringLiteral("%1/%2_%3").arg(translationsDir, name, locale))) {
+            QCoreApplication::installTranslator(appTranslator);
+        } else if (locale == QLatin1String("C") ||
+                    locale.startsWith(QLatin1String("en"))) {
+            // English is the default, it's translated anyway
+            delete appTranslator;
+        }
+    }
+#endif
+}
+
 int main(int argc, char *argv[])
 {
     // Setup application
@@ -109,6 +145,7 @@ int main(int argc, char *argv[])
     // Load translations
     loadQtTranslations();
     loadShellTranslations(vendor, plugin);
+    loadModuleTranslations(vendor);
 
     // Setup QML engine and show the main window
     qCDebug(PREFERENCES) << "Loading:" << fileName;
