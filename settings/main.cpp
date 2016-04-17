@@ -48,11 +48,35 @@ static void loadQtTranslations()
     QString locale = QLocale::system().name();
 
     // Load Qt translations
-    QTranslator *qtTranslator = new QTranslator(qApp);
+    QTranslator *qtTranslator = new QTranslator(qGuiApp);
     if (qtTranslator->load(QStringLiteral("qt_%1").arg(locale), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
         qApp->installTranslator(qtTranslator);
     } else {
         delete qtTranslator;
+    }
+#endif
+}
+
+static void loadShellTranslations(const QString &vendor, const QString &name)
+{
+#ifndef QT_NO_TRANSLATION
+    QString locale = QLocale::system().name();
+
+    // Find the translations directory
+    const QString path = QLatin1String("hawaii-system-preferences/translations/shells/%1/%2");
+    const QString translationsDir =
+        QStandardPaths::locate(QStandardPaths::GenericDataLocation,
+                               path.arg(vendor, name),
+                               QStandardPaths::LocateDirectory);
+
+    // Load shell translations
+    QTranslator *appTranslator = new QTranslator(qGuiApp);
+    if (appTranslator->load(QStringLiteral("%1/%2_%3").arg(translationsDir, name, locale))) {
+        QCoreApplication::installTranslator(appTranslator);
+    } else if (locale == QLatin1String("C") ||
+                locale.startsWith(QLatin1String("en"))) {
+        // English is the default, it's translated anyway
+        delete appTranslator;
     }
 #endif
 }
@@ -84,6 +108,7 @@ int main(int argc, char *argv[])
 
     // Load translations
     loadQtTranslations();
+    loadShellTranslations(vendor, plugin);
 
     // Setup QML engine and show the main window
     qCDebug(PREFERENCES) << "Loading:" << fileName;
