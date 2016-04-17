@@ -99,25 +99,25 @@ QString Plugin::name() const
 QString Plugin::title() const
 {
     Q_D(const Plugin);
-    return d->entry->value(QStringLiteral("Name")).toString();
+    return d->entry->localizedValue(QStringLiteral("Name")).toString();
 }
 
 QString Plugin::comment() const
 {
     Q_D(const Plugin);
-    return d->entry->value(QStringLiteral("Comment")).toString();
+    return d->entry->localizedValue(QStringLiteral("Comment")).toString();
 }
 
 QString Plugin::iconName() const
 {
     Q_D(const Plugin);
-    return d->entry->value(QStringLiteral("Icon")).toString();
+    return d->entry->localizedValue(QStringLiteral("Icon")).toString();
 }
 
 QStringList Plugin::keywords() const
 {
     Q_D(const Plugin);
-    return d->entry->value(QStringLiteral("Keywords")).toStringList();
+    return d->entry->localizedValue(QStringLiteral("Keywords")).toStringList();
 }
 
 QUrl Plugin::mainScript() const
