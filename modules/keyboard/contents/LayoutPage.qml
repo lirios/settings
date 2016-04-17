@@ -28,7 +28,7 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.0
 import Qt.labs.controls 1.0
 import Fluid.Ui 1.0 as FluidUi
-import org.hawaiios.settings 0.2
+import Hawaii.GSettings 1.0
 import org.hawaiios.systempreferences.keyboard 1.0
 
 ColumnLayout {
