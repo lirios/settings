@@ -1,0 +1,18 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Network
+Comment=Control how you connect to the Internet
+Keywords=network;ethernet;wifi;wired;wireless;
+Icon=preferences-system-network
+Categories=Qt;X-Hawaii;Settings;
+OnlyShowIn=X-Hawaii;
+X-Hawaii-SystemPreferences-Category=hardware
+
+#TRANSLATIONS_DIR=translations
+
+
+# Translations
+Comment[fr]=Contrôlez votre façon de vous connecter à Internet
+Name[fr]=Réseau
+Icon[fr]=preferences-system-network

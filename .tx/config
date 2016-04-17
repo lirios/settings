@@ -60,3 +60,15 @@ type = DESKTOP
 source_lang = en
 source_file = modules/power/metadata.desktop.in
 file_filter = modules/power/translations/metadata_<lang>.desktop
+
+[system-preferences.network-preflet]
+type = QT
+source_lang = en
+source_file = modules/network/translations/network.ts
+file_filter = modules/network/translations/network_<lang>.ts
+
+[system-preferences.network-desktop]
+type = DESKTOP
+source_lang = en
+source_file = modules/network/metadata.desktop.in
+file_filter = modules/network/translations/metadata_<lang>.desktop

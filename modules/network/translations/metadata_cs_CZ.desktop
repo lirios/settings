@@ -1,0 +1,18 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Network
+Comment=Control how you connect to the Internet
+Keywords=network;ethernet;wifi;wired;wireless;
+Icon=preferences-system-network
+Categories=Qt;X-Hawaii;Settings;
+OnlyShowIn=X-Hawaii;
+X-Hawaii-SystemPreferences-Category=hardware
+
+#TRANSLATIONS_DIR=translations
+
+
+# Translations
+Comment[cs_CZ]=Řiďte způsob, jakým se připojujete k internetu
+Name[cs_CZ]=Síť
+Icon[cs_CZ]=Nastavení-sítě
