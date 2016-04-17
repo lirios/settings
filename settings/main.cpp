@@ -24,8 +24,11 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include <QtCore/QFileInfo>
 #include <QtCore/QLoggingCategory>
 #include <QtCore/QStandardPaths>
+#include <QtCore/QTranslator>
+#include <QtCore/QLibraryInfo>
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QQmlContext>
@@ -38,6 +41,21 @@
 
 Q_DECLARE_LOGGING_CATEGORY(PREFERENCES)
 Q_LOGGING_CATEGORY(PREFERENCES, "hawaii.systempreferences")
+
+static void loadQtTranslations()
+{
+#ifndef QT_NO_TRANSLATION
+    QString locale = QLocale::system().name();
+
+    // Load Qt translations
+    QTranslator *qtTranslator = new QTranslator(qApp);
+    if (qtTranslator->load(QStringLiteral("qt_%1").arg(locale), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
+        qApp->installTranslator(qtTranslator);
+    } else {
+        delete qtTranslator;
+    }
+#endif
+}
 
 int main(int argc, char *argv[])
 {
@@ -61,6 +79,9 @@ int main(int argc, char *argv[])
         qCWarning(PREFERENCES) << "Failed to find" << plugin << "plugin, aborting...";
         return 1;
     }
+
+    // Load translations
+    loadQtTranslations();
 
     // Setup QML engine and show the main window
     qCDebug(PREFERENCES) << "Loading:" << fileName;
