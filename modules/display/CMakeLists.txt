@@ -1,6 +1,7 @@
 set(SOURCES
     outputsmodel.cpp
     plugin.cpp
+    waylandconfig.cpp
 )
 
 set(FILES
@@ -19,7 +20,7 @@ add_hawaii_preflet(
 )
 
 add_library(displayplugin SHARED ${SOURCES})
-target_link_libraries(displayplugin Qt5::Qml Qt5::Quick KF5::Screen)
+target_link_libraries(displayplugin Qt5::Qml Qt5::Quick GreenIsland::Client)
 
 install(TARGETS displayplugin LIBRARY
         DESTINATION ${QML_INSTALL_DIR}/org/hawaiios/systempreferences/display)

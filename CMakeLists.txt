@@ -69,8 +69,9 @@ find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED COMPONENTS
 # Find PolicyKit wrapper for Qt
 find_package(PolkitQt5-1 "0.103.0" REQUIRED)
 
-# Find KScreen
-find_package(KF5Screen "5.2.0")
+# Find Green Island
+set(REQUIRED_GREENISLAND_VERSION "0.7.90")
+find_package(GreenIsland ${REQUIRED_GREENISLAND_VERSION} REQUIRED COMPONENTS Client)
 
 # Subdirectories
 add_subdirectory(data)

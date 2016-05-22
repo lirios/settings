@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of Hawaii.
  *
- * Copyright (C) 2015-2016 Pier Luigi Fiorini
+ * Copyright (C) 2016 Pier Luigi Fiorini
  *
  * Author(s):
  *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
@@ -24,63 +24,55 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef OUTPUTSMODEL_H
-#define OUTPUTSMODEL_H
+#ifndef WAYLANDCONFIG_H
+#define WAYLANDCONFIG_H
 
-#include <QtCore/QAbstractItemModel>
+#include <QtCore/QObject>
+#include <QtCore/QThread>
+#include <QtCore/QVector>
 
-#include "waylandconfig.h"
+#include <GreenIsland/Client/ClientConnection>
+#include <GreenIsland/Client/Registry>
+#include <GreenIsland/Client/Output>
+#include <GreenIsland/Client/OutputManagement>
 
-class OutputsModel : public QAbstractListModel
+using namespace GreenIsland::Client;
+
+struct WaylandOutput {
+    quint32 name;
+    Output *output;
+};
+
+class WaylandConfig : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool configurationEnabled READ isConfigurationEnabled NOTIFY configurationEnabledChanged)
 public:
-    enum Roles {
-        NameRole = Qt::UserRole + 1,
-        NumberRole,
-        ManufacturerRole,
-        ModelRole,
-        PrimaryRole,
-        EnabledRole,
-        AspectRatioRole,
-        AspectRatioStringRole,
-        PositionRole,
-        DiagonalSizeRole,
-        ResolutionRole,
-        CurrentModeRole,
-        ModesRole,
-        TransformRole
-    };
-    Q_ENUM(Roles)
-
-    enum Transform {
-        TransformNormal = 0,
-        Transform90,
-        Transform180,
-        Transform270
-    };
-    Q_ENUM(Transform)
-
-    OutputsModel(QObject *parent = 0);
-    ~OutputsModel();
+    explicit WaylandConfig(QObject *parent = Q_NULLPTR);
+    ~WaylandConfig();
 
     bool isConfigurationEnabled() const;
 
-    QHash<int, QByteArray> roleNames() const;
-
-    int rowCount(const QModelIndex &parent = QModelIndex()) const;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
-
-    Q_INVOKABLE void applyConfiguration(int outputNumber, int modeId, const Transform &transform);
+    OutputManagement *outputManagement() const;
 
 Q_SIGNALS:
-    void error(const QString &msg);
+    void outputAdded(Output *output);
+    void outputRemoved(Output *output);
     void configurationEnabledChanged(bool value);
 
 private:
-    WaylandConfig *m_config;
-    QVector<Output *> m_list;
+    ClientConnection *m_connection;
+    Registry *m_registry;
+    QThread *m_thread;
+    QVector<WaylandOutput> m_outputs;
+    OutputManagement *m_management;
+
+private Q_SLOTS:
+    void interfacesAnnounced();
+    void waylandOutputAnnounced(quint32 name, quint32 version);
+    void waylandOutputRemoved(quint32 name);
+    void outputManagementAnnounced(quint32 name, quint32 version);
+    void outputManagementRemoved(quint32 name);
 };
 
-#endif // OUTPUTSMODEL_H
+#endif // WAYLANDCONFIG_H

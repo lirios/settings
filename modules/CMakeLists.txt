@@ -1,7 +1,5 @@
 add_subdirectory(background)
-if(KF5Screen_FOUND)
-    add_subdirectory(display)
-endif()
+add_subdirectory(display)
 add_subdirectory(keyboard)
 add_subdirectory(network)
 add_subdirectory(power)

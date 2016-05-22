@@ -25,13 +25,13 @@
  ***************************************************************************/
 
 #include <QtMath>
+#include <QtCore/QCoreApplication>
 
-#include <KScreen/ConfigMonitor>
-#include <KScreen/EDID>
-#include <KScreen/GetConfigOperation>
-#include <KScreen/Output>
+#include <GreenIsland/Client/OutputConfiguration>
 
 #include "outputsmodel.h"
+
+#define TR QCoreApplication::translate
 
 static const qreal knownDiagonals[] = {
     12.1,
@@ -95,17 +95,21 @@ static QString aspectRatioString(const QSize &size)
     return QString();
 }
 
-static QVariantList modesList(const KScreen::ModeList &list)
+static QVariantList modesList(const QList<Output::Mode> &list)
 {
     QVariantList result;
-    return result;
 
-    Q_FOREACH (const KScreen::ModePtr &mode, list) {
+    int i = 0;
+    Q_FOREACH (const Output::Mode &mode, list) {
         QVariantMap map;
-        map.insert(QStringLiteral("name"), mode->name());
-        map.insert(QStringLiteral("id"), mode->id());
-        map.insert(QStringLiteral("size"), mode->size());
-        map.insert(QStringLiteral("refreshRate"), mode->refreshRate());
+        map.insert(QStringLiteral("name"),
+                   TR("OutputsModel", "%1 × %2 (%3)", "Resolution combo box").arg(
+                       QString::number(mode.size.width()),
+                       QString::number(mode.size.height()),
+                       aspectRatioString(mode.size)));
+        map.insert(QStringLiteral("id"), i++);
+        map.insert(QStringLiteral("size"), mode.size);
+        map.insert(QStringLiteral("refreshRate"), mode.refreshRate);
         result.append(map);
     }
 
@@ -114,64 +118,54 @@ static QVariantList modesList(const KScreen::ModeList &list)
 
 OutputsModel::OutputsModel(QObject *parent)
     : QAbstractListModel(parent)
-    , m_config(Q_NULLPTR)
+    , m_config(new WaylandConfig(this))
 {
-    connect(new KScreen::GetConfigOperation, &KScreen::GetConfigOperation::finished,
-            this, [this](KScreen::ConfigOperation *op) {
-        // Handle errors
-        if (op->hasError()) {
-            Q_EMIT error(op->errorString());
-            return;
-        }
-
-        // Acquire configuration
-        m_config = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
-
-        // Clear and add the new monitor configuration
-        beginResetModel();
-        m_list.clear();
-        KScreen::ConfigMonitor::instance()->addConfig(m_config);
-        Q_FOREACH (const KScreen::OutputPtr &output, m_config->outputs()) {
-            if (output->isEnabled())
-                m_list.append(output);
-        }
-        endResetModel();
+    connect(m_config, &WaylandConfig::configurationEnabledChanged,
+            this, &OutputsModel::configurationEnabledChanged);
+    connect(m_config, &WaylandConfig::outputAdded, this, [this](Output *output) {
+        beginInsertRows(QModelIndex(), m_list.size(), m_list.size());
+        m_list.append(output);
+        endInsertRows();
+    });
+    connect(m_config, &WaylandConfig::outputRemoved, this, [this](Output *output) {
+        beginRemoveRows(QModelIndex(), m_list.size(), m_list.size());
+        m_list.removeOne(output);
+        endRemoveRows();
     });
 }
 
 OutputsModel::~OutputsModel()
 {
-    disconnect(m_config.data());
-    KScreen::ConfigMonitor::instance()->removeConfig(m_config);
+}
+
+bool OutputsModel::isConfigurationEnabled() const
+{
+    return m_config->isConfigurationEnabled();
 }
 
 QHash<int, QByteArray> OutputsModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles.insert(NameRole, QByteArray("name"));
-    roles.insert(NumberRole, QByteArray("number"));
-    roles.insert(DeviceIdRole, QByteArray("deviceId"));
-    roles.insert(VendorRole, QByteArray("vendor"));
-    roles.insert(ModelRole, QByteArray("model"));
-    roles.insert(SerialRole, QByteArray("serial"));
-    roles.insert(PrimaryRole, QByteArray("primary"));
-    roles.insert(ConnectedRole, QByteArray("connected"));
-    roles.insert(EnabledRole, QByteArray("enabled"));
-    roles.insert(AspectRatioRole, QByteArray("aspectRatio"));
-    roles.insert(AspectRatioStringRole, QByteArray("aspectRatioString"));
-    roles.insert(PositionRole, QByteArray("position"));
-    roles.insert(DiagonalSizeRole, QByteArray("diagonalSize"));
-    roles.insert(ResolutionRole, QByteArray("resolution"));
-    roles.insert(ModesRole, QByteArray("modes"));
+    roles.insert(NameRole, QByteArrayLiteral("name"));
+    roles.insert(NumberRole, QByteArrayLiteral("number"));
+    roles.insert(ManufacturerRole, QByteArrayLiteral("manufacturer"));
+    roles.insert(ModelRole, QByteArrayLiteral("model"));
+    roles.insert(PrimaryRole, QByteArrayLiteral("primary"));
+    roles.insert(EnabledRole, QByteArrayLiteral("enabled"));
+    roles.insert(AspectRatioRole, QByteArrayLiteral("aspectRatio"));
+    roles.insert(AspectRatioStringRole, QByteArrayLiteral("aspectRatioString"));
+    roles.insert(PositionRole, QByteArrayLiteral("position"));
+    roles.insert(DiagonalSizeRole, QByteArrayLiteral("diagonalSize"));
+    roles.insert(ResolutionRole, QByteArrayLiteral("resolution"));
+    roles.insert(CurrentModeRole, QByteArrayLiteral("currentMode"));
+    roles.insert(ModesRole, QByteArrayLiteral("modes"));
+    roles.insert(TransformRole, QByteArrayLiteral("transform"));
     return roles;
 }
 
 int OutputsModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
-
-    if (m_config.isNull())
-        return 0;
+    Q_UNUSED(parent);
     return m_list.size();
 }
 
@@ -182,49 +176,86 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 && index.row() > m_list.size())
         return QVariant();
 
-    KScreen::OutputPtr output = m_list.at(index.row());
-    if (output.isNull())
-        return QVariant();
+    Output *output = m_list.at(index.row());
 
     switch (role) {
     case Qt::DisplayRole:
     case NameRole:
-        return output->name();
+        return QStringLiteral("%1 - %2").arg(output->manufacturer(), output->model());
     case NumberRole:
         return index.row() + 1;
-    case DeviceIdRole:
-        return output->edid() ? output->edid()->deviceId() : QString();
-    case VendorRole:
-        return output->edid() ? output->edid()->vendor() : QString();
+    case ManufacturerRole:
+        return output->manufacturer();
     case ModelRole:
-        return output->edid() ? output->edid()->name() : QString();
-    case SerialRole:
-        return output->edid() ? output->edid()->serial() : QString();
+        return output->model();
     case PrimaryRole:
-        return output->isPrimary();
-    case ConnectedRole:
-        return output->isConnected();
+        return false; // output->isPrimary();
     case EnabledRole:
-        return output->isEnabled();
+        return true; // output->isEnabled();
     case AspectRatioRole:
-        if (output->sizeMm().width() > output->sizeMm().height())
-            return (qreal)output->sizeMm().width() / (qreal)output->sizeMm().height();
-        return (qreal)output->sizeMm().height() / (qreal)output->sizeMm().width();
+        if (output->physicalSize().width() > output->physicalSize().height())
+            return (qreal)output->physicalSize().width() / (qreal)output->physicalSize().height();
+        return (qreal)output->physicalSize().height() / (qreal)output->physicalSize().width();
     case AspectRatioStringRole:
-        return aspectRatioString(output->sizeMm());
+        return aspectRatioString(output->physicalSize());
     case PositionRole:
-        return output->pos();
+        return output->position();
     case DiagonalSizeRole:
-        return displaySizeString(output->sizeMm());
+        return displaySizeString(output->physicalSize());
     case ResolutionRole:
-        return output->currentMode()->size();
+        return output->size();
+    case CurrentModeRole:
+        return 5; //output->currentMode();
     case ModesRole:
         return modesList(output->modes());
+    case TransformRole:
+        switch (output->transform()) {
+        case Output::Transform90:
+            return Transform90;
+        case Output::Transform180:
+            return Transform180;
+        case Output::Transform270:
+            return Transform270;
+        default:
+            return TransformNormal;
+        }
     default:
         break;
     }
 
     return QVariant();
+}
+
+void OutputsModel::applyConfiguration(int outputNumber, int modeId, const Transform &transform)
+{
+    OutputManagement *management = m_config->outputManagement();
+    if (!management)
+        return;
+
+    Output::Transform wlTransform = Output::TransformNormal;
+    switch (transform) {
+    case Transform90:
+        wlTransform = Output::Transform90;
+        break;
+    case Transform180:
+        wlTransform = Output::Transform180;
+        break;
+    case Transform270:
+        wlTransform = Output::Transform270;
+        break;
+    default:
+        break;
+    }
+
+    Output *output = m_list.at(outputNumber - 1);
+
+    OutputConfiguration *config = management->createConfiguration(this);
+    config->setEnabled(output, true);
+    config->setModeId(output, modeId);
+    config->setTransform(output, wlTransform);
+    config->setPosition(output, output->position());
+    config->setScaleFactor(output, output->scale());
+    config->apply();
 }
 
 #include "moc_outputsmodel.cpp"

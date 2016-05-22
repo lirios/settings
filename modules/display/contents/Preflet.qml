@@ -29,12 +29,13 @@ import QtQuick.Layouts 1.0
 import Qt.labs.controls 1.0
 import Qt.labs.controls.material 1.0
 import Fluid.Ui 1.0 as FluidUi
+import Fluid.Controls 1.0 as FluidControls
 import Hawaii.SystemPreferences 1.0
 import org.hawaiios.systempreferences.display 1.0 as CppDisplay
 
 PrefletPage {
-    property int minimumWidth: FluidUi.Units.dp(800)
-    property int minimumHeight: FluidUi.Units.dp(600)
+    property int minimumWidth: FluidUi.Units.gu(40)
+    property int minimumHeight: FluidUi.Units.gu(40)
 
     id: root
 
@@ -42,209 +43,176 @@ PrefletPage {
         id: outputsModel
     }
 
-    Component {
-        id: outputDelegate
+    ListView {
+        id: listView
+        anchors.fill: parent
+        anchors.margins: FluidUi.Units.largeSpacing
+        model: outputsModel
+        delegate: ItemDelegate {
+            id: control
+            text: number + " - " + name
+            width: ListView.view.width
+            onClicked: detailsDialog.open()
 
-        MouseArea {
-            readonly property int outputId: number
-            readonly property string outputDiagonalSize: diagonalSize
-            readonly property real outputAspectRatio: aspectRatio
-            readonly property string outputAspectRatioString: aspectRatioString
-            readonly property var outputModes: modes
+            Popup {
+                id: detailsDialog
+                parent: root
+                closePolicy: Popup.OnEscape | Popup.OnPressOutside
+                modal: true
+                x: (root.width - detailsDialog.width) / 2
+                y: (root.height - detailsDialog.height) / 2
+                width: detailsLayout.implicitWidth + (2 * detailsLayout.spacing)
+                height: detailsLayout.implicitHeight + (2 * detailsLayout.spacing)
 
-            width: listView.width
-            height: row.implicitHeight + (FluidUi.Units.largeSpacing * 2)
-            onClicked: listView.currentIndex = index
-
-            Rectangle {
-                anchors {
-                    fill: parent
-                    margins: FluidUi.Units.smallSpacing
-                }
-                color: listView.currentIndex === index ? Material.backgroundColor : Material.primaryColor
-
-                Row {
-                    id: row
-                    anchors {
-                        fill: parent
-                        margins: FluidUi.Units.smallSpacing
-                    }
+                ColumnLayout {
+                    id: detailsLayout
                     spacing: FluidUi.Units.smallSpacing
 
                     OutputPreview {
                         outputId: number
-                        width: FluidUi.Units.dp(50)
+                        width: FluidUi.Units.gu(20)
                         height: width / aspectRatio
+
+                        Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
                     }
 
-                    Column {
+                    Row {
+                        spacing: 0
+
+                        ToolButton {
+                            id: transform90Button
+                            indicator: FluidUi.Icon {
+                                anchors.centerIn: parent
+                                iconName: "object-rotate-left-symbolic"
+                                width: FluidUi.Units.iconSizes.smallMedium
+                                height: width
+                                color: diagonalSizeLabel.color
+                            }
+                            //tooltip: qsTr("Rotate counterclockwise by 90\xc2\xb0")
+                            checkable: true
+                            checked: model.transform === CppDisplay.OutputsModel.Transform90
+                            autoExclusive: true
+                        }
+
+                        ToolButton {
+                            id: transform180Button
+                            indicator: FluidUi.Icon {
+                                anchors.centerIn: parent
+                                iconName: "object-flip-vertical-symbolic"
+                                width: FluidUi.Units.iconSizes.smallMedium
+                                height: width
+                                color: diagonalSizeLabel.color
+                            }
+                            //tooltip: qsTr("Rotate by 180\xc2\xb0")
+                            checkable: true
+                            checked: model.transform === CppDisplay.OutputsModel.Transform180
+                            autoExclusive: true
+                        }
+
+                        ToolButton {
+                            id: transform270Button
+                            indicator: FluidUi.Icon {
+                                anchors.centerIn: parent
+                                iconName: "object-rotate-right-symbolic"
+                                width: FluidUi.Units.iconSizes.smallMedium
+                                height: width
+                                color: diagonalSizeLabel.color
+                            }
+                            //tooltip: qsTr("Rotate clockwise by 90\xc2\xb0")
+                            checkable: true
+                            checked: model.transform === CppDisplay.OutputsModel.Transform270
+                            autoExclusive: true
+                        }
+
+                        Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
+                    }
+
+                    GridLayout {
+                        rows: 3
+                        columns: 2
+                        rowSpacing: FluidUi.Units.smallSpacing
+                        columnSpacing: FluidUi.Units.smallSpacing
+
+                        Label {
+                            text: qsTr("Size:")
+                            visible: diagonalSizeLabel.visible
+                            opacity: 0.8
+                            horizontalAlignment: Qt.AlignRight
+
+                            Layout.minimumWidth: FluidUi.Units.gu(6)
+                        }
+
+                        Label {
+                            id: diagonalSizeLabel
+                            text: diagonalSize
+                            visible: text != ""
+                        }
+
+                        Label {
+                            text: qsTr("Aspect Ratio:")
+                            visible: aspectRatioLabel.visible
+                            opacity: 0.8
+                            horizontalAlignment: Qt.AlignRight
+
+                            Layout.minimumWidth: FluidUi.Units.gu(6)
+                        }
+
+                        Label {
+                            id: aspectRatioLabel
+                            text: aspectRatioString
+                            visible: text != ""
+                        }
+
+                        Label {
+                            text: qsTr("Resolution:")
+                            opacity: 0.8
+                            horizontalAlignment: Qt.AlignRight
+
+                            Layout.minimumWidth: FluidUi.Units.gu(6)
+                        }
+
+                        ComboBox {
+                            id: modesCombo
+                            model: modes
+                            textRole: "name"
+                            currentIndex: model.currentMode
+
+                            Layout.minimumWidth: FluidUi.Units.gu(12)
+                        }
+
+                        Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
+                    }
+
+                    Row {
                         spacing: FluidUi.Units.smallSpacing
 
-                        Label {
-                            text: vendor
-                            font.bold: true
-                            color: listView.currentIndex === index ? syspal.highlightedText : syspal.text
-                            wrapMode: Text.WrapAnywhere
+                        Button {
+                            text: qsTr("Cancel")
+                            onClicked: detailsDialog.close()
                         }
 
-                        Label {
-                            text: model
-                            font.bold: true
-                            color: listView.currentIndex === index ? syspal.highlightedText : syspal.text
-                            wrapMode: Text.WrapAnywhere
-                        }
-
-                        Label {
-                            text: {
-                                if (!connected)
-                                    return qsTranslate("Output type label", "Disconnected");
-                                if (primary)
-                                    return qsTranslate("Output type label", "Primary");
-                                return qsTranslate("Output type label", "Secondary");
+                        Button {
+                            text: qsTr("Apply")
+                            highlighted: true
+                            enabled: outputsModel.configurationEnabled
+                            onClicked: {
+                                var newTransform = CppDisplay.OutputsModel.TransformNormal;
+                                if (transform90Button.checked)
+                                    newTransform = CppDisplay.OutputsModel.Transform90;
+                                else if (transform180Button.checked)
+                                    newTransform = CppDisplay.OutputsModel.Transform180;
+                                else if (transform270Button.checked)
+                                    newTransform = CppDisplay.OutputsModel.Transform270;
+                                outputsModel.applyConfiguration(number, modesCombo.currentIndex, newTransform);
                             }
-                            color: listView.currentIndex === index ? syspal.highlightedText : syspal.text
                         }
+
+                        Layout.alignment: Qt.AlignRight
                     }
                 }
             }
         }
-    }
 
-    Component {
-        id: panelComponent
-
-        ColumnLayout {
-            spacing: FluidUi.Units.smallSpacing
-
-            OutputPreview {
-                outputId: listView.currentItem.outputId
-                width: FluidUi.Units.gu(20)
-                height: width / listView.currentItem.outputAspectRatio
-
-                Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-            }
-
-            Row {
-                spacing: 0
-
-                ToolButton {
-                    //onClicked:
-                }
-
-                ToolButton {
-                    //onClicked:
-                }
-
-                ToolButton {
-                    //onClicked:
-                }
-
-                Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-            }
-
-            GridLayout {
-                rows: 3
-                columns: 2
-
-                Label {
-                    text: qsTr("Size")
-                    visible: diagonalSizeLabel.visible
-                    opacity: 0.8
-
-                    Layout.alignment: Qt.AlignRight
-                }
-
-                Label {
-                    id: diagonalSizeLabel
-                    text: listView.currentItem.outputDiagonalSize
-                    visible: text != ""
-                }
-
-                Label {
-                    text: qsTr("Aspect Ratio")
-                    visible: aspectRatioLabel.visible
-                    opacity: 0.8
-
-                    Layout.alignment: Qt.AlignRight
-                }
-
-                Label {
-                    id: aspectRatioLabel
-                    text: listView.currentItem.outputAspectRatioString
-                    visible: text != ""
-                }
-
-                Label {
-                    text: qsTr("Resolution")
-                    opacity: 0.8
-
-                    Layout.alignment: Qt.AlignRight
-                }
-
-                ComboBox {
-                    model: listView.currentItem.outputModes
-                    textRole: "name"
-
-                    Layout.preferredWidth: FluidUi.Units.dp(150)
-                }
-
-                Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-            }
-
-            Item {
-                Layout.fillHeight: true
-            }
-
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-        }
-    }
-
-    ColumnLayout {
-        id: leftColumn
-        anchors {
-            left: parent.left
-            top: parent.top
-            bottom: parent.bottom
-            margins: FluidUi.Units.largeSpacing
-        }
-        spacing: FluidUi.Units.smallSpacing
-        width: FluidUi.Units.gu(20)
-
-        ListView {
-            id: listView
-            model: outputsModel
-
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-        }
-
-        /*
-        ListView {
-            id: listView
-            model: outputsModel
-            currentIndex: -1
-            delegate: outputDelegate
-            onCurrentIndexChanged: panelLoader.sourceComponent = panelComponent
-
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-        }
-        */
-
-        Button {
-            text: qsTr("Arrange Combined Displays")
-        }
-    }
-
-    Loader {
-        id: panelLoader
-        anchors {
-            left: leftColumn.right
-            top: leftColumn.top
-            right: parent.right
-            bottom: parent.bottom
-            margins: FluidUi.Units.largeSpacing
-        }
+        ScrollIndicator.vertical: ScrollIndicator {}
     }
 }
