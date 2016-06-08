@@ -13,11 +13,11 @@ You need the following modules and their dependencies:
 
 * [hawaii-shell](https://github.com/hawaii-desktop/hawaii-shell)
 
-Make sure you also have Qt 5.6 or better with the following modules:
+Make sure you also have Qt 5.7 or better with the following modules:
 
 * qtbase
 * qtdeclarative
-* qtquickcontrols
+* qtquickcontrols2
 
 Other dependencies:
 
