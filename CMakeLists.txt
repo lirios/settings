@@ -35,7 +35,7 @@ find_package(ECM 1.4.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 # Find libhawaii
-set(REQUIRED_HAWAII_VERSION "0.6.90")
+set(REQUIRED_HAWAII_VERSION "0.7.90")
 find_package(Hawaii ${REQUIRED_HAWAII_VERSION} REQUIRED)
 
 # Add custom uninstall target
