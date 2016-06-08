@@ -9,32 +9,24 @@ System preferences for the Hawaii desktop environment.
 
 ## Dependencies
 
-You need the following modules and their dependencies:
+Qt >= 5.7.0 with at least the following modules is required:
 
-* [hawaii-shell](https://github.com/hawaii-desktop/hawaii-shell)
+* [qtbase](http://code.qt.io/cgit/qt/qtbase.git)
+* [qtdeclarative](http://code.qt.io/cgit/qt/qtdeclarative.git)
+* [qtquickcontrols2](http://code.qt.io/cgit/qt/qtquickcontrols2.git)
+* [qttools](http://code.qt.io/cgit/qt/qttools.git/)
 
-Make sure you also have Qt 5.7 or better with the following modules:
+The following modules and their dependencies are required:
 
-* qtbase
-* qtdeclarative
-* qtquickcontrols2
+* [ECM >= 1.4.0](http://quickgit.kde.org/?p=extra-cmake-modules.git)
+* [greenisland](https://github.com/hawaii-desktop/greenisland)
+* [libhawaii](https://github.com/hawaii-desktop/libhawaii)
+* [polkit-qt5-1](https://quickgit.kde.org/?p=polkit-qt-1.git)
+* [xkeyboard-config](https://cgit.freedesktop.org/xkeyboard-config/)
 
-Other dependencies:
+## Build and installation
 
-* polkit-qt5-1
-* xkeyboard-config
-
-Optional dependencies:
-
-* libkscreen
-
-Build time dependencies:
-
-* qttools
-
-## Build
-
-Building System Preferences is a piece of cake.
+Building this module is a piece of cake.
 
 Assuming you are in the source directory, just create a build directory
 and run cmake:
@@ -60,8 +52,6 @@ cmake -DCMAKE_INSTALL_PREFIX=/opt/hawaii -DCMAKE_BUILD_TYPE=Release ..
 If not passed, the `CMAKE_INSTALL_PREFIX` parameter defaults to /usr/local.
 You have to specify a path that fits your needs, /opt/hawaii is just an example.
 
-Package maintainers would pass `-DCMAKE_INSTALL_PREFIX=/usr`.
-
 The `CMAKE_BUILD_TYPE` parameter allows the following values:
 
 * **Debug:** debug build
@@ -77,6 +67,19 @@ make install
 ```
 
 from the build directory.
+
+### System-wide installation
+
+Those who want to perform a system-wide installation, such as package
+maintainers, should pass different arguments to cmake:
+
+```sh
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DKDE_INSTALL_USE_QT_SYS_PATHS=ON ..
+```
+
+Feel free to choose whatever `CMAKE_BUILD_TYPE` value you desire.
 
 ## Translations
 
