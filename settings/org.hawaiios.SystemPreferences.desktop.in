@@ -12,3 +12,5 @@ StartupNotify=true
 Categories=Qt;X-Hawaii;Settings;Core;
 OnlyShowIn=X-Hawaii;
 Keywords=Preferences;Settings;
+
+#TRANSLATIONS_DIR=translations
