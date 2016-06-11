@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Name=System Preferences
+GenericName=System Preferences
+Comment=Manages system preferences
+Keywords=Preferences;Settings;
+
+
+# Translations
+
+
+# Translations
+Comment[hr_HR]=Upravlja osobitostima sustava
+GenericName[hr_HR]=Osobitosti sustava
+Name[hr_HR]=Osobitosti sustava

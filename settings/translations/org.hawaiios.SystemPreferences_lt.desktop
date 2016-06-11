@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Name=System Preferences
+GenericName=System Preferences
+Comment=Manages system preferences
+Keywords=Preferences;Settings;
+
+
+# Translations
+
+
+# Translations
+Comment[lt]=Tvarko sistemos nuostatas
+GenericName[lt]=Sistemos nuostatos
+Name[lt]=Sistemos nuostatos
