@@ -123,7 +123,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     app.setApplicationName(QLatin1String("System Preferences"));
     app.setApplicationVersion(QLatin1String(SYSTEMPREFERENCES_VERSION_STRING));
-    app.setOrganizationDomain(QLatin1String("hawaii.org"));
+    app.setOrganizationDomain(QLatin1String("hawaiios.org"));
     app.setOrganizationName(QLatin1String("Hawaii"));
 
     // Register types
