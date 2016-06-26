@@ -53,3 +53,10 @@ install(TARGETS hawaii-system-preferences
     DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(FILES ${QM_FILES}
     DESTINATION ${CMAKE_INSTALL_DATADIR}/hawaii-system-preferences/translations)
+
+hawaii_translate_desktop(DESKTOP_FILE
+                         SOURCES org.hawaiios.SystemPreferences.desktop.in)
+add_custom_target(hawaii-system-preferences_translations ALL DEPENDS ${DESKTOP_FILE})
+install(FILES ${DESKTOP_FILE}
+        DESTINATION ${KDE_INSTALL_APPDIR}
+        COMPONENT "Runtime")

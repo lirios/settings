@@ -10,8 +10,8 @@ file_filter = shells/translations/desktopshell_<lang>.ts
 [system-preferences.desktop-file]
 type = DESKTOP
 source_lang = en
-source_file = settings/hawaii-system-preferences.desktop.in
-file_filter = settings/translations/hawaii-system-preferences_<lang>.desktop
+source_file = settings/org.hawaiios.SystemPreferences.desktop.in
+file_filter = settings/translations/org.hawaiios.SystemPreferences_<lang>.desktop
 
 [system-preferences.background-preflet]
 type = QT

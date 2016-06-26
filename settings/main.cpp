@@ -123,8 +123,11 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     app.setApplicationName(QLatin1String("System Preferences"));
     app.setApplicationVersion(QLatin1String(SYSTEMPREFERENCES_VERSION_STRING));
-    app.setOrganizationDomain(QLatin1String("hawaii.org"));
+    app.setOrganizationDomain(QLatin1String("hawaiios.org"));
     app.setOrganizationName(QLatin1String("Hawaii"));
+#if QT_VERSION >= QT_VERSION_CHECK(5, 7, 0)
+    app.setDesktopFileName(QLatin1String("org.hawaiios.SystemPreferences.desktop"));
+#endif
 
     // Register types
     qmlRegisterType<Plugin>();
