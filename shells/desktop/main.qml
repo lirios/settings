@@ -33,8 +33,8 @@ import Fluid.Ui 1.0 as FluidUi
 import org.hawaiios.systempreferences 0.1
 
 ApplicationWindow {
-    property real defaultMinimumWidth: FluidUi.Units.dp(640)
-    property real defaultMinimumHeight: FluidUi.Units.dp(540)
+    property real defaultMinimumWidth: FluidUi.Units.dp(800)
+    property real defaultMinimumHeight: FluidUi.Units.dp(600)
     property real itemSize: FluidUi.Units.iconSizes.large
 
     id: window
@@ -51,6 +51,7 @@ ApplicationWindow {
 
             RowLayout {
                 id: leftRow
+                width: parent.width / 3
 
                 ToolButton {
                     id: backButton
@@ -77,13 +78,13 @@ ApplicationWindow {
                 font.bold: true
                 horizontalAlignment: Qt.AlignHCenter
                 color: searchEntry.color
+                width: parent.width / 3
                 visible: pageStack.depth > 1
-
-                Layout.fillWidth: true
             }
 
             RowLayout {
                 id: rightRow
+                width: parent.width / 3
 
                 TextField {
                     id: searchEntry
@@ -107,47 +108,84 @@ ApplicationWindow {
         id: pluginManager
     }
 
+    Pane {
+        id: listPane
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        width: FluidUi.Units.dp(200)
+
+        ListView {
+            anchors.fill: parent
+            model: PluginsModel {}
+            section.property: "category"
+            section.delegate: Label {
+                text: section
+                width: parent.width
+                font.bold: true
+                color: Material.accentColor
+            }
+            delegate: ItemDelegate {
+                text: title
+                width: parent.width
+                onClicked: {
+                    if (!model.mainScriptUrl)
+                        return;
+
+                    var component = Qt.createComponent(model.mainScriptUrl);
+                    if (component.status !== Component.Ready) {
+                        console.error(component.errorString());
+                        return;
+                    }
+
+                    var item = component.createObject(null);
+
+                    if (typeof(item.minimumWidth) != "undefined")
+                        window.minimumWidth = item.minimumWidth;
+                    if (typeof(item.minimumHeight) != "undefined")
+                        window.minimumHeight = item.minimumHeight;
+
+                    prefletTitle.text = title;
+                    pageStack.push(item);
+                }
+            }
+
+            ScrollBar.vertical: ScrollBar {}
+        }
+    }
+
     StackView {
         id: pageStack
-        anchors.fill: parent
+        anchors.left: listPane.right
+        anchors.top: listPane.top
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
         initialItem: Item {
-            Flickable {
-                anchors.fill: parent
-                anchors.margins: FluidUi.Units.largeSpacing
-                contentWidth: mainLayout.childrenRect.width
-                contentHeight: mainLayout.childrenRect.height
-                boundsBehavior: (contentHeight > window.width) ? Flickable.DragAndOvershootBounds : Flickable.StopAtBounds
+            ColumnLayout {
+                anchors.centerIn: parent
 
-                ColumnLayout {
-                    id: mainLayout
-                    spacing: FluidUi.Units.smallSpacing
+                FluidUi.Icon {
+                    iconName: "preferences-system"
+                    width: FluidUi.Units.iconSizes.enormous
+                    height: width
 
-                    CategoryGrid {
-                        title: qsTr("Personal")
-                        categoryName: "personal"
-                        categoryIconName: "avatar-default"
-                        model: pluginManager.personalPlugins
-                        visible: pluginManager.personalPlugins.length > 0
-                    }
-
-                    CategoryGrid {
-                        title: qsTr("Hardware")
-                        categoryName: "hardware"
-                        categoryIconName: "applications-system"
-                        model: pluginManager.hardwarePlugins
-                        visible: pluginManager.hardwarePlugins.length > 0
-                    }
-
-                    CategoryGrid {
-                        title: qsTr("System")
-                        categoryName: "system"
-                        categoryIconName: "system"
-                        model: pluginManager.systemPlugins
-                        visible: pluginManager.systemPlugins.length > 0
-                    }
+                    Layout.alignment: Qt.AlignHCenter
                 }
 
-                ScrollBar.vertical: ScrollBar {}
+                Label {
+                    text: qsTr("Welcome to the System Preferences")
+                    horizontalAlignment: Qt.AlignHCenter
+
+                    Layout.fillWidth: true
+                }
+
+                Label {
+                    text: qsTr("Select a panel in the side list to see the available options.")
+                    horizontalAlignment: Qt.AlignHCenter
+                    wrapMode: Text.Wrap
+
+                    Layout.fillWidth: true
+                }
             }
         }
     }

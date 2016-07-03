@@ -39,6 +39,7 @@ set(SOURCES
     main.cpp
     plugin.cpp
     pluginmanager.cpp
+    pluginsmodel.cpp
     xdgdesktopfile.cpp
 )
 
