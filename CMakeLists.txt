@@ -1,11 +1,14 @@
-project(HawaiiSystemPreferences)
+project(Settings)
 
-cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.0.0 FATAL_ERROR)
+cmake_policy(VERSION 3.4.1)
 
-# Silence CMake warnings
-if(POLICY CMP0063)
-    cmake_policy(SET CMP0063 NEW)
-endif()
+# Instruct CMake to run moc and rrc automatically when needed
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
+# Apple-specific configuration
+set(APPLE_SUPPRESS_X11_WARNING ON)
 
 # Set version
 set(PROJECT_VERSION "0.7.90")
@@ -13,7 +16,7 @@ set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_SOVERSION 0)
 
 # Set up packaging
-set(CPACK_PACKAGE_NAME "hawaii-system-preferences")
+set(CPACK_PACKAGE_NAME "qmlos-settings")
 set(CPACK_PACKAGE_VERSION "${PROJECT_VERSION}")
 set(CPACK_GENERATOR "TGZ")
 set(CPACK_SET_DESTDIR FALSE)
@@ -22,30 +25,9 @@ set(CPACK_SOURCE_IGNORE_FILES "/build/;/.git;/.tx/;~$;${CPACK_SOURCE_IGNORE_FILE
 include(CPack)
 add_custom_target(dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
 
-# Assume release build by default
-if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING "" FORCE)
-endif()
-
-# Build flags
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -fvisibility-inlines-hidden -Wall -Wextra -Wno-unused-parameter -std=c++11")
-
 # ECM
-find_package(ECM 1.4.0 REQUIRED NO_MODULE)
-set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
-
-# Find libhawaii
-set(REQUIRED_HAWAII_VERSION "0.7.90")
-find_package(Hawaii ${REQUIRED_HAWAII_VERSION} REQUIRED)
-
-# Add custom uninstall target
-if ("${ECM_VERSION}" VERSION_LESS "1.7.0")
-    configure_file(
-        "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
-        "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
-        IMMEDIATE @ONLY)
-    add_custom_target(uninstall "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
-endif()
+find_package(ECM 1.7.0 REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 # Macros
 include(FeatureSummary)
@@ -53,18 +35,22 @@ include(KDEInstallDirs)
 include(KDECompilerSettings)
 include(KDECMakeSettings)
 
-# Include our macros
-include(${CMAKE_SOURCE_DIR}/settings/HawaiiSystemPreferencesMacros.cmake)
+# Build flags
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -fvisibility-inlines-hidden -Wall -Wextra -Wno-unused-parameter -std=c++11")
+
+# Assume release build by default
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING "" FORCE)
+endif()
+
+# Find libhawaii
+set(REQUIRED_HAWAII_VERSION "0.7.90")
+find_package(Hawaii ${REQUIRED_HAWAII_VERSION} REQUIRED)
 
 # Find Qt5
 set(REQUIRED_QT_VERSION "5.7.0")
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED COMPONENTS
-             Core
-             Gui
-             Widgets
-             Qml
-             Quick
-             LinguistTools)
+             Widgets Qml Quick LinguistTools)
 
 # Find PolicyKit wrapper for Qt
 find_package(PolkitQt5-1 "0.103.0" REQUIRED)
@@ -73,21 +59,15 @@ find_package(PolkitQt5-1 "0.103.0" REQUIRED)
 set(REQUIRED_GREENISLAND_VERSION "0.7.90")
 find_package(GreenIsland ${REQUIRED_GREENISLAND_VERSION} REQUIRED COMPONENTS Client)
 
+# Include our macros
+include(${CMAKE_SOURCE_DIR}/settings/HawaiiSystemPreferencesMacros.cmake)
+
 # Subdirectories
 add_subdirectory(data)
 add_subdirectory(declarative)
 add_subdirectory(modules)
 add_subdirectory(settings)
 add_subdirectory(shells)
-
-# Translation custom target
-add_custom_target(update-translations DEPENDS
-    update-translations-app
-    update-translations-background
-    update-translations-desktop
-    update-translations-keyboard
-    update-translations-network
-)
 
 # Display featute summary
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
