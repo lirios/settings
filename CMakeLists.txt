@@ -50,7 +50,7 @@ find_package(Hawaii ${REQUIRED_HAWAII_VERSION} REQUIRED)
 # Find Qt5
 set(REQUIRED_QT_VERSION "5.7.0")
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED COMPONENTS
-             Widgets Qml Quick LinguistTools)
+             Widgets Qml Quick LinguistTools QuickControls2)
 
 # Find PolicyKit wrapper for Qt
 find_package(PolkitQt5-1 "0.103.0" REQUIRED)

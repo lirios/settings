@@ -8,3 +8,4 @@ Icon=preferences-system-power-management
 Categories=Qt;X-Hawaii;Settings;
 OnlyShowIn=X-Hawaii;
 X-Hawaii-SystemPreferences-Category=hardware
+X-Hawaii-SystemPreferences-SymbolicIcon=notification/power

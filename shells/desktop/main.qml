@@ -25,169 +25,35 @@
  ***************************************************************************/
 
 import QtQuick 2.2
-import QtQuick.Window 2.2
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
-import Fluid.Ui 1.0 as FluidUi
+import Fluid.UI 1.0
 import org.hawaiios.systempreferences 0.1
 
-ApplicationWindow {
-    property real defaultMinimumWidth: FluidUi.Units.dp(800)
-    property real defaultMinimumHeight: FluidUi.Units.dp(600)
-    property real itemSize: FluidUi.Units.iconSizes.large
-
+FluidWindow {
     id: window
+
+    property real itemSize: Units.iconSizes.large
+
     title: qsTr("System Preferences")
     width: minimumWidth
     height: minimumHeight
-    minimumWidth: defaultMinimumWidth
-    minimumHeight: defaultMinimumHeight
+    minimumWidth: 800
+    minimumHeight: 600
     maximumWidth: minimumWidth
     maximumHeight: minimumHeight
-    header: ToolBar {
-        RowLayout {
-            anchors.fill: parent
-
-            RowLayout {
-                id: leftRow
-                width: parent.width / 3
-
-                ToolButton {
-                    id: backButton
-                    indicator: FluidUi.Icon {
-                        anchors.centerIn: parent
-                        iconName: "go-previous-symbolic"
-                        width: FluidUi.Units.iconSizes.smallMedium
-                        height: width
-                        color: searchEntry.color
-                    }
-                    visible: pageStack.depth > 1
-                    onClicked: {
-                        window.minimumWidth = window.defaultMinimumWidth;
-                        window.minimumHeight = window.defaultMinimumHeight;
-                        pageStack.pop();
-                    }
-                }
-
-                Layout.alignment: Qt.AlignLeft
-            }
-
-            Label {
-                id: prefletTitle
-                font.bold: true
-                horizontalAlignment: Qt.AlignHCenter
-                color: searchEntry.color
-                width: parent.width / 3
-                visible: pageStack.depth > 1
-            }
-
-            RowLayout {
-                id: rightRow
-                width: parent.width / 3
-
-                TextField {
-                    id: searchEntry
-                    placeholderText: qsTr("Keywords")
-                    color: Material.primaryHighlightedTextColor
-                    visible: pageStack.depth === 1
-
-                    Layout.minimumWidth: FluidUi.Units.gu(15)
-                }
-
-                Layout.alignment: Qt.AlignRight
-            }
-        }
-    }
 
     Material.accent: Material.Blue
     Material.primary: Material.color(Material.BlueGrey, Material.theme === Material.Light
                                      ? Material.Shade700 : Material.Shade800)
 
+
+
+    initialPage: SettingsPage {}
+
     PluginManager {
         id: pluginManager
-    }
-
-    Pane {
-        id: listPane
-        anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        width: FluidUi.Units.dp(200)
-
-        ListView {
-            anchors.fill: parent
-            model: PluginsModel {}
-            section.property: "category"
-            section.delegate: Label {
-                text: section
-                width: parent.width
-                font.bold: true
-                color: Material.accentColor
-            }
-            delegate: ItemDelegate {
-                text: title
-                width: parent.width
-                onClicked: {
-                    if (!model.mainScriptUrl)
-                        return;
-
-                    var component = Qt.createComponent(model.mainScriptUrl);
-                    if (component.status !== Component.Ready) {
-                        console.error(component.errorString());
-                        return;
-                    }
-
-                    var item = component.createObject(null);
-
-                    if (typeof(item.minimumWidth) != "undefined")
-                        window.minimumWidth = item.minimumWidth;
-                    if (typeof(item.minimumHeight) != "undefined")
-                        window.minimumHeight = item.minimumHeight;
-
-                    prefletTitle.text = title;
-                    pageStack.push(item);
-                }
-            }
-
-            ScrollBar.vertical: ScrollBar {}
-        }
-    }
-
-    StackView {
-        id: pageStack
-        anchors.left: listPane.right
-        anchors.top: listPane.top
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        initialItem: Item {
-            ColumnLayout {
-                anchors.centerIn: parent
-
-                FluidUi.Icon {
-                    iconName: "preferences-system"
-                    width: FluidUi.Units.iconSizes.enormous
-                    height: width
-
-                    Layout.alignment: Qt.AlignHCenter
-                }
-
-                Label {
-                    text: qsTr("Welcome to the System Preferences")
-                    horizontalAlignment: Qt.AlignHCenter
-
-                    Layout.fillWidth: true
-                }
-
-                Label {
-                    text: qsTr("Select a panel in the side list to see the available options.")
-                    horizontalAlignment: Qt.AlignHCenter
-                    wrapMode: Text.Wrap
-
-                    Layout.fillWidth: true
-                }
-            }
-        }
     }
 
     Component.onCompleted: {
@@ -201,5 +67,7 @@ ApplicationWindow {
                 pageStack.push(plugin.item);
             }
         }
+
+        show();
     }
 }

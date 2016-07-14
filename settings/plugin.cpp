@@ -111,7 +111,14 @@ QString Plugin::comment() const
 QString Plugin::iconName() const
 {
     Q_D(const Plugin);
-    return d->entry->localizedValue(QStringLiteral("Icon")).toString();
+
+    QString iconName = d->entry->value(QStringLiteral("X-Hawaii-SystemPreferences-SymbolicIcon")).toString();
+
+    if (iconName.isEmpty()) {
+        iconName = d->entry->localizedValue(QStringLiteral("Icon")).toString();
+    }
+
+    return iconName;
 }
 
 QStringList Plugin::keywords() const
