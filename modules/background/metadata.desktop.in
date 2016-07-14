@@ -7,5 +7,6 @@ Icon=preferences-desktop-wallpaper
 Categories=Qt;X-Hawaii;Settings;
 OnlyShowIn=X-Hawaii;
 X-Hawaii-SystemPreferences-Category=personal
+X-Hawaii-SystemPreferences-SymbolicIcon=image/color_lens
 
 #TRANSLATIONS_DIR=translations

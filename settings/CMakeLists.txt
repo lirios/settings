@@ -47,7 +47,8 @@ add_executable(hawaii-system-preferences ${SOURCES} ${QM_FILES})
 target_link_libraries(hawaii-system-preferences
                       Qt5::Qml
                       Qt5::Quick
-)
+                      Qt5::QuickControls2)
+                      
 #                      ${POLKITQT-1_GUI_LIBRARY}
 
 install(TARGETS hawaii-system-preferences

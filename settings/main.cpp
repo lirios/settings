@@ -34,6 +34,7 @@
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QQmlContext>
 #include <QtQuick/QQuickWindow>
+#include <QtQuickControls2/QQuickStyle>
 
 #include "config.h"
 #include "cmakedirs.h"
@@ -120,6 +121,8 @@ static void loadModuleTranslations(const QString &vendor)
 
 int main(int argc, char *argv[])
 {
+    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+
     // Setup application
     QGuiApplication app(argc, argv);
     app.setApplicationName(QLatin1String("System Preferences"));
@@ -129,6 +132,8 @@ int main(int argc, char *argv[])
 #if QT_VERSION >= QT_VERSION_CHECK(5, 7, 0)
     app.setDesktopFileName(QLatin1String("org.hawaiios.SystemPreferences.desktop"));
 #endif
+
+    QQuickStyle::setStyle("Material");
 
     // Register types
     qmlRegisterType<Plugin>();
@@ -155,8 +160,6 @@ int main(int argc, char *argv[])
     // Setup QML engine and show the main window
     qCDebug(PREFERENCES) << "Loading:" << fileName;
     QQmlApplicationEngine engine(QUrl::fromLocalFile(fileName));
-    QQuickWindow *window = qobject_cast<QQuickWindow *>(engine.rootObjects().at(0));
-    window->show();
 
     return app.exec();
 }
