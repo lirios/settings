@@ -30,44 +30,64 @@ import QtQuick.Layouts 1.0
 import QtQuick.Dialogs 1.2
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
-import Fluid.Ui 1.0 as FluidUi
+import Fluid.UI 1.0
+import Fluid.Material 1.0
 
-ColumnLayout {
+Item {
+    id: selector
+
     readonly property real aspectRatio: Screen.width / Screen.height
-    property string type: "background"
     property alias text: label.text
-    property var settingsObject
+    property var settings
+    property string type: "background"
 
-    MouseArea {
+    width: column.width + 32
+    height: column.height + 32
+
+    Ripple {
         anchors.fill: parent
+
         onClicked: {
             selectorDialog.select();
             dialog.open();
         }
     }
 
-    Connections {
-        target: settingsObject
-        onModeChanged: setLoaderComponent()
-    }
+    ColumnLayout {
+        id: column
+        anchors.centerIn: parent
 
-    Loader {
-        id: loader
+        spacing: 16
 
-        Layout.alignment: Qt.AlignHCenter
-        Layout.preferredWidth: Layout.preferredHeight * aspectRatio
-        Layout.preferredHeight: FluidUi.Units.dp(50)
-    }
+        Loader {
+            id: loader
 
-    Label {
-        id: label
-    }
+            Layout.alignment: Qt.AlignHCenter
+            Layout.preferredWidth: Layout.preferredHeight * aspectRatio
+            Layout.preferredHeight: 100
 
-    Rectangle {
-        height: FluidUi.Units.dp(1)
-        color: Material.dividerColor
+            sourceComponent: {
+                switch (settings.mode) {
+                    case "solid":
+                        return solidComponent
+                    case "hgradient":
+                    case "vgradient":
+                        return gradientComponent
+                    case "wallpaper":
+                        return wallpaperComponent
+                    default:
+                        return null
+                }
+            }
+        }
 
-        Layout.fillWidth: true
+        Label {
+            id: label
+
+            Layout.alignment: Qt.AlignHCenter
+
+            font: FluidStyle.subheadingFont
+        }
     }
 
     Dialog {
@@ -105,97 +125,72 @@ ColumnLayout {
             SelectorDialog {
                 id: selectorDialog
                 anchors.fill: parent
-                settings: settingsObject
+                settings: selector.settings
             }
         }
-        width: FluidUi.Units.dp(800)
-        height: FluidUi.Units.dp(450)
+        width: 800
+        height: 450
     }
 
     Component {
-        id: solid
+        id: solidComponent
 
         Rectangle {
-            color: settingsObject.primaryColor
-            width: height * aspectRatio
-            height: FluidUi.Units.dp(50)
+            color: settings.primaryColor
+            radius: 2
         }
     }
 
     Component {
-        id: gradient
+        id: gradientComponent
 
         Rectangle {
-            property bool vertical: settingsObject.mode === "vgradient"
+            property bool vertical: settings.mode === "vgradient"
 
             gradient: Gradient {
                 GradientStop {
                     position: 0
-                    color: settingsObject.primaryColor
+                    color: settings.primaryColor
                 }
                 GradientStop {
                     position: 1
-                    color: settingsObject.secondaryColor
+                    color: settings.secondaryColor
                 }
             }
+            radius: 2
             rotation: vertical ? 270 : 0
             scale: vertical ? 0.5 : 1
-            width: height * aspectRatio
-            height: FluidUi.Units.dp(50)
         }
     }
 
     Component {
-        id: wallpaper
+        id: wallpaperComponent
 
         Image {
-            source: settingsObject.pictureUrl
-            sourceSize.width: width
-            sourceSize.height: height
-            fillMode: mapFillModeToImage()
-            width: height * aspectRatio
-            height: FluidUi.Units.dp(50)
+            source: settings.pictureUrl || ""
+            sourceSize.width: width * Screen.devicePixelRatio
+            sourceSize.height: height * Screen.devicePixelRatio
 
-            function mapFillModeToImage() {
-                switch (settingsObject.fillMode) {
-                case "preserve-aspect-fit":
-                    return Image.PreserveAspectFit;
-                case "preserve-aspect-crop":
-                    return Image.PreserveAspectCrop;
-                case "tile":
-                    return Image.Tile;
-                case "tile-vertically":
-                    return Image.TileVertically;
-                case "tile-horizontally":
-                    return Image.TileHorizontally;
-                case "pad":
-                    return Image.Pad;
-                default:
-                    break;
+            fillMode: {
+                switch (settings.fillMode) {
+                    case "preserve-aspect-fit":
+                        return Image.PreserveAspectFit;
+                    case "preserve-aspect-crop":
+                        return Image.PreserveAspectCrop;
+                    case "tile":
+                        return Image.Tile;
+                    case "tile-vertically":
+                        return Image.TileVertically;
+                    case "tile-horizontally":
+                        return Image.TileHorizontally;
+                    case "pad":
+                        return Image.Pad;
+                    default:
+                        break;
                 }
 
                 return Image.Stretch;
             }
         }
     }
-
-    function setLoaderComponent() {
-        switch (settingsObject.mode) {
-        case "solid":
-            loader.sourceComponent = solid;
-            break;
-        case "hgradient":
-        case "vgradient":
-            loader.sourceComponent = gradient;
-            break;
-        case "wallpaper":
-            loader.sourceComponent = wallpaper;
-            break;
-        default:
-            break;
-        }
-    }
-
-    Component.onCompleted: setLoaderComponent()
 }
-

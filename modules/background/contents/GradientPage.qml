@@ -27,7 +27,7 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
-import Fluid.Ui 1.0 as FluidUi
+import Fluid.UI 1.0
 
 Item {
     property var settings: null
@@ -48,7 +48,7 @@ Item {
             currentIndex: vertical ? 1 : 0
             onActivated: vertical = index == 1
 
-            Layout.minimumWidth: FluidUi.Units.gu(10)
+            Layout.minimumWidth: Units.gu(10)
         }
 
         ColorButton {

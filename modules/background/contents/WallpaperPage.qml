@@ -29,13 +29,13 @@ import QtQuick.Window 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
-import Fluid.Ui 1.0 as FluidUi
+import Fluid.UI 1.0
 import org.hawaiios.systempreferences.background 1.0
 
 Item {
     property var settings: null
     property int columns: 3
-    property real cellPadding: FluidUi.Units.smallSpacing
+    property real cellPadding: Units.smallSpacing
     property real aspectRatio: Screen.width / Screen.height
 
     // Cached settings
@@ -89,7 +89,7 @@ Item {
                 }
             }
             highlight: Rectangle {
-                radius: FluidUi.Units.dp(4)
+                radius: Units.dp(4)
                 color: Material.accentColor
             }
 
@@ -121,7 +121,7 @@ Item {
                     currentIndex: mapFillModeToIndex(fillMode)
                     onActivated: fillMode = mapIndexToFillMode(index)
 
-                    Layout.minimumWidth: FluidUi.Units.gu(10)
+                    Layout.minimumWidth: Units.gu(10)
                 }
             }
 
@@ -173,8 +173,8 @@ Item {
 
     function loadSettings() {
         // Load settings
-        pictureUrl = settings.pictureUrl;
-        fillMode = settings.fillMode;
+        pictureUrl = settings.pictureUrl || "";
+        fillMode = settings.fillMode || "";
         for (var i = 0; i < gridView.count; i++) {
             var url = "file://" + gridView.model.get(i);
             if (url === pictureUrl.toString()) {

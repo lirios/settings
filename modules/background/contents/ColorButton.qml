@@ -29,10 +29,11 @@ import QtQuick.Dialogs 1.1
 import QtQuick.Controls 2.0
 
 Button {
+    id: button
+
     property alias color: dialog.color
 
-    id: button
-    label: Rectangle {
+    contentItem: Rectangle {
         anchors {
             fill: parent
             leftMargin: button.leftPadding

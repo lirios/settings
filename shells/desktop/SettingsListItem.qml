@@ -5,6 +5,8 @@ ListItem {
     text: title
     iconName: model.iconName
 
+    highlighted: model.mainScriptUrl == selectedModuleUrl
+
     onClicked: {
         if (!model.mainScriptUrl)
             return;
@@ -22,7 +24,7 @@ ListItem {
         if (item.minimumHeight != null)
             window.minimumHeight = item.minimumHeight;
 
-        prefletTitle.text = title;
+        selectedModuleUrl = model.mainScriptUrl
         moduleStack.push(item);
     }
 }
