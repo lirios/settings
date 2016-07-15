@@ -37,7 +37,13 @@ Page {
 
             section.property: "category"
             section.delegate: Subheader {
+                id: subheader
                 text: section
+
+                ThinDivider {
+                    anchors.top: parent.top
+                    visible: subheader.y > 0
+                }
             }
 
             delegate: SettingsListItem {}
