@@ -25,40 +25,54 @@
  ***************************************************************************/
 
 import QtQuick 2.0
-import Fluid.Ui 1.0 as FluidUi
-import Hawaii.SystemPreferences 1.0
-import Hawaii.GSettings 1.0 as Settings
+import QtQuick.Controls 2.0
+import QtQuick.Controls.Material 2.0
+import Fluid.UI 1.0
+import Hawaii.Settings 1.0
 
-PrefletPage {
-    property int minimumHeight: FluidUi.Units.dp(440)
+Page {
+    property int minimumHeight: 440
 
-    Settings.Settings {
+    Settings {
         id: backgroundSettings
         schema.id: "org.hawaiios.desktop.background"
         schema.path: "/org/hawaiios/desktop/background/"
     }
 
-    Settings.Settings {
+    Settings {
         id: lockScreenSettings
         schema.id: "org.hawaiios.desktop.lockscreen"
         schema.path: "/org/hawaiios/desktop/lockscreen/"
     }
 
-    Row {
-        anchors {
-            centerIn: parent
-            margins: FluidUi.Units.largeSpacing
-        }
-        spacing: FluidUi.Units.largeSpacing
+    Pane {
+        anchors.centerIn: parent
 
-        Selector {
-            settingsObject: backgroundSettings
-            text: qsTr("Background")
-        }
+        width: row.width
+        height: row.height
+        padding: 0
 
-        Selector {
-            settingsObject: lockScreenSettings
-            text: qsTr("Lock Screen")
+        Material.background: "white"
+        Material.elevation: 1
+
+        Row {
+            id: row
+
+            Selector {
+                settings: backgroundSettings
+                text: qsTr("Background")
+            }
+
+            Rectangle {
+                height: parent.height
+                width: 1
+                color: Material.dividerColor
+            }
+
+            Selector {
+                settings: lockScreenSettings
+                text: qsTr("Lock Screen")
+            }
         }
     }
 }

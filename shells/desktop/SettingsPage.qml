@@ -11,6 +11,10 @@ Page {
 
     title: qsTr("Settings")
 
+    Material.background: "#f3f3f3"
+
+    property string selectedModuleUrl
+
     Pane {
         id: listPane
 
@@ -20,7 +24,7 @@ Page {
             bottom: parent.bottom
         }
 
-        Material.background: "#f3f3f3"
+        Material.background: "white"
         Material.elevation: 1
 
         width: 200
@@ -40,6 +44,8 @@ Page {
 
             ScrollBar.vertical: ScrollBar {}
         }
+
+        z: 2
     }
 
     StackView {

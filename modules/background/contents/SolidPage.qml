@@ -29,7 +29,7 @@ import QtQuick.Window 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
-import Fluid.Ui 1.0 as FluidUi
+import Fluid.UI 1.0
 import org.hawaiios.systempreferences.background 1.0
 
 Item {
@@ -56,7 +56,7 @@ Item {
             Rectangle {
                 anchors {
                     fill: parent
-                    margins: FluidUi.Units.smallSpacing
+                    margins: Units.smallSpacing
                 }
                 color: model.color
 
@@ -71,7 +71,7 @@ Item {
             }
         }
         highlight: Rectangle {
-            radius: FluidUi.Units.dp(4)
+            radius: 4
             color: Material.accentColor
         }
 
