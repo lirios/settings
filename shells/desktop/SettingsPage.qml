@@ -56,10 +56,12 @@ Page {
 
     StackView {
         id: moduleStack
-        anchors.left: listPane.right
-        anchors.top: listPane.top
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
+        anchors {
+            left: listPane.right
+            top: parent.top
+            bottom: parent.bottom
+            right: parent.right
+        }
         initialItem: WelcomeView {}
     }
 }

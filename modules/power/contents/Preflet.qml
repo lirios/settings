@@ -25,41 +25,52 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
-import Hawaii.SystemPreferences 1.0
+import QtQuick.Controls.Material 2.0
+import Fluid.Controls 1.0
+import Fluid.UI 1.0
 import org.hawaiios.hardware 0.1
 
-PrefletPage {
-    width: 500
-    height: 500
-
+Page {
     HardwareEngine {
         id: hardwareEngine
     }
 
-    ColumnLayout {
+    Pane {
         anchors {
-            fill: parent
-            margins: 11
+            horizontalCenter: parent.horizontalCenter
+            top: parent.top
+            topMargin: 64
         }
 
-        GroupBox {
-            title: qsTr("Devices")
+        width: column.width
+        height: column.height
+        padding: 0
 
-            ListView {
-                anchors.fill: parent
-                interactive: false
-                model: hardwareEngine.batteries
-                delegate: BatteryDelegate { battery: modelData }
+        Material.background: "white"
+        Material.elevation: 1
+
+        Column {
+            id: column
+
+            width: 400
+
+            Subheader {
+                text: qsTr("Devices")
             }
 
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-        }
+            ListItem {
+                visible: repeater.count == 0
+                enabled: false
+                text: qsTr("No devices found!")
+                iconName: "alert/warning"
+            }
 
-        Item {
-            Layout.fillHeight: true
+            Repeater {
+                id: repeater
+                model: hardwareEngine.batteries
+                delegate: BatteryListItem { battery: modelData }
+            }
         }
     }
 }
