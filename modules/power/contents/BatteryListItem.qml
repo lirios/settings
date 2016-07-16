@@ -27,24 +27,24 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
+import Fluid.Controls 1.0
 import org.hawaiios.hardware 0.1
 
-RowLayout {
+ListItem {
     property var battery
 
-    Label {
-        text: battery.product
-    }
+    text: battery.product
+    valueText: battery.chargePercent + "%"
 
-    Label {
-        text: battery.chargePercent + "%"
-    }
-
-    ProgressBar {
+    secondaryItem: ProgressBar {
+        anchors {
+            left: parent.left
+            right: parent.right
+            verticalCenter: parent.verticalCenter
+        }
+        
         from: 0
         to: 100
         value: battery.chargePercent
-
-        Layout.fillWidth: true
     }
 }
