@@ -133,7 +133,7 @@ int main(int argc, char *argv[])
     app.setDesktopFileName(QLatin1String("org.hawaiios.SystemPreferences.desktop"));
 #endif
 
-    QQuickStyle::setStyle("Material");
+    QQuickStyle::setStyle(QLatin1String("Material"));
 
     // Register types
     qmlRegisterType<Plugin>();
