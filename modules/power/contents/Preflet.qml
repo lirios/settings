@@ -29,48 +29,28 @@ import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import Fluid.Controls 1.0
 import Fluid.UI 1.0
+import Hawaii.SystemSettings 1.0
 import org.hawaiios.hardware 0.1
 
-Page {
+PrefletPage {
     HardwareEngine {
         id: hardwareEngine
     }
 
-    Pane {
-        anchors {
-            horizontalCenter: parent.horizontalCenter
-            top: parent.top
-            topMargin: 64
-        }
+    Subheader {
+        text: qsTr("Devices")
+    }
 
-        width: column.width
-        height: column.height
-        padding: 0
+    ListItem {
+        visible: repeater.count == 0
+        enabled: false
+        text: qsTr("No devices found!")
+        iconName: "alert/warning"
+    }
 
-        Material.background: "white"
-        Material.elevation: 1
-
-        Column {
-            id: column
-
-            width: 400
-
-            Subheader {
-                text: qsTr("Devices")
-            }
-
-            ListItem {
-                visible: repeater.count == 0
-                enabled: false
-                text: qsTr("No devices found!")
-                iconName: "alert/warning"
-            }
-
-            Repeater {
-                id: repeater
-                model: hardwareEngine.batteries
-                delegate: BatteryListItem { battery: modelData }
-            }
-        }
+    Repeater {
+        id: repeater
+        model: hardwareEngine.batteries
+        delegate: BatteryListItem { battery: modelData }
     }
 }
