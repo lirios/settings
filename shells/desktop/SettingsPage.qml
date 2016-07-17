@@ -13,7 +13,7 @@ Page {
 
     Material.background: "#f3f3f3"
 
-    property string selectedModuleUrl
+    property var selectedModule
 
     Pane {
         id: listPane
@@ -54,14 +54,33 @@ Page {
         z: 2
     }
 
-    StackView {
-        id: moduleStack
+    Item {
+        id: moduleView
+
         anchors {
             left: listPane.right
             top: parent.top
             bottom: parent.bottom
             right: parent.right
         }
-        initialItem: WelcomeView {}
+
+        Loader {
+            id: moduleLoader
+            anchors.fill: parent
+            source: selectedModule ? selectedModule.mainScriptUrl : ""
+        }
+
+        WelcomeView {
+            anchors.fill: parent
+            visible: moduleLoader.status == Loader.Null
+        }
+
+        ErrorView {
+            id: errorView
+            anchors.fill: parent
+            visible: moduleLoader.status == Loader.Error
+            moduleTitle: selectedModule ? selectedModule.title : ""
+            errorMessage: moduleLoader.sourceComponent ? moduleLoader.sourceComponent.errorString() : ""
+        }
     }
 }
