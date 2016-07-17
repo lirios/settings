@@ -26,9 +26,10 @@ import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import Fluid.Controls 1.0
 import Fluid.UI 1.0
+import Hawaii.SystemSettings 1.0
 import QtAccountsService 1.0
 
-Page {
+PrefletPage {
     UserAccount {
         id: currentUser
     }
@@ -37,53 +38,34 @@ Page {
         id: userModel
     }
 
-    Pane {
-        anchors {
-            horizontalCenter: parent.horizontalCenter
-            top: parent.top
-            topMargin: 64
-        }
-        
-        padding: 0
+    Subheader {
+        text: "Your Account"
+    }
 
-        Material.background: "white"
-        Material.elevation: 1
+    UserListItem {
+        iconSource: currentUser.iconFileName
+        text: currentUser.realName
+        subText: currentUser.userName
+        isAdminUser: currentUser.accountType == UserAccount.AdministratorAccountType
+    }
 
-        Column {
-            id: column
+    Subheader {
+        text: "Other Accounts"
 
-            width: 400
+        // Only show if larger than one because the first user
+        // is the current user and is hidden
+        visible: userRepeater.count > 1
+    }
 
-            Subheader {
-                text: "Your Account"
-            }
-
-            UserListItem {
-                iconSource: currentUser.iconFileName
-                text: currentUser.realName
-                subText: currentUser.userName
-                isAdminUser: currentUser.accountType == UserAccount.AdministratorAccountType
-            }
-
-            Subheader {
-                text: "Other Accounts"
-
-                // Only show if larger than one because the first user
-                // is the current user and is hidden
-                visible: userRepeater.count > 1
-            }
-
-            Repeater {
-                id: userRepeater
-                model: userModel
-                delegate: UserListItem {
-                    iconSource: iconFileName
-                    text: realName
-                    subText: userName
-                    isAdminUser: accountType == UserAccount.AdministratorAccountType
-                    visible: userId != currentUser.uid
-                }
-            }
+    Repeater {
+        id: userRepeater
+        model: userModel
+        delegate: UserListItem {
+            iconSource: iconFileName
+            text: realName
+            subText: userName
+            isAdminUser: accountType == UserAccount.AdministratorAccountType
+            visible: userId != currentUser.uid
         }
     }
 }

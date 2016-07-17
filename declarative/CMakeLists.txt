@@ -4,4 +4,4 @@ set(FILES
 )
 
 install(FILES ${FILES}
-        DESTINATION ${QML_INSTALL_DIR}/Hawaii/SystemPreferences)
+DESTINATION ${QML_INSTALL_DIR}/Hawaii/SystemSettings)

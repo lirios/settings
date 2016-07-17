@@ -28,10 +28,12 @@ import QtQuick 2.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import Fluid.UI 1.0
+import Hawaii.SystemSettings 1.0
 import Hawaii.Settings 1.0
 
-Page {
-    property int minimumHeight: 440
+PrefletPage {
+    contentWidth: row.width
+    centered: true
 
     Settings {
         id: backgroundSettings
@@ -45,34 +47,23 @@ Page {
         schema.path: "/org/hawaiios/desktop/lockscreen/"
     }
 
-    Pane {
-        anchors.centerIn: parent
+    Row {
+        id: row
 
-        width: row.width
-        height: row.height
-        padding: 0
+        Selector {
+            settings: backgroundSettings
+            text: qsTr("Background")
+        }
 
-        Material.background: "white"
-        Material.elevation: 1
+        Rectangle {
+            height: parent.height
+            width: 1
+            color: Material.dividerColor
+        }
 
-        Row {
-            id: row
-
-            Selector {
-                settings: backgroundSettings
-                text: qsTr("Background")
-            }
-
-            Rectangle {
-                height: parent.height
-                width: 1
-                color: Material.dividerColor
-            }
-
-            Selector {
-                settings: lockScreenSettings
-                text: qsTr("Lock Screen")
-            }
+        Selector {
+            settings: lockScreenSettings
+            text: qsTr("Lock Screen")
         }
     }
 }

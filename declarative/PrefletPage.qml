@@ -26,9 +26,34 @@
 
 import QtQuick 2.0
 import QtQuick.Controls 2.0
+import QtQuick.Controls.Material 2.0
+import Fluid.UI 1.0
 
 Page {
-    property string title
-    property list<Item> leftActions
-    property list<Item> rightActions
+    default property alias content: column.data
+
+    property bool centered: false
+    property alias contentWidth: column.width
+
+    Pane {
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            verticalCenter: centered ? parent.verticalCenter : undefined
+            top: centered ? undefined : parent.top
+            topMargin: 64
+        }
+
+        width: column.width
+        height: column.height
+        padding: 0
+
+        Material.background: "white"
+        Material.elevation: 1
+
+        Column {
+            id: column
+
+            width: 400
+        }
+    }
 }
