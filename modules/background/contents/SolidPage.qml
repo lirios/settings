@@ -30,7 +30,7 @@ import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import Fluid.UI 1.0
-import org.hawaiios.systempreferences.background 1.0
+import Hawaii.Settings.Background 1.0
 
 Item {
     property var settings: null

@@ -31,7 +31,7 @@
 #include "preflet.h"
 #include "ui_mousepreflet.h"
 
-using namespace Hawaii::SystemPreferences;
+using namespace Hawaii::Settings;
 
 Preflet::Preflet()
     : PreferencesModule()
@@ -106,7 +106,7 @@ void Preflet::loadTranslations()
     m_translator = new QTranslator(this);
     QString localeDir = QStandardPaths::locate(
                             QStandardPaths::GenericDataLocation,
-                            QLatin1String("hawaii-system-preferences/plugins/mouse/translations"),
+                            QLatin1String("hawaii-settings/plugins/mouse/translations"),
                             QStandardPaths::LocateDirectory);
     m_translator->load(locale, localeDir);
     QCoreApplication::instance()->installTranslator(m_translator);

@@ -138,7 +138,7 @@ void PluginManager::populate()
         return;
 
     QStringList list = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
-                                                 QStringLiteral("hawaii-system-preferences/modules/%1").arg(d->vendor),
+                                                 QStringLiteral("hawaii-settings/modules/%1").arg(d->vendor),
                                                  QStandardPaths::LocateDirectory);
     Q_FOREACH (const QString &location, list) {
         QDir dir(location);

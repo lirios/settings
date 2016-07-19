@@ -23,6 +23,6 @@ add_library(backgroundplugin SHARED ${SOURCES})
 target_link_libraries(backgroundplugin Qt5::Qml Qt5::Quick)
 
 install(TARGETS backgroundplugin LIBRARY
-        DESTINATION ${QML_INSTALL_DIR}/org/hawaiios/systempreferences/background)
+        DESTINATION ${QML_INSTALL_DIR}/Hawaii/SystemSettings/Background)
 install(FILES ${FILES}
-        DESTINATION ${QML_INSTALL_DIR}/org/hawaiios/systempreferences/background)
+        DESTINATION ${QML_INSTALL_DIR}/Hawaii/SystemSettings/Background)

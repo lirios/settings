@@ -27,18 +27,18 @@
 #ifndef PLUGIN_H
 #define PLUGIN_H
 
-#include <Hawaii/SystemPreferences/PreferencesModulePlugin>
+#include <Hawaii/Settings/PreferencesModulePlugin>
 
 namespace Hawaii
 {
-    namespace SystemPreferences
+    namespace Settings
     {
         class PreferencesModule;
 
         class SoundPlugin : public PreferencesModulePlugin
         {
             Q_OBJECT
-            Q_PLUGIN_METADATA(IID "org.hawaiios.SystemPreferences.PreferencesModuleFactoryInterface" FILE "sound.json")
+            Q_PLUGIN_METADATA(IID "org.hawaiios.Settings.PreferencesModuleFactoryInterface" FILE "sound.json")
         public:
             explicit SoundPlugin(QObject *parent = 0);
 

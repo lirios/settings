@@ -61,10 +61,10 @@ set_target_properties(sound PROPERTIES PREFIX "")
 qt5_use_modules(sound Widgets)
 target_link_libraries(sound
     ${VibeWidgets_LIBRARIES}
-    HawaiiSystemPreferences
+    HawaiiSettings
 )
 
 install(TARGETS sound LIBRARY
     DESTINATION ${CMAKE_INSTALL_PLUGINSDIR}/preferences)
 install(FILES ${QM_FILES}
-    DESTINATION ${CMAKE_INSTALL_DATADIR}/hawaii-system-preferences/sound/user-accounts/translations)
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/hawaii-settings/sound/user-accounts/translations)

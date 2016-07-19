@@ -1,1 +1,1 @@
-hawaii_install_module(org.hawaiios.systempreferences.network contents hawaii)
+hawaii_install_module(org.hawaiios.Settings.Network contents hawaii)

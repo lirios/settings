@@ -25,6 +25,6 @@ add_library(keyboardplugin SHARED ${SOURCES})
 target_link_libraries(keyboardplugin Qt5::Qml Qt5::Quick)
 
 install(TARGETS keyboardplugin LIBRARY
-    DESTINATION ${QML_INSTALL_DIR}/org/hawaiios/systempreferences/keyboard)
+        DESTINATION ${QML_INSTALL_DIR}/Hawaii/SystemSettings/Keyboard)
 install(FILES ${FILES}
-    DESTINATION ${QML_INSTALL_DIR}/org/hawaiios/systempreferences/keyboard)
+        DESTINATION ${QML_INSTALL_DIR}/Hawaii/SystemSettings/Keyboard)

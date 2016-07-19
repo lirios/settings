@@ -5,7 +5,7 @@ import os, sys, re
 if len(sys.argv) >= 2:
     base_filename = sys.argv[1]
 else:
-    base_filename = "hawaii-system-preferences.desktop"
+    base_filename = "hawaii-settings.desktop"
 translations = {
     "Name": [],
     "GenericName": [],

@@ -27,7 +27,7 @@
 #ifndef PREFLET_H
 #define PREFLET_H
 
-#include <Hawaii/SystemPreferences/PreferencesModule>
+#include <Hawaii/Settings/PreferencesModule>
 
 class QTranslator;
 
@@ -40,7 +40,7 @@ class TypesModel;
 
 namespace Hawaii
 {
-    namespace SystemPreferences
+    namespace Settings
     {
         class Preflet : public PreferencesModule
         {

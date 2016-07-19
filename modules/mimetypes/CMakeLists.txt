@@ -52,9 +52,9 @@ qt5_add_translation(QM_FILES ${QM_SOURCES})
 add_library(mimetypes SHARED ${SOURCES} ${FORMS_HEADERS} ${QM_FILES})
 set_target_properties(mimetypes PROPERTIES PREFIX "")
 qt5_use_modules(mimetypes Widgets)
-target_link_libraries(mimetypes HawaiiSystemPreferences)
+target_link_libraries(mimetypes HawaiiSettings)
 
 install(TARGETS mimetypes LIBRARY
     DESTINATION ${CMAKE_INSTALL_PLUGINSDIR}/preferences)
 install(FILES ${QM_FILES}
-    DESTINATION ${CMAKE_INSTALL_DATADIR}/hawaii-system-preferences/plugins/mimetypes/translations)
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/hawaii-settings/plugins/mimetypes/translations)

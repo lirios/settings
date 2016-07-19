@@ -60,7 +60,7 @@ set(REQUIRED_GREENISLAND_VERSION "0.7.90")
 find_package(GreenIsland ${REQUIRED_GREENISLAND_VERSION} REQUIRED COMPONENTS Client)
 
 # Include our macros
-include(${CMAKE_SOURCE_DIR}/settings/HawaiiSystemPreferencesMacros.cmake)
+include(${CMAKE_SOURCE_DIR}/settings/HawaiiSystemSettingsMacros.cmake)
 
 # Subdirectories
 add_subdirectory(data)

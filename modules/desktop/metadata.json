@@ -1,5 +1,5 @@
 {
-    "HawaiiSystemPreferences": {
+    "HawaiiSettings": {
         "Category": "Personal"
     },
     "PluginInfo": {
@@ -23,7 +23,7 @@
             }
         },
         "Icon": "preferences-desktop",
-        "Implements": "HawaiiSystemPreferences",
+        "Implements": "HawaiiSettings",
         "InternalName": "org.hawaiios.preferences.desktop",
         "License": "GPLv2+",
         "MainScript": "ui/Preflet.qml"

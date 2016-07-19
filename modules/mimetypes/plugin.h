@@ -27,18 +27,18 @@
 #ifndef PLUGIN_H
 #define PLUGIN_H
 
-#include <Hawaii/SystemPreferences/PreferencesModulePlugin>
+#include <Hawaii/Settings/PreferencesModulePlugin>
 
 namespace Hawaii
 {
-    namespace SystemPreferences
+    namespace Settings
     {
         class PreferencesModule;
 
         class MimeTypesPlugin : public PreferencesModulePlugin
         {
             Q_OBJECT
-            Q_PLUGIN_METADATA(IID "org.hawaiios.SystemPreferences.PreferencesModuleFactoryInterface" FILE "mimetype.json")
+            Q_PLUGIN_METADATA(IID "org.hawaiios.Settings.PreferencesModuleFactoryInterface" FILE "mimetype.json")
         public:
             explicit MimeTypesPlugin(QObject *parent = 0);
 

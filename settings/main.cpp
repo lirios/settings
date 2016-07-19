@@ -43,7 +43,7 @@
 #include "pluginsmodel.h"
 
 Q_DECLARE_LOGGING_CATEGORY(PREFERENCES)
-Q_LOGGING_CATEGORY(PREFERENCES, "hawaii.systempreferences")
+Q_LOGGING_CATEGORY(PREFERENCES, "hawaii.settings")
 
 static void loadQtTranslations()
 {
@@ -66,7 +66,7 @@ static void loadShellTranslations(const QString &vendor, const QString &name)
     QString locale = QLocale::system().name();
 
     // Find the translations directory
-    const QString path = QLatin1String("hawaii-system-preferences/translations/shells/%1/%2");
+    const QString path = QLatin1String("hawaii-settings/translations/shells/%1/%2");
     const QString translationsDir =
         QStandardPaths::locate(QStandardPaths::GenericDataLocation,
                                path.arg(vendor, name),
@@ -90,7 +90,7 @@ static void loadModuleTranslations(const QString &vendor)
     QString locale = QLocale::system().name();
 
     // Load translations of each module
-    const QString rootDir = QLatin1String("hawaii-system-preferences/modules/%1");
+    const QString rootDir = QLatin1String("hawaii-settings/modules/%1");
     const QString modulesPath =
             QStandardPaths::locate(QStandardPaths::GenericDataLocation,
                                    rootDir.arg(vendor),
@@ -100,7 +100,7 @@ static void loadModuleTranslations(const QString &vendor)
         const QString name = info.fileName();
 
         // Find the translations directory
-        const QString path = QLatin1String("hawaii-system-preferences/translations/modules/%1");
+        const QString path = QLatin1String("hawaii-settings/translations/modules/%1");
         const QString translationsDir =
             QStandardPaths::locate(QStandardPaths::GenericDataLocation,
                                    path.arg(vendor),
@@ -125,26 +125,26 @@ int main(int argc, char *argv[])
 
     // Setup application
     QGuiApplication app(argc, argv);
-    app.setApplicationName(QLatin1String("System Preferences"));
-    app.setApplicationVersion(QLatin1String(SYSTEMPREFERENCES_VERSION_STRING));
+    app.setApplicationName(QLatin1String("Settings"));
+    app.setApplicationVersion(QLatin1String(SETTINGS_VERSION_STRING));
     app.setOrganizationDomain(QLatin1String("hawaiios.org"));
     app.setOrganizationName(QLatin1String("Hawaii"));
 #if QT_VERSION >= QT_VERSION_CHECK(5, 7, 0)
-    app.setDesktopFileName(QLatin1String("org.hawaiios.SystemPreferences.desktop"));
+    app.setDesktopFileName(QLatin1String("org.hawaiios.Settings.desktop"));
 #endif
 
     QQuickStyle::setStyle(QLatin1String("Material"));
 
     // Register types
     qmlRegisterType<Plugin>();
-    qmlRegisterType<PluginManager>("org.hawaiios.systempreferences", 0, 1, "PluginManager");
-    //qmlRegisterType<PrefletsProxyModel>("org.hawaiios.systempreferences", 0, 1, "PrefletsProxyModel");
-    qmlRegisterType<PluginsModel>("org.hawaiios.systempreferences", 0, 1, "PluginsModel");
+    qmlRegisterType<PluginManager>("Hawaii.Settings", 1, 0, "PluginManager");
+    //qmlRegisterType<PrefletsProxyModel>("Hawaii.Settings", 1, 0, "PrefletsProxyModel");
+    qmlRegisterType<PluginsModel>("Hawaii.Settings", 1, 0, "PluginsModel");
 
     // Find plugin
     const QString vendor = QLatin1String("hawaii");
     const QString plugin = QLatin1String("desktopshell");
-    const QString path = QLatin1String("hawaii-system-preferences/shells/%1/%2/main.qml");
+    const QString path = QLatin1String("hawaii-settings/shells/%1/%2/main.qml");
     QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
                                               path.arg(vendor, plugin));
     if (fileName.isEmpty()) {

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Power
 Comment=View your battery status and change power saving settings
-Exec=hawaii-system-preferences org.hawaiios.systempreferences.power
+Exec=hawaii-settings org.hawaiios.Settings.Power
 Icon=preferences-system-power-management
 Terminal=false
 Type=Application

@@ -7,5 +7,5 @@ Keywords=User;Users;Me;Account;People;Person;Guest;Admin;Create;Delete;Password
 Icon=preferences-system-users
 Categories=Qt;X-Hawaii;Settings;
 OnlyShowIn=X-Hawaii;
-X-Hawaii-SystemPreferences-Category=system
-X-Hawaii-SystemPreferences-SymbolicIcon=social/people
+X-Hawaii-Settings-Category=system
+X-Hawaii-Settings-SymbolicIcon=social/people

@@ -1,2 +1,2 @@
-module org.hawaiios.systempreferences.display
+module Hawaii.SystemSettings.Display
 plugin displayplugin

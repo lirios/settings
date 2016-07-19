@@ -7,7 +7,7 @@ Keywords=shortcut;repeat;blink;
 Icon=input-keyboard
 Categories=Qt;X-Hawaii;Settings;
 OnlyShowIn=X-Hawaii;
-X-Hawaii-SystemPreferences-Category=hardware
-X-Hawaii-SystemPreferences-SymbolicIcon=hardware/keyboard
+X-Hawaii-Settings-Category=hardware
+X-Hawaii-Settings-SymbolicIcon=hardware/keyboard
 
 #TRANSLATIONS_DIR=translations

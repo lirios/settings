@@ -1,12 +1,12 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Application
-Name=System Preferences
-GenericName=System Preferences
-Comment=Manages system preferences
+Name=Settings
+GenericName=Settings
+Comment=Manages system settings
 Icon=preferences-system
-Exec=hawaii-system-preferences
-TryExec=hawaii-system-preferences
+Exec=hawaii-settings
+TryExec=hawaii-settings
 Terminal=false
 StartupNotify=true
 Categories=Qt;X-Hawaii;Settings;Core;

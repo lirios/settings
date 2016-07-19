@@ -39,13 +39,13 @@ add_library(desktop SHARED ${SOURCES} ${QM_FILES} ${RESOURCES})
 set_target_properties(desktop PROPERTIES PREFIX "")
 qt5_use_modules(desktop Quick)
 target_link_libraries(desktop
-    HawaiiSystemPreferences
+    HawaiiSettings
     ${QtConfiguration_LIBRARIES}
 )
 
 install(TARGETS desktop LIBRARY
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/hawaii/plugins/preferences)
 install(FILES ${QM_FILES}
-    DESTINATION ${CMAKE_INSTALL_DATADIR}/hawaii-system-preferences/plugins/desktop/translations)
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/hawaii-settings/plugins/desktop/translations)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/hawaii-desktop-panel.desktop
     DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)

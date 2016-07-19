@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Background
 Comment=Change your background image to a wallpaper, photo or solid color
-Exec=hawaii-system-preferences org.hawaiios.preferences.background
+Exec=hawaii-settings org.hawaiios.preferences.background
 Icon=preferences-desktop-wallpaper
 Terminal=false
 Type=Application

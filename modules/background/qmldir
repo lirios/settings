@@ -1,2 +1,2 @@
-module org.hawaiios.systempreferences.background
+module Hawaii.SystemSettings.Background
 plugin backgroundplugin

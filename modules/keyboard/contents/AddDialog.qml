@@ -28,7 +28,7 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import Fluid.UI 1.0 as FluidUi
-import org.hawaiios.systempreferences.keyboard 1.0
+import Hawaii.SystemSettings.Keyboard 1.0
 
 Popup {
     id: addDialog

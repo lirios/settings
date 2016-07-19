@@ -27,7 +27,7 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
-import Hawaii.SystemPreferences.Desktop 0.1
+import Hawaii.Settings.Desktop 0.1
 
 Item {
     TabView {

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Network
 Comment=Control how you connect to the Internet
-Exec=hawaii-system-preferences network
+Exec=hawaii-settings network
 Icon=preferences-system-network
 Terminal=false
 Type=Application

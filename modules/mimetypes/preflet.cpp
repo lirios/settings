@@ -32,7 +32,7 @@
 #include "ui_mimetypespreflet.h"
 #include "typesmodel.h"
 
-using namespace Hawaii::SystemPreferences;
+using namespace Hawaii::Settings;
 
 Preflet::Preflet()
     : PreferencesModule()
@@ -118,7 +118,7 @@ void Preflet::loadTranslations()
     m_translator = new QTranslator(this);
     QString localeDir = QStandardPaths::locate(
                             QStandardPaths::GenericDataLocation,
-                            QLatin1String("hawaii-system-preferences/plugins/mimetypes/translations"),
+                            QLatin1String("hawaii-settings/plugins/mimetypes/translations"),
                             QStandardPaths::LocateDirectory);
     m_translator->load(locale, localeDir);
     QCoreApplication::instance()->installTranslator(m_translator);

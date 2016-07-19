@@ -1,73 +1,73 @@
 [main]
 host = https://www.transifex.com
 
-[system-preferences.shells-desktop]
+[settings.shells-desktop]
 type = QT
 source_lang = en
 source_file = shells/translations/desktopshell.ts
 file_filter = shells/translations/desktopshell_<lang>.ts
 
-[system-preferences.desktop-file]
+[settings.desktop-file]
 type = DESKTOP
 source_lang = en
 source_file = settings/org.hawaiios.SystemPreferences.desktop.in
 file_filter = settings/translations/org.hawaiios.SystemPreferences_<lang>.desktop
 
-[system-preferences.background-preflet]
+[settings.background-preflet]
 type = QT
 source_lang = en
 source_file = modules/background/translations/background.ts
 file_filter = modules/background/translations/background_<lang>.ts
 
-[system-preferences.background-desktop]
+[settings.background-desktop]
 type = DESKTOP
 source_lang = en
 source_file = modules/background/metadata.desktop.in
 file_filter = modules/background/translations/metadata_<lang>.desktop
 
-[system-preferences.display-preflet]
+[settings.display-preflet]
 type = QT
 source_lang = en
 source_file = modules/display/translations/display.ts
 file_filter = modules/display/translations/display_<lang>.ts
 
-[system-preferences.display-desktop]
+[settings.display-desktop]
 type = DESKTOP
 source_lang = en
 source_file = modules/display/metadata.desktop.in
 file_filter = modules/display/translations/metadata_<lang>.desktop
 
-[system-preferences.keyboard-preflet]
+[settings.keyboard-preflet]
 type = QT
 source_lang = en
 source_file = modules/keyboard/translations/keyboard.ts
 file_filter = modules/keyboard/translations/keyboard_<lang>.ts
 
-[system-preferences.keyboard-desktop]
+[settings.keyboard-desktop]
 type = DESKTOP
 source_lang = en
 source_file = modules/keyboard/metadata.desktop.in
 file_filter = modules/keyboard/translations/metadata_<lang>.desktop
 
-[system-preferences.power-preflet]
+[settings.power-preflet]
 type = QT
 source_lang = en
 source_file = modules/power/translations/power.ts
 file_filter = modules/power/translations/power_<lang>.ts
 
-[system-preferences.power-desktop]
+[settings.power-desktop]
 type = DESKTOP
 source_lang = en
 source_file = modules/power/metadata.desktop.in
 file_filter = modules/power/translations/metadata_<lang>.desktop
 
-[system-preferences.network-preflet]
+[settings.network-preflet]
 type = QT
 source_lang = en
 source_file = modules/network/translations/network.ts
 file_filter = modules/network/translations/network_<lang>.ts
 
-[system-preferences.network-desktop]
+[settings.network-desktop]
 type = DESKTOP
 source_lang = en
 source_file = modules/network/metadata.desktop.in

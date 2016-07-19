@@ -29,14 +29,14 @@ import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import Fluid.UI 1.0
-import org.hawaiios.systempreferences 0.1
+import Hawaii.Settings 1.0
 
 FluidWindow {
     id: window
 
     property real itemSize: Units.iconSizes.large
 
-    title: qsTr("System Preferences")
+    title: qsTr("Settings")
     width: minimumWidth
     height: minimumHeight
     minimumWidth: 800

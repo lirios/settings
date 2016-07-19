@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="it">
 <context>
-    <name>Hawaii::SystemPreferences::Preflet</name>
+    <name>Hawaii::Settings::Preflet</name>
     <message>
         <location filename="../preflet.cpp" line="46"/>
         <source>Brightness &amp; Lock</source>

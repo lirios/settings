@@ -1,5 +1,5 @@
 #.rst
-# HawaiiSystemPreferencesMacros
+# HawaiiSystemSettingsMacros
 # -----------------------------
 #
 # This module provides the ``add_hawaii_preflet`` and ``add_hawaii_preferences_shell``
@@ -18,7 +18,7 @@
 #                      [DESKTOP_FILE_VAR <desktop_file_var>]
 #
 # Install the <qml_contents_directory> directory to the preflet location for
-# the vendor <vendor>, ``<sharedir>/hawaii-system-preferences/modules/<vendor>/<name>``.
+# the vendor <vendor>, ``<sharedir>/hawaii-settings/modules/<vendor>/<name>``.
 #
 # ``add_hawaii_preflet`` creates the ``<name>_translations`` target that will
 # build the .qm files for translations and the metadata.desktop with
@@ -26,7 +26,7 @@
 # sources directory.
 #
 # Translations will be installed into
-# ``<sharedir>/hawaii-system-preferences/translations/modules/<vendor>``.
+# ``<sharedir>/hawaii-settings/translations/modules/<vendor>``.
 #
 # Pass UPDATE_TRANSLATIONS to update the translation template and all
 # translations.
@@ -42,13 +42,13 @@
 #                                [QM_FILES_VAR <qm_files_var>])
 #
 # Installs the <qml_contents_directory> directory to the shells location
-# for the vendor <vendor>, ``<sharedir>/hawaii-system-preferences/shells/<vendor>/<name>``.
+# for the vendor <vendor>, ``<sharedir>/hawaii-settings/shells/<vendor>/<name>``.
 #
 # ``add_hawaii_preferences_shell`` creates the ``<name>_translations``
 # target that will build the .qm files for translations.
 #
 # Translations will be installed into
-# ``<sharedir>/hawaii-system-preferences/translations/shells/<vendor>``.
+# ``<sharedir>/hawaii-settings/translations/shells/<vendor>``.
 #
 # Pass UPDATE_TRANSLATIONS to update the translation template and all
 # translations.
@@ -86,8 +86,8 @@ function(add_hawaii_preflet)
         set(ARGS_COMPONENT "Runtime")
     endif()
 
-    set(install_dir "${DATA_INSTALL_DIR}/hawaii-system-preferences/modules/${ARGS_VENDOR}/${ARGS_NAME}")
-    set(translations_dir "${DATA_INSTALL_DIR}/hawaii-system-preferences/translations/modules/${ARGS_VENDOR}")
+    set(install_dir "${DATA_INSTALL_DIR}/hawaii-settings/modules/${ARGS_VENDOR}/${ARGS_NAME}")
+    set(translations_dir "${DATA_INSTALL_DIR}/hawaii-settings/translations/modules/${ARGS_VENDOR}")
 
     install(DIRECTORY ${ARGS_CONTENTS_DIR}/
             DESTINATION ${install_dir}
@@ -149,8 +149,8 @@ function(add_hawaii_preferences_shell)
         set(ARGS_COMPONENT "Runtime")
     endif()
 
-    set(install_dir "${DATA_INSTALL_DIR}/hawaii-system-preferences/shells/${ARGS_VENDOR}/${ARGS_NAME}")
-    set(translations_dir "${DATA_INSTALL_DIR}/hawaii-system-preferences/translations/shells/${ARGS_VENDOR}/${ARGS_NAME}")
+    set(install_dir "${DATA_INSTALL_DIR}/hawaii-settings/shells/${ARGS_VENDOR}/${ARGS_NAME}")
+    set(translations_dir "${DATA_INSTALL_DIR}/hawaii-settings/translations/shells/${ARGS_VENDOR}/${ARGS_NAME}")
 
     install(DIRECTORY ${ARGS_CONTENTS_DIR}/
             DESTINATION ${install_dir}

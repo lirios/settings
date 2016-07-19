@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Desktop
 Comment=Configure desktop preferences
-Exec=hawaii-system-preferences org.hawaiios.preferences.desktop
+Exec=hawaii-settings org.hawaiios.preferences.desktop
 Icon=preferences-desktop
 Terminal=false
 Type=Application
