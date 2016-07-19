@@ -15,18 +15,18 @@ Settings application and modules for qmlOS.
 
 Qt >= 5.7.0 with at least the following modules is required:
 
-* [qtbase](http://code.qt.io/cgit/qt/qtbase.git)
-* [qtdeclarative](http://code.qt.io/cgit/qt/qtdeclarative.git)
-* [qtquickcontrols2](http://code.qt.io/cgit/qt/qtquickcontrols2.git)
-* [qttools](http://code.qt.io/cgit/qt/qttools.git/)
+ * [qtbase](http://code.qt.io/cgit/qt/qtbase.git)
+ * [qtdeclarative](http://code.qt.io/cgit/qt/qtdeclarative.git)
+ * [qtquickcontrols2](http://code.qt.io/cgit/qt/qtquickcontrols2.git)
+ * [qttools](http://code.qt.io/cgit/qt/qttools.git/)
 
 The following modules and their dependencies are required:
 
-* [ECM >= 1.7.0](http://quickgit.kde.org/?p=extra-cmake-modules.git)
-* [greenisland](https://github.com/hawaii-desktop/greenisland)
-* [libhawaii](https://github.com/hawaii-desktop/libhawaii)
-* [polkit-qt5-1](https://quickgit.kde.org/?p=polkit-qt-1.git)
-* [xkeyboard-config](https://cgit.freedesktop.org/xkeyboard-config/)
+ * [ECM >= 1.7.0](http://quickgit.kde.org/?p=extra-cmake-modules.git)
+ * [greenisland](https://github.com/hawaii-desktop/greenisland)
+ * [libhawaii](https://github.com/hawaii-desktop/libhawaii)
+ * [polkit-qt5-1](https://quickgit.kde.org/?p=polkit-qt-1.git)
+ * [xkeyboard-config](https://cgit.freedesktop.org/xkeyboard-config/)
 
 ### Installation
 
