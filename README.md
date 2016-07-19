@@ -23,8 +23,9 @@ Qt >= 5.7.0 with at least the following modules is required:
 The following modules and their dependencies are required:
 
  * [ECM >= 1.7.0](http://quickgit.kde.org/?p=extra-cmake-modules.git)
- * [greenisland](https://github.com/hawaii-desktop/greenisland)
- * [libhawaii](https://github.com/hawaii-desktop/libhawaii)
+ * [fluid](https://github.com/qmlos/fluid)
+ * [greenisland](https://github.com/greenisland/greenisland)
+ * [libqmlos](https://github.com/qmlos/libqmlos)
  * [polkit-qt5-1](https://quickgit.kde.org/?p=polkit-qt-1.git)
  * [xkeyboard-config](https://cgit.freedesktop.org/xkeyboard-config/)
 
