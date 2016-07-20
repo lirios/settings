@@ -1,5 +1,6 @@
 add_subdirectory(background)
 add_subdirectory(display)
+add_subdirectory(info)
 add_subdirectory(keyboard)
 #add_subdirectory(network)
 add_subdirectory(power)
