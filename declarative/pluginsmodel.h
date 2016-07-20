@@ -48,8 +48,8 @@ public Q_SLOTS:
     void populate();
 
 private:
-    QString m_vendor;
     QVector<Plugin *> m_plugins;
+    QMap<QString, Plugin *> m_pluginsMap;
 
     friend class PluginsModel;
 };
@@ -57,7 +57,6 @@ private:
 class PluginsModel : public QAbstractListModel, public QQmlParserStatus
 {
     Q_OBJECT
-    Q_PROPERTY(QString vendor READ vendor WRITE setVendor NOTIFY vendorChanged)
     Q_INTERFACES(QQmlParserStatus)
 public:
     enum Roles {
@@ -78,8 +77,7 @@ public:
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
 
-    QString vendor() const;
-    void setVendor(const QString &vendor);
+    Q_INVOKABLE Plugin *getByName(const QString &name) const;
 
     void classBegin() Q_DECL_OVERRIDE {}
     void componentComplete() Q_DECL_OVERRIDE;

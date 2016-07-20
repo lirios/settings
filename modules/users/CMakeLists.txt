@@ -1,5 +1,4 @@
 add_hawaii_preflet(
-    VENDOR hawaii
     NAME users
     CONTENTS_DIR contents
     METADATA_TEMPLATE metadata.desktop.in

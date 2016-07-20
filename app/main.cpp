@@ -57,21 +57,21 @@ static void loadQtTranslations()
 #endif
 }
 
-static void loadShellTranslations(const QString &vendor, const QString &name)
+static void loadShellTranslations()
 {
 #ifndef QT_NO_TRANSLATION
     QString locale = QLocale::system().name();
 
     // Find the translations directory
-    const QString path = QLatin1String("hawaii-settings/translations/shells/%1/%2");
+    const QString path = QLatin1String("hawaii/systemsettings/translations/app");
     const QString translationsDir =
         QStandardPaths::locate(QStandardPaths::GenericDataLocation,
-                               path.arg(vendor, name),
+                               path,
                                QStandardPaths::LocateDirectory);
 
     // Load shell translations
     QTranslator *appTranslator = new QTranslator(qGuiApp);
-    if (appTranslator->load(QStringLiteral("%1/%2_%3").arg(translationsDir, name, locale))) {
+    if (appTranslator->load(QStringLiteral("%1/settings_%3").arg(translationsDir, locale))) {
         QCoreApplication::installTranslator(appTranslator);
     } else if (locale == QLatin1String("C") ||
                 locale.startsWith(QLatin1String("en"))) {
@@ -81,26 +81,26 @@ static void loadShellTranslations(const QString &vendor, const QString &name)
 #endif
 }
 
-static void loadModuleTranslations(const QString &vendor)
+static void loadModuleTranslations()
 {
 #ifndef QT_NO_TRANSLATION
     QString locale = QLocale::system().name();
 
     // Load translations of each module
-    const QString rootDir = QLatin1String("hawaii-settings/modules/%1");
+    const QString rootDir = QLatin1String("hawaii/systemsettings/modules");
     const QString modulesPath =
             QStandardPaths::locate(QStandardPaths::GenericDataLocation,
-                                   rootDir.arg(vendor),
+                                   rootDir,
                                    QStandardPaths::LocateDirectory);
     QDir modulesDir(modulesPath);
     Q_FOREACH (const QFileInfo &info, modulesDir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot)) {
         const QString name = info.fileName();
 
         // Find the translations directory
-        const QString path = QLatin1String("hawaii-settings/translations/modules/%1");
+        const QString path = QLatin1String("hawaii/systemsettings/translations/modules");
         const QString translationsDir =
             QStandardPaths::locate(QStandardPaths::GenericDataLocation,
-                                   path.arg(vendor),
+                                   path,
                                    QStandardPaths::LocateDirectory);
 
         // Load shell translations
@@ -132,25 +132,13 @@ int main(int argc, char *argv[])
 
     QQuickStyle::setStyle(QLatin1String("Material"));
 
-    // Find plugin
-    const QString vendor = QLatin1String("hawaii");
-    const QString plugin = QLatin1String("desktopshell");
-    const QString path = QLatin1String("hawaii-settings/shells/%1/%2/main.qml");
-    QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
-                                              path.arg(vendor, plugin));
-    if (fileName.isEmpty()) {
-        qCWarning(PREFERENCES) << "Failed to find" << plugin << "plugin, aborting...";
-        return 1;
-    }
-
     // Load translations
     loadQtTranslations();
-    loadShellTranslations(vendor, plugin);
-    loadModuleTranslations(vendor);
+    loadShellTranslations();
+    loadModuleTranslations();
 
     // Setup QML engine and show the main window
-    qCDebug(PREFERENCES) << "Loading:" << fileName;
-    QQmlApplicationEngine engine(QUrl::fromLocalFile(fileName));
+    QQmlApplicationEngine engine(QUrl(QLatin1String("qrc:/qml/main.qml")));
 
     return app.exec();
 }

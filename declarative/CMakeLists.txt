@@ -2,7 +2,6 @@ add_definitions(-DQT_PLUGIN)
 
 set(SOURCES
     plugin.cpp
-    pluginmanager.cpp
     pluginsmodel.cpp
     xdgdesktopfile.cpp
     systemsettingsplugin.cpp

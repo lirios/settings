@@ -127,7 +127,7 @@ QStringList Plugin::keywords() const
     return d->entry->localizedValue(QStringLiteral("Keywords")).toStringList();
 }
 
-QUrl Plugin::mainScript() const
+QUrl Plugin::mainScriptUrl() const
 {
     Q_D(const Plugin);
 

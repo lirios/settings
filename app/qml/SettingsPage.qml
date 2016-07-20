@@ -39,6 +39,8 @@ Page {
 
     Material.background: "#f3f3f3"
 
+    property alias model: listView.model
+    property alias moduleLoader: moduleLoader
     property var selectedModule
 
     Pane {
@@ -57,9 +59,8 @@ Page {
         padding: 0
 
         ListView {
+            id: listView
             anchors.fill: parent
-
-            model: PluginsModel {}
 
             section.property: "category"
             section.delegate: Subheader {

@@ -50,21 +50,20 @@ FluidWindow {
 
 
 
-    initialPage: SettingsPage {}
-
-    PluginManager {
-        id: pluginManager
+    initialPage: SettingsPage {
+        id: settingsPage
+        model: PluginsModel {}
     }
 
     Component.onCompleted: {
         // Load the plugin specified by the command line
         if (Qt.application.arguments.length >= 2) {
-            var plugin = pluginManager.getByName(Qt.application.arguments[1]);
+            var plugin = initialPage.model.getByName(Qt.application.arguments[1]);
             if (plugin) {
-                prefletTitle.text = plugin.title;
-                window.width = plugin.item.width;
-                window.height = plugin.item.height;
-                pageStack.push(plugin.item);
+                settingsPage.moduleLoader.sourceComponent = Qt.createComponent(plugin.mainScriptUrl);
+                //prefletTitle.text = plugin.title;
+                //window.width = plugin.item.width;
+                //window.height = plugin.item.height;
             }
         }
 

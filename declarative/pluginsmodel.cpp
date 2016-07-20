@@ -27,14 +27,11 @@
 #include <QtCore/QDir>
 #include <QtCore/QStandardPaths>
 #include <QtCore/QThread>
-#include <QDebug>
-
 #include "plugin.h"
 #include "pluginsmodel.h"
 
 PluginsModelTask::PluginsModelTask(QObject *parent)
     : QObject(parent)
-    , m_vendor(QStringLiteral("hawaii"))
 {
 }
 
@@ -43,7 +40,7 @@ void PluginsModelTask::populate()
     qDeleteAll(m_plugins);
 
     QStringList list = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
-                                                 QStringLiteral("hawaii-settings/modules/%1").arg(m_vendor),
+                                                 QLatin1String("hawaii/systemsettings/modules"),
                                                  QStandardPaths::LocateDirectory);
     Q_FOREACH (const QString &location, list) {
         QDir dir(location);
@@ -52,13 +49,12 @@ void PluginsModelTask::populate()
             QDir moduleDir(dir.absoluteFilePath(module));
             QStringList files = moduleDir.entryList(QDir::Files);
             Q_FOREACH (const QString &fileName, files) {
-                if (fileName != QStringLiteral("metadata.desktop"))
+                if (fileName != QLatin1String("metadata.desktop"))
                     continue;
 
-                qWarning()<<moduleDir.absoluteFilePath(fileName);
                 Plugin *plugin = new Plugin(moduleDir.absoluteFilePath(fileName));
-                qWarning()<<plugin->categoryName()<<plugin->title();
                 m_plugins.append(plugin);
+                m_pluginsMap[module] = plugin;
             }
         }
     }
@@ -134,7 +130,7 @@ QVariant PluginsModel::data(const QModelIndex &index, int role) const
     case KeywordsRole:
         return plugin->keywords();
     case MainScriptRole:
-        return plugin->mainScript();
+        return plugin->mainScriptUrl();
     default:
         break;
     }
@@ -142,23 +138,9 @@ QVariant PluginsModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-QString PluginsModel::vendor() const
+Plugin *PluginsModel::getByName(const QString &name) const
 {
-    return m_task->m_vendor;
-}
-
-void PluginsModel::setVendor(const QString &vendor)
-{
-    if (m_task->m_vendor == vendor)
-        return;
-
-    m_task->m_vendor = vendor;
-    Q_EMIT vendorChanged();
-
-    // Repopulate
-    beginResetModel();
-    m_task->populate();
-    endResetModel();
+    return m_task->m_pluginsMap[name];
 }
 
 void PluginsModel::componentComplete()

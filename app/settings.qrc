@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/ErrorView.qml</file>
+        <file>qml/main.qml</file>
+        <file>qml/SettingsListItem.qml</file>
+        <file>qml/SettingsPage.qml</file>
+        <file>qml/WelcomeView.qml</file>
+    </qresource>
+</RCC>

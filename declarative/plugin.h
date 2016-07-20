@@ -42,7 +42,7 @@ class Plugin : public QObject
     Q_PROPERTY(QString comment READ comment CONSTANT)
     Q_PROPERTY(QString iconName READ iconName CONSTANT)
     Q_PROPERTY(QStringList keywords READ keywords CONSTANT)
-    Q_PROPERTY(QUrl mainScript READ mainScript CONSTANT)
+    Q_PROPERTY(QUrl mainScriptUrl READ mainScriptUrl CONSTANT)
     Q_ENUMS(Category)
 public:
     enum Category {
@@ -64,7 +64,7 @@ public:
     QString comment() const;
     QString iconName() const;
     QStringList keywords() const;
-    QUrl mainScript() const;
+    QUrl mainScriptUrl() const;
 
 private:
     Q_DECLARE_PRIVATE(Plugin)

@@ -1,5 +1,4 @@
 add_hawaii_preflet(
-    VENDOR hawaii
     NAME power
     CONTENTS_DIR contents
     METADATA_TEMPLATE metadata.desktop.in

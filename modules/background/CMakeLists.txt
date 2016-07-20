@@ -9,7 +9,6 @@ set(FILES
 )
 
 add_hawaii_preflet(
-    VENDOR hawaii
     NAME background
     CONTENTS_DIR contents
     METADATA_TEMPLATE metadata.desktop.in

@@ -27,7 +27,7 @@
 #include <QtQml/qqml.h>
 #include <QtQml/QQmlExtensionPlugin>
 
-#include "pluginmanager.h"
+#include "plugin.h"
 #include "pluginsmodel.h"
 
 class SystemSettingsPlugin : public QQmlExtensionPlugin
@@ -44,8 +44,6 @@ void SystemSettingsPlugin::registerTypes(const char *uri)
 
     // @uri Hawaii.SystemSettings
     qmlRegisterType<Plugin>();
-    qmlRegisterType<PluginManager>(uri, 1, 0, "PluginManager");
-    //qmlRegisterType<PrefletsProxyModel>(uri, 1, 0, "PrefletsProxyModel");
     qmlRegisterType<PluginsModel>(uri, 1, 0, "PluginsModel");
 }
 
