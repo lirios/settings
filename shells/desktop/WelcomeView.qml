@@ -26,7 +26,7 @@ Item {
         }
 
         Label {
-            text: qsTr("Select a panel in the side list to see the available options.")
+            text: qsTr("Select an item from the list to see the available options.")
             font: FluidStyle.subheadingFont
             color: Material.secondaryTextColor
             horizontalAlignment: Qt.AlignHCenter
