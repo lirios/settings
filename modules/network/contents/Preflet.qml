@@ -28,14 +28,13 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.0
 import Hawaii.Settings 1.0
-import Fluid.UI 1.0 as FluidUi
 import Fluid.Controls 1.0 as FluidControls
 import org.hawaiios.networkmanager 0.1 as NM
 
 PrefletPage {
     id: networkPreflet
-    width: FluidUi.Units.dp(800)
-    height: FluidUi.Units.dp(600)
+    width: 800
+    height: 600
 
     //property var profileDialog: ProfileDialog {}
 
@@ -94,7 +93,7 @@ PrefletPage {
 
                 ScrollBar.vertical: ScrollBar {}
                 Layout.fillHeight: true
-                Layout.preferredWidth: FluidUi.Units.gu(12)
+                Layout.preferredWidth: Units.gu(12)
 
                 Component.onCompleted: {
                     if (visible)
@@ -127,11 +126,11 @@ PrefletPage {
         }
 
         ColumnLayout {
-            spacing: FluidUi.Units.largeSpacing
+            spacing: Units.largeSpacing
 
-            FluidUi.Icon {
+            Icon {
                 iconName: "computer-fail"
-                width: FluidUi.Units.iconSizes.enormous
+                width: Units.iconSizes.enormous
                 height: width
             }
 

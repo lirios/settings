@@ -27,7 +27,6 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
-import Fluid.UI 1.0 as FluidUi
 import Fluid.Controls 1.0 as FluidControls
 import MeeGo.Connman 0.2
 
@@ -47,7 +46,7 @@ Item {
         anchors.fill: parent
 
         RowLayout {
-            FluidUi.Icon {
+            Icon {
                 iconName: wiredModel.connected ? "network-wired" : "network-wired-disconnected"
                 width: 48
                 height: 48
@@ -127,7 +126,7 @@ Item {
                     networkPreflet.profileDialog.visible = !networkPreflet.profileDialog.visible;
                 }
 
-                FluidUi.Icon {
+                Icon {
                     anchors.fill:parent
                     anchors.margins:4
                     iconName: "emblem-system-symbolic"

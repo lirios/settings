@@ -28,10 +28,10 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import Hawaii.Settings 1.0
-import Fluid.UI 1.0 as FluidUi
+import Fluid.Controls 1.0
 
 ColumnLayout {
-    spacing: FluidUi.Units.smallSpacing
+    spacing: Units.smallSpacing
 
     Settings {
         id: keyboardSettings
@@ -200,7 +200,7 @@ ColumnLayout {
         title: qsTr("Input Sources")
 
         RowLayout {
-            spacing: FluidUi.Units.smallSpacing
+            spacing: Units.smallSpacing
 
             Switch {
                 id: virtualKeyboardSwitch

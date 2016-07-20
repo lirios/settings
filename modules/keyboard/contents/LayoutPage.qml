@@ -27,12 +27,12 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
-import Fluid.UI 1.0 as FluidUi
+import Fluid.Controls 1.0
 import Hawaii.Settings 1.0
 import Hawaii.SystemSettings.Keyboard 1.0
 
 ColumnLayout {
-    spacing: FluidUi.Units.largeSpacing
+    spacing: Units.largeSpacing
 
     Settings {
         id: keyboardSettings
@@ -70,7 +70,7 @@ ColumnLayout {
     }
 
     ColumnLayout {
-        spacing: FluidUi.Units.smallSpacing
+        spacing: Units.smallSpacing
 
         ColumnLayout {
             Frame {
@@ -94,14 +94,14 @@ ColumnLayout {
             Row {
                 ToolButton {
                     //iconName: "list-add-symbolic"
-                    width: FluidUi.Units.iconSizes.smallMedium
+                    width: Units.iconSizes.smallMedium
                     height: width
                     onClicked: addDialog.open()
                 }
 
                 ToolButton {
                     //iconName: "list-remove-symbolic"
-                    width: FluidUi.Units.iconSizes.smallMedium
+                    width: Units.iconSizes.smallMedium
                     height: width
                     enabled: savedLayouts.selection.count > 0
                     onClicked: {
@@ -127,7 +127,7 @@ ColumnLayout {
         }
 
         RowLayout {
-            spacing: FluidUi.Units.smallSpacing
+            spacing: Units.smallSpacing
 
             Label {
                 text: qsTr("Keyboard model:")

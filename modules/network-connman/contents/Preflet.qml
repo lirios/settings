@@ -27,14 +27,13 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
-import Fluid.UI 1.0 as FluidUi
 import Fluid.Controls 1.0 as FluidControls
 import MeeGo.Connman 0.2
 
 Item {
     id: networkPreflet
-    width: FluidUi.Units.dp(800)
-    height: FluidUi.Units.dp(600)
+    width: 800
+    height: 600
 
     property var profileDialog: ProfileDialog {}
 
@@ -129,7 +128,7 @@ Item {
                 RowLayout {
                     spacing: 11
 
-                    FluidUi.Icon {
+                    Icon {
                         iconName: "computer-fail"
                         width: 48
                         height: 48

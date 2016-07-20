@@ -28,14 +28,13 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
-import Fluid.UI 1.0 as FluidUi
-import Fluid.Controls 1.0 as FluidControls
+import Fluid.Controls 1.0
 import Hawaii.SystemSettings 1.0
 import Hawaii.SystemSettings.Display 1.0 as CppDisplay
 
 PrefletPage {
-    property int minimumWidth: FluidUi.Units.gu(40)
-    property int minimumHeight: FluidUi.Units.gu(40)
+    property int minimumWidth: 40
+    property int minimumHeight: 40
 
     id: root
 
@@ -46,7 +45,7 @@ PrefletPage {
     ListView {
         id: listView
         anchors.fill: parent
-        anchors.margins: FluidUi.Units.largeSpacing
+        anchors.margins: Units.largeSpacing
         model: outputsModel
         delegate: ItemDelegate {
             id: control
@@ -66,11 +65,11 @@ PrefletPage {
 
                 ColumnLayout {
                     id: detailsLayout
-                    spacing: FluidUi.Units.smallSpacing
+                    spacing: Units.smallSpacing
 
                     OutputPreview {
                         outputId: number
-                        width: FluidUi.Units.gu(20)
+                        width: Units.gu(20)
                         height: width / aspectRatio
 
                         Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
@@ -81,10 +80,10 @@ PrefletPage {
 
                         ToolButton {
                             id: transform90Button
-                            indicator: FluidUi.Icon {
+                            indicator: Icon {
                                 anchors.centerIn: parent
                                 name: "image/rotate-left"
-                                width: FluidUi.Units.iconSizes.smallMedium
+                                width: Units.iconSizes.smallMedium
                                 height: width
                                 color: diagonalSizeLabel.color
                             }
@@ -96,10 +95,10 @@ PrefletPage {
 
                         ToolButton {
                             id: transform180Button
-                            indicator: FluidUi.Icon {
+                            indicator: Icon {
                                 anchors.centerIn: parent
                                 name: "image/flip"
-                                width: FluidUi.Units.iconSizes.smallMedium
+                                width: Units.iconSizes.smallMedium
                                 height: width
                                 color: diagonalSizeLabel.color
                             }
@@ -111,10 +110,10 @@ PrefletPage {
 
                         ToolButton {
                             id: transform270Button
-                            indicator: FluidUi.Icon {
+                            indicator: Icon {
                                 anchors.centerIn: parent
                                 name: "image/rotate-right"
-                                width: FluidUi.Units.iconSizes.smallMedium
+                                width: Units.iconSizes.smallMedium
                                 height: width
                                 color: diagonalSizeLabel.color
                             }
@@ -130,8 +129,8 @@ PrefletPage {
                     GridLayout {
                         rows: 3
                         columns: 2
-                        rowSpacing: FluidUi.Units.smallSpacing
-                        columnSpacing: FluidUi.Units.smallSpacing
+                        rowSpacing: Units.smallSpacing
+                        columnSpacing: Units.smallSpacing
 
                         Label {
                             text: qsTr("Size:")
@@ -139,7 +138,7 @@ PrefletPage {
                             opacity: 0.8
                             horizontalAlignment: Qt.AlignRight
 
-                            Layout.minimumWidth: FluidUi.Units.gu(6)
+                            Layout.minimumWidth: Units.gu(6)
                         }
 
                         Label {
@@ -154,7 +153,7 @@ PrefletPage {
                             opacity: 0.8
                             horizontalAlignment: Qt.AlignRight
 
-                            Layout.minimumWidth: FluidUi.Units.gu(6)
+                            Layout.minimumWidth: Units.gu(6)
                         }
 
                         Label {
@@ -168,7 +167,7 @@ PrefletPage {
                             opacity: 0.8
                             horizontalAlignment: Qt.AlignRight
 
-                            Layout.minimumWidth: FluidUi.Units.gu(6)
+                            Layout.minimumWidth: Units.gu(6)
                         }
 
                         ComboBox {
@@ -177,14 +176,14 @@ PrefletPage {
                             textRole: "name"
                             currentIndex: model.currentMode
 
-                            Layout.minimumWidth: FluidUi.Units.gu(12)
+                            Layout.minimumWidth: Units.gu(12)
                         }
 
                         Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
                     }
 
                     Row {
-                        spacing: FluidUi.Units.smallSpacing
+                        spacing: Units.smallSpacing
 
                         Button {
                             text: qsTr("Cancel")

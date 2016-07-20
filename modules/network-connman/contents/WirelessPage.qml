@@ -27,7 +27,6 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
-import Fluid.UI 1.0 as FluidUi
 import Fluid.Controls 1.0 as FluidControls
 import MeeGo.Connman 0.2
 
@@ -47,9 +46,9 @@ Item {
         anchors.fill: parent
 
         RowLayout {
-            FluidUi.Icon {
+            Icon {
                 iconName: wirelessModel.available ? "network-wireless" : "network-wireless-disconnected"
-                width: FluidUi.Units.iconSizes.smallMedium
+                width: Units.iconSizes.smallMedium
                 height: width
             }
 
@@ -96,23 +95,23 @@ Item {
 
                 RowLayout {
                     ToolButton {
-                        FluidUi.Icon {
+                        Icon {
                             iconName: "emblem-system-symbolic"
-                            width: FluidUi.Units.iconSizes.small
+                            width: Units.iconSizes.small
                             height: width
                             color:__syspal.text
                         }
                     }
 
-                    FluidUi.Icon {
+                    Icon {
                         iconName: "network-wireless-encrypted-symbolic"
-                        width: FluidUi.Units.iconSizes.small
+                        width: Units.iconSizes.small
                         height: width
                         color: __syspal.text
                         visible: !(model.networkService.security.length === 0 && model.networkService.security.contains("none"))
                     }
 
-                    FluidUi.Icon {
+                    Icon {
                         iconName: {
                             if (model.networkService.strength > 80)
                                 return "network-wireless-signal-excellent-symbolic";
@@ -124,7 +123,7 @@ Item {
                                 return "network-wireless-signal-weak-symbolic";
                             return "network-wireless-signal-none-symbolic";
                         }
-                        width: FluidUi.Units.iconSizes.small
+                        width: Units.iconSizes.small
                         height: width
                         color: __syspal.text
                     }

@@ -26,7 +26,7 @@
 
 import QtQuick 2.0
 import QtQuick.Controls 2.0
-import Fluid.UI 1.0 as FluidUi
+import Fluid.Controls 1.0
 
 Rectangle {
     property int outputId
@@ -37,18 +37,18 @@ Rectangle {
         anchors {
             left: parent.left
             top: parent.top
-            margins: FluidUi.Units.smallSpacing
+            margins: Units.smallSpacing
         }
         color: "black"
-        radius: FluidUi.Units.dp(6)
+        radius: 6
         width: label.paintedWidth + FluidUi.Units.largeSpacing
         height: width
 
-        FluidUi.BodyLabel {
+        BodyLabel {
             id: label
             anchors {
                 centerIn: parent
-                margins: FluidUi.Units.smallSpacing
+                margins: Units.smallSpacing
             }
             color: "white"
             text: outputId

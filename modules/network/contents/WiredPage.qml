@@ -27,7 +27,6 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
-import Fluid.UI 1.0 as FluidUi
 import Fluid.Controls 1.0 as FluidControls
 import org.hawaiios.networkmanager 0.1 as NM
 
@@ -40,9 +39,9 @@ Item {
         anchors.fill: parent
 
         RowLayout {
-            FluidUi.Icon {
+            Icon {
                 iconName: wiredModel.connected ? "network-wired" : "network-wired-disconnected"
-                width: FluidUi.Units.iconSizes.large
+                width: Units.iconSizes.large
                 height: width
             }
 
@@ -101,8 +100,8 @@ Item {
         GridLayout {
             columns: 2
             rows: wiredModel.ConnectionDetails.length / 2
-            columnSpacing: FluidUi.Units.smallSpacing
-            rowSpacing: FluidUi.Units.smallSpacing
+            columnSpacing: Units.smallSpacing
+            rowSpacing: Units.smallSpacing
             flow: GridLayout.TopToBottom
 
             Repeater {
@@ -144,11 +143,11 @@ Item {
                     networkPreflet.profileDialog.visible = !networkPreflet.profileDialog.visible;
                 }
 
-                FluidUi.Icon {
+                Icon {
                     anchors.fill:parent
                     anchors.margins:4
                     iconName: "emblem-system-symbolic"
-                    width: FluidUi.Units.iconSizes.small
+                    width: Units.iconSizes.small
                     height: width
                 }
 

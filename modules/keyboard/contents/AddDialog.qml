@@ -27,7 +27,7 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
-import Fluid.UI 1.0 as FluidUi
+import Fluid.Controls 1.0
 import Hawaii.SystemSettings.Keyboard 1.0
 
 Popup {
@@ -50,7 +50,7 @@ Popup {
 
     ColumnLayout {
         id: mainLayout
-        spacing: FluidUi.Units.largeSpacing
+        spacing: Units.largeSpacing
 
         GridLayout {
             rows: 2
@@ -70,7 +70,7 @@ Popup {
                     variantComboBox.model = keyboardData.layouts[currentIndex].variants;
                 }
 
-                Layout.minimumWidth: FluidUi.Units.gu(15)
+                Layout.minimumWidth: Units.gu(15)
                 Layout.fillWidth: true
             }
 
@@ -84,13 +84,13 @@ Popup {
                 id: variantComboBox
                 textRole: "description"
 
-                Layout.minimumWidth: FluidUi.Units.gu(15)
+                Layout.minimumWidth: Units.gu(15)
                 Layout.fillWidth: true
             }
         }
 
         RowLayout {
-            spacing: FluidUi.Units.largeSpacing
+            spacing: Units.largeSpacing
 
             Item {
                 Layout.fillWidth: true

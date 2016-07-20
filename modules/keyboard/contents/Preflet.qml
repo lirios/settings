@@ -27,8 +27,8 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.0
+import Fluid.Controls 1.0
 import Hawaii.SystemSettings 1.0
-import Fluid.UI 1.0 as FluidUi
 
 PrefletPage {
     header: ToolBar {
@@ -54,7 +54,7 @@ PrefletPage {
 
     StackLayout {
         anchors.fill: parent
-        anchors.margins: FluidUi.Units.largeSpacing
+        anchors.margins: Units.largeSpacing
         currentIndex: bar.currentIndex
 
         ColumnLayout {
