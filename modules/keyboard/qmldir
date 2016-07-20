@@ -1,2 +1,2 @@
-module Hawaii.SystemSettings.Keyboard 1.0
+module Hawaii.SystemSettings.Keyboard
 plugin keyboardplugin

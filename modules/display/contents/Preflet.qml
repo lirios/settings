@@ -83,7 +83,7 @@ PrefletPage {
                             id: transform90Button
                             indicator: FluidUi.Icon {
                                 anchors.centerIn: parent
-                                iconName: "object-rotate-left-symbolic"
+                                name: "image/rotate-left"
                                 width: FluidUi.Units.iconSizes.smallMedium
                                 height: width
                                 color: diagonalSizeLabel.color
@@ -98,7 +98,7 @@ PrefletPage {
                             id: transform180Button
                             indicator: FluidUi.Icon {
                                 anchors.centerIn: parent
-                                iconName: "object-flip-vertical-symbolic"
+                                name: "image/flip"
                                 width: FluidUi.Units.iconSizes.smallMedium
                                 height: width
                                 color: diagonalSizeLabel.color
@@ -113,7 +113,7 @@ PrefletPage {
                             id: transform270Button
                             indicator: FluidUi.Icon {
                                 anchors.centerIn: parent
-                                iconName: "object-rotate-right-symbolic"
+                                name: "image/rotate-right"
                                 width: FluidUi.Units.iconSizes.smallMedium
                                 height: width
                                 color: diagonalSizeLabel.color

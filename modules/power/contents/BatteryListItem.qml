@@ -28,7 +28,7 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import Fluid.Controls 1.0
-import org.hawaiios.hardware 0.1
+import Hawaii.Hardware 1.0
 
 ListItem {
     property var battery

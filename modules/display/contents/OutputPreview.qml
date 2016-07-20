@@ -27,7 +27,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.0
 import Fluid.UI 1.0 as FluidUi
-import Hawaii.Themes 1.0 as Themes
 
 Rectangle {
     property int outputId
@@ -45,13 +44,12 @@ Rectangle {
         width: label.paintedWidth + FluidUi.Units.largeSpacing
         height: width
 
-        Label {
+        FluidUi.BodyLabel {
             id: label
             anchors {
                 centerIn: parent
                 margins: FluidUi.Units.smallSpacing
             }
-            font.pointSize: Themes.Theme.defaultFont.pointSize * 0.8
             color: "white"
             text: outputId
         }

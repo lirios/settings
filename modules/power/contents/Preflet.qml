@@ -30,7 +30,7 @@ import QtQuick.Controls.Material 2.0
 import Fluid.Controls 1.0
 import Fluid.UI 1.0
 import Hawaii.SystemSettings 1.0
-import org.hawaiios.hardware 0.1
+import Hawaii.Hardware 1.0
 
 PrefletPage {
     HardwareEngine {

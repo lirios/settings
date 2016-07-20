@@ -35,23 +35,24 @@ WaylandConfig::WaylandConfig(QObject *parent)
     , m_thread(new QThread())
     , m_management(Q_NULLPTR)
 {
-    Q_ASSERT(m_connection);
-    m_connection->moveToThread(m_thread);
-    m_thread->start();
+    if (m_connection) {
+        m_connection->moveToThread(m_thread);
+        m_thread->start();
 
-    connect(m_registry, &Registry::interfacesAnnounced,
-            this, &WaylandConfig::interfacesAnnounced);
-    connect(m_registry, &Registry::outputAnnounced,
-            this, &WaylandConfig::waylandOutputAnnounced);
-    connect(m_registry, &Registry::outputRemoved,
-            this, &WaylandConfig::waylandOutputRemoved);
-    connect(m_registry, &Registry::outputManagementAnnounced,
-            this, &WaylandConfig::outputManagementAnnounced);
-    connect(m_registry, &Registry::outputManagementRemoved,
-            this, &WaylandConfig::outputManagementRemoved);
+        connect(m_registry, &Registry::interfacesAnnounced,
+                this, &WaylandConfig::interfacesAnnounced);
+        connect(m_registry, &Registry::outputAnnounced,
+                this, &WaylandConfig::waylandOutputAnnounced);
+        connect(m_registry, &Registry::outputRemoved,
+                this, &WaylandConfig::waylandOutputRemoved);
+        connect(m_registry, &Registry::outputManagementAnnounced,
+                this, &WaylandConfig::outputManagementAnnounced);
+        connect(m_registry, &Registry::outputManagementRemoved,
+                this, &WaylandConfig::outputManagementRemoved);
 
-    m_registry->create(m_connection->display());
-    m_registry->setup();
+        m_registry->create(m_connection->display());
+        m_registry->setup();
+    }
 }
 
 WaylandConfig::~WaylandConfig()
