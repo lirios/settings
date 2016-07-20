@@ -38,9 +38,6 @@
 
 #include "config.h"
 #include "cmakedirs.h"
-#include "pluginmanager.h"
-#include "prefletsproxymodel.h"
-#include "pluginsmodel.h"
 
 Q_DECLARE_LOGGING_CATEGORY(PREFERENCES)
 Q_LOGGING_CATEGORY(PREFERENCES, "hawaii.settings")
@@ -134,12 +131,6 @@ int main(int argc, char *argv[])
 #endif
 
     QQuickStyle::setStyle(QLatin1String("Material"));
-
-    // Register types
-    qmlRegisterType<Plugin>();
-    qmlRegisterType<PluginManager>("Hawaii.Settings", 1, 0, "PluginManager");
-    //qmlRegisterType<PrefletsProxyModel>("Hawaii.Settings", 1, 0, "PrefletsProxyModel");
-    qmlRegisterType<PluginsModel>("Hawaii.Settings", 1, 0, "PluginsModel");
 
     // Find plugin
     const QString vendor = QLatin1String("hawaii");

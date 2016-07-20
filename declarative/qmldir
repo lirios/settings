@@ -1,2 +1,4 @@
-module Hawaii.Settings
+module Hawaii.SystemSettings
+plugin systemsettingsplugin
+class SystemSettingsPlugin
 PrefletPage 1.0 PrefletPage.qml

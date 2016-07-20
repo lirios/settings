@@ -37,10 +37,6 @@ configure_file(
 
 set(SOURCES
     main.cpp
-    plugin.cpp
-    pluginmanager.cpp
-    pluginsmodel.cpp
-    xdgdesktopfile.cpp
 )
 
 add_executable(hawaii-settings ${SOURCES} ${QM_FILES})
