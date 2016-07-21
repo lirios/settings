@@ -1,6 +1,10 @@
-/*
- * System Settings - Settings app for Papyros
+/****************************************************************************
+ * This file is part of System Preferences.
+ *
+ * Copyright (C) 2016 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  * Copyright (C) 2015 Michael Spencer <sonrisesoftware@gmail.com>
+ *
+ * $BEGIN_LICENSE:GPL3+$
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -9,39 +13,48 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- */
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * $END_LICENSE$
+ ***************************************************************************/
+
 import QtQuick 2.4
-import Material 0.2
-import Material.ListItems 0.1 as ListItem
-import Papyros.Desktop 0.1
+import QtQuick.Controls 2.0
+import Hawaii.Settings 1.0
+import Fluid.Controls 1.0
 
 Item {
     property int developerClickCount: 0
     readonly property int developerTotalClicks: 7
     readonly property int developerClickRemaining: developerTotalClicks - developerClickCount
 
+    Settings {
+        id: systemSettings
+        schema.id: "org.hawaiios.system"
+        schema.path: "/org/hawaiios/system/"
+    }
+
     Column {
         id: column
         anchors.centerIn: parent
-        anchors.verticalCenterOffset: Units.dp(-40)
-        spacing: Units.dp(8)
+        anchors.verticalCenterOffset: -40
+        spacing: 8
 
         Image {
             anchors.horizontalCenter: parent.horizontalCenter
-            width: Units.dp(128)
+            width: 128
             height: width
 
-            source: Qt.resolvedUrl("papyros-icon.png")
+            source: Qt.resolvedUrl("logo.png")
 
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    if (developerSettings.developerMode == "true")
+                    if (systemSettings.developerMode)
                         return
 
                     developerClickCount++
@@ -50,7 +63,7 @@ Item {
 
                     if (developerClickRemaining == 0) {
                         snackbar.open("You are now a developer!")
-                        developerSettings.developerMode = "true"
+                        systemSettings.developerMode = true
                     } else if (developerClickRemaining <= 3) {
                         snackbar.open(("You are now %1 steps from becoming a " +
                                       "developer").arg(developerClickRemaining))
@@ -62,21 +75,21 @@ Item {
         Row {
             anchors.horizontalCenter: parent.horizontalCenter
             Label {
-                font.pixelSize: Units.dp(40)
+                font.pixelSize: 40
                 font.weight: Font.Light
-                text: "Papyr"
+                text: "qml"
             }
 
             Label {
-                font.pixelSize: Units.dp(40)
-                text: "os"
+                font.pixelSize: 40
+                text: "OS"
             }
         }
 
         Label {
             anchors.horizontalCenter: parent.horizontalCenter
-            font.pixelSize: Units.dp(20)
-            text: "Version 0.1.0"
+            font.pixelSize: 20
+            text: "Version 0.0.0"
         }
     }
 
@@ -90,28 +103,53 @@ Item {
 
         Row {
             anchors.centerIn: parent
-            spacing: Units.dp(16)
+            spacing: 16
 
             Button {
                 text: "Website"
-                textColor: Palette.colors["blue"]["400"]
-                onClicked: Qt.openUrlExternally("http://papyros.io")
+                onClicked: Qt.openUrlExternally("https://github.com/qmlos")
             }
 
             Button {
                 text: "Report a bug"
-                textColor: Palette.colors["red"]["400"]
-                onClicked: Qt.openUrlExternally("https://github.com/papyros/papyros/issues")
+                onClicked: Qt.openUrlExternally("https://github.com/qmlos/qmlos/issues")
             }
 
             Button {
                 text: "Credits"
-                textColor: Palette.colors["green"]["400"]
             }
         }
     }
 
+/*
     Snackbar {
         id: snackbar
+    }
+*/
+    Pane {
+        id: snackbar
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+        height: 48
+        visible: false
+
+        Label {
+            id: label
+        }
+
+        Timer {
+            id: timer
+            interval: 2500
+            onTriggered: snackbar.visible = false
+        }
+
+        function open(string) {
+            label.text = string;
+            snackbar.visible = true;
+            timer.start();
+        }
     }
 }
