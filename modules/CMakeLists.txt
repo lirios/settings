@@ -1,3 +1,4 @@
+add_subdirectory(appearance)
 add_subdirectory(background)
 add_subdirectory(display)
 add_subdirectory(info)
