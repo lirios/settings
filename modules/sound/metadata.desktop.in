@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Sound
+Comment=Change sound levels, inputs, outputs, and alert sounds
+Keywords=Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;
+Icon=multimedia-volume-control
+Categories=Qt;X-Hawaii;Settings;
+OnlyShowIn=X-Hawaii;
+X-Hawaii-Settings-Category=hardware
+X-Hawaii-Settings-SymbolicIcon=av/volume_up
