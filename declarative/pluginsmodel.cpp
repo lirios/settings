@@ -59,6 +59,10 @@ void PluginsModelTask::populate()
         }
     }
 
+    std::sort(m_plugins.begin(), m_plugins.end(), [](const Plugin *a, const Plugin *b) {
+        return a->categoryName() < b->categoryName();
+    });
+
     Q_EMIT populated();
 }
 
