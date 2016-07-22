@@ -1,6 +1,10 @@
-/*
- * System Settings - Settings app for Papyros
- * Copyright (C) 2015-2016 Michael Spencer <sonrisesoftware@gmail.com>
+/****************************************************************************
+ * This file is part of System Preferences.
+ *
+ * Copyright (C) 2016 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2016 Michael Spencer <sonrisesoftware@gmail.com>
+ *
+ * $BEGIN_LICENSE:GPL3+$
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -9,32 +13,36 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- */
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * $END_LICENSE$
+ ***************************************************************************/
+
 import QtQuick 2.4
-import Material 0.2
-import Material.ListItems 0.1 as ListItem
-import Papyros.Desktop 0.1
-import io.papyros.settings 0.1
+import QtQuick.Controls 2.0
+import QtQuick.Controls.Material 2.0
+import Fluid.Controls 1.0
+import Hawaii.Settings 1.0
+import Hawaii.SystemSettings 1.0
 
-ModuleView {
-
-    ListItem.Subheader {
-        text: "Desktop"
-        textColor: Theme.accentColor
+PrefletPage {
+    Subheader {
+        text: qsTr("Desktop")
+        textColor: Material.accentColor
     }
 
-    ListItem.Standard {
-        text: "Transparent app shelf"
+    ListItem {
+        text: qsTr("Transparent app shelf")
 
         onClicked: appShelfSwitch.checked = !appShelfSwitch.checked
 
-        secondaryItem: Switch {
+        rightItem: Switch {
             id: appShelfSwitch
+
             anchors.centerIn: parent
 
             checked: ShellSettings.appShelf.transparentShelf
@@ -47,83 +55,80 @@ ModuleView {
         }
     }
 
-    ListItem.Standard {
-        text: "Accent color"
-        tintColor: "transparent"
+    ListItem {
+        text: qsTr("Accent color")
+        //tintColor: "transparent"
         showDivider: true
 
         onClicked: colorPicker.open()
 
-        secondaryItem: Rectangle {
+        rightItem: Rectangle {
             anchors.centerIn: parent
 
-            radius: Units.dp(2)
-            width: Units.dp(24)
+            radius: 2
+            width: 24
             height: width
-            color: Palette.colors[ShellSettings.desktop.accentColor]['500']
-            border.color: Palette.colors[ShellSettings.desktop.accentColor]['700']
+            color: Material.color(ShellSettings.desktop.accentColor)
+            border.color: Material.color(ShellSettings.desktop.accentColor, Material.Shade700)
         }
     }
 
-    ListItem.Subheader {
+    Subheader {
         text: "Lockscreen"
-        textColor: Theme.accentColor
+        textColor: Material.accentColor
     }
 
-    ListItem.Standard {
+    ListItem {
         text: "Nothing here yet"
         showDivider: true
-        itemLabel.opacity: 0.5
+        //itemLabel.opacity: 0.5
         interactive: false
     }
 
-    ListItem.Subheader {
+    Subheader {
         text: "Screen saver"
-        textColor: Theme.accentColor
+        textColor: Material.accentColor
     }
 
-    ListItem.Standard {
+    ListItem {
         text: "Nothing here yet"
-        itemLabel.opacity: 0.5
+        //itemLabel.opacity: 0.5
         interactive: false
     }
 
-    Dialog {
+    Popup {
         id: colorPicker
-        title: "Accent Color"
+        //title: "Accent Color"
+        x: (parent.width - width) / 2
+        y: (parent.height - height) / 2
+        modal: true
 
         property var selectedColor: ShellSettings.desktop.accentColor
 
-        positiveButton.visible: false
+        //positiveButton.visible: false
 
         Grid {
             columns: 7
-            spacing: Units.dp(8)
+            spacing: 8
 
             Repeater {
                 model: [
-                    "red", "pink", "purple", "deepPurple", "indigo",
-                    "blue", "lightBlue", "cyan", "teal", "green",
-                    "lightGreen", "lime", "yellow", "amber", "orange",
-                    "deepOrange", "grey", "blueGrey", "brown", "black",
-                    "white"
+                    Material.Red, Material.Pink, Material.Purple, Material.DeepPurple,
+                    Material.Indigo, Material.Blue, Material.LightBlue, Material.Cyan,
+                    Material.Teal, Material.Green, Material.LightGreen, Material.Lime,
+                    Material.Yellow, Material.Amber, Material.Orange, Material.DeepOrange,
+                    Material.Grey, Material.BlueGrey, Material.Brown
                 ]
 
-                View {
-                    width: Units.dp(30)
+                Rectangle {
+                    width: 30
                     height: width
-                    radius: Units.dp(2)
-                    backgroundColor: Palette.colors[modelData]["500"]
-                    border.color: Palette.colors[modelData]["700"]
-                            ? Palette.colors[modelData]["700"] : "#ddd"
+                    radius: 2
+                    color: Material.color(modelData)
+                    border.color: Material.color(modelData, Material.Shade700)
 
-                    tintColor: ink.containsMouse ? border.color
-                                                 : "transparent"
-
-                    Ink {
-                        id: ink
+                    MouseArea {
                         anchors.fill: parent
-
                         onClicked: {
                             ShellSettings.desktop.accentColor = modelData
                             colorPicker.close()
