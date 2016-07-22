@@ -1,6 +1,10 @@
-/*
- * System Settings - Settings app for Papyros
+/****************************************************************************
+ * This file is part of System Preferences.
+ *
+ * Copyright (C) 2016 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  * Copyright (C) 2016 Michael Spencer <sonrisesoftware@gmail.com>
+ *
+ * $BEGIN_LICENSE:GPL3+$
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -9,35 +13,36 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- */
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * $END_LICENSE$
+ ***************************************************************************/
+
 import QtQuick 2.4
-import Material 0.2
-import Material.ListItems 0.1 as ListItem
-import Papyros.Desktop 0.1
-import io.papyros.settings 0.1
+import QtQuick.Controls 2.0
+import Fluid.Controls 1.0
+import Hawaii.SystemSettings 1.0
 
-ModuleView {
-
-    ListItem.Subtitled {
+PrefletPage {
+    ListItem {
         iconName: sound.iconName
-        text: "Sound volume"
+        text: qsTr("Sound volume")
         interactive: false
 
         valueText: sound.muted || sound.master == 0 ? qsTr("Muted") : sound.master + "%"
-        content: Slider {
+        rightItem: Slider {
             id: soundslider
 
             width: parent.width
             anchors.verticalCenter: parent.verticalCenter
             anchors.verticalCenterOffset: Units.dp(7)
 
-            minimumValue: 0
-            maximumValue: 100
+            from: 0
+            to: 100
 
             value: sound.muted ? 0 : sound.master
 
@@ -53,6 +58,7 @@ ModuleView {
         }
     }
 
+/*
     Sound {
         id: sound
 
@@ -62,4 +68,5 @@ ModuleView {
                 : sound.master >= 67 ? "av/volume_up"
                 : "av/volume_down"
     }
+*/
 }
