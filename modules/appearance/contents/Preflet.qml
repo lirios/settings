@@ -30,112 +30,109 @@ import Hawaii.Settings 1.0
 import Hawaii.SystemSettings 1.0
 
 PrefletPage {
-    Subheader {
-        text: qsTr("Desktop")
-        textColor: Material.accentColor
-    }
+    ModuleContainer {
+        title: qsTr("Desktop")
 
-    ListItem {
-        text: qsTr("Transparent app shelf")
+        ListItem {
+            text: qsTr("Transparent app shelf")
 
-        onClicked: appShelfSwitch.checked = !appShelfSwitch.checked
+            onClicked: appShelfSwitch.checked = !appShelfSwitch.checked
 
-        rightItem: Switch {
-            id: appShelfSwitch
+            rightItem: Switch {
+                id: appShelfSwitch
 
-            anchors.centerIn: parent
+                anchors.centerIn: parent
 
-            checked: ShellSettings.appShelf.transparentShelf
-            onCheckedChanged: {
-                ShellSettings.appShelf.transparentShelf = checked
-                checked = Qt.binding(function() {
-                    return ShellSettings.appShelf.transparentShelf
-                })
+                checked: ShellSettings.appShelf.transparentShelf
+                onCheckedChanged: {
+                    ShellSettings.appShelf.transparentShelf = checked
+                    checked = Qt.binding(function() {
+                        return ShellSettings.appShelf.transparentShelf
+                    })
+                }
             }
         }
-    }
 
-    ListItem {
-        text: qsTr("Accent color")
-        //tintColor: "transparent"
-        showDivider: true
+        ListItem {
+            text: qsTr("Accent color")
+            //tintColor: "transparent"
+            showDivider: true
 
-        onClicked: colorPicker.open()
+            onClicked: colorPicker.open()
 
-        rightItem: Rectangle {
-            anchors.centerIn: parent
+            rightItem: Rectangle {
+                anchors.centerIn: parent
 
-            radius: 2
-            width: 24
-            height: width
-            color: Material.color(ShellSettings.desktop.accentColor)
-            border.color: Material.color(ShellSettings.desktop.accentColor, Material.Shade700)
+                radius: 2
+                width: 24
+                height: width
+                color: Material.color(ShellSettings.desktop.accentColor)
+                border.color: Material.color(ShellSettings.desktop.accentColor, Material.Shade700)
+            }
         }
-    }
 
-    Subheader {
-        text: "Lockscreen"
-        textColor: Material.accentColor
-    }
+        Popup {
+            id: colorPicker
+            //title: "Accent Color"
+            x: (parent.width - width) / 2
+            y: (parent.height - height) / 2
+            modal: true
 
-    ListItem {
-        text: "Nothing here yet"
-        showDivider: true
-        //itemLabel.opacity: 0.5
-        interactive: false
-    }
+            property var selectedColor: ShellSettings.desktop.accentColor
 
-    Subheader {
-        text: "Screen saver"
-        textColor: Material.accentColor
-    }
+            //positiveButton.visible: false
 
-    ListItem {
-        text: "Nothing here yet"
-        //itemLabel.opacity: 0.5
-        interactive: false
-    }
+            Grid {
+                columns: 7
+                spacing: 8
 
-    Popup {
-        id: colorPicker
-        //title: "Accent Color"
-        x: (parent.width - width) / 2
-        y: (parent.height - height) / 2
-        modal: true
+                Repeater {
+                    model: [
+                        Material.Red, Material.Pink, Material.Purple, Material.DeepPurple,
+                        Material.Indigo, Material.Blue, Material.LightBlue, Material.Cyan,
+                        Material.Teal, Material.Green, Material.LightGreen, Material.Lime,
+                        Material.Yellow, Material.Amber, Material.Orange, Material.DeepOrange,
+                        Material.Grey, Material.BlueGrey, Material.Brown
+                    ]
 
-        property var selectedColor: ShellSettings.desktop.accentColor
+                    Rectangle {
+                        width: 30
+                        height: width
+                        radius: 2
+                        color: Material.color(modelData)
+                        border.color: Material.color(modelData, Material.Shade700)
 
-        //positiveButton.visible: false
-
-        Grid {
-            columns: 7
-            spacing: 8
-
-            Repeater {
-                model: [
-                    Material.Red, Material.Pink, Material.Purple, Material.DeepPurple,
-                    Material.Indigo, Material.Blue, Material.LightBlue, Material.Cyan,
-                    Material.Teal, Material.Green, Material.LightGreen, Material.Lime,
-                    Material.Yellow, Material.Amber, Material.Orange, Material.DeepOrange,
-                    Material.Grey, Material.BlueGrey, Material.Brown
-                ]
-
-                Rectangle {
-                    width: 30
-                    height: width
-                    radius: 2
-                    color: Material.color(modelData)
-                    border.color: Material.color(modelData, Material.Shade700)
-
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            ShellSettings.desktop.accentColor = modelData
-                            colorPicker.close()
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                ShellSettings.desktop.accentColor = modelData
+                                colorPicker.close()
+                            }
                         }
                     }
                 }
             }
+        }
+    }
+
+    ModuleContainer {
+        title: "Lockscreen"
+
+        ListItem {
+            text: "Nothing here yet"
+            showDivider: true
+            //itemLabel.opacity: 0.5
+            interactive: false
+        }
+    }
+
+    ModuleContainer {
+        title: "Screen saver"
+
+        ListItem {
+            text: "Nothing here yet"
+            //itemLabel.opacity: 0.5
+            interactive: false
         }
     }
 }

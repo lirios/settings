@@ -28,31 +28,33 @@ import Fluid.Controls 1.0
 import Hawaii.SystemSettings 1.0
 
 PrefletPage {
-    ListItem {
-        iconName: sound.iconName
-        text: qsTr("Sound volume")
-        interactive: false
+    ModulePane {
+        ListItem {
+            iconName: sound.iconName
+            text: qsTr("Sound volume")
+            interactive: false
 
-        valueText: sound.muted || sound.master == 0 ? qsTr("Muted") : sound.master + "%"
-        rightItem: Slider {
-            id: soundslider
+            valueText: sound.muted || sound.master == 0 ? qsTr("Muted") : sound.master + "%"
+            rightItem: Slider {
+                id: soundslider
 
-            width: parent.width
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.verticalCenterOffset: Units.dp(7)
+                width: parent.width
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.verticalCenterOffset: Units.dp(7)
 
-            from: 0
-            to: 100
+                from: 0
+                to: 100
 
-            value: sound.muted ? 0 : sound.master
+                value: sound.muted ? 0 : sound.master
 
-            onValueChanged: {
-                if (value != sound.master) {
-                    sound.muted = value == 0
-                    sound.master = value
-                    value = Qt.binding(function() {
-                        return sound.muted ? 0 : sound.master
-                    })
+                onValueChanged: {
+                    if (value != sound.master) {
+                        sound.muted = value == 0
+                        sound.master = value
+                        value = Qt.binding(function() {
+                            return sound.muted ? 0 : sound.master
+                        })
+                    }
                 }
             }
         }

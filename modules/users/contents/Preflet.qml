@@ -37,34 +37,34 @@ PrefletPage {
         id: userModel
     }
 
-    Subheader {
-        text: "Your Account"
+    ModuleContainer {
+        title: "Your Account"
+
+        UserListItem {
+            iconSource: currentUser.iconFileName
+            text: currentUser.realName
+            subText: currentUser.userName
+            isAdminUser: currentUser.accountType == UserAccount.AdministratorAccountType
+        }
     }
 
-    UserListItem {
-        iconSource: currentUser.iconFileName
-        text: currentUser.realName
-        subText: currentUser.userName
-        isAdminUser: currentUser.accountType == UserAccount.AdministratorAccountType
-    }
-
-    Subheader {
-        text: "Other Accounts"
+    ModuleContainer {
+        title: "Other Accounts"
 
         // Only show if larger than one because the first user
         // is the current user and is hidden
         visible: userRepeater.count > 1
-    }
 
-    Repeater {
-        id: userRepeater
-        model: userModel
-        delegate: UserListItem {
-            iconSource: iconFileName
-            text: realName
-            subText: userName
-            isAdminUser: accountType == UserAccount.AdministratorAccountType
-            visible: userId != currentUser.uid
+        Repeater {
+            id: userRepeater
+            model: userModel
+            delegate: UserListItem {
+                iconSource: iconFileName
+                text: realName
+                subText: userName
+                isAdminUser: accountType == UserAccount.AdministratorAccountType
+                visible: userId != currentUser.uid
+            }
         }
     }
 }

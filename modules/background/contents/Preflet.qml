@@ -32,7 +32,6 @@ import Hawaii.SystemSettings 1.0
 import Hawaii.Settings 1.0
 
 PrefletPage {
-    contentWidth: row.width
     centered: true
 
     Settings {
@@ -47,23 +46,23 @@ PrefletPage {
         schema.path: "/org/hawaiios/desktop/lockscreen/"
     }
 
-    Row {
-        id: row
+    ModuleContainer {
+        Row {
+            Selector {
+                settings: backgroundSettings
+                text: qsTr("Background")
+            }
 
-        Selector {
-            settings: backgroundSettings
-            text: qsTr("Background")
-        }
+            Rectangle {
+                height: parent.height
+                width: 1
+                color: Material.dividerColor
+            }
 
-        Rectangle {
-            height: parent.height
-            width: 1
-            color: Material.dividerColor
-        }
-
-        Selector {
-            settings: lockScreenSettings
-            text: qsTr("Lock Screen")
+            Selector {
+                settings: lockScreenSettings
+                text: qsTr("Lock Screen")
+            }
         }
     }
 }
