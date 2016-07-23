@@ -26,21 +26,22 @@ import QtQuick 2.0
 import QtQuick.Controls 2.0
 import Fluid.Controls 1.0
 
-Page {
+ModulePane {
     default property alias content: column.data
 
-    property bool centered: false
-    property alias contentWidth: column.childrenRect.width
-    property alias contentHeight: column.childrenRect.height
+    property alias title: titleLabel.text
+
+    width: column.implicitWidth
+    height: column.implicitHeight
 
     Column {
         id: column
-        anchors {
-            horizontalCenter: parent.horizontalCenter
-            verticalCenter: centered ? parent.verticalCenter : undefined
-            top: centered ? undefined : parent.top
-            topMargin: 64
+
+        width: 400
+
+        Subheader {
+            id: titleLabel
+            visible: text !== ""
         }
-        spacing: 16
     }
 }

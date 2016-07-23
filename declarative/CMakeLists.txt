@@ -12,6 +12,8 @@ target_link_libraries(systemsettingsplugin Qt5::Gui Qt5::Qml)
 
 set(FILES
     qmldir
+    ModuleContainer.qml
+    ModulePane.qml
     PrefletPage.qml
 )
 

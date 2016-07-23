@@ -24,23 +24,12 @@
 
 import QtQuick 2.0
 import QtQuick.Controls 2.0
+import QtQuick.Controls.Material 2.0
 import Fluid.Controls 1.0
 
-Page {
-    default property alias content: column.data
+Pane {
+    padding: 0
 
-    property bool centered: false
-    property alias contentWidth: column.childrenRect.width
-    property alias contentHeight: column.childrenRect.height
-
-    Column {
-        id: column
-        anchors {
-            horizontalCenter: parent.horizontalCenter
-            verticalCenter: centered ? parent.verticalCenter : undefined
-            top: centered ? undefined : parent.top
-            topMargin: 64
-        }
-        spacing: 16
-    }
+    Material.background: "white"
+    Material.elevation: 1
 }
