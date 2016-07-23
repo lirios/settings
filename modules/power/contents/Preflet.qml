@@ -36,20 +36,73 @@ PrefletPage {
         id: hardwareEngine
     }
 
+    ///
+
     Subheader {
         text: qsTr("Devices")
-    }
-
-    ListItem {
-        visible: repeater.count == 0
-        enabled: false
-        text: qsTr("No devices found!")
-        iconName: "alert/warning"
+        visible: repeater.count > 0
     }
 
     Repeater {
         id: repeater
         model: hardwareEngine.batteries
         delegate: BatteryListItem { battery: modelData }
+    }
+
+    ///
+
+    Subheader {
+        text: qsTr("Power Saving")
+    }
+
+    ListItem {
+        text: qsTr("Blank screen")
+        rightItem: ComboBox {
+            textRole: "text"
+            model: ListModel {
+                ListElement { text: qsTr("1 minute"); value: 60000 }
+                ListElement { text: qsTr("2 minutes"); value: 120000 }
+                ListElement { text: qsTr("3 minutes"); value: 180000 }
+                ListElement { text: qsTr("4 minutes"); value: 240000 }
+                ListElement { text: qsTr("5 minutes"); value: 300000 }
+                ListElement { text: qsTr("8 minutes"); value: 480000 }
+                ListElement { text: qsTr("10 minutes"); value: 600000 }
+                ListElement { text: qsTr("12 minutes"); value: 720000 }
+                ListElement { text: qsTr("15 minutes"); value: 900000 }
+                ListElement { text: qsTr("Never"); value: -1 }
+            }
+        }
+    }
+
+    ListItem {
+        text: qsTr("Wi-Fi")
+        subText: qsTr("Turn off Wi-Fi to save power")
+        rightItem: Switch {}
+    }
+
+    ///
+
+    Subheader {
+        text: qsTr("Suspend & Power Button")
+    }
+
+    ListItem {
+        text: qsTr("Automatic suspend")
+        rightItem: BodyLabel {
+            text: qsTr("Off")
+            color: Material.secondaryTextColor
+        }
+    }
+
+    ListItem {
+        text: qsTr("When the Power Button is pressed")
+        rightItem: ComboBox {
+            textRole: "text"
+            model: ListModel {
+                ListElement { text: qsTr("Suspend"); value: 0 }
+                ListElement { text: qsTr("Hibernate"); value: 1 }
+                ListElement { text: qsTr("Nothing"); value: 2 }
+            }
+        }
     }
 }
