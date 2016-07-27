@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Mouse & Touchpad
+Comment=Change your mouse or touchpad sensitivity and select right or left-handed
+Keywords=Trackpad;Pointer;Click;Tap;Double;Button;Trackball;Scroll;
+Icon=input-mouse
+Categories=Qt;X-Hawaii;Settings;
+OnlyShowIn=X-Hawaii;
+X-Hawaii-Settings-Category=hardware
+X-Hawaii-Settings-SymbolicIcon=hardware/mouse
+
+#TRANSLATIONS_DIR=translations

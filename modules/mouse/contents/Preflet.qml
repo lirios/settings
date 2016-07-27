@@ -1,7 +1,7 @@
 /****************************************************************************
- * This file is part of System Preferences.
+ * This file is part of Hawaii.
  *
- * Copyright (C) 2011-2016 Pier Luigi Fiorini
+ * Copyright (C) 2016 Pier Luigi Fiorini
  *
  * Author(s):
  *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
@@ -24,28 +24,35 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef PLUGIN_H
-#define PLUGIN_H
+import QtQuick 2.1
+import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.0
+import Fluid.Controls 1.0
+import Hawaii.SystemSettings 1.0
 
-#include <Hawaii/Settings/PreferencesModulePlugin>
+PrefletPage {
+    ModuleContainer {
+        title: qsTr("General")
 
-namespace Hawaii
-{
-    namespace Settings
-    {
-        class PreferencesModule;
+        ListItem {
+            text: qsTr("Primary Button")
+            subText: qsTr("Sets the order of physical buttons on mice and touchpads")
+            rightItem: Row {
+                Button {
+                    text: qsTr("Left")
+                }
+                Button {
+                    text: qsTr("Right")
+                }
+            }
+        }
+    }
 
-        class MousePlugin : public PreferencesModulePlugin
-        {
-            Q_OBJECT
-            Q_PLUGIN_METADATA(IID "org.hawaiios.Settings.PreferencesModuleFactoryInterface" FILE "mouse.json")
-        public:
-            explicit MousePlugin(QObject *parent = 0);
+    ModuleContainer {
+        title: qsTr("Mouse")
+    }
 
-            virtual QStringList keys() const;
-            virtual PreferencesModule *create(const QString &key) const;
-        };
+    ModuleContainer {
+        title: qsTr("Touchpad")
     }
 }
-
-#endif // PLUGIN_H
