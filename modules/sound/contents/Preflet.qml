@@ -1,5 +1,5 @@
 /****************************************************************************
- * This file is part of System Preferences.
+ * This file is part of Settings.
  *
  * Copyright (C) 2016 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  * Copyright (C) 2016 Michael Spencer <sonrisesoftware@gmail.com>
