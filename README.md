@@ -3,7 +3,7 @@ Settings
 
 [![ZenHub.io](https://img.shields.io/badge/supercharged%20by-zenhub.io-blue.svg)](https://zenhub.io)
 
-[![License](https://img.shields.io/badge/license-GPLv3.0+%2B-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
+[![License](https://img.shields.io/badge/license-GPLv3.0%2B-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 [![GitHub release](https://img.shields.io/github/release/qmlos/settings.svg)](https://github.com/qmlos/settings)
 [![Build Status](https://travis-ci.org/qmlos/settings.svg?branch=develop)](https://travis-ci.org/qmlos/settings)
 [![GitHub issues](https://img.shields.io/github/issues/qmlos/settings.svg)](https://github.com/qmlos/settings/issues)
