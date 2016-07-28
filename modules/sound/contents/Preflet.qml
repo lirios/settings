@@ -40,7 +40,7 @@ PrefletPage {
 
                 width: parent.width
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.verticalCenterOffset: Units.dp(7)
+                anchors.verticalCenterOffset: 7
 
                 from: 0
                 to: 100

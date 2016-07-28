@@ -89,7 +89,7 @@ Item {
                 }
             }
             highlight: Rectangle {
-                radius: Units.dp(4)
+                radius: 4
                 color: Material.accentColor
             }
 

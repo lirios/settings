@@ -41,7 +41,7 @@ Rectangle {
         }
         color: "black"
         radius: 6
-        width: label.paintedWidth + FluidUi.Units.largeSpacing
+        width: label.paintedWidth + Units.largeSpacing
         height: width
 
         BodyLabel {
