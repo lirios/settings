@@ -106,6 +106,8 @@ QVariant PluginsModel::data(const QModelIndex &index, int role) const
         return QVariant();
 
     Plugin *plugin = m_task->m_plugins.at(index.row());
+    if (!plugin)
+        return QVariant();
 
     switch (role) {
     case Qt::DisplayRole:
