@@ -50,6 +50,7 @@ PrefletPage {
         ListItem {
             text: qsTr("Blank screen")
             rightItem: ComboBox {
+                anchors.centerIn: parent
                 textRole: "text"
                 model: ListModel {
                     ListElement { text: qsTr("1 minute"); value: 60000 }
@@ -69,7 +70,9 @@ PrefletPage {
         ListItem {
             text: qsTr("Wi-Fi")
             subText: qsTr("Turn off Wi-Fi to save power")
-            rightItem: Switch {}
+            rightItem: Switch {
+                anchors.centerIn: parent
+            }
         }
     }
 
@@ -79,6 +82,7 @@ PrefletPage {
         ListItem {
             text: qsTr("Automatic suspend")
             rightItem: BodyLabel {
+                anchors.centerIn: parent
                 text: qsTr("Off")
                 color: Material.secondaryTextColor
             }
@@ -87,6 +91,7 @@ PrefletPage {
         ListItem {
             text: qsTr("When the Power Button is pressed")
             rightItem: ComboBox {
+                anchors.centerIn: parent
                 textRole: "text"
                 model: ListModel {
                     ListElement { text: qsTr("Suspend"); value: 0 }
