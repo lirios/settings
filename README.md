@@ -11,7 +11,7 @@ Settings
 
 Settings application and modules for qmlOS.
 
-### Dependencies
+## Dependencies
 
 Qt >= 5.7.0 with at least the following modules is required:
 
@@ -29,7 +29,7 @@ The following modules and their dependencies are required:
  * [polkit-qt5-1](https://quickgit.kde.org/?p=polkit-qt-1.git)
  * [xkeyboard-config](https://cgit.freedesktop.org/xkeyboard-config/)
 
-### Installation
+## Installation
 
 From the root of the repository, run:
 
@@ -66,7 +66,7 @@ New translations can be pulled from Transifex with:
 tx pull -s --minimum-perc=10
 ```
 
-### Licensing
+## Licensing
 
 Licensed under the terms of the GNU General Public License version 3 or,
 at your option, any later version.
