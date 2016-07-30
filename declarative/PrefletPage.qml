@@ -24,23 +24,36 @@
 
 import QtQuick 2.0
 import QtQuick.Controls 2.0
+import QtQuick.Layouts 1.0
 import Fluid.Controls 1.0
 
 Page {
+    id: page
+
     default property alias content: column.data
 
     property bool centered: false
-    property alias contentWidth: column.childrenRect.width
-    property alias contentHeight: column.childrenRect.height
+    property alias contentWidth: flickable.contentWidth
+    property alias contentHeight: flickable.contentHeight
 
-    Column {
-        id: column
+    Flickable {
+        id: flickable
         anchors {
-            horizontalCenter: parent.horizontalCenter
+            fill: centered ? undefined : parent
+            horizontalCenter: centered ? parent.horizontalCenter : undefined
             verticalCenter: centered ? parent.verticalCenter : undefined
-            top: centered ? undefined : parent.top
-            topMargin: 64
+            topMargin: centered ? 0 : Units.smallSpacing * 8
+            bottomMargin: centered ? 0 : Units.smallSpacing * 8
         }
-        spacing: 16
+        contentWidth: parent.width
+        contentHeight: column.implicitHeight
+
+        ColumnLayout {
+            id: column
+            anchors.fill: parent
+            spacing: Units.smallSpacing * 2
+        }
+
+        ScrollBar.vertical: ScrollBar {}
     }
 }

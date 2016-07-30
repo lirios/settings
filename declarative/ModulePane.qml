@@ -23,6 +23,7 @@
  ***************************************************************************/
 
 import QtQuick 2.0
+import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import Fluid.Controls 1.0
@@ -34,4 +35,7 @@ Pane {
 
     Material.background: "white"
     Material.elevation: 1
+
+    Layout.alignment: Qt.AlignCenter
+    Layout.preferredWidth: 400
 }
