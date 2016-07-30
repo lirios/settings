@@ -24,51 +24,132 @@
 
 import QtQuick 2.4
 import QtQuick.Controls 2.0
+import QtQuick.Controls.Material 2.0
 import Fluid.Controls 1.0
 import Hawaii.SystemSettings 1.0
+import Hawaii.PulseAudio 1.0 as PA
 
 PrefletPage {
-    ModulePane {
+    ModuleContainer {
         ListItem {
-            iconName: sound.iconName
-            text: qsTr("Sound volume")
-            interactive: false
-
-            valueText: sound.muted || sound.master == 0 ? qsTr("Muted") : sound.master + "%"
+            text: qsTr("Media")
             rightItem: Slider {
-                id: soundslider
-
-                width: parent.width
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.verticalCenterOffset: 7
-
+                anchors.centerIn: parent
                 from: 0
                 to: 100
+                value: 50
+            }
+        }
 
-                value: sound.muted ? 0 : sound.master
+        ListItem {
+            text: qsTr("Alerts")
+            rightItem: Slider {
+                anchors.centerIn: parent
+                from: 0
+                to: 100
+                value: 50
+            }
+        }
 
-                onValueChanged: {
-                    if (value != sound.master) {
-                        sound.muted = value == 0
-                        sound.master = value
-                        value = Qt.binding(function() {
-                            return sound.muted ? 0 : sound.master
-                        })
-                    }
-                }
+        ListItem {
+            text: qsTr("Alarms")
+            rightItem: Slider {
+                anchors.centerIn: parent
+                from: 0
+                to: 100
+                value: 50
             }
         }
     }
 
-/*
-    Sound {
-        id: sound
-
-        property string iconName: sound.muted || sound.master == 0
-                ? "av/volume_off"
-                : sound.master <= 33 ? "av/volume_mute"
-                : sound.master >= 67 ? "av/volume_up"
-                : "av/volume_down"
+    ModulePane {
+        ListItem {
+            text: qsTr("Alert Sound")
+            rightItem: BodyLabel {
+                anchors.centerIn: parent
+                text: qsTr("Random Sound")
+                color: Material.secondaryTextColor
+            }
+        }
     }
-*/
+
+    ModuleContainer {
+        title: qsTr("Output")
+
+        ListItem {
+            text: qsTr("Volume")
+            rightItem: Slider {
+                anchors.centerIn: parent
+                from: 0
+                to: 100
+                value: 50
+            }
+            visible: outputsView.visible
+        }
+
+        Repeater {
+            id: outputsView
+            model: PA.SinkModel {}
+            delegate: ListItem {
+                iconName: Default ? "toggle/radio_button_checked" : "toggle/radio_button_unchecked"
+                text: Description
+                secondaryItem: ComboBox {
+                    model: CardModel
+                    textRole: "Description"
+                }
+                rightItem: Button {
+                    anchors.centerIn: parent
+                    text: qsTr("Test")
+                }
+            }
+            visible: count > 0
+        }
+
+        ListItem {
+            text: qsTr("Balance")
+            rightItem: Slider {
+                anchors.centerIn: parent
+                from: 0
+                to: 100
+                value: 50
+            }
+            visible: outputsView.visible
+        }
+
+        ListItem {
+            text: qsTr("No output devices available")
+            opacity: 0.7
+            visible: !outputsView.visible
+        }
+    }
+
+    ModuleContainer {
+        title: qsTr("Input")
+
+        ListItem {
+            text: qsTr("Volume")
+            rightItem: Slider {
+                anchors.centerIn: parent
+                from: 0
+                to: 100
+                value: 50
+            }
+        }
+
+        Repeater {
+            id: inputsView
+            model: PA.SourceModel {}
+            delegate: ListItem {
+                iconName: Default ? "toggle/radio_button_checked" : "toggle/radio_button_unchecked"
+                text: Description
+            }
+            visible: count > 0
+        }
+
+        ListItem {
+            text: qsTr("No input devices available")
+            opacity: 0.7
+            visible: !inputsView.visible
+        }
+    }
 }
