@@ -30,6 +30,8 @@ import Fluid.Controls 1.0
 Pane {
     padding: 0
 
+    width: 400
+
     Material.background: "white"
     Material.elevation: 1
 }
