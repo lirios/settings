@@ -53,8 +53,6 @@ public:
     Plugin(const QString &fileName, QObject *parent = 0);
     ~Plugin();
 
-    bool load();
-
     bool isValid() const;
 
     Category category() const;
