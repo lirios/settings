@@ -50,8 +50,10 @@ void PluginsModelTask::populate()
                     continue;
 
                 Plugin *plugin = new Plugin(moduleDir.absoluteFilePath(fileName));
-                m_plugins.append(plugin);
-                m_pluginsMap[module] = plugin;
+                if (plugin->isValid()) {
+                    m_plugins.append(plugin);
+                    m_pluginsMap[module] = plugin;
+                }
             }
         }
     }

@@ -75,6 +75,12 @@ Plugin::~Plugin()
     delete d_ptr;
 }
 
+bool Plugin::isValid() const
+{
+    Q_D(const Plugin);
+    return d->entry != nullptr;
+}
+
 Plugin::Category Plugin::category() const
 {
     Q_D(const Plugin);

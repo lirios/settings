@@ -32,6 +32,7 @@ class PluginPrivate;
 class Plugin : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(bool valid READ isValid CONSTANT)
     Q_PROPERTY(Category category READ category CONSTANT)
     Q_PROPERTY(QString categoryName READ categoryName CONSTANT)
     Q_PROPERTY(QString name READ name CONSTANT)
@@ -53,6 +54,8 @@ public:
     ~Plugin();
 
     bool load();
+
+    bool isValid() const;
 
     Category category() const;
     QString categoryName() const;
