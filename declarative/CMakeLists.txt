@@ -3,12 +3,14 @@ add_definitions(-DQT_PLUGIN)
 set(SOURCES
     plugin.cpp
     pluginsmodel.cpp
-    xdgdesktopfile.cpp
     systemsettingsplugin.cpp
 )
 
 add_library(systemsettingsplugin SHARED ${SOURCES})
-target_link_libraries(systemsettingsplugin Qt5::Gui Qt5::Qml)
+target_link_libraries(systemsettingsplugin
+                      Qt5::Gui
+                      Qt5::Qml
+                      Qt5Xdg)
 
 set(FILES
     qmldir

@@ -21,11 +21,11 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include "plugin.h"
+
 #include <QtCore/QDir>
 #include <QtCore/QFileInfo>
-
-#include "plugin.h"
-#include "xdgdesktopfile.h"
+#include <qt5xdg/xdgdesktopfile.h>
 
 /*
  * PluginPrivate
@@ -34,15 +34,9 @@
 class PluginPrivate
 {
 public:
-    PluginPrivate(const QString &fileName)
-    {
-        entry = XdgDesktopFileCache::getFile(fileName);
-    }
+    PluginPrivate(const QString &fileName) { entry = XdgDesktopFileCache::getFile(fileName); }
 
-    ~PluginPrivate()
-    {
-        delete entry;
-    }
+    ~PluginPrivate() { delete entry; }
 
     XdgDesktopFile *entry;
     Plugin::Category category;
@@ -59,7 +53,8 @@ Plugin::Plugin(const QString &fileName, QObject *parent)
 {
     Q_D(Plugin);
     d->categoryName = d->entry->value(QStringLiteral("X-Hawaii-Settings-Category"),
-                                      QStringLiteral("personal")).toString();
+                                      QStringLiteral("personal"))
+                              .toString();
     if (d->categoryName == QStringLiteral("personal"))
         d->category = Plugin::PersonalCategory;
     else if (d->categoryName == QStringLiteral("hardware"))
@@ -70,10 +65,7 @@ Plugin::Plugin(const QString &fileName, QObject *parent)
         d->category = Plugin::NoCategory;
 }
 
-Plugin::~Plugin()
-{
-    delete d_ptr;
-}
+Plugin::~Plugin() { delete d_ptr; }
 
 bool Plugin::isValid() const
 {
