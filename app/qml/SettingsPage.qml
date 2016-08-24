@@ -93,8 +93,12 @@ Page {
             source: selectedModule ? selectedModule.mainScriptUrl : ""
         }
 
-        WelcomeView {
+        Placeholder {
             anchors.fill: parent
+
+            iconName: "action/settings"
+            text: qsTr("Welcome to Settings")
+            subText: qsTr("Select an item from the list to see the available options.")
             visible: moduleLoader.status == Loader.Null
         }
 
