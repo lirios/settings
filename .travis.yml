@@ -9,9 +9,9 @@ sudo: required
 arch:
   repos:
     - greenisland=https://dl.bintray.com/greenisland/archlinux-develop/$arch/
+    - fluid=https://dl.bintray.com/qmlos/archlinux-develop/$arch/
     - libqmlos=https://dl.bintray.com/qmlos/archlinux-develop/$arch/
   packages:
-    - qt5-quickcontrols2
     - qt5-tools
     - extra-cmake-modules
     - polkit-qt5
