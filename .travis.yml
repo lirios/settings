@@ -1,20 +1,30 @@
+language: c
+
+compiler:
+  - clang
+  - gcc
+
 sudo: required
 
 arch:
+  repos:
+    - greenisland=https://dl.bintray.com/greenisland/archlinux-develop/$arch/
+    - libqmlos=https://dl.bintray.com/qmlos/archlinux-develop/$arch/
   packages:
-    - qt5-declarative
     - qt5-quickcontrols2
     - qt5-tools
-    - cmake
     - extra-cmake-modules
     - polkit-qt5
     - xkeyboard-config
     - greenisland-git
-    - libhawaii-git
+    - libqmlos-git
     - xorg-server-xvfb
-    - git
+    - clang
+    #- clazy-git
   script:
-    - cmake . -DKDE_INSTALL_USE_QT_SYS_PATHS=ON -DCMAKE_INSTALL_PREFIX=/usr
+    - if [ "$CC" = "gcc" ]; then cmake . -DKDE_INSTALL_USE_QT_SYS_PATHS=ON -DCMAKE_INSTALL_PREFIX=/usr; fi
+    #- if [ "$CC" = "clang" ]; then env CLAZY_CHECKS="level1" cmake . -DCMAKE_CXX_COMPILER=clazy -DKDE_INSTALL_USE_QT_SYS_PATHS=ON -DCMAKE_INSTALL_PREFIX=/usr; fi
+    - if [ "$CC" = "clang" ]; then cmake . -DKDE_INSTALL_USE_QT_SYS_PATHS=ON -DCMAKE_INSTALL_PREFIX=/usr; fi
     - make
     #- sudo make install
     #- xvfb-run -a -s "-screen 0 800x600x24" make check
