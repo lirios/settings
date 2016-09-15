@@ -16,6 +16,8 @@ arch:
     - extra-cmake-modules
     - polkit-qt5
     - xkeyboard-config
+    - qt5-gstreamer
+    - boost
     - greenisland-git
     - libqmlos-git
     - xorg-server-xvfb
