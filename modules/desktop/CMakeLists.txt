@@ -1,9 +1,3 @@
-include_directories(
-    ${QtConfiguration_INCLUDE_DIRS}
-    ${CMAKE_SOURCE_DIR}/headers
-    ${CMAKE_BINARY_DIR}/src/lib
-)
-
 configure_file(hawaii-desktop-panel.desktop.in
                ${CMAKE_CURRENT_BINARY_DIR}/hawaii-desktop-panel.desktop)
 

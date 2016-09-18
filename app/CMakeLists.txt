@@ -1,8 +1,5 @@
 include_directories(
     ${POLKITQT-1_INCLUDE_DIR}
-    ${CMAKE_SOURCE_DIR}/headers
-    ${CMAKE_BINARY_DIR}/src/lib
-    ${CMAKE_SOURCE_DIR}/src/lib
 )
 
 # Create the cmakedirs.h header file

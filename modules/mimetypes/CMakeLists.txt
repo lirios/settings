@@ -1,8 +1,3 @@
-include_directories(
-    ${CMAKE_SOURCE_DIR}/headers
-    ${CMAKE_BINARY_DIR}/src/lib
-)
-
 add_definitions(-DQT_PLUGIN)
 
 set(SOURCES
