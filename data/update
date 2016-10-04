@@ -5,7 +5,7 @@ import os, sys, re
 if len(sys.argv) >= 2:
     base_filename = sys.argv[1]
 else:
-    base_filename = "hawaii-settings.desktop"
+    base_filename = "liri-settings.desktop"
 translations = {
     "Name": [],
     "GenericName": [],

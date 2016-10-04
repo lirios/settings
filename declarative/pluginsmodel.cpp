@@ -37,7 +37,7 @@ void PluginsModelTask::populate()
     qDeleteAll(m_plugins);
 
     QStringList list = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
-                                                 QLatin1String("hawaii/systemsettings/modules"),
+                                                 QLatin1String("liri/settings/modules"),
                                                  QStandardPaths::LocateDirectory);
     Q_FOREACH (const QString &location, list) {
         QDir dir(location);

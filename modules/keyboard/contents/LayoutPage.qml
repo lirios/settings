@@ -25,16 +25,16 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import Fluid.Controls 1.0
-import Hawaii.Settings 1.0
-import Hawaii.SystemSettings.Keyboard 1.0
+import Vibe.Settings 1.0
+import Liri.Settings.Keyboard 1.0
 
 ColumnLayout {
     spacing: Units.largeSpacing
 
     Settings {
         id: keyboardSettings
-        schema.id: "org.hawaiios.desktop.peripherals.keyboard"
-        schema.path: "/org/hawaiios/desktop/peripherals/keyboard/"
+        schema.id: "io.liri.desktop.peripherals.keyboard"
+        schema.path: "/io/liri/desktop/peripherals/keyboard/"
     }
 
     KeyboardData {

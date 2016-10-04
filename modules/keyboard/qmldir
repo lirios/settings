@@ -1,2 +1,2 @@
-module Hawaii.SystemSettings.Keyboard
+module Liri.Settings.Keyboard
 plugin keyboardplugin

@@ -25,7 +25,7 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import Fluid.Controls 1.0
-import Hawaii.SystemSettings.Keyboard 1.0
+import Liri.Settings.Keyboard 1.0
 
 Popup {
     id: addDialog

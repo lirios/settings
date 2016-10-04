@@ -27,7 +27,7 @@
 #include "plugin.h"
 #include "preflet.h"
 
-using namespace Hawaii::Settings;
+using namespace Liri::Settings;
 
 MousePlugin::MousePlugin(QObject *parent)
     : PreferencesModulePlugin(parent)

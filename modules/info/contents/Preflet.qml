@@ -24,7 +24,7 @@
 
 import QtQuick 2.4
 import QtQuick.Controls 2.0
-import Hawaii.Settings 1.0
+import Vibe.Settings 1.0
 import Fluid.Controls 1.0
 
 Item {
@@ -34,8 +34,8 @@ Item {
 
     Settings {
         id: systemSettings
-        schema.id: "org.hawaiios.system"
-        schema.path: "/org/hawaiios/system/"
+        schema.id: "io.liri.system"
+        schema.path: "/io/liri/system/"
     }
 
     Column {

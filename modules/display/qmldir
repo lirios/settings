@@ -1,2 +1,2 @@
-module Hawaii.SystemSettings.Display
+module Liri.Settings.Display
 plugin displayplugin

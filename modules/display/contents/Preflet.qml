@@ -26,8 +26,8 @@ import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import Fluid.Controls 1.0
-import Hawaii.SystemSettings 1.0
-import Hawaii.SystemSettings.Display 1.0 as CppDisplay
+import Liri.Settings 1.0
+import Liri.Settings.Display 1.0 as CppDisplay
 
 PrefletPage {
     property int minimumWidth: 40

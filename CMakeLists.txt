@@ -17,7 +17,7 @@ set(PROJECT_SOVERSION 0)
 
 if(NOT USE_SUPERBUILD)
     # Set up packaging
-    set(CPACK_PACKAGE_NAME "qmlos-settings")
+    set(CPACK_PACKAGE_NAME "liri-settings")
     set(CPACK_PACKAGE_VERSION "${PROJECT_VERSION}")
     set(CPACK_GENERATOR "TGZ")
     set(CPACK_SET_DESTDIR FALSE)
@@ -48,9 +48,9 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING "" FORCE)
 endif()
 
-# Find libhawaii
-set(REQUIRED_HAWAII_VERSION "0.7.90")
-find_package(Hawaii ${REQUIRED_HAWAII_VERSION} REQUIRED)
+# Find Vibe
+set(REQUIRED_VIBE_VERSION "0.7.90")
+find_package(Vibe ${REQUIRED_HAWAII_VERSION} REQUIRED)
 
 # Find Qt5Xdg
 find_package(QT5XDG REQUIRED)
@@ -68,7 +68,7 @@ set(REQUIRED_GREENISLAND_VERSION "0.7.90")
 find_package(GreenIsland ${REQUIRED_GREENISLAND_VERSION} REQUIRED COMPONENTS Client)
 
 # Include our macros
-include("${CMAKE_CURRENT_SOURCE_DIR}/framework/HawaiiSystemSettingsMacros.cmake")
+include("${CMAKE_CURRENT_SOURCE_DIR}/framework/LiriSettingsMacros.cmake")
 
 # Subdirectories
 add_subdirectory(app)

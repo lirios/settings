@@ -20,6 +20,6 @@ set(FILES
 )
 
 install(TARGETS systemsettingsplugin LIBRARY
-        DESTINATION ${QML_INSTALL_DIR}/Hawaii/SystemSettings)
+        DESTINATION ${QML_INSTALL_DIR}/Liri/Settings)
 install(FILES ${FILES}
-        DESTINATION ${QML_INSTALL_DIR}/Hawaii/SystemSettings)
+        DESTINATION ${QML_INSTALL_DIR}/Liri/Settings)

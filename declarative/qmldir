@@ -1,4 +1,4 @@
-module Hawaii.SystemSettings
+module Liri.Settings
 plugin systemsettingsplugin
 class SystemSettingsPlugin
 ModuleContainer 1.0 ModuleContainer.qml

@@ -8,7 +8,7 @@ set(FILES
     qmldir
 )
 
-add_hawaii_preflet(
+add_liri_preflet(
     NAME background
     CONTENTS_DIR contents
     METADATA_TEMPLATE metadata.desktop.in
@@ -22,6 +22,6 @@ add_library(backgroundplugin SHARED ${SOURCES})
 target_link_libraries(backgroundplugin Qt5::Qml Qt5::Quick)
 
 install(TARGETS backgroundplugin LIBRARY
-        DESTINATION ${QML_INSTALL_DIR}/Hawaii/SystemSettings/Background)
+        DESTINATION ${QML_INSTALL_DIR}/Liri/Settings/Background)
 install(FILES ${FILES}
-        DESTINATION ${QML_INSTALL_DIR}/Hawaii/SystemSettings/Background)
+        DESTINATION ${QML_INSTALL_DIR}/Liri/Settings/Background)

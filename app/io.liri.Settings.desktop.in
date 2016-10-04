@@ -5,12 +5,12 @@ Name=Settings
 GenericName=Settings
 Comment=Manages system settings
 Icon=preferences-system
-Exec=hawaii-settings
-TryExec=hawaii-settings
+Exec=liri-settings
+TryExec=liri-settings
 Terminal=false
 StartupNotify=true
-Categories=Qt;X-Hawaii;Settings;Core;
-OnlyShowIn=X-Hawaii;
+Categories=Qt;X-Liri;Settings;Core;
+OnlyShowIn=X-Liri;
 Keywords=Preferences;Settings;
 
 #TRANSLATIONS_DIR=translations

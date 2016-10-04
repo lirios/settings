@@ -1,2 +1,2 @@
-module Hawaii.SystemSettings.Background
+module Liri.Settings.Background
 plugin backgroundplugin

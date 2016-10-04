@@ -4,11 +4,11 @@ Type=Application
 Name=Displays
 Comment=Choose how to use connected monitors and projectors
 Icon=preferences-desktop-display
-TryExec=hawaii-settings
-Exec=hawaii-settings display
-Categories=Qt;X-Hawaii;Settings;HardwareSettings;
-OnlyShowIn=X-Hawaii;
-X-Hawaii-Settings-Category=hardware
-X-Hawaii-Settings-SymbolicIcon=hardware/desktop_windows
+TryExec=liri-settings
+Exec=liri-settings display
+Categories=Qt;X-Liri;Settings;HardwareSettings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=hardware
+X-Liri-Settings-SymbolicIcon=hardware/desktop_windows
 
 #TRANSLATIONS_DIR=translations

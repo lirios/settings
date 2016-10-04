@@ -24,7 +24,7 @@
         },
         "Icon": "preferences-desktop",
         "Implements": "HawaiiSettings",
-        "InternalName": "org.hawaiios.preferences.desktop",
+        "InternalName": "io.liri.preferences.desktop",
         "License": "GPLv2+",
         "MainScript": "ui/Preflet.qml"
     }

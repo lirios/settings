@@ -52,7 +52,7 @@ Plugin::Plugin(const QString &fileName, QObject *parent)
     , d_ptr(new PluginPrivate(fileName))
 {
     Q_D(Plugin);
-    d->categoryName = d->entry->value(QStringLiteral("X-Hawaii-Settings-Category"),
+    d->categoryName = d->entry->value(QStringLiteral("X-Liri-Settings-Category"),
                                       QStringLiteral("personal"))
                               .toString();
     if (d->categoryName == QStringLiteral("personal"))
@@ -88,7 +88,7 @@ QString Plugin::categoryName() const
 QString Plugin::name() const
 {
     Q_D(const Plugin);
-    return d->entry->value(QStringLiteral("X-Hawaii-Settings-InternalName")).toString();
+    return d->entry->value(QStringLiteral("X-Liri-Settings-InternalName")).toString();
 }
 
 QString Plugin::title() const
@@ -107,7 +107,7 @@ QString Plugin::iconName() const
 {
     Q_D(const Plugin);
 
-    QString iconName = d->entry->value(QStringLiteral("X-Hawaii-Settings-SymbolicIcon")).toString();
+    QString iconName = d->entry->value(QStringLiteral("X-Liri-Settings-SymbolicIcon")).toString();
 
     if (iconName.isEmpty()) {
         iconName = d->entry->localizedValue(QStringLiteral("Icon")).toString();

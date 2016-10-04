@@ -1,1 +1,1 @@
-hawaii_install_module(org.hawaiios.Settings.Network contents hawaii)
+hawaii_install_module(io.liri.Settings.Network contents hawaii)

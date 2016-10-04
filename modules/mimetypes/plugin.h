@@ -38,7 +38,7 @@ namespace Hawaii
         class MimeTypesPlugin : public PreferencesModulePlugin
         {
             Q_OBJECT
-            Q_PLUGIN_METADATA(IID "org.hawaiios.Settings.PreferencesModuleFactoryInterface" FILE "mimetype.json")
+            Q_PLUGIN_METADATA(IID "io.liri.Settings.PreferencesModuleFactoryInterface" FILE "mimetype.json")
         public:
             explicit MimeTypesPlugin(QObject *parent = 0);
 

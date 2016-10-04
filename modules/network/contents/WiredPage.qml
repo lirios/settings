@@ -25,7 +25,7 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import Fluid.Controls 1.0 as FluidControls
-import org.hawaiios.networkmanager 0.1 as NM
+import io.liri.networkmanager 0.1 as NM
 
 Item {
     property var wiredModel

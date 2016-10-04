@@ -26,7 +26,7 @@ import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import Fluid.Controls 1.0
-import Hawaii.SystemSettings 1.0
+import Liri.Settings 1.0
 
 Page {
     id: settingsPage

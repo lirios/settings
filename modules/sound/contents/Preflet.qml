@@ -26,8 +26,8 @@ import QtQuick 2.4
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import Fluid.Controls 1.0
-import Hawaii.SystemSettings 1.0
-import Hawaii.PulseAudio 1.0 as PA
+import Liri.Settings 1.0
+import Vibe.PulseAudio 1.0 as PA
 
 PrefletPage {
     ModuleContainer {

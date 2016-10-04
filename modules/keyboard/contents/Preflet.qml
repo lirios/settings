@@ -25,7 +25,7 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.0
 import Fluid.Controls 1.0
-import Hawaii.SystemSettings 1.0
+import Liri.Settings 1.0
 
 PrefletPage {
     header: ToolBar {

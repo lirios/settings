@@ -25,22 +25,22 @@ import QtQuick 2.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import Fluid.Controls 1.0
-import Hawaii.SystemSettings 1.0
-import Hawaii.Settings 1.0
+import Liri.Settings 1.0
+import Vibe.Settings 1.0
 
 PrefletPage {
     centered: true
 
     Settings {
         id: backgroundSettings
-        schema.id: "org.hawaiios.desktop.background"
-        schema.path: "/org/hawaiios/desktop/background/"
+        schema.id: "io.liri.desktop.background"
+        schema.path: "/io/liri/desktop/background/"
     }
 
     Settings {
         id: lockScreenSettings
-        schema.id: "org.hawaiios.desktop.lockscreen"
-        schema.path: "/org/hawaiios/desktop/lockscreen/"
+        schema.id: "io.liri.desktop.lockscreen"
+        schema.path: "/io/liri/desktop/lockscreen/"
     }
 
     ModuleContainer {

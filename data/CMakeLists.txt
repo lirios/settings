@@ -1,9 +1,9 @@
 set(FILES
-    hawaii-background-panel.desktop
-    hawaii-desktop-panel.desktop
-    hawaii-network-panel.desktop
-    hawaii-power-panel.desktop
+    liri-background-panel.desktop
+    liri-desktop-panel.desktop
+    liri-network-panel.desktop
+    liri-power-panel.desktop
 )
 
 install(FILES ${FILES}
-    DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
+        DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)

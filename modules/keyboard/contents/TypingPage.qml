@@ -24,7 +24,7 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
-import Hawaii.Settings 1.0
+import Vibe.Settings 1.0
 import Fluid.Controls 1.0
 
 ColumnLayout {
@@ -32,14 +32,14 @@ ColumnLayout {
 
     Settings {
         id: keyboardSettings
-        schema.id: "org.hawaiios.desktop.peripherals.keyboard"
-        schema.path: "/org/hawaiios/desktop/peripherals/keyboard/"
+        schema.id: "io.liri.desktop.peripherals.keyboard"
+        schema.path: "/io/liri/desktop/peripherals/keyboard/"
     }
 
     Settings {
         id: uiSettings
-        schema.id: "org.hawaiios.desktop.interface"
-        schema.path: "/org/hawaiios/desktop/interface/"
+        schema.id: "io.liri.desktop.interface"
+        schema.path: "/io/liri/desktop/interface/"
     }
 
     GroupBox {

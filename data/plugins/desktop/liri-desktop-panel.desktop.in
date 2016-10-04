@@ -1,11 +1,11 @@
 [Desktop Entry]
 Name=Desktop
 Comment=Configure desktop preferences
-Exec=hawaii-settings org.hawaiios.preferences.desktop
+Exec=liri-settings desktop
 Icon=preferences-desktop
 Terminal=false
 Type=Application
 StartupNotify=true
-Categories=X-Hawaii;Qt;Settings;X-Hawaii-PersonalSettings;
-OnlyShowIn=X-Hawaii;
+Categories=X-Liri;Qt;Settings;X-Liri-PersonalSettings;
+OnlyShowIn=X-Liri;
 Keywords=Desktop;Launcher;Hot;Corner;

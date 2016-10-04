@@ -1,4 +1,4 @@
-add_hawaii_preflet(
+add_liri_preflet(
     NAME appearance
     CONTENTS_DIR contents
     METADATA_TEMPLATE metadata.desktop.in

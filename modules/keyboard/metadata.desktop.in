@@ -5,9 +5,9 @@ Name=Keyboard
 Comment=View and change keyboard shortcuts and set your typing preferences
 Keywords=shortcut;repeat;blink;
 Icon=input-keyboard
-Categories=Qt;X-Hawaii;Settings;
-OnlyShowIn=X-Hawaii;
-X-Hawaii-Settings-Category=hardware
-X-Hawaii-Settings-SymbolicIcon=hardware/keyboard
+Categories=Qt;X-Liri;Settings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=hardware
+X-Liri-Settings-SymbolicIcon=hardware/keyboard
 
 #TRANSLATIONS_DIR=translations

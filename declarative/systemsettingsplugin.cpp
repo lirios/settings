@@ -37,9 +37,9 @@ public:
 
 void SystemSettingsPlugin::registerTypes(const char *uri)
 {
-    Q_ASSERT(QByteArray("Hawaii.SystemSettings") == QByteArray(uri));
+    Q_ASSERT(QByteArray("Liri.Settings") == QByteArray(uri));
 
-    // @uri Hawaii.SystemSettings
+    // @uri Liri.Settings
     qmlRegisterType<Plugin>();
     qmlRegisterType<PluginsModel>(uri, 1, 0, "PluginsModel");
 }
