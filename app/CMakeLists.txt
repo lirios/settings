@@ -40,7 +40,7 @@ file(GLOB QML_SOURCES "qml/*.qml")
 vibe_translate_ts(QM_FILES
                   SOURCES ${SOURCES} ${QML_SOURCES}
                   TEMPLATE "app"
-                  INSTALL_DIR "${DATA_INSTALL_DIR}/liri/systemsettings/translations/app"
+                  INSTALL_DIR "${DATA_INSTALL_DIR}/liri/settings/translations/app"
                   COMPONENT "Runtime")
 
 add_custom_target(liri-settings_translations ALL DEPENDS ${DESKTOP_FILE} ${QM_FILES})
