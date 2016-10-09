@@ -74,6 +74,7 @@ include("${CMAKE_CURRENT_SOURCE_DIR}/framework/LiriSettingsMacros.cmake")
 add_subdirectory(app)
 add_subdirectory(data)
 add_subdirectory(declarative)
+add_subdirectory(framework)
 add_subdirectory(modules)
 
 # Display featute summary
