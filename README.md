@@ -26,6 +26,7 @@ The following modules and their dependencies are required:
  * [greenisland](https://github.com/greenisland/greenisland)
  * [fluid](https://github.com/lirios/fluid)
  * [vibe](https://github.com/lirios/vibe)
+ * [libqtxdg](https://github.com/lxde/libqtxdg)
  * [qtaccountsservice](https://github.com/hawaii-desktop/qtaccountsservice)
  * [polkit-qt5-1](https://quickgit.kde.org/?p=polkit-qt-1.git)
  * [xkeyboard-config](https://cgit.freedesktop.org/xkeyboard-config/)
