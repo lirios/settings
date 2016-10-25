@@ -46,7 +46,7 @@ Item {
 
         Image {
             anchors.horizontalCenter: parent.horizontalCenter
-            width: 128
+            width: 150
             height: width
 
             source: Qt.resolvedUrl("logo.png")
@@ -74,10 +74,11 @@ Item {
 
         Row {
             anchors.horizontalCenter: parent.horizontalCenter
+
             Label {
                 font.pixelSize: 40
                 font.weight: Font.Light
-                text: "qml"
+                text: "Liri "
             }
 
             Label {
@@ -107,12 +108,12 @@ Item {
 
             Button {
                 text: "Website"
-                onClicked: Qt.openUrlExternally("https://github.com/qmlos")
+                onClicked: Qt.openUrlExternally("https://liri.io")
             }
 
             Button {
                 text: "Report a bug"
-                onClicked: Qt.openUrlExternally("https://github.com/qmlos/qmlos/issues")
+                onClicked: Qt.openUrlExternally("https://github.com/lirios/lirios/issues")
             }
 
             Button {
