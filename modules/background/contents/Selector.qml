@@ -24,7 +24,6 @@
 import QtQuick 2.2
 import QtQuick.Window 2.2
 import QtQuick.Layouts 1.0
-import QtQuick.Dialogs 1.2
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import Fluid.Controls 1.0
@@ -89,44 +88,25 @@ Item {
 
     Dialog {
         id: dialog
+        parent: ApplicationWindow.window.contentItem
         title: qsTr("Pick a background")
-        modality: Qt.ApplicationModal
-        contentItem: Page {
-            header: ToolBar {
-                RowLayout {
-                    anchors.fill: parent
-                    anchors.leftMargin: parent.leftPadding
-                    anchors.topMargin: parent.topPadding
-                    anchors.rightMargin: parent.rightPadding
-                    anchors.bottomMargin: parent.bottomPadding
-
-                    Button {
-                        text: qsTr("Cancel")
-                        onClicked: dialog.close()
-                    }
-
-                    Item {
-                        Layout.fillWidth: true
-                    }
-
-                    Button {
-                        text: qsTr("Select")
-                        onClicked: {
-                            selectorDialog.saveSettings();
-                            dialog.close();
-                        }
-                    }
-                }
-            }
-
-            SelectorDialog {
-                id: selectorDialog
-                anchors.fill: parent
-                settings: selector.settings
-            }
-        }
-        width: 800
+        x: (ApplicationWindow.window.width - width) / 2
+        y: (ApplicationWindow.window.height - height) / 2
+        width: 650
         height: 450
+
+        onAccepted: {
+            selectorDialog.saveSettings();
+            dialog.close();
+        }
+        onRejected: dialog.close()
+
+        SelectorDialog {
+            id: selectorDialog
+            settings: selector.settings
+            width: 600
+            height: 350
+        }
     }
 
     Component {

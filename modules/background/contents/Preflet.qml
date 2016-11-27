@@ -29,7 +29,7 @@ import Liri.Settings 1.0
 import Vibe.Settings 1.0
 
 PrefletPage {
-    centered: true
+    //centered: true
 
     Settings {
         id: backgroundSettings
