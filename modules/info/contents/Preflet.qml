@@ -90,7 +90,7 @@ Item {
         Label {
             anchors.horizontalCenter: parent.horizontalCenter
             font.pixelSize: 20
-            text: "Version 0.0.0"
+            text: "Version 0.9.0"
         }
     }
 

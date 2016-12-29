@@ -18,18 +18,18 @@ Qt >= 5.8.0 with at least the following modules is required:
  * [qtbase](http://code.qt.io/cgit/qt/qtbase.git)
  * [qtdeclarative](http://code.qt.io/cgit/qt/qtdeclarative.git)
  * [qtquickcontrols2](http://code.qt.io/cgit/qt/qtquickcontrols2.git)
- * [qttools](http://code.qt.io/cgit/qt/qttools.git/)
+ * [qttools](http://code.qt.io/cgit/qt/qttools.git)
 
 The following modules and their dependencies are required:
 
  * [ECM >= 1.7.0](http://quickgit.kde.org/?p=extra-cmake-modules.git)
  * [liri-wayland](https://github.com/lirios/liri-wayland.git)
- * [fluid](https://github.com/lirios/fluid)
- * [vibe](https://github.com/lirios/vibe)
- * [libqtxdg](https://github.com/lxde/libqtxdg)
- * [qtaccountsservice](https://github.com/lirios/qtaccountsservice)
+ * [fluid](https://github.com/lirios/fluid.git)
+ * [vibe](https://github.com/lirios/vibe.git)
+ * [libqtxdg](https://github.com/lxde/libqtxdg.git)
+ * [qtaccountsservice](https://github.com/lirios/qtaccountsservice.git)
  * [polkit-qt5-1](https://quickgit.kde.org/?p=polkit-qt-1.git)
- * [xkeyboard-config](https://cgit.freedesktop.org/xkeyboard-config/)
+ * [xkeyboard-config](https://cgit.freedesktop.org/xkeyboard-config)
 
 ## Installation
 
@@ -44,7 +44,7 @@ make install # use sudo if necessary
 
 On the `cmake` line, you can specify additional configuration parameters:
 
- * `-DCMAKE_INSTALL_PREFIX=/path/to/install` (for example, `/opt/lirios` or `/usr`)
+ * `-DCMAKE_INSTALL_PREFIX=/path/to/install` (for example, `/opt/liri` or `/usr`)
  * `-DCMAKE_BUILD_TYPE=<build_type>`, where `<build_type>` is one of:
    * **Debug:** debug build
    * **Release:** release build
