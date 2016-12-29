@@ -33,8 +33,6 @@ Page {
     default property alias content: column.data
 
     property bool centered: false
-    property alias contentWidth: flickable.contentWidth
-    property alias contentHeight: flickable.contentHeight
 
     Flickable {
         id: flickable
