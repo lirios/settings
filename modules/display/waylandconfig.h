@@ -28,12 +28,12 @@
 #include <QtCore/QThread>
 #include <QtCore/QVector>
 
-#include <GreenIsland/Client/ClientConnection>
-#include <GreenIsland/Client/Registry>
-#include <GreenIsland/Client/Output>
-#include <GreenIsland/Client/OutputManagement>
+#include <Liri/WaylandClient/ClientConnection>
+#include <Liri/WaylandClient/Registry>
+#include <Liri/WaylandClient/Output>
+#include <Liri/WaylandClient/OutputManagement>
 
-using namespace GreenIsland::Client;
+using namespace Liri::WaylandClient;
 
 struct WaylandOutput {
     quint32 name;

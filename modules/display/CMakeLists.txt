@@ -19,7 +19,7 @@ add_liri_preflet(
 )
 
 add_library(displayplugin SHARED ${SOURCES})
-target_link_libraries(displayplugin Qt5::Qml Qt5::Quick GreenIsland::Client)
+target_link_libraries(displayplugin Qt5::Qml Qt5::Quick Liri::WaylandClient)
 
 install(TARGETS displayplugin LIBRARY
         DESTINATION ${QML_INSTALL_DIR}/Liri/Settings/Display)

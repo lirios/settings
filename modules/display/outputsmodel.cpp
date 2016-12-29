@@ -24,7 +24,7 @@
 #include <QtMath>
 #include <QtCore/QCoreApplication>
 
-#include <GreenIsland/Client/OutputConfiguration>
+#include <Liri/WaylandClient/OutputConfiguration>
 
 #include "outputsmodel.h"
 

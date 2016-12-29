@@ -13,7 +13,7 @@ Settings application and modules for Liri OS.
 
 ## Dependencies
 
-Qt >= 5.7.0 with at least the following modules is required:
+Qt >= 5.8.0 with at least the following modules is required:
 
  * [qtbase](http://code.qt.io/cgit/qt/qtbase.git)
  * [qtdeclarative](http://code.qt.io/cgit/qt/qtdeclarative.git)
@@ -23,7 +23,7 @@ Qt >= 5.7.0 with at least the following modules is required:
 The following modules and their dependencies are required:
 
  * [ECM >= 1.7.0](http://quickgit.kde.org/?p=extra-cmake-modules.git)
- * [greenisland](https://github.com/greenisland/greenisland)
+ * [liri-wayland](https://github.com/lirios/liri-wayland.git)
  * [fluid](https://github.com/lirios/fluid)
  * [vibe](https://github.com/lirios/vibe)
  * [libqtxdg](https://github.com/lxde/libqtxdg)

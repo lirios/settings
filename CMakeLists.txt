@@ -56,16 +56,16 @@ find_package(Vibe ${REQUIRED_HAWAII_VERSION} REQUIRED)
 find_package(QT5XDG REQUIRED)
 
 # Find Qt5
-set(REQUIRED_QT_VERSION "5.7.0")
+set(REQUIRED_QT_VERSION "5.8.0")
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED COMPONENTS
              Widgets Qml Quick LinguistTools QuickControls2)
 
 # Find PolicyKit wrapper for Qt
 find_package(PolkitQt5-1 "0.103.0" REQUIRED)
 
-# Find Green Island
-set(REQUIRED_GREENISLAND_VERSION "0.7.90")
-find_package(GreenIsland ${REQUIRED_GREENISLAND_VERSION} REQUIRED COMPONENTS Client)
+# Find Liri Wayland
+set(REQUIRED_LIRIWAYLAND_VERSION "0.8.0")
+find_package(LiriWaylandClient ${REQUIRED_LIRIWAYLAND_VERSION} REQUIRED)
 
 # Include our macros
 include("${CMAKE_CURRENT_SOURCE_DIR}/framework/LiriSettingsMacros.cmake")
