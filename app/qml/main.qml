@@ -40,6 +40,7 @@ FluidWindow {
     minimumHeight: 600
     maximumWidth: minimumWidth
     maximumHeight: minimumHeight
+    visible: true
 
     Material.accent: Material.Blue
     Material.primary: Material.color(Material.BlueGrey, Material.theme === Material.Light
@@ -63,7 +64,5 @@ FluidWindow {
                 //window.height = plugin.item.height;
             }
         }
-
-        show();
     }
 }

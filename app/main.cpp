@@ -123,9 +123,7 @@ int main(int argc, char *argv[])
     app.setApplicationVersion(QLatin1String(SETTINGS_VERSION_STRING));
     app.setOrganizationDomain(QLatin1String("liri.io"));
     app.setOrganizationName(QLatin1String("Liri"));
-#if QT_VERSION >= QT_VERSION_CHECK(5, 7, 0)
     app.setDesktopFileName(QLatin1String("io.liri.Settings.desktop"));
-#endif
 
     QQuickStyle::setStyle(QLatin1String("Material"));
 
