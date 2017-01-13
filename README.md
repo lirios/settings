@@ -17,6 +17,7 @@ Qt >= 5.8.0 with at least the following modules is required:
 
  * [qtbase](http://code.qt.io/cgit/qt/qtbase.git)
  * [qtdeclarative](http://code.qt.io/cgit/qt/qtdeclarative.git)
+ * [qtquickcontrols](http://code.qt.io/cgit/qt/qtquickcontrols.git)
  * [qtquickcontrols2](http://code.qt.io/cgit/qt/qtquickcontrols2.git)
  * [qttools](http://code.qt.io/cgit/qt/qttools.git)
 
