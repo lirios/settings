@@ -95,11 +95,13 @@ Popup {
 
             Button {
                 text: qsTr("Cancel")
+                flat: true
                 onClicked: addDialog.close()
             }
 
             Button {
                 text: qsTr("OK")
+                flat: true
                 onClicked: {
                     var layout = keyboardData.layouts[layoutComboBox.currentIndex];
                     var variant = layout.variants[variantComboBox.currentIndex];

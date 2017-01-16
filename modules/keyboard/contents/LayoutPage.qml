@@ -24,13 +24,14 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
+import QtQuick.Controls.Material 2.0
 import Fluid.Controls 1.0
+import Fluid.Material 1.0
 import Vibe.Settings 1.0
+import Liri.Settings 1.0
 import Liri.Settings.Keyboard 1.0
 
-ColumnLayout {
-    spacing: Units.largeSpacing
-
+PrefletPage {
     Settings {
         id: keyboardSettings
         schema.id: "io.liri.desktop.peripherals.keyboard"
@@ -66,77 +67,17 @@ ColumnLayout {
         id: addDialog
     }
 
-    ColumnLayout {
-        spacing: Units.smallSpacing
+    ModuleContainer {
+        title: qsTr("Model and Test")
 
-        ColumnLayout {
-            Frame {
-                ListView {
-                    id: savedLayouts
-                    anchors.fill: parent
-                    model: layoutModel
-                    clip: true
-                    delegate: ItemDelegate {
-                        text: model.label
-                        width: savedLayouts.width
-                    }
-
-                    ScrollBar.vertical: ScrollBar {}
-                }
-
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-            }
-
-            Row {
-                ToolButton {
-                    //iconName: "list-add-symbolic"
-                    width: Units.iconSizes.smallMedium
-                    height: width
-                    onClicked: addDialog.open()
-                }
-
-                ToolButton {
-                    //iconName: "list-remove-symbolic"
-                    width: Units.iconSizes.smallMedium
-                    height: width
-                    enabled: savedLayouts.selection.count > 0
-                    onClicked: {
-                        savedLayouts.selection.forEach(function(rowIndex) {
-                            // Remove entry from settings
-                            var layouts = keyboardSettings.layouts;
-                            layouts.splice(rowIndex, 1);
-                            keyboardSettings.layouts = layouts;
-
-                            var variants = keyboardSettings.variants;
-                            variants.splice(rowIndex, 1);
-                            keyboardSettings.variants = variants;
-
-                            // Remove row from model
-                            layoutModel.remove(rowIndex);
-                        });
-                    }
-                }
-            }
-
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-        }
-
-        RowLayout {
-            spacing: Units.smallSpacing
-
-            Label {
-                text: qsTr("Keyboard model:")
-            }
-
-            ComboBox {
+        ListItem {
+            text: qsTr("Model")
+            rightItem: ComboBox {
                 id: modelComboBox
+                anchors.centerIn: parent
                 model: keyboardData.models
                 textRole: "description"
                 onActivated: keyboardSettings.model = keyboardData.models[index].name
-
-                Layout.fillWidth: true
 
                 Component.onCompleted: {
                     var i, value = keyboardSettings.model;
@@ -153,13 +94,56 @@ ColumnLayout {
             }
         }
 
-        Pane {
-            TextField {
-                anchors.fill: parent
+        ListItem {
+            secondaryItem: TextField {
+                width: parent.width
                 placeholderText: qsTr("Type to test the layout...")
             }
-
-            Layout.fillWidth: true
         }
+    }
+
+    ModuleContainer {
+        title: qsTr("Layout")
+
+        Repeater {
+            model: layoutModel
+
+            ListItem {
+                text: model.label
+                subText: model.variant || qsTr("No variant")
+                rightItem: Button {
+                    anchors.centerIn: parent
+                    text: qsTr("Remove")
+                    flat: true
+                    onClicked: {
+                        // Remove entry from settings
+                        var layouts = keyboardSettings.layouts;
+                        layouts.splice(index, 1);
+                        keyboardSettings.layouts = layouts;
+
+                        var variants = keyboardSettings.variants;
+                        variants.splice(index, 1);
+                        keyboardSettings.variants = variants;
+
+                        // Remove row from model
+                        layoutModel.remove(index);
+                    }
+                }
+            }
+        }
+    }
+
+    ActionButton {
+        anchors {
+            right: parent.right
+            bottom: parent.bottom
+            rightMargin: 100
+        }
+
+        iconName: "content/add"
+        onClicked: addDialog.open()
+
+        Material.background: Material.primaryColor
+        Material.elevation: 1
     }
 }
