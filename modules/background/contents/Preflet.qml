@@ -1,64 +1,65 @@
 /****************************************************************************
- * This file is part of System Preferences.
+ * This file is part of Settings.
  *
- * Copyright (C) 2013-2016 Pier Luigi Fiorini
+ * Copyright (C) 2016 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
- * Author(s):
- *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
- *
- * $BEGIN_LICENSE:LGPL2.1+$
+ * $BEGIN_LICENSE:GPL3+$
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 2.1 of the License, or
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
+ * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public License
+ * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * $END_LICENSE$
  ***************************************************************************/
 
 import QtQuick 2.0
-import Fluid.Ui 1.0 as FluidUi
-import Hawaii.SystemPreferences 1.0
-import Hawaii.GSettings 1.0 as Settings
+import QtQuick.Controls 2.0
+import QtQuick.Controls.Material 2.0
+import Fluid.Controls 1.0
+import Liri.Settings 1.0
+import Vibe.Settings 1.0
 
 PrefletPage {
-    property int minimumHeight: FluidUi.Units.dp(440)
+    //centered: true
 
-    Settings.Settings {
+    Settings {
         id: backgroundSettings
-        schema.id: "org.hawaiios.desktop.background"
-        schema.path: "/org/hawaiios/desktop/background/"
+        schema.id: "io.liri.desktop.background"
+        schema.path: "/io/liri/desktop/background/"
     }
 
-    Settings.Settings {
+    Settings {
         id: lockScreenSettings
-        schema.id: "org.hawaiios.desktop.lockscreen"
-        schema.path: "/org/hawaiios/desktop/lockscreen/"
+        schema.id: "io.liri.desktop.lockscreen"
+        schema.path: "/io/liri/desktop/lockscreen/"
     }
 
-    Row {
-        anchors {
-            centerIn: parent
-            margins: FluidUi.Units.largeSpacing
-        }
-        spacing: FluidUi.Units.largeSpacing
+    ModuleContainer {
+        Row {
+            Selector {
+                settings: backgroundSettings
+                text: qsTr("Background")
+            }
 
-        Selector {
-            settingsObject: backgroundSettings
-            text: qsTr("Background")
-        }
+            Rectangle {
+                height: parent.height
+                width: 1
+                color: Material.dividerColor
+            }
 
-        Selector {
-            settingsObject: lockScreenSettings
-            text: qsTr("Lock Screen")
+            Selector {
+                settings: lockScreenSettings
+                text: qsTr("Lock Screen")
+            }
         }
     }
 }

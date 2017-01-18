@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Network
+Comment=Control how you connect to the Internet
+Exec=liri-settings network
+Icon=preferences-system-network
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=X-Liri;Qt;Settings;HardwareSettings;
+OnlyShowIn=X-Liri;
+Keywords=Net;Network;Ethernet;WiFi;Wired;Wireless;

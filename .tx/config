@@ -1,74 +1,134 @@
 [main]
 host = https://www.transifex.com
 
-[system-preferences.shells-desktop]
+[settings.app]
 type = QT
 source_lang = en
-source_file = shells/translations/desktopshell.ts
-file_filter = shells/translations/desktopshell_<lang>.ts
+source_file = app/translations/app.ts
+file_filter = app/translations/app_<lang>.ts
 
-[system-preferences.desktop-file]
+[settings.desktop-file]
 type = DESKTOP
 source_lang = en
-source_file = settings/org.hawaiios.SystemPreferences.desktop.in
-file_filter = settings/translations/org.hawaiios.SystemPreferences_<lang>.desktop
+source_file = app/io.liri.Settings.desktop.in
+file_filter = app/translations/io.liri.Settings_<lang>.desktop
 
-[system-preferences.background-preflet]
+[settings.appearance-module]
+type = QT
+source_lang = en
+source_file = modules/appearance/translations/appearance.ts
+file_filter = modules/appearance/translations/appearance_<lang>.ts
+
+[settings.appearance-metadata]
+type = DESKTOP
+source_lang = en
+source_file = modules/appearance/metadata.desktop.in
+file_filter = modules/appearance/translations/metadata_<lang>.desktop
+
+[settings.background-module]
 type = QT
 source_lang = en
 source_file = modules/background/translations/background.ts
 file_filter = modules/background/translations/background_<lang>.ts
 
-[system-preferences.background-desktop]
+[settings.background-metadata]
 type = DESKTOP
 source_lang = en
 source_file = modules/background/metadata.desktop.in
 file_filter = modules/background/translations/metadata_<lang>.desktop
 
-[system-preferences.display-preflet]
+[settings.desktop-module]
+type = QT
+source_lang = en
+source_file = modules/desktop/translations/desktop.ts
+file_filter = modules/desktop/translations/desktop_<lang>.ts
+
+[settings.desktop-metadata]
+type = DESKTOP
+source_lang = en
+source_file = modules/desktop/metadata.desktop.in
+file_filter = modules/desktop/translations/metadata_<lang>.desktop
+
+[settings.display-module]
 type = QT
 source_lang = en
 source_file = modules/display/translations/display.ts
 file_filter = modules/display/translations/display_<lang>.ts
 
-[system-preferences.display-desktop]
+[settings.display-metadata]
 type = DESKTOP
 source_lang = en
 source_file = modules/display/metadata.desktop.in
 file_filter = modules/display/translations/metadata_<lang>.desktop
 
-[system-preferences.keyboard-preflet]
+[settings.info-module]
+type = QT
+source_lang = en
+source_file = modules/info/translations/info.ts
+file_filter = modules/info/translations/info_<lang>.ts
+
+[settings.info-metadata]
+type = DESKTOP
+source_lang = en
+source_file = modules/info/metadata.desktop.in
+file_filter = modules/info/translations/metadata_<lang>.desktop
+
+[settings.keyboard-module]
 type = QT
 source_lang = en
 source_file = modules/keyboard/translations/keyboard.ts
 file_filter = modules/keyboard/translations/keyboard_<lang>.ts
 
-[system-preferences.keyboard-desktop]
+[settings.keyboard-metadata]
 type = DESKTOP
 source_lang = en
 source_file = modules/keyboard/metadata.desktop.in
 file_filter = modules/keyboard/translations/metadata_<lang>.desktop
 
-[system-preferences.power-preflet]
-type = QT
-source_lang = en
-source_file = modules/power/translations/power.ts
-file_filter = modules/power/translations/power_<lang>.ts
-
-[system-preferences.power-desktop]
-type = DESKTOP
-source_lang = en
-source_file = modules/power/metadata.desktop.in
-file_filter = modules/power/translations/metadata_<lang>.desktop
-
-[system-preferences.network-preflet]
+[settings.network-module]
 type = QT
 source_lang = en
 source_file = modules/network/translations/network.ts
 file_filter = modules/network/translations/network_<lang>.ts
 
-[system-preferences.network-desktop]
+[settings.network-metadata]
 type = DESKTOP
 source_lang = en
 source_file = modules/network/metadata.desktop.in
 file_filter = modules/network/translations/metadata_<lang>.desktop
+
+[settings.power-module]
+type = QT
+source_lang = en
+source_file = modules/power/translations/power.ts
+file_filter = modules/power/translations/power_<lang>.ts
+
+[settings.power-metadata]
+type = DESKTOP
+source_lang = en
+source_file = modules/power/metadata.desktop.in
+file_filter = modules/power/translations/metadata_<lang>.desktop
+
+[settings.sound-module]
+type = QT
+source_lang = en
+source_file = modules/sound/translations/sound.ts
+file_filter = modules/sound/translations/sound_<lang>.ts
+
+[settings.sound-metadata]
+type = DESKTOP
+source_lang = en
+source_file = modules/sound/metadata.desktop.in
+file_filter = modules/sound/translations/metadata_<lang>.desktop
+
+[settings.users-module]
+type = QT
+source_lang = en
+source_file = modules/users/translations/users.ts
+file_filter = modules/users/translations/users_<lang>.ts
+
+[settings.users-metadata]
+type = DESKTOP
+source_lang = en
+source_file = modules/users/metadata.desktop.in
+file_filter = modules/users/translations/metadata_<lang>.desktop

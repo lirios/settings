@@ -1,11 +1,5 @@
-include_directories(
-    ${QtConfiguration_INCLUDE_DIRS}
-    ${CMAKE_SOURCE_DIR}/headers
-    ${CMAKE_BINARY_DIR}/src/lib
-)
-
-configure_file(hawaii-desktop-panel.desktop.in
-               ${CMAKE_CURRENT_BINARY_DIR}/hawaii-desktop-panel.desktop)
+configure_file(liri-desktop-panel.desktop.in
+               ${CMAKE_CURRENT_BINARY_DIR}/liri-desktop-panel.desktop)
 
 add_definitions(-DQT_PLUGIN)
 
@@ -39,13 +33,13 @@ add_library(desktop SHARED ${SOURCES} ${QM_FILES} ${RESOURCES})
 set_target_properties(desktop PROPERTIES PREFIX "")
 qt5_use_modules(desktop Quick)
 target_link_libraries(desktop
-    HawaiiSystemPreferences
+    HawaiiSettings
     ${QtConfiguration_LIBRARIES}
 )
 
 install(TARGETS desktop LIBRARY
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/hawaii/plugins/preferences)
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/liri/plugins/preferences)
 install(FILES ${QM_FILES}
-    DESTINATION ${CMAKE_INSTALL_DATADIR}/hawaii-system-preferences/plugins/desktop/translations)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/hawaii-desktop-panel.desktop
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/liri-settings/plugins/desktop/translations)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/liri-desktop-panel.desktop
     DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)

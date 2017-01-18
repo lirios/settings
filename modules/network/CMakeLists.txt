@@ -1,5 +1,4 @@
-add_hawaii_preflet(
-    VENDOR hawaii
+add_liri_preflet(
     NAME network
     CONTENTS_DIR contents
     METADATA_TEMPLATE metadata.desktop.in

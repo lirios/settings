@@ -1,24 +1,21 @@
 /****************************************************************************
- * This file is part of Hawaii.
+ * This file is part of Settings.
  *
- * Copyright (C) 2016 Pier Luigi Fiorini
+ * Copyright (C) 2016 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
- * Author(s):
- *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
- *
- * $BEGIN_LICENSE:LGPL2.1+$
+ * $BEGIN_LICENSE:GPL3+$
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 2.1 of the License, or
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
+ * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public License
+ * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * $END_LICENSE$
@@ -35,23 +32,24 @@ WaylandConfig::WaylandConfig(QObject *parent)
     , m_thread(new QThread())
     , m_management(Q_NULLPTR)
 {
-    Q_ASSERT(m_connection);
-    m_connection->moveToThread(m_thread);
-    m_thread->start();
+    if (m_connection) {
+        m_connection->moveToThread(m_thread);
+        m_thread->start();
 
-    connect(m_registry, &Registry::interfacesAnnounced,
-            this, &WaylandConfig::interfacesAnnounced);
-    connect(m_registry, &Registry::outputAnnounced,
-            this, &WaylandConfig::waylandOutputAnnounced);
-    connect(m_registry, &Registry::outputRemoved,
-            this, &WaylandConfig::waylandOutputRemoved);
-    connect(m_registry, &Registry::outputManagementAnnounced,
-            this, &WaylandConfig::outputManagementAnnounced);
-    connect(m_registry, &Registry::outputManagementRemoved,
-            this, &WaylandConfig::outputManagementRemoved);
+        connect(m_registry, &Registry::interfacesAnnounced,
+                this, &WaylandConfig::interfacesAnnounced);
+        connect(m_registry, &Registry::outputAnnounced,
+                this, &WaylandConfig::waylandOutputAnnounced);
+        connect(m_registry, &Registry::outputRemoved,
+                this, &WaylandConfig::waylandOutputRemoved);
+        connect(m_registry, &Registry::outputManagementAnnounced,
+                this, &WaylandConfig::outputManagementAnnounced);
+        connect(m_registry, &Registry::outputManagementRemoved,
+                this, &WaylandConfig::outputManagementRemoved);
 
-    m_registry->create(m_connection->display());
-    m_registry->setup();
+        m_registry->create(m_connection->display());
+        m_registry->setup();
+    }
 }
 
 WaylandConfig::~WaylandConfig()

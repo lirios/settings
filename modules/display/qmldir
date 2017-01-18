@@ -1,2 +1,2 @@
-module org.hawaiios.systempreferences.display
+module Liri.Settings.Display
 plugin displayplugin

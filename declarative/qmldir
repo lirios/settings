@@ -1,2 +1,6 @@
-module Hawaii.SystemPreferences
+module Liri.Settings
+plugin systemsettingsplugin
+class SystemSettingsPlugin
+ModuleContainer 1.0 ModuleContainer.qml
+ModulePane 1.0 ModulePane.qml
 PrefletPage 1.0 PrefletPage.qml

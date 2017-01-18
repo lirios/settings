@@ -1,2 +1,2 @@
-module org.hawaiios.systempreferences.keyboard
+module Liri.Settings.Keyboard
 plugin keyboardplugin

@@ -1,6 +1,6 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="fa_IR" version="2.0">
 <context>
-    <name>Hawaii::SystemPreferences::Preflet</name>
+    <name>Hawaii::Settings::Preflet</name>
     <message>
         <location filename="../preflet.cpp" line="66"/>
         <source>Sound</source>

@@ -1,24 +1,21 @@
 /****************************************************************************
- * This file is part of System Preferences.
+ * This file is part of Settings.
  *
- * Copyright (C) 2015-2016 Pier Luigi Fiorini
+ * Copyright (C) 2016 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
- * Author(s):
- *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
- *
- * $BEGIN_LICENSE:LGPL2.1+$
+ * $BEGIN_LICENSE:GPL3+$
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 2.1 of the License, or
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
+ * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public License
+ * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * $END_LICENSE$
@@ -27,17 +24,18 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
-import Fluid.Ui 1.0 as FluidUi
-import Hawaii.GSettings 1.0
-import org.hawaiios.systempreferences.keyboard 1.0
+import QtQuick.Controls.Material 2.0
+import Fluid.Controls 1.0
+import Fluid.Material 1.0
+import Vibe.Settings 1.0
+import Liri.Settings 1.0
+import Liri.Settings.Keyboard 1.0
 
-ColumnLayout {
-    spacing: FluidUi.Units.largeSpacing
-
+PrefletPage {
     Settings {
         id: keyboardSettings
-        schema.id: "org.hawaiios.desktop.peripherals.keyboard"
-        schema.path: "/org/hawaiios/desktop/peripherals/keyboard/"
+        schema.id: "io.liri.desktop.peripherals.keyboard"
+        schema.path: "/io/liri/desktop/peripherals/keyboard/"
     }
 
     KeyboardData {
@@ -69,77 +67,17 @@ ColumnLayout {
         id: addDialog
     }
 
-    ColumnLayout {
-        spacing: FluidUi.Units.smallSpacing
+    ModuleContainer {
+        title: qsTr("Model and Test")
 
-        ColumnLayout {
-            Frame {
-                ListView {
-                    id: savedLayouts
-                    anchors.fill: parent
-                    model: layoutModel
-                    clip: true
-                    delegate: ItemDelegate {
-                        text: model.label
-                        width: savedLayouts.width
-                    }
-
-                    ScrollBar.vertical: ScrollBar {}
-                }
-
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-            }
-
-            Row {
-                ToolButton {
-                    //iconName: "list-add-symbolic"
-                    width: FluidUi.Units.iconSizes.smallMedium
-                    height: width
-                    onClicked: addDialog.open()
-                }
-
-                ToolButton {
-                    //iconName: "list-remove-symbolic"
-                    width: FluidUi.Units.iconSizes.smallMedium
-                    height: width
-                    enabled: savedLayouts.selection.count > 0
-                    onClicked: {
-                        savedLayouts.selection.forEach(function(rowIndex) {
-                            // Remove entry from settings
-                            var layouts = keyboardSettings.layouts;
-                            layouts.splice(rowIndex, 1);
-                            keyboardSettings.layouts = layouts;
-
-                            var variants = keyboardSettings.variants;
-                            variants.splice(rowIndex, 1);
-                            keyboardSettings.variants = variants;
-
-                            // Remove row from model
-                            layoutModel.remove(rowIndex);
-                        });
-                    }
-                }
-            }
-
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-        }
-
-        RowLayout {
-            spacing: FluidUi.Units.smallSpacing
-
-            Label {
-                text: qsTr("Keyboard model:")
-            }
-
-            ComboBox {
+        ListItem {
+            text: qsTr("Model")
+            rightItem: ComboBox {
                 id: modelComboBox
+                anchors.centerIn: parent
                 model: keyboardData.models
                 textRole: "description"
                 onActivated: keyboardSettings.model = keyboardData.models[index].name
-
-                Layout.fillWidth: true
 
                 Component.onCompleted: {
                     var i, value = keyboardSettings.model;
@@ -156,13 +94,56 @@ ColumnLayout {
             }
         }
 
-        Pane {
-            TextField {
-                anchors.fill: parent
+        ListItem {
+            secondaryItem: TextField {
+                width: parent.width
                 placeholderText: qsTr("Type to test the layout...")
             }
-
-            Layout.fillWidth: true
         }
+    }
+
+    ModuleContainer {
+        title: qsTr("Layout")
+
+        Repeater {
+            model: layoutModel
+
+            ListItem {
+                text: model.label
+                subText: model.variant || qsTr("No variant")
+                rightItem: Button {
+                    anchors.centerIn: parent
+                    text: qsTr("Remove")
+                    flat: true
+                    onClicked: {
+                        // Remove entry from settings
+                        var layouts = keyboardSettings.layouts;
+                        layouts.splice(index, 1);
+                        keyboardSettings.layouts = layouts;
+
+                        var variants = keyboardSettings.variants;
+                        variants.splice(index, 1);
+                        keyboardSettings.variants = variants;
+
+                        // Remove row from model
+                        layoutModel.remove(index);
+                    }
+                }
+            }
+        }
+    }
+
+    ActionButton {
+        anchors {
+            right: parent.right
+            bottom: parent.bottom
+            rightMargin: 100
+        }
+
+        iconName: "content/add"
+        onClicked: addDialog.open()
+
+        Material.background: Material.primaryColor
+        Material.elevation: 1
     }
 }

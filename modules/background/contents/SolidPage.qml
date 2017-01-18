@@ -1,16 +1,13 @@
 /****************************************************************************
- * This file is part of Hawaii Shell.
+ * This file is part of Settings.
  *
- * Copyright (C) 2013-2016 Pier Luigi Fiorini
+ * Copyright (C) 2016 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
- * Author(s):
- *    Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
- *
- * $BEGIN_LICENSE:GPL2+$
+ * $BEGIN_LICENSE:GPL3+$
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
+ * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -29,8 +26,8 @@ import QtQuick.Window 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
-import Fluid.Ui 1.0 as FluidUi
-import org.hawaiios.systempreferences.background 1.0
+import Fluid.Controls 1.0
+import Liri.Settings.Background 1.0
 
 Item {
     property var settings: null
@@ -56,7 +53,7 @@ Item {
             Rectangle {
                 anchors {
                     fill: parent
-                    margins: FluidUi.Units.smallSpacing
+                    margins: Units.smallSpacing
                 }
                 color: model.color
 
@@ -71,7 +68,7 @@ Item {
             }
         }
         highlight: Rectangle {
-            radius: FluidUi.Units.dp(4)
+            radius: 4
             color: Material.accentColor
         }
 

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Desktop
+Comment=Configure desktop preferences
+Exec=liri-settings desktop
+Icon=preferences-desktop
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=X-Liri;Qt;Settings;X-Liri-PersonalSettings;
+OnlyShowIn=X-Liri;
+Keywords=Desktop;Launcher;Hot;Corner;

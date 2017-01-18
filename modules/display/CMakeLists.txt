@@ -8,8 +8,7 @@ set(FILES
     qmldir
 )
 
-add_hawaii_preflet(
-    VENDOR hawaii
+add_liri_preflet(
     NAME display
     CONTENTS_DIR contents
     METADATA_TEMPLATE metadata.desktop.in
@@ -23,6 +22,6 @@ add_library(displayplugin SHARED ${SOURCES})
 target_link_libraries(displayplugin Qt5::Qml Qt5::Quick GreenIsland::Client)
 
 install(TARGETS displayplugin LIBRARY
-        DESTINATION ${QML_INSTALL_DIR}/org/hawaiios/systempreferences/display)
+        DESTINATION ${QML_INSTALL_DIR}/Liri/Settings/Display)
 install(FILES ${FILES}
-        DESTINATION ${QML_INSTALL_DIR}/org/hawaiios/systempreferences/display)
+        DESTINATION ${QML_INSTALL_DIR}/Liri/Settings/Display)

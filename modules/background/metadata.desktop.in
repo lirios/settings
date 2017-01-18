@@ -4,8 +4,9 @@ Type=Application
 Name=Background
 Comment=Change your background image to a wallpaper, photo or solid color
 Icon=preferences-desktop-wallpaper
-Categories=Qt;X-Hawaii;Settings;
-OnlyShowIn=X-Hawaii;
-X-Hawaii-SystemPreferences-Category=personal
+Categories=Qt;X-Liri;Settings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=personal
+X-Liri-Settings-SymbolicIcon=image/color_lens
 
 #TRANSLATIONS_DIR=translations
