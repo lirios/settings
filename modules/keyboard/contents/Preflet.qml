@@ -27,7 +27,7 @@ import QtQuick.Controls 2.0
 import Fluid.Controls 1.0
 import Liri.Settings 1.0
 
-PrefletPage {
+Page {
     header: ToolBar {
         height: bar.height
 
@@ -51,15 +51,11 @@ PrefletPage {
 
     StackLayout {
         anchors.fill: parent
-        anchors.margins: Units.largeSpacing
         currentIndex: bar.currentIndex
 
-        ColumnLayout {
-            Label {
-                text: "Not yet implemented"
-
-                Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-            }
+        Placeholder {
+            iconName: "alert/warning"
+            text: "Not implemented yet"
         }
 
         TypingPage {}

@@ -26,10 +26,9 @@ import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import Vibe.Settings 1.0
 import Fluid.Controls 1.0
+import Liri.Settings 1.0
 
-ColumnLayout {
-    spacing: Units.smallSpacing
-
+PrefletPage {
     Settings {
         id: keyboardSettings
         schema.id: "io.liri.desktop.peripherals.keyboard"
@@ -42,186 +41,97 @@ ColumnLayout {
         schema.path: "/io/liri/desktop/interface/"
     }
 
-    GroupBox {
-        id: repeatKeysGroup
-        label: CheckBox {
+    ModuleContainer {
+        title: qsTr("Typing")
+
+        ListItem {
             text: qsTr("Repeat Keys")
-            onCheckedChanged: keyboardSettings.repeat = checked
+            rightItem: Switch {
+                id: repeatKeysSwitch
+                anchors.centerIn: parent
+                onCheckedChanged: keyboardSettings.repeat = checked
+            }
         }
 
-        GridLayout {
-            rows: 2
-            columns: 4
-
-            /*
-             * Delay
-             */
-
-            Label {
-                text: qsTr("Delay:")
-
-                Layout.alignment: Qt.AlignRight
-            }
-
-            Label {
-                text: qsTr("Short")
-                scale: 0.82999999999999996
-            }
-
-            Slider {
+        ListItem {
+            text: qsTr("Delay")
+            rightItem: Slider {
                 id: inputIntervalSlider
+                anchors.centerIn: parent
                 stepSize: 1
                 from: 0
                 to: 1000
                 onValueChanged: keyboardSettings.repeatInterval = to - value
-
-                Layout.fillWidth: true
             }
+        }
 
-            Label {
-                text: qsTr("Long")
-                scale: 0.82999999999999996
-            }
-
-            /*
-             * Speed
-             */
-
-            Label {
-                text: qsTr("Speed:")
-
-                Layout.alignment: Qt.AlignRight
-            }
-
-            Label {
-                text: qsTr("Slow")
-                scale: 0.82999999999999996
-            }
-
-            Slider {
+        ListItem {
+            text: qsTr("Speed")
+            rightItem: Slider {
                 id: autoRepeatRateSlider
+                anchors.centerIn: parent
                 stepSize: 1
                 from: 0
                 to: 1000
                 onValueChanged: keyboardSettings.delay = to - value
-
-                Layout.fillWidth: true
-            }
-
-            Label {
-                text: qsTr("Fast")
-                scale: 0.82999999999999996
             }
         }
-
-        Layout.fillWidth: true
     }
 
-    GroupBox {
-        id: cursorBlinkingGroup
-        label: CheckBox {
+    ModuleContainer {
+        title: qsTr("Cursor")
+
+        ListItem {
             text: qsTr("Cursor Blinking")
-            onCheckedChanged: uiSettings.cursorBlink = checked
+            rightItem: Switch {
+                id: cursorBlinkingSwitch
+                anchors.centerIn: parent
+            }
         }
 
-        GridLayout {
-            rows: 2
-            columns: 4
-
-            /*
-             * Blink Time
-             */
-
-            Label {
-                text: qsTr("Speed:")
-
-                Layout.alignment: Qt.AlignRight
-            }
-
-            Label {
-                text: qsTr("Slow")
-                scale: 0.82999999999999996
-            }
-
-            Slider {
+        ListItem {
+            text: qsTr("Speed")
+            rightItem: Slider {
                 id: cursorFlashTimeSlider
+                anchors.centerIn: parent
                 stepSize: 1
                 from: 100
                 to: 2500
                 onValueChanged: uiSettings.cursorBlinkTime = to - value
-
-                Layout.fillWidth: true
             }
+        }
 
-            Label {
-                text: qsTr("Fast")
-                scale: 0.82999999999999996
-            }
-
-            /*
-             * Blink Timeout
-             */
-
-            Label {
-                text: qsTr("Timeout:")
-
-                Layout.alignment: Qt.AlignRight
-            }
-
-            Label {
-                text: qsTr("Slow")
-                scale: 0.82999999999999996
-            }
-
-            Slider {
+        ListItem {
+            text: qsTr("Timeout")
+            rightItem: Slider {
                 id: cursorFlashTimeoutSlider
+                anchors.centerIn: parent
                 stepSize: 1
                 from: 1
                 to: 2147483647
                 onValueChanged: uiSettings.cursorBlinkTimeout = to - value
-
-                Layout.fillWidth: true
-            }
-
-            Label {
-                text: qsTr("Fast")
-                scale: 0.82999999999999996
             }
         }
-
-        Layout.fillWidth: true
     }
 
-    GroupBox {
-        id: inputSourcesGroup
+    ModuleContainer {
         title: qsTr("Input Sources")
 
-        RowLayout {
-            spacing: Units.smallSpacing
-
-            Switch {
+        ListItem {
+            text: qsTr("Virtual Keyboard")
+            rightItem: Switch {
                 id: virtualKeyboardSwitch
                 onCheckedChanged: uiSettings.inputMethod = checked ? "qtvirtualkeyboard" : ""
             }
-
-            Label {
-                text: qsTr("Virtual Keyboard")
-            }
         }
-
-        Layout.fillWidth: true
-    }
-
-    Item {
-        Layout.fillHeight: true
     }
 
     Component.onCompleted: {
-        repeatKeysGroup.label.checked = keyboardSettings.repeat;
-        cursorBlinkingGroup.label.checked = uiSettings.cursorBlink;
+        repeatKeysSwitch.checked = keyboardSettings.repeat;
+        cursorBlinkingSwitch.checked = uiSettings.cursorBlink;
         inputIntervalSlider.value = inputIntervalSlider.to - keyboardSettings.repeatInterval;
         autoRepeatRateSlider.value = autoRepeatRateSlider.to - keyboardSettings.delay;
         cursorFlashTimeSlider.value = cursorFlashTimeSlider.to - uiSettings.cursorBlinkTime;
-        virtualKeyboardSwitch.checked = uiSettings.inputMethod == "qtvirtualkeyboard"
+        virtualKeyboardSwitch.checked = uiSettings.inputMethod === "qtvirtualkeyboard";
     }
 }
