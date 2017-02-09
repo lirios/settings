@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ca">
 <context>
     <name>AddDialog</name>
     <message>
@@ -29,11 +31,31 @@
     <name>LayoutPage</name>
     <message>
         <source>Keyboard model:</source>
-        <translation>Model del teclat:</translation>
+        <translation type="vanished">Model del teclat:</translation>
     </message>
     <message>
         <source>Type to test the layout...</source>
         <translation>Escriviu per provar-ne la disposició...</translation>
+    </message>
+    <message>
+        <source>Model and Test</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layout</source>
+        <translation type="unfinished">Disposició</translation>
+    </message>
+    <message>
+        <source>No variant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -59,27 +81,27 @@
     </message>
     <message>
         <source>Delay:</source>
-        <translation>Retard:</translation>
+        <translation type="vanished">Retard:</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation>Breu</translation>
+        <translation type="vanished">Breu</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Llarg</translation>
+        <translation type="vanished">Llarg</translation>
     </message>
     <message>
         <source>Speed:</source>
-        <translation>Velocitat:</translation>
+        <translation type="vanished">Velocitat:</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Lent</translation>
+        <translation type="vanished">Lent</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Ràpid</translation>
+        <translation type="vanished">Ràpid</translation>
     </message>
     <message>
         <source>Cursor Blinking</source>
@@ -87,7 +109,35 @@
     </message>
     <message>
         <source>Timeout:</source>
-        <translation>Temps d&apos;espera:</translation>
+        <translation type="vanished">Temps d&apos;espera:</translation>
+    </message>
+    <message>
+        <source>Typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Timeout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Input Sources</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Virtual Keyboard</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -1,43 +1,63 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs_CZ" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="cs_CZ">
 <context>
     <name>Output type label</name>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="100"/>
         <source>Disconnected</source>
-        <translation>Odpojeno</translation>
+        <translation type="vanished">Odpojeno</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="102"/>
         <source>Primary</source>
-        <translation>Hlavní</translation>
+        <translation type="vanished">Hlavní</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="103"/>
         <source>Secondary</source>
-        <translation>Vedlejší</translation>
+        <translation type="vanished">Vedlejší</translation>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="150"/>
         <source>Size</source>
-        <translation>Velikost</translation>
+        <translation type="vanished">Velikost</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="164"/>
         <source>Aspect Ratio</source>
-        <translation>Poměr stran</translation>
+        <translation type="vanished">Poměr stran</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="178"/>
         <source>Resolution</source>
-        <translation>Rozlišení</translation>
+        <translation type="vanished">Rozlišení</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="236"/>
         <source>Arrange Combined Displays</source>
-        <translation>Uspořádat sdružené obrazovky</translation>
+        <translation type="vanished">Uspořádat sdružené obrazovky</translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="135"/>
+        <source>Size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="150"/>
+        <source>Aspect Ratio:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="165"/>
+        <source>Resolution:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="188"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="193"/>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

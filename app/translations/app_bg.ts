@@ -1,25 +1,15 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="bg" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="bg">
 <context>
     <name>main</name>
     <message>
         <source>System Preferences</source>
-        <translation>Системни настройки</translation>
+        <translation type="vanished">Системни настройки</translation>
     </message>
     <message>
         <source>Keywords</source>
-        <translation>Ключови думи </translation>
-    </message>
-    <message>
-        <source>Personal</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Hardware</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ключови думи </translation>
     </message>
 </context>
 </TS>

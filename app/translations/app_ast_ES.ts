@@ -1,25 +1,18 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ast_ES" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ast_ES">
+<context>
+    <name>PluginsModel</name>
+    <message>
+        <source>System</source>
+        <translation type="obsolete">Sistema</translation>
+    </message>
+</context>
 <context>
     <name>main</name>
     <message>
-        <source>System Preferences</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Keywords</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Personal</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Hardware</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>System</source>
-        <translation>Sistema</translation>
+        <translation type="vanished">Sistema</translation>
     </message>
 </context>
 </TS>

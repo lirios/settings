@@ -1,43 +1,59 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="hr_HR" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="hr_HR">
 <context>
     <name>Output type label</name>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="100"/>
         <source>Disconnected</source>
-        <translation>Odspojeno</translation>
+        <translation type="vanished">Odspojeno</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="102"/>
         <source>Primary</source>
-        <translation>Primarni</translation>
+        <translation type="vanished">Primarni</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="103"/>
         <source>Secondary</source>
-        <translation>Sekundarni</translation>
+        <translation type="vanished">Sekundarni</translation>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="150"/>
         <source>Size</source>
-        <translation>Veličina</translation>
+        <translation type="vanished">Veličina</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="164"/>
         <source>Aspect Ratio</source>
-        <translation>Omjer slike</translation>
+        <translation type="vanished">Omjer slike</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="178"/>
         <source>Resolution</source>
-        <translation>Razlučivost</translation>
+        <translation type="vanished">Razlučivost</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="236"/>
-        <source>Arrange Combined Displays</source>
-        <translation type="unfinished"/>
+        <location filename="../contents/Preflet.qml" line="135"/>
+        <source>Size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="150"/>
+        <source>Aspect Ratio:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="165"/>
+        <source>Resolution:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="188"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="193"/>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

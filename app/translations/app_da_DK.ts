@@ -1,25 +1,42 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="da_DK" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="da_DK">
+<context>
+    <name>PluginsModel</name>
+    <message>
+        <source>Personal</source>
+        <translation type="obsolete">Personligt</translation>
+    </message>
+    <message>
+        <source>Hardware</source>
+        <translation type="obsolete">Hardware</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="obsolete">System</translation>
+    </message>
+</context>
 <context>
     <name>main</name>
     <message>
         <source>System Preferences</source>
-        <translation>Systemindstillinger</translation>
+        <translation type="vanished">Systemindstillinger</translation>
     </message>
     <message>
         <source>Keywords</source>
-        <translation>Nøgleord</translation>
+        <translation type="vanished">Nøgleord</translation>
     </message>
     <message>
         <source>Personal</source>
-        <translation>Personligt</translation>
+        <translation type="vanished">Personligt</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation>Hardware</translation>
+        <translation type="vanished">Hardware</translation>
     </message>
     <message>
         <source>System</source>
-        <translation>System</translation>
+        <translation type="vanished">System</translation>
     </message>
 </context>
 </TS>

@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="en">
 <context>
     <name>AddDialog</name>
     <message>
@@ -29,11 +31,31 @@
     <name>LayoutPage</name>
     <message>
         <source>Keyboard model:</source>
-        <translation>Keyboard model:</translation>
+        <translation type="vanished">Keyboard model:</translation>
     </message>
     <message>
         <source>Type to test the layout...</source>
         <translation>Type to test the layout...</translation>
+    </message>
+    <message>
+        <source>Model and Test</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layout</source>
+        <translation type="unfinished">Layout</translation>
+    </message>
+    <message>
+        <source>No variant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -59,27 +81,27 @@
     </message>
     <message>
         <source>Delay:</source>
-        <translation>Delay:</translation>
+        <translation type="vanished">Delay:</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation>Short</translation>
+        <translation type="vanished">Short</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Long</translation>
+        <translation type="vanished">Long</translation>
     </message>
     <message>
         <source>Speed:</source>
-        <translation>Speed:</translation>
+        <translation type="vanished">Speed:</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Slow</translation>
+        <translation type="vanished">Slow</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Fast</translation>
+        <translation type="vanished">Fast</translation>
     </message>
     <message>
         <source>Cursor Blinking</source>
@@ -87,7 +109,35 @@
     </message>
     <message>
         <source>Timeout:</source>
-        <translation>Timeout:</translation>
+        <translation type="vanished">Timeout:</translation>
+    </message>
+    <message>
+        <source>Typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Timeout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Input Sources</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Virtual Keyboard</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

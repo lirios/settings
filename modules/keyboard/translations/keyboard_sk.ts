@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sk" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="sk">
 <context>
     <name>AddDialog</name>
     <message>
@@ -29,11 +31,31 @@
     <name>LayoutPage</name>
     <message>
         <source>Keyboard model:</source>
-        <translation>Model klávesnice:</translation>
+        <translation type="vanished">Model klávesnice:</translation>
     </message>
     <message>
         <source>Type to test the layout...</source>
         <translation>Napíšte sem niečo, aby ste otestovali rozloženie...</translation>
+    </message>
+    <message>
+        <source>Model and Test</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layout</source>
+        <translation type="unfinished">Rozloženie</translation>
+    </message>
+    <message>
+        <source>No variant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -59,27 +81,27 @@
     </message>
     <message>
         <source>Delay:</source>
-        <translation>Oneskorenie:</translation>
+        <translation type="vanished">Oneskorenie:</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation>Malé</translation>
+        <translation type="vanished">Malé</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Veľké</translation>
+        <translation type="vanished">Veľké</translation>
     </message>
     <message>
         <source>Speed:</source>
-        <translation>Rýchlosť:</translation>
+        <translation type="vanished">Rýchlosť:</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Pomaly</translation>
+        <translation type="vanished">Pomaly</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Rýchlo</translation>
+        <translation type="vanished">Rýchlo</translation>
     </message>
     <message>
         <source>Cursor Blinking</source>
@@ -87,7 +109,35 @@
     </message>
     <message>
         <source>Timeout:</source>
-        <translation>Časový limit:</translation>
+        <translation type="vanished">Časový limit:</translation>
+    </message>
+    <message>
+        <source>Typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Timeout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Input Sources</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Virtual Keyboard</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -1,25 +1,42 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fr">
+<context>
+    <name>PluginsModel</name>
+    <message>
+        <source>Personal</source>
+        <translation type="obsolete">Personnel</translation>
+    </message>
+    <message>
+        <source>Hardware</source>
+        <translation type="obsolete">Matériel</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="obsolete">Système</translation>
+    </message>
+</context>
 <context>
     <name>main</name>
     <message>
         <source>System Preferences</source>
-        <translation>Préférences Système</translation>
+        <translation type="vanished">Préférences Système</translation>
     </message>
     <message>
         <source>Keywords</source>
-        <translation>Mots Clés</translation>
+        <translation type="vanished">Mots Clés</translation>
     </message>
     <message>
         <source>Personal</source>
-        <translation>Personnel</translation>
+        <translation type="vanished">Personnel</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation>Matériel</translation>
+        <translation type="vanished">Matériel</translation>
     </message>
     <message>
         <source>System</source>
-        <translation>Système</translation>
+        <translation type="vanished">Système</translation>
     </message>
 </context>
 </TS>

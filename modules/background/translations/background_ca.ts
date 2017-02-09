@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ca">
 <context>
     <name>ColorButton</name>
     <message>
@@ -36,11 +38,11 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancel·la</translation>
+        <translation type="vanished">Cancel·la</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Selecciona</translation>
+        <translation type="vanished">Selecciona</translation>
     </message>
 </context>
 <context>

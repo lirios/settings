@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="lt" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="lt">
 <context>
     <name>AddDialog</name>
     <message>
@@ -29,11 +31,31 @@
     <name>LayoutPage</name>
     <message>
         <source>Keyboard model:</source>
-        <translation>Klaviatūros modelis:</translation>
+        <translation type="vanished">Klaviatūros modelis:</translation>
     </message>
     <message>
         <source>Type to test the layout...</source>
         <translation>Rašykite, kad išbandytumėte išdėstymą...</translation>
+    </message>
+    <message>
+        <source>Model and Test</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layout</source>
+        <translation type="unfinished">Išdėstymas</translation>
+    </message>
+    <message>
+        <source>No variant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -59,35 +81,59 @@
     </message>
     <message>
         <source>Delay:</source>
-        <translation>Delsa:</translation>
+        <translation type="vanished">Delsa:</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation>Trumpai</translation>
+        <translation type="vanished">Trumpai</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation>Ilgai</translation>
+        <translation type="vanished">Ilgai</translation>
     </message>
     <message>
         <source>Speed:</source>
-        <translation>Greitis:</translation>
+        <translation type="vanished">Greitis:</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Lėtai</translation>
+        <translation type="vanished">Lėtai</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Greitai</translation>
+        <translation type="vanished">Greitai</translation>
     </message>
     <message>
         <source>Cursor Blinking</source>
         <translation>Žymeklio mirksėjimas</translation>
     </message>
     <message>
-        <source>Timeout:</source>
-        <translation type="unfinished"/>
+        <source>Typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Timeout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Input Sources</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Virtual Keyboard</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

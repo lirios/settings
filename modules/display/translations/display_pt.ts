@@ -1,43 +1,63 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="pt">
 <context>
     <name>Output type label</name>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="100"/>
         <source>Disconnected</source>
-        <translation>Desligado</translation>
+        <translation type="vanished">Desligado</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="102"/>
         <source>Primary</source>
-        <translation>Primário</translation>
+        <translation type="vanished">Primário</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="103"/>
         <source>Secondary</source>
-        <translation>Secundário</translation>
+        <translation type="vanished">Secundário</translation>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="150"/>
         <source>Size</source>
-        <translation>Tamanho</translation>
+        <translation type="vanished">Tamanho</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="164"/>
         <source>Aspect Ratio</source>
-        <translation>Proporção de Aspeto</translation>
+        <translation type="vanished">Proporção de Aspeto</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="178"/>
         <source>Resolution</source>
-        <translation>Resolução</translation>
+        <translation type="vanished">Resolução</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="236"/>
         <source>Arrange Combined Displays</source>
-        <translation>Organizar Ecrãs Combinados</translation>
+        <translation type="vanished">Organizar Ecrãs Combinados</translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="135"/>
+        <source>Size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="150"/>
+        <source>Aspect Ratio:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="165"/>
+        <source>Resolution:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="188"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="193"/>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

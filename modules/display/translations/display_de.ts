@@ -1,43 +1,63 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="de">
 <context>
     <name>Output type label</name>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="100"/>
         <source>Disconnected</source>
-        <translation>Getrennt</translation>
+        <translation type="vanished">Getrennt</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="102"/>
         <source>Primary</source>
-        <translation>Primär</translation>
+        <translation type="vanished">Primär</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="103"/>
         <source>Secondary</source>
-        <translation>Sekundär</translation>
+        <translation type="vanished">Sekundär</translation>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="150"/>
         <source>Size</source>
-        <translation>Größe</translation>
+        <translation type="vanished">Größe</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="164"/>
         <source>Aspect Ratio</source>
-        <translation>Seitenverhältnis</translation>
+        <translation type="vanished">Seitenverhältnis</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="178"/>
         <source>Resolution</source>
-        <translation>Auflösung</translation>
+        <translation type="vanished">Auflösung</translation>
     </message>
     <message>
-        <location filename="../../../modules/display/contents/Preflet.qml" line="236"/>
         <source>Arrange Combined Displays</source>
-        <translation>Kombinierte Bildschirme anordnen</translation>
+        <translation type="vanished">Kombinierte Bildschirme anordnen</translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="135"/>
+        <source>Size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="150"/>
+        <source>Aspect Ratio:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="165"/>
+        <source>Resolution:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="188"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../contents/Preflet.qml" line="193"/>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
