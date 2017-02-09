@@ -36,7 +36,7 @@ install(FILES ${DESKTOP_FILE}
         DESTINATION ${KDE_INSTALL_APPDIR}
         COMPONENT "Runtime")
 
-file(GLOB QML_SOURCES "qml/*.qml")
+file(GLOB QML_SOURCES "qml/*.qml ../declarative/*.qml ../declarative/*.cpp")
 vibe_translate_ts(QM_FILES
                   SOURCES ${SOURCES} ${QML_SOURCES}
                   TEMPLATE "app"
