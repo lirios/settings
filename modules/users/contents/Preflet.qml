@@ -38,7 +38,7 @@ PrefletPage {
     }
 
     ModuleContainer {
-        title: "Your Account"
+        title: qsTr("Your Account")
 
         UserListItem {
             iconSource: currentUser.iconFileName
@@ -49,7 +49,7 @@ PrefletPage {
     }
 
     ModuleContainer {
-        title: "Other Accounts"
+        title: qsTr("Other Accounts")
 
         // Only show if larger than one because the first user
         // is the current user and is hidden

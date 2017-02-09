@@ -90,7 +90,7 @@ Item {
         Label {
             anchors.horizontalCenter: parent.horizontalCenter
             font.pixelSize: 20
-            text: "Version 0.9.0"
+            text: qsTr("Version %1").arg("0.9.0")
         }
     }
 
@@ -107,17 +107,17 @@ Item {
             spacing: 16
 
             Button {
-                text: "Website"
+                text: qsTr("Website")
                 onClicked: Qt.openUrlExternally("https://liri.io")
             }
 
             Button {
-                text: "Report a bug"
+                text: qsTr("Report a bug")
                 onClicked: Qt.openUrlExternally("https://github.com/lirios/lirios/issues")
             }
 
             Button {
-                text: "Credits"
+                text: qsTr("Credits")
             }
         }
     }
