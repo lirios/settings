@@ -24,8 +24,8 @@
 import QtQuick 2.2
 import QtQuick.Window 2.2
 import QtQuick.Layouts 1.0
-import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.0
+import QtQuick.Controls 2.1
+import QtQuick.Controls.Material 2.1
 import Fluid.Controls 1.0
 import Fluid.Material 1.0
 
@@ -90,10 +90,11 @@ Item {
         id: dialog
         parent: ApplicationWindow.window.contentItem
         title: qsTr("Pick a background")
-        x: (ApplicationWindow.window.width - width) / 2
-        y: (ApplicationWindow.window.height - height) / 2
+        x: (parent.width - width) / 2
+        y: (parent.height - height) / 2
         width: 650
         height: 450
+        standardButtons: Dialog.Ok | Dialog.Cancel
 
         onAccepted: {
             selectorDialog.saveSettings();
@@ -101,11 +102,11 @@ Item {
         }
         onRejected: dialog.close()
 
-        SelectorDialog {
+        contentItem: SelectorDialog {
             id: selectorDialog
             settings: selector.settings
-            width: 600
-            height: 350
+            width: parent.width
+            height: parent.height
         }
     }
 
