@@ -42,8 +42,6 @@ Dialog {
     modal: true
     x: (parent.width - detailsDialog.width) / 2
     y: (parent.height - detailsDialog.height) / 2
-    width: detailsLayout.implicitWidth + (2 * detailsLayout.spacing)
-    height: detailsLayout.implicitHeight + (2 * detailsLayout.spacing)
     standardButtons: Dialog.Apply | Dialog.Cancel
 
     onAccepted: {
@@ -55,6 +53,7 @@ Dialog {
         else if (transform270Button.checked)
             newTransform = CppDisplay.OutputsModel.Transform270;
         outputsModel.applyConfiguration(number, modesCombo.currentIndex, newTransform);
+        detailsDialog.close();
     }
     onRejected: {
         detailsDialog.close();
@@ -66,8 +65,9 @@ Dialog {
 
         OutputPreview {
             outputId: number
-            width: FluidControls.Units.gu(20)
+            width: 150
             height: width / aspectRatio
+            Component.onCompleted: console.warn(aspectRatio)
 
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
         }
