@@ -21,5 +21,9 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-Item {
+import QtQuick 2.0
+import QtQuick.Controls 2.0
+
+TextField {
+    validator: RegExpValidator { regExp: /^(\d|[1-9]\d|1\d\d|2([0-4]\d|5[0-5]))\.(\d|[1-9]\d|1\d\d|2([0-4]\d|5[0-5]))\.(\d|[1-9]\d|1\d\d|2([0-4]\d|5[0-5]))\.(\d|[1-9]\d|1\d\d|2([0-4]\d|5[0-5]))$/ }
 }

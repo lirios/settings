@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of Settings.
  *
- * Copyright (C) 2018 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * $BEGIN_LICENSE:GPL3+$
  *
@@ -21,5 +21,28 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-Item {
+import QtQuick 2.0
+import QtQuick.Layouts 1.0
+import QtQuick.Controls 2.0
+import Fluid.Controls 1.0 as FluidControls
+
+FluidControls.ListItem {
+    property alias password: passwordField.text
+    property alias placeholderText: passwordField.placeholderText
+
+    secondaryItem: Column {
+        Layout.fillWidth: true
+
+        TextField {
+            id: passwordField
+            width: parent.width
+            placeholderText: qsTr("Password")
+            echoMode: showPasswordCheckBox.checked ? TextInput.Normal : TextInput.Password
+        }
+
+        CheckBox {
+            id: showPasswordCheckBox
+            text: qsTr("Show password")
+        }
+    }
 }

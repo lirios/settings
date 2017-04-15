@@ -26,12 +26,11 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.0
 import QtGSettings 1.0
 import Fluid.Controls 1.0 as FluidControls
-import io.liri.networkmanager 0.1 as NM
+import Vibe.NetworkManager 1.0 as NM
+import Liri.Settings 1.0
 
 PrefletPage {
     id: networkPreflet
-    width: 800
-    height: 600
 
     //property var profileDialog: ProfileDialog {}
 
@@ -50,6 +49,138 @@ PrefletPage {
         id: handler
     }
 
+    NM.ConnectionModel {
+        id: connectionModel
+    }
+
+    Component {
+        id: wiredPage
+
+        WiredPage {}
+    }
+
+    ModuleContainer {
+        title: qsTr("Wired")
+        visible: wiredRepeater.count > 0
+
+        Repeater {
+            id: wiredRepeater
+
+            model: NM.TechnologyProxyModel {
+                type: NM.TechnologyProxyModel.WiredType
+                sourceModel: connectionModel
+            }
+
+            FluidControls.ListItem {
+                icon.source: "image://fluidicontheme/" + model.symbolicIconName
+
+                text: model.ItemUniqueName
+                onClicked: window.pageStack.push(wiredPage, {"model": model})
+            }
+        }
+    }
+
+    ModuleContainer {
+        title: qsTr("Wireless")
+        visible: wirelessRepeater.count > 0
+
+        Repeater {
+            id: wirelessRepeater
+
+            model: NM.TechnologyProxyModel {
+                type: NM.TechnologyProxyModel.WirelessType
+                sourceModel: connectionModel
+            }
+
+            FluidControls.ListItem {
+                icon.source: "image://fluidicontheme/" + model.symbolicIconName
+
+                text: model.ItemUniqueName
+            }
+        }
+    }
+
+    ModuleContainer {
+        title: qsTr("Bluetooth")
+        visible: bluetoothRepeater.count > 0
+
+        Repeater {
+            id: bluetoothRepeater
+
+            model: NM.TechnologyProxyModel {
+                type: NM.TechnologyProxyModel.BluetoothType
+                sourceModel: connectionModel
+            }
+
+            FluidControls.ListItem {
+                icon.source: "image://fluidicontheme/" + model.symbolicIconName
+
+                text: model.ItemUniqueName
+            }
+        }
+    }
+
+    ModuleContainer {
+        title: qsTr("Wimax")
+        visible: wimaxRepeater.count > 0
+
+        Repeater {
+            id: wimaxRepeater
+
+            model: NM.TechnologyProxyModel {
+                type: NM.TechnologyProxyModel.WimaxType
+                sourceModel: connectionModel
+            }
+
+            FluidControls.ListItem {
+                icon.source: "image://fluidicontheme/" + model.symbolicIconName
+
+                text: model.ItemUniqueName
+            }
+        }
+    }
+
+    ModuleContainer {
+        title: qsTr("ADSL")
+        visible: adslRepeater.count > 0
+
+        Repeater {
+            id: adslRepeater
+
+            model: NM.TechnologyProxyModel {
+                type: NM.TechnologyProxyModel.AdslType
+                sourceModel: connectionModel
+            }
+
+            FluidControls.ListItem {
+                icon.source: "image://fluidicontheme/" + model.symbolicIconName
+
+                text: model.ItemUniqueName
+            }
+        }
+    }
+
+    ModuleContainer {
+        title: qsTr("VPN")
+        visible: vpnRepeater.count > 0
+
+        Repeater {
+            id: vpnRepeater
+
+            model: NM.TechnologyProxyModel {
+                type: NM.TechnologyProxyModel.VpnType
+                sourceModel: connectionModel
+            }
+
+            FluidControls.ListItem {
+                icon.source: "image://fluidicontheme/" + model.symbolicIconName
+
+                text: model.ItemUniqueName
+            }
+        }
+    }
+
+    /*
     Component {
         id: wiredComponent
 
@@ -72,14 +203,17 @@ PrefletPage {
                 focus: true
                 model: NM.AppletProxyModel {}
                 section.property: "Section"
-                delegate: FluidControls.StandardListItem {
-                    iconName: {
+                delegate: FluidControls.ListItem {
+                    readonly property string iconName: {
                         if (modelData == "ethernet")
                             return "network-wired" + (technology.connected ? "" : "-disconnected") + "-symbolic";
                         else if (modelData == "wifi")
                             return "network-wireless-signal-" + (technology.connected ? "excellent" : "none") + "-symbolic";
                         return "network-vpn-symbolic";
                     }
+
+                    icon.source: "image://fluidicontheme/" + iconName
+
                     text: model.Name
                     onClicked: {
                         ListView.currentIndex = index;
@@ -90,7 +224,7 @@ PrefletPage {
 
                 ScrollBar.vertical: ScrollBar {}
                 Layout.fillHeight: true
-                Layout.preferredWidth: Units.gu(12)
+                Layout.preferredWidth: FluidControls.Units.gu(12)
 
                 Component.onCompleted: {
                     if (visible)
@@ -123,11 +257,11 @@ PrefletPage {
         }
 
         ColumnLayout {
-            spacing: Units.largeSpacing
+            spacing: FluidControls.Units.largeSpacing
 
             FluidControls.Icon {
-                source: FluidControls.Utils.iconurl("computer-fail")
-                width: Units.iconSizes.enormous
+                name: "computer-fail"
+                width: FluidControls.Units.iconSizes.enormous
                 height: width
             }
 
@@ -147,4 +281,5 @@ PrefletPage {
             Layout.alignment: Qt.AlignHCenter
         }
     }
+    */
 }

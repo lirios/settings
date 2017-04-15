@@ -21,142 +21,76 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.1
+import QtQuick 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
+import Vibe.NetworkManager 1.0 as NM
 import Fluid.Controls 1.0 as FluidControls
-import io.liri.networkmanager 0.1 as NM
+import Liri.Settings 1.0
 
-Item {
-    property var wiredModel
-
+FluidControls.TabbedPage {
     id: wiredPage
 
-    ColumnLayout {
-        anchors.fill: parent
+    property var model
 
-        RowLayout {
-            FluidControls.Icon {
-                name: wiredModel.connected ? "network-wired" : "network-wired-disconnected"
-                width: Units.iconSizes.large
-                height: width
-            }
+    title: model.Name
 
-            ColumnLayout {
-                Label {
-                    text: wiredModel.Name
-                    font.bold: true
-                }
-
-                Label {
-                    text: {
-                        if (wiredModel.ConnectionState === NM.Enums.Activating) {
-                            if (wiredModel.Type === NM.Enums.Vpn)
-                                return wiredModel.VpnState;
-                            else
-                                return wiredModel.DeviceState;
-                        } else if (wiredModel.ConnectionState === NM.Enums.Deactivating) {
-                            if (wiredModel.Type === NM.Enums.Vpn)
-                                return wiredModel.VpnState;
-                            else
-                                return wiredModel.DeviceState;
-                        } else if (wiredModel.ConnectionState === NM.Enums.Deactivated) {
-                            var result = wiredModel.LastUsed;
-                            if (wiredModel.SecurityType > NM.Enums.None)
-                                result += ", " + wiredModel.SecurityTypeString;
-                            return result;
-                        } else if (wiredModel.ConnectionState === NM.Enums.Activated) {
-                            return qsTr("Connected");
-                        }
-                    }
-                }
-            }
-
-            Item {
-                Layout.fillWidth: true
-            }
-
-            Switch {
-                checked: wiredModel.ConnectionState === NM.Enums.Activated
-                onCheckedChanged: {
-                    if (wiredModel.ConnectionState === NM.Enums.Deactivated) {
-                        if (!wiredModel.Uuid) {
-                            handler.addAndActivateConnection(wiredModel.DevicePath, wiredModel.SpecificPath);
-                        } else {
-                            // ask pass
-                        }
-                    } else {
-                        handler.deactivateConnection(wiredModel.ConnectionPath, wiredModel.DevicePath);
-                    }
-                }
-            }
-
-            Layout.fillWidth: true
+    data: [
+        NM.WiredSettings {
+            id: wiredSettings
+            path: model.ConnectionPath
         }
+    ]
 
-        GridLayout {
-            columns: 2
-            rows: wiredModel.ConnectionDetails.length / 2
-            columnSpacing: Units.smallSpacing
-            rowSpacing: Units.smallSpacing
-            flow: GridLayout.TopToBottom
+    FluidControls.Tab {
+        title: qsTr("Wired")
 
-            Repeater {
-                model: wiredModel.ConnectionDetails.length / 2
+        WiredIdentityPage {}
+    }
 
-                Label {
-                    text: wiredModel.ConnectionDetails[index * 2] + ":"
-                    font.bold: true
+    FluidControls.Tab {
+        title: qsTr("802.1x Security")
 
-                    Layout.alignment: Qt.AlignRight
+        SecurityPage {
+            eapMethods: ListModel {
+                ListElement {
+                    type: "MD5"
+                    //: Security method
+                    label: QT_TR_NOOP("MD5")
+                }
+                ListElement {
+                    type: "TLS"
+                    //: Security method
+                    label: QT_TR_NOOP("TLS")
+                }
+                ListElement {
+                    type: "FAST"
+                    //: Security method
+                    label: QT_TR_NOOP("FAST")
+                }
+                ListElement {
+                    type: "TTLS"
+                    //: Security method
+                    label: QT_TR_NOOP("Tunneled TLS")
+                }
+                ListElement {
+                    type: "PEAP"
+                    //: Security method
+                    label: QT_TR_NOOP("Protected EAP (PEAP)")
                 }
             }
-
-            Repeater {
-                model: wiredModel.ConnectionDetails.length / 2
-
-                Label {
-                    text: wiredModel.ConnectionDetails[(index * 2) + 1]
-                }
-            }
-
-            Layout.fillWidth: true
-            Layout.fillHeight: true
         }
+    }
 
-        RowLayout {
-            Button {
-                text: qsTr("Add Profile...")
-                enabled: false
-            }
+    FluidControls.Tab {
+        title: qsTr("IPv4")
 
-            Item {
-                Layout.fillWidth: true
-            }
+        IPAddressPage {}
+    }
 
-            Button {
-                onClicked: {
-                    networkPreflet.profileDialog.service = wiredModel.get(0);
-                    networkPreflet.profileDialog.visible = !networkPreflet.profileDialog.visible;
-                }
+    FluidControls.Tab {
+        title: qsTr("IPv6")
 
-                FluidControls.Icon {
-                    anchors.fill:parent
-                    anchors.margins:4
-                    name: "emblem-system-symbolic"
-                    width: Units.iconSizes.small
-                    height: width
-                }
-
-                Layout.maximumWidth: 32
-                Layout.maximumHeight: 32
-            }
-
-            Layout.fillWidth: true
-        }
-
-        Item {
-            Layout.fillHeight: true
-        }
+        IPAddressPage {}
     }
 }

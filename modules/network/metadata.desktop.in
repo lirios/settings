@@ -5,6 +5,9 @@ Comment=Control how you connect to the Internet
 #TRANSLATIONS
 Keywords=network;ethernet;wifi;wired;wireless;
 Icon=preferences-system-network
+TryExec=liri-settings
+Exec=liri-settings network
 Categories=Qt;X-Liri;Settings;
 OnlyShowIn=X-Liri;
 X-Liri-Settings-Category=hardware
+X-Liri-Settings-SymbolicIcon=action/settings_ethernet

@@ -42,7 +42,7 @@ Dialog {
 
         RowLayout {
             Icon {
-                iconName: "network-wireless"
+                name: "network-wireless"
                 width: Units.iconSizes.smallMedium
                 height: width
 

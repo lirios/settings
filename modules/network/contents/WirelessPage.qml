@@ -83,29 +83,29 @@ Item {
             id: servicesList
             model: wirelessModel
             clip: true
-            delegate: FluidControls.StandardListItem {
+            delegate: FluidControls.ListItem {
                 text: model.networkService.name
 
                 RowLayout {
                     ToolButton {
-                        Icon {
-                            iconName: "emblem-system-symbolic"
+                        FluidControls.Icon {
+                            name: "emblem-system-symbolic"
                             width: Units.iconSizes.small
                             height: width
                             color:__syspal.text
                         }
                     }
 
-                    Icon {
-                        iconName: "network-wireless-encrypted-symbolic"
+                    FluidControls.Icon {
+                        name: "network-wireless-encrypted-symbolic"
                         width: Units.iconSizes.small
                         height: width
                         color: __syspal.text
                         visible: !(model.networkService.security.length === 0 && model.networkService.security.contains("none"))
                     }
 
-                    Icon {
-                        iconName: {
+                    FluidControls.Icon {
+                        name: {
                             if (model.networkService.strength > 80)
                                 return "network-wireless-signal-excellent-symbolic";
                             if (model.networkService.strength > 55)
