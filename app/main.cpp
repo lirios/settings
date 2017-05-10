@@ -33,9 +33,6 @@
 #include <QtQuick/QQuickWindow>
 #include <QtQuickControls2/QQuickStyle>
 
-#include "config.h"
-#include "cmakedirs.h"
-
 Q_DECLARE_LOGGING_CATEGORY(PREFERENCES)
 Q_LOGGING_CATEGORY(PREFERENCES, "liri.settings")
 
@@ -120,7 +117,7 @@ int main(int argc, char *argv[])
     // Setup application
     QGuiApplication app(argc, argv);
     app.setApplicationName(QLatin1String("Settings"));
-    app.setApplicationVersion(QLatin1String(SETTINGS_VERSION_STRING));
+    app.setApplicationVersion(QLatin1String(LIRISETTINGS_VERSION));
     app.setOrganizationDomain(QLatin1String("liri.io"));
     app.setOrganizationName(QLatin1String("Liri"));
     app.setDesktopFileName(QLatin1String("io.liri.Settings.desktop"));
