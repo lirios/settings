@@ -27,12 +27,12 @@ import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import Fluid.Controls 1.0
 import Fluid.Material 1.0
-import Vibe.Settings 1.0
+import QtGSettings 1.0
 import Liri.Settings 1.0
 import Liri.Settings.Keyboard 1.0
 
 PrefletPage {
-    Settings {
+    GSettings {
         id: keyboardSettings
         schema.id: "io.liri.desktop.peripherals.keyboard"
         schema.path: "/io/liri/desktop/peripherals/keyboard/"

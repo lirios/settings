@@ -24,7 +24,7 @@
 #include <QtMath>
 #include <QtCore/QCoreApplication>
 
-#include <Liri/WaylandClient/OutputConfiguration>
+#include <LiriWaylandClient/OutputConfiguration>
 
 #include "outputsmodel.h"
 

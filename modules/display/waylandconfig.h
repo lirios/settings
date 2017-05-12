@@ -28,10 +28,10 @@
 #include <QtCore/QThread>
 #include <QtCore/QVector>
 
-#include <Liri/WaylandClient/ClientConnection>
-#include <Liri/WaylandClient/Registry>
-#include <Liri/WaylandClient/Output>
-#include <Liri/WaylandClient/OutputManagement>
+#include <LiriWaylandClient/ClientConnection>
+#include <LiriWaylandClient/Registry>
+#include <LiriWaylandClient/Output>
+#include <LiriWaylandClient/OutputManagement>
 
 using namespace Liri::WaylandClient;
 

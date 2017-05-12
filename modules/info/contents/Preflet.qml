@@ -24,7 +24,7 @@
 
 import QtQuick 2.4
 import QtQuick.Controls 2.0
-import Vibe.Settings 1.0
+import QtGSettings 1.0
 import Fluid.Controls 1.0
 
 Item {
@@ -32,7 +32,7 @@ Item {
     readonly property int developerTotalClicks: 7
     readonly property int developerClickRemaining: developerTotalClicks - developerClickCount
 
-    Settings {
+    GSettings {
         id: systemSettings
         schema.id: "io.liri.system"
         schema.path: "/io/liri/system/"

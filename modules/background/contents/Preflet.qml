@@ -26,18 +26,18 @@ import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import Fluid.Controls 1.0
 import Liri.Settings 1.0
-import Vibe.Settings 1.0
+import QtGSettings 1.0
 
 PrefletPage {
     //centered: true
 
-    Settings {
+    GSettings {
         id: backgroundSettings
         schema.id: "io.liri.desktop.background"
         schema.path: "/io/liri/desktop/background/"
     }
 
-    Settings {
+    GSettings {
         id: lockScreenSettings
         schema.id: "io.liri.desktop.lockscreen"
         schema.path: "/io/liri/desktop/lockscreen/"
