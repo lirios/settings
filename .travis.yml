@@ -10,6 +10,7 @@ arch:
   repos:
     - wayland=https://dl.bintray.com/liri/archlinux-develop/$arch/
     - fluid=https://dl.bintray.com/liri/archlinux-develop/$arch/
+    - libliri=https://dl.bintray.com/liri/archlinux-develop/$arch/
     - vibe=https://dl.bintray.com/liri/archlinux-develop/$arch/
   packages:
     - qbs
