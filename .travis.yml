@@ -9,9 +9,12 @@ sudo: required
 arch:
   repos:
     - wayland=https://dl.bintray.com/liri/archlinux-develop/$arch/
+    - fluid=https://dl.bintray.com/liri/archlinux-develop/$arch/
+    - vibe=https://dl.bintray.com/liri/archlinux-develop/$arch/
   packages:
     - qbs
     - qt5-tools
+    - vibe-git
     - polkit-qt5
     - xkeyboard-config
     - liri-wayland-git
