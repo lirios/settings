@@ -1,40 +1,22 @@
 import qbs 1.0
 import qbs.File
+import qbs.TextFile
 
 LiriDynamicLibrary {
     property string shortName
     property string qmlModuleName
 
     name: "Module (" + shortName + ")"
-    type: base.concat(["liri.settings.metadata"])
     targetName: shortName + "plugin"
 
     Depends { name: "lirideployment" }
     Depends { name: "Qt"; submodules: ["core", "qml", "quick"] }
-
-    Rule {
-        inputs: ["liri.settings.desktop"]
-
-        Artifact {
-            filePath: product.buildDirectory + "/metadata.desktop"
-            fileTags: ["liri.settings.metadata"]
-        }
-
-        prepare: {
-            var cmd = new JavaScriptCommand();
-            cmd.description = "merge translations into " + input.filePath;
-            cmd.highlight = "filegen";
-            cmd.sourceCode = function() {
-                File.copy(input.filePath, output.filePath);
-            };
-            return [cmd];
-        }
-    }
+    Depends { name: "Translations" }
 
     Group {
         qbs.install: shortName != undefined
         qbs.installDir: lirideployment.dataDir + "/liri/settings/modules/" + shortName
-        fileTagsFilter: "liri.settings.metadata"
+        fileTagsFilter: "liri.desktop.file"
     }
 
     Group {

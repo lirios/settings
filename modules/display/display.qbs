@@ -20,8 +20,15 @@ SettingsModulePlugin {
 
     Group {
         name: "Metadata"
-        files: ["*.desktop.in"]
-        fileTags: ["liri.settings.desktop"]
+        files: ["metadata.desktop.in"]
+        fileTags: ["liri.desktop.template"]
+    }
+
+    Group {
+        name: "Metadata Translations"
+        files: ["metadata_*.desktop"]
+        prefix: "translations/"
+        fileTags: ["liri.desktop.translations"]
     }
 
     Group {
