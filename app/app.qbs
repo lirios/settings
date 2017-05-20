@@ -6,11 +6,25 @@ QtGuiApplication {
 
     Depends { name: "lirideployment" }
     Depends { name: "Qt"; submodules: ["qml", "quick", "quickcontrols2"] }
+    Depends { name: "Translations" }
     //Depends { name: "polkit_qt5"; submodules: ["core"] }
 
     cpp.defines: base.concat(['LIRISETTINGS_VERSION="' + project.version + '"'])
 
     files: ["*.cpp", "*.h", "*.qrc"]
+
+    Group {
+        name: "Desktop File"
+        files: ["io.liri.Settings.desktop.in"]
+        fileTags: ["liri.desktop.template"]
+    }
+
+    Group {
+        name: "Desktop File Translations"
+        files: ["io.liri.Settings_*.desktop"]
+        prefix: "translations/"
+        fileTags: ["liri.desktop.translations"]
+    }
 
     Group {
         name: "Translations"
@@ -22,6 +36,12 @@ QtGuiApplication {
         qbs.install: true
         qbs.installDir: lirideployment.binDir
         fileTagsFilter: product.type
+    }
+
+    Group {
+        qbs.install: true
+        qbs.installDir: lirideployment.applicationsDir
+        fileTagsFilter: "liri.desktop.file"
     }
 
     Group {
