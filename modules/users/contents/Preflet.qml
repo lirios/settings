@@ -63,7 +63,7 @@ PrefletPage {
                 text: realName
                 subText: userName
                 isAdminUser: accountType == UserAccount.AdministratorAccountType
-                visible: userId != currentUser.uid
+                visible: userId !== currentUser.userId
             }
         }
     }
