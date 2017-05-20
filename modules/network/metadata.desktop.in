@@ -1,9 +1,8 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=Network
 Comment=Control how you connect to the Internet
-#TRANSLATIONS_DIR=translations
+#TRANSLATIONS
 Keywords=network;ethernet;wifi;wired;wireless;
 Icon=preferences-system-network
 Categories=Qt;X-Liri;Settings;
