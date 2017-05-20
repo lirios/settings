@@ -1,0 +1,17 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Sound
+Comment=Change sound levels, inputs, outputs, and alert sounds
+Keywords=Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;
+Icon=multimedia-volume-control
+Categories=Qt;X-Liri;Settings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=hardware
+X-Liri-Settings-SymbolicIcon=av/volume_up
+
+
+# Translations
+Comment[pt_BR]=Altere o nível do som, entradas, saídas e alertas sonoros
+Name[pt_BR]=Som
+Icon[pt_BR]=multimedia-volume-control

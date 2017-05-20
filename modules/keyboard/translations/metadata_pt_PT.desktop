@@ -1,0 +1,18 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Keyboard
+Comment=View and change keyboard shortcuts and set your typing preferences
+Keywords=shortcut;repeat;blink;
+Icon=input-keyboard
+Categories=Qt;X-Liri;Settings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=hardware
+X-Liri-Settings-SymbolicIcon=hardware/keyboard
+
+#TRANSLATIONS_DIR=translations
+
+
+# Translations
+Comment[pt_PT]=Ver e alterar atalhos do teclado e definir preferências de digitação
+Name[pt_PT]=Teclado

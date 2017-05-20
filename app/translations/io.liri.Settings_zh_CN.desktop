@@ -1,0 +1,23 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Settings
+GenericName=Settings
+Comment=Manages system settings
+Icon=preferences-system
+Exec=liri-settings
+TryExec=liri-settings
+Terminal=false
+StartupNotify=true
+Categories=Qt;X-Liri;Settings;Core;
+OnlyShowIn=X-Liri;
+Keywords=Preferences;Settings;
+
+#TRANSLATIONS_DIR=translations
+
+
+# Translations
+Comment[zh_CN]=管理系统设置
+GenericName[zh_CN]=设置
+Name[zh_CN]=设置
+Icon[zh_CN]=偏好设置-系统
