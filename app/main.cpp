@@ -114,6 +114,9 @@ int main(int argc, char *argv[])
 {
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
+    // Set the X11 WML_CLASS so X11 desktops can find the desktop file
+    qputenv("RESOURCE_NAME", "io.liri.Settings");
+
     // Setup application
     QGuiApplication app(argc, argv);
     app.setApplicationName(QLatin1String("Settings"));
