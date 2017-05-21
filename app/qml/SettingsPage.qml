@@ -25,10 +25,10 @@ import QtQuick 2.2
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
-import Fluid.Controls 1.0
+import Fluid.Controls 1.0 as FluidControls
 import Liri.Settings 1.0
 
-Page {
+FluidControls.Page {
     id: settingsPage
 
     title: qsTr("Settings")
@@ -59,11 +59,11 @@ Page {
             anchors.fill: parent
 
             section.property: "category"
-            section.delegate: Subheader {
+            section.delegate: FluidControls.Subheader {
                 id: subheader
                 text: section
 
-                ThinDivider {
+                FluidControls.ThinDivider {
                     anchors.top: parent.top
                     visible: subheader.y > 0
                 }
@@ -93,7 +93,7 @@ Page {
             source: selectedModule ? selectedModule.mainScriptUrl : ""
         }
 
-        Placeholder {
+        FluidControls.Placeholder {
             anchors.fill: parent
 
             iconName: "action/settings"

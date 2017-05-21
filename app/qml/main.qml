@@ -25,13 +25,13 @@ import QtQuick 2.2
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
-import Fluid.Controls 1.0
+import Fluid.Controls 1.0 as FluidControls
 import Liri.Settings 1.0
 
-FluidWindow {
+FluidControls.ApplicationWindow {
     id: window
 
-    property real itemSize: Units.iconSizes.large
+    property real itemSize: FluidControls.Units.iconSizes.large
 
     title: qsTr("Settings")
     width: minimumWidth

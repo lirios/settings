@@ -23,13 +23,13 @@
  ***************************************************************************/
 
 import QtQuick 2.2
-import Fluid.Controls 1.0
+import Fluid.Controls 1.0 as FluidControls
 
-ListItem {
+FluidControls.ListItem {
     text: title
     iconName: model.iconName
 
-    highlighted: selectedModule ? model.mainScriptUrl == selectedModule.mainScriptUrl : false
+    highlighted: selectedModule ? model.mainScriptUrl === selectedModule.mainScriptUrl : false
 
     onClicked: {
         if (!model.mainScriptUrl)
