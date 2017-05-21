@@ -91,6 +91,11 @@ FluidControls.Page {
             id: moduleLoader
             anchors.fill: parent
             source: selectedModule ? selectedModule.mainScriptUrl : ""
+            onLoaded: {
+                settingsPage.actions = [];
+                if (item.actions !== undefined && item.actions.length > 0)
+                    settingsPage.actions = item.actions;
+            }
         }
 
         FluidControls.Placeholder {
