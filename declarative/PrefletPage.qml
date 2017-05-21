@@ -34,6 +34,21 @@ FluidControls.Page {
 
     property bool centered: false
 
+    property bool needsAuthorization: false
+    property bool unlocked: true
+
+    signal unlockRequested()
+
+    actions: [
+        FluidControls.Action {
+            iconName: "action/lock_open"
+            text: qsTr("Unlock")
+            toolTip: qsTr("Dialog is locked, click to unlock")
+            visible: needsAuthorization && !unlocked
+            onTriggered: page.unlockRequested()
+        }
+    ]
+
     Flickable {
         id: flickable
 

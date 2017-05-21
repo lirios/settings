@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of Settings.
  *
- * Copyright (C) 2016 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * $BEGIN_LICENSE:GPL3+$
  *
@@ -21,29 +21,34 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include <QtQml/qqml.h>
-#include <QtQml/QQmlExtensionPlugin>
+#pragma once
 
-#include "authorizedaction.h"
-#include "plugin.h"
-#include "pluginsmodel.h"
+#include <QtCore/QObject>
 
-class SystemSettingsPlugin : public QQmlExtensionPlugin
+#include <polkit-1/polkit/polkit.h>
+
+class AuthorizedAction : public QObject
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
+    Q_PROPERTY(QString actionId READ actionId WRITE setActionId NOTIFY actionIdChanged)
+    Q_PROPERTY(bool authorized READ isAuthorized NOTIFY authorizedChanged)
 public:
-    void registerTypes(const char *uri);
+    AuthorizedAction(QObject *parent = nullptr);
+
+    QString actionId() const;
+    void setActionId(const QString &actionId);
+
+    bool isAuthorized() const;
+
+    Q_INVOKABLE void authorize();
+
+Q_SIGNALS:
+    void actionIdChanged();
+    void authorizedChanged();
+
+private:
+    QString m_actionId;
+    bool m_authorized;
+
+    void on_permission_changed(GPermission *perm, GParamSpec *pspec, gpointer data);
 };
-
-void SystemSettingsPlugin::registerTypes(const char *uri)
-{
-    Q_ASSERT(QByteArray("Liri.Settings") == QByteArray(uri));
-
-    // @uri Liri.Settings
-    qmlRegisterType<AuthorizedAction>(uri, 1, 0, "AuthorizedAction");
-    qmlRegisterType<Plugin>();
-    qmlRegisterType<PluginsModel>(uri, 1, 0, "PluginsModel");
-}
-
-#include "systemsettingsplugin.moc"

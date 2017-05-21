@@ -7,7 +7,6 @@ QtGuiApplication {
     Depends { name: "lirideployment" }
     Depends { name: "Qt"; submodules: ["qml", "quick", "quickcontrols2"] }
     Depends { name: "Translations" }
-    //Depends { name: "polkit_qt5"; submodules: ["core"] }
 
     cpp.defines: base.concat(['LIRISETTINGS_VERSION="' + project.version + '"'])
 

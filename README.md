@@ -29,7 +29,7 @@ The following modules and their dependencies are required:
  * [vibe](https://github.com/lirios/vibe.git)
  * [libqtxdg](https://github.com/lxde/libqtxdg.git)
  * [qtaccountsservice](https://github.com/lirios/qtaccountsservice.git)
- * [polkit-qt5-1](https://quickgit.kde.org/?p=polkit-qt-1.git)
+ * [polkit](https://cgit.freedesktop.org/polkit/)
  * [xkeyboard-config](https://cgit.freedesktop.org/xkeyboard-config)
 
 ## Installation
