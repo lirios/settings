@@ -36,6 +36,6 @@ Pane {
     Material.background: "white"
     Material.elevation: 1
 
-    Layout.alignment: Qt.AlignCenter
+    Layout.alignment: Qt.AlignCenter | Qt.AlignVCenter
     Layout.preferredWidth: 400
 }

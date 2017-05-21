@@ -25,33 +25,35 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
-import Fluid.Controls 1.0
+import Fluid.Controls 1.0 as FluidControls
 
-Page {
+FluidControls.Page {
     id: page
 
-    default property alias content: column.data
+    default property alias content: layout.data
 
     property bool centered: false
 
     Flickable {
         id: flickable
-        anchors {
-            fill: centered ? undefined : parent
-            horizontalCenter: centered ? parent.horizontalCenter : undefined
-            verticalCenter: centered ? parent.verticalCenter : undefined
-            topMargin: centered ? 0 : Units.smallSpacing * 8
-            bottomMargin: centered ? 0 : Units.smallSpacing * 8
-        }
-        contentWidth: parent.width
-        contentHeight: column.implicitHeight
 
-        ColumnLayout {
-            id: column
-            anchors.fill: parent
-            spacing: Units.smallSpacing * 2
-        }
+        anchors.fill: parent
+        clip: true
+        contentWidth: parent.width
+        contentHeight: layout.implicitHeight
 
         ScrollBar.vertical: ScrollBar {}
+
+        ColumnLayout {
+            id: layout
+            anchors {
+                fill: centered ? undefined : parent
+                horizontalCenter: centered ? parent.horizontalCenter : undefined
+                verticalCenter: centered ? parent.verticalCenter : undefined
+                topMargin: FluidControls.Units.smallSpacing * 8
+                bottomMargin: FluidControls.Units.smallSpacing * 8
+            }
+            spacing: FluidControls.Units.smallSpacing * 2
+        }
     }
 }
