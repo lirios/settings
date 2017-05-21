@@ -1,7 +1,21 @@
 import qbs 1.0
 
-SettingsModule {
+SettingsModulePlugin {
     shortName: "users"
+    qmlModuleName: "Users"
+
+    Depends { name: "crypt" }
+
+    files: ["*.cpp", "*.h"]
+
+    Group {
+        name: "QML Files"
+        files: [
+            "*.qml",
+            "qmldir"
+        ]
+        fileTags: ["qml"]
+    }
 
     Group {
         name: "Metadata"

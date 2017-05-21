@@ -1,6 +1,7 @@
 /****************************************************************************
  * This file is part of Settings.
  *
+ * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  * Copyright (C) 2016 Michael Spencer <sonrisesoftware@gmail.com>
  *
  * $BEGIN_LICENSE:GPL3+$
@@ -22,16 +23,39 @@
  ***************************************************************************/
 
 import QtQuick 2.4
-import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.0
-import Fluid.Controls 1.0
+import QtQuick.Layouts 1.0
+import QtQuick.Controls 2.1
+import Fluid.Controls 1.0 as FluidControls
 
-ListItem {
+FluidControls.ListItem {
     property alias iconSource: image.source
     property bool isAdminUser
+    property bool isCurrentUser
+
+    signal removeUserRequested(bool removeFiles)
+
+    FluidControls.AlertDialog {
+        id: deleteDialog
+
+        parent: ApplicationWindow.contentItem
+        title: qsTr("Do you want to keep %1's files?").arg(subText)
+        text: qsTr("It is possible to keep the home directory, mail spool and " +
+                   "temporary files around when deleting a user account.")
+        width: 400
+
+        footer: DialogButtonBox {
+            standardButtons: DialogButtonBox.Yes | DialogButtonBox.No | DialogButtonBox.Cancel
+            onClicked: {
+                if (button === standardButton(DialogButtonBox.Yes))
+                    removeUserRequested(false);
+                else if (button === standardButton(DialogButtonBox.No))
+                    removeUserRequested(true);
+            }
+        }
+    }
 
     leftItem: [
-        CircleImage {
+        FluidControls.CircleImage {
             id: image
 
             anchors.centerIn: parent
@@ -47,7 +71,7 @@ ListItem {
             }
         },
 
-        Icon {
+        FluidControls.Icon {
             name: "action/account_circle"
             visible: !image.visible
             anchors.centerIn: parent
@@ -55,9 +79,27 @@ ListItem {
         }
     ]
 
-    rightItem: Icon {
-        name: "action/verified_user"
+    rightItem: RowLayout {
         anchors.centerIn: parent
-        visible: isAdminUser
+
+        FluidControls.Icon {
+            name: "action/verified_user"
+            visible: isAdminUser
+
+            Layout.alignment: Qt.AlignVCenter
+        }
+
+        FluidControls.IconButton {
+            iconName: "content/remove_circle"
+            enabled: preflet.unlocked
+            visible: !isCurrentUser
+            onClicked: deleteDialog.open()
+
+            ToolTip.text: qsTr("Remove user")
+            ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+            ToolTip.visible: hovered
+
+            Layout.alignment: Qt.AlignVCenter
+        }
     }
 }

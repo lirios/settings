@@ -1,6 +1,7 @@
 /****************************************************************************
  * This file is part of Settings.
  *
+ * Copyright (C) 2017 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  * Copyright (C) 2016 Michael Spencer <sonrisesoftware@gmail.com>
  *
  * $BEGIN_LICENSE:GPL3+$
@@ -22,19 +23,49 @@
  ***************************************************************************/
 
 import QtQuick 2.0
-import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.0
-import Fluid.Controls 1.0
+import QtQuick.Layouts 1.0
+import QtQuick.Controls 2.1
+import QtQuick.Controls.Material 2.1
+import Fluid.Controls 1.0 as FluidControls
+import Fluid.Material 1.0 as FluidMaterial
 import Liri.Settings 1.0
 import QtAccountsService 1.0
 
 PrefletPage {
+    id: preflet
+
+    needsAuthorization: true
+    unlocked: authorization.authorized
+
+    onUnlockRequested: authorization.authorize()
+
+    AuthorizedAction {
+        id: authorization
+        actionId: "org.freedesktop.accounts.user-administration"
+    }
+
     UserAccount {
         id: currentUser
     }
 
     UsersModel {
         id: userModel
+    }
+
+    AccountsManager {
+        id: accountsManager
+    }
+
+    Component {
+        id: userPage
+
+        UserPage {
+            onUnlockRequested: authorization.authorize()
+        }
+    }
+
+    UserAddDialog {
+        id: addUserDialog
     }
 
     ModuleContainer {
@@ -45,6 +76,16 @@ PrefletPage {
             text: currentUser.realName
             subText: currentUser.userName
             isAdminUser: currentUser.accountType == UserAccount.AdministratorAccountType
+            isCurrentUser: true
+            onClicked: window.pageStack.push(userPage, {
+                                                 "unlocked": Qt.binding(function() { return preflet.unlocked; }),
+                                                 "userId": currentUser.userId,
+                                                 "isCurrentUser": true,
+                                                 "iconFileName": currentUser.iconFileName,
+                                                 "realName": currentUser.realName,
+                                                 "accountType": currentUser.accountType,
+                                                 "automaticLogin": currentUser.automaticLogin
+                                             })
         }
     }
 
@@ -63,8 +104,35 @@ PrefletPage {
                 text: realName
                 subText: userName
                 isAdminUser: accountType == UserAccount.AdministratorAccountType
+                isCurrentUser: userId === currentUser.userId
                 visible: userId !== currentUser.userId
+                onClicked: window.pageStack.push(userPage, {
+                                                     "unlocked": Qt.binding(function() { return preflet.unlocked; }),
+                                                     "userId": userId,
+                                                     "isCurrentUser": false,
+                                                     "iconFileName": iconFileName,
+                                                     "realName": realName,
+                                                     "accountType": accountType,
+                                                     "automaticLogin": automaticLogin
+                                                 })
+                onRemoveUserRequested: accountsManager.deleteUser(userId, removeFiles)
             }
+        }
+    }
+
+    Item {
+        width: 400
+
+        Layout.alignment: Qt.AlignHCenter
+
+        FluidMaterial.ActionButton {
+            anchors.top: parent.top
+            anchors.right: parent.right
+            iconName: "content/add"
+            enabled: unlocked
+            onClicked: addUserDialog.open()
+
+            Material.background: Material.accent
         }
     }
 }
