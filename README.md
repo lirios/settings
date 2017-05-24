@@ -7,7 +7,7 @@ Settings
 [![GitHub release](https://img.shields.io/github/release/lirios/settings.svg)](https://github.com/lirios/settings)
 [![Build Status](https://travis-ci.org/lirios/settings.svg?branch=develop)](https://travis-ci.org/lirios/settings)
 [![GitHub issues](https://img.shields.io/github/issues/lirios/settings.svg)](https://github.com/lirios/settings/issues)
-[![Maintained](https://img.shields.io/maintenance/yes/2016.svg)](https://github.com/lirios/settings/commits/develop)
+[![Maintained](https://img.shields.io/maintenance/yes/2017.svg)](https://github.com/lirios/settings/commits/develop)
 
 Settings application and modules for Liri OS.
 
