@@ -6,31 +6,44 @@ compiler:
 
 sudo: required
 
+services:
+  - docker
+
+env:
+  global:
+    # FTP_USER
+    - secure: "XpmYzPL3E/Busfrnb7P0sabxAkxYoMGtw1Le/fti5d/U6/2j1c5sbLe3wP1qca/prG95uVPriZnnvPVm6/q1KN4SmdytrAUPh/cbJ+saWKMki2z22wovdXljm72U/RL/laWkZaPZxR2WLsOqJP0qeNh9vJhuolyKXij76VUDwNQduHPzMLlM9FPKrrgxx+kqIFNonGGHWMyen1KNLBv7AE4bum5gE61AnVH3wgJdqBopyvk5fFZ2rdxcF3aZrH3F/16vefd9MUmUGmh06whROzcUPQaGkkpIoT02xj7/DrpwLOcQpvFh3E5jM27vOjjBID5QTQFFFz213xizusdDi6+dQW+HLPAxShwUqB8LZQqH/+V+qZWmeKBfmdg1uuFFNtullqS80PW4HhdIJQKZTKdVDb3ZJaRzp86OIAv9rGWpp5QYuuJe4Gubkd9mmW4qZ+bVD7JhCSPlh0aGmsdqfXP1f/uU8fEyWeN0kN+hRL+D6r1h0nIOD0MMKSmzQD/q7qGDJCcR2ar10A2relQtCA7quF6TbLwnZ8l5i3PbBzqR+6mRPXafXQrt1ms0KjZxRYOG04o6wcVJE76Bi1N8igHLp6ozU6bkfrKW0+Oy0/1hdGYNNauEUn3b4XGBnqUxC4zDbQq4h+s3/Ng3Pk2xPGX1aa303zjONFLFS8XUF2U="
+    # FTP_PASSWORD
+    - secure: "NIwX67DmXF/3sFFgze2g2KaIJSXGDvg+S3YVl4UuVZ898klKLsz6Gm54Rt3ZefIG3BTkNTTSyITBbobmDlgWybvrmCraduW/dVd3omUURveoMB6iWE35SvpeFP9pdsvFqFOm0YIgX0fuowaEoAuqLex250t3ciklOYTvPPaTXiG+gCZ9Lq6jOXNhEoSXY5FxcSJ3dAUMuNQFh+m2B/W3BQsh1xIiRyILfXceHRmCFwrsiT7CYOKjsPbbS5brYyduttSzEQwZxNXpgNf7X38Cv1lB7LbOB5HaoAAQ9uMNHWwQIjnhUVGibDuV8vH4KbdAd3otkdvqF9nbSv9/VKRM7lXQosQcSh2xzwRi7xF8RwKUqPTJ8f1tAqXu3Zp7sLxznxQGk4vvqlaLIo5tQK6xhxAHdxbt1BvQiHTdFH4jMTu4iR3NRId7CgcOdsbRRT3mF8aFmfXm63E1TRC0waN86tlayZjJI9n37u5alm4K9qrlyMCJUa+VVqm7Na99KFL//b+S73NWAeszKHvD8EU4Okw7Qu6NOEaxj/6UejuRZLD+pv5pyXUHNO+reUghY03zocK683onbUp38Fsda+pVcnjGYp5n6x9bsbq9fj6MmcNKE83zyvy8ow/eOnzbu8J9hZVcZu2K/N+yXO9y3dPq4KOYVfAOiBEWdKEgtA5iXvw="
+    # FTP_URL
+    - secure: "p9YdkoGHnRUj2SvNNaxsoXyg1KIPvXCE0lpOmW74KRtFaw9jF/DDYsEY9sVTel+EpcUFlWjebFMvMGjhmHBWMc/h/SYSB1Fn3ZOZA8Vi3hQgt7oHQ7omukqkUEw/sabr1Ev9clMqk6WGkteRry0azuNgJPL7fiovKeFL/29yNeC+whrwZcb4fYVAS+34+CueEixnpcZcHqYa13xZNDyeVULRaiOPaQxozUSixNe9vLkTHUzEzRFlBPQ7uRf9aQQKBAAddKNdu139h2I/vZ5ZCZ6s79vnVeNCIgJz9YDTxCRhUuYSmwoOtHo88ECrKvvU1Zj9uxazJjkbalQA7gFpgNJTTlPeMXCx+/4dXRso5BBTkGybLgpiSMGFmOnUBB2+fE8F6x9ia5DNXBJxolVNQgabmbMMXgD+1/MBNjK6isSqG/WfMaMC21r0g73gUvK7gwiPsAyZVG5EwfAHtyXqBJC3T4hMxUWg3TchsMzSyP+KHvS8RUcBnGBivcT2ZV08BFbShSTkwocI+txJyT9P8VGCLZE3TSiE9t7TyCut063+E3i8FXhm87zThi2inyGVlRzGHeHs1TneXPtQ0synQxVEQyFgq4Mznd+BcRo1+g1CZJ4RXDmh0fqRQRzfxAxlbzLn1YqN1PMLl/BQYfutrnLYiAvofXtaiflHNDSU86c="
+
 arch:
-  repos:
-    - wayland=https://dl.bintray.com/liri/archlinux-develop/$arch/
-    - fluid=https://dl.bintray.com/liri/archlinux-develop/$arch/
-    - libliri=https://dl.bintray.com/liri/archlinux-develop/$arch/
-    - vibe=https://dl.bintray.com/liri/archlinux-develop/$arch/
+  artifacts:
+    - liri-wayland-artifacts.tar.gz
+    - fluid-artifacts.tar.gz
+    - libliri-artifacts.tar.gz
+    - qtgsettings-artifacts.tar.gz
   packages:
     - qbs
+    - qt5-quickcontrols2
+    - qt5-wayland
     - qt5-tools
-    - vibe-git
     - polkit-qt5
+    - libqtxdg
+    - glib2
     - xkeyboard-config
-    - liri-wayland-git
     - xorg-server-xvfb
-    - clang
     #- clazy-git
   script:
     #- export CLAZY_CHECKS="level1"
     - qbs-setup-toolchains --detect
     - qbs-setup-qt /usr/bin/qmake-qt5 qt5
     - qbs config profiles.qt5.baseProfile ${CC}
-    - eval `dbus-launch --sh-syntax` && xvfb-run -a -s "-screen 0 800x600x24" qbs -d qbs-build -j $(nproc) profile:qt5
+    - eval `dbus-launch --sh-syntax` && xvfb-run -a -s "-screen 0 800x600x24" qbs build -d build -j $(nproc) profile:qt5
 
 script:
-  - "curl -s https://raw.githubusercontent.com/mikkeloscar/arch-travis/master/arch-travis.sh | bash"
+  - "curl -s https://raw.githubusercontent.com/lirios/repotools/develop/travis/docker-travis.sh | bash"
 
 notifications:
   email: false
