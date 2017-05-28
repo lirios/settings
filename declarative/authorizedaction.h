@@ -25,13 +25,14 @@
 
 #include <QtCore/QObject>
 
-#include <polkit-1/polkit/polkit.h>
+class AuthorizedActionPrivate;
 
 class AuthorizedAction : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString actionId READ actionId WRITE setActionId NOTIFY actionIdChanged)
     Q_PROPERTY(bool authorized READ isAuthorized NOTIFY authorizedChanged)
+    Q_DECLARE_PRIVATE(AuthorizedAction)
 public:
     AuthorizedAction(QObject *parent = nullptr);
 
@@ -47,8 +48,5 @@ Q_SIGNALS:
     void authorizedChanged();
 
 private:
-    QString m_actionId;
-    bool m_authorized;
-
-    void on_permission_changed(GPermission *perm, GParamSpec *pspec, gpointer data);
+    AuthorizedActionPrivate *const d_ptr;
 };

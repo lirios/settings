@@ -26,68 +26,93 @@
 
 #include "authorizedaction.h"
 
+#include <polkit-1/polkit/polkit.h>
+
+class AuthorizedActionPrivate
+{
+    Q_DECLARE_PUBLIC(AuthorizedAction)
+public:
+    AuthorizedActionPrivate(AuthorizedAction *q)
+        : authorized(false)
+        , q_ptr(q)
+    {
+    }
+
+    QString actionId;
+    bool authorized;
+
+    static void on_permission_changed(GPermission *perm, GParamSpec *pspec, gpointer data)
+    {
+        Q_UNUSED(pspec);
+
+        AuthorizedActionPrivate *action = static_cast<AuthorizedActionPrivate *>(data);
+        const bool isAuthorized = g_permission_get_allowed(G_PERMISSION(perm));
+        if (action->authorized && !isAuthorized) {
+            action->authorized = isAuthorized;
+            Q_EMIT action->q_ptr->authorizedChanged();
+        }
+    }
+
+protected:
+    AuthorizedAction *q_ptr;
+};
+
 AuthorizedAction::AuthorizedAction(QObject *parent)
     : QObject(parent)
-    , m_authorized(false)
+    , d_ptr(new AuthorizedActionPrivate(this))
 {
 }
 
 QString AuthorizedAction::actionId() const
 {
-    return m_actionId;
+    Q_D(const AuthorizedAction);
+    return d->actionId;
 }
 
 void AuthorizedAction::setActionId(const QString &actionId)
 {
-    if (m_actionId == actionId)
+    Q_D(AuthorizedAction);
+
+    if (d->actionId == actionId)
         return;
 
-    m_actionId = actionId;
+    d->actionId = actionId;
     Q_EMIT actionIdChanged();
 }
 
 bool AuthorizedAction::isAuthorized() const
 {
-    return m_authorized;
+    Q_D(const AuthorizedAction);
+    return d->authorized;
 }
 
 void AuthorizedAction::authorize()
 {
+    Q_D(AuthorizedAction);
+
     // Ignore if permission is already acquired
-    if (m_authorized)
+    if (d->authorized)
         return;
 
     GError *error = nullptr;
 
     auto subject = polkit_unix_process_new_for_owner(QCoreApplication::applicationPid(), 0, -1);
-    auto p = polkit_permission_new_sync(m_actionId.toLatin1().constData(), subject, nullptr, &error);
+    auto p = polkit_permission_new_sync(d->actionId.toLatin1().constData(), subject, nullptr, &error);
     if (p) {
-        g_signal_connect(p, "notify", G_CALLBACK(&AuthorizedAction::on_permission_changed), this);
+        g_signal_connect(p, "notify", G_CALLBACK(AuthorizedActionPrivate::on_permission_changed), d);
 
         if (g_permission_get_can_acquire(p)) {
             if (g_permission_acquire(p, nullptr, &error)) {
-                m_authorized = true;
+                d->authorized = true;
                 Q_EMIT authorizedChanged();
             } else {
-                qWarning("Cannot acquire permission \"%s\": %s", m_actionId.toLatin1().constData(), error->message);
+                qWarning("Cannot acquire permission \"%s\": %s", d->actionId.toLatin1().constData(), error->message);
             }
         } else {
-            qWarning("Permission \"%s\" cannot be acquired", m_actionId.toLatin1().constData());
+            qWarning("Permission \"%s\" cannot be acquired", d->actionId.toLatin1().constData());
         }
     } else {
-        qWarning("Cannot ask permission \"%s\": %s", m_actionId.toLatin1().constData(), error->message);
+        qWarning("Cannot ask permission \"%s\": %s", d->actionId.toLatin1().constData(), error->message);
         g_error_free(error);
-    }
-}
-
-void AuthorizedAction::on_permission_changed(GPermission *perm, GParamSpec *pspec, gpointer data)
-{
-    Q_UNUSED(pspec);
-
-    AuthorizedAction *action = static_cast<AuthorizedAction *>(data);
-    const bool isAuthorized = g_permission_get_allowed(G_PERMISSION(perm));
-    if (action->isAuthorized() && !isAuthorized) {
-        action->m_authorized = isAuthorized;
-        Q_EMIT action->authorizedChanged();
     }
 }
