@@ -1,7 +1,9 @@
 import qbs 1.0
+import qbs.TextFile
 
 SettingsModule {
     shortName: "info"
+    type: base.concat(["liri.settings.contents"])
 
     Group {
         name: "Metadata"
@@ -27,5 +29,26 @@ SettingsModule {
         name: "Translations"
         files: ["*_*.ts"]
         prefix: "translations/"
+    }
+
+    Rule {
+        inputs: ["liri.desktop.template"]
+
+        Artifact {
+            filePath: "version.js"
+            fileTags: ["liri.settings.contents"]
+        }
+
+        prepare: {
+            var cmd = new JavaScriptCommand();
+            cmd.description = "creating " + output.fileName;
+            cmd.highlight = "filegen";
+            cmd.sourceCode = function() {
+                var file = new TextFile(output.filePath, TextFile.WriteOnly);
+                file.writeLine('var version = "' + project.version + '";');
+                file.close();
+            };
+            return [cmd];
+        }
     }
 }

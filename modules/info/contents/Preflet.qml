@@ -26,6 +26,7 @@ import QtQuick 2.4
 import QtQuick.Controls 2.0
 import QtGSettings 1.0
 import Fluid.Controls 1.0
+import "version.js" as Version
 
 Item {
     property int developerClickCount: 0
@@ -90,7 +91,7 @@ Item {
         Label {
             anchors.horizontalCenter: parent.horizontalCenter
             font.pixelSize: 20
-            text: qsTr("Version %1").arg("0.9.0")
+            text: qsTr("Version %1").arg(Version.version)
         }
     }
 
