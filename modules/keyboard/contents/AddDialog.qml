@@ -23,23 +23,36 @@
 
 import QtQuick 2.0
 import QtQuick.Layouts 1.0
-import QtQuick.Controls 2.0
-import Fluid.Controls 1.0
+import QtQuick.Controls 2.1
+import Fluid.Controls 1.0 as FluidControls
 import Liri.Settings.Keyboard 1.0
 
-Popup {
+Dialog {
     id: addDialog
-    x: (parent.width - implicitWidth) / 2
-    y: (parent.height - implicitHeight) / 2
+
+    parent: ApplicationWindow.contentItem
+    x: (parent.width - width) / 2
+    y: (parent.height - height) / 2
+
     focus: true
     modal: true
-    closePolicy: Popup.OnEscape | Popup.OnPressOutside
-    implicitWidth: mainLayout.implicitWidth +
-                   addDialog.leftPadding + addDialog.rightPadding +
-                   addDialog.leftMargin + addDialog.rightMargin
-    implicitHeight: mainLayout.implicitHeight +
-                    addDialog.topPadding + addDialog.bottomPadding +
-                    addDialog.topMargin + addDialog.bottomMargin
+    standardButtons: Dialog.Ok | Dialog.Cancel
+
+    onAccepted: {
+        var layout = keyboardData.layouts[layoutComboBox.currentIndex];
+        var variant = layout.variants[variantComboBox.currentIndex];
+
+        var layouts = keyboardSettings.layouts;
+        layouts.push(layout.name);
+        keyboardSettings.layouts = layouts;
+
+        var variants = keyboardSettings.variants;
+        variants.push(variant ? variant.name : "");
+        keyboardSettings.variants = variants;
+
+        layoutModel.appendLayout(layout.name, variant.name);
+    }
+    onRejected: addDialog.close()
 
     KeyboardData {
         id: keyboardData
@@ -47,7 +60,7 @@ Popup {
 
     ColumnLayout {
         id: mainLayout
-        spacing: Units.largeSpacing
+        spacing: FluidControls.Units.largeSpacing
 
         GridLayout {
             rows: 2
@@ -67,7 +80,7 @@ Popup {
                     variantComboBox.model = keyboardData.layouts[currentIndex].variants;
                 }
 
-                Layout.minimumWidth: Units.gu(15)
+                Layout.minimumWidth: FluidControls.Units.gu(15)
                 Layout.fillWidth: true
             }
 
@@ -81,43 +94,8 @@ Popup {
                 id: variantComboBox
                 textRole: "description"
 
-                Layout.minimumWidth: Units.gu(15)
+                Layout.minimumWidth: FluidControls.Units.gu(15)
                 Layout.fillWidth: true
-            }
-        }
-
-        RowLayout {
-            spacing: Units.largeSpacing
-
-            Item {
-                Layout.fillWidth: true
-            }
-
-            Button {
-                text: qsTr("Cancel")
-                flat: true
-                onClicked: addDialog.close()
-            }
-
-            Button {
-                text: qsTr("OK")
-                flat: true
-                onClicked: {
-                    var layout = keyboardData.layouts[layoutComboBox.currentIndex];
-                    var variant = layout.variants[variantComboBox.currentIndex];
-
-                    var layouts = keyboardSettings.layouts;
-                    layouts.push(layout.name);
-                    keyboardSettings.layouts = layouts;
-
-                    var variants = keyboardSettings.variants;
-                    variants.push(variant ? variant.name : "");
-                    keyboardSettings.variants = variants;
-
-                    layoutModel.appendLayout(layout.name, variant.name);
-
-                    addDialog.close();
-                }
             }
         }
     }

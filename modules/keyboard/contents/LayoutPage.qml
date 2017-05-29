@@ -25,8 +25,8 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
-import Fluid.Controls 1.0
-import Fluid.Material 1.0
+import Fluid.Controls 1.0 as FluidControls
+import Fluid.Material 1.0 as FluidMaterial
 import QtGSettings 1.0
 import Liri.Settings 1.0
 import Liri.Settings.Keyboard 1.0
@@ -70,13 +70,14 @@ PrefletPage {
     ModuleContainer {
         title: qsTr("Model and Test")
 
-        ListItem {
+        FluidControls.ListItem {
             text: qsTr("Model")
             rightItem: ComboBox {
                 id: modelComboBox
                 anchors.centerIn: parent
                 model: keyboardData.models
                 textRole: "description"
+                width: 200
                 onActivated: keyboardSettings.model = keyboardData.models[index].name
 
                 Component.onCompleted: {
@@ -94,9 +95,13 @@ PrefletPage {
             }
         }
 
-        ListItem {
-            secondaryItem: TextField {
-                width: parent.width
+        Control {
+            width: parent.width
+            height: contentItem.implicitHeight + topPadding + bottomPadding
+            padding: FluidControls.Units.smallSpacing * 2
+
+            contentItem: TextField {
+                implicitWidth: parent.width
                 placeholderText: qsTr("Type to test the layout...")
             }
         }
@@ -108,7 +113,7 @@ PrefletPage {
         Repeater {
             model: layoutModel
 
-            ListItem {
+            FluidControls.ListItem {
                 text: model.label
                 subText: model.variant || qsTr("No variant")
                 rightItem: Button {
@@ -133,7 +138,7 @@ PrefletPage {
         }
     }
 
-    ActionButton {
+    FluidMaterial.ActionButton {
         anchors {
             right: parent.right
             bottom: parent.bottom
