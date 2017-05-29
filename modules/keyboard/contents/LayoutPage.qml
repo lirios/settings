@@ -26,7 +26,6 @@ import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import Fluid.Controls 1.0 as FluidControls
-import Fluid.Material 1.0 as FluidMaterial
 import QtGSettings 1.0
 import Liri.Settings 1.0
 import Liri.Settings.Keyboard 1.0
@@ -136,19 +135,11 @@ PrefletPage {
                 }
             }
         }
-    }
 
-    FluidMaterial.ActionButton {
-        anchors {
-            right: parent.right
-            bottom: parent.bottom
-            rightMargin: 100
+        FluidControls.ListItem {
+            iconName: "content/add"
+            text: qsTr("Add layout...")
+            onClicked: addDialog.open()
         }
-
-        iconName: "content/add"
-        onClicked: addDialog.open()
-
-        Material.background: Material.primaryColor
-        Material.elevation: 1
     }
 }
