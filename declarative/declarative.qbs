@@ -5,7 +5,7 @@ LiriDynamicLibrary {
     targetName: "systemsettingsplugin"
 
     Depends { name: "lirideployment" }
-    Depends { name: "Qt"; submodules: ["gui", "xml", "qml", "quick"] }
+    Depends { name: "Qt"; submodules: ["core", "gui", "xml", "qml", "quick"] }
     Depends { name: "Qt5Xdg" }
     Depends { name: "polkit" }
 
@@ -18,7 +18,7 @@ LiriDynamicLibrary {
         return true;
     }
 
-    cpp.defines: base.concat(["QT_NO_KEYWORDS"])
+    Qt.core.enableKeywords: false
 
     files: ["*.cpp", "*.h"]
 
