@@ -1,11 +1,10 @@
 import qbs 1.0
 
-LiriDynamicLibrary {
-    name: "Liri.Settings"
-    targetName: "systemsettingsplugin"
+LiriQmlPlugin {
+    name: "systemsettingsplugin"
+    pluginPath: "Liri/Settings"
 
-    Depends { name: "lirideployment" }
-    Depends { name: "Qt"; submodules: ["core", "gui", "xml", "qml", "quick"] }
+    Depends { name: "Qt"; submodules: ["gui", "xml"] }
     Depends { name: "Qt5Xdg" }
     Depends { name: "polkit" }
 
@@ -20,20 +19,5 @@ LiriDynamicLibrary {
 
     Qt.core.enableKeywords: false
 
-    files: ["*.cpp", "*.h"]
-
-    Group {
-        name: "QML Files"
-        files: [
-            "*.qml",
-            "qmldir"
-        ]
-        fileTags: ["qml"]
-    }
-
-    Group {
-        qbs.install: true
-        qbs.installDir: lirideployment.qmlDir + "/Liri/Settings"
-        fileTagsFilter: ["dynamiclibrary", "qml"]
-    }
+    files: ["*.cpp", "*.h", "qmldir", "*.qml"]
 }

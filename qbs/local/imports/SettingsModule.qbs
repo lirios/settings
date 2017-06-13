@@ -10,7 +10,7 @@ Product {
     Depends { name: "lirideployment" }
     Depends { name: "cpp" }
     Depends { name: "Qt"; submodules: ["core", "qml", "quick"] }
-    Depends { name: "Translations" }
+    Depends { name: "LiriTranslations" }
 
     Group {
         qbs.install: shortName != undefined

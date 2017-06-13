@@ -1,7 +1,7 @@
 import qbs 1.0
 
 Project {
-    name: "Liri Settings"
+    name: "Settings"
 
     readonly property string version: "0.9.0"
 
