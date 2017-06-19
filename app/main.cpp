@@ -27,7 +27,7 @@
 #include <QtCore/QStandardPaths>
 #include <QtCore/QTranslator>
 #include <QtCore/QLibraryInfo>
-#include <QtGui/QGuiApplication>
+#include <QtWidgets/QApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QQmlContext>
 #include <QtQuick/QQuickWindow>
@@ -42,7 +42,7 @@ static void loadQtTranslations()
     QString locale = QLocale::system().name();
 
     // Load Qt translations
-    QTranslator *qtTranslator = new QTranslator(qGuiApp);
+    QTranslator *qtTranslator = new QTranslator(qApp);
     if (qtTranslator->load(QStringLiteral("qt_%1").arg(locale), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
         qApp->installTranslator(qtTranslator);
     } else {
@@ -112,13 +112,13 @@ static void loadModuleTranslations()
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     // Set the X11 WML_CLASS so X11 desktops can find the desktop file
     qputenv("RESOURCE_NAME", "io.liri.Settings");
 
     // Setup application
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
     app.setApplicationName(QLatin1String("Settings"));
     app.setApplicationVersion(QLatin1String(LIRISETTINGS_VERSION));
     app.setOrganizationDomain(QLatin1String("liri.io"));
