@@ -22,8 +22,8 @@
  ***************************************************************************/
 
 import QtQuick 2.0
-import QtQuick.Dialogs 1.1
 import QtQuick.Controls 2.0
+import Qt.labs.platform 1.0
 
 Button {
     id: button
@@ -46,6 +46,5 @@ Button {
         id: dialog
         modality: Qt.WindowModal
         title: qsTr("Choose a color")
-        showAlphaChannel: false
     }
 }
