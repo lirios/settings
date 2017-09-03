@@ -43,18 +43,16 @@ Item {
             Layout.alignment: Qt.AlignHCenter
         }
 
-        Label {
+        TitleLabel {
             text: qsTr("Error loading \"%1\"").arg(moduleTitle)
-            font: FluidStyle.titleFont
             color: Material.secondaryTextColor
             horizontalAlignment: Qt.AlignHCenter
 
             Layout.fillWidth: true
         }
 
-        Label {
+        SubheadingLabel {
             id: messageLabel
-            font: FluidStyle.subheadingFont
             color: Material.secondaryTextColor
             horizontalAlignment: Qt.AlignHCenter
             wrapMode: Text.Wrap
