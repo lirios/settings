@@ -94,7 +94,7 @@ PrefletPage {
                 iconName: Default ? "toggle/radio_button_checked" : "toggle/radio_button_unchecked"
                 text: Description
                 secondaryItem: ComboBox {
-                    model: CardModel
+                    model: PA.CardModel
                     textRole: "Description"
                 }
                 rightItem: Button {
