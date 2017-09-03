@@ -22,7 +22,7 @@ Qt >= 5.8.0 with at least the following modules is required:
 
 The following modules and their dependencies are required:
 
- * [ECM >= 1.7.0](http://quickgit.kde.org/?p=extra-cmake-modules.git)
+ * [qbs-shared](https://github.com/lirios/qbs-shared.git)
  * [liri-wayland](https://github.com/lirios/liri-wayland.git)
  * [fluid](https://github.com/lirios/fluid.git)
  * [vibe](https://github.com/lirios/vibe.git)
@@ -56,10 +56,11 @@ On the last `qbs` line, you can specify additional configuration parameters at t
 The following are only needed if `qbs.installPrefix` is a system-wide path such as `usr`
 and the default value doesn't suit your needs. All are relative to `qbs.installRoot`:
 
- * `lirideployment.libDir:path/to/lib` where libraries are installed (default: `lib`)
- * `lirideployment.qmlDir:path/to/qml` where QML plugins are installed (default: `lib/qml`)
+ * `modules.lirideployment.libDir:path/to/lib` where libraries are installed (default: `lib`)
+ * `modules.lirideployment.qmlDir:path/to/qml` where QML plugins are installed (default: `lib/qml`)
 
-See `qbs/shared/modules/lirideployment/lirideployment.qbs` for more deployment-related parameters.
+See [lirideployment.qbs](https://github.com/lirios/qbs-shared/blob/develop/modules/lirideployment/lirideployment.qbs)
+for more deployment-related parameters.
 
 If you specify `qbs.installRoot` you might need to prefix the entire line with `sudo`,
 depending on whether you have permissions to write there or not.
