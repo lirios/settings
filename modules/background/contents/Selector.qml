@@ -77,12 +77,10 @@ Item {
             }
         }
 
-        Label {
+        SubheadingLabel {
             id: label
 
             Layout.alignment: Qt.AlignHCenter
-
-            font: FluidStyle.subheadingFont
         }
     }
 
