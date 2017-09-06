@@ -32,14 +32,16 @@ FluidControls.ApplicationWindow {
     id: window
 
     property real itemSize: FluidControls.Units.iconSizes.large
+    readonly property int defaultWidth: 800
+    readonly property int defaultHeight: 600
 
     title: qsTr("Settings")
-    width: minimumWidth
-    height: minimumHeight
-    minimumWidth: 800
-    minimumHeight: 600
-    maximumWidth: minimumWidth
-    maximumHeight: minimumHeight
+    width: defaultWidth
+    height: defaultHeight
+    minimumWidth: width
+    minimumHeight: height
+    maximumWidth: width
+    maximumHeight: height
     visible: true
 
     Material.accent: Material.Blue
@@ -60,9 +62,19 @@ FluidControls.ApplicationWindow {
             if (plugin) {
                 settingsPage.moduleLoader.sourceComponent = Qt.createComponent(plugin.mainScriptUrl);
                 settingsPage.selectedModule = plugin;
-                //prefletTitle.text = plugin.title;
-                //window.width = plugin.item.width;
-                //window.height = plugin.item.height;
+
+                var newWidth = settingsPage.moduleLoader.item.windowWidth || 0;
+                if (newWidth < window.defaultWidth)
+                    newWidth = window.defaultWidth;
+                var newHeight = settingsPage.moduleLoader.item.windowHeight || 0;
+                if (newHeight < window.defaultHeight)
+                    newHeight = window.defaultHeight;
+                window.width = newWidth;
+                window.minimumWidth = newWidth;
+                window.maximumWidth = newWidth;
+                window.height = newHeight;
+                window.minimumHeight = newHeight;
+                window.maximumHeight = newHeight;
             }
         }
     }

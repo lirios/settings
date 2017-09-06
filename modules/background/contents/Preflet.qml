@@ -29,6 +29,9 @@ import Liri.Settings 1.0
 import QtGSettings 1.0
 
 PrefletPage {
+    windowWidth: 1024
+    windowHeight: 768
+
     //centered: true
 
     GSettings {
