@@ -10,7 +10,17 @@ QtGuiApplication {
 
     cpp.defines: base.concat(['LIRISETTINGS_VERSION="' + project.version + '"'])
 
-    files: ["*.cpp", "*.h", "*.qrc"]
+    files: ["*.cpp", "*.h"]
+
+    Qt.core.resourcePrefix: "/"
+    Qt.core.resourceSourceBase: sourceDirectory
+
+    Group {
+        name: "Resource Data"
+        prefix: "qml/"
+        files: ["**"]
+        fileTags: ["qt.core.resource_data"]
+    }
 
     Group {
         name: "Desktop File"
