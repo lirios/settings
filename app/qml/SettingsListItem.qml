@@ -29,12 +29,13 @@ FluidControls.ListItem {
     text: title
     iconName: model.iconName
 
-    highlighted: selectedModule ? model.mainScriptUrl === selectedModule.mainScriptUrl : false
+    highlighted: selectedModule ? selectedModule.mainScriptUrl === model.mainScriptUrl : false
 
     onClicked: {
         if (!model.mainScriptUrl)
             return;
 
         moduleLoader.sourceComponent = Qt.createComponent(model.mainScriptUrl);
+        settingsPage.selectedModule = model;
     }
 }

@@ -59,6 +59,7 @@ FluidControls.ApplicationWindow {
             var plugin = initialPage.model.getByName(Qt.application.arguments[1]);
             if (plugin) {
                 settingsPage.moduleLoader.sourceComponent = Qt.createComponent(plugin.mainScriptUrl);
+                settingsPage.selectedModule = plugin;
                 //prefletTitle.text = plugin.title;
                 //window.width = plugin.item.width;
                 //window.height = plugin.item.height;
