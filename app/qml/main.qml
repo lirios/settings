@@ -53,27 +53,33 @@ FluidControls.ApplicationWindow {
         model: PluginsModel {}
     }
 
+    function loadModule(plugin) {
+        if (!plugin)
+            return;
+
+        settingsPage.moduleLoader.sourceComponent = Qt.createComponent(plugin.mainScriptUrl);
+        settingsPage.selectedModule = plugin;
+
+        var newWidth = settingsPage.moduleLoader.item.windowWidth || 0;
+        if (newWidth < window.defaultWidth)
+            newWidth = window.defaultWidth;
+        var newHeight = settingsPage.moduleLoader.item.windowHeight || 0;
+        if (newHeight < window.defaultHeight)
+            newHeight = window.defaultHeight;
+        window.width = newWidth;
+        window.minimumWidth = newWidth;
+        window.maximumWidth = newWidth;
+        window.height = newHeight;
+        window.minimumHeight = newHeight;
+        window.maximumHeight = newHeight;
+    }
+
     Component.onCompleted: {
         // Load the plugin specified by the command line
         if (Qt.application.arguments.length >= 2) {
             var plugin = initialPage.model.getByName(Qt.application.arguments[1]);
-            if (plugin) {
-                settingsPage.moduleLoader.sourceComponent = Qt.createComponent(plugin.mainScriptUrl);
-                settingsPage.selectedModule = plugin;
-
-                var newWidth = settingsPage.moduleLoader.item.windowWidth || 0;
-                if (newWidth < window.defaultWidth)
-                    newWidth = window.defaultWidth;
-                var newHeight = settingsPage.moduleLoader.item.windowHeight || 0;
-                if (newHeight < window.defaultHeight)
-                    newHeight = window.defaultHeight;
-                window.width = newWidth;
-                window.minimumWidth = newWidth;
-                window.maximumWidth = newWidth;
-                window.height = newHeight;
-                window.minimumHeight = newHeight;
-                window.maximumHeight = newHeight;
-            }
+            if (plugin)
+                loadModule(plugin);
         }
     }
 }

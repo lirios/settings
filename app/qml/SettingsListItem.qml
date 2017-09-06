@@ -35,20 +35,6 @@ FluidControls.ListItem {
         if (!model.mainScriptUrl)
             return;
 
-        moduleLoader.sourceComponent = Qt.createComponent(model.mainScriptUrl);
-        settingsPage.selectedModule = model;
-
-        var newWidth = moduleLoader.item.windowWidth || 0;
-        if (newWidth < window.defaultWidth)
-            newWidth = window.defaultWidth;
-        var newHeight = moduleLoader.item.windowHeight || 0;
-        if (newHeight < window.defaultHeight)
-            newHeight = window.defaultHeight;
-        window.width = newWidth;
-        window.minimumWidth = newWidth;
-        window.maximumWidth = newWidth;
-        window.height = newHeight;
-        window.minimumHeight = newHeight;
-        window.maximumHeight = newHeight;
+        window.loadModule(model);
     }
 }
