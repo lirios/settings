@@ -64,10 +64,7 @@ Item {
     }
 
     ColumnLayout {
-        anchors {
-            fill: parent
-            margins: Units.smallSpacing
-        }
+        anchors.fill: parent
 
         Pane {
             GridLayout {

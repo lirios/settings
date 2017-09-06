@@ -90,8 +90,9 @@ Item {
         title: qsTr("Pick a background")
         x: (parent.width - width) / 2
         y: (parent.height - height) / 2
-        width: 650
-        height: 450
+        width: parent.width - (parent.width * 0.2)
+        height: parent.height - (parent.height * 0.2)
+        modal: true
         standardButtons: Dialog.Ok | Dialog.Cancel
 
         onAccepted: {
