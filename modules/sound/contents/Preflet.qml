@@ -23,18 +23,176 @@
  ***************************************************************************/
 
 import QtQuick 2.4
-import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.0
-import Fluid.Controls 1.0
+import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.2
+import QtQuick.Controls.Material 2.2
+import Fluid.Core 1.0 as FluidCore
+import Fluid.Controls 1.0 as FluidControls
 import Liri.Settings 1.0
 import Vibe.PulseAudio 1.0 as PA
 
-PrefletPage {
+Page {
+    header: ToolBar {
+        height: bar.height
+
+        TabBar {
+            id:bar
+            width: parent.width
+
+            TabButton {
+                text: qsTr("Volume")
+            }
+
+            TabButton {
+                text: qsTr("Output")
+            }
+
+            TabButton {
+                text: qsTr("Input")
+            }
+
+            TabButton {
+                text: qsTr("Applications")
+            }
+        }
+    }
+
+    PA.SinkModel {
+        id: sinkModel
+    }
+
+    PA.SourceModel {
+        id: sourceModel
+    }
+
+    PA.CardModel {
+        id: cardModel
+    }
+
+    StackLayout {
+        anchors.fill: parent
+        currentIndex: bar.currentIndex
+
+        Page {
+            anchors.fill: parent
+            anchors.margins: FluidControls.Units.smallSpacing * 2
+
+            Item {
+                width: parent.width
+                height: childrenRect.height
+
+                ModuleContainer {
+                    anchors.centerIn: parent
+
+                    Repeater {
+                        model: FluidCore.SortFilterProxyModel {
+                            sourceModel: PA.StreamRestoreModel {}
+                            filterRoleName: "Name"
+                            filterValue: "sink-input-by-media-role:event"
+                        }
+                        delegate: StreamDelegate {}
+                    }
+                }
+            }
+        }
+
+        Page {
+            anchors.fill: parent
+            anchors.margins: FluidControls.Units.smallSpacing * 2
+
+            Item {
+                width: parent.width
+                height: childrenRect.height
+
+                ModuleContainer {
+                    anchors.centerIn: parent
+
+                    Repeater {
+                        model: FluidCore.SortFilterProxyModel {
+                            sourceModel: sinkModel
+                            sortExpression: {
+                                var left = modelLeft.Properties["device.product.name"];
+                                var right = modelRight.Properties["device.product.name"];
+                                return left < right;
+                            }
+                        }
+                        delegate: SinkDelegate {}
+                    }
+                }
+            }
+        }
+
+        Page {
+            anchors.fill: parent
+            anchors.margins: FluidControls.Units.smallSpacing * 2
+
+            Item {
+                width: parent.width
+                height: childrenRect.height
+
+                ModuleContainer {
+                    anchors.centerIn: parent
+
+                    Repeater {
+                        model: sourceModel
+                        delegate: SinkDelegate {}
+                    }
+                }
+            }
+        }
+
+        Page {
+            anchors.fill: parent
+            anchors.margins: FluidControls.Units.smallSpacing * 2
+
+            Item {
+                width: parent.width
+                height: childrenRect.height
+
+                ModuleContainer {
+                    anchors.centerIn: parent
+
+                    Repeater {
+                        model: FluidCore.SortFilterProxyModel {
+                            sourceModel: PA.SourceOutputModel {}
+                            filterRoleName: "VirtualStream"
+                            filterValue: false
+                        }
+                        delegate: StreamDelegate {}
+                    }
+                }
+            }
+
+            Item {
+                width: parent.width
+                height: childrenRect.height
+
+                ModuleContainer {
+                    anchors.centerIn: parent
+
+                    Repeater {
+                        model: FluidCore.SortFilterProxyModel {
+                            sourceModel: PA.SinkInputModel {}
+                            filterRoleName: "VirtualStream"
+                            filterValue: false
+                        }
+                        delegate: StreamDelegate {}
+                    }
+                }
+            }
+        }
+    }
+
+    /*
+
     ModuleContainer {
+        title: qsTr("Volume")
+
         ListItem {
             text: qsTr("Media")
-            rightItem: Slider {
-                anchors.centerIn: parent
+            iconName: "av/volume_up"
+            secondaryItem: Slider {
+                width: parent.width
                 from: 0
                 to: 100
                 value: 50
@@ -43,8 +201,9 @@ PrefletPage {
 
         ListItem {
             text: qsTr("Alerts")
-            rightItem: Slider {
-                anchors.centerIn: parent
+            iconName: "communication/ring_volume"
+            secondaryItem: Slider {
+                width: parent.width
                 from: 0
                 to: 100
                 value: 50
@@ -53,8 +212,9 @@ PrefletPage {
 
         ListItem {
             text: qsTr("Alarms")
-            rightItem: Slider {
-                anchors.centerIn: parent
+            iconName: "action/alarm"
+            secondaryItem: Slider {
+                width: parent.width
                 from: 0
                 to: 100
                 value: 50
@@ -87,15 +247,39 @@ PrefletPage {
             visible: outputsView.visible
         }
 
+        ButtonGroup {
+            id: outputGroup
+        }
+
         Repeater {
             id: outputsView
-            model: PA.SinkModel {}
+            model: sinkModel
             delegate: ListItem {
-                iconName: Default ? "toggle/radio_button_checked" : "toggle/radio_button_unchecked"
                 text: Description
-                secondaryItem: ComboBox {
-                    model: PA.CardModel
-                    textRole: "Description"
+                secondaryItem: Repeater {
+                    model: FluidCore.SortFilterProxyModel {
+                        sourceModel: cardModel
+                        filterExpression: index === CardIndex
+                    }
+
+                    ComboBox {
+                        width: parent.width
+                        model: Profiles
+                        textRole: "description"
+                        currentIndex: ActiveProfileIndex
+                        onActivated: {
+                            ActiveProfileIndex = index;
+                        }
+                    }
+                }
+                leftItem: RadioButton {
+                    checkable: true
+                    checked: Default
+                    onToggled: {
+                        Default = checked;
+                    }
+
+                    ButtonGroup.group: outputGroup
                 }
                 rightItem: Button {
                     anchors.centerIn: parent
@@ -152,4 +336,5 @@ PrefletPage {
             visible: !inputsView.visible
         }
     }
+    */
 }
