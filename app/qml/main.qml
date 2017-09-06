@@ -48,8 +48,6 @@ FluidControls.ApplicationWindow {
     Material.primary: Material.color(Material.BlueGrey, Material.theme === Material.Light
                                      ? Material.Shade700 : Material.Shade800)
 
-
-
     initialPage: SettingsPage {
         id: settingsPage
         model: PluginsModel {}
