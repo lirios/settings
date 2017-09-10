@@ -121,8 +121,7 @@ PrefletPage {
         ListItem {
             text: "Nothing here yet"
             showDivider: true
-            //itemLabel.opacity: 0.5
-            interactive: false
+            enabled: false
         }
     }
 
@@ -131,8 +130,7 @@ PrefletPage {
 
         ListItem {
             text: "Nothing here yet"
-            //itemLabel.opacity: 0.5
-            interactive: false
+            enabled: false
         }
     }
 }
