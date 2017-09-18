@@ -27,7 +27,6 @@ import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.1
 import Fluid.Controls 1.0 as FluidControls
-import Fluid.Material 1.0 as FluidMaterial
 import Liri.Settings 1.0
 import QtAccountsService 1.0
 
@@ -125,14 +124,13 @@ PrefletPage {
 
         Layout.alignment: Qt.AlignHCenter
 
-        FluidMaterial.ActionButton {
+        FluidControls.FloatingActionButton {
             anchors.top: parent.top
             anchors.right: parent.right
             iconName: "content/add"
             enabled: unlocked
+            highlighted: true
             onClicked: addUserDialog.open()
-
-            Material.background: Material.accent
         }
     }
 }
