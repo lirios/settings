@@ -5,6 +5,8 @@ Project {
 
     readonly property string version: "0.9.0"
 
+    property bool useStaticAnalyzer: false
+
     condition: qbs.targetOS.contains("linux")
 
     minimumQbsVersion: "1.8.0"
