@@ -24,6 +24,7 @@
 #include <QtCore/QDir>
 #include <QtCore/QStandardPaths>
 #include <QtCore/QThread>
+#include <QDebug>
 #include "plugin.h"
 #include "pluginsmodel.h"
 
@@ -47,6 +48,10 @@ void PluginsModelTask::populate()
             QStringList files = moduleDir.entryList(QDir::Files);
             Q_FOREACH (const QString &fileName, files) {
                 if (fileName != QLatin1String("metadata.desktop"))
+                    continue;
+
+                // Skip modules already added
+                if (m_pluginsMap.contains(module))
                     continue;
 
                 Plugin *plugin = new Plugin(moduleDir.absoluteFilePath(fileName));
