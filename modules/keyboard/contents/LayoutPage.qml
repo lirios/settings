@@ -137,7 +137,7 @@ PrefletPage {
         }
 
         FluidControls.ListItem {
-            iconName: "content/add"
+            icon.name: "content/add"
             text: qsTr("Add layout...")
             onClicked: addDialog.open()
         }

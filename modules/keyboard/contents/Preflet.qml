@@ -54,7 +54,7 @@ Page {
         currentIndex: bar.currentIndex
 
         Placeholder {
-            iconName: "alert/warning"
+            icon.name: "alert/warning"
             text: "Not implemented yet"
         }
 

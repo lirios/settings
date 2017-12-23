@@ -89,8 +89,8 @@ FluidControls.ListItem {
             Layout.alignment: Qt.AlignVCenter
         }
 
-        FluidControls.IconButton {
-            iconName: "content/remove_circle"
+        ToolButton {
+            icon.name: "content/remove_circle"
             enabled: preflet.unlocked
             visible: !isCurrentUser
             onClicked: deleteDialog.open()

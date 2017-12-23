@@ -44,7 +44,7 @@ FluidControls.Page {
 
     actions: [
         FluidControls.Action {
-            iconName: "action/lock_open"
+            icon.name: "action/lock_open"
             text: qsTr("Unlock")
             toolTip: qsTr("Dialog is locked, click to unlock")
             visible: needsAuthorization && !unlocked

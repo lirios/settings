@@ -75,37 +75,37 @@ Dialog {
         Row {
             spacing: 0
 
-            FluidControls.IconButton {
+            ToolButton {
                 id: transform90Button
 
                 ToolTip.text: qsTr("Rotate counterclockwise by 90\xc2\xb0")
                 ToolTip.visible: hovered
 
-                iconName: "image/rotate_left"
+                icon.name: "image/rotate_left"
                 checkable: true
                 checked: model.transform === CppDisplay.OutputsModel.Transform90
                 autoExclusive: true
             }
 
-            FluidControls.IconButton {
+            ToolButton {
                 id: transform180Button
 
                 ToolTip.text: qsTr("Rotate by 180\xc2\xb0")
                 ToolTip.visible: hovered
 
-                iconName: "image/flip"
+                icon.name: "image/flip"
                 checkable: true
                 checked: model.transform === CppDisplay.OutputsModel.Transform180
                 autoExclusive: true
             }
 
-            FluidControls.IconButton {
+            ToolButton {
                 id: transform270Button
 
                 ToolTip.text: qsTr("Rotate clockwise by 90\xc2\xb0")
                 ToolTip.visible: hovered
 
-                iconName: "image/rotate_right"
+                icon.name: "image/rotate_right"
                 checkable: true
                 checked: model.transform === CppDisplay.OutputsModel.Transform270
                 autoExclusive: true
