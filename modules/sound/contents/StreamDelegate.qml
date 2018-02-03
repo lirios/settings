@@ -47,7 +47,8 @@ Item {
         spacing: FluidControls.Units.smallSpacing * 2
 
         FluidControls.Icon {
-            name: isEventStream ? "communication/ring_volume" : PulseObject.client.properties["application.icon_name"]
+            name: isEventStream ? "" : PulseObject.client.properties["application.icon_name"]
+            source: isEventStream ? FluidControls.Utils.iconUrl("communication/ring_volume") : ""
             size: 48
 
             Layout.alignment: Qt.AlignTop

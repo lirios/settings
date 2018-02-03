@@ -44,7 +44,7 @@ Item {
 
     FluidControls.Icon {
         anchors.fill: parent
-        name: "action/account_circle"
+        source: FluidControls.Utils.iconUrl("action/account_circle")
         size: parent.width
         visible: !image.visible
     }

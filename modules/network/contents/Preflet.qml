@@ -125,8 +125,8 @@ PrefletPage {
         ColumnLayout {
             spacing: Units.largeSpacing
 
-            Icon {
-                iconName: "computer-fail"
+            FluidControls.Icon {
+                source: FluidControls.Utils.iconurl("computer-fail")
                 width: Units.iconSizes.enormous
                 height: width
             }

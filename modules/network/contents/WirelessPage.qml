@@ -39,8 +39,8 @@ Item {
         anchors.fill: parent
 
         RowLayout {
-            Icon {
-                iconName: wirelessModel.available ? "network-wireless" : "network-wireless-disconnected"
+            FluidControls.Icon {
+                name: wirelessModel.available ? "network-wireless" : "network-wireless-disconnected"
                 width: Units.iconSizes.smallMedium
                 height: width
             }

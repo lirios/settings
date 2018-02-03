@@ -36,8 +36,8 @@ Item {
         anchors.fill: parent
 
         RowLayout {
-            Icon {
-                iconName: wiredModel.connected ? "network-wired" : "network-wired-disconnected"
+            FluidControls.Icon {
+                name: wiredModel.connected ? "network-wired" : "network-wired-disconnected"
                 width: Units.iconSizes.large
                 height: width
             }
@@ -140,10 +140,10 @@ Item {
                     networkPreflet.profileDialog.visible = !networkPreflet.profileDialog.visible;
                 }
 
-                Icon {
+                FluidControls.Icon {
                     anchors.fill:parent
                     anchors.margins:4
-                    iconName: "emblem-system-symbolic"
+                    name: "emblem-system-symbolic"
                     width: Units.iconSizes.small
                     height: width
                 }

@@ -72,7 +72,7 @@ FluidControls.ListItem {
         },
 
         FluidControls.Icon {
-            name: "action/account_circle"
+            source: FluidControls.Utils.iconUrl("action/account_circle")
             visible: !image.visible
             anchors.centerIn: parent
             size: 40
@@ -83,7 +83,7 @@ FluidControls.ListItem {
         anchors.centerIn: parent
 
         FluidControls.Icon {
-            name: "action/verified_user"
+            source: FluidControls.Utils.iconUrl("action/verified_user")
             visible: isAdminUser
 
             Layout.alignment: Qt.AlignVCenter

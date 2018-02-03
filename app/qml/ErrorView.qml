@@ -25,7 +25,7 @@ import QtQuick 2.2
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
-import Fluid.Controls 1.0
+import Fluid.Controls 1.0 as FluidControls
 
 Item {
     property string moduleTitle
@@ -35,15 +35,15 @@ Item {
         anchors.centerIn: parent
         width: parent.width - 32
 
-        Icon {
-            name: "alert/warning"
+        FluidControls.Icon {
+            source: FluidControls.Utils.iconUrl("alert/warning")
             size: 96
             color: Material.color(Material.Red)
 
             Layout.alignment: Qt.AlignHCenter
         }
 
-        TitleLabel {
+        FluidControls.TitleLabel {
             text: qsTr("Error loading \"%1\"").arg(moduleTitle)
             color: Material.secondaryTextColor
             horizontalAlignment: Qt.AlignHCenter
@@ -51,7 +51,7 @@ Item {
             Layout.fillWidth: true
         }
 
-        SubheadingLabel {
+        FluidControls.SubheadingLabel {
             id: messageLabel
             color: Material.secondaryTextColor
             horizontalAlignment: Qt.AlignHCenter
