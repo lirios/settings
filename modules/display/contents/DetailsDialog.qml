@@ -81,7 +81,7 @@ Dialog {
                 ToolTip.text: qsTr("Rotate counterclockwise by 90\xc2\xb0")
                 ToolTip.visible: hovered
 
-                icon.name: "image/rotate_left"
+                icon.source: FluidControls.Utils.iconUrl("image/rotate_left")
                 checkable: true
                 checked: model.transform === CppDisplay.OutputsModel.Transform90
                 autoExclusive: true
@@ -93,7 +93,7 @@ Dialog {
                 ToolTip.text: qsTr("Rotate by 180\xc2\xb0")
                 ToolTip.visible: hovered
 
-                icon.name: "image/flip"
+                icon.source: FluidControls.Utils.iconUrl("image/flip")
                 checkable: true
                 checked: model.transform === CppDisplay.OutputsModel.Transform180
                 autoExclusive: true
@@ -105,7 +105,7 @@ Dialog {
                 ToolTip.text: qsTr("Rotate clockwise by 90\xc2\xb0")
                 ToolTip.visible: hovered
 
-                icon.name: "image/rotate_right"
+                icon.source: FluidControls.Utils.iconUrl("image/rotate_right")
                 checkable: true
                 checked: model.transform === CppDisplay.OutputsModel.Transform270
                 autoExclusive: true

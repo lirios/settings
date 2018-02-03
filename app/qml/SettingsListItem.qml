@@ -27,7 +27,7 @@ import Fluid.Controls 1.0 as FluidControls
 
 FluidControls.ListItem {
     text: title
-    icon.name: model.iconName
+    icon.source: FluidControls.Utils.iconUrl(model.iconName)
 
     highlighted: selectedModule ? selectedModule.mainScriptUrl === model.mainScriptUrl : false
 

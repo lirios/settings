@@ -24,7 +24,7 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.0
-import Fluid.Controls 1.0
+import Fluid.Controls 1.0 as FluidControls
 import Liri.Settings 1.0
 
 Page {
@@ -53,8 +53,8 @@ Page {
         anchors.fill: parent
         currentIndex: bar.currentIndex
 
-        Placeholder {
-            icon.name: "alert/warning"
+        FluidControls.Placeholder {
+            icon.source: FluidControls.Utils.iconUrl("alert/warning")
             text: "Not implemented yet"
         }
 

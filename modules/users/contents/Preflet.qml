@@ -127,7 +127,7 @@ PrefletPage {
         FluidControls.FloatingActionButton {
             anchors.top: parent.top
             anchors.right: parent.right
-            icon.name: "content/add"
+            icon.source: FluidControls.Utils.iconUrl("content/add")
             enabled: unlocked
             highlighted: true
             onClicked: addUserDialog.open()

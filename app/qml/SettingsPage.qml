@@ -101,7 +101,7 @@ FluidControls.Page {
         FluidControls.Placeholder {
             anchors.fill: parent
 
-            icon.name: "action/settings"
+            icon.source: FluidControls.Utils.iconUrl("action/settings")
             text: qsTr("Welcome to Settings")
             subText: qsTr("Select an item from the list to see the available options.")
             visible: moduleLoader.status == Loader.Null
