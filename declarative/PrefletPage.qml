@@ -32,8 +32,8 @@ FluidControls.Page {
 
     default property alias content: layout.data
 
-    property int windowWidth: undefined
-    property int windowHeight: undefined
+    property int windowWidth: window.defaultWidth
+    property int windowHeight: window.defaultHeight
 
     property bool centered: false
 
