@@ -55,7 +55,7 @@ PrefletPage {
         width: 400
     }
 
-    FluidControls.SnakBar {
+    FluidControls.SnackBar {
         id: snack
     }
 
