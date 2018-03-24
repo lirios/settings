@@ -40,13 +40,13 @@ void PluginsModelTask::populate()
     QStringList list = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
                                                  QLatin1String("liri/settings/modules"),
                                                  QStandardPaths::LocateDirectory);
-    Q_FOREACH (const QString &location, list) {
+    for (const QString &location : qAsConst(list)) {
         QDir dir(location);
         QStringList modules = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
-        Q_FOREACH (const QString &module, modules) {
+        for (const QString &module : qAsConst(modules)) {
             QDir moduleDir(dir.absoluteFilePath(module));
             QStringList files = moduleDir.entryList(QDir::Files);
-            Q_FOREACH (const QString &fileName, files) {
+            for (const QString &fileName : qAsConst(files)) {
                 if (fileName != QLatin1String("metadata.desktop"))
                     continue;
 

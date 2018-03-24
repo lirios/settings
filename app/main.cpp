@@ -87,7 +87,7 @@ static void loadModuleTranslations()
                                    rootDir,
                                    QStandardPaths::LocateDirectory);
     QDir modulesDir(modulesPath);
-    Q_FOREACH (const QFileInfo &info, modulesDir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot)) {
+    for (const QFileInfo &info : modulesDir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot)) {
         const QString name = info.fileName();
 
         // Find the translations directory

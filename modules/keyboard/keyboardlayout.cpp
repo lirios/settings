@@ -68,7 +68,7 @@ const KeyboardLayoutVariant *KeyboardLayout::findVariant(const QString &name) co
     if (name.isEmpty())
         return nullptr;
 
-    Q_FOREACH (const KeyboardLayoutVariant *variant, m_variants) {
+    for (const KeyboardLayoutVariant *variant : qAsConst(m_variants)) {
         if (variant->name() == name)
             return variant;
     }

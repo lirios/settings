@@ -97,7 +97,7 @@ static QVariantList modesList(const QList<Output::Mode> &list)
     QVariantList result;
 
     int i = 0;
-    Q_FOREACH (const Output::Mode &mode, list) {
+    for (const Output::Mode &mode : list) {
         QVariantMap map;
         map.insert(QStringLiteral("name"),
                    TR("OutputsModel", "%1 × %2 (%3)", "Resolution combo box").arg(

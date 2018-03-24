@@ -72,7 +72,7 @@ QQmlListProperty<KeyboardLayout> KeyboardData::layouts()
 
 QString KeyboardData::layoutDescription(const QString &name) const
 {
-    Q_FOREACH (KeyboardLayout *l, m_layouts) {
+    for (KeyboardLayout *l : qAsConst(m_layouts)) {
         if (l->name() == name)
             return l->description();
     }
@@ -83,7 +83,7 @@ QString KeyboardData::layoutDescription(const QString &name) const
 QString KeyboardData::variantDescription(const QString &layout, const QString &name) const
 {
     KeyboardLayout *foundLayout = nullptr;
-    Q_FOREACH (KeyboardLayout *l, m_layouts) {
+    for (KeyboardLayout *l : qAsConst(m_layouts)) {
         if (l->name() == layout) {
             foundLayout = l;
             break;
@@ -93,7 +93,7 @@ QString KeyboardData::variantDescription(const QString &layout, const QString &n
     if (!foundLayout)
         return QString();
 
-    Q_FOREACH (const KeyboardLayoutVariant *v, foundLayout->m_variants) {
+    for (const KeyboardLayoutVariant *v : qAsConst(foundLayout->m_variants)) {
         if (v->name() == name)
             return v->description();
     }
@@ -151,7 +151,7 @@ void KeyboardData::loadData()
                 sep = description.indexOf(": ");
                 if (sep >= 0) {
                     QString lang = description.left(sep);
-                    Q_FOREACH (KeyboardLayout *layout, m_layouts) {
+                    for (KeyboardLayout *layout : qAsConst(m_layouts)) {
                         if (layout->name() == lang)
                             layout->appendVariant(name, description.mid(sep + 2));
                     }
