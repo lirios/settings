@@ -76,8 +76,8 @@ public:
 
     Q_INVOKABLE Plugin *getByName(const QString &name) const;
 
-    void classBegin() Q_DECL_OVERRIDE {}
-    void componentComplete() Q_DECL_OVERRIDE;
+    void classBegin() override {}
+    void componentComplete() override;
 
 Q_SIGNALS:
     void vendorChanged();

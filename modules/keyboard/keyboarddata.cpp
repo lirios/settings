@@ -82,7 +82,7 @@ QString KeyboardData::layoutDescription(const QString &name) const
 
 QString KeyboardData::variantDescription(const QString &layout, const QString &name) const
 {
-    KeyboardLayout *foundLayout = Q_NULLPTR;
+    KeyboardLayout *foundLayout = nullptr;
     Q_FOREACH (KeyboardLayout *l, m_layouts) {
         if (l->name() == layout) {
             foundLayout = l;

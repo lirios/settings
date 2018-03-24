@@ -66,14 +66,14 @@ void KeyboardLayout::appendVariant(const QString &name, const QString &descripti
 const KeyboardLayoutVariant *KeyboardLayout::findVariant(const QString &name) const
 {
     if (name.isEmpty())
-        return Q_NULLPTR;
+        return nullptr;
 
     Q_FOREACH (const KeyboardLayoutVariant *variant, m_variants) {
         if (variant->name() == name)
             return variant;
     }
 
-    return Q_NULLPTR;
+    return nullptr;
 }
 
 #include "moc_keyboardlayout.cpp"

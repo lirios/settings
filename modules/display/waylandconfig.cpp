@@ -30,7 +30,7 @@ WaylandConfig::WaylandConfig(QObject *parent)
     , m_connection(ClientConnection::fromQt())
     , m_registry(new Registry())
     , m_thread(new QThread())
-    , m_management(Q_NULLPTR)
+    , m_management(nullptr)
 {
     if (m_connection) {
         m_connection->moveToThread(m_thread);
@@ -63,7 +63,7 @@ WaylandConfig::~WaylandConfig()
 
 bool WaylandConfig::isConfigurationEnabled() const
 {
-    return m_management != Q_NULLPTR;
+    return m_management != nullptr;
 }
 
 OutputManagement *WaylandConfig::outputManagement() const
@@ -110,7 +110,7 @@ void WaylandConfig::outputManagementRemoved(quint32 name)
     Q_UNUSED(name);
 
     delete m_management;
-    m_management = Q_NULLPTR;
+    m_management = nullptr;
 
     Q_EMIT configurationEnabledChanged(false);
 }

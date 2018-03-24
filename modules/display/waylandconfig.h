@@ -45,7 +45,7 @@ class WaylandConfig : public QObject
     Q_OBJECT
     Q_PROPERTY(bool configurationEnabled READ isConfigurationEnabled NOTIFY configurationEnabledChanged)
 public:
-    explicit WaylandConfig(QObject *parent = Q_NULLPTR);
+    explicit WaylandConfig(QObject *parent = nullptr);
     ~WaylandConfig();
 
     bool isConfigurationEnabled() const;
