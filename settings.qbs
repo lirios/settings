@@ -9,7 +9,7 @@ Project {
 
     condition: qbs.targetOS.contains("linux")
 
-    minimumQbsVersion: "1.8.0"
+    minimumQbsVersion: "1.9.0"
 
     qbsSearchPaths: ["qbs"]
 
