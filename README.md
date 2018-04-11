@@ -9,7 +9,7 @@ Settings
 [![GitHub issues](https://img.shields.io/github/issues/lirios/settings.svg)](https://github.com/lirios/settings/issues)
 [![Maintained](https://img.shields.io/maintenance/yes/2018.svg)](https://github.com/lirios/settings/commits/develop)
 
-Settings application and modules for Liri OS.
+Settings application and modules for Liri desktop.
 
 ## Dependencies
 
@@ -22,12 +22,13 @@ Qt >= 5.10.0 with at least the following modules is required:
 
 The following modules and their dependencies are required:
 
- * [qbs-shared](https://github.com/lirios/qbs-shared.git)
+ * [qbs](http://code.qt.io/cgit/qbs/qbs.git) >= 1.9.0
+ * [qbs-shared](https://github.com/lirios/qbs-shared.git) >= 1.2.0
+ * [qtaccountsservice](https://github.com/lirios/qtaccountsservice.git) >= 1.2.0
+ * [fluid](https://github.com/lirios/fluid.git) >= 1.0.0
  * [liri-wayland](https://github.com/lirios/liri-wayland.git)
- * [fluid](https://github.com/lirios/fluid.git)
  * [vibe](https://github.com/lirios/vibe.git)
  * [libqtxdg](https://github.com/lxde/libqtxdg.git)
- * [qtaccountsservice](https://github.com/lirios/qtaccountsservice.git)
  * [polkit](https://cgit.freedesktop.org/polkit/)
  * [xkeyboard-config](https://cgit.freedesktop.org/xkeyboard-config)
 
