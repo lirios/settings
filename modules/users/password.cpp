@@ -23,6 +23,7 @@
 
 #include "password.h"
 
+#include <crypt.h>
 #include <unistd.h>
 
 Password::Password(QObject *parent)
@@ -39,5 +40,5 @@ QString Password::cryptPassword(const QString &password) const
     for (int i = 0; i < 16; i++)
         salt.append(alpha.at((qrand() % len)));
 
-    return QString::fromLatin1(::crypt(password.toUtf8(), salt.constData()));
+    return QString::fromLatin1(::crypt(password.toUtf8().constData(), salt.constData()));
 }
