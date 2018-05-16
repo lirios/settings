@@ -1,8 +1,9 @@
 import qbs 1.0
+import qbs.Probes
 
 Module {
-    property bool found: probe.found
-    property string packageVersion: probe.modversion
+    readonly property bool found: probe.found
+    readonly property string packageVersion: probe.modversion
 
     Depends { name: "cpp" }
 
@@ -13,7 +14,7 @@ Module {
     cpp.dynamicLibraries: probe.libraries == undefined ? [] : probe.libraries
     cpp.linkerFlags: probe.linkerFlags == undefined ? [] : probe.linkerFlags
 
-    LiriPkgConfigProbe {
+    Probes.PkgConfigProbe {
         id: probe
         name: "polkit-gobject-1"
     }
