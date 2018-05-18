@@ -24,7 +24,8 @@
 #ifndef OUTPUTSMODEL_H
 #define OUTPUTSMODEL_H
 
-#include <QtCore/QAbstractItemModel>
+#include <QAbstractItemModel>
+#include <KWayland/Client/outputdevice.h>
 
 #include "waylandconfig.h"
 
@@ -77,7 +78,7 @@ Q_SIGNALS:
 
 private:
     WaylandConfig *m_config;
-    QVector<Output *> m_list;
+    QVector<KWayland::Client::OutputDevice *> m_list;
 };
 
 #endif // OUTPUTSMODEL_H

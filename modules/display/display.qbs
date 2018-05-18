@@ -4,7 +4,16 @@ LiriSettingsModulePlugin {
     shortName: "display"
     qmlModuleName: "Display"
 
-    Depends { name: "LiriWaylandClient" }
+    Depends { name: "KF5.KWaylandClient" }
+
+    condition: {
+        if (!KF5.KWaylandClient.found) {
+            console.error("KWaylandClient is required to build " + targetName);
+            return false;
+        }
+
+        return true;
+    }
 
     //cpp.defines: []
     files: ["*.cpp", "*.h"]

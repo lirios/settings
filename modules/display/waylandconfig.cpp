@@ -27,8 +27,8 @@
 
 WaylandConfig::WaylandConfig(QObject *parent)
     : QObject(parent)
-    , m_connection(ClientConnection::fromQt())
-    , m_registry(new Registry())
+    , m_connection(KWayland::Client::ConnectionThread::fromApplication(this))
+    , m_registry(new KWayland::Client::Registry(this))
     , m_thread(new QThread())
     , m_management(nullptr)
 {
@@ -36,15 +36,15 @@ WaylandConfig::WaylandConfig(QObject *parent)
         m_connection->moveToThread(m_thread);
         m_thread->start();
 
-        connect(m_registry, &Registry::interfacesAnnounced,
+        connect(m_registry, &KWayland::Client::Registry::interfacesAnnounced,
                 this, &WaylandConfig::interfacesAnnounced);
-        connect(m_registry, &Registry::outputAnnounced,
-                this, &WaylandConfig::waylandOutputAnnounced);
-        connect(m_registry, &Registry::outputRemoved,
-                this, &WaylandConfig::waylandOutputRemoved);
-        connect(m_registry, &Registry::outputManagementAnnounced,
+        connect(m_registry, &KWayland::Client::Registry::outputDeviceAnnounced,
+                this, &WaylandConfig::outputDeviceAnnounced);
+        connect(m_registry, &KWayland::Client::Registry::outputDeviceRemoved,
+                this, &WaylandConfig::outputDeviceRemoved);
+        connect(m_registry, &KWayland::Client::Registry::outputManagementAnnounced,
                 this, &WaylandConfig::outputManagementAnnounced);
-        connect(m_registry, &Registry::outputManagementRemoved,
+        connect(m_registry, &KWayland::Client::Registry::outputManagementRemoved,
                 this, &WaylandConfig::outputManagementRemoved);
 
         m_registry->create(m_connection->display());
@@ -66,7 +66,7 @@ bool WaylandConfig::isConfigurationEnabled() const
     return m_management != nullptr;
 }
 
-OutputManagement *WaylandConfig::outputManagement() const
+KWayland::Client::OutputManagement *WaylandConfig::outputManagement() const
 {
     return m_management;
 }
@@ -75,23 +75,20 @@ void WaylandConfig::interfacesAnnounced()
 {
 }
 
-void WaylandConfig::waylandOutputAnnounced(quint32 name, quint32 version)
+void WaylandConfig::outputDeviceAnnounced(quint32 name, quint32 version)
 {
-    Output *output = m_registry->createOutput(name, version, this);
+    KWayland::Client::OutputDevice *output = m_registry->createOutputDevice(name, version, this);
     m_outputs.append({name, output});
-
-    m_connection->flushRequests();
-    m_connection->forceRoundTrip();
 
     Q_EMIT outputAdded(output);
 }
 
-void WaylandConfig::waylandOutputRemoved(quint32 name)
+void WaylandConfig::outputDeviceRemoved(quint32 name)
 {
     auto it = m_outputs.begin();
     while (it++ != m_outputs.end()) {
         if (it->name == name) {
-            Output *output = it->output;
+            KWayland::Client::OutputDevice *output = it->output;
             it = m_outputs.erase(it);
             Q_EMIT outputRemoved(output);
             break;

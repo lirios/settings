@@ -24,11 +24,13 @@
 #include <QtMath>
 #include <QtCore/QCoreApplication>
 
-#include <LiriWaylandClient/OutputConfiguration>
+#include <KWayland/Client/outputconfiguration.h>
 
 #include "outputsmodel.h"
 
 #define TR QCoreApplication::translate
+
+using namespace KWayland::Client;
 
 static const qreal knownDiagonals[] = {
     12.1,
@@ -92,12 +94,12 @@ static QString aspectRatioString(const QSize &size)
     return QString();
 }
 
-static QVariantList modesList(const QList<Output::Mode> &list)
+static QVariantList modesList(const QList<OutputDevice::Mode> &list)
 {
     QVariantList result;
 
     int i = 0;
-    for (const Output::Mode &mode : list) {
+    for (const OutputDevice::Mode &mode : list) {
         QVariantMap map;
         map.insert(QStringLiteral("name"),
                    TR("OutputsModel", "%1 × %2 (%3)", "Resolution combo box").arg(
@@ -119,13 +121,18 @@ OutputsModel::OutputsModel(QObject *parent)
 {
     connect(m_config, &WaylandConfig::configurationEnabledChanged,
             this, &OutputsModel::configurationEnabledChanged);
-    connect(m_config, &WaylandConfig::outputAdded, this, [this](Output *output) {
+    connect(m_config, &WaylandConfig::outputAdded, this, [this](OutputDevice *output) {
         beginInsertRows(QModelIndex(), m_list.size(), m_list.size());
         m_list.append(output);
         endInsertRows();
+
+        connect(output, &OutputDevice::changed, this, [this, output] {
+            beginResetModel();
+            endResetModel();
+        });
     });
-    connect(m_config, &WaylandConfig::outputRemoved, this, [this](Output *output) {
-        beginRemoveRows(QModelIndex(), m_list.size(), m_list.size());
+    connect(m_config, &WaylandConfig::outputRemoved, this, [this](OutputDevice *output) {
+        beginRemoveRows(QModelIndex(), m_list.indexOf(output), m_list.indexOf(output));
         m_list.removeOne(output);
         endRemoveRows();
     });
@@ -146,7 +153,7 @@ QHash<int, QByteArray> OutputsModel::roleNames() const
     roles.insert(NameRole, QByteArrayLiteral("name"));
     roles.insert(NumberRole, QByteArrayLiteral("number"));
     roles.insert(ManufacturerRole, QByteArrayLiteral("manufacturer"));
-    roles.insert(ModelRole, QByteArrayLiteral("model"));
+    roles.insert(ModelRole, QByteArrayLiteral("modelName"));
     roles.insert(PrimaryRole, QByteArrayLiteral("primary"));
     roles.insert(EnabledRole, QByteArrayLiteral("enabled"));
     roles.insert(AspectRatioRole, QByteArrayLiteral("aspectRatio"));
@@ -173,7 +180,7 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 && index.row() > m_list.size())
         return QVariant();
 
-    Output *output = m_list.at(index.row());
+    OutputDevice *output = m_list.at(index.row());
 
     switch (role) {
     case Qt::DisplayRole:
@@ -188,7 +195,7 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
     case PrimaryRole:
         return false; // output->isPrimary();
     case EnabledRole:
-        return true; // output->isEnabled();
+        return output->enabled() == OutputDevice::Enablement::Enabled;
     case AspectRatioRole:
         if (output->physicalSize().width() > output->physicalSize().height())
             return (qreal)output->physicalSize().width() / (qreal)output->physicalSize().height();
@@ -196,22 +203,22 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
     case AspectRatioStringRole:
         return aspectRatioString(output->physicalSize());
     case PositionRole:
-        return output->position();
+        return output->globalPosition();
     case DiagonalSizeRole:
         return displaySizeString(output->physicalSize());
     case ResolutionRole:
-        return output->size();
+        return output->pixelSize();
     case CurrentModeRole:
-        return 5; //output->currentMode();
+        return output->currentMode().id;
     case ModesRole:
         return modesList(output->modes());
     case TransformRole:
         switch (output->transform()) {
-        case Output::Transform90:
+        case OutputDevice::Transform::Rotated90:
             return Transform90;
-        case Output::Transform180:
+        case OutputDevice::Transform::Rotated180:
             return Transform180;
-        case Output::Transform270:
+        case OutputDevice::Transform::Rotated270:
             return Transform270;
         default:
             return TransformNormal;
@@ -229,29 +236,29 @@ void OutputsModel::applyConfiguration(int outputNumber, int modeId, const Transf
     if (!management)
         return;
 
-    Output::Transform wlTransform = Output::TransformNormal;
+    OutputDevice::Transform wlTransform = OutputDevice::Transform::Normal;
     switch (transform) {
     case Transform90:
-        wlTransform = Output::Transform90;
+        wlTransform = OutputDevice::Transform::Rotated90;
         break;
     case Transform180:
-        wlTransform = Output::Transform180;
+        wlTransform = OutputDevice::Transform::Rotated180;
         break;
     case Transform270:
-        wlTransform = Output::Transform270;
+        wlTransform = OutputDevice::Transform::Rotated270;
         break;
     default:
         break;
     }
 
-    Output *output = m_list.at(outputNumber - 1);
+    OutputDevice *output = m_list.at(outputNumber - 1);
 
     OutputConfiguration *config = management->createConfiguration(this);
-    config->setEnabled(output, true);
-    config->setModeId(output, modeId);
+    config->setEnabled(output, OutputDevice::Enablement::Enabled);
+    config->setMode(output, modeId);
     config->setTransform(output, wlTransform);
-    config->setPosition(output, output->position());
-    config->setScaleFactor(output, output->scale());
+    config->setPosition(output, output->globalPosition());
+    config->setScale(output, output->scale());
     config->apply();
 }
 

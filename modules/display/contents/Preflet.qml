@@ -34,10 +34,6 @@ PrefletPage {
         id: outputsModel
     }
 
-    DetailsDialog {
-        id: detailsDialog
-    }
-
     ModuleContainer {
         title: qsTr("Screens")
 
@@ -45,6 +41,10 @@ PrefletPage {
             model: outputsModel
 
             ListItem {
+                DetailsDialog {
+                    id: detailsDialog
+                }
+
                 text: name
                 onClicked: {
                     detailsDialog.number = number;

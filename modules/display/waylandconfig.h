@@ -28,16 +28,14 @@
 #include <QtCore/QThread>
 #include <QtCore/QVector>
 
-#include <LiriWaylandClient/ClientConnection>
-#include <LiriWaylandClient/Registry>
-#include <LiriWaylandClient/Output>
-#include <LiriWaylandClient/OutputManagement>
-
-using namespace Liri::WaylandClient;
+#include <KWayland/Client/connection_thread.h>
+#include <KWayland/Client/registry.h>
+#include <KWayland/Client/output.h>
+#include <KWayland/Client/outputmanagement.h>
 
 struct WaylandOutput {
     quint32 name;
-    Output *output;
+    KWayland::Client::OutputDevice *output;
 };
 
 class WaylandConfig : public QObject
@@ -50,24 +48,24 @@ public:
 
     bool isConfigurationEnabled() const;
 
-    OutputManagement *outputManagement() const;
+    KWayland::Client::OutputManagement *outputManagement() const;
 
 Q_SIGNALS:
-    void outputAdded(Output *output);
-    void outputRemoved(Output *output);
+    void outputAdded(KWayland::Client::OutputDevice *output);
+    void outputRemoved(KWayland::Client::OutputDevice *output);
     void configurationEnabledChanged(bool value);
 
 private:
-    ClientConnection *m_connection;
-    Registry *m_registry;
+    KWayland::Client::ConnectionThread *m_connection;
+    KWayland::Client::Registry *m_registry;
     QThread *m_thread;
     QVector<WaylandOutput> m_outputs;
-    OutputManagement *m_management;
+    KWayland::Client::OutputManagement *m_management;
 
 private Q_SLOTS:
     void interfacesAnnounced();
-    void waylandOutputAnnounced(quint32 name, quint32 version);
-    void waylandOutputRemoved(quint32 name);
+    void outputDeviceAnnounced(quint32 name, quint32 version);
+    void outputDeviceRemoved(quint32 name);
     void outputManagementAnnounced(quint32 name, quint32 version);
     void outputManagementRemoved(quint32 name);
 };
