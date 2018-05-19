@@ -73,18 +73,6 @@ source_lang = en
 source_file = modules/keyboard/metadata.desktop.in
 file_filter = modules/keyboard/translations/metadata_<lang>.desktop
 
-[liri-settings.network-module]
-type = QT
-source_lang = en
-source_file = modules/network/translations/network.ts
-file_filter = modules/network/translations/network_<lang>.ts
-
-[liri-settings.network-metadata]
-type = DESKTOP
-source_lang = en
-source_file = modules/network/metadata.desktop.in
-file_filter = modules/network/translations/metadata_<lang>.desktop
-
 [liri-settings.power-module]
 type = QT
 source_lang = en
