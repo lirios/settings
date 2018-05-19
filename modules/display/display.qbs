@@ -1,6 +1,6 @@
 import qbs 1.0
 
-SettingsModulePlugin {
+LiriSettingsModulePlugin {
     shortName: "display"
     qmlModuleName: "Display"
 

@@ -1,6 +1,6 @@
 import qbs 1.0
 
-SettingsModule {
+LiriSettingsModule {
     shortName: "power"
 
     Group {

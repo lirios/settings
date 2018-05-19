@@ -1,7 +1,7 @@
 import qbs 1.0
 import qbs.TextFile
 
-SettingsModule {
+LiriSettingsModule {
     shortName: "info"
     type: base.concat(["liri.settings.contents"])
 
