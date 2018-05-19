@@ -47,7 +47,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="62"/>
         <source>Enter the name and security details of the hidden Wi-Fi network you wish to connect to.</source>
-        <translation>Įveskite paslėpto belaidžio tinklo, prie kurio norite jungtis, pavadinimą ir saugos informaciją.</translation>
+        <translation>Įveskite paslėpto belaidžio tinklo, prie kurio norite jungtis, pavadinimą ir saugumo informaciją.</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="75"/>
@@ -62,17 +62,17 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="94"/>
         <source>None</source>
-        <translation>Jokio</translation>
+        <translation>Nėra</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="95"/>
         <source>WEP 40/128-bit Key (Hex or ASCII)</source>
-        <translation>WEP 40/128-bitų Raktas (Šešioliktainis arba ASCII)</translation>
+        <translation>WEP 40/128-bitų raktas (Šešioliktainis arba ASCII)</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="96"/>
         <source>WEP 128-bit Passphrase</source>
-        <translation>WEP 128-bitų Slaptafrazė</translation>
+        <translation>WEP 128-bitų slaptafrazė</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="97"/>
@@ -92,7 +92,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="100"/>
         <source>WPA &amp; WPA2 Enterprise</source>
-        <translation>WPA &amp; WPA2 įmonės</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="101"/>
@@ -112,7 +112,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="140"/>
         <source>WEP index:</source>
-        <translation>WEP indeksas:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="147"/>
@@ -137,17 +137,17 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="152"/>
         <source>Authentication:</source>
-        <translation>Tapatumo nustatymas:</translation>
+        <translation>Tapatybės nustatymas:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="159"/>
         <source>Open System</source>
-        <translation>Atvira sistema</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="159"/>
         <source>Shared Key</source>
-        <translation>Bendrinamas raktas</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="173"/>
@@ -182,12 +182,12 @@
     <message>
         <location filename="../contents/IPv4Pane.qml" line="40"/>
         <source>Obtain an IP address automatically</source>
-        <translation type="unfinished"/>
+        <translation>Gauti IP adresą automatiškai</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="50"/>
         <source>Use the following IP address</source>
-        <translation>Naudoti sekantį IP adresą</translation>
+        <translation>Naudoti šį IP adresą</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="61"/>
@@ -202,17 +202,17 @@
     <message>
         <location filename="../contents/IPv4Pane.qml" line="69"/>
         <source>Default Gateway:</source>
-        <translation>Numatytasis Tinklų Sietuvas:</translation>
+        <translation>Numatytasis tinklų sietuvas:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="86"/>
         <source>Obtain DNS server address automatically</source>
-        <translation type="unfinished"/>
+        <translation>Gauti DNS serverio adresą automatiškai</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="90"/>
         <source>Use the following DNS server addresses</source>
-        <translation type="unfinished"/>
+        <translation>Naudoti šiuos DNS serverio adresus</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="95"/>
@@ -268,12 +268,12 @@
     <message>
         <location filename="../contents/Preflet.qml" line="140"/>
         <source>Network service unavailable</source>
-        <translation type="unfinished"/>
+        <translation>Tinklo tarnyba neprieinama</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="144"/>
         <source>Please make sure the &quot;NetworkManager&quot; service is running.</source>
-        <translation type="unfinished"/>
+        <translation>Prašome įsitikinti, kad &quot;NetworkManager&quot; tarnyba yra vykdoma.</translation>
     </message>
 </context>
 <context>
@@ -286,7 +286,7 @@
     <message>
         <location filename="../contents/SecurityPane.qml" line="50"/>
         <source>Authentication:</source>
-        <translation>Tapatumo nustatymas:</translation>
+        <translation>Tapatybės nustatymas:</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="56"/>
@@ -301,7 +301,7 @@
     <message>
         <location filename="../contents/SecurityPane.qml" line="85"/>
         <source>None</source>
-        <translation>Jokio</translation>
+        <translation>Nėra</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="85"/>
@@ -329,7 +329,7 @@
     <message>
         <location filename="../contents/WiredPage.qml" line="133"/>
         <source>Add Profile...</source>
-        <translation>Pridėti profilį...</translation>
+        <translation>Pridėti profilį</translation>
     </message>
 </context>
 <context>
@@ -367,7 +367,7 @@
     <message>
         <location filename="../contents/WirelessPage.qml" line="138"/>
         <source>Use as Hotspot...</source>
-        <translation>Naudoti kaip prieigos tašką...</translation>
+        <translation>Naudoti kaip prieigos tašką</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="143"/>
@@ -377,7 +377,7 @@
     <message>
         <location filename="../contents/WirelessPage.qml" line="152"/>
         <source>History</source>
-        <translation type="unfinished"/>
+        <translation>Istorija</translation>
     </message>
 </context>
 </TS>

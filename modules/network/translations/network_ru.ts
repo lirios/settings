@@ -4,12 +4,12 @@
     <message>
         <location filename="../contents/DetailsPane.qml" line="42"/>
         <source>Hardware Address:</source>
-        <translation>Физический адрес:</translation>
+        <translation>Аппаратный адрес:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="48"/>
         <source>IP Address:</source>
-        <translation>IP адрес:</translation>
+        <translation>IP-адрес:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="55"/>
@@ -19,12 +19,12 @@
     <message>
         <location filename="../contents/DetailsPane.qml" line="62"/>
         <source>Default Gateway:</source>
-        <translation>Основной шлюз:</translation>
+        <translation>Маршрут по умолчанию:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="69"/>
         <source>DNS Server:</source>
-        <translation>DNS Сервер:</translation>
+        <translation>DNS:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="76"/>
@@ -37,7 +37,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="35"/>
         <source>Connect to a hidden Wi-Fi network</source>
-        <translation>Подключиться к скрытой wi-fi сети</translation>
+        <translation>Подключение к скрытой Wi-Fi сети</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="57"/>
@@ -47,7 +47,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="62"/>
         <source>Enter the name and security details of the hidden Wi-Fi network you wish to connect to.</source>
-        <translation>Введите имя и настройки безопасности, скрытой беспроводной сети, для подключения к ней.</translation>
+        <translation>Введите имя и детали безопасности скрытой Wi-Fi сети.</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="75"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="87"/>
         <source>Wi-Fi security:</source>
-        <translation>Wi-Fi безопасность:</translation>
+        <translation>Тип защиты:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="94"/>
@@ -67,12 +67,12 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="95"/>
         <source>WEP 40/128-bit Key (Hex or ASCII)</source>
-        <translation>WEP 40/128-bit Key (Hex or ASCII)</translation>
+        <translation>WEP 40/128-битный ключ (Hex или ASCII)</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="96"/>
         <source>WEP 128-bit Passphrase</source>
-        <translation>WEP 128-bit Passphrase</translation>
+        <translation>WEP 128-битный пароль</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="97"/>
@@ -82,17 +82,17 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="98"/>
         <source>Dynamic WEP (802.1x)</source>
-        <translation>Dynamic WEP (802.1x)</translation>
+        <translation>Динамический WEP (802.1x)</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="99"/>
         <source>WPA &amp; WPA2 Personal</source>
-        <translation>WPA &amp; WPA2 Personal</translation>
+        <translation>Персональные WPA и WPA2</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="100"/>
         <source>WPA &amp; WPA2 Enterprise</source>
-        <translation>WPA &amp; WPA2 Enterprise</translation>
+        <translation>Промышленные WPA и WPA2</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="101"/>
@@ -107,17 +107,17 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="135"/>
         <source>Show key</source>
-        <translation>Показать ключ:</translation>
+        <translation>Показать ключ</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="140"/>
         <source>WEP index:</source>
-        <translation>WEP индекс:</translation>
+        <translation>Индекс WEP:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="147"/>
         <source>1 (Default)</source>
-        <translation>1 (Default)</translation>
+        <translation>1 (по умолчанию)</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="148"/>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="152"/>
         <source>Authentication:</source>
-        <translation>Авторизация:</translation>
+        <translation>Аутентификация:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="159"/>
@@ -147,12 +147,12 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="159"/>
         <source>Shared Key</source>
-        <translation>Общий ключ</translation>
+        <translation>Публичный ключ</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="173"/>
         <source>Username:</source>
-        <translation>Имя пользователя:</translation>
+        <translation>Имя:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="185"/>
@@ -164,12 +164,12 @@
         <location filename="../contents/HiddenWifiDialog.qml" line="202"/>
         <location filename="../contents/HiddenWifiDialog.qml" line="234"/>
         <source>Show password</source>
-        <translation>Показать пароль:</translation>
+        <translation>Показать пароль</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="253"/>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation>Отменить</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="259"/>
@@ -182,47 +182,47 @@
     <message>
         <location filename="../contents/IPv4Pane.qml" line="40"/>
         <source>Obtain an IP address automatically</source>
-        <translation>Получать IP адрес автоматически</translation>
+        <translation>Получать IP-адрес автоматически</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="50"/>
         <source>Use the following IP address</source>
-        <translation>Использовать следующий IP адрес</translation>
+        <translation>Использовать следующий IP-адрес</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="61"/>
         <source>IP Address:</source>
-        <translation>IP адрес:</translation>
+        <translation>IP-адрес:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="65"/>
         <source>Subnet Mask:</source>
-        <translation>Маска подсети:</translation>
+        <translation>Маска подсети</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="69"/>
         <source>Default Gateway:</source>
-        <translation>Основной шлюз:</translation>
+        <translation>Маршрут по умолчанию:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="86"/>
         <source>Obtain DNS server address automatically</source>
-        <translation>Получать адреса DNS серверов автоматически</translation>
+        <translation>Получать адрес службы DNS автоматически</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="90"/>
         <source>Use the following DNS server addresses</source>
-        <translation>Использовать следующие адреса DNS</translation>
+        <translation>Использовать следующий адрес службы DNS</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="95"/>
         <source>Primary DNS Server:</source>
-        <translation>Основной сервер DNS:</translation>
+        <translation>Первичный DNS:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="99"/>
         <source>Secondary DNS Server:</source>
-        <translation>Вторичный сервер DNS:</translation>
+        <translation>Вторичный DNS:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="112"/>
@@ -240,7 +240,7 @@
     <message>
         <location filename="../contents/IdentityPane.qml" line="49"/>
         <source>MAC Address:</source>
-        <translation>MAC адрес:</translation>
+        <translation>MAC-адрес:</translation>
     </message>
     <message>
         <location filename="../contents/IdentityPane.qml" line="55"/>
@@ -268,12 +268,12 @@
     <message>
         <location filename="../contents/Preflet.qml" line="140"/>
         <source>Network service unavailable</source>
-        <translation type="unfinished"/>
+        <translation>Сетевая служба недоступна</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="144"/>
         <source>Please make sure the &quot;NetworkManager&quot; service is running.</source>
-        <translation type="unfinished"/>
+        <translation>Пожалуйста, убедитесь, что сервис &quot;NetworkManager&quot; запущен.</translation>
     </message>
 </context>
 <context>
@@ -286,17 +286,17 @@
     <message>
         <location filename="../contents/SecurityPane.qml" line="50"/>
         <source>Authentication:</source>
-        <translation>Авторизация:</translation>
+        <translation>Аутентификация:</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="56"/>
         <source>Username:</source>
-        <translation>Имя пользователя:</translation>
+        <translation>Имя:</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="62"/>
         <source>Password:</source>
-        <translation>Пароль</translation>
+        <translation>Пароль:</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="85"/>
@@ -311,7 +311,7 @@
     <message>
         <location filename="../contents/SecurityPane.qml" line="97"/>
         <source>Ask for this password every time</source>
-        <translation>Спрашивать данный пароль всегда.</translation>
+        <translation>Спрашивать пароль каждый раз</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="101"/>
@@ -329,7 +329,7 @@
     <message>
         <location filename="../contents/WiredPage.qml" line="133"/>
         <source>Add Profile...</source>
-        <translation>Добавить профиль</translation>
+        <translation>Добавить профиль...</translation>
     </message>
 </context>
 <context>
@@ -337,7 +337,7 @@
     <message>
         <location filename="../contents/WirelessPage.qml" line="54"/>
         <source>Wireless</source>
-        <translation>Беспроводное</translation>
+        <translation>Беспроводные</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="61"/>
@@ -352,12 +352,12 @@
     <message>
         <location filename="../contents/WirelessPage.qml" line="62"/>
         <source>Unavailable</source>
-        <translation>Не доступно</translation>
+        <translation>Недоступно</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="72"/>
         <source>Rescan</source>
-        <translation>Пересканировать</translation>
+        <translation>Поиск</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="78"/>
@@ -367,12 +367,12 @@
     <message>
         <location filename="../contents/WirelessPage.qml" line="138"/>
         <source>Use as Hotspot...</source>
-        <translation>Режим точки доступа...</translation>
+        <translation>Использовать как точку доступа...</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="143"/>
         <source>Connect to Hidden Network...</source>
-        <translation>Подключиться к скрытой сети...</translation>
+        <translation>Подключиться к скрытой Wi-Fi сети...</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="152"/>

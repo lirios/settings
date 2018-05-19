@@ -4,17 +4,17 @@
     <message>
         <location filename="../contents/Preflet.qml" line="34"/>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Masaüstü</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="37"/>
         <source>Transparent app shelf</source>
-        <translation type="unfinished"/>
+        <translation>Saydam uygulama rafı</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="57"/>
         <source>Accent color</source>
-        <translation type="unfinished"/>
+        <translation>Ara renk</translation>
     </message>
 </context>
 </TS>

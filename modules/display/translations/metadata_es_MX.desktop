@@ -1,0 +1,17 @@
+[Desktop Entry]
+Type=Application
+Name=Displays
+Comment=Choose how to use connected monitors and projectors
+#TRANSLATIONS
+Icon=preferences-desktop-display
+TryExec=liri-settings
+Exec=liri-settings display
+Categories=Qt;X-Liri;Settings;HardwareSettings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=hardware
+X-Liri-Settings-SymbolicIcon=hardware/desktop_windows
+
+
+# Translations
+Comment[es_MX]=Elija cómo utilizar monitores y proyectores conectados
+Name[es_MX]=Pantallas

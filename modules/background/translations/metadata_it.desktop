@@ -1,12 +1,16 @@
 [Desktop Entry]
+Type=Application
 Name=Background
 Comment=Change your background image to a wallpaper, photo or solid color
-Keywords=Wallpaper;Screen;Desktop;
+#TRANSLATIONS
+Icon=preferences-desktop-wallpaper
+Categories=Qt;X-Liri;Settings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=personal
+X-Liri-Settings-SymbolicIcon=image/color_lens
 
 
 # Translations
-
-
-# Translations
-Comment[it]=Imposta una immagine, una foto od un colore pieno come sfondo
+Comment[it]=Cambia la tua immagine di sfondo con un wallpaper, una foto o un colore
 Name[it]=Sfondo
+Icon[it]=Impostazioni sfondo del desktop

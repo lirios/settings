@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=Appearance
 Comment=Change the appearance of your desktop
@@ -12,3 +11,6 @@ X-Liri-Settings-SymbolicIcon=image/style
 
 
 # Translations
+Comment[el]=Αλλάξτε την εμφάνιση της επιφάνειας εργασίας σας
+Name[el]=Εμφάνιση
+Icon[el]=εφαρμογές-συστήματος

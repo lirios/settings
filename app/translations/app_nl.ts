@@ -18,7 +18,7 @@
     <name>main</name>
     <message>
         <source>System Preferences</source>
-        <translation type="vanished">Systeem Instellingen</translation>
+        <translation type="vanished">Systeeminstellingen</translation>
     </message>
     <message>
         <source>Keywords</source>

@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Application
+Name=Power
+Comment=View your battery status and change power saving settings
+Keywords=Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS;Idle;
+Icon=preferences-system-power-management
+Categories=Qt;X-Liri;Settings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=hardware
+X-Liri-Settings-SymbolicIcon=notification/power
+
+
+# Translations
+Comment[zh_TW]=檢視電源狀態及更改電源節省設定
+Name[zh_TW]=電源設定
+Icon[zh_TW]=偏好設定—系統—電源—管理

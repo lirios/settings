@@ -18,7 +18,7 @@
     <name>main</name>
     <message>
         <source>System Preferences</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">시스템 설정</translation>
     </message>
     <message>
         <source>Keywords</source>
@@ -34,7 +34,7 @@
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">시스템</translation>
     </message>
 </context>
 </TS>

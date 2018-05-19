@@ -1,15 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="es">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
 <context>
     <name>AddDialog</name>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"></translation>
+        <translation>Capa:</translation>
     </message>
     <message>
         <source>Variant:</source>
-        <translation type="unfinished"></translation>
+        <translation>Variante:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -17,7 +15,7 @@
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>Aceptar</translation>
     </message>
 </context>
 <context>
@@ -30,28 +28,32 @@
 <context>
     <name>LayoutPage</name>
     <message>
+        <source>Keyboard model:</source>
+        <translation type="vanished">Modelo del teclado:</translation>
+    </message>
+    <message>
         <source>Type to test the layout...</source>
-        <translation type="unfinished"></translation>
+        <translation>Escribe para probar la capa...</translation>
     </message>
     <message>
         <source>Model and Test</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifica y prueba</translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"></translation>
+        <translation>Modelo</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Capa</translation>
     </message>
     <message>
         <source>No variant</source>
-        <translation type="unfinished"></translation>
+        <translation>Sin variante</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover</translation>
     </message>
 </context>
 <context>
@@ -62,11 +64,11 @@
     </message>
     <message>
         <source>Behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Comportamiento</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Capa</translation>
     </message>
 </context>
 <context>
@@ -89,7 +91,7 @@
     </message>
     <message>
         <source>Speed:</source>
-        <translation type="vanished">Velocidad:</translation>
+        <translation type="vanished">Velocidad</translation>
     </message>
     <message>
         <source>Slow</source>
@@ -97,39 +99,43 @@
     </message>
     <message>
         <source>Fast</source>
-        <translation type="vanished">Rápido</translation>
+        <translation type="vanished">Rapido</translation>
     </message>
     <message>
         <source>Cursor Blinking</source>
         <translation>Parpadeo de Cursor</translation>
     </message>
     <message>
+        <source>Timeout:</source>
+        <translation type="vanished">Tiempo fuera:</translation>
+    </message>
+    <message>
         <source>Typing</source>
-        <translation type="unfinished"></translation>
+        <translation>Escribiendo</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Retraso</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Velocidad</translation>
     </message>
     <message>
         <source>Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Cursor</translation>
     </message>
     <message>
         <source>Timeout</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiempo fuera</translation>
     </message>
     <message>
         <source>Input Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Dispositivos de entrada</translation>
     </message>
     <message>
         <source>Virtual Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Teclado Virtual</translation>
     </message>
 </context>
 </TS>

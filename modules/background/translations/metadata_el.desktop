@@ -1,15 +1,16 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=Background
 Comment=Change your background image to a wallpaper, photo or solid color
+#TRANSLATIONS
 Icon=preferences-desktop-wallpaper
 Categories=Qt;X-Liri;Settings;
 OnlyShowIn=X-Liri;
 X-Liri-Settings-Category=personal
 X-Liri-Settings-SymbolicIcon=image/color_lens
 
-#TRANSLATIONS_DIR=translations
-
 
 # Translations
+Comment[el]=Αλλάξτε την εικόνα φόντου σε μια ταπετσαρία, φωτογραφία ή συμπαγές χρώμα
+Name[el]=Φόντο
+Icon[el]=προτιμήσεις-επιφάνεια εργασίας-ταπετσαρία

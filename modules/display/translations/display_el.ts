@@ -4,27 +4,27 @@
     <message>
         <location filename="../contents/Preflet.qml" line="135"/>
         <source>Size:</source>
-        <translation type="unfinished"/>
+        <translation>Μέγεθος:</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="150"/>
         <source>Aspect Ratio:</source>
-        <translation type="unfinished"/>
+        <translation>Αναλογία απεικόνισης:</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="165"/>
         <source>Resolution:</source>
-        <translation type="unfinished"/>
+        <translation>Ανάλυση</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="188"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Ματαίωση</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="193"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>Εφαρμογή</translation>
     </message>
 </context>
 </TS>

@@ -1,15 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ru">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.1">
 <context>
     <name>AddDialog</name>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"></translation>
+        <translation>Раскладка:</translation>
     </message>
     <message>
         <source>Variant:</source>
-        <translation type="unfinished"></translation>
+        <translation>Вид:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -17,7 +15,7 @@
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -30,43 +28,47 @@
 <context>
     <name>LayoutPage</name>
     <message>
+        <source>Keyboard model:</source>
+        <translation type="vanished">Модель клавиатуры:</translation>
+    </message>
+    <message>
         <source>Type to test the layout...</source>
-        <translation type="unfinished"></translation>
+        <translation>Проверьте раскладку...</translation>
     </message>
     <message>
         <source>Model and Test</source>
-        <translation type="unfinished"></translation>
+        <translation>Модель и проверка</translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"></translation>
+        <translation>Модель</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Раскладка</translation>
     </message>
     <message>
         <source>No variant</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить</translation>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
         <source>Shortcuts</source>
-        <translation>Горячие клавиши</translation>
+        <translation>Сочетания клавиш</translation>
     </message>
     <message>
         <source>Behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Поведение</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Раскладка</translation>
     </message>
 </context>
 <context>
@@ -93,43 +95,47 @@
     </message>
     <message>
         <source>Slow</source>
-        <translation type="vanished">Медленная</translation>
+        <translation type="vanished">Медленно</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="vanished">Быстрая</translation>
+        <translation type="vanished">Быстро</translation>
     </message>
     <message>
         <source>Cursor Blinking</source>
-        <translation>Мерцание курсора</translation>
+        <translation>Мигание курсора</translation>
+    </message>
+    <message>
+        <source>Timeout:</source>
+        <translation type="vanished">Тайм-аут:</translation>
     </message>
     <message>
         <source>Typing</source>
-        <translation type="unfinished"></translation>
+        <translation>Набор</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Задержка</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Скорость</translation>
     </message>
     <message>
         <source>Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Курсор</translation>
     </message>
     <message>
         <source>Timeout</source>
-        <translation type="unfinished"></translation>
+        <translation>Тайм-аут:</translation>
     </message>
     <message>
         <source>Input Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Источники ввода</translation>
     </message>
     <message>
         <source>Virtual Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Виртуальная клавиатура</translation>
     </message>
 </context>
 </TS>

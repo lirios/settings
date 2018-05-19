@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=Application
+Name=Displays
+Comment=Choose how to use connected monitors and projectors
+#TRANSLATIONS
+Icon=preferences-desktop-display
+TryExec=liri-settings
+Exec=liri-settings display
+Categories=Qt;X-Liri;Settings;HardwareSettings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=hardware
+X-Liri-Settings-SymbolicIcon=hardware/desktop_windows
+
+
+# Translations
+Comment[zh_TW]=選擇如何連接螢幕及投影機
+Name[zh_TW]=顯示
+Icon[zh_TW]=偏好設定—桌面—顯示

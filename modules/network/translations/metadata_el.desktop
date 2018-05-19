@@ -1,16 +1,16 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=Network
 Comment=Control how you connect to the Internet
+#TRANSLATIONS
 Keywords=network;ethernet;wifi;wired;wireless;
 Icon=preferences-system-network
 Categories=Qt;X-Liri;Settings;
 OnlyShowIn=X-Liri;
 X-Liri-Settings-Category=hardware
 
-#TRANSLATIONS_DIR=translations
-
 
 # Translations
-Name[el]=Δίκτυο 
+Comment[el]=Ελέγξτε πώς συνδέεστε στο Διαδίκτυο
+Name[el]=Δίκτυο
+Icon[el]=προτιμήσεις-σύστημα-δίκτυο

@@ -1,9 +1,16 @@
 [Desktop Entry]
+Type=Application
 Name=Power
 Comment=View your battery status and change power saving settings
 Keywords=Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS;Idle;
+Icon=preferences-system-power-management
+Categories=Qt;X-Liri;Settings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=hardware
+X-Liri-Settings-SymbolicIcon=notification/power
 
 
 # Translations
-Comment[it]=Visualizza lo stato della batteria e cambia le impostazioni di risparmio energetico
-Name[it]=Alimentazione
+Comment[it]=Controlla la percentuale della batteria e cambia profilo batteria
+Name[it]=Accensione/Spegnimento
+Icon[it]=Profilo batteria di sistema

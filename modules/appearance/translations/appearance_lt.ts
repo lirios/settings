@@ -4,7 +4,7 @@
     <message>
         <location filename="../contents/Preflet.qml" line="34"/>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Darbalaukis</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="37"/>

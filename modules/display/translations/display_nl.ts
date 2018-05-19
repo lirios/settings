@@ -19,7 +19,7 @@
     <message>
         <location filename="../contents/Preflet.qml" line="188"/>
         <source>Cancel</source>
-        <translation>Annuleer</translation>
+        <translation>Annuleren</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="193"/>

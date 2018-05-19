@@ -1,12 +1,18 @@
 [Desktop Entry]
+Type=Application
 Name=Displays
 Comment=Choose how to use connected monitors and projectors
-Keywords=Panel;Projector;Output;Screen;Resolution;Refresh;Monitor;
+#TRANSLATIONS
+Icon=preferences-desktop-display
+TryExec=liri-settings
+Exec=liri-settings display
+Categories=Qt;X-Liri;Settings;HardwareSettings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=hardware
+X-Liri-Settings-SymbolicIcon=hardware/desktop_windows
 
 
 # Translations
-
-
-# Translations
-Comment[ca]=Trieu com usar les pantalles i els projectors connectats
+Comment[ca]=Tría com utilitzar els monitors i projectors connectats
 Name[ca]=Pantalles
+Icon[ca]=preferències-escriptori-pantalla

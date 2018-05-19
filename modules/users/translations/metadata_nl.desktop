@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=Users
 Comment=Manage user accounts
@@ -12,6 +11,6 @@ X-Liri-Settings-SymbolicIcon=social/people
 
 
 # Translations
-Comment[nl]=Beheer gebruiker accounts
+Comment[nl]=Beheer gebruikersaccounts
 Name[nl]=Gebruikers
 Icon[nl]=instellingen-systeem-gebruikers

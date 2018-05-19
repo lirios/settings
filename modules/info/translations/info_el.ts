@@ -3,19 +3,19 @@
     <name>Preflet</name>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished"/>
+        <translation>Έκδοση %1</translation>
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished"/>
+        <translation>Ιστοσελίδα</translation>
     </message>
     <message>
         <source>Report a bug</source>
-        <translation type="unfinished"/>
+        <translation>Αναφέρετε ένα σφάλμα</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished"/>
+        <translation>Πιστώσεις</translation>
     </message>
 </context>
 </TS>

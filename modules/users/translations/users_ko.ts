@@ -21,23 +21,23 @@
     <name>UserAddDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>취소</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>확인</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>계정 종류</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>일반</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>관리자</translation>
     </message>
     <message>
         <source>Full name</source>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>User name</source>
-        <translation type="unfinished"/>
+        <translation>사용자 이름</translation>
     </message>
     <message>
         <source>Allow user to set a password at the next login</source>
@@ -53,19 +53,19 @@
     </message>
     <message>
         <source>Set a password now</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호 설정</translation>
     </message>
     <message>
         <source>No password</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호 없음</translation>
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>새로운 비밀번호</translation>
     </message>
     <message>
         <source>Verify new password</source>
-        <translation type="unfinished"/>
+        <translation>새로운 비밀번호 확인</translation>
     </message>
 </context>
 <context>
@@ -80,7 +80,7 @@
     </message>
     <message>
         <source>Remove user</source>
-        <translation type="unfinished"/>
+        <translation>사용자 삭제</translation>
     </message>
 </context>
 <context>
@@ -91,47 +91,47 @@
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>계정 종류</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>일반</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>관리자</translation>
     </message>
     <message>
         <source>Automatic login</source>
-        <translation type="unfinished"/>
+        <translation>자동 로그인</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호</translation>
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>새로운 비밀번호</translation>
     </message>
     <message>
         <source>Verify new password</source>
-        <translation type="unfinished"/>
+        <translation>새로운 비밀번호 확인</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished"/>
+        <translation>변경</translation>
     </message>
     <message>
         <source>Wrong password verification</source>
-        <translation type="unfinished"/>
+        <translation>잘못된 비밀번호</translation>
     </message>
     <message>
         <source>The passwords did not match.</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호가 틀렸습니다.</translation>
     </message>
     <message>
         <source>Password changed</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호가 변경되었습니다.</translation>
     </message>
 </context>
 </TS>

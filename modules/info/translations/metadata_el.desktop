@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=Details
 Comment=View information about your system
@@ -12,3 +11,6 @@ X-Liri-Settings-SymbolicIcon=action/info
 
 
 # Translations
+Comment[el]=Δείτε πληροφορίες σχετικά με το σύστημά σας
+Name[el]=Λεπτομέρειες
+Icon[el]=εφαρμογές-συστήματος

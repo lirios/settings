@@ -1,19 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.1">
 <context>
     <name>PluginsModel</name>
     <message>
         <source>Personal</source>
-        <translation type="obsolete">Personnel</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="obsolete">Matériel</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System</source>
-        <translation type="obsolete">Système</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -24,7 +22,7 @@
     </message>
     <message>
         <source>Keywords</source>
-        <translation type="vanished">Mots Clés</translation>
+        <translation type="vanished">Mots-clés</translation>
     </message>
     <message>
         <source>Personal</source>

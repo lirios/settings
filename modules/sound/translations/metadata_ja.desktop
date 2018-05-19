@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=Sound
 Comment=Change sound levels, inputs, outputs, and alert sounds
@@ -12,3 +11,4 @@ X-Liri-Settings-SymbolicIcon=av/volume_up
 
 
 # Translations
+Name[ja]=サウンド

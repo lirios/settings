@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=Users
 Comment=Manage user accounts
@@ -12,3 +11,6 @@ X-Liri-Settings-SymbolicIcon=social/people
 
 
 # Translations
+Comment[lt]=Tvarkyti naudotojų paskyras
+Name[lt]=Naudotojai
+Icon[lt]=preferences-system-users

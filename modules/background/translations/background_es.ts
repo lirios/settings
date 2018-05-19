@@ -1,22 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="es">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
 <context>
     <name>ColorButton</name>
     <message>
         <source>Choose a color</source>
-        <translation type="unfinished"></translation>
+        <translation>Elige un color</translation>
     </message>
 </context>
 <context>
     <name>GradientPage</name>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation>Horizontal</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Vertical</translation>
     </message>
 </context>
 <context>
@@ -27,14 +25,14 @@
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Pantalla de bloqueo</translation>
     </message>
 </context>
 <context>
     <name>Selector</name>
     <message>
         <source>Pick a background</source>
-        <translation type="unfinished"></translation>
+        <translation>Elige un fondo</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -42,7 +40,7 @@
     </message>
     <message>
         <source>Select</source>
-        <translation type="vanished">Seleccionar</translation>
+        <translation type="vanished">Elegir</translation>
     </message>
 </context>
 <context>
@@ -53,7 +51,7 @@
     </message>
     <message>
         <source>Solid</source>
-        <translation type="unfinished"></translation>
+        <translation>Sólido</translation>
     </message>
     <message>
         <source>Gradient</source>
@@ -61,14 +59,14 @@
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipo:</translation>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
         <source>Fill Mode:</source>
-        <translation>Modo de relleno</translation>
+        <translation>Modo de relleno:</translation>
     </message>
     <message>
         <source>Stretched</source>
@@ -88,11 +86,11 @@
     </message>
     <message>
         <source>Tiled Vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuadrícula Vertical</translation>
     </message>
     <message>
         <source>Tiled Horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuadrícula Horizontal</translation>
     </message>
     <message>
         <source>Centered</source>

@@ -1,15 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="tr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.1">
 <context>
     <name>AddDialog</name>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"></translation>
+        <translation>Düzen:</translation>
     </message>
     <message>
         <source>Variant:</source>
-        <translation type="unfinished"></translation>
+        <translation>Değişken:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -17,7 +15,7 @@
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>TAMAM</translation>
     </message>
 </context>
 <context>
@@ -30,28 +28,32 @@
 <context>
     <name>LayoutPage</name>
     <message>
+        <source>Keyboard model:</source>
+        <translation type="vanished">Klavye modeli:</translation>
+    </message>
+    <message>
         <source>Type to test the layout...</source>
-        <translation type="unfinished"></translation>
+        <translation>Düzeni sınamak için yaz...</translation>
     </message>
     <message>
         <source>Model and Test</source>
-        <translation type="unfinished"></translation>
+        <translation>Model ve Sınama</translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"></translation>
+        <translation>Model</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Düzen</translation>
     </message>
     <message>
         <source>No variant</source>
-        <translation type="unfinished"></translation>
+        <translation>Değişken yok</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaldır</translation>
     </message>
 </context>
 <context>
@@ -62,18 +64,18 @@
     </message>
     <message>
         <source>Behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Davranış</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Düzen</translation>
     </message>
 </context>
 <context>
     <name>TypingPage</name>
     <message>
         <source>Repeat Keys</source>
-        <translation>Tekrarlama Tuşları</translation>
+        <translation>Tekrar Tuşları</translation>
     </message>
     <message>
         <source>Delay:</source>
@@ -101,35 +103,39 @@
     </message>
     <message>
         <source>Cursor Blinking</source>
-        <translation>Yanıp sönen imleç</translation>
+        <translation>İmleç Yanıp Sönmesi</translation>
+    </message>
+    <message>
+        <source>Timeout:</source>
+        <translation type="vanished">Zaman aşımı:</translation>
     </message>
     <message>
         <source>Typing</source>
-        <translation type="unfinished"></translation>
+        <translation>Yazım</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Gecikme</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Hız</translation>
     </message>
     <message>
         <source>Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>İmleç</translation>
     </message>
     <message>
         <source>Timeout</source>
-        <translation type="unfinished"></translation>
+        <translation>Zaman aşımı</translation>
     </message>
     <message>
         <source>Input Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Girdi Kaynakları</translation>
     </message>
     <message>
         <source>Virtual Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Sanal Klavye</translation>
     </message>
 </context>
 </TS>

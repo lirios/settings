@@ -47,7 +47,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="62"/>
         <source>Enter the name and security details of the hidden Wi-Fi network you wish to connect to.</source>
-        <translation type="unfinished"/>
+        <translation>Ingrese el nombre y los detalles de seguridad de la red oculta Wi-Fi en la cual ud. desea ingresar.</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="75"/>
@@ -72,7 +72,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="96"/>
         <source>WEP 128-bit Passphrase</source>
-        <translation type="unfinished"/>
+        <translation>Clave WEP de 128 bits</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="97"/>
@@ -152,29 +152,29 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="173"/>
         <source>Username:</source>
-        <translation type="unfinished"/>
+        <translation>Nombre de usuario:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="185"/>
         <location filename="../contents/HiddenWifiDialog.qml" line="217"/>
         <source>Password:</source>
-        <translation type="unfinished"/>
+        <translation>Clave:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="202"/>
         <location filename="../contents/HiddenWifiDialog.qml" line="234"/>
         <source>Show password</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar la Clave:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="253"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="259"/>
         <source>Connect</source>
-        <translation type="unfinished"/>
+        <translation>Conectar</translation>
     </message>
 </context>
 <context>
@@ -192,7 +192,7 @@
     <message>
         <location filename="../contents/IPv4Pane.qml" line="61"/>
         <source>IP Address:</source>
-        <translation type="unfinished"/>
+        <translation>Dirección IP:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="65"/>
@@ -217,17 +217,17 @@
     <message>
         <location filename="../contents/IPv4Pane.qml" line="95"/>
         <source>Primary DNS Server:</source>
-        <translation type="unfinished"/>
+        <translation>Servidor DNS Primario:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="99"/>
         <source>Secondary DNS Server:</source>
-        <translation type="unfinished"/>
+        <translation>Servidor DNS Secundario:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="112"/>
         <source>Connect automatically</source>
-        <translation type="unfinished"/>
+        <translation>Conectar automáticamente</translation>
     </message>
 </context>
 <context>
@@ -235,17 +235,17 @@
     <message>
         <location filename="../contents/IdentityPane.qml" line="43"/>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>Nombre</translation>
     </message>
     <message>
         <location filename="../contents/IdentityPane.qml" line="49"/>
         <source>MAC Address:</source>
-        <translation type="unfinished"/>
+        <translation>Dirección MAC:</translation>
     </message>
     <message>
         <location filename="../contents/IdentityPane.qml" line="55"/>
         <source>Cloned Address:</source>
-        <translation type="unfinished"/>
+        <translation>Dirección clonada:</translation>
     </message>
     <message>
         <location filename="../contents/IdentityPane.qml" line="61"/>
@@ -260,7 +260,7 @@
     <message>
         <location filename="../contents/IdentityPane.qml" line="102"/>
         <source>Connect automatically</source>
-        <translation type="unfinished"/>
+        <translation>Conectar automáticamente</translation>
     </message>
 </context>
 <context>
@@ -268,7 +268,7 @@
     <message>
         <location filename="../contents/Preflet.qml" line="140"/>
         <source>Network service unavailable</source>
-        <translation type="unfinished"/>
+        <translation>El servicio de red no está disponible</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="144"/>
@@ -296,7 +296,7 @@
     <message>
         <location filename="../contents/SecurityPane.qml" line="62"/>
         <source>Password:</source>
-        <translation type="unfinished"/>
+        <translation>Clave:</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="85"/>
@@ -306,7 +306,7 @@
     <message>
         <location filename="../contents/SecurityPane.qml" line="85"/>
         <source>MD5</source>
-        <translation type="unfinished"/>
+        <translation>MD5</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="97"/>
@@ -316,7 +316,7 @@
     <message>
         <location filename="../contents/SecurityPane.qml" line="101"/>
         <source>Show password</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar la Clave</translation>
     </message>
 </context>
 <context>
@@ -324,12 +324,12 @@
     <message>
         <location filename="../contents/WiredPage.qml" line="73"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>Conectado</translation>
     </message>
     <message>
         <location filename="../contents/WiredPage.qml" line="133"/>
         <source>Add Profile...</source>
-        <translation type="unfinished"/>
+        <translation>Agregar perfil</translation>
     </message>
 </context>
 <context>
@@ -337,22 +337,22 @@
     <message>
         <location filename="../contents/WirelessPage.qml" line="54"/>
         <source>Wireless</source>
-        <translation type="unfinished"/>
+        <translation>Inalámbrico</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="61"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>Conectado</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="61"/>
         <source>Disconnected</source>
-        <translation type="unfinished"/>
+        <translation>Desconectado</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="62"/>
         <source>Unavailable</source>
-        <translation type="unfinished"/>
+        <translation>No disponible</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="72"/>
@@ -362,7 +362,7 @@
     <message>
         <location filename="../contents/WirelessPage.qml" line="78"/>
         <source>Enable</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="138"/>
@@ -372,12 +372,12 @@
     <message>
         <location filename="../contents/WirelessPage.qml" line="143"/>
         <source>Connect to Hidden Network...</source>
-        <translation type="unfinished"/>
+        <translation>Conectar a una Red Oculta...</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="152"/>
         <source>History</source>
-        <translation type="unfinished"/>
+        <translation>Historial</translation>
     </message>
 </context>
 </TS>

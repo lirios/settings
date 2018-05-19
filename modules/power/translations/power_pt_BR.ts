@@ -79,7 +79,7 @@
     <message>
         <location filename="../contents/Preflet.qml" line="80"/>
         <source>Suspend &amp; Power Button</source>
-        <translation>Suspender e botão de ligar</translation>
+        <translation>Suspensão e botão de ligar</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="83"/>

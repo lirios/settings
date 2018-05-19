@@ -3,139 +3,139 @@
     <name>AddDialog</name>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"/>
+        <translation>Διάταξη:</translation>
     </message>
     <message>
         <source>Variant:</source>
-        <translation type="unfinished"/>
+        <translation>Παραλλαγή:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Ματαίωση</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>ΟΚ</translation>
     </message>
 </context>
 <context>
     <name>KeyboardLayout</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Κανένα</translation>
     </message>
 </context>
 <context>
     <name>LayoutPage</name>
     <message>
         <source>Keyboard model:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Μοντέλο πληκτρολογίου:</translation>
     </message>
     <message>
         <source>Type to test the layout...</source>
-        <translation type="unfinished"/>
+        <translation>Πληκτρολογήστε για να δοκιμάσετε τη διάταξη...</translation>
     </message>
     <message>
         <source>Model and Test</source>
-        <translation type="unfinished"/>
+        <translation>Μοντέλο και δοκιμή</translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"/>
+        <translation>Μοντέλο</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Διάταξη</translation>
     </message>
     <message>
         <source>No variant</source>
-        <translation type="unfinished"/>
+        <translation>Καμία παραλλαγή</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Αφαίρεση</translation>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Συντομεύσεις</translation>
     </message>
     <message>
         <source>Behavior</source>
-        <translation type="unfinished"/>
+        <translation>Συμπεριφορά</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Διάταξη</translation>
     </message>
 </context>
 <context>
     <name>TypingPage</name>
     <message>
         <source>Repeat Keys</source>
-        <translation type="unfinished"/>
+        <translation>Επανάληψη πλήκτρων</translation>
     </message>
     <message>
         <source>Delay:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Καθυστέρηση:</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Μικρή</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Μεγάλη</translation>
     </message>
     <message>
         <source>Speed:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ταχύτητα:</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Αργή</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Γρήγορη</translation>
     </message>
     <message>
         <source>Cursor Blinking</source>
-        <translation type="unfinished"/>
+        <translation>Ο δρομέας αναβοσβήνει</translation>
     </message>
     <message>
         <source>Timeout:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Τέλος χρόνου:</translation>
     </message>
     <message>
         <source>Typing</source>
-        <translation type="unfinished"/>
+        <translation>Πληκτρολόγηση</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"/>
+        <translation>Καθυστέρηση</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"/>
+        <translation>Ταχύτητα</translation>
     </message>
     <message>
         <source>Cursor</source>
-        <translation type="unfinished"/>
+        <translation>Δρομέας</translation>
     </message>
     <message>
         <source>Timeout</source>
-        <translation type="unfinished"/>
+        <translation>Τέλος χρόνου</translation>
     </message>
     <message>
         <source>Input Sources</source>
-        <translation type="unfinished"/>
+        <translation>Πηγές εισόδου</translation>
     </message>
     <message>
         <source>Virtual Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Εικονικό πληκτρολόγιο</translation>
     </message>
 </context>
 </TS>

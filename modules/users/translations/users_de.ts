@@ -3,7 +3,7 @@
     <name>PhotoPicker</name>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"/>
+        <translation>Suchen...</translation>
     </message>
 </context>
 <context>
@@ -21,51 +21,51 @@
     <name>UserAddDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Account-Typ</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standard</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrator</translation>
     </message>
     <message>
         <source>Full name</source>
-        <translation type="unfinished"/>
+        <translation>Vollständiger Name</translation>
     </message>
     <message>
         <source>User name</source>
-        <translation type="unfinished"/>
+        <translation>Benutzername</translation>
     </message>
     <message>
         <source>Allow user to set a password at the next login</source>
-        <translation type="unfinished"/>
+        <translation>Dem Benutzer erlauben beim nächsten Login ein Passwort festzulegen</translation>
     </message>
     <message>
         <source>Set a password now</source>
-        <translation type="unfinished"/>
+        <translation>Jetzt ein Passwort Festlegen</translation>
     </message>
     <message>
         <source>No password</source>
-        <translation type="unfinished"/>
+        <translation>Kein Passwort</translation>
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Neues Passwort</translation>
     </message>
     <message>
         <source>Verify new password</source>
-        <translation type="unfinished"/>
+        <translation>Neues Passwort Verifizieren</translation>
     </message>
 </context>
 <context>
@@ -80,58 +80,58 @@
     </message>
     <message>
         <source>Remove user</source>
-        <translation type="unfinished"/>
+        <translation>Benutzer Entfernen</translation>
     </message>
 </context>
 <context>
     <name>UserPage</name>
     <message>
         <source>Full name</source>
-        <translation type="unfinished"/>
+        <translation>Vollständiger Name</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Account-Typ</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standard</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrator</translation>
     </message>
     <message>
         <source>Automatic login</source>
-        <translation type="unfinished"/>
+        <translation>Automatisch Anmelden</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Passwort</translation>
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Neues Passwort</translation>
     </message>
     <message>
         <source>Verify new password</source>
-        <translation type="unfinished"/>
+        <translation>Neues Passwort Verifizieren</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished"/>
+        <translation>Ändern</translation>
     </message>
     <message>
         <source>Wrong password verification</source>
-        <translation type="unfinished"/>
+        <translation>Falsche Passwort Verifizierung</translation>
     </message>
     <message>
         <source>The passwords did not match.</source>
-        <translation type="unfinished"/>
+        <translation>Die Passwörter stimmen nicht überein.</translation>
     </message>
     <message>
         <source>Password changed</source>
-        <translation type="unfinished"/>
+        <translation>Passwort geändert</translation>
     </message>
 </context>
 </TS>

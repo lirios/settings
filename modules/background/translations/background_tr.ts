@@ -1,40 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="tr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.1">
 <context>
     <name>ColorButton</name>
     <message>
         <source>Choose a color</source>
-        <translation type="unfinished"></translation>
+        <translation>Renk seç</translation>
     </message>
 </context>
 <context>
     <name>GradientPage</name>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished"></translation>
+        <translation>Yatay</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished"></translation>
+        <translation>Dikey</translation>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
         <source>Background</source>
-        <translation>Arkaplan</translation>
+        <translation>Arka plan</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Kilit Ekranı</translation>
     </message>
 </context>
 <context>
     <name>Selector</name>
     <message>
         <source>Pick a background</source>
-        <translation type="unfinished"></translation>
+        <translation>Arka plan seç</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -49,26 +47,26 @@
     <name>SelectorDialog</name>
     <message>
         <source>Wallpaper</source>
-        <translation>Duvarkağıdı</translation>
+        <translation>Duvar kağıdı</translation>
     </message>
     <message>
         <source>Solid</source>
-        <translation type="unfinished"></translation>
+        <translation>Düz</translation>
     </message>
     <message>
         <source>Gradient</source>
-        <translation>Kademeli geçiş</translation>
+        <translation>Eğim</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tür:</translation>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
         <source>Fill Mode:</source>
-        <translation>Dolgu Modu:</translation>
+        <translation>Doldurma Kipi:</translation>
     </message>
     <message>
         <source>Stretched</source>
@@ -84,19 +82,19 @@
     </message>
     <message>
         <source>Tiled</source>
-        <translation>Döşenmiş</translation>
+        <translation>Döşeli</translation>
     </message>
     <message>
         <source>Tiled Vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Yatay Döşeli</translation>
     </message>
     <message>
         <source>Tiled Horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>Dikey Döşeli</translation>
     </message>
     <message>
         <source>Centered</source>
-        <translation>Ortalanmış</translation>
+        <translation>Ortalı</translation>
     </message>
 </context>
 </TS>

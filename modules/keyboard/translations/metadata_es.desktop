@@ -1,12 +1,17 @@
 [Desktop Entry]
+Type=Application
 Name=Keyboard
 Comment=View and change keyboard shortcuts and set your typing preferences
-Keywords=Shortcut;Repeat;Blink;
+#TRANSLATIONS
+Keywords=shortcut;repeat;blink;
+Icon=input-keyboard
+Categories=Qt;X-Liri;Settings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=hardware
+X-Liri-Settings-SymbolicIcon=hardware/keyboard
 
 
 # Translations
-
-
-# Translations
-Comment[es]=Ver y cambiar atajos de teclado y preferencias de escritura
+Comment[es]=Ver y modificar los accesos directos y otras configuraciones del teclado
 Name[es]=Teclado
+Icon[es]=entrada-teclado

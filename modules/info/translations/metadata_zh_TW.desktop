@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Application
+Name=Details
+Comment=View information about your system
+Keywords=Device;System;Information;Memory;Processor;Version;Default;Application;Preferred;CD;DVD;USB;Audio;Video;Disc;Removable;Media;Autorun
+Icon=applications-system
+Categories=Qt;X-Liri;Settings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=system
+X-Liri-Settings-SymbolicIcon=action/info
+
+
+# Translations
+Comment[zh_TW]=檢視系統資訊
+Name[zh_TW]=詳細資訊
+Icon[zh_TW]=偏好設定—系統

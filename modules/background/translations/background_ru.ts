@@ -1,22 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ru">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.1">
 <context>
     <name>ColorButton</name>
     <message>
         <source>Choose a color</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите цвет</translation>
     </message>
 </context>
 <context>
     <name>GradientPage</name>
     <message>
         <source>Horizontal</source>
-        <translation>Горизонтально</translation>
+        <translation>Горизонтальный</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation>Вертикально</translation>
+        <translation>Вертикальный</translation>
     </message>
 </context>
 <context>
@@ -34,11 +32,11 @@
     <name>Selector</name>
     <message>
         <source>Pick a background</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите фон</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Отмена</translation>
+        <translation type="vanished">Отменить</translation>
     </message>
     <message>
         <source>Select</source>
@@ -49,7 +47,7 @@
     <name>SelectorDialog</name>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation>Обои</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -61,7 +59,7 @@
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Тип:</translation>
     </message>
 </context>
 <context>
@@ -76,7 +74,7 @@
     </message>
     <message>
         <source>Scaled</source>
-        <translation>Увеличить</translation>
+        <translation>Подогнать</translation>
     </message>
     <message>
         <source>Cropped</source>
@@ -84,19 +82,19 @@
     </message>
     <message>
         <source>Tiled</source>
-        <translation>Замостить</translation>
+        <translation>Плитки</translation>
     </message>
     <message>
         <source>Tiled Vertically</source>
-        <translation>Замостить по вертикали</translation>
+        <translation>Плитки по вертикали</translation>
     </message>
     <message>
         <source>Tiled Horizontally</source>
-        <translation>Замостить по горизонтали</translation>
+        <translation>Плитки по горизонтали</translation>
     </message>
     <message>
         <source>Centered</source>
-        <translation>По центру</translation>
+        <translation>Центрировать</translation>
     </message>
 </context>
 </TS>

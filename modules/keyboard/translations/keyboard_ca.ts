@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ca">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca" version="2.1">
 <context>
     <name>AddDialog</name>
     <message>
@@ -13,11 +11,11 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancel·la</translation>
+        <translation>Cancel·lar:</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>D&apos;acord</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -31,31 +29,31 @@
     <name>LayoutPage</name>
     <message>
         <source>Keyboard model:</source>
-        <translation type="vanished">Model del teclat:</translation>
+        <translation type="vanished">Model de teclat:</translation>
     </message>
     <message>
         <source>Type to test the layout...</source>
-        <translation>Escriviu per provar-ne la disposició...</translation>
+        <translation>Escriga per comprovar la disposició...</translation>
     </message>
     <message>
         <source>Model and Test</source>
-        <translation type="unfinished"></translation>
+        <translation>Model i Test</translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"></translation>
+        <translation>Model</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished">Disposició</translation>
+        <translation>Disposició</translation>
     </message>
     <message>
         <source>No variant</source>
-        <translation type="unfinished"></translation>
+        <translation>Sense Variant</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar</translation>
     </message>
 </context>
 <context>
@@ -77,7 +75,7 @@
     <name>TypingPage</name>
     <message>
         <source>Repeat Keys</source>
-        <translation>Tecles de repetició</translation>
+        <translation>Repetir Tecles</translation>
     </message>
     <message>
         <source>Delay:</source>
@@ -85,7 +83,7 @@
     </message>
     <message>
         <source>Short</source>
-        <translation type="vanished">Breu</translation>
+        <translation type="vanished">Curt</translation>
     </message>
     <message>
         <source>Long</source>
@@ -105,39 +103,39 @@
     </message>
     <message>
         <source>Cursor Blinking</source>
-        <translation>Intermitència del cursor</translation>
+        <translation>Parpelleig del Cursor</translation>
     </message>
     <message>
         <source>Timeout:</source>
-        <translation type="vanished">Temps d&apos;espera:</translation>
+        <translation type="vanished">Temps d&apos;espera</translation>
     </message>
     <message>
         <source>Typing</source>
-        <translation type="unfinished"></translation>
+        <translation>Escrivint</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Retard</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Velocitat</translation>
     </message>
     <message>
         <source>Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Cursor</translation>
     </message>
     <message>
         <source>Timeout</source>
-        <translation type="unfinished"></translation>
+        <translation>Temps d&apos;espera</translation>
     </message>
     <message>
         <source>Input Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Fonts d&apos;Entrada</translation>
     </message>
     <message>
         <source>Virtual Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Teclat Virtual</translation>
     </message>
 </context>
 </TS>

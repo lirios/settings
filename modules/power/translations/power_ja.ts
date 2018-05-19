@@ -69,7 +69,7 @@
     <message>
         <location filename="../contents/Preflet.qml" line="71"/>
         <source>Wi-Fi</source>
-        <translation type="unfinished"/>
+        <translation>Wi-Fi</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="72"/>
@@ -99,17 +99,17 @@
     <message>
         <location filename="../contents/Preflet.qml" line="97"/>
         <source>Suspend</source>
-        <translation type="unfinished"/>
+        <translation>サスペンド</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="98"/>
         <source>Hibernate</source>
-        <translation type="unfinished"/>
+        <translation>ハイバネート</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="99"/>
         <source>Nothing</source>
-        <translation type="unfinished"/>
+        <translation>何もしない</translation>
     </message>
 </context>
 </TS>

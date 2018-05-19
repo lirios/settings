@@ -60,7 +60,7 @@
     <message>
         <location filename="../contents/Preflet.qml" line="150"/>
         <source>No input devices available</source>
-        <translation>Sem dispositivos de entrada disponíveis</translation>
+        <translation>Nenhum dispositivo de entrada disponível</translation>
     </message>
 </context>
 </TS>

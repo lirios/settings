@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Application
+Name=Appearance
+Comment=Change the appearance of your desktop
+Keywords=Appearance;Style;Background;Wallpaper;Color;Theme;Desktop;Personalize;
+Icon=applications-system
+Categories=Qt;X-Liri;Settings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=personal
+X-Liri-Settings-SymbolicIcon=image/style
+
+
+# Translations
+Comment[es_MX]=Cambiar la apariencia de su escritorio
+Name[es_MX]=Apariencia
+Icon[es_MX]=applications-system

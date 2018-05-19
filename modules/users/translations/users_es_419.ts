@@ -3,49 +3,49 @@
     <name>PhotoPicker</name>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"/>
+        <translation>Navegar...</translation>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
         <source>Your Account</source>
-        <translation type="unfinished"/>
+        <translation>Su Cuenta</translation>
     </message>
     <message>
         <source>Other Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Otras Cuentas</translation>
     </message>
 </context>
 <context>
     <name>UserAddDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de Cuenta</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Estándar</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrador</translation>
     </message>
     <message>
         <source>Full name</source>
-        <translation type="unfinished"/>
+        <translation>Nombre completo</translation>
     </message>
     <message>
         <source>User name</source>
-        <translation type="unfinished"/>
+        <translation>Nombre de usuario</translation>
     </message>
     <message>
         <source>Allow user to set a password at the next login</source>
@@ -53,19 +53,19 @@
     </message>
     <message>
         <source>Set a password now</source>
-        <translation type="unfinished"/>
+        <translation>Configurar una clave ahora</translation>
     </message>
     <message>
         <source>No password</source>
-        <translation type="unfinished"/>
+        <translation>Sin clave</translation>
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Nueva clave</translation>
     </message>
     <message>
         <source>Verify new password</source>
-        <translation type="unfinished"/>
+        <translation>Verificar nueva clave</translation>
     </message>
 </context>
 <context>
@@ -80,14 +80,14 @@
     </message>
     <message>
         <source>Remove user</source>
-        <translation type="unfinished"/>
+        <translation>Eliminar usuario</translation>
     </message>
 </context>
 <context>
     <name>UserPage</name>
     <message>
         <source>Full name</source>
-        <translation type="unfinished"/>
+        <translation>Nombre completo</translation>
     </message>
     <message>
         <source>Account type</source>
@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished"/>
+        <translation>Cambio</translation>
     </message>
     <message>
         <source>Wrong password verification</source>

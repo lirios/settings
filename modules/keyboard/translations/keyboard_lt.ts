@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="lt">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="lt" version="2.1">
 <context>
     <name>AddDialog</name>
     <message>
@@ -24,7 +22,7 @@
     <name>KeyboardLayout</name>
     <message>
         <source>None</source>
-        <translation>Jokio</translation>
+        <translation>Nėra</translation>
     </message>
 </context>
 <context>
@@ -35,27 +33,27 @@
     </message>
     <message>
         <source>Type to test the layout...</source>
-        <translation>Rašykite, kad išbandytumėte išdėstymą...</translation>
+        <translation>Rašykite, norėdami išbandyti išdėstymą...</translation>
     </message>
     <message>
         <source>Model and Test</source>
-        <translation type="unfinished"></translation>
+        <translation>Modelis ir išbandymas</translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"></translation>
+        <translation>Modelis</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished">Išdėstymas</translation>
+        <translation>Išdėstymas</translation>
     </message>
     <message>
         <source>No variant</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Šalinti</translation>
     </message>
 </context>
 <context>
@@ -108,32 +106,36 @@
         <translation>Žymeklio mirksėjimas</translation>
     </message>
     <message>
+        <source>Timeout:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Typing</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Delsa</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Greitis</translation>
     </message>
     <message>
         <source>Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Žymeklis</translation>
     </message>
     <message>
         <source>Timeout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Input Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Įvesties šaltiniai</translation>
     </message>
     <message>
         <source>Virtual Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Virtuali klaviatūra</translation>
     </message>
 </context>
 </TS>

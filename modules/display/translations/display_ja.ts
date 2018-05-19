@@ -14,17 +14,17 @@
     <message>
         <location filename="../contents/Preflet.qml" line="165"/>
         <source>Resolution:</source>
-        <translation type="unfinished"/>
+        <translation>解像度:</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="188"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="193"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>適用</translation>
     </message>
 </context>
 </TS>

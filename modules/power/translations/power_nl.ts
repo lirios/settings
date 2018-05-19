@@ -4,12 +4,12 @@
     <message>
         <location filename="../contents/Preflet.qml" line="37"/>
         <source>Devices</source>
-        <translation>Toestellen</translation>
+        <translation>Apparaten</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="48"/>
         <source>Power Saving</source>
-        <translation>Energie Besparing</translation>
+        <translation>Energiebesparing</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="51"/>
@@ -79,12 +79,12 @@
     <message>
         <location filename="../contents/Preflet.qml" line="80"/>
         <source>Suspend &amp; Power Button</source>
-        <translation>Uitzetten &amp; Stroom Schakelaar</translation>
+        <translation>Slaapstand &amp; Aan- en uitknop</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="83"/>
         <source>Automatic suspend</source>
-        <translation>Automatich uit zetten</translation>
+        <translation>Automatiche slaapstand</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="86"/>
@@ -94,17 +94,17 @@
     <message>
         <location filename="../contents/Preflet.qml" line="92"/>
         <source>When the Power Button is pressed</source>
-        <translation>Als de Stroom Schakelaar ingedrukt is</translation>
+        <translation>Als de aan- en uitknop wordt ingedrukt</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="97"/>
         <source>Suspend</source>
-        <translation>Uitzetten:</translation>
+        <translation>Slaapstand</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="98"/>
         <source>Hibernate</source>
-        <translation>Overwinter</translation>
+        <translation>Sluimerstand</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="99"/>

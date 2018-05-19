@@ -9,12 +9,12 @@
     <message>
         <location filename="../contents/DetailsPane.qml" line="48"/>
         <source>IP Address:</source>
-        <translation type="unfinished"/>
+        <translation>IP アドレス:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="55"/>
         <source>Subnet Mask:</source>
-        <translation type="unfinished"/>
+        <translation>サブネットマスク:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="62"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../contents/DetailsPane.qml" line="69"/>
         <source>DNS Server:</source>
-        <translation type="unfinished"/>
+        <translation>DNS サーバー:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="76"/>
@@ -97,7 +97,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="101"/>
         <source>WPS</source>
-        <translation type="unfinished"/>
+        <translation>WPS</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="119"/>
@@ -117,22 +117,22 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="147"/>
         <source>1 (Default)</source>
-        <translation type="unfinished"/>
+        <translation>1 (デフォルト)</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="148"/>
         <source>2</source>
-        <translation type="unfinished"/>
+        <translation>2</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="148"/>
         <source>3</source>
-        <translation type="unfinished"/>
+        <translation>3</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="148"/>
         <source>4</source>
-        <translation type="unfinished"/>
+        <translation>4</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="152"/>
@@ -169,12 +169,12 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="253"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="259"/>
         <source>Connect</source>
-        <translation type="unfinished"/>
+        <translation>接続</translation>
     </message>
 </context>
 <context>
@@ -202,7 +202,7 @@
     <message>
         <location filename="../contents/IPv4Pane.qml" line="69"/>
         <source>Default Gateway:</source>
-        <translation type="unfinished"/>
+        <translation>デフォルトゲートウェイ:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="86"/>
@@ -240,7 +240,7 @@
     <message>
         <location filename="../contents/IdentityPane.qml" line="49"/>
         <source>MAC Address:</source>
-        <translation type="unfinished"/>
+        <translation>MAC アドレス:</translation>
     </message>
     <message>
         <location filename="../contents/IdentityPane.qml" line="55"/>
@@ -250,7 +250,7 @@
     <message>
         <location filename="../contents/IdentityPane.qml" line="61"/>
         <source>MTU:</source>
-        <translation type="unfinished"/>
+        <translation>MTU:</translation>
     </message>
     <message>
         <location filename="../contents/IdentityPane.qml" line="76"/>
@@ -306,7 +306,7 @@
     <message>
         <location filename="../contents/SecurityPane.qml" line="85"/>
         <source>MD5</source>
-        <translation type="unfinished"/>
+        <translation>MD5</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="97"/>

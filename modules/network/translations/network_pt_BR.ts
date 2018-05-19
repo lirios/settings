@@ -4,7 +4,7 @@
     <message>
         <location filename="../contents/DetailsPane.qml" line="42"/>
         <source>Hardware Address:</source>
-        <translation>Endereço de rede:</translation>
+        <translation>Endereço de hardware:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="48"/>
@@ -47,32 +47,32 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="62"/>
         <source>Enter the name and security details of the hidden Wi-Fi network you wish to connect to.</source>
-        <translation>Digite o nome e os detalhes de segurança da rede Wi-Fi oculta que você quer se conectar.</translation>
+        <translation>Insira o nome e a senha da rede Wi-Fi oculta a que você deseja se conectar.</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="75"/>
         <source>Network name:</source>
-        <translation>Nome da rede:</translation>
+        <translation>Nome de rede:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="87"/>
         <source>Wi-Fi security:</source>
-        <translation>Seguração do Wi-Fi:</translation>
+        <translation>Segurança do Wi-Fi:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="94"/>
         <source>None</source>
-        <translation>Nenhuma</translation>
+        <translation>Nenhum</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="95"/>
         <source>WEP 40/128-bit Key (Hex or ASCII)</source>
-        <translation>Chave WEP 40/128-bit (Hex ou ASCII)</translation>
+        <translation>Chave WEP 40/128-bits (Hex ou ASCII)</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="96"/>
         <source>WEP 128-bit Passphrase</source>
-        <translation>Frase secreta WEP 128-bit</translation>
+        <translation>Senha WEP de 128-bits</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="97"/>
@@ -82,17 +82,17 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="98"/>
         <source>Dynamic WEP (802.1x)</source>
-        <translation>WEP dinâmico (802.1x)</translation>
+        <translation>WEP Dinâmico (802.1x)</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="99"/>
         <source>WPA &amp; WPA2 Personal</source>
-        <translation>WPA &amp; WPA2 pessoal</translation>
+        <translation>WPA &amp; WPA2 Personal</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="100"/>
         <source>WPA &amp; WPA2 Enterprise</source>
-        <translation>WPA &amp; WPA2 empresarial</translation>
+        <translation>WPA &amp; WPA2 Enterprise</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="101"/>
@@ -112,7 +112,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="140"/>
         <source>WEP index:</source>
-        <translation>Index WEP:</translation>
+        <translation>WEP index:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="147"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="159"/>
         <source>Open System</source>
-        <translation>Sistema Aberto</translation>
+        <translation>Sistema aberto</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="159"/>
@@ -164,7 +164,7 @@
         <location filename="../contents/HiddenWifiDialog.qml" line="202"/>
         <location filename="../contents/HiddenWifiDialog.qml" line="234"/>
         <source>Show password</source>
-        <translation>Exibir senha</translation>
+        <translation>Mostrar senha</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="253"/>
@@ -202,27 +202,27 @@
     <message>
         <location filename="../contents/IPv4Pane.qml" line="69"/>
         <source>Default Gateway:</source>
-        <translation>Gateway padrão</translation>
+        <translation>Gateway padrão: </translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="86"/>
         <source>Obtain DNS server address automatically</source>
-        <translation>Obter o endereço do servidor DNS automaticamente</translation>
+        <translation>Obter um endereço para servidor DNS automaticamente</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="90"/>
         <source>Use the following DNS server addresses</source>
-        <translation>Usar os seguintes servidores de endereços DNS</translation>
+        <translation>Usar os seguintes endereços para servidores DNS</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="95"/>
         <source>Primary DNS Server:</source>
-        <translation>Servidor DNS primário:</translation>
+        <translation>Servidor DNS preferencial:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="99"/>
         <source>Secondary DNS Server:</source>
-        <translation>Servidor DNS secundário:</translation>
+        <translation>Servidor DNS alternativo:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="112"/>
@@ -245,7 +245,7 @@
     <message>
         <location filename="../contents/IdentityPane.qml" line="55"/>
         <source>Cloned Address:</source>
-        <translation>Endereço clonado:</translation>
+        <translation>Endereço clonado: </translation>
     </message>
     <message>
         <location filename="../contents/IdentityPane.qml" line="61"/>
@@ -268,12 +268,12 @@
     <message>
         <location filename="../contents/Preflet.qml" line="140"/>
         <source>Network service unavailable</source>
-        <translation type="unfinished"/>
+        <translation>Serviço de rede indisponível</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="144"/>
         <source>Please make sure the &quot;NetworkManager&quot; service is running.</source>
-        <translation type="unfinished"/>
+        <translation>Verifique se o serviço &quot;NetworkManager&quot; está funcionando.</translation>
     </message>
 </context>
 <context>
@@ -291,7 +291,7 @@
     <message>
         <location filename="../contents/SecurityPane.qml" line="56"/>
         <source>Username:</source>
-        <translation>Nome do usuário:</translation>
+        <translation>Nome de usuário:</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="62"/>
@@ -311,7 +311,7 @@
     <message>
         <location filename="../contents/SecurityPane.qml" line="97"/>
         <source>Ask for this password every time</source>
-        <translation>Perguntar por esta senha todas as vezes</translation>
+        <translation>Pedir sempre a senha</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="101"/>
@@ -329,7 +329,7 @@
     <message>
         <location filename="../contents/WiredPage.qml" line="133"/>
         <source>Add Profile...</source>
-        <translation>Adicionar Perfil...</translation>
+        <translation>Adicionar perfil...</translation>
     </message>
 </context>
 <context>
@@ -347,7 +347,7 @@
     <message>
         <location filename="../contents/WirelessPage.qml" line="61"/>
         <source>Disconnected</source>
-        <translation>Desconectado</translation>
+        <translation>Disconectado</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="62"/>
@@ -357,7 +357,7 @@
     <message>
         <location filename="../contents/WirelessPage.qml" line="72"/>
         <source>Rescan</source>
-        <translation>Refazer busca</translation>
+        <translation>Procurar novamente</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="78"/>
@@ -367,12 +367,12 @@
     <message>
         <location filename="../contents/WirelessPage.qml" line="138"/>
         <source>Use as Hotspot...</source>
-        <translation>Usar como Hotspot</translation>
+        <translation>Usar como Hotspot...</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="143"/>
         <source>Connect to Hidden Network...</source>
-        <translation>Conectar-se à Rede Oculta...</translation>
+        <translation>Conectar a uma rede oculta...</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="152"/>

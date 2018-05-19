@@ -1,8 +1,8 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=Displays
 Comment=Choose how to use connected monitors and projectors
+#TRANSLATIONS
 Icon=preferences-desktop-display
 TryExec=liri-settings
 Exec=liri-settings display
@@ -11,7 +11,8 @@ OnlyShowIn=X-Liri;
 X-Liri-Settings-Category=hardware
 X-Liri-Settings-SymbolicIcon=hardware/desktop_windows
 
-#TRANSLATIONS_DIR=translations
-
 
 # Translations
+Comment[lt]=Pasirinkti kaip naudoti prijungtus monitorius ir projektorius
+Name[lt]=Ekranai
+Icon[lt]=preferences-desktop-display

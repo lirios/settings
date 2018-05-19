@@ -29,7 +29,7 @@
     <message>
         <location filename="../contents/Preflet.qml" line="77"/>
         <source>Output</source>
-        <translation>Output</translation>
+        <translation>Uitvoer</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="80"/>
@@ -50,17 +50,17 @@
     <message>
         <location filename="../contents/Preflet.qml" line="120"/>
         <source>No output devices available</source>
-        <translation>Geen output apparaten beschikbaar</translation>
+        <translation>Geen uitvoerapparaten beschikbaar</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="127"/>
         <source>Input</source>
-        <translation>Input</translation>
+        <translation>Invoer</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="150"/>
         <source>No input devices available</source>
-        <translation>Geen input apparaten beschikbaar</translation>
+        <translation>Geen invoerapparaten beschikbaar</translation>
     </message>
 </context>
 </TS>

@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Name=Users
+Comment=Manage user accounts
+Keywords=User;Users;Me;Account;People;Person;Guest;Admin;Create;Delete;Password
+Icon=preferences-system-users
+Categories=Qt;X-Liri;Settings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=system
+X-Liri-Settings-SymbolicIcon=social/people
+
+
+# Translations
+Comment[es_MX]=Administrar cuentas de usuario
+Name[es_MX]=Usuarios

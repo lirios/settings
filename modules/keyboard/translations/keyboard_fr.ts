@@ -1,15 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.1">
 <context>
     <name>AddDialog</name>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"></translation>
+        <translation>Cadre :</translation>
     </message>
     <message>
         <source>Variant:</source>
-        <translation type="unfinished"></translation>
+        <translation>Variante : </translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -17,7 +15,7 @@
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -30,28 +28,32 @@
 <context>
     <name>LayoutPage</name>
     <message>
+        <source>Keyboard model:</source>
+        <translation type="vanished">Modèle du clavier</translation>
+    </message>
+    <message>
         <source>Type to test the layout...</source>
-        <translation type="unfinished"></translation>
+        <translation>Taper du texte pour tester la disposition...</translation>
     </message>
     <message>
         <source>Model and Test</source>
-        <translation type="unfinished"></translation>
+        <translation>Modèle et Test</translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"></translation>
+        <translation>Modèle</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Disposition</translation>
     </message>
     <message>
         <source>No variant</source>
-        <translation type="unfinished"></translation>
+        <translation>Pas de variante</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Enlever</translation>
     </message>
 </context>
 <context>
@@ -62,22 +64,22 @@
     </message>
     <message>
         <source>Behavior</source>
-        <translation type="unfinished"></translation>
+        <translation>Comportement</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Disposition</translation>
     </message>
 </context>
 <context>
     <name>TypingPage</name>
     <message>
         <source>Repeat Keys</source>
-        <translation>Touches répétées</translation>
+        <translation>Touches de répétition</translation>
     </message>
     <message>
         <source>Delay:</source>
-        <translation type="vanished">Délai :</translation>
+        <translation type="vanished">Délai</translation>
     </message>
     <message>
         <source>Short</source>
@@ -89,7 +91,7 @@
     </message>
     <message>
         <source>Speed:</source>
-        <translation type="vanished">Vitesse</translation>
+        <translation type="vanished">Vitesse : </translation>
     </message>
     <message>
         <source>Slow</source>
@@ -101,35 +103,39 @@
     </message>
     <message>
         <source>Cursor Blinking</source>
-        <translation>Clignotement du curseur</translation>
+        <translation>Curseur clignotant</translation>
+    </message>
+    <message>
+        <source>Timeout:</source>
+        <translation type="vanished">Délai</translation>
     </message>
     <message>
         <source>Typing</source>
-        <translation type="unfinished"></translation>
+        <translation>En train décrire</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Délai</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Vitesse</translation>
     </message>
     <message>
         <source>Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Curseur</translation>
     </message>
     <message>
         <source>Timeout</source>
-        <translation type="unfinished"></translation>
+        <translation>Délai</translation>
     </message>
     <message>
         <source>Input Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Source d&apos;Entrée</translation>
     </message>
     <message>
         <source>Virtual Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Clavier Virtuel</translation>
     </message>
 </context>
 </TS>

@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="de">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
 <context>
     <name>AddDialog</name>
     <message>
         <source>Layout:</source>
-        <translation>Anordnung:</translation>
+        <translation>Layout:</translation>
     </message>
     <message>
         <source>Variant:</source>
@@ -24,7 +22,7 @@
     <name>KeyboardLayout</name>
     <message>
         <source>None</source>
-        <translation>Keines</translation>
+        <translation>Kein</translation>
     </message>
 </context>
 <context>
@@ -35,34 +33,34 @@
     </message>
     <message>
         <source>Type to test the layout...</source>
-        <translation>Tippen Sie, um die Anordnung zu testen...</translation>
+        <translation>Tippen, um das Layout zu testen...</translation>
     </message>
     <message>
         <source>Model and Test</source>
-        <translation type="unfinished"></translation>
+        <translation>Modell und Test</translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"></translation>
+        <translation>Modell</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished">Anordnung</translation>
+        <translation>Layout</translation>
     </message>
     <message>
         <source>No variant</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Variante</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Entfernen</translation>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
         <source>Shortcuts</source>
-        <translation>Kürzel</translation>
+        <translation>Kurzbefehle</translation>
     </message>
     <message>
         <source>Behavior</source>
@@ -70,14 +68,14 @@
     </message>
     <message>
         <source>Layout</source>
-        <translation>Anordnung</translation>
+        <translation>Layout</translation>
     </message>
 </context>
 <context>
     <name>TypingPage</name>
     <message>
         <source>Repeat Keys</source>
-        <translation>Taste wiederholen</translation>
+        <translation>Zeichen wiederholen</translation>
     </message>
     <message>
         <source>Delay:</source>
@@ -105,39 +103,39 @@
     </message>
     <message>
         <source>Cursor Blinking</source>
-        <translation>Mauszeiger blinken</translation>
+        <translation>Mauszeiger-Blinken</translation>
     </message>
     <message>
         <source>Timeout:</source>
-        <translation type="vanished">Zeitüberschreitung</translation>
+        <translation type="vanished">Timeout:</translation>
     </message>
     <message>
         <source>Typing</source>
-        <translation type="unfinished"></translation>
+        <translation>Tippen</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Verzögerung</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Geschwindigkeit</translation>
     </message>
     <message>
         <source>Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeiger</translation>
     </message>
     <message>
         <source>Timeout</source>
-        <translation type="unfinished"></translation>
+        <translation>Timeout</translation>
     </message>
     <message>
         <source>Input Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Eingabequellen</translation>
     </message>
     <message>
         <source>Virtual Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Digitale Tastatur</translation>
     </message>
 </context>
 </TS>

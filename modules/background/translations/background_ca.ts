@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ca">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca" version="2.1">
 <context>
     <name>ColorButton</name>
     <message>
         <source>Choose a color</source>
-        <translation>Trieu un color</translation>
+        <translation>Tria un color</translation>
     </message>
 </context>
 <context>
@@ -27,14 +25,14 @@
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Bloqueja la pantalla</translation>
+        <translation>Pantalla de Bloqueig</translation>
     </message>
 </context>
 <context>
     <name>Selector</name>
     <message>
         <source>Pick a background</source>
-        <translation>Trieu un fons</translation>
+        <translation>Selecciona un fons</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -42,14 +40,14 @@
     </message>
     <message>
         <source>Select</source>
-        <translation type="vanished">Selecciona</translation>
+        <translation type="vanished">Tria</translation>
     </message>
 </context>
 <context>
     <name>SelectorDialog</name>
     <message>
         <source>Wallpaper</source>
-        <translation>Fons</translation>
+        <translation>Fons de pantalla</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -57,7 +55,7 @@
     </message>
     <message>
         <source>Gradient</source>
-        <translation>Degradat</translation>
+        <translation>Gradient</translation>
     </message>
     <message>
         <source>Type:</source>
@@ -68,7 +66,7 @@
     <name>WallpaperPage</name>
     <message>
         <source>Fill Mode:</source>
-        <translation>Mode d&apos;emplenament:</translation>
+        <translation>Mode de Replenament</translation>
     </message>
     <message>
         <source>Stretched</source>
@@ -84,15 +82,15 @@
     </message>
     <message>
         <source>Tiled</source>
-        <translation>Quadriculat</translation>
+        <translation>Llaurat</translation>
     </message>
     <message>
         <source>Tiled Vertically</source>
-        <translation>Mosaic vertical</translation>
+        <translation>Llaurat Verticalment</translation>
     </message>
     <message>
         <source>Tiled Horizontally</source>
-        <translation>Mosaic horitzontal</translation>
+        <translation>Llaurat Horitzontalment</translation>
     </message>
     <message>
         <source>Centered</source>

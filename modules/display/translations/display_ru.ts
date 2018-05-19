@@ -1,39 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ru">
-<context>
-    <name>Output type label</name>
-    <message>
-        <source>Disconnected</source>
-        <translation type="vanished">Отключено</translation>
-    </message>
-</context>
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.1">
 <context>
     <name>Preflet</name>
     <message>
         <location filename="../contents/Preflet.qml" line="135"/>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Размер:</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="150"/>
         <source>Aspect Ratio:</source>
-        <translation type="unfinished"></translation>
+        <translation>Отношение сторон:</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="165"/>
         <source>Resolution:</source>
-        <translation type="unfinished"></translation>
+        <translation>Разрешение:</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="188"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отменить</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="193"/>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Применить</translation>
     </message>
 </context>
 </TS>

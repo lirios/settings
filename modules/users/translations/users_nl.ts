@@ -3,7 +3,7 @@
     <name>PhotoPicker</name>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"/>
+        <translation>Bladeren...</translation>
     </message>
 </context>
 <context>
@@ -21,117 +21,117 @@
     <name>UserAddDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Annuleren</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Accounttype</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standaard</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrator</translation>
     </message>
     <message>
         <source>Full name</source>
-        <translation type="unfinished"/>
+        <translation>Volledige naam</translation>
     </message>
     <message>
         <source>User name</source>
-        <translation type="unfinished"/>
+        <translation>Gebruikersnaam</translation>
     </message>
     <message>
         <source>Allow user to set a password at the next login</source>
-        <translation type="unfinished"/>
+        <translation>Sta gebruiker toe een wachtwoord in te stellen bij de volgende inlogpoging</translation>
     </message>
     <message>
         <source>Set a password now</source>
-        <translation type="unfinished"/>
+        <translation>Stel nu een wachtwoord in</translation>
     </message>
     <message>
         <source>No password</source>
-        <translation type="unfinished"/>
+        <translation>Geen wachtwoord</translation>
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Nieuw wachtwoord</translation>
     </message>
     <message>
         <source>Verify new password</source>
-        <translation type="unfinished"/>
+        <translation>Bevestig nieuw wachtwoord</translation>
     </message>
 </context>
 <context>
     <name>UserListItem</name>
     <message>
         <source>Do you want to keep %1&apos;s files?</source>
-        <translation type="unfinished"/>
+        <translation>Wil je de bestanden van %1 bewaren?</translation>
     </message>
     <message>
         <source>It is possible to keep the home directory, mail spool and temporary files around when deleting a user account.</source>
-        <translation type="unfinished"/>
+        <translation>Het is mogelijk de gebruikersmap, e-mail en tijdelijke bestanden te bewaren wanneer een gebruikersaccount wordt verwijderd.</translation>
     </message>
     <message>
         <source>Remove user</source>
-        <translation type="unfinished"/>
+        <translation>Verwijder gebruiker</translation>
     </message>
 </context>
 <context>
     <name>UserPage</name>
     <message>
         <source>Full name</source>
-        <translation type="unfinished"/>
+        <translation>Volledige naam</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Accounttype</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standaard</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrator</translation>
     </message>
     <message>
         <source>Automatic login</source>
-        <translation type="unfinished"/>
+        <translation>Automatisch inloggen</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Wachtwoord</translation>
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Nieuw wachtwoord</translation>
     </message>
     <message>
         <source>Verify new password</source>
-        <translation type="unfinished"/>
+        <translation>Bevestig nieuw wachtwoord</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished"/>
+        <translation>Aanpassen</translation>
     </message>
     <message>
         <source>Wrong password verification</source>
-        <translation type="unfinished"/>
+        <translation>Verkeerde wachtwoordverificatie</translation>
     </message>
     <message>
         <source>The passwords did not match.</source>
-        <translation type="unfinished"/>
+        <translation>De wachtwoorden kwamen niet overeen.</translation>
     </message>
     <message>
         <source>Password changed</source>
-        <translation type="unfinished"/>
+        <translation>Wachtwoord veranderd</translation>
     </message>
 </context>
 </TS>

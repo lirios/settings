@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="de">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
 <context>
     <name>ColorButton</name>
     <message>
         <source>Choose a color</source>
-        <translation>Wählen Sie eine Farbe aus</translation>
+        <translation>Farbe auswählen</translation>
     </message>
 </context>
 <context>
@@ -27,14 +25,14 @@
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Bildschirmsperre</translation>
+        <translation>Sperrbildschirm</translation>
     </message>
 </context>
 <context>
     <name>Selector</name>
     <message>
         <source>Pick a background</source>
-        <translation>Wählen Sie einen Hintergrund aus</translation>
+        <translation>Hintergrund auswählen</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -49,15 +47,15 @@
     <name>SelectorDialog</name>
     <message>
         <source>Wallpaper</source>
-        <translation>Wallpaper</translation>
+        <translation>Hintergrundbild</translation>
     </message>
     <message>
         <source>Solid</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Gradient</source>
-        <translation>Verlauf</translation>
+        <translation>Farbverlauf</translation>
     </message>
     <message>
         <source>Type:</source>
@@ -72,11 +70,11 @@
     </message>
     <message>
         <source>Stretched</source>
-        <translation>Gestreckt</translation>
+        <translation>Verzerrt</translation>
     </message>
     <message>
         <source>Scaled</source>
-        <translation>Skaliert</translation>
+        <translation>Angepasst</translation>
     </message>
     <message>
         <source>Cropped</source>

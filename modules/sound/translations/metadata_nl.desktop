@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=Sound
 Comment=Change sound levels, inputs, outputs, and alert sounds
@@ -12,6 +11,6 @@ X-Liri-Settings-SymbolicIcon=av/volume_up
 
 
 # Translations
-Comment[nl]=Verander geluid niveau, input, output en notificatie geluiden
+Comment[nl]=Verander geluidsniveau, invoer, uitvoer en notificatiegeluiden
 Name[nl]=Geluid
 Icon[nl]=multimedia-volume-controle

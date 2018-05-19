@@ -35,12 +35,12 @@
         <location filename="../contents/Preflet.qml" line="80"/>
         <location filename="../contents/Preflet.qml" line="130"/>
         <source>Volume</source>
-        <translation type="unfinished"/>
+        <translation>ボリューム</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="102"/>
         <source>Test</source>
-        <translation type="unfinished"/>
+        <translation>テスト</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="109"/>

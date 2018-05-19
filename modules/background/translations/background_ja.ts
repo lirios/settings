@@ -36,18 +36,18 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">キャンセル</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">選択</translation>
     </message>
 </context>
 <context>
     <name>SelectorDialog</name>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>壁紙</translation>
     </message>
     <message>
         <source>Solid</source>

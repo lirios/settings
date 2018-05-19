@@ -9,12 +9,12 @@
     <message>
         <location filename="../contents/Preflet.qml" line="37"/>
         <source>Transparent app shelf</source>
-        <translation>Transparante app drawer</translation>
+        <translation>Transparante app-plank</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="57"/>
         <source>Accent color</source>
-        <translation>Accent kleur</translation>
+        <translation>Accentkleur</translation>
     </message>
 </context>
 </TS>

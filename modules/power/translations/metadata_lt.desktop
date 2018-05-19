@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=Power
 Comment=View your battery status and change power saving settings
@@ -12,3 +11,6 @@ X-Liri-Settings-SymbolicIcon=notification/power
 
 
 # Translations
+Comment[lt]=Rodyti jūsų baterijos būseną ir keisti energijos taupymo nustatymus
+Name[lt]=Maitinimas
+Icon[lt]=preferences-system-power-management

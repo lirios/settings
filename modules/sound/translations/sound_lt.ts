@@ -29,13 +29,13 @@
     <message>
         <location filename="../contents/Preflet.qml" line="77"/>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Išvestis</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="80"/>
         <location filename="../contents/Preflet.qml" line="130"/>
         <source>Volume</source>
-        <translation type="unfinished"/>
+        <translation>Garsis</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="102"/>
@@ -50,17 +50,17 @@
     <message>
         <location filename="../contents/Preflet.qml" line="120"/>
         <source>No output devices available</source>
-        <translation type="unfinished"/>
+        <translation>Nėra prieinamų išvesties įrenginių</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="127"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Įvestis</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="150"/>
         <source>No input devices available</source>
-        <translation type="unfinished"/>
+        <translation>Nėra prieinamų įvesties įrenginių</translation>
     </message>
 </context>
 </TS>

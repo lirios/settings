@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Application
+Name=Network
+Comment=Control how you connect to the Internet
+#TRANSLATIONS
+Keywords=network;ethernet;wifi;wired;wireless;
+Icon=preferences-system-network
+Categories=Qt;X-Liri;Settings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=hardware
+
+
+# Translations
+Comment[id]=Atur bagaimana Anda terkoneksi dengan internet
+Name[id]=Jaringan
+Icon[id]=preferences-system-network

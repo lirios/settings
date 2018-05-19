@@ -3,19 +3,19 @@
     <name>Preflet</name>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished"/>
+        <translation>Sürüm %1</translation>
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished"/>
+        <translation>Web site</translation>
     </message>
     <message>
         <source>Report a bug</source>
-        <translation type="unfinished"/>
+        <translation>Hata bildir</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished"/>
+        <translation>Hazırlayanlar</translation>
     </message>
 </context>
 </TS>

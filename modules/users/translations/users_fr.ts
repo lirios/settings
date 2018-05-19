@@ -3,7 +3,7 @@
     <name>PhotoPicker</name>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"/>
+        <translation>Parcourir...</translation>
     </message>
 </context>
 <context>
@@ -21,117 +21,117 @@
     <name>UserAddDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Annuler</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Type de Compte</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standard</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrateur</translation>
     </message>
     <message>
         <source>Full name</source>
-        <translation type="unfinished"/>
+        <translation>Nom complet</translation>
     </message>
     <message>
         <source>User name</source>
-        <translation type="unfinished"/>
+        <translation>Nom d&apos;utilisateur</translation>
     </message>
     <message>
         <source>Allow user to set a password at the next login</source>
-        <translation type="unfinished"/>
+        <translation>Autoriser l&apos;utilisateur à définir un mot de passe à la prochaine connexion</translation>
     </message>
     <message>
         <source>Set a password now</source>
-        <translation type="unfinished"/>
+        <translation>Définir un mot de passe maintenant</translation>
     </message>
     <message>
         <source>No password</source>
-        <translation type="unfinished"/>
+        <translation>Pas de mot de passe</translation>
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Nouveau mot de passe</translation>
     </message>
     <message>
         <source>Verify new password</source>
-        <translation type="unfinished"/>
+        <translation>Vérifier le nouveau mot de passe</translation>
     </message>
 </context>
 <context>
     <name>UserListItem</name>
     <message>
         <source>Do you want to keep %1&apos;s files?</source>
-        <translation type="unfinished"/>
+        <translation>Voulez vous garder les fichier de %1 ?</translation>
     </message>
     <message>
         <source>It is possible to keep the home directory, mail spool and temporary files around when deleting a user account.</source>
-        <translation type="unfinished"/>
+        <translation>Il est possible de garder le répertoire personnel, le spool des mails et les fichiers temporaires après la suppresion d&apos;un compte utilisateur.</translation>
     </message>
     <message>
         <source>Remove user</source>
-        <translation type="unfinished"/>
+        <translation>Supprimer l&apos;utilisateur</translation>
     </message>
 </context>
 <context>
     <name>UserPage</name>
     <message>
         <source>Full name</source>
-        <translation type="unfinished"/>
+        <translation>Nom complet</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Type de compte</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standard</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrateur</translation>
     </message>
     <message>
         <source>Automatic login</source>
-        <translation type="unfinished"/>
+        <translation>Connexion automatique</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Mot de passe</translation>
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Nouveau mot de passe</translation>
     </message>
     <message>
         <source>Verify new password</source>
-        <translation type="unfinished"/>
+        <translation>Vérifier le nouveau mot de passe</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished"/>
+        <translation>Changer</translation>
     </message>
     <message>
         <source>Wrong password verification</source>
-        <translation type="unfinished"/>
+        <translation>Vérification de mot de passe non valide</translation>
     </message>
     <message>
         <source>The passwords did not match.</source>
-        <translation type="unfinished"/>
+        <translation>Les mots de passe ne correspondent pas.</translation>
     </message>
     <message>
         <source>Password changed</source>
-        <translation type="unfinished"/>
+        <translation>Mot de passe changé</translation>
     </message>
 </context>
 </TS>

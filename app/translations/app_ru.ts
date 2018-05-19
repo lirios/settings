@@ -1,26 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ru">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.1">
 <context>
     <name>PluginsModel</name>
     <message>
         <source>Personal</source>
-        <translation type="obsolete">Персональные</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="obsolete">Оборудование</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System</source>
-        <translation type="obsolete">Система</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>System Preferences</source>
-        <translation type="vanished">Системные параметры</translation>
+        <translation type="vanished">Системные настройки</translation>
     </message>
     <message>
         <source>Keywords</source>

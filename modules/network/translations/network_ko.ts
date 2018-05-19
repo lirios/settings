@@ -9,27 +9,27 @@
     <message>
         <location filename="../contents/DetailsPane.qml" line="48"/>
         <source>IP Address:</source>
-        <translation type="unfinished"/>
+        <translation>IP 주소:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="55"/>
         <source>Subnet Mask:</source>
-        <translation type="unfinished"/>
+        <translation>서브넷마스크:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="62"/>
         <source>Default Gateway:</source>
-        <translation type="unfinished"/>
+        <translation>기본 게이트웨이:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="69"/>
         <source>DNS Server:</source>
-        <translation type="unfinished"/>
+        <translation>DNS 서버:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="76"/>
         <source>Domain names:</source>
-        <translation type="unfinished"/>
+        <translation>도베인 이름:</translation>
     </message>
 </context>
 <context>
@@ -37,22 +37,22 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="35"/>
         <source>Connect to a hidden Wi-Fi network</source>
-        <translation type="unfinished"/>
+        <translation>숨겨진 Wi-Fi 네트워크에 연결</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="57"/>
         <source>Hidden Wi-Fi network</source>
-        <translation type="unfinished"/>
+        <translation>숨겨진 Wi-Fi 네트워크</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="62"/>
         <source>Enter the name and security details of the hidden Wi-Fi network you wish to connect to.</source>
-        <translation type="unfinished"/>
+        <translation>연결 하고 싶은 숨겨진 Wi-Fi 네트워크의 이름과 보안 사항을 입력하세요.</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="75"/>
         <source>Network name:</source>
-        <translation type="unfinished"/>
+        <translation>네트워크 이름:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="87"/>
@@ -62,7 +62,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="94"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>없음</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="95"/>
@@ -97,7 +97,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="101"/>
         <source>WPS</source>
-        <translation type="unfinished"/>
+        <translation>WPS</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="119"/>
@@ -117,22 +117,22 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="147"/>
         <source>1 (Default)</source>
-        <translation type="unfinished"/>
+        <translation>1(기본)</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="148"/>
         <source>2</source>
-        <translation type="unfinished"/>
+        <translation>2</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="148"/>
         <source>3</source>
-        <translation type="unfinished"/>
+        <translation>3</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="148"/>
         <source>4</source>
-        <translation type="unfinished"/>
+        <translation>4</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="152"/>
@@ -152,13 +152,13 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="173"/>
         <source>Username:</source>
-        <translation type="unfinished"/>
+        <translation>사용자 이름:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="185"/>
         <location filename="../contents/HiddenWifiDialog.qml" line="217"/>
         <source>Password:</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="202"/>
@@ -169,12 +169,12 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="253"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>취소</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="259"/>
         <source>Connect</source>
-        <translation type="unfinished"/>
+        <translation>연결</translation>
     </message>
 </context>
 <context>
@@ -182,7 +182,7 @@
     <message>
         <location filename="../contents/IPv4Pane.qml" line="40"/>
         <source>Obtain an IP address automatically</source>
-        <translation type="unfinished"/>
+        <translation>IP 주소를 자동으로 얻기</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="50"/>
@@ -192,22 +192,22 @@
     <message>
         <location filename="../contents/IPv4Pane.qml" line="61"/>
         <source>IP Address:</source>
-        <translation type="unfinished"/>
+        <translation>IP 주소:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="65"/>
         <source>Subnet Mask:</source>
-        <translation type="unfinished"/>
+        <translation>서브넷마스크:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="69"/>
         <source>Default Gateway:</source>
-        <translation type="unfinished"/>
+        <translation>기본 게이트웨이:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="86"/>
         <source>Obtain DNS server address automatically</source>
-        <translation type="unfinished"/>
+        <translation>DNS 서버 주소를 자동으로 얻기</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="90"/>
@@ -217,17 +217,17 @@
     <message>
         <location filename="../contents/IPv4Pane.qml" line="95"/>
         <source>Primary DNS Server:</source>
-        <translation type="unfinished"/>
+        <translation>주 DNS 서버:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="99"/>
         <source>Secondary DNS Server:</source>
-        <translation type="unfinished"/>
+        <translation>보조 DNS 서버:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="112"/>
         <source>Connect automatically</source>
-        <translation type="unfinished"/>
+        <translation>자동연결</translation>
     </message>
 </context>
 <context>
@@ -235,12 +235,12 @@
     <message>
         <location filename="../contents/IdentityPane.qml" line="43"/>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>이름:</translation>
     </message>
     <message>
         <location filename="../contents/IdentityPane.qml" line="49"/>
         <source>MAC Address:</source>
-        <translation type="unfinished"/>
+        <translation>MAC 주소:</translation>
     </message>
     <message>
         <location filename="../contents/IdentityPane.qml" line="55"/>
@@ -250,7 +250,7 @@
     <message>
         <location filename="../contents/IdentityPane.qml" line="61"/>
         <source>MTU:</source>
-        <translation type="unfinished"/>
+        <translation>MTU:</translation>
     </message>
     <message>
         <location filename="../contents/IdentityPane.qml" line="76"/>
@@ -260,7 +260,7 @@
     <message>
         <location filename="../contents/IdentityPane.qml" line="102"/>
         <source>Connect automatically</source>
-        <translation type="unfinished"/>
+        <translation>자동연결</translation>
     </message>
 </context>
 <context>
@@ -268,12 +268,12 @@
     <message>
         <location filename="../contents/Preflet.qml" line="140"/>
         <source>Network service unavailable</source>
-        <translation type="unfinished"/>
+        <translation>네트워크 서비스 사용불가</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="144"/>
         <source>Please make sure the &quot;NetworkManager&quot; service is running.</source>
-        <translation type="unfinished"/>
+        <translation>&quot;NetworkManager&quot; 서비스가 실행중인지 확인해주세요.</translation>
     </message>
 </context>
 <context>
@@ -291,32 +291,32 @@
     <message>
         <location filename="../contents/SecurityPane.qml" line="56"/>
         <source>Username:</source>
-        <translation type="unfinished"/>
+        <translation>사용자 이름:</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="62"/>
         <source>Password:</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호:</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="85"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>없음</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="85"/>
         <source>MD5</source>
-        <translation type="unfinished"/>
+        <translation>MD5</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="97"/>
         <source>Ask for this password every time</source>
-        <translation type="unfinished"/>
+        <translation>매번 비밀번호 묻기</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="101"/>
         <source>Show password</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호 보기</translation>
     </message>
 </context>
 <context>
@@ -324,12 +324,12 @@
     <message>
         <location filename="../contents/WiredPage.qml" line="73"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>연결됨</translation>
     </message>
     <message>
         <location filename="../contents/WiredPage.qml" line="133"/>
         <source>Add Profile...</source>
-        <translation type="unfinished"/>
+        <translation>프로파일 추가...</translation>
     </message>
 </context>
 <context>
@@ -337,47 +337,47 @@
     <message>
         <location filename="../contents/WirelessPage.qml" line="54"/>
         <source>Wireless</source>
-        <translation type="unfinished"/>
+        <translation>무선</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="61"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>연결됨</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="61"/>
         <source>Disconnected</source>
-        <translation type="unfinished"/>
+        <translation>연결 해제됨</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="62"/>
         <source>Unavailable</source>
-        <translation type="unfinished"/>
+        <translation>사용불가</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="72"/>
         <source>Rescan</source>
-        <translation type="unfinished"/>
+        <translation>재검색</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="78"/>
         <source>Enable</source>
-        <translation type="unfinished"/>
+        <translation>사용</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="138"/>
         <source>Use as Hotspot...</source>
-        <translation type="unfinished"/>
+        <translation>핫스팟으로 사용...</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="143"/>
         <source>Connect to Hidden Network...</source>
-        <translation type="unfinished"/>
+        <translation>숨겨진 네트워크에 연결...</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="152"/>
         <source>History</source>
-        <translation type="unfinished"/>
+        <translation>기록</translation>
     </message>
 </context>
 </TS>

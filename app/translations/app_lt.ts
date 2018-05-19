@@ -1,19 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="lt">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="lt" version="2.1">
 <context>
     <name>PluginsModel</name>
     <message>
         <source>Personal</source>
-        <translation type="obsolete">Asmeniniai</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="obsolete">Aparatinė įranga</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System</source>
-        <translation type="obsolete">Sistema</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -24,7 +22,7 @@
     </message>
     <message>
         <source>Keywords</source>
-        <translation type="vanished">Raktažodžiai</translation>
+        <translation type="vanished">Raktiniai žodžiai</translation>
     </message>
     <message>
         <source>Personal</source>

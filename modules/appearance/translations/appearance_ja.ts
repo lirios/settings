@@ -4,7 +4,7 @@
     <message>
         <location filename="../contents/Preflet.qml" line="34"/>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>デスクトップ</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="37"/>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../contents/Preflet.qml" line="57"/>
         <source>Accent color</source>
-        <translation type="unfinished"/>
+        <translation>アクセントカラー</translation>
     </message>
 </context>
 </TS>

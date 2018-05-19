@@ -1,12 +1,16 @@
 [Desktop Entry]
+Type=Application
 Name=Background
 Comment=Change your background image to a wallpaper, photo or solid color
-Keywords=Wallpaper;Screen;Desktop;
+#TRANSLATIONS
+Icon=preferences-desktop-wallpaper
+Categories=Qt;X-Liri;Settings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=personal
+X-Liri-Settings-SymbolicIcon=image/color_lens
 
 
 # Translations
-
-
-# Translations
-Comment[es]=Cambia tu fondo de escritorio a una imagen, foto o color sólido
+Comment[es]=Cambia tu imagen de fondo a un fondo de pantalla, foto o color sólido
 Name[es]=Fondo de escritorio
+Icon[es]=preferencias-escritorio-wallpaper

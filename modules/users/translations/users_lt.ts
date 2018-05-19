@@ -3,57 +3,57 @@
     <name>PhotoPicker</name>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"/>
+        <translation>Naršyti...</translation>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
         <source>Your Account</source>
-        <translation type="unfinished"/>
+        <translation>Jūsų paskyra</translation>
     </message>
     <message>
         <source>Other Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Kitos paskyros</translation>
     </message>
 </context>
 <context>
     <name>UserAddDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Atsisakyti</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>Gerai</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Paskyros tipas</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standartinė</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administratorius</translation>
     </message>
     <message>
         <source>Full name</source>
-        <translation type="unfinished"/>
+        <translation>Visas vardas</translation>
     </message>
     <message>
         <source>User name</source>
-        <translation type="unfinished"/>
+        <translation>Naudotojo vardas</translation>
     </message>
     <message>
         <source>Allow user to set a password at the next login</source>
-        <translation type="unfinished"/>
+        <translation>Leisti naudotojui nusistatyti slaptažodį kito prisijungimo metu</translation>
     </message>
     <message>
         <source>Set a password now</source>
-        <translation type="unfinished"/>
+        <translation>Nustatyti slaptažodį dabar</translation>
     </message>
     <message>
         <source>No password</source>
@@ -61,65 +61,65 @@
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Naujas slaptažodis</translation>
     </message>
     <message>
         <source>Verify new password</source>
-        <translation type="unfinished"/>
+        <translation>Patvirtinkite naują slaptažodį</translation>
     </message>
 </context>
 <context>
     <name>UserListItem</name>
     <message>
         <source>Do you want to keep %1&apos;s files?</source>
-        <translation type="unfinished"/>
+        <translation>Ar norite išsaugoti naudotojo %1 failus?</translation>
     </message>
     <message>
         <source>It is possible to keep the home directory, mail spool and temporary files around when deleting a user account.</source>
-        <translation type="unfinished"/>
+        <translation>Ištrinant naudotojo paskyrą yra įmanoma išsaugoti namų katalogą, pašto kaupą ir laikinuosius failus.</translation>
     </message>
     <message>
         <source>Remove user</source>
-        <translation type="unfinished"/>
+        <translation>Šalinti naudotoją</translation>
     </message>
 </context>
 <context>
     <name>UserPage</name>
     <message>
         <source>Full name</source>
-        <translation type="unfinished"/>
+        <translation>Visas vardas</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Paskyros tipas</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standartinė</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administratorius</translation>
     </message>
     <message>
         <source>Automatic login</source>
-        <translation type="unfinished"/>
+        <translation>Automatinis prisijungimas</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Slaptažodis</translation>
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Naujas slaptažodis</translation>
     </message>
     <message>
         <source>Verify new password</source>
-        <translation type="unfinished"/>
+        <translation>Patvirtinkite naują slaptažodį</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished"/>
+        <translation>Pakeisti</translation>
     </message>
     <message>
         <source>Wrong password verification</source>
@@ -127,11 +127,11 @@
     </message>
     <message>
         <source>The passwords did not match.</source>
-        <translation type="unfinished"/>
+        <translation>Slaptažodžiai nesutampa.</translation>
     </message>
     <message>
         <source>Password changed</source>
-        <translation type="unfinished"/>
+        <translation>Slaptažodis pakeistas</translation>
     </message>
 </context>
 </TS>

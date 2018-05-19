@@ -14,12 +14,12 @@
     <message>
         <location filename="../contents/DetailsPane.qml" line="55"/>
         <source>Subnet Mask:</source>
-        <translation>Ağ Maskesi:</translation>
+        <translation>Alt Ağ Maskesi:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="62"/>
         <source>Default Gateway:</source>
-        <translation>Varsayılan Geçit:</translation>
+        <translation>Öntanımlı Ağ Geçidi:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="69"/>
@@ -29,7 +29,7 @@
     <message>
         <location filename="../contents/DetailsPane.qml" line="76"/>
         <source>Domain names:</source>
-        <translation>Alan adları:</translation>
+        <translation>Etki alanı adları:</translation>
     </message>
 </context>
 <context>
@@ -37,7 +37,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="35"/>
         <source>Connect to a hidden Wi-Fi network</source>
-        <translation>Gizli Wi-Fi ağına bağlan</translation>
+        <translation>Gizli bir Wi-Fi ağına bağlan</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="57"/>
@@ -47,7 +47,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="62"/>
         <source>Enter the name and security details of the hidden Wi-Fi network you wish to connect to.</source>
-        <translation>Bağlanmak istediğiniz gizli Wi-Fi ağının adını ve güvenlik detaylarını giriniz.</translation>
+        <translation>Bağlanmak istediğiniz gizli Wi-Fi ağının adını ve güvenlik ayrıntılarını girin.</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="75"/>
@@ -67,7 +67,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="95"/>
         <source>WEP 40/128-bit Key (Hex or ASCII)</source>
-        <translation>WEP 40/128-bit Anahtar (Hex ya da ASCII)</translation>
+        <translation>WEP 40/128-bit Anahtar (Hex veya ASCII)</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="96"/>
@@ -92,7 +92,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="100"/>
         <source>WPA &amp; WPA2 Enterprise</source>
-        <translation type="unfinished"/>
+        <translation>WPA &amp; WPA2 Kurumsal</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="101"/>
@@ -112,12 +112,12 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="140"/>
         <source>WEP index:</source>
-        <translation>WEP indeks:</translation>
+        <translation>WEP dizini:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="147"/>
         <source>1 (Default)</source>
-        <translation>1 (Varsayılan)</translation>
+        <translation>1 (Öntanımlı)</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="148"/>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="152"/>
         <source>Authentication:</source>
-        <translation>Kimlik Doğrulama:</translation>
+        <translation>Yetkilendirme:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="159"/>
@@ -147,24 +147,24 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="159"/>
         <source>Shared Key</source>
-        <translation>Paylaşılan Anahtar</translation>
+        <translation>Paylaşımlı Anahtar</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="173"/>
         <source>Username:</source>
-        <translation>Kullanıcı:</translation>
+        <translation>Kullanıcı adı:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="185"/>
         <location filename="../contents/HiddenWifiDialog.qml" line="217"/>
         <source>Password:</source>
-        <translation>Şifre:</translation>
+        <translation>Parola:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="202"/>
         <location filename="../contents/HiddenWifiDialog.qml" line="234"/>
         <source>Show password</source>
-        <translation>Şifreyi göster</translation>
+        <translation>Parolayı göster</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="253"/>
@@ -182,12 +182,12 @@
     <message>
         <location filename="../contents/IPv4Pane.qml" line="40"/>
         <source>Obtain an IP address automatically</source>
-        <translation>IP adresini kendiliğinden edin</translation>
+        <translation>Kendiliğinden bir IP adresi edin</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="50"/>
         <source>Use the following IP address</source>
-        <translation>Aşağıdaki IP adresini kullan</translation>
+        <translation>Şu IP adresini kullan</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="61"/>
@@ -197,12 +197,12 @@
     <message>
         <location filename="../contents/IPv4Pane.qml" line="65"/>
         <source>Subnet Mask:</source>
-        <translation>Ağ Maskesi:</translation>
+        <translation>Alt Ağ Maskesi:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="69"/>
         <source>Default Gateway:</source>
-        <translation>Varsayılan Geçit:</translation>
+        <translation>Öntanımlı Ağ Geçidi:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="86"/>
@@ -212,7 +212,7 @@
     <message>
         <location filename="../contents/IPv4Pane.qml" line="90"/>
         <source>Use the following DNS server addresses</source>
-        <translation>Aşağıdaki DNS sunucu adresini kullan</translation>
+        <translation>Şu DNS sunucu adreslerini kullan</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="95"/>
@@ -227,7 +227,7 @@
     <message>
         <location filename="../contents/IPv4Pane.qml" line="112"/>
         <source>Connect automatically</source>
-        <translation>Kendiliğinden Bağlan</translation>
+        <translation>Kendiliğinden bağlan</translation>
     </message>
 </context>
 <context>
@@ -235,7 +235,7 @@
     <message>
         <location filename="../contents/IdentityPane.qml" line="43"/>
         <source>Name:</source>
-        <translation>İsim:</translation>
+        <translation>Ad:</translation>
     </message>
     <message>
         <location filename="../contents/IdentityPane.qml" line="49"/>
@@ -245,7 +245,7 @@
     <message>
         <location filename="../contents/IdentityPane.qml" line="55"/>
         <source>Cloned Address:</source>
-        <translation>Klonlanan Adres:</translation>
+        <translation>Klonlanmış Adres:</translation>
     </message>
     <message>
         <location filename="../contents/IdentityPane.qml" line="61"/>
@@ -255,12 +255,12 @@
     <message>
         <location filename="../contents/IdentityPane.qml" line="76"/>
         <source>Profile %1</source>
-        <translation>1% profil</translation>
+        <translation>%1 Profili</translation>
     </message>
     <message>
         <location filename="../contents/IdentityPane.qml" line="102"/>
         <source>Connect automatically</source>
-        <translation>Kendiliğinen bağlan</translation>
+        <translation>Kendiliğinden bağlan</translation>
     </message>
 </context>
 <context>
@@ -268,12 +268,12 @@
     <message>
         <location filename="../contents/Preflet.qml" line="140"/>
         <source>Network service unavailable</source>
-        <translation type="unfinished"/>
+        <translation>Ağ hizmeti kullanılamıyor</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="144"/>
         <source>Please make sure the &quot;NetworkManager&quot; service is running.</source>
-        <translation type="unfinished"/>
+        <translation>&quot;NetworkManager&quot; hizmetinin çalıştığından emin olun.</translation>
     </message>
 </context>
 <context>
@@ -286,17 +286,17 @@
     <message>
         <location filename="../contents/SecurityPane.qml" line="50"/>
         <source>Authentication:</source>
-        <translation>Kimlik Doğrulama:</translation>
+        <translation>Yetkilendirme:</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="56"/>
         <source>Username:</source>
-        <translation>Kullanıcı:</translation>
+        <translation>Kullanıcı adı:</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="62"/>
         <source>Password:</source>
-        <translation>Şifre:</translation>
+        <translation>Parola:</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="85"/>
@@ -311,12 +311,12 @@
     <message>
         <location filename="../contents/SecurityPane.qml" line="97"/>
         <source>Ask for this password every time</source>
-        <translation>Şifreyi her zaman sor</translation>
+        <translation>Parolayı her zaman sor</translation>
     </message>
     <message>
         <location filename="../contents/SecurityPane.qml" line="101"/>
         <source>Show password</source>
-        <translation>Şifreyi göster</translation>
+        <translation>Parolayı göster</translation>
     </message>
 </context>
 <context>
@@ -329,7 +329,7 @@
     <message>
         <location filename="../contents/WiredPage.qml" line="133"/>
         <source>Add Profile...</source>
-        <translation>Profik Ekle...</translation>
+        <translation>Profil Ekle...</translation>
     </message>
 </context>
 <context>
@@ -347,12 +347,12 @@
     <message>
         <location filename="../contents/WirelessPage.qml" line="61"/>
         <source>Disconnected</source>
-        <translation>Bağlantı koptu</translation>
+        <translation>Bağlı değil</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="62"/>
         <source>Unavailable</source>
-        <translation>Yok</translation>
+        <translation>Kullanılamıyor</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="72"/>
@@ -367,12 +367,12 @@
     <message>
         <location filename="../contents/WirelessPage.qml" line="138"/>
         <source>Use as Hotspot...</source>
-        <translation>Hotspot olarak kullan...</translation>
+        <translation>Etkin Nokta Olarak Kullan...</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="143"/>
         <source>Connect to Hidden Network...</source>
-        <translation>Gizli Ağa Bağlan</translation>
+        <translation>Gizli Ağa Bağlan...</translation>
     </message>
     <message>
         <location filename="../contents/WirelessPage.qml" line="152"/>

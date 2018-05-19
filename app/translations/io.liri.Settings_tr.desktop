@@ -1,15 +1,22 @@
 [Desktop Entry]
+Encoding=UTF-8
 Type=Application
-Name=System Preferences
-GenericName=System Preferences
-Comment=Manages system preferences
+Name=Settings
+GenericName=Settings
+Comment=Manages system settings
+#TRANSLATIONS
+Icon=preferences-system
+Exec=liri-settings
+TryExec=liri-settings
+Terminal=false
+StartupNotify=true
+Categories=Qt;X-Liri;Settings;Core;
+OnlyShowIn=X-Liri;
 Keywords=Preferences;Settings;
 
 
 # Translations
-
-
-# Translations
-Comment[tr]=Sistem tercihlerini yönetir
-GenericName[tr]=Sistem Tercihleri
-Name[tr]=Sistem Tercihleri
+Comment[tr]=Sistem ayarlarını yönetir
+GenericName[tr]=Ayarlar
+Name[tr]=Ayarlar
+Icon[tr]=preferences-system

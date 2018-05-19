@@ -4,12 +4,12 @@
     <message>
         <location filename="../contents/Preflet.qml" line="37"/>
         <source>Devices</source>
-        <translation type="unfinished"/>
+        <translation>장치</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="48"/>
         <source>Power Saving</source>
-        <translation type="unfinished"/>
+        <translation>전원 절약</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="51"/>
@@ -19,57 +19,57 @@
     <message>
         <location filename="../contents/Preflet.qml" line="56"/>
         <source>1 minute</source>
-        <translation type="unfinished"/>
+        <translation>1분</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="57"/>
         <source>2 minutes</source>
-        <translation type="unfinished"/>
+        <translation>2분</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="58"/>
         <source>3 minutes</source>
-        <translation type="unfinished"/>
+        <translation>3분</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="59"/>
         <source>4 minutes</source>
-        <translation type="unfinished"/>
+        <translation>4분</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="60"/>
         <source>5 minutes</source>
-        <translation type="unfinished"/>
+        <translation>5분</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="61"/>
         <source>8 minutes</source>
-        <translation type="unfinished"/>
+        <translation>8분</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="62"/>
         <source>10 minutes</source>
-        <translation type="unfinished"/>
+        <translation>10분</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="63"/>
         <source>12 minutes</source>
-        <translation type="unfinished"/>
+        <translation>12분</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="64"/>
         <source>15 minutes</source>
-        <translation type="unfinished"/>
+        <translation>15분</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="65"/>
         <source>Never</source>
-        <translation type="unfinished"/>
+        <translation>안함</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="71"/>
         <source>Wi-Fi</source>
-        <translation type="unfinished"/>
+        <translation>Wi-Fi</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="72"/>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../contents/Preflet.qml" line="86"/>
         <source>Off</source>
-        <translation type="unfinished"/>
+        <translation>끄기</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="92"/>

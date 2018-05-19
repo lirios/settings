@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="it">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="it" version="2.1">
 <context>
     <name>ColorButton</name>
     <message>
@@ -84,15 +82,15 @@
     </message>
     <message>
         <source>Tiled</source>
-        <translation type="unfinished"></translation>
+        <translation>Adatta</translation>
     </message>
     <message>
         <source>Tiled Vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Adatta verticalmente</translation>
     </message>
     <message>
         <source>Tiled Horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>Adatta orizzontalmente</translation>
     </message>
     <message>
         <source>Centered</source>

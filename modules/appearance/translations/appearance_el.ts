@@ -4,17 +4,17 @@
     <message>
         <location filename="../contents/Preflet.qml" line="34"/>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Επιφάνεια εργασίας</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="37"/>
         <source>Transparent app shelf</source>
-        <translation type="unfinished"/>
+        <translation>Διαφανές ράφι εφαρμογής</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="57"/>
         <source>Accent color</source>
-        <translation type="unfinished"/>
+        <translation>Χρώμα έμφασης</translation>
     </message>
 </context>
 </TS>

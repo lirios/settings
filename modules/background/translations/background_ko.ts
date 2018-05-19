@@ -3,7 +3,7 @@
     <name>ColorButton</name>
     <message>
         <source>Choose a color</source>
-        <translation type="unfinished"/>
+        <translation>색상 선택</translation>
     </message>
 </context>
 <context>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>잠금 화면</translation>
     </message>
 </context>
 <context>
@@ -36,11 +36,11 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">취소</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">선택</translation>
     </message>
 </context>
 <context>
@@ -51,11 +51,11 @@
     </message>
     <message>
         <source>Solid</source>
-        <translation type="unfinished"/>
+        <translation>단색</translation>
     </message>
     <message>
         <source>Gradient</source>
-        <translation type="unfinished"/>
+        <translation>그라디언트</translation>
     </message>
     <message>
         <source>Type:</source>

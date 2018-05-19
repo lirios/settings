@@ -3,19 +3,19 @@
     <name>Preflet</name>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished"/>
+        <translation>Versija %1</translation>
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished"/>
+        <translation>Internetinė svetainė</translation>
     </message>
     <message>
         <source>Report a bug</source>
-        <translation type="unfinished"/>
+        <translation>Pranešti apie klaidą</translation>
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished"/>
+        <translation>Padėkos</translation>
     </message>
 </context>
 </TS>

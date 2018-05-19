@@ -36,18 +36,18 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Annuleer</translation>
+        <translation type="vanished">Annuleren</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="vanished">Selecteer</translation>
+        <translation type="vanished">Selecteren</translation>
     </message>
 </context>
 <context>
     <name>SelectorDialog</name>
     <message>
         <source>Wallpaper</source>
-        <translation>Wallpaper</translation>
+        <translation>Achtergrond</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -66,7 +66,7 @@
     <name>WallpaperPage</name>
     <message>
         <source>Fill Mode:</source>
-        <translation>Vul modus:</translation>
+        <translation>Vulmodus:</translation>
     </message>
     <message>
         <source>Stretched</source>
@@ -86,11 +86,11 @@
     </message>
     <message>
         <source>Tiled Vertically</source>
-        <translation>Betegeld Verticaal</translation>
+        <translation>Verticaal betegeld</translation>
     </message>
     <message>
         <source>Tiled Horizontally</source>
-        <translation>Betegeld Horizontaal</translation>
+        <translation>Horizontaal betegeld</translation>
     </message>
     <message>
         <source>Centered</source>

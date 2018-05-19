@@ -1,30 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="tr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.1">
 <context>
     <name>PluginsModel</name>
     <message>
         <source>Personal</source>
-        <translation type="obsolete">Kişisel</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="obsolete">Donanım</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System</source>
-        <translation type="obsolete">Sistem</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>System Preferences</source>
-        <translation type="vanished">Sistem Tercihleri</translation>
+        <translation type="vanished">Sistem Ayarları</translation>
     </message>
     <message>
         <source>Keywords</source>
-        <translation type="vanished">Anahtar Kelimeler</translation>
+        <translation type="vanished">Anahtar sözcükler</translation>
     </message>
     <message>
         <source>Personal</source>

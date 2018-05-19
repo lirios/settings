@@ -4,12 +4,12 @@
     <message>
         <location filename="../contents/DetailsPane.qml" line="42"/>
         <source>Hardware Address:</source>
-        <translation>Hardware Adres:</translation>
+        <translation>Hardware-adres:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="48"/>
         <source>IP Address:</source>
-        <translation>IP Adres:</translation>
+        <translation>IP-adres:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="55"/>
@@ -19,17 +19,17 @@
     <message>
         <location filename="../contents/DetailsPane.qml" line="62"/>
         <source>Default Gateway:</source>
-        <translation>Standaard Gateway:</translation>
+        <translation>Standaard-gateway:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="69"/>
         <source>DNS Server:</source>
-        <translation>DNS Server;</translation>
+        <translation>DNS-server:</translation>
     </message>
     <message>
         <location filename="../contents/DetailsPane.qml" line="76"/>
         <source>Domain names:</source>
-        <translation>Domein namen:</translation>
+        <translation>Domeinnamen:</translation>
     </message>
 </context>
 <context>
@@ -47,17 +47,17 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="62"/>
         <source>Enter the name and security details of the hidden Wi-Fi network you wish to connect to.</source>
-        <translation>Vul de naam en de beveiligings gegeven in van het verborgen Wi-Fi netwerk met wie je wenst te verbinden.</translation>
+        <translation>Vul de naam en de beveiligingsgegevens in van het verborgen Wi-Fi netwerk waarmee je wil verbinden.</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="75"/>
         <source>Network name:</source>
-        <translation>Netwerk naam:</translation>
+        <translation>Netwerknaam:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="87"/>
         <source>Wi-Fi security:</source>
-        <translation>Wi-Fi beveiliging:</translation>
+        <translation>Wi-Fi-beveiliging:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="94"/>
@@ -67,22 +67,22 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="95"/>
         <source>WEP 40/128-bit Key (Hex or ASCII)</source>
-        <translation>WEP 40/128-bit Key (Hex or ASCII)</translation>
+        <translation>WEP 40/128-bit Sleutel (Hex of ASCII)</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="96"/>
         <source>WEP 128-bit Passphrase</source>
-        <translation>WEP 128-bit Passphrase</translation>
+        <translation>WEP 128-bit Wachwoord</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="97"/>
         <source>LEAP</source>
-        <translation>Overslaan</translation>
+        <translation>LEAP</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="98"/>
         <source>Dynamic WEP (802.1x)</source>
-        <translation>Dynamic WEP (802.1x)</translation>
+        <translation>Dynamische WEP (802.1x)</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="99"/>
@@ -102,12 +102,12 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="119"/>
         <source>Key:</source>
-        <translation>Toets:</translation>
+        <translation>Sleutel:</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="135"/>
         <source>Show key</source>
-        <translation>Laat toets zien</translation>
+        <translation>Laat sleutel zien</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="140"/>
@@ -169,12 +169,12 @@
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="253"/>
         <source>Cancel</source>
-        <translation>Annuleer</translation>
+        <translation>Annuleren</translation>
     </message>
     <message>
         <location filename="../contents/HiddenWifiDialog.qml" line="259"/>
         <source>Connect</source>
-        <translation>Verbind</translation>
+        <translation>Verbinden</translation>
     </message>
 </context>
 <context>
@@ -182,17 +182,17 @@
     <message>
         <location filename="../contents/IPv4Pane.qml" line="40"/>
         <source>Obtain an IP address automatically</source>
-        <translation>Verkrijg automatisch een IP adres</translation>
+        <translation>Verkrijg automatisch een IP-adres</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="50"/>
         <source>Use the following IP address</source>
-        <translation>Gebruik het volgende IP adres</translation>
+        <translation>Gebruik het volgende IP-adres</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="61"/>
         <source>IP Address:</source>
-        <translation>IP adres:</translation>
+        <translation>IP-adres:</translation>
     </message>
     <message>
         <location filename="../contents/IPv4Pane.qml" line="65"/>

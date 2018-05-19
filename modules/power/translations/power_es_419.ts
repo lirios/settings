@@ -4,12 +4,12 @@
     <message>
         <location filename="../contents/Preflet.qml" line="37"/>
         <source>Devices</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivos</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="48"/>
         <source>Power Saving</source>
-        <translation type="unfinished"/>
+        <translation>Ahorro de Energía</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="51"/>
@@ -64,17 +64,17 @@
     <message>
         <location filename="../contents/Preflet.qml" line="65"/>
         <source>Never</source>
-        <translation type="unfinished"/>
+        <translation>Nunca</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="71"/>
         <source>Wi-Fi</source>
-        <translation type="unfinished"/>
+        <translation>Wi-Fi</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="72"/>
         <source>Turn off Wi-Fi to save power</source>
-        <translation type="unfinished"/>
+        <translation>Apagar Wi-Fi para ahorrar energía</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="80"/>
@@ -84,27 +84,27 @@
     <message>
         <location filename="../contents/Preflet.qml" line="83"/>
         <source>Automatic suspend</source>
-        <translation type="unfinished"/>
+        <translation>Suspensión automática</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="86"/>
         <source>Off</source>
-        <translation type="unfinished"/>
+        <translation>Apagado</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="92"/>
         <source>When the Power Button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Cuando el botón de Apagado está presionado</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="97"/>
         <source>Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Suspender</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="98"/>
         <source>Hibernate</source>
-        <translation type="unfinished"/>
+        <translation>Hibernar</translation>
     </message>
     <message>
         <location filename="../contents/Preflet.qml" line="99"/>
