@@ -21,7 +21,6 @@ Project {
         "modules/display/display.qbs",
         "modules/info/info.qbs",
         "modules/keyboard/keyboard.qbs",
-        "modules/power/power.qbs",
         "modules/sound/sound.qbs",
         "modules/users/users.qbs",
     ]
