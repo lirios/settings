@@ -73,18 +73,6 @@ source_lang = en
 source_file = modules/keyboard/metadata.desktop.in
 file_filter = modules/keyboard/translations/metadata_<lang>.desktop
 
-[liri-settings.sound-module]
-type = QT
-source_lang = en
-source_file = modules/sound/translations/sound.ts
-file_filter = modules/sound/translations/sound_<lang>.ts
-
-[liri-settings.sound-metadata]
-type = DESKTOP
-source_lang = en
-source_file = modules/sound/metadata.desktop.in
-file_filter = modules/sound/translations/metadata_<lang>.desktop
-
 [liri-settings.users-module]
 type = QT
 source_lang = en
