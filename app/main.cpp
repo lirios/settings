@@ -57,7 +57,7 @@ static void loadShellTranslations()
     QString locale = QLocale::system().name();
 
     // Find the translations directory
-    const QString path = QLatin1String("liri/settings/translations/app");
+    const QString path = QLatin1String("liri-settings/translations/app");
     const QString translationsDir =
         QStandardPaths::locate(QStandardPaths::GenericDataLocation,
                                path,
@@ -81,7 +81,7 @@ static void loadModuleTranslations()
     QString locale = QLocale::system().name();
 
     // Load translations of each module
-    const QString rootDir = QLatin1String("liri/settings/modules");
+    const QString rootDir = QLatin1String("liri-settings/modules");
     const QString modulesPath =
             QStandardPaths::locate(QStandardPaths::GenericDataLocation,
                                    rootDir,
@@ -91,7 +91,7 @@ static void loadModuleTranslations()
         const QString name = info.fileName();
 
         // Find the translations directory
-        const QString path = QLatin1String("liri/settings/translations/modules");
+        const QString path = QLatin1String("liri-settings/translations/modules");
         const QString translationsDir =
             QStandardPaths::locate(QStandardPaths::GenericDataLocation,
                                    path,
