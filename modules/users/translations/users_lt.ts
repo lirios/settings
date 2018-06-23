@@ -57,7 +57,7 @@
     </message>
     <message>
         <source>No password</source>
-        <translation type="unfinished"/>
+        <translation>Jokio slaptažodžio</translation>
     </message>
     <message>
         <source>New password</source>
@@ -123,7 +123,7 @@
     </message>
     <message>
         <source>Wrong password verification</source>
-        <translation type="unfinished"/>
+        <translation>Patvirtintas slaptažodis neteisingas</translation>
     </message>
     <message>
         <source>The passwords did not match.</source>

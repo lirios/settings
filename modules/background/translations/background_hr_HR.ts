@@ -1,102 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="hr_HR">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hr_HR" version="2.1">
 <context>
     <name>ColorButton</name>
     <message>
         <source>Choose a color</source>
-        <translation>Izaberi boju</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>GradientPage</name>
     <message>
         <source>Horizontal</source>
-        <translation>Vodoravno</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical</source>
-        <translation>Okomito</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
         <source>Background</source>
-        <translation>Pozadina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Zaključaj zaslon</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Selector</name>
     <message>
         <source>Pick a background</source>
-        <translation>Izaberi pozadinu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Otkaži</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select</source>
-        <translation type="vanished">Odaberi</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SelectorDialog</name>
     <message>
         <source>Wallpaper</source>
-        <translation>Tapeta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Solid</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Gradient</source>
-        <translation>Gradijent</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type:</source>
-        <translation>Vrsta:</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
         <source>Fill Mode:</source>
-        <translation>Način punjenja:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Stretched</source>
-        <translation>Rastegnuto</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scaled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cropped</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tiled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tiled Vertically</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tiled Horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Centered</source>
-        <translation>Centrirano</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

@@ -1,135 +1,141 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="hu">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
 <context>
     <name>AddDialog</name>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Variant:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Mégse</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>KeyboardLayout</name>
     <message>
         <source>None</source>
-        <translation>Egyik sem</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LayoutPage</name>
     <message>
+        <source>Keyboard model:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Type to test the layout...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Model and Test</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No variant</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
         <source>Shortcuts</source>
-        <translation>Gyorsbillentyűk</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Behavior</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TypingPage</name>
     <message>
         <source>Repeat Keys</source>
-        <translation>Billentyűismétlés</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delay:</source>
-        <translation type="vanished">Késleltetés:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Short</source>
-        <translation type="vanished">Rövid</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Long</source>
-        <translation type="vanished">Hosszú</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Speed:</source>
-        <translation type="vanished">Sebesség:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="vanished">Lassú</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="vanished">Gyors</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cursor Blinking</source>
-        <translation>Villogó kurzor</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timeout:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Typing</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Timeout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Input Sources</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Virtual Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

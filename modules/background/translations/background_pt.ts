@@ -1,102 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pt">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt" version="2.1">
 <context>
     <name>ColorButton</name>
     <message>
         <source>Choose a color</source>
-        <translation>Escolha uma cor</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>GradientPage</name>
     <message>
         <source>Horizontal</source>
-        <translation>Horizontal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical</source>
-        <translation>Vertical</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
         <source>Background</source>
-        <translation>Fundo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Trancar Ecrã</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Selector</name>
     <message>
         <source>Pick a background</source>
-        <translation>Escolha um fundo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Cancelar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select</source>
-        <translation type="vanished">Selecionar</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SelectorDialog</name>
     <message>
         <source>Wallpaper</source>
-        <translation>Fundo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Solid</source>
-        <translation>Sólido</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Gradient</source>
-        <translation>Gradiente</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type:</source>
-        <translation>Tipo:</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
         <source>Fill Mode:</source>
-        <translation>Modo de Enchimento:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Stretched</source>
-        <translation>Esticado</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scaled</source>
-        <translation>Dimensionado</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cropped</source>
-        <translation>Cortado</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tiled</source>
-        <translation>Mosaico</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tiled Vertically</source>
-        <translation>Mosaico Vertical</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tiled Horizontally</source>
-        <translation>Mosaico Horizontal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Centered</source>
-        <translation>Centrado</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

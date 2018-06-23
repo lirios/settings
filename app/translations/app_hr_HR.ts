@@ -1,42 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="hr_HR">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hr_HR" version="2.1">
 <context>
     <name>PluginsModel</name>
     <message>
         <source>Personal</source>
-        <translation type="obsolete">Osobno</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="obsolete">Sklopovlje</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System</source>
-        <translation type="obsolete">Sustav</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>System Preferences</source>
-        <translation type="vanished">Osobitosti sustava</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Keywords</source>
-        <translation type="vanished">Ključne riječi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Personal</source>
-        <translation type="vanished">Osobno</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="vanished">Sklopovlje</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System</source>
-        <translation type="vanished">Sustav</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

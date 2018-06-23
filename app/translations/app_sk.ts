@@ -1,42 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sk">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sk" version="2.1">
 <context>
     <name>PluginsModel</name>
     <message>
         <source>Personal</source>
-        <translation type="obsolete">Osobné nastavenia</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="obsolete">Hardvér</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System</source>
-        <translation type="obsolete">Systém</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>System Preferences</source>
-        <translation type="vanished">Nastavenia systému</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Keywords</source>
-        <translation type="vanished">Kľúčové slová</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Personal</source>
-        <translation type="vanished">Osobné nastavenia</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="vanished">Hardvér</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System</source>
-        <translation type="vanished">Systém</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

@@ -1,102 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sk">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sk" version="2.1">
 <context>
     <name>ColorButton</name>
     <message>
         <source>Choose a color</source>
-        <translation>Vyberte si farbu</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>GradientPage</name>
     <message>
         <source>Horizontal</source>
-        <translation>Vodorovné</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical</source>
-        <translation>Zvislé</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
         <source>Background</source>
-        <translation>Pozadie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Obrazovka uzamknutia</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Selector</name>
     <message>
         <source>Pick a background</source>
-        <translation>Vyberte si pozadie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Zrušiť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select</source>
-        <translation type="vanished">Vybrať</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SelectorDialog</name>
     <message>
         <source>Wallpaper</source>
-        <translation>Tapeta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Solid</source>
-        <translation>Plná farba</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Gradient</source>
-        <translation>Farebný prechod</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type:</source>
-        <translation>Typ:</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
         <source>Fill Mode:</source>
-        <translation>Spôsob výplne:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Stretched</source>
-        <translation>Roztiahnuť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scaled</source>
-        <translation>Vyplniť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cropped</source>
-        <translation>Orezať</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tiled</source>
-        <translation>Dlaždica</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tiled Vertically</source>
-        <translation>Dlaždice zvislo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tiled Horizontally</source>
-        <translation>Dlaždice vodorovne</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Centered</source>
-        <translation>V strede</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

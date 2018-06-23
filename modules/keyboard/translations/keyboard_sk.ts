@@ -1,143 +1,141 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sk">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sk" version="2.1">
 <context>
     <name>AddDialog</name>
     <message>
         <source>Layout:</source>
-        <translation>Rozloženie:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Variant:</source>
-        <translation>Variant:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Zrušiť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>KeyboardLayout</name>
     <message>
         <source>None</source>
-        <translation>Žiadne</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LayoutPage</name>
     <message>
         <source>Keyboard model:</source>
-        <translation type="vanished">Model klávesnice:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type to test the layout...</source>
-        <translation>Napíšte sem niečo, aby ste otestovali rozloženie...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Model and Test</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished">Rozloženie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No variant</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Preflet</name>
     <message>
         <source>Shortcuts</source>
-        <translation>Klávesové skratky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Behavior</source>
-        <translation>Správanie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Layout</source>
-        <translation>Rozloženie</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TypingPage</name>
     <message>
         <source>Repeat Keys</source>
-        <translation>Opakované klávesy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delay:</source>
-        <translation type="vanished">Oneskorenie:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Short</source>
-        <translation type="vanished">Malé</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Long</source>
-        <translation type="vanished">Veľké</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Speed:</source>
-        <translation type="vanished">Rýchlosť:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="vanished">Pomaly</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="vanished">Rýchlo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cursor Blinking</source>
-        <translation>Blikanie ukazovateľa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Timeout:</source>
-        <translation type="vanished">Časový limit:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Typing</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Timeout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Input Sources</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Virtual Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
