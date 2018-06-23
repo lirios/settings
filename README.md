@@ -26,7 +26,6 @@ The following modules and their dependencies are required:
  * [qbs-shared](https://github.com/lirios/qbs-shared.git) >= 1.3.0
  * [qtaccountsservice](https://github.com/lirios/qtaccountsservice.git) >= 1.2.0
  * [fluid](https://github.com/lirios/fluid.git) >= 1.0.0
- * [vibe](https://github.com/lirios/vibe.git)
  * [libqtxdg](https://github.com/lxde/libqtxdg.git)
  * [polkit](https://cgit.freedesktop.org/polkit/)
  * [xkeyboard-config](https://cgit.freedesktop.org/xkeyboard-config)
