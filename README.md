@@ -29,6 +29,7 @@ The following modules and their dependencies are required:
  * [libqtxdg](https://github.com/lxde/libqtxdg.git)
  * [polkit](https://cgit.freedesktop.org/polkit/)
  * [xkeyboard-config](https://cgit.freedesktop.org/xkeyboard-config)
+ * [kwayland](https://cgit.kde.org/kwayland.git)
 
 ## Installation
 
