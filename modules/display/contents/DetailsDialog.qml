@@ -42,7 +42,7 @@ Dialog {
     modal: true
     x: (parent.width - detailsDialog.width) / 2
     y: (parent.height - detailsDialog.height) / 2
-    standardButtons: Dialog.Apply | Dialog.Cancel
+    standardButtons: Dialog.Ok | Dialog.Cancel
 
     onAccepted: {
         var newTransform = CppDisplay.OutputsModel.TransformNormal;
@@ -67,7 +67,6 @@ Dialog {
             outputId: number
             width: 150
             height: width / aspectRatio
-            Component.onCompleted: console.warn(aspectRatio)
 
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
         }
