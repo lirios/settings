@@ -22,15 +22,17 @@
  ***************************************************************************/
 
 #include <QtMath>
-#include <QtCore/QCoreApplication>
+#include <QCoreApplication>
+#include <QDBusConnection>
 
-#include <KWayland/Client/outputconfiguration.h>
-
+#include "outputconfiguration1_interface.h"
+#include "outputdevice1_interface.h"
+#include "outputmanagement1_interface.h"
 #include "outputsmodel.h"
 
 #define TR QCoreApplication::translate
 
-using namespace KWayland::Client;
+const QString dbusService = QLatin1String("io.liri.Session");
 
 static const qreal knownDiagonals[] = {
     12.1,
@@ -94,48 +96,62 @@ static QString aspectRatioString(const QSize &size)
     return QString();
 }
 
-static QVariantList modesList(const QList<OutputDevice::Mode> &list)
+static OutputsModel::Transform stringToTransform(const QString &transform)
 {
-    QVariantList result;
+    if (transform == QLatin1String("normal"))
+        return OutputsModel::TransformNormal;
+    else if (transform == QLatin1String("90"))
+        return OutputsModel::Transform90;
+    else if (transform == QLatin1String("180"))
+        return OutputsModel::Transform180;
+    else if (transform == QLatin1String("270"))
+        return OutputsModel::Transform270;
+    else if (transform == QLatin1String("flipped"))
+        return OutputsModel::TransformFlipped;
+    else if (transform == QLatin1String("flipped90"))
+        return OutputsModel::Transform90;
+    else if (transform == QLatin1String("flipped180"))
+        return OutputsModel::Transform180;
+    else if (transform == QLatin1String("flipped270"))
+        return OutputsModel::Transform270;
 
-    int i = 0;
-    for (const OutputDevice::Mode &mode : list) {
+    Q_UNREACHABLE();
+}
+
+static QVariantList modesList(const QList<Mode> &modes)
+{
+    QVariantList list;
+
+    for (auto mode : modes) {
         QVariantMap map;
-        map.insert(QStringLiteral("name"),
-                   TR("OutputsModel", "%1 × %2 (%3)", "Resolution combo box").arg(
-                       QString::number(mode.size.width()),
-                       QString::number(mode.size.height()),
-                       aspectRatioString(mode.size)));
-        map.insert(QStringLiteral("id"), i++);
-        map.insert(QStringLiteral("size"), mode.size);
-        map.insert(QStringLiteral("refreshRate"), mode.refreshRate);
-        result.append(map);
+        map[QLatin1String("name")] = mode.name;
+        map[QLatin1String("size")] = mode.size;
+        map[QLatin1String("refreshRate")] = mode.refreshRate;
+        list.append(map);
     }
 
-    return result;
+    return list;
 }
 
 OutputsModel::OutputsModel(QObject *parent)
     : QAbstractListModel(parent)
-    , m_config(new WaylandConfig(this))
 {
-    connect(m_config, &WaylandConfig::configurationEnabledChanged,
-            this, &OutputsModel::configurationEnabledChanged);
-    connect(m_config, &WaylandConfig::outputAdded, this, [this](OutputDevice *output) {
-        beginInsertRows(QModelIndex(), m_list.size(), m_list.size());
-        m_list.append(output);
-        endInsertRows();
+    qDBusRegisterMetaType<Mode>();
+    qDBusRegisterMetaType<QList<Mode> >();
 
-        connect(output, &OutputDevice::changed, this, [this, output] {
-            beginResetModel();
-            endResetModel();
-        });
-    });
-    connect(m_config, &WaylandConfig::outputRemoved, this, [this](OutputDevice *output) {
-        beginRemoveRows(QModelIndex(), m_list.indexOf(output), m_list.indexOf(output));
-        m_list.removeOne(output);
-        endRemoveRows();
-    });
+    auto path = QLatin1String("/io/liri/Shell/OutputManagement1");
+    auto bus = QDBusConnection::sessionBus();
+    m_outputManagement = new IoLiriShellOutputManagement1Interface(
+                dbusService, path, bus, this);
+    Q_EMIT configurationEnabledChanged(m_outputManagement->isValid());
+
+    for (auto path : m_outputManagement->outputDevices())
+        handleOutputDeviceAdded(path);
+
+    connect(m_outputManagement, &IoLiriShellOutputManagement1Interface::OutputDeviceAdded,
+            this, &OutputsModel::handleOutputDeviceAdded);
+    connect(m_outputManagement, &IoLiriShellOutputManagement1Interface::OutputDeviceRemoved,
+            this, &OutputsModel::handleOutputDeviceRemoved);
 }
 
 OutputsModel::~OutputsModel()
@@ -144,7 +160,7 @@ OutputsModel::~OutputsModel()
 
 bool OutputsModel::isConfigurationEnabled() const
 {
-    return m_config->isConfigurationEnabled();
+    return m_outputManagement->isValid();
 }
 
 QHash<int, QByteArray> OutputsModel::roleNames() const
@@ -180,7 +196,7 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 && index.row() > m_list.size())
         return QVariant();
 
-    OutputDevice *output = m_list.at(index.row());
+    IoLiriShellOutputDevice1Interface *output = m_list.at(index.row());
 
     switch (role) {
     case Qt::DisplayRole:
@@ -193,9 +209,9 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
     case ModelRole:
         return output->model();
     case PrimaryRole:
-        return false; // output->isPrimary();
+        return m_outputManagement->primaryOutput().path() == output->path();
     case EnabledRole:
-        return output->enabled() == OutputDevice::Enablement::Enabled;
+        return output->enabled();
     case AspectRatioRole:
         if (output->physicalSize().width() > output->physicalSize().height())
             return (qreal)output->physicalSize().width() / (qreal)output->physicalSize().height();
@@ -203,26 +219,22 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
     case AspectRatioStringRole:
         return aspectRatioString(output->physicalSize());
     case PositionRole:
-        return output->globalPosition();
+        return output->position();
     case DiagonalSizeRole:
         return displaySizeString(output->physicalSize());
-    case ResolutionRole:
-        return output->pixelSize();
+    case ResolutionRole: {
+        if (output->currentModeIndex() >= 0 && output->currentModeIndex() <= output->modes().size()) {
+            Mode mode = output->modes().at(output->currentModeIndex());
+            return mode.size;
+        }
+        return QSize(0, 0);
+    }
     case CurrentModeRole:
-        return output->currentMode().id;
+        return output->currentModeIndex();
     case ModesRole:
         return modesList(output->modes());
     case TransformRole:
-        switch (output->transform()) {
-        case OutputDevice::Transform::Rotated90:
-            return Transform90;
-        case OutputDevice::Transform::Rotated180:
-            return Transform180;
-        case OutputDevice::Transform::Rotated270:
-            return Transform270;
-        default:
-            return TransformNormal;
-        }
+        return stringToTransform(output->transform());
     default:
         break;
     }
@@ -232,34 +244,57 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
 
 void OutputsModel::applyConfiguration(int outputNumber, int modeId, const Transform &transform)
 {
-    OutputManagement *management = m_config->outputManagement();
-    if (!management)
-        return;
+    auto pending = m_outputManagement->CreateConfiguration();
+    auto watcher = new QDBusPendingCallWatcher(pending, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, outputNumber, modeId](QDBusPendingCallWatcher *call) {
+        QDBusPendingReply<QDBusObjectPath> reply = *call;
+        if (!reply.isError()) {
+            QDBusObjectPath path = reply.argumentAt<0>();
+            auto config = new IoLiriShellOutputConfiguration1Interface(
+                        dbusService, path.path(), QDBusConnection::sessionBus(), this);
 
-    OutputDevice::Transform wlTransform = OutputDevice::Transform::Normal;
-    switch (transform) {
-    case Transform90:
-        wlTransform = OutputDevice::Transform::Rotated90;
-        break;
-    case Transform180:
-        wlTransform = OutputDevice::Transform::Rotated180;
-        break;
-    case Transform270:
-        wlTransform = OutputDevice::Transform::Rotated270;
-        break;
-    default:
-        break;
-    }
+            auto device = m_list.at(outputNumber - 1);
+            auto handle = QDBusObjectPath(device->path());
 
-    OutputDevice *output = m_list.at(outputNumber - 1);
-
-    OutputConfiguration *config = management->createConfiguration(this);
-    config->setEnabled(output, OutputDevice::Enablement::Enabled);
-    config->setMode(output, modeId);
-    config->setTransform(output, wlTransform);
-    config->setPosition(output, output->globalPosition());
-    config->setScale(output, output->scale());
-    config->apply();
+            config->SetEnabled(handle, true);
+            config->SetMode(handle, modeId);
+            config->SetPosition(handle, device->position());
+            config->SetScaleFactor(handle, device->scaleFactor());
+            config->SetTransform(handle, device->transform());
+            config->Apply();
+        }
+        call->deleteLater();
+    });
 }
 
-#include "moc_outputsmodel.cpp"
+void OutputsModel::handleOutputDeviceAdded(const QDBusObjectPath &handle)
+{
+    auto bus = QDBusConnection::sessionBus();
+    auto device = new IoLiriShellOutputDevice1Interface(dbusService, handle.path(), bus, this);
+
+    beginInsertRows(QModelIndex(), m_list.size(), m_list.size());
+    m_list.append(device);
+    endInsertRows();
+
+    connect(device, &IoLiriShellOutputDevice1Interface::Changed, this, [this] {
+        beginResetModel();
+        endResetModel();
+    });
+}
+
+void OutputsModel::handleOutputDeviceRemoved(const QDBusObjectPath &handle)
+{
+    IoLiriShellOutputDevice1Interface *found = nullptr;
+    for (auto device : m_list) {
+        if (device->path() == handle.path()) {
+            found = device;
+            break;
+        }
+    }
+
+    if (found) {
+        beginRemoveRows(QModelIndex(), m_list.indexOf(found), m_list.indexOf(found));
+        m_list.removeOne(found);
+        endRemoveRows();
+    }
+}

@@ -4,19 +4,16 @@ LiriSettingsModulePlugin {
     shortName: "display"
     qmlModuleName: "Display"
 
-    Depends { name: "KF5.KWaylandClient" }
+    Depends { name: "Qt.dbus" }
 
-    condition: {
-        if (!KF5.KWaylandClient.found) {
-            console.error("KWaylandClient is required to build " + targetName);
-            return false;
-        }
+    Qt.dbus.xml2CppHeaderFlags: ["-i", "outputdevice.h"]
 
-        return true;
-    }
-
-    //cpp.defines: []
-    files: ["*.cpp", "*.h"]
+    files: [
+        "outputdevice.h",
+        "outputsmodel.cpp",
+        "outputsmodel.h",
+        "plugin.cpp",
+    ]
 
     Group {
         name: "QML Files"
@@ -25,6 +22,16 @@ LiriSettingsModulePlugin {
             "qmldir"
         ]
         fileTags: ["qml"]
+    }
+
+    Group {
+        name: "D-Bus Interfaces"
+        files: [
+            "data/io.liri.Shell.OutputConfiguration1.xml",
+            "data/io.liri.Shell.OutputDevice1.xml",
+            "data/io.liri.Shell.OutputManagement1.xml",
+        ]
+        fileTags: ["qt.dbus.interface"]
     }
 
     Group {

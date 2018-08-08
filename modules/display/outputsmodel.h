@@ -25,9 +25,10 @@
 #define OUTPUTSMODEL_H
 
 #include <QAbstractItemModel>
-#include <KWayland/Client/outputdevice.h>
+#include <QDBusObjectPath>
 
-#include "waylandconfig.h"
+class IoLiriShellOutputDevice1Interface;
+class IoLiriShellOutputManagement1Interface;
 
 class OutputsModel : public QAbstractListModel
 {
@@ -56,11 +57,15 @@ public:
         TransformNormal = 0,
         Transform90,
         Transform180,
-        Transform270
+        Transform270,
+        TransformFlipped,
+        TransformFlipped90,
+        TransformFlipped180,
+        TransformFlipped270
     };
     Q_ENUM(Transform)
 
-    OutputsModel(QObject *parent = 0);
+    OutputsModel(QObject *parent = nullptr);
     ~OutputsModel();
 
     bool isConfigurationEnabled() const;
@@ -77,8 +82,12 @@ Q_SIGNALS:
     void configurationEnabledChanged(bool value);
 
 private:
-    WaylandConfig *m_config;
-    QVector<KWayland::Client::OutputDevice *> m_list;
+    IoLiriShellOutputManagement1Interface *m_outputManagement;
+    QVector<IoLiriShellOutputDevice1Interface *> m_list;
+
+private Q_SLOTS:
+    void handleOutputDeviceAdded(const QDBusObjectPath &handle);
+    void handleOutputDeviceRemoved(const QDBusObjectPath &handle);
 };
 
 #endif // OUTPUTSMODEL_H
