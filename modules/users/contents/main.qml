@@ -30,7 +30,7 @@ import Fluid.Controls 1.0 as FluidControls
 import Liri.Settings 1.0
 import QtAccountsService 1.0
 
-PrefletPage {
+ModulePage {
     id: preflet
 
     needsAuthorization: true

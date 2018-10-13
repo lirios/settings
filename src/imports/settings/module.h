@@ -21,15 +21,15 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef PLUGIN_H
-#define PLUGIN_H
+#ifndef LIRI_SETTINGS_MODULE_H
+#define LIRI_SETTINGS_MODULE_H
 
-#include <QtCore/QObject>
-#include <QtCore/QUrl>
+#include <QObject>
+#include <QUrl>
 
-class PluginPrivate;
+class ModulePrivate;
 
-class Plugin : public QObject
+class Module : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool valid READ isValid CONSTANT)
@@ -41,7 +41,7 @@ class Plugin : public QObject
     Q_PROPERTY(QString iconName READ iconName CONSTANT)
     Q_PROPERTY(QStringList keywords READ keywords CONSTANT)
     Q_PROPERTY(QUrl mainScriptUrl READ mainScriptUrl CONSTANT)
-    Q_ENUMS(Category)
+    Q_DECLARE_PRIVATE(Module)
 public:
     enum Category {
         NoCategory,
@@ -49,9 +49,10 @@ public:
         HardwareCategory,
         SystemCategory
     };
+    Q_ENUM(Category)
 
-    Plugin(const QString &fileName, QObject *parent = 0);
-    ~Plugin();
+    explicit Module(const QString &fileName, QObject *parent = nullptr);
+    ~Module();
 
     bool isValid() const;
 
@@ -65,8 +66,7 @@ public:
     QUrl mainScriptUrl() const;
 
 private:
-    Q_DECLARE_PRIVATE(Plugin)
-    PluginPrivate *const d_ptr;
+    ModulePrivate *const d_ptr;
 };
 
-#endif // PLUGIN_H
+#endif // LIRI_SETTINGS_MODULE_H
