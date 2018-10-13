@@ -1,7 +1,7 @@
 import qbs 1.0
 
 LiriQmlPlugin {
-    name: "systemsettingsplugin"
+    name: "settingsplugin"
     pluginPath: "Liri/Settings"
 
     Depends { name: "Qt"; submodules: ["gui", "xml"] }
@@ -22,15 +22,14 @@ LiriQmlPlugin {
     files: [
         "authorizedaction.cpp",
         "authorizedaction.h",
+        "module.cpp",
+        "module.h",
+        "modulesmodel.cpp",
+        "modulesmodel.h",
         "plugin.cpp",
-        "plugin.h",
-        "plugin_p.h",
-        "pluginsmodel.cpp",
-        "pluginsmodel.h",
         "qml/ModuleContainer.qml",
+        "qml/ModulePage.qml",
         "qml/ModulePane.qml",
-        "qml/PrefletPage.qml",
         "qml/qmldir",
-        "systemsettingsplugin.cpp",
     ]
 }

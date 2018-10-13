@@ -21,9 +21,10 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#pragma once
+#ifndef LIRI_SETTINGS_AUTHORIZEDACTION_H
+#define LIRI_SETTINGS_AUTHORIZEDACTION_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 class AuthorizedActionPrivate;
 
@@ -34,7 +35,7 @@ class AuthorizedAction : public QObject
     Q_PROPERTY(bool authorized READ isAuthorized NOTIFY authorizedChanged)
     Q_DECLARE_PRIVATE(AuthorizedAction)
 public:
-    AuthorizedAction(QObject *parent = nullptr);
+    explicit AuthorizedAction(QObject *parent = nullptr);
 
     QString actionId() const;
     void setActionId(const QString &actionId);
@@ -50,3 +51,5 @@ Q_SIGNALS:
 private:
     AuthorizedActionPrivate *const d_ptr;
 };
+
+#endif // LIRI_SETTINGS_AUTHORIZEDACTION_H

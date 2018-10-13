@@ -21,19 +21,23 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include <QtCore/QDir>
-#include <QtCore/QStandardPaths>
-#include <QtCore/QThread>
-#include <QDebug>
-#include "plugin.h"
-#include "pluginsmodel.h"
+#include <QDir>
+#include <QStandardPaths>
+#include <QThread>
 
-PluginsModelTask::PluginsModelTask(QObject *parent)
+#include "module.h"
+#include "modulesmodel.h"
+
+/*
+ * ModulesModelTask
+ */
+
+ModulesModelTask::ModulesModelTask(QObject *parent)
     : QObject(parent)
 {
 }
 
-void PluginsModelTask::populate()
+void ModulesModelTask::populate()
 {
     qDeleteAll(m_plugins);
 
@@ -54,7 +58,7 @@ void PluginsModelTask::populate()
                 if (m_pluginsMap.contains(module))
                     continue;
 
-                Plugin *plugin = new Plugin(moduleDir.absoluteFilePath(fileName));
+                Module *plugin = new Module(moduleDir.absoluteFilePath(fileName));
                 if (plugin->isValid()) {
                     m_plugins.append(plugin);
                     m_pluginsMap[module] = plugin;
@@ -63,24 +67,27 @@ void PluginsModelTask::populate()
         }
     }
 
-    std::sort(m_plugins.begin(), m_plugins.end(), [](const Plugin *a, const Plugin *b) {
+    std::sort(m_plugins.begin(), m_plugins.end(), [](const Module *a, const Module *b) {
         return a->categoryName() < b->categoryName();
     });
 
     Q_EMIT populated();
 }
 
+/*
+ * ModulesModel
+ */
 
-PluginsModel::PluginsModel(QObject *parent)
+ModulesModel::ModulesModel(QObject *parent)
     : QAbstractListModel(parent)
-    , m_task(new PluginsModelTask())
+    , m_task(new ModulesModelTask())
     , m_thread(new QThread())
 {
     m_task->moveToThread(m_thread);
     m_thread->start();
 }
 
-PluginsModel::~PluginsModel()
+ModulesModel::~ModulesModel()
 {
     m_task->deleteLater();
 
@@ -88,7 +95,7 @@ PluginsModel::~PluginsModel()
     m_thread->wait();
 }
 
-QHash<int, QByteArray> PluginsModel::roleNames() const
+QHash<int, QByteArray> ModulesModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles.insert(NameRole, QByteArrayLiteral("name"));
@@ -101,18 +108,18 @@ QHash<int, QByteArray> PluginsModel::roleNames() const
     return roles;
 }
 
-int PluginsModel::rowCount(const QModelIndex &parent) const
+int ModulesModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return m_task->m_plugins.count();
 }
 
-QVariant PluginsModel::data(const QModelIndex &index, int role) const
+QVariant ModulesModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid() || index.row() < 0 || index.row() >= m_task->m_plugins.count())
         return QVariant();
 
-    Plugin *plugin = m_task->m_plugins.at(index.row());
+    Module *plugin = m_task->m_plugins.at(index.row());
     if (!plugin)
         return QVariant();
 
@@ -123,11 +130,11 @@ QVariant PluginsModel::data(const QModelIndex &index, int role) const
         return plugin->name();
     case CategoryRole:
         switch (plugin->category()) {
-        case Plugin::PersonalCategory:
+        case Module::PersonalCategory:
             return tr("Personal");
-        case Plugin::HardwareCategory:
+        case Module::HardwareCategory:
             return tr("Hardware");
-        case Plugin::SystemCategory:
+        case Module::SystemCategory:
             return tr("System");
         default:
             break;
@@ -148,16 +155,14 @@ QVariant PluginsModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-Plugin *PluginsModel::getByName(const QString &name) const
+Module *ModulesModel::getByName(const QString &name) const
 {
     return m_task->m_pluginsMap[name];
 }
 
-void PluginsModel::componentComplete()
+void ModulesModel::componentComplete()
 {
     beginResetModel();
     m_task->populate();
     endResetModel();
 }
-
-#include "moc_pluginsmodel.cpp"

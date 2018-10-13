@@ -21,22 +21,22 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef PLUGINSMODEL_H
-#define PLUGINSMODEL_H
+#ifndef LIRI_SETTINGS_MODULESMODEL_H
+#define LIRI_SETTINGS_MODULESMODEL_H
 
-#include <QtCore/QAbstractListModel>
-#include <QtQml/QQmlParserStatus>
+#include <QAbstractListModel>
+#include <QQmlParserStatus>
 
 QT_FORWARD_DECLARE_CLASS(QThread)
 
-class Plugin;
-class PluginsModel;
+class Module;
+class ModulesModel;
 
-class PluginsModelTask : public QObject
+class ModulesModelTask : public QObject
 {
     Q_OBJECT
 public:
-    PluginsModelTask(QObject *parent = nullptr);
+    explicit ModulesModelTask(QObject *parent = nullptr);
 
 Q_SIGNALS:
     void populated();
@@ -45,13 +45,13 @@ public Q_SLOTS:
     void populate();
 
 private:
-    QVector<Plugin *> m_plugins;
-    QMap<QString, Plugin *> m_pluginsMap;
+    QVector<Module *> m_plugins;
+    QMap<QString, Module *> m_pluginsMap;
 
-    friend class PluginsModel;
+    friend class ModulesModel;
 };
 
-class PluginsModel : public QAbstractListModel, public QQmlParserStatus
+class ModulesModel : public QAbstractListModel, public QQmlParserStatus
 {
     Q_OBJECT
     Q_INTERFACES(QQmlParserStatus)
@@ -66,15 +66,15 @@ public:
         MainScriptRole
     };
 
-    PluginsModel(QObject *parent = nullptr);
-    ~PluginsModel();
+    explicit ModulesModel(QObject *parent = nullptr);
+    ~ModulesModel();
 
     QHash<int, QByteArray> roleNames() const override;
 
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
 
-    Q_INVOKABLE Plugin *getByName(const QString &name) const;
+    Q_INVOKABLE Module *getByName(const QString &name) const;
 
     void classBegin() override {}
     void componentComplete() override;
@@ -83,8 +83,8 @@ Q_SIGNALS:
     void vendorChanged();
 
 private:
-    PluginsModelTask *m_task;
+    ModulesModelTask *m_task;
     QThread *m_thread;
 };
 
-#endif // PLUGINSMODEL_H
+#endif // LIRI_SETTINGS_MODULESMODEL_H

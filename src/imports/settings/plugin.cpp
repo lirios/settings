@@ -21,113 +21,27 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include "plugin.h"
+#include <QQmlComponent>
+#include <QQmlExtensionPlugin>
 
-#include <QtCore/QDir>
-#include <QtCore/QFileInfo>
-#include <qt5xdg/xdgdesktopfile.h>
+#include "authorizedaction.h"
+#include "module.h"
+#include "modulesmodel.h"
 
-/*
- * PluginPrivate
- */
-
-class PluginPrivate
+class SettingsPlugin : public QQmlExtensionPlugin
 {
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
 public:
-    PluginPrivate(const QString &fileName) { entry = XdgDesktopFileCache::getFile(fileName); }
+    void registerTypes(const char *uri)
+    {
+        Q_ASSERT(QByteArray("Liri.Settings") == QByteArray(uri));
 
-    ~PluginPrivate() { delete entry; }
-
-    XdgDesktopFile *entry;
-    Plugin::Category category;
-    QString categoryName;
+        // @uri Liri.Settings
+        qmlRegisterType<AuthorizedAction>(uri, 1, 0, "AuthorizedAction");
+        qmlRegisterType<Module>();
+        qmlRegisterType<ModulesModel>(uri, 1, 0, "ModulesModel");
+    }
 };
 
-/*
- * Plugin
- */
-
-Plugin::Plugin(const QString &fileName, QObject *parent)
-    : QObject(parent)
-    , d_ptr(new PluginPrivate(fileName))
-{
-    Q_D(Plugin);
-    d->categoryName = d->entry->value(QStringLiteral("X-Liri-Settings-Category"),
-                                      QStringLiteral("personal"))
-                              .toString();
-    if (d->categoryName == QStringLiteral("personal"))
-        d->category = Plugin::PersonalCategory;
-    else if (d->categoryName == QStringLiteral("hardware"))
-        d->category = Plugin::HardwareCategory;
-    else if (d->categoryName == QStringLiteral("system"))
-        d->category = Plugin::SystemCategory;
-    else
-        d->category = Plugin::NoCategory;
-}
-
-Plugin::~Plugin() { delete d_ptr; }
-
-bool Plugin::isValid() const
-{
-    Q_D(const Plugin);
-    return d->entry != nullptr;
-}
-
-Plugin::Category Plugin::category() const
-{
-    Q_D(const Plugin);
-    return d->category;
-}
-
-QString Plugin::categoryName() const
-{
-    Q_D(const Plugin);
-    return d->categoryName;
-}
-
-QString Plugin::name() const
-{
-    Q_D(const Plugin);
-    return d->entry->value(QStringLiteral("X-Liri-Settings-InternalName")).toString();
-}
-
-QString Plugin::title() const
-{
-    Q_D(const Plugin);
-    return d->entry->localizedValue(QStringLiteral("Name")).toString();
-}
-
-QString Plugin::comment() const
-{
-    Q_D(const Plugin);
-    return d->entry->localizedValue(QStringLiteral("Comment")).toString();
-}
-
-QString Plugin::iconName() const
-{
-    Q_D(const Plugin);
-
-    QString iconName = d->entry->value(QStringLiteral("X-Liri-Settings-SymbolicIcon")).toString();
-
-    if (iconName.isEmpty()) {
-        iconName = d->entry->localizedValue(QStringLiteral("Icon")).toString();
-    }
-
-    return iconName;
-}
-
-QStringList Plugin::keywords() const
-{
-    Q_D(const Plugin);
-    return d->entry->localizedValue(QStringLiteral("Keywords")).toStringList();
-}
-
-QUrl Plugin::mainScriptUrl() const
-{
-    Q_D(const Plugin);
-
-    QFileInfo info(d->entry->fileName());
-    return QUrl::fromLocalFile(info.absoluteDir().absoluteFilePath(QStringLiteral("Preflet.qml")));
-}
-
-#include "moc_plugin.cpp"
+#include "plugin.moc"

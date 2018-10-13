@@ -22,46 +22,39 @@
  ***************************************************************************/
 
 import QtQuick 2.0
-import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.0
+import QtQuick.Layouts 1.0
+import QtQuick.Controls 2.1
+import QtQuick.Controls.Material 2.1
 import Fluid.Controls 1.0
 import Liri.Settings 1.0
-import QtGSettings 1.0
+import Liri.Settings.Display 1.0 as CppDisplay
 
-PrefletPage {
-    windowWidth: 1024
-    windowHeight: 768
-
-    //centered: true
-
-    GSettings {
-        id: backgroundSettings
-        schema.id: "io.liri.desktop.background"
-        schema.path: "/io/liri/desktop/background/"
-    }
-
-    GSettings {
-        id: lockScreenSettings
-        schema.id: "io.liri.desktop.lockscreen"
-        schema.path: "/io/liri/desktop/lockscreen/"
+ModulePage {
+    CppDisplay.OutputsModel {
+        id: outputsModel
     }
 
     ModuleContainer {
-        Row {
-            Selector {
-                settings: backgroundSettings
-                text: qsTr("Background")
-            }
+        title: qsTr("Screens")
 
-            Rectangle {
-                height: parent.height
-                width: 1
-                color: Material.dividerColor
-            }
+        Repeater {
+            model: outputsModel
 
-            Selector {
-                settings: lockScreenSettings
-                text: qsTr("Lock Screen")
+            ListItem {
+                DetailsDialog {
+                    id: detailsDialog
+                }
+
+                text: name
+                onClicked: {
+                    detailsDialog.number = number;
+                    detailsDialog.modes = modes;
+                    detailsDialog.currentMode = currentMode;
+                    detailsDialog.diagonalSize = diagonalSize;
+                    detailsDialog.aspectRatio = aspectRatio;
+                    detailsDialog.aspectRatioString = aspectRatioString;
+                    detailsDialog.open();
+                }
             }
         }
     }

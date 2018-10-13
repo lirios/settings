@@ -50,7 +50,7 @@ FluidControls.ApplicationWindow {
 
     initialPage: SettingsPage {
         id: settingsPage
-        model: PluginsModel {}
+        model: ModulesModel {}
     }
 
     function loadModule(plugin) {

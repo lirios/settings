@@ -30,7 +30,7 @@ import Liri.Settings 1.0
 import Liri.Settings.Users 1.0
 import QtAccountsService 1.0
 
-PrefletPage {
+ModulePage {
     property alias userId: account.userId
     property bool isCurrentUser
     property alias iconFileName: photo.source

@@ -28,7 +28,7 @@ import QtGSettings 1.0
 import Fluid.Controls 1.0
 import Liri.Settings 1.0
 
-PrefletPage {
+ModulePage {
     GSettings {
         id: keyboardSettings
         schema.id: "io.liri.desktop.peripherals.keyboard"
