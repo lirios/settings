@@ -19,5 +19,18 @@ LiriQmlPlugin {
 
     Qt.core.enableKeywords: false
 
-    files: ["*.cpp", "*.h", "qmldir", "*.qml"]
+    files: [
+        "authorizedaction.cpp",
+        "authorizedaction.h",
+        "plugin.cpp",
+        "plugin.h",
+        "plugin_p.h",
+        "pluginsmodel.cpp",
+        "pluginsmodel.h",
+        "qml/ModuleContainer.qml",
+        "qml/ModulePane.qml",
+        "qml/PrefletPage.qml",
+        "qml/qmldir",
+        "systemsettingsplugin.cpp",
+    ]
 }
