@@ -15,12 +15,12 @@ Project {
 
     references: [
         "app/app.qbs",
-        "declarative/declarative.qbs",
         "modules/appearance/appearance.qbs",
         "modules/background/background.qbs",
         "modules/display/display.qbs",
         "modules/info/info.qbs",
         "modules/keyboard/keyboard.qbs",
         "modules/users/users.qbs",
+        "src/imports/settings/settings.qbs",
     ]
 }
