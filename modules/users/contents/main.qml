@@ -25,13 +25,12 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.1
-import QtQuick.Controls.Material 2.1
 import Fluid.Controls 1.0 as FluidControls
 import Liri.Settings 1.0
 import QtAccountsService 1.0
 
 ModulePage {
-    id: preflet
+    id: modulePage
 
     needsAuthorization: true
     unlocked: authorization.authorized
@@ -70,6 +69,8 @@ ModulePage {
     ModuleContainer {
         title: qsTr("Your Account")
 
+        Layout.alignment: Qt.AlignCenter
+
         UserListItem {
             iconSource: currentUser.iconFileName
             text: currentUser.realName
@@ -77,7 +78,7 @@ ModulePage {
             isAdminUser: currentUser.accountType == UserAccount.AdministratorAccountType
             isCurrentUser: true
             onClicked: window.pageStack.push(userPage, {
-                                                 "unlocked": Qt.binding(function() { return preflet.unlocked; }),
+                                                 "unlocked": Qt.binding(function() { return modulePage.unlocked; }),
                                                  "userId": currentUser.userId,
                                                  "isCurrentUser": true,
                                                  "iconFileName": currentUser.iconFileName,
@@ -95,6 +96,8 @@ ModulePage {
         // is the current user and is hidden
         visible: userRepeater.count > 1
 
+        Layout.alignment: Qt.AlignCenter
+
         Repeater {
             id: userRepeater
             model: userModel
@@ -106,7 +109,7 @@ ModulePage {
                 isCurrentUser: userId === currentUser.userId
                 visible: userId !== currentUser.userId
                 onClicked: window.pageStack.push(userPage, {
-                                                     "unlocked": Qt.binding(function() { return preflet.unlocked; }),
+                                                     "unlocked": Qt.binding(function() { return modulePage.unlocked; }),
                                                      "userId": userId,
                                                      "isCurrentUser": false,
                                                      "iconFileName": iconFileName,

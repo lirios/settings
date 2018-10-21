@@ -23,25 +23,32 @@
  ***************************************************************************/
 
 import QtQuick 2.0
+import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
-import Fluid.Controls 1.0
+import Fluid.Controls 1.0 as FluidControls
 
-ModulePane {
+Item {
     default property alias content: column.data
 
     property alias title: titleLabel.text
 
-    width: column.implicitWidth
-    height: column.implicitHeight
+    Layout.alignment: Qt.AlignCenter
 
-    Column {
-        id: column
+    implicitWidth: parent.width
+    implicitHeight: column.implicitHeight + 32
 
-        width: 400
+    ModulePane {
+        anchors.centerIn: parent
 
-        Subheader {
-            id: titleLabel
-            visible: text !== ""
+        Column {
+            id: column
+
+            width: 400
+
+            FluidControls.Subheader {
+                id: titleLabel
+                visible: text !== ""
+            }
         }
     }
 }

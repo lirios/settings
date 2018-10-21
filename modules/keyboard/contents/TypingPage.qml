@@ -41,90 +41,90 @@ ModulePage {
         schema.path: "/io/liri/desktop/interface/"
     }
 
-    ModuleContainer {
-        title: qsTr("Typing")
+        ModuleContainer {
+            title: qsTr("Typing")
 
-        ListItem {
-            text: qsTr("Repeat Keys")
-            rightItem: Switch {
-                id: repeatKeysSwitch
-                anchors.centerIn: parent
-                onCheckedChanged: keyboardSettings.repeat = checked
+            ListItem {
+                text: qsTr("Repeat Keys")
+                rightItem: Switch {
+                    id: repeatKeysSwitch
+                    anchors.centerIn: parent
+                    onCheckedChanged: keyboardSettings.repeat = checked
+                }
+            }
+
+            ListItem {
+                text: qsTr("Delay")
+                rightItem: Slider {
+                    id: inputIntervalSlider
+                    anchors.centerIn: parent
+                    stepSize: 1
+                    from: 0
+                    to: 1000
+                    onValueChanged: keyboardSettings.repeatInterval = to - value
+                }
+            }
+
+            ListItem {
+                text: qsTr("Speed")
+                rightItem: Slider {
+                    id: autoRepeatRateSlider
+                    anchors.centerIn: parent
+                    stepSize: 1
+                    from: 0
+                    to: 1000
+                    onValueChanged: keyboardSettings.delay = to - value
+                }
             }
         }
 
-        ListItem {
-            text: qsTr("Delay")
-            rightItem: Slider {
-                id: inputIntervalSlider
-                anchors.centerIn: parent
-                stepSize: 1
-                from: 0
-                to: 1000
-                onValueChanged: keyboardSettings.repeatInterval = to - value
+        ModuleContainer {
+            title: qsTr("Cursor")
+
+            ListItem {
+                text: qsTr("Cursor Blinking")
+                rightItem: Switch {
+                    id: cursorBlinkingSwitch
+                    anchors.centerIn: parent
+                }
+            }
+
+            ListItem {
+                text: qsTr("Speed")
+                rightItem: Slider {
+                    id: cursorFlashTimeSlider
+                    anchors.centerIn: parent
+                    stepSize: 1
+                    from: 100
+                    to: 2500
+                    onValueChanged: uiSettings.cursorBlinkTime = to - value
+                }
+            }
+
+            ListItem {
+                text: qsTr("Timeout")
+                rightItem: Slider {
+                    id: cursorFlashTimeoutSlider
+                    anchors.centerIn: parent
+                    stepSize: 1
+                    from: 1
+                    to: 2147483647
+                    onValueChanged: uiSettings.cursorBlinkTimeout = to - value
+                }
             }
         }
 
-        ListItem {
-            text: qsTr("Speed")
-            rightItem: Slider {
-                id: autoRepeatRateSlider
-                anchors.centerIn: parent
-                stepSize: 1
-                from: 0
-                to: 1000
-                onValueChanged: keyboardSettings.delay = to - value
+        ModuleContainer {
+            title: qsTr("Input Sources")
+
+            ListItem {
+                text: qsTr("Virtual Keyboard")
+                rightItem: Switch {
+                    id: virtualKeyboardSwitch
+                    onCheckedChanged: uiSettings.inputMethod = checked ? "qtvirtualkeyboard" : ""
+                }
             }
         }
-    }
-
-    ModuleContainer {
-        title: qsTr("Cursor")
-
-        ListItem {
-            text: qsTr("Cursor Blinking")
-            rightItem: Switch {
-                id: cursorBlinkingSwitch
-                anchors.centerIn: parent
-            }
-        }
-
-        ListItem {
-            text: qsTr("Speed")
-            rightItem: Slider {
-                id: cursorFlashTimeSlider
-                anchors.centerIn: parent
-                stepSize: 1
-                from: 100
-                to: 2500
-                onValueChanged: uiSettings.cursorBlinkTime = to - value
-            }
-        }
-
-        ListItem {
-            text: qsTr("Timeout")
-            rightItem: Slider {
-                id: cursorFlashTimeoutSlider
-                anchors.centerIn: parent
-                stepSize: 1
-                from: 1
-                to: 2147483647
-                onValueChanged: uiSettings.cursorBlinkTimeout = to - value
-            }
-        }
-    }
-
-    ModuleContainer {
-        title: qsTr("Input Sources")
-
-        ListItem {
-            text: qsTr("Virtual Keyboard")
-            rightItem: Switch {
-                id: virtualKeyboardSwitch
-                onCheckedChanged: uiSettings.inputMethod = checked ? "qtvirtualkeyboard" : ""
-            }
-        }
-    }
 
     Component.onCompleted: {
         repeatKeysSwitch.checked = keyboardSettings.repeat;

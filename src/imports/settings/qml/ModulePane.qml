@@ -31,11 +31,11 @@ import Fluid.Controls 1.0
 Pane {
     padding: 0
 
-    width: 400
+    implicitWidth: 400
 
     Material.background: "white"
     Material.elevation: 1
 
-    Layout.alignment: Qt.AlignCenter | Qt.AlignVCenter
+    Layout.alignment: Qt.AlignCenter
     Layout.preferredWidth: 400
 }

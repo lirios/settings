@@ -109,10 +109,9 @@ Dialog {
 
             ComboBox {
                 id: accountTypeCombo
-                anchors.verticalCenter: parent.verticalCenter
                 model: [qsTr("Standard"), qsTr("Administrator")]
 
-                Layout.alignment: Qt.AlignRight
+                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 Layout.preferredWidth: 200
             }
         }

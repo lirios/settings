@@ -91,7 +91,7 @@ FluidControls.ListItem {
 
         ToolButton {
             icon.source: FluidControls.Utils.iconUrl("content/remove_circle")
-            enabled: preflet.unlocked
+            enabled: modulePage.unlocked
             visible: !isCurrentUser
             onClicked: deleteDialog.open()
 
