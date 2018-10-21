@@ -23,8 +23,8 @@
  ***************************************************************************/
 
 import QtQuick 2.0
-import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
+import QtQuick.Controls 2.2
 import Fluid.Controls 1.0 as FluidControls
 
 FluidControls.Page {
@@ -34,8 +34,6 @@ FluidControls.Page {
 
     property int windowWidth: window.defaultWidth
     property int windowHeight: window.defaultHeight
-
-    property bool centered: false
 
     property bool needsAuthorization: false
     property bool unlocked: true
@@ -52,26 +50,14 @@ FluidControls.Page {
         }
     ]
 
-    Flickable {
-        id: flickable
-
+    ScrollView {
+        id: scrollView
         anchors.fill: parent
-        clip: true
-        contentWidth: parent.width
-        contentHeight: layout.implicitHeight
-
-        ScrollBar.vertical: ScrollBar {}
 
         ColumnLayout {
             id: layout
-            anchors {
-                fill: centered ? undefined : parent
-                horizontalCenter: centered ? parent.horizontalCenter : undefined
-                verticalCenter: centered ? parent.verticalCenter : undefined
-                topMargin: FluidControls.Units.smallSpacing * 8
-                bottomMargin: FluidControls.Units.smallSpacing * 8
-            }
-            spacing: FluidControls.Units.smallSpacing * 2
+            width: page.width
+            height: children.height
         }
     }
 }

@@ -41,7 +41,6 @@ ModulePage {
 
     title: account.realName
     needsAuthorization: true
-    centered: true
 
     Component.onCompleted: loaded = true
 
@@ -60,6 +59,8 @@ ModulePage {
     }
 
     ModuleContainer {
+        Layout.alignment: Qt.AlignCenter
+
         Control {
             width: parent.width
             height: contentItem.implicitHeight + topPadding + bottomPadding
@@ -70,7 +71,7 @@ ModulePage {
 
                 PhotoPicker {
                     id: photo
-                    enabled: isCurrentUser || preflet.unlocked
+                    enabled: isCurrentUser || modulePage.unlocked
                     onFileSelected: account.iconFileName = fileName.replace("file://", "")
                 }
 
@@ -78,7 +79,7 @@ ModulePage {
                     id: realNameField
                     placeholderText: qsTr("Full name")
                     focus: true
-                    enabled: isCurrentUser || preflet.unlocked
+                    enabled: isCurrentUser || modulePage.unlocked
                     onAccepted: if (loaded) account.realName = text
 
                     Layout.alignment: Qt.AlignVCenter
@@ -94,7 +95,7 @@ ModulePage {
                 anchors.verticalCenter: parent.verticalCenter
                 model: [qsTr("Standard"), qsTr("Administrator")]
                 width: 200
-                enabled: preflet.unlocked
+                enabled: modulePage.unlocked
                 onCurrentIndexChanged: if (loaded) account.accountType = currentIndex
             }
         }
@@ -104,7 +105,7 @@ ModulePage {
             rightItem: Switch {
                 id: automaticLoginSwitch
                 anchors.verticalCenter: parent.verticalCenter
-                enabled: preflet.unlocked
+                enabled: modulePage.unlocked
                 onCheckedChanged: if (loaded) account.automaticLogin = checked
             }
         }
@@ -112,7 +113,9 @@ ModulePage {
 
     ModuleContainer {
         title: qsTr("Password")
-        enabled: preflet.unlocked
+        enabled: modulePage.unlocked
+
+        Layout.alignment: Qt.AlignCenter
 
         Control {
             width: parent.width
