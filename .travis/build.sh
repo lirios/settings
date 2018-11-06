@@ -7,26 +7,13 @@ source /usr/local/share/liri-travis/functions
 # Install dependencies
 travis_start "install_packages"
 msg "Install packages..."
-sudo apt-get install -y \
-     xkb-data \
-     libpolkit-qt5-1-dev
+dnf install -y \
+     xkeyboard-config \
+     polkit-devel \
+     polkit-qt5-1-devel \
+     libqtxdg-devel \
+     libxcrypt-devel
 travis_end "install_packages"
-
-# Install libqtxdg
-# It uses Qt private API but it's not built by KDE Neon CI therefore it
-# still needs ABI of the original Ubuntu packages and doesn't work
-travis_start "build_libqtxdg"
-msg "Build libqtxdg..."
-pushd /usr/src
-git clone -b 3.1.0 git://github.com/lxqt/libqtxdg.git
-cd libqtxdg
-mkdir build
-cd build
-cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-make -j$(nproc)
-sudo make install
-popd
-travis_end "build_libqtxdg"
 
 # Install artifacts
 travis_start "artifacts"
@@ -51,7 +38,7 @@ dbus-run-session -- \
 xvfb-run -a -s "-screen 0 800x600x24" \
 qbs -d build -j $(nproc) --all-products profile:travis-qt5 \
     modules.lirideployment.prefix:/usr \
-    modules.lirideployment.libDir:/usr/lib/x86_64-linux-gnu \
-    modules.lirideployment.qmlDir:/usr/lib/x86_64-linux-gnu/qt5/qml \
-    modules.lirideployment.pluginsDir:/usr/lib/x86_64-linux-gnu/qt5/plugins
+    modules.lirideployment.libDir:/usr/lib64 \
+    modules.lirideployment.qmlDir:/usr/lib64/qt5/qml \
+    modules.lirideployment.pluginsDir:/usr/lib64/qt5/plugins
 travis_end "build"
