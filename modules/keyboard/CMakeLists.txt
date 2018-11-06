@@ -1,0 +1,34 @@
+liri_add_qml_plugin(keyboard
+    MODULE_PATH
+        "Liri/Settings/Keyboard"
+    SOURCES
+        keyboarddata.cpp
+        keyboarddata.h
+        keyboardlayout.cpp
+        keyboardlayout.h
+        keyboardlayoutvariant.cpp
+        keyboardlayoutvariant.h
+        keyboardmodel.cpp
+        keyboardmodel.h
+        keybordlayoutsmodel.cpp
+        keybordlayoutsmodel.h
+        plugin.cpp
+    QML_FILES
+        qmldir
+    DEFINES
+        #QT_NO_CAST_FROM_ASCII
+        QT_NO_FOREACH
+    LIBRARIES
+        Qt5::Qml
+        Qt5::Quick
+)
+
+liri_add_settings_module(Keyboard
+    CONTENTS
+        contents/AddDialog.qml
+        contents/LayoutPage.qml
+        contents/main.qml
+        contents/TypingPage.qml
+    METADATA
+        metadata.desktop.in
+)
