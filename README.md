@@ -1,8 +1,6 @@
 Settings
 ========
 
-[![ZenHub.io](https://img.shields.io/badge/supercharged%20by-zenhub.io-blue.svg)](https://zenhub.io)
-
 [![License](https://img.shields.io/badge/license-GPLv3.0%2B-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 [![GitHub release](https://img.shields.io/github/release/lirios/settings.svg)](https://github.com/lirios/settings)
 [![Build Status](https://travis-ci.org/lirios/settings.svg?branch=develop)](https://travis-ci.org/lirios/settings)
