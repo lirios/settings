@@ -15,7 +15,7 @@ liri_add_qml_plugin(users
     LIBRARIES
         Qt5::Qml
         Qt5::Quick
-        PkgConfig::Libcrypt
+        Libcrypt::Libcrypt
 )
 
 liri_add_settings_module(Users
