@@ -23,7 +23,8 @@
 
 #include <QDir>
 #include <QFileInfo>
-#include <qt5xdg/xdgdesktopfile.h>
+
+#include <LiriXdg/DesktopFile>
 
 #include "module.h"
 
@@ -34,11 +35,15 @@
 class ModulePrivate
 {
 public:
-    ModulePrivate(const QString &fileName) { entry = XdgDesktopFileCache::getFile(fileName); }
+    ModulePrivate(const QString &fileName)
+        : entry(new Liri::DesktopFile())
+    {
+        entry->load(fileName);
+    }
 
     ~ModulePrivate() { delete entry; }
 
-    XdgDesktopFile *entry;
+    Liri::DesktopFile *entry;
     Module::Category category;
     QString categoryName;
 };

@@ -1,5 +1,8 @@
-find_package(Qt5Xdg REQUIRED)
 find_package(Polkit REQUIRED)
+
+if(NOT TARGET Liri::Xdg)
+    find_package(Liri1Xdg REQUIRED)
+endif()
 
 liri_add_qml_plugin(settings
     MODULE_PATH
@@ -23,8 +26,7 @@ liri_add_qml_plugin(settings
         QT_NO_KEYWORDS
     LIBRARIES
         Qt5::Core
-        Qt5::Xml
         Qt5::Gui
-        Qt5Xdg
         PkgConfig::Polkit
+        Liri::Xdg
 )

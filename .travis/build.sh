@@ -13,7 +13,6 @@ dnf install -y \
     xkeyboard-config \
     polkit-devel \
     polkit-qt5-1-devel \
-    libqtxdg-devel \
     libxcrypt-devel
 travis_end "install_packages"
 
