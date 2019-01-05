@@ -9,7 +9,7 @@ travis_start "install_packages"
 msg "Install packages..."
 dnf install -y \
     desktop-file-utils \
-    libappstream-glib
+    libappstream-glib \
     xkeyboard-config \
     polkit-devel \
     polkit-qt5-1-devel \
