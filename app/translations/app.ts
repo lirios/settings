@@ -2,41 +2,32 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en">
 <context>
-    <name>PluginsModel</name>
+    <name>ErrorView</name>
     <message>
-        <source>Personal</source>
-        <translation type="obsolete">Personal</translation>
+        <source>Error loading &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsPage</name>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Hardware</source>
-        <translation type="obsolete">Hardware</translation>
+        <source>Welcome to Settings</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>System</source>
-        <translation type="obsolete">System</translation>
+        <source>Select an item from the list to see the available options.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
-        <source>System Preferences</source>
-        <translation type="vanished">System Preferences</translation>
-    </message>
-    <message>
-        <source>Keywords</source>
-        <translation type="vanished">Keywords</translation>
-    </message>
-    <message>
-        <source>Personal</source>
-        <translation type="vanished">Personal</translation>
-    </message>
-    <message>
-        <source>Hardware</source>
-        <translation type="vanished">Hardware</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation type="vanished">System</translation>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

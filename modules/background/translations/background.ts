@@ -20,29 +20,10 @@
     </message>
 </context>
 <context>
-    <name>Preflet</name>
-    <message>
-        <source>Background</source>
-        <translation>Background</translation>
-    </message>
-    <message>
-        <source>Lock Screen</source>
-        <translation>Lock Screen</translation>
-    </message>
-</context>
-<context>
     <name>Selector</name>
     <message>
         <source>Pick a background</source>
         <translation>Pick a background</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Cancel</translation>
-    </message>
-    <message>
-        <source>Select</source>
-        <translation type="vanished">Select</translation>
     </message>
 </context>
 <context>
@@ -97,6 +78,17 @@
     <message>
         <source>Centered</source>
         <translation>Centered</translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <source>Background</source>
+        <translation type="unfinished">Background</translation>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation type="unfinished">Lock Screen</translation>
     </message>
 </context>
 </TS>

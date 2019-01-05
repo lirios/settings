@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name>Preflet</name>
+    <name>main</name>
     <message>
         <source>Version %1</source>
         <translation type="unfinished"></translation>
