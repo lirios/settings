@@ -4,6 +4,7 @@ host = https://www.transifex.com
 [liri-settings.app]
 type = QT
 source_lang = en
+liri_source_directory = app
 source_file = app/translations/app.ts
 file_filter = app/translations/app_<lang>.ts
 
@@ -11,11 +12,13 @@ file_filter = app/translations/app_<lang>.ts
 type = DESKTOP
 source_lang = en
 source_file = app/io.liri.Settings.desktop.in
+liri_dest_file = app/io.liri.Settings.desktop
 file_filter = app/translations/io.liri.Settings_<lang>.desktop
 
 [liri-settings.appearance-module]
 type = QT
 source_lang = en
+liri_source_directory = modules/appearance
 source_file = modules/appearance/translations/appearance.ts
 file_filter = modules/appearance/translations/appearance_<lang>.ts
 
@@ -23,11 +26,13 @@ file_filter = modules/appearance/translations/appearance_<lang>.ts
 type = DESKTOP
 source_lang = en
 source_file = modules/appearance/metadata.desktop.in
+liri_dest_file = modules/appearance/metadata.desktop
 file_filter = modules/appearance/translations/metadata_<lang>.desktop
 
 [liri-settings.background-module]
 type = QT
 source_lang = en
+liri_source_directory = modules/background
 source_file = modules/background/translations/background.ts
 file_filter = modules/background/translations/background_<lang>.ts
 
@@ -35,11 +40,13 @@ file_filter = modules/background/translations/background_<lang>.ts
 type = DESKTOP
 source_lang = en
 source_file = modules/background/metadata.desktop.in
+liri_dest_file = modules/background/metadata.desktop
 file_filter = modules/background/translations/metadata_<lang>.desktop
 
 [liri-settings.display-module]
 type = QT
 source_lang = en
+liri_source_directory = modules/display
 source_file = modules/display/translations/display.ts
 file_filter = modules/display/translations/display_<lang>.ts
 
@@ -47,11 +54,13 @@ file_filter = modules/display/translations/display_<lang>.ts
 type = DESKTOP
 source_lang = en
 source_file = modules/display/metadata.desktop.in
+liri_dest_file = modules/display/metadata.desktop
 file_filter = modules/display/translations/metadata_<lang>.desktop
 
 [liri-settings.info-module]
 type = QT
 source_lang = en
+liri_source_directory = modules/info
 source_file = modules/info/translations/info.ts
 file_filter = modules/info/translations/info_<lang>.ts
 
@@ -59,11 +68,13 @@ file_filter = modules/info/translations/info_<lang>.ts
 type = DESKTOP
 source_lang = en
 source_file = modules/info/metadata.desktop.in
+liri_dest_file = modules/info/metadata.desktop
 file_filter = modules/info/translations/metadata_<lang>.desktop
 
 [liri-settings.keyboard-module]
 type = QT
 source_lang = en
+liri_source_directory = modules/keyboard
 source_file = modules/keyboard/translations/keyboard.ts
 file_filter = modules/keyboard/translations/keyboard_<lang>.ts
 
@@ -71,11 +82,13 @@ file_filter = modules/keyboard/translations/keyboard_<lang>.ts
 type = DESKTOP
 source_lang = en
 source_file = modules/keyboard/metadata.desktop.in
+liri_dest_file = modules/keyboard/metadata.desktop
 file_filter = modules/keyboard/translations/metadata_<lang>.desktop
 
 [liri-settings.users-module]
 type = QT
 source_lang = en
+liri_source_directory = modules/users
 source_file = modules/users/translations/users.ts
 file_filter = modules/users/translations/users_<lang>.ts
 
@@ -83,4 +96,5 @@ file_filter = modules/users/translations/users_<lang>.ts
 type = DESKTOP
 source_lang = en
 source_file = modules/users/metadata.desktop.in
+liri_dest_file = modules/users/metadata.desktop
 file_filter = modules/users/translations/metadata_<lang>.desktop
