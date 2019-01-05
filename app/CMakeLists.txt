@@ -4,8 +4,6 @@ qt5_add_translation(LiriSettings_QM_FILES ${LiriSettings_TRANSLATIONS})
 install(FILES ${LiriSettings_QM_FILES}
         DESTINATION "${INSTALL_DATADIR}/liri-settings/translations")
 
-liri_translate_desktop(_desktop_file SOURCES "io.liri.Settings.desktop.in")
-
 liri_add_executable(LiriSettings
     OUTPUT_NAME
         "liri-settings"
@@ -17,7 +15,7 @@ liri_add_executable(LiriSettings
         QT_NO_FOREACH
         LIRISETTINGS_VERSION="${PROJECT_VERSION}"
     DESKTOP
-        "${_desktop_file}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/io.liri.Settings.desktop"
     RESOURCES
         settings.qrc
     LIBRARIES
