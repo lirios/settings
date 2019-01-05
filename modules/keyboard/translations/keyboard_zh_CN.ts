@@ -9,14 +9,6 @@
         <source>Variant:</source>
         <translation>变体键盘</translation>
     </message>
-    <message>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>好</translation>
-    </message>
 </context>
 <context>
     <name>KeyboardLayout</name>
@@ -27,10 +19,6 @@
 </context>
 <context>
     <name>LayoutPage</name>
-    <message>
-        <source>Keyboard model:</source>
-        <translation type="vanished">键盘模型：</translation>
-    </message>
     <message>
         <source>Type to test the layout...</source>
         <translation>输入以检测键盘布局</translation>
@@ -55,20 +43,9 @@
         <source>Remove</source>
         <translation>移除</translation>
     </message>
-</context>
-<context>
-    <name>Preflet</name>
     <message>
-        <source>Shortcuts</source>
-        <translation>快捷键</translation>
-    </message>
-    <message>
-        <source>Behavior</source>
-        <translation>行为</translation>
-    </message>
-    <message>
-        <source>Layout</source>
-        <translation>布局</translation>
+        <source>Add layout...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -78,36 +55,8 @@
         <translation>重复键位</translation>
     </message>
     <message>
-        <source>Delay:</source>
-        <translation type="vanished">延迟：</translation>
-    </message>
-    <message>
-        <source>Short</source>
-        <translation type="vanished">短</translation>
-    </message>
-    <message>
-        <source>Long</source>
-        <translation type="vanished">长</translation>
-    </message>
-    <message>
-        <source>Speed:</source>
-        <translation type="vanished">速度：</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="vanished">慢</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="vanished">快</translation>
-    </message>
-    <message>
         <source>Cursor Blinking</source>
         <translation>光标闪烁</translation>
-    </message>
-    <message>
-        <source>Timeout:</source>
-        <translation type="vanished">超时：</translation>
     </message>
     <message>
         <source>Typing</source>
@@ -136,6 +85,21 @@
     <message>
         <source>Virtual Keyboard</source>
         <translation>虚拟键盘</translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Behavior</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layout</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

@@ -18,29 +18,10 @@
     </message>
 </context>
 <context>
-    <name>Preflet</name>
-    <message>
-        <source>Background</source>
-        <translation>Fundo de ecrã</translation>
-    </message>
-    <message>
-        <source>Lock Screen</source>
-        <translation>Trancar o ecrã</translation>
-    </message>
-</context>
-<context>
     <name>Selector</name>
     <message>
         <source>Pick a background</source>
         <translation>Alterar o fundo de ecrã</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Cancelar</translation>
-    </message>
-    <message>
-        <source>Select</source>
-        <translation type="vanished">Seleccionar</translation>
     </message>
 </context>
 <context>
@@ -95,6 +76,17 @@
     <message>
         <source>Centered</source>
         <translation>Centrado</translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <source>Background</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

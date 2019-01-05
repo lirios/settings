@@ -3,61 +3,92 @@
     <name>AddDialog</name>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"/>
+        <translation>レイアウト</translation>
     </message>
     <message>
         <source>Variant:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>OK</translation>
+        <translation>種類</translation>
     </message>
 </context>
 <context>
     <name>KeyboardLayout</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>なし</translation>
     </message>
 </context>
 <context>
     <name>LayoutPage</name>
     <message>
-        <source>Keyboard model:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Type to test the layout...</source>
-        <translation type="unfinished"/>
+        <translation>タイプしてレイアウトを確認します...</translation>
     </message>
     <message>
         <source>Model and Test</source>
-        <translation type="unfinished"/>
+        <translation>モデルとテスト</translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"/>
+        <translation>モデル</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>レイアウト</translation>
     </message>
     <message>
         <source>No variant</source>
-        <translation type="unfinished"/>
+        <translation>なし</translation>
     </message>
     <message>
         <source>Remove</source>
+        <translation>削除</translation>
+    </message>
+    <message>
+        <source>Add layout...</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>Preflet</name>
+    <name>TypingPage</name>
+    <message>
+        <source>Repeat Keys</source>
+        <translation>押し続ける</translation>
+    </message>
+    <message>
+        <source>Cursor Blinking</source>
+        <translation>カーソルの点滅</translation>
+    </message>
+    <message>
+        <source>Typing</source>
+        <translation>タイピング</translation>
+    </message>
+    <message>
+        <source>Delay</source>
+        <translation>遅延</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>速さ</translation>
+    </message>
+    <message>
+        <source>Cursor</source>
+        <translation>カーソル</translation>
+    </message>
+    <message>
+        <source>Timeout</source>
+        <translation>タイムアウト</translation>
+    </message>
+    <message>
+        <source>Input Sources</source>
+        <translation>入力ソース</translation>
+    </message>
+    <message>
+        <source>Virtual Keyboard</source>
+        <translation>仮想キーボード</translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
     <message>
         <source>Shortcuts</source>
         <translation type="unfinished"/>
@@ -68,73 +99,6 @@
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>TypingPage</name>
-    <message>
-        <source>Repeat Keys</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delay:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Short</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Long</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Speed:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cursor Blinking</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Timeout:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Typing</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delay</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Speed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cursor</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Timeout</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Input Sources</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Virtual Keyboard</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -9,14 +9,6 @@
         <source>Variant:</source>
         <translation>Varian:</translation>
     </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Batalkan</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>Ok</translation>
-    </message>
 </context>
 <context>
     <name>KeyboardLayout</name>
@@ -27,10 +19,6 @@
 </context>
 <context>
     <name>LayoutPage</name>
-    <message>
-        <source>Keyboard model:</source>
-        <translation type="vanished">Model papan ketik:</translation>
-    </message>
     <message>
         <source>Type to test the layout...</source>
         <translation>Ketik sesuatu untuk mencoba tata letak...</translation>
@@ -55,20 +43,9 @@
         <source>Remove</source>
         <translation>Hilangkan</translation>
     </message>
-</context>
-<context>
-    <name>Preflet</name>
     <message>
-        <source>Shortcuts</source>
-        <translation>Jalan pintas</translation>
-    </message>
-    <message>
-        <source>Behavior</source>
+        <source>Add layout...</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Layout</source>
-        <translation>Tata letak</translation>
     </message>
 </context>
 <context>
@@ -78,36 +55,8 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Delay:</source>
-        <translation type="vanished">Jeda:</translation>
-    </message>
-    <message>
-        <source>Short</source>
-        <translation type="vanished">Pendek</translation>
-    </message>
-    <message>
-        <source>Long</source>
-        <translation type="vanished">Panjang</translation>
-    </message>
-    <message>
-        <source>Speed:</source>
-        <translation type="vanished">Kecepatan:</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="vanished">Lambat</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="vanished">Cepat</translation>
-    </message>
-    <message>
         <source>Cursor Blinking</source>
         <translation>Kedipan kursor</translation>
-    </message>
-    <message>
-        <source>Timeout:</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Typing</source>
@@ -136,6 +85,21 @@
     <message>
         <source>Virtual Keyboard</source>
         <translation>Papan ketik virtual</translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Behavior</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layout</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

@@ -18,29 +18,10 @@
     </message>
 </context>
 <context>
-    <name>Preflet</name>
-    <message>
-        <source>Background</source>
-        <translation>Arka plan</translation>
-    </message>
-    <message>
-        <source>Lock Screen</source>
-        <translation>Kilit Ekranı</translation>
-    </message>
-</context>
-<context>
     <name>Selector</name>
     <message>
         <source>Pick a background</source>
         <translation>Arka plan seç</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">İptal</translation>
-    </message>
-    <message>
-        <source>Select</source>
-        <translation type="vanished">Seç</translation>
     </message>
 </context>
 <context>
@@ -95,6 +76,17 @@
     <message>
         <source>Centered</source>
         <translation>Ortalı</translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <source>Background</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

@@ -18,29 +18,10 @@
     </message>
 </context>
 <context>
-    <name>Preflet</name>
-    <message>
-        <source>Background</source>
-        <translation>Achtergrond</translation>
-    </message>
-    <message>
-        <source>Lock Screen</source>
-        <translation>Vergrendelscherm</translation>
-    </message>
-</context>
-<context>
     <name>Selector</name>
     <message>
         <source>Pick a background</source>
         <translation>Kies een achtergrond</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Annuleren</translation>
-    </message>
-    <message>
-        <source>Select</source>
-        <translation type="vanished">Selecteren</translation>
     </message>
 </context>
 <context>
@@ -95,6 +76,17 @@
     <message>
         <source>Centered</source>
         <translation>Gecentreerd</translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <source>Background</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

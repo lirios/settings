@@ -9,14 +9,6 @@
         <source>Variant:</source>
         <translation>Variante:</translation>
     </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Cancelar</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>Bueno</translation>
-    </message>
 </context>
 <context>
     <name>KeyboardLayout</name>
@@ -27,10 +19,6 @@
 </context>
 <context>
     <name>LayoutPage</name>
-    <message>
-        <source>Keyboard model:</source>
-        <translation type="vanished">Modelo de teclado:</translation>
-    </message>
     <message>
         <source>Type to test the layout...</source>
         <translation>Escriba para probar el diseño...</translation>
@@ -55,20 +43,9 @@
         <source>Remove</source>
         <translation>Eliminar</translation>
     </message>
-</context>
-<context>
-    <name>Preflet</name>
     <message>
-        <source>Shortcuts</source>
-        <translation>Atajos</translation>
-    </message>
-    <message>
-        <source>Behavior</source>
-        <translation>Comportamiento</translation>
-    </message>
-    <message>
-        <source>Layout</source>
-        <translation>Diseño</translation>
+        <source>Add layout...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -78,36 +55,8 @@
         <translation>Repetición de la teclas</translation>
     </message>
     <message>
-        <source>Delay:</source>
-        <translation type="vanished">Retrasar:</translation>
-    </message>
-    <message>
-        <source>Short</source>
-        <translation type="vanished">Corto</translation>
-    </message>
-    <message>
-        <source>Long</source>
-        <translation type="vanished">Largo</translation>
-    </message>
-    <message>
-        <source>Speed:</source>
-        <translation type="vanished">Velocidad:</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="vanished">Lento</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="vanished">Rapido</translation>
-    </message>
-    <message>
         <source>Cursor Blinking</source>
         <translation>Cursor parpadeando</translation>
-    </message>
-    <message>
-        <source>Timeout:</source>
-        <translation type="vanished">Tiempo de espera:</translation>
     </message>
     <message>
         <source>Typing</source>
@@ -136,6 +85,21 @@
     <message>
         <source>Virtual Keyboard</source>
         <translation>Teclado virtual</translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Behavior</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layout</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

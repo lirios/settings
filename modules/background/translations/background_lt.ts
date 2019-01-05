@@ -18,29 +18,10 @@
     </message>
 </context>
 <context>
-    <name>Preflet</name>
-    <message>
-        <source>Background</source>
-        <translation>Fonas</translation>
-    </message>
-    <message>
-        <source>Lock Screen</source>
-        <translation>Užrakinimo ekranas</translation>
-    </message>
-</context>
-<context>
     <name>Selector</name>
     <message>
         <source>Pick a background</source>
         <translation>Pasirinkite foną</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Atsisakyti</translation>
-    </message>
-    <message>
-        <source>Select</source>
-        <translation type="vanished">Pasirinkti</translation>
     </message>
 </context>
 <context>
@@ -95,6 +76,17 @@
     <message>
         <source>Centered</source>
         <translation>Centruotas</translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <source>Background</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

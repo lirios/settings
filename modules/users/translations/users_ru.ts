@@ -3,18 +3,7 @@
     <name>PhotoPicker</name>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>Preflet</name>
-    <message>
-        <source>Your Account</source>
-        <translation>Ваша учётная запись</translation>
-    </message>
-    <message>
-        <source>Other Accounts</source>
-        <translation>Другие учётные записи</translation>
+        <translation>Открыть...</translation>
     </message>
 </context>
 <context>
@@ -87,7 +76,7 @@
     <name>UserPage</name>
     <message>
         <source>Full name</source>
-        <translation type="unfinished"/>
+        <translation>Полное имя</translation>
     </message>
     <message>
         <source>Account type</source>
@@ -132,6 +121,17 @@
     <message>
         <source>Password changed</source>
         <translation>Пароль успешно изменен</translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <source>Your Account</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other Accounts</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

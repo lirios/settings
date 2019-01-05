@@ -7,17 +7,6 @@
     </message>
 </context>
 <context>
-    <name>Preflet</name>
-    <message>
-        <source>Your Account</source>
-        <translation>Su Cuenta</translation>
-    </message>
-    <message>
-        <source>Other Accounts</source>
-        <translation>Otras Cuentas</translation>
-    </message>
-</context>
-<context>
     <name>UserAddDialog</name>
     <message>
         <source>Cancel</source>
@@ -131,6 +120,17 @@
     </message>
     <message>
         <source>Password changed</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <source>Your Account</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other Accounts</source>
         <translation type="unfinished"/>
     </message>
 </context>

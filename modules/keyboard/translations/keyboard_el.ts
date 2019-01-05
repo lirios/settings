@@ -9,14 +9,6 @@
         <source>Variant:</source>
         <translation>Παραλλαγή:</translation>
     </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Ματαίωση</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>ΟΚ</translation>
-    </message>
 </context>
 <context>
     <name>KeyboardLayout</name>
@@ -27,10 +19,6 @@
 </context>
 <context>
     <name>LayoutPage</name>
-    <message>
-        <source>Keyboard model:</source>
-        <translation type="vanished">Μοντέλο πληκτρολογίου:</translation>
-    </message>
     <message>
         <source>Type to test the layout...</source>
         <translation>Πληκτρολογήστε για να δοκιμάσετε τη διάταξη...</translation>
@@ -55,20 +43,9 @@
         <source>Remove</source>
         <translation>Αφαίρεση</translation>
     </message>
-</context>
-<context>
-    <name>Preflet</name>
     <message>
-        <source>Shortcuts</source>
-        <translation>Συντομεύσεις</translation>
-    </message>
-    <message>
-        <source>Behavior</source>
-        <translation>Συμπεριφορά</translation>
-    </message>
-    <message>
-        <source>Layout</source>
-        <translation>Διάταξη</translation>
+        <source>Add layout...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -78,36 +55,8 @@
         <translation>Επανάληψη πλήκτρων</translation>
     </message>
     <message>
-        <source>Delay:</source>
-        <translation type="vanished">Καθυστέρηση:</translation>
-    </message>
-    <message>
-        <source>Short</source>
-        <translation type="vanished">Μικρή</translation>
-    </message>
-    <message>
-        <source>Long</source>
-        <translation type="vanished">Μεγάλη</translation>
-    </message>
-    <message>
-        <source>Speed:</source>
-        <translation type="vanished">Ταχύτητα:</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation type="vanished">Αργή</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="vanished">Γρήγορη</translation>
-    </message>
-    <message>
         <source>Cursor Blinking</source>
         <translation>Ο δρομέας αναβοσβήνει</translation>
-    </message>
-    <message>
-        <source>Timeout:</source>
-        <translation type="vanished">Τέλος χρόνου:</translation>
     </message>
     <message>
         <source>Typing</source>
@@ -136,6 +85,21 @@
     <message>
         <source>Virtual Keyboard</source>
         <translation>Εικονικό πληκτρολόγιο</translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Behavior</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layout</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

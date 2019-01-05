@@ -7,17 +7,6 @@
     </message>
 </context>
 <context>
-    <name>Preflet</name>
-    <message>
-        <source>Your Account</source>
-        <translation>您的帳戶</translation>
-    </message>
-    <message>
-        <source>Other Accounts</source>
-        <translation>其他帳戶</translation>
-    </message>
-</context>
-<context>
     <name>UserAddDialog</name>
     <message>
         <source>Cancel</source>
@@ -132,6 +121,17 @@
     <message>
         <source>Password changed</source>
         <translation>密碼已變更</translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <source>Your Account</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other Accounts</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

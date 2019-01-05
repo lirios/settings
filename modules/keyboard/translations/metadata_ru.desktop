@@ -14,3 +14,4 @@ X-Liri-Settings-SymbolicIcon=hardware/keyboard
 # Translations
 Comment[ru]=Просмотреть и изменить сочетания клавиш и параметры набора
 Name[ru]=Клавиатура
+Icon[ru]=input-keyboard
