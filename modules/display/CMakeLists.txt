@@ -28,6 +28,4 @@ liri_add_settings_module(Display
         contents/DetailsDialog.qml
         contents/main.qml
         contents/OutputPreview.qml
-    METADATA
-        metadata.desktop.in
 )

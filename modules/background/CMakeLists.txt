@@ -26,6 +26,4 @@ liri_add_settings_module(Background
         contents/Selector.qml
         contents/SolidPage.qml
         contents/WallpaperPage.qml
-    METADATA
-        metadata.desktop.in
 )

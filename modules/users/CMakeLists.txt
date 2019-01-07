@@ -25,6 +25,4 @@ liri_add_settings_module(Users
         contents/UserAddDialog.qml
         contents/UserListItem.qml
         contents/UserPage.qml
-    METADATA
-        metadata.desktop.in
 )

@@ -29,6 +29,4 @@ liri_add_settings_module(Keyboard
         contents/LayoutPage.qml
         contents/main.qml
         contents/TypingPage.qml
-    METADATA
-        metadata.desktop.in
 )
