@@ -38,7 +38,8 @@ public:
     ModulePrivate(const QString &fileName)
         : entry(new Liri::DesktopFile())
     {
-        entry->load(fileName);
+        if (!entry->load(fileName))
+            qWarning("Failed to load \"%s\"", qPrintable(fileName));
     }
 
     ~ModulePrivate() { delete entry; }
