@@ -21,98 +21,33 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.2
-import QtQuick.Layouts 1.0
-import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.0
+import QtQuick 2.0
+import QtQuick.Controls 2.2
+import QtQuick.Controls.Material 2.2
 import Fluid.Controls 1.0 as FluidControls
-import Liri.Settings 1.0
 
 FluidControls.Page {
     id: settingsPage
 
-    title: qsTr("Settings")
+    property alias mainScriptUrl: moduleLoader.source
 
-    Material.background: "#f3f3f3"
+    Material.background: window.wideAspectRatio ? "#f3f3f3" : "white"
 
-    property alias model: listView.model
-    property alias moduleLoader: moduleLoader
-    property var selectedModule
-
-    Pane {
-        id: listPane
-
-        anchors {
-            left: parent.left
-            top: parent.top
-            bottom: parent.bottom
+    Loader {
+        id: moduleLoader
+        anchors.fill: parent
+        onLoaded: {
+            settingsPage.actions = [];
+            if (item.actions !== undefined && item.actions.length > 0)
+                settingsPage.actions = item.actions;
         }
-
-        Material.background: "white"
-        Material.elevation: 1
-
-        width: 200
-        padding: 0
-
-        ListView {
-            id: listView
-            anchors.fill: parent
-
-            section.property: "category"
-            section.delegate: FluidControls.Subheader {
-                id: subheader
-                text: section
-
-                FluidControls.ThinDivider {
-                    anchors.top: parent.top
-                    visible: subheader.y > 0
-                }
-            }
-
-            delegate: SettingsListItem {}
-
-            ScrollBar.vertical: ScrollBar {}
-        }
-
-        z: 2
     }
 
-    Item {
-        id: moduleView
-
-        anchors {
-            left: listPane.right
-            top: parent.top
-            bottom: parent.bottom
-            right: parent.right
-        }
-
-        Loader {
-            id: moduleLoader
-            anchors.fill: parent
-            source: selectedModule ? selectedModule.mainScriptUrl : ""
-            onLoaded: {
-                settingsPage.actions = [];
-                if (item.actions !== undefined && item.actions.length > 0)
-                    settingsPage.actions = item.actions;
-            }
-        }
-
-        FluidControls.Placeholder {
-            anchors.fill: parent
-
-            icon.source: FluidControls.Utils.iconUrl("action/settings")
-            text: qsTr("Welcome to Settings")
-            subText: qsTr("Select an item from the list to see the available options.")
-            visible: moduleLoader.status == Loader.Null
-        }
-
-        ErrorView {
-            id: errorView
-            anchors.fill: parent
-            visible: moduleLoader.status == Loader.Error
-            moduleTitle: selectedModule ? selectedModule.title : ""
-            errorMessage: moduleLoader.sourceComponent ? moduleLoader.sourceComponent.errorString() : ""
-        }
+    ErrorView {
+        id: errorView
+        anchors.fill: parent
+        visible: moduleLoader.status == Loader.Error
+        moduleTitle: settingsPage.title
+        errorMessage: moduleLoader.sourceComponent ? moduleLoader.sourceComponent.errorString() : ""
     }
 }

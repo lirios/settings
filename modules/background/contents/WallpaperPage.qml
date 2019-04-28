@@ -21,51 +21,57 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.1
-import QtQuick.Window 2.0
+import QtQuick 2.6
 import QtQuick.Layouts 1.0
-import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.0
-import Fluid.Controls 1.0
+import QtQuick.Controls 2.2
+import QtQuick.Controls.Material 2.2
+import Fluid.Controls 1.0 as FluidControls
 import Liri.Settings.Background 1.0
 
 Item {
     property var settings: null
-    property int columns: 3
-    property real cellPadding: Units.smallSpacing
-    property real aspectRatio: Screen.width / Screen.height
 
     // Cached settings
     property url pictureUrl
     property string fillMode
 
-    ColumnLayout {
+    ScrollView {
+        id: scrollView
+
         anchors.fill: parent
+        clip: true
 
         GridView {
             id: gridView
+
+            readonly property real aspectRatio: 4 / 3
+            readonly property real gutters: 4
+            readonly property var breakpoints: [480, 600, 1024]
+            readonly property int columns: {
+                var n = 2;
+                for (var i = 0; i < breakpoints.length; i++) {
+                    if (parent.width >= breakpoints[i])
+                        n++;
+                }
+                return n;
+            }
+
             model: BackgroundsModel {
                 id: backgroundsModel
             }
-            clip: true
-            cellWidth: parent.width / columns
-            cellHeight: cellWidth / aspectRatio
-            currentIndex: -1
-            highlightMoveDuration: 0
+            cellWidth: Math.floor(parent.width / columns)
+            cellHeight: Math.round(cellWidth / aspectRatio)
             delegate: Item {
                 width: gridView.cellWidth
                 height: gridView.cellHeight
 
                 Image {
-                    anchors {
-                        fill: parent
-                        margins: cellPadding
-                    }
+                    anchors.centerIn: parent
+                    width: parent.width - gridView.gutters
+                    height: parent.height - gridView.gutters
                     source: model.fileName ? "file://" + model.fileName : ""
                     sourceSize.width: width
                     sourceSize.height: height
-                    width: parent.width - cellPadding * 2
-                    height: parent.height - cellPadding * 2
                     fillMode: Image.PreserveAspectCrop
                     asynchronous: true
                     cache: false
@@ -81,49 +87,50 @@ Item {
                         onClicked: {
                             gridView.currentIndex = index;
                             pictureUrl = "file://" + backgroundsModel.get(index);
+                            saveSettings();
                         }
                     }
                 }
-            }
-            highlight: Rectangle {
-                radius: 4
-                color: Material.accentColor
-            }
 
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            ScrollBar.vertical: ScrollBar {}
-        }
-
-        Pane {
-            GridLayout {
-                anchors.centerIn: parent
-                columns: 2
-
-                Label {
-                    text: qsTr("Fill Mode:")
-                    horizontalAlignment: Qt.AlignRight
-                }
-
-                ComboBox {
-                    model: [
-                        qsTr("Stretched"),
-                        qsTr("Scaled"),
-                        qsTr("Cropped"),
-                        qsTr("Tiled"),
-                        qsTr("Tiled Vertically"),
-                        qsTr("Tiled Horizontally"),
-                        qsTr("Centered")
-                    ]
-                    currentIndex: mapFillModeToIndex(fillMode)
-                    onActivated: fillMode = mapIndexToFillMode(index)
-
-                    Layout.minimumWidth: Units.gu(10)
+                Rectangle {
+                    anchors.fill: parent
+                    color: Material.accent
+                    opacity: 0.5
+                    visible: gridView.currentIndex === index && settings.mode === "wallpaper"
                 }
             }
-
-            Layout.fillWidth: true
         }
+    }
+
+    /*
+    Pane {
+        GridLayout {
+            anchors.centerIn: parent
+            columns: 2
+
+            Label {
+                text: qsTr("Fill Mode:")
+                horizontalAlignment: Qt.AlignRight
+            }
+
+            ComboBox {
+                model: [
+                    qsTr("Stretched"),
+                    qsTr("Scaled"),
+                    qsTr("Cropped"),
+                    qsTr("Tiled"),
+                    qsTr("Tiled Vertically"),
+                    qsTr("Tiled Horizontally"),
+                    qsTr("Centered")
+                ]
+                currentIndex: mapFillModeToIndex(fillMode)
+                onActivated: fillMode = mapIndexToFillMode(index)
+
+                Layout.minimumWidth: Units.gu(10)
+            }
+        }
+
+        Layout.fillWidth: true
     }
 
     function mapFillModeToIndex(fillMode) {
@@ -167,9 +174,9 @@ Item {
 
         return "stretch";
     }
+    */
 
     function loadSettings() {
-        // Load settings
         pictureUrl = settings.pictureUrl || "";
         fillMode = settings.fillMode || "";
         for (var i = 0; i < gridView.count; i++) {
@@ -192,5 +199,8 @@ Item {
         // Load backgrounds
         backgroundsModel.addStandardPaths();
         //backgroundsModel.addUserPaths();
+
+        // Load settings
+        loadSettings();
     }
 }

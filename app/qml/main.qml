@@ -22,64 +22,73 @@
  ***************************************************************************/
 
 import QtQuick 2.2
+import QtQuick.Window 2.2
 import QtQuick.Layouts 1.0
-import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.0
+import QtQuick.Controls 2.2
+import QtQuick.Controls.Material 2.2
+import Fluid.Core 1.0 as FluidCore
 import Fluid.Controls 1.0 as FluidControls
 import Liri.Settings 1.0
 
 FluidControls.ApplicationWindow {
     id: window
 
-    property real itemSize: FluidControls.Units.iconSizes.large
-    readonly property int defaultWidth: 800
-    readonly property int defaultHeight: 600
+    readonly property bool wideAspectRatio: width >= height
+    property var selectedModule
 
     title: qsTr("Settings")
-    width: defaultWidth
-    height: defaultHeight
-    minimumWidth: width
-    minimumHeight: height
-    maximumWidth: width
-    maximumHeight: height
+    width: 800
+    height: 600
+    visibility: FluidCore.Device.isMobile ? Window.Maximized : Window.Windowed
     visible: true
 
     Material.accent: Material.Blue
     Material.primary: Material.color(Material.BlueGrey, Material.theme === Material.Light
                                      ? Material.Shade700 : Material.Shade800)
 
-    initialPage: SettingsPage {
-        id: settingsPage
-        model: ModulesModel {}
+    initialPage: FluidControls.Page {
+        title: qsTr("Settings")
+
+        ScrollView {
+            anchors.fill: parent
+            clip: true
+
+            ListView {
+                model: ModulesModel {
+                    id: modulesModel
+                }
+                section.property: "category"
+                section.delegate: FluidControls.Subheader {
+                    id: subheader
+                    text: section
+
+                    FluidControls.ThinDivider {
+                        anchors.top: parent.top
+                        visible: subheader.y > 0
+                    }
+                }
+
+                delegate: SettingsListItem {}
+            }
+        }
     }
 
-    function loadModule(plugin) {
-        if (!plugin)
-            return;
+    Component {
+        id: settingsPageComponent
 
-        settingsPage.moduleLoader.sourceComponent = Qt.createComponent(plugin.mainScriptUrl);
-        settingsPage.selectedModule = plugin;
+        SettingsPage {}
+    }
 
-        var newWidth = settingsPage.moduleLoader.item.windowWidth || 0;
-        if (newWidth < window.defaultWidth)
-            newWidth = window.defaultWidth;
-        var newHeight = settingsPage.moduleLoader.item.windowHeight || 0;
-        if (newHeight < window.defaultHeight)
-            newHeight = window.defaultHeight;
-        window.width = newWidth;
-        window.minimumWidth = newWidth;
-        window.maximumWidth = newWidth;
-        window.height = newHeight;
-        window.minimumHeight = newHeight;
-        window.maximumHeight = newHeight;
+    function loadModule(module) {
+        window.pageStack.push(settingsPageComponent, {title: module.title, mainScriptUrl: module.mainScriptUrl});
     }
 
     Component.onCompleted: {
         // Load the plugin specified by the command line
         if (Qt.application.arguments.length >= 2) {
-            var plugin = initialPage.model.getByName(Qt.application.arguments[1]);
-            if (plugin)
-                loadModule(plugin);
+            var module = modulesModel.getByName(Qt.application.arguments[1]);
+            if (module)
+                loadModule(module);
         }
     }
 }

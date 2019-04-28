@@ -22,63 +22,87 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import QtQuick.Window 2.0
 import QtQuick.Layouts 1.0
-import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.0
-import Fluid.Controls 1.0
+import QtQuick.Controls 2.2
+import QtQuick.Controls.Material 2.2
+import Fluid.Controls 1.0 as FluidControls
 import Liri.Settings.Background 1.0
 
 Item {
     property var settings: null
-    property int columns: 4
-    property real aspectRatio: Screen.width / Screen.height
 
     // Cached settings
     property color primaryColor
 
-    GridView {
-        id: gridView
+    ScrollView {
+        id: scrollView
+
         anchors.fill: parent
-        model: ColorsModel {}
         clip: true
-        cellWidth: parent.width / columns
-        cellHeight: cellWidth / aspectRatio
-        currentIndex: -1
-        highlightMoveDuration: 0
-        delegate: Item {
-            width: gridView.cellWidth
-            height: gridView.cellHeight
 
-            Rectangle {
-                anchors {
-                    fill: parent
-                    margins: Units.smallSpacing
+        GridView {
+            id: gridView
+
+            readonly property real aspectRatio: 4 / 3
+            readonly property real gutters: 4
+            readonly property var breakpoints: [480, 600, 1024]
+            readonly property int columns: {
+                var n = 2;
+                for (var i = 0; i < breakpoints.length; i++) {
+                    if (parent.width >= breakpoints[i])
+                        n++;
                 }
-                color: model.color
+                return n;
+            }
 
-                MouseArea {
-                    id: mouse
-                    anchors.fill: parent
-                    onClicked: {
-                        gridView.currentIndex = index;
-                        primaryColor = parent.color;
+            model: ColorsModel {
+                id: colorsModel
+            }
+            cellWidth: Math.floor(parent.width / columns)
+            cellHeight: Math.round(cellWidth / aspectRatio)
+            delegate: Item {
+                width: gridView.cellWidth
+                height: gridView.cellHeight
+
+                Rectangle {
+                    anchors.centerIn: parent
+                    width: parent.width - gridView.gutters
+                    height: parent.height - gridView.gutters
+                    color: model.color
+
+                    MouseArea {
+                        id: mouse
+                        anchors.fill: parent
+                        onClicked: {
+                            gridView.currentIndex = index;
+                            primaryColor = colorsModel.get(index);
+                            saveSettings();
+                        }
+                    }
+                }
+
+                Rectangle {
+                    anchors.centerIn: parent
+                    width: 48
+                    height: width
+                    radius: width
+                    color: Material.accent
+                    visible: gridView.currentIndex === index && settings.mode === "solid"
+
+                    FluidControls.Icon {
+                        anchors.centerIn: parent
+                        source: FluidControls.Utils.iconUrl("navigation/check")
+                        size: 32
+                        color: Material.foreground
+
+                        Material.theme: FluidControls.Color.isDarkColor(parent.color) ? Material.Dark : Material.Light
                     }
                 }
             }
         }
-        highlight: Rectangle {
-            radius: 4
-            color: Material.accentColor
-        }
-
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        ScrollBar.vertical: ScrollBar {}
     }
 
     function loadSettings() {
-        // Load settings
         primaryColor = settings.primaryColor;
         var i, color;
         for (i = 0; i < gridView.count; i++) {
@@ -94,5 +118,10 @@ Item {
     function saveSettings() {
         settings.primaryColor = primaryColor;
         settings.mode = "solid";
+    }
+
+    Component.onCompleted: {
+        // Load settings
+        loadSettings();
     }
 }

@@ -24,7 +24,7 @@
 
 import QtQuick 2.0
 import QtQuick.Layouts 1.0
-import QtQuick.Controls 2.1
+import QtQuick.Controls 2.2
 import Fluid.Controls 1.0 as FluidControls
 import Liri.Settings 1.0
 import QtAccountsService 1.0
@@ -66,74 +66,71 @@ ModulePage {
         id: addUserDialog
     }
 
-    ModuleContainer {
-        title: qsTr("Your Account")
+    ScrollView {
+        anchors.fill: parent
+        clip: true
 
-        Layout.alignment: Qt.AlignCenter
+        Column {
+            width: Math.max(implicitWidth, parent.width)
 
-        UserListItem {
-            iconSource: currentUser.iconFileName
-            text: currentUser.realName
-            subText: currentUser.userName
-            isAdminUser: currentUser.accountType == UserAccount.AdministratorAccountType
-            isCurrentUser: true
-            onClicked: window.pageStack.push(userPage, {
-                                                 "unlocked": Qt.binding(function() { return modulePage.unlocked; }),
-                                                 "userId": currentUser.userId,
-                                                 "isCurrentUser": true,
-                                                 "iconFileName": currentUser.iconFileName,
-                                                 "realName": currentUser.realName,
-                                                 "accountType": currentUser.accountType,
-                                                 "automaticLogin": currentUser.automaticLogin
-                                             })
-        }
-    }
+            ModuleContainer {
+                title: qsTr("Your Account")
 
-    ModuleContainer {
-        title: qsTr("Other Accounts")
-
-        // Only show if larger than one because the first user
-        // is the current user and is hidden
-        visible: userRepeater.count > 1
-
-        Layout.alignment: Qt.AlignCenter
-
-        Repeater {
-            id: userRepeater
-            model: userModel
-            delegate: UserListItem {
-                iconSource: iconFileName
-                text: realName
-                subText: userName
-                isAdminUser: accountType == UserAccount.AdministratorAccountType
-                isCurrentUser: userId === currentUser.userId
-                visible: userId !== currentUser.userId
-                onClicked: window.pageStack.push(userPage, {
-                                                     "unlocked": Qt.binding(function() { return modulePage.unlocked; }),
-                                                     "userId": userId,
-                                                     "isCurrentUser": false,
-                                                     "iconFileName": iconFileName,
-                                                     "realName": realName,
-                                                     "accountType": accountType,
-                                                     "automaticLogin": automaticLogin
-                                                 })
-                onRemoveUserRequested: accountsManager.deleteUser(userId, removeFiles)
+                UserListItem {
+                    iconSource: currentUser.iconFileName
+                    text: currentUser.realName
+                    subText: currentUser.userName
+                    isAdminUser: currentUser.accountType == UserAccount.AdministratorAccountType
+                    isCurrentUser: true
+                    onClicked: window.pageStack.push(userPage, {
+                                                         "unlocked": Qt.binding(function() { return modulePage.unlocked; }),
+                                                         "userId": currentUser.userId,
+                                                         "isCurrentUser": true,
+                                                         "iconFileName": currentUser.iconFileName,
+                                                         "realName": currentUser.realName,
+                                                         "accountType": currentUser.accountType,
+                                                         "automaticLogin": currentUser.automaticLogin
+                                                     })
+                }
             }
-        }
-    }
 
-    Item {
-        width: 400
+            ModuleContainer {
+                title: qsTr("Other Accounts")
 
-        Layout.alignment: Qt.AlignHCenter
+                // Only show if larger than one because the first user
+                // is the current user and is hidden
+                visible: userRepeater.count > 1
 
-        FluidControls.FloatingActionButton {
-            anchors.top: parent.top
-            anchors.right: parent.right
-            icon.source: FluidControls.Utils.iconUrl("content/add")
-            enabled: unlocked
-            highlighted: true
-            onClicked: addUserDialog.open()
+                Repeater {
+                    id: userRepeater
+                    model: userModel
+                    delegate: UserListItem {
+                        iconSource: iconFileName
+                        text: realName
+                        subText: userName
+                        isAdminUser: accountType == UserAccount.AdministratorAccountType
+                        isCurrentUser: userId === currentUser.userId
+                        visible: userId !== currentUser.userId
+                        onClicked: window.pageStack.push(userPage, {
+                                                             "unlocked": Qt.binding(function() { return modulePage.unlocked; }),
+                                                             "userId": userId,
+                                                             "isCurrentUser": false,
+                                                             "iconFileName": iconFileName,
+                                                             "realName": realName,
+                                                             "accountType": accountType,
+                                                             "automaticLogin": automaticLogin
+                                                         })
+                        onRemoveUserRequested: accountsManager.deleteUser(userId, removeFiles)
+                    }
+                }
+
+                FluidControls.ListItem {
+                    icon.source: FluidControls.Utils.iconUrl("content/add")
+                    text: qsTr("Add user...")
+                    enabled: modulePage.unlocked
+                    onClicked: addUserDialog.open()
+                }
+            }
         }
     }
 }

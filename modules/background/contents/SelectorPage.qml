@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of Settings.
  *
- * Copyright (C) 2018 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2019 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * $BEGIN_LICENSE:GPL3+$
  *
@@ -21,13 +21,14 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.1
-import QtQuick.Layouts 1.3
+import QtQuick 2.0
 import QtQuick.Controls 2.0
-import Fluid.Controls 1.0 as FluidControls
+import QtQuick.Layouts 1.3
 import Liri.Settings 1.0
 
 ModulePage {
+    property var currentSettings: null
+
     header: ToolBar {
         height: bar.height
 
@@ -36,15 +37,11 @@ ModulePage {
             width: parent.width
 
             TabButton {
-                text: qsTr("Shortcuts")
+                text: qsTr("Wallpaper")
             }
 
             TabButton {
-                text: qsTr("Behavior")
-            }
-
-            TabButton {
-                text: qsTr("Layout")
+                text: qsTr("Color")
             }
         }
     }
@@ -53,13 +50,27 @@ ModulePage {
         anchors.fill: parent
         currentIndex: bar.currentIndex
 
-        FluidControls.Placeholder {
-            icon.source: FluidControls.Utils.iconUrl("alert/warning")
-            text: "Not implemented yet"
+        WallpaperPage {
+            settings: currentSettings
         }
+        SolidPage {
+            settings: currentSettings
+        }
+    }
 
-        TypingPage {}
+    onCurrentSettingsChanged: {
+        if (!currentSettings)
+            return;
 
-        LayoutPage {}
+        switch (currentSettings.mode) {
+        case "wallpaper":
+            bar.currentIndex = 0;
+            break;
+        case "solid":
+            bar.currentIndex = 1;
+            break;
+        default:
+            break;
+        }
     }
 }

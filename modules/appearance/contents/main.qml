@@ -23,114 +23,121 @@
  ***************************************************************************/
 
 import QtQuick 2.4
-import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.0
+import QtQuick.Controls 2.2
+import QtQuick.Controls.Material 2.2
 import Fluid.Controls 1.0
 import QtGSettings 1.0
 import Liri.Settings 1.0
 
 ModulePage {
-    ModuleContainer {
-        title: qsTr("Desktop")
+    ScrollView {
+        anchors.fill: parent
+        clip: true
 
-        ListItem {
-            text: qsTr("Transparent app shelf")
+        Column {
+            width: Math.max(implicitWidth, parent.width)
 
-            onClicked: appShelfSwitch.checked = !appShelfSwitch.checked
+            ModuleContainer {
+                title: qsTr("Desktop")
 
-            rightItem: Switch {
-                id: appShelfSwitch
+                ListItem {
+                    text: qsTr("Transparent app shelf")
 
-                anchors.centerIn: parent
+                    onClicked: appShelfSwitch.checked = !appShelfSwitch.checked
 
-                checked: ShellSettings.appShelf.transparentShelf
-                onCheckedChanged: {
-                    ShellSettings.appShelf.transparentShelf = checked
-                    checked = Qt.binding(function() {
-                        return ShellSettings.appShelf.transparentShelf
-                    })
+                    rightItem: Switch {
+                        id: appShelfSwitch
+
+                        anchors.centerIn: parent
+
+                        checked: ShellSettings.appShelf.transparentShelf
+                        onCheckedChanged: {
+                            ShellSettings.appShelf.transparentShelf = checked
+                            checked = Qt.binding(function() {
+                                return ShellSettings.appShelf.transparentShelf
+                            })
+                        }
+                    }
                 }
-            }
-        }
 
-        ListItem {
-            text: qsTr("Accent color")
-            //tintColor: "transparent"
-            showDivider: true
+                ListItem {
+                    text: qsTr("Accent color")
+                    //tintColor: "transparent"
 
-            onClicked: colorPicker.open()
+                    onClicked: colorPicker.open()
 
-            rightItem: Rectangle {
-                anchors.centerIn: parent
+                    rightItem: Rectangle {
+                        anchors.centerIn: parent
 
-                radius: 2
-                width: 24
-                height: width
-                color: Material.color(ShellSettings.desktop.accentColor)
-                border.color: Material.color(ShellSettings.desktop.accentColor, Material.Shade700)
-            }
-        }
-
-        Popup {
-            id: colorPicker
-            //title: "Accent Color"
-            x: (parent.width - width) / 2
-            y: (parent.height - height) / 2
-            modal: true
-
-            property var selectedColor: ShellSettings.desktop.accentColor
-
-            //positiveButton.visible: false
-
-            Grid {
-                columns: 7
-                spacing: 8
-
-                Repeater {
-                    model: [
-                        Material.Red, Material.Pink, Material.Purple, Material.DeepPurple,
-                        Material.Indigo, Material.Blue, Material.LightBlue, Material.Cyan,
-                        Material.Teal, Material.Green, Material.LightGreen, Material.Lime,
-                        Material.Yellow, Material.Amber, Material.Orange, Material.DeepOrange,
-                        Material.Grey, Material.BlueGrey, Material.Brown
-                    ]
-
-                    Rectangle {
-                        width: 30
-                        height: width
                         radius: 2
-                        color: Material.color(modelData)
-                        border.color: Material.color(modelData, Material.Shade700)
+                        width: 24
+                        height: width
+                        color: Material.color(ShellSettings.desktop.accentColor)
+                        border.color: Material.color(ShellSettings.desktop.accentColor, Material.Shade700)
+                    }
+                }
 
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                ShellSettings.desktop.accentColor = modelData
-                                colorPicker.close()
+                Popup {
+                    id: colorPicker
+                    //title: "Accent Color"
+                    x: (parent.width - width) / 2
+                    y: (parent.height - height) / 2
+                    modal: true
+
+                    property var selectedColor: ShellSettings.desktop.accentColor
+
+                    //positiveButton.visible: false
+
+                    Grid {
+                        columns: 7
+                        spacing: 8
+
+                        Repeater {
+                            model: [
+                                Material.Red, Material.Pink, Material.Purple, Material.DeepPurple,
+                                Material.Indigo, Material.Blue, Material.LightBlue, Material.Cyan,
+                                Material.Teal, Material.Green, Material.LightGreen, Material.Lime,
+                                Material.Yellow, Material.Amber, Material.Orange, Material.DeepOrange,
+                                Material.Grey, Material.BlueGrey, Material.Brown
+                            ]
+
+                            Rectangle {
+                                width: 30
+                                height: width
+                                radius: 2
+                                color: Material.color(modelData)
+                                border.color: Material.color(modelData, Material.Shade700)
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: {
+                                        ShellSettings.desktop.accentColor = modelData
+                                        colorPicker.close()
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
-        }
-    }
 
-    ModuleContainer {
-        title: "Lockscreen"
+            ModuleContainer {
+                title: "Lockscreen"
 
-        ListItem {
-            text: "Nothing here yet"
-            showDivider: true
-            enabled: false
-        }
-    }
+                ListItem {
+                    text: "Nothing here yet"
+                    enabled: false
+                }
+            }
 
-    ModuleContainer {
-        title: "Screen saver"
+            ModuleContainer {
+                title: "Screen saver"
 
-        ListItem {
-            text: "Nothing here yet"
-            enabled: false
+                ListItem {
+                    text: "Nothing here yet"
+                    enabled: false
+                }
+            }
         }
     }
 }

@@ -29,7 +29,7 @@ FluidControls.ListItem {
     text: title
     icon.source: FluidControls.Utils.iconUrl(model.iconName)
 
-    highlighted: selectedModule ? selectedModule.mainScriptUrl === model.mainScriptUrl : false
+    highlighted: window.selectedModule ? window.selectedModule.mainScriptUrl === model.mainScriptUrl : false
 
     onClicked: {
         if (!model.mainScriptUrl)

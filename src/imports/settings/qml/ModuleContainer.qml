@@ -23,32 +23,51 @@
  ***************************************************************************/
 
 import QtQuick 2.0
-import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
+import QtQuick.Controls.Material 2.0
 import Fluid.Controls 1.0 as FluidControls
 
 Item {
+    id: moduleContainer
+
     default property alias content: column.data
 
     property alias title: titleLabel.text
 
-    Layout.alignment: Qt.AlignCenter
+    readonly property real paneWidth: window.wideAspectRatio
+                                      ? moduleContainer.width - (FluidControls.Units.largeSpacing * 4)
+                                      : parent.width
 
     implicitWidth: parent.width
-    implicitHeight: column.implicitHeight + 32
+    implicitHeight: pane.height +
+                    (window.wideAspectRatio ? (FluidControls.Units.smallSpacing * 4) : 0)
 
     ModulePane {
+        id: pane
+
         anchors.centerIn: parent
+        height: column.implicitHeight + divider.height
 
         Column {
             id: column
 
-            width: 400
+            width: moduleContainer.paneWidth
 
             FluidControls.Subheader {
                 id: titleLabel
+                textColor: Material.accent
                 visible: text !== ""
             }
+        }
+
+        FluidControls.ThinDivider {
+            id: divider
+
+            anchors.left: parent.left
+            anchors.top: column.bottom
+            anchors.right: parent.right
+
+            visible: !window.wideAspectRatio
         }
     }
 }

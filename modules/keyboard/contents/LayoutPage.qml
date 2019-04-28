@@ -23,8 +23,8 @@
 
 import QtQuick 2.1
 import QtQuick.Layouts 1.0
-import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.0
+import QtQuick.Controls 2.2
+import QtQuick.Controls.Material 2.2
 import Fluid.Controls 1.0 as FluidControls
 import QtGSettings 1.0
 import Liri.Settings 1.0
@@ -66,80 +66,89 @@ ModulePage {
         id: addDialog
     }
 
-    ModuleContainer {
-        title: qsTr("Model and Test")
+    ScrollView {
+        anchors.fill: parent
+        clip: true
 
-        FluidControls.ListItem {
-            text: qsTr("Model")
-            rightItem: ComboBox {
-                id: modelComboBox
-                anchors.centerIn: parent
-                model: keyboardData.models
-                textRole: "description"
-                width: 200
-                onActivated: keyboardSettings.model = keyboardData.models[index].name
+        Column {
+            width: Math.max(implicitWidth, parent.width)
 
-                Component.onCompleted: {
-                    var i, value = keyboardSettings.model;
-                    for (i = 0; i < keyboardData.models.length; i++) {
-                        if (keyboardData.models[i].name === value) {
-                            modelComboBox.currentIndex = i;
-                            return;
+            ModuleContainer {
+                title: qsTr("Model and Test")
+
+                FluidControls.ListItem {
+                    text: qsTr("Model")
+                    rightItem: ComboBox {
+                        id: modelComboBox
+                        anchors.centerIn: parent
+                        model: keyboardData.models
+                        textRole: "description"
+                        width: 200
+                        onActivated: keyboardSettings.model = keyboardData.models[index].name
+
+                        Component.onCompleted: {
+                            var i, value = keyboardSettings.model;
+                            for (i = 0; i < keyboardData.models.length; i++) {
+                                if (keyboardData.models[i].name === value) {
+                                    modelComboBox.currentIndex = i;
+                                    return;
+                                }
+                            }
+
+                            // Fallback
+                            modelComboBox.currentIndex = 0;
                         }
                     }
-
-                    // Fallback
-                    modelComboBox.currentIndex = 0;
                 }
-            }
-        }
 
-        Control {
-            width: parent.width
-            height: contentItem.implicitHeight + topPadding + bottomPadding
-            padding: FluidControls.Units.smallSpacing * 2
+                Control {
+                    width: parent.width
+                    height: contentItem.implicitHeight + topPadding + bottomPadding
+                    padding: FluidControls.Units.smallSpacing * 2
 
-            contentItem: TextField {
-                implicitWidth: parent.width
-                placeholderText: qsTr("Type to test the layout...")
-            }
-        }
-    }
-
-    ModuleContainer {
-        title: qsTr("Layout")
-
-        Repeater {
-            model: layoutModel
-
-            FluidControls.ListItem {
-                text: model.label
-                subText: model.variant || qsTr("No variant")
-                rightItem: Button {
-                    anchors.centerIn: parent
-                    text: qsTr("Remove")
-                    flat: true
-                    onClicked: {
-                        // Remove entry from settings
-                        var layouts = keyboardSettings.layouts;
-                        layouts.splice(index, 1);
-                        keyboardSettings.layouts = layouts;
-
-                        var variants = keyboardSettings.variants;
-                        variants.splice(index, 1);
-                        keyboardSettings.variants = variants;
-
-                        // Remove row from model
-                        layoutModel.remove(index);
+                    contentItem: TextField {
+                        implicitWidth: parent.width
+                        placeholderText: qsTr("Type to test the layout...")
                     }
                 }
             }
-        }
 
-        FluidControls.ListItem {
-            icon.source: FluidControls.Utils.iconUrl("content/add")
-            text: qsTr("Add layout...")
-            onClicked: addDialog.open()
+            ModuleContainer {
+                title: qsTr("Layout")
+
+                Repeater {
+                    model: layoutModel
+
+                    FluidControls.ListItem {
+                        text: model.label
+                        subText: model.variant || qsTr("No variant")
+                        rightItem: Button {
+                            anchors.centerIn: parent
+                            text: qsTr("Remove")
+                            flat: true
+                            onClicked: {
+                                // Remove entry from settings
+                                var layouts = keyboardSettings.layouts;
+                                layouts.splice(index, 1);
+                                keyboardSettings.layouts = layouts;
+
+                                var variants = keyboardSettings.variants;
+                                variants.splice(index, 1);
+                                keyboardSettings.variants = variants;
+
+                                // Remove row from model
+                                layoutModel.remove(index);
+                            }
+                        }
+                    }
+                }
+
+                FluidControls.ListItem {
+                    icon.source: FluidControls.Utils.iconUrl("content/add")
+                    text: qsTr("Add layout...")
+                    onClicked: addDialog.open()
+                }
+            }
         }
     }
 }

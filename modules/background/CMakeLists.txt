@@ -22,7 +22,7 @@ liri_add_settings_module(Background
         contents/ColorButton.qml
         contents/GradientPage.qml
         contents/main.qml
-        contents/SelectorDialog.qml
+        contents/SelectorPage.qml
         contents/Selector.qml
         contents/SolidPage.qml
         contents/WallpaperPage.qml

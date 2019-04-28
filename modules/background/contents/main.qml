@@ -21,18 +21,16 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.0
+import QtQuick 2.5
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
-import Fluid.Controls 1.0
+import QtQuick.Layouts 1.0
+import Fluid.Controls 1.0 as FluidControls
 import Liri.Settings 1.0
 import QtGSettings 1.0
 
 ModulePage {
-    windowWidth: 1024
-    windowHeight: 768
-
-    //centered: true
+    id: backgroundModulePage
 
     GSettings {
         id: backgroundSettings
@@ -46,7 +44,13 @@ ModulePage {
         schema.path: "/io/liri/desktop/lockscreen/"
     }
 
-    ModuleContainer {
+    Pane {
+        anchors.centerIn: parent
+
+        padding: 0
+
+        Material.elevation: 1
+
         Row {
             Selector {
                 settings: backgroundSettings

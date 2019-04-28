@@ -1,7 +1,7 @@
 /****************************************************************************
  * This file is part of Settings.
  *
- * Copyright (C) 2018 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2019 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
  * $BEGIN_LICENSE:GPL3+$
  *
@@ -26,39 +26,28 @@ import QtQuick.Window 2.2
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.1
-import Fluid.Controls 1.0
+import Fluid.Controls 1.0 as FluidControls
 
-Item {
+Button {
     id: selector
 
     readonly property real aspectRatio: Screen.width / Screen.height
-    property alias text: label.text
     property var settings
     property string type: "background"
 
-    width: column.width + 32
-    height: column.height + 32
+    implicitWidth: contentItem.implicitWidth + 32
+    implicitHeight: contentItem.implicitHeight + 32
 
-    Ripple {
-        anchors.fill: parent
+    background: Item {}
 
-        onClicked: {
-            selectorDialog.select();
-            dialog.open();
-        }
-    }
-
-    ColumnLayout {
-        id: column
-        anchors.centerIn: parent
-
+    contentItem: ColumnLayout {
         spacing: 16
 
         Loader {
             id: loader
 
             Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: Layout.preferredHeight * aspectRatio
+            Layout.preferredWidth: 100 * aspectRatio
             Layout.preferredHeight: 100
 
             sourceComponent: {
@@ -76,35 +65,24 @@ Item {
             }
         }
 
-        SubheadingLabel {
+        FluidControls.SubheadingLabel {
             id: label
+            text: selector.text
 
             Layout.alignment: Qt.AlignHCenter
         }
     }
 
-    Dialog {
-        id: dialog
-        parent: ApplicationWindow.window.contentItem
-        title: qsTr("Pick a background")
-        x: (parent.width - width) / 2
-        y: (parent.height - height) / 2
-        width: parent.width - (parent.width * 0.2)
-        height: parent.height - (parent.height * 0.2)
-        modal: true
-        standardButtons: Dialog.Ok | Dialog.Cancel
+    onClicked: {
+        window.pageStack.push(pageComponent);
+    }
 
-        onAccepted: {
-            selectorDialog.saveSettings();
-            dialog.close();
-        }
-        onRejected: dialog.close()
+    Component {
+        id: pageComponent
 
-        contentItem: SelectorDialog {
-            id: selectorDialog
-            settings: selector.settings
-            width: parent.width
-            height: parent.height
+        SelectorPage {
+            title: text
+            currentSettings: settings
         }
     }
 

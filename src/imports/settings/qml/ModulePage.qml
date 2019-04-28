@@ -30,11 +30,6 @@ import Fluid.Controls 1.0 as FluidControls
 FluidControls.Page {
     id: page
 
-    default property alias content: layout.data
-
-    property int windowWidth: window.defaultWidth
-    property int windowHeight: window.defaultHeight
-
     property bool needsAuthorization: false
     property bool unlocked: true
 
@@ -49,15 +44,4 @@ FluidControls.Page {
             onTriggered: page.unlockRequested()
         }
     ]
-
-    ScrollView {
-        id: scrollView
-        anchors.fill: parent
-
-        ColumnLayout {
-            id: layout
-            width: page.width
-            height: children.height
-        }
-    }
 }
