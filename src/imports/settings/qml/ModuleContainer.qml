@@ -42,6 +42,8 @@ Item {
     implicitHeight: pane.height +
                     (window.wideAspectRatio ? (FluidControls.Units.smallSpacing * 4) : 0)
 
+    visible: titleLabel.visible || column.children.length > 1
+
     ModulePane {
         id: pane
 
