@@ -1,6 +1,7 @@
 /****************************************************************************
  * This file is part of Settings.
  *
+ * Copyright (C) 2019 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  * Copyright (C) 2016 Michael Spencer <sonrisesoftware@gmail.com>
  *
  * $BEGIN_LICENSE:GPL3+$
@@ -29,7 +30,7 @@ import Fluid.Controls 1.0 as FluidControls
 FluidControls.Page {
     id: settingsPage
 
-    property alias mainScriptUrl: moduleLoader.source
+    property alias component: moduleLoader.sourceComponent
 
     Material.background: window.wideAspectRatio ? "#f3f3f3" : "white"
 

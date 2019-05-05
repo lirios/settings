@@ -80,7 +80,8 @@ FluidControls.ApplicationWindow {
     }
 
     function loadModule(module) {
-        window.pageStack.push(settingsPageComponent, {title: module.title, mainScriptUrl: module.mainScriptUrl});
+        var component = Qt.createComponent(module.mainScriptUrl);
+        window.pageStack.push(settingsPageComponent, {title: module.title, component: component});
     }
 
     Component.onCompleted: {
