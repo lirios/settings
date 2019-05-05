@@ -24,11 +24,12 @@
 
 import QtQuick 2.4
 import QtQuick.Controls 2.0
+import Fluid.Controls 1.0 as FluidControls
 import QtGSettings 1.0
-import Fluid.Controls 1.0
-import "version.js" as Version
+import Liri.Device 1.0 as Device
+import Liri.Settings 1.0
 
-Item {
+ModulePage {
     property int developerClickCount: 0
     readonly property int developerTotalClicks: 7
     readonly property int developerClickRemaining: developerTotalClicks - developerClickCount
@@ -39,119 +40,70 @@ Item {
         schema.path: "/io/liri/system/"
     }
 
-    Column {
-        id: column
-        anchors.centerIn: parent
-        anchors.verticalCenterOffset: -40
-        spacing: 8
+    ModuleContainer {
+        title: qsTr("Operating System")
 
-        Image {
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: 150
-            height: width
+        FluidControls.ListItem {
+            leftItem: FluidControls.Icon {
+                name: Device.LocalDevice.osRelease.logoIconName
+                size: 24
 
-            source: Qt.resolvedUrl("logo.png")
+                Image {
+                    anchors.fill: parent
+                    source: parent.status === Image.Ready ? "" : Qt.resolvedUrl("logo.png")
+                    sourceSize.width: width
+                    sourceSize.height: height
+                }
+            }
+            text: {
+                if (Device.LocalDevice.osRelease.prettyName)
+                    return Device.LocalDevice.osRelease.prettyName;
+                if (Device.LocalDevice.osRelease.name && Device.LocalDevice.osRelease.version)
+                    return Device.LocalDevice.osRelease.name + " " + Device.LocalDevice.osRelease.version;
+                return Device.LocalDevice.osRelease.name;
+            }
+            onClicked: {
+                if (systemSettings.developerMode)
+                    return;
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    if (systemSettings.developerMode)
-                        return
+                developerClickCount++;
 
-                    developerClickCount++
-
-                    print(developerClickCount, developerClickRemaining)
-
-                    if (developerClickRemaining == 0) {
-                        snackbar.open("You are now a developer!")
-                        systemSettings.developerMode = true
-                    } else if (developerClickRemaining <= 3) {
-                        snackbar.open(("You are now %1 steps from becoming a " +
-                                      "developer").arg(developerClickRemaining))
-                    }
+                if (developerClickRemaining == 0) {
+                    snackBar.open(qsTr("You are now a developer!"));
+                    systemSettings.developerMode = true;
+                } else if (developerClickRemaining <= 3) {
+                    snackBar.open(qsTr("You are now %1 steps from becoming a " +
+                                       "developer").arg(developerClickRemaining));
                 }
             }
         }
 
-        Row {
-            anchors.horizontalCenter: parent.horizontalCenter
-
-            Label {
-                font.pixelSize: 40
-                font.weight: Font.Light
-                text: "Liri "
-            }
-
-            Label {
-                font.pixelSize: 40
-                text: "OS"
-            }
+        FluidControls.ListItem {
+            text: qsTr("Open Web site...")
+            visible: Device.LocalDevice.osRelease.homeUrl.toString() !== ""
+            onClicked: Qt.openUrlExternally(Device.LocalDevice.osRelease.homeUrl)
         }
 
-        Label {
-            anchors.horizontalCenter: parent.horizontalCenter
-            font.pixelSize: 20
-            text: qsTr("Version %1").arg(Version.version)
-        }
-    }
-
-    Item {
-        anchors {
-            left: parent.left
-            right: parent.right
-            top: column.bottom
-            bottom: parent.bottom
+        FluidControls.ListItem {
+            text: qsTr("Obtain Support...")
+            visible: Device.LocalDevice.osRelease.supportUrl.toString() !== ""
+            onClicked: Qt.openUrlExternally(Device.LocalDevice.osRelease.supportUrl)
         }
 
-        Row {
-            anchors.centerIn: parent
-            spacing: 16
+        FluidControls.ListItem {
+            text: qsTr("Report a Bug...")
+            visible: Device.LocalDevice.osRelease.bugReportUrl.toString() !== ""
+            onClicked: Qt.openUrlExternally(Device.LocalDevice.osRelease.bugReportUrl)
+        }
 
-            Button {
-                text: qsTr("Website")
-                onClicked: Qt.openUrlExternally("https://liri.io")
-            }
-
-            Button {
-                text: qsTr("Report a bug")
-                onClicked: Qt.openUrlExternally("https://github.com/lirios/lirios/issues")
-            }
-
-            Button {
-                text: qsTr("Credits")
-            }
+        FluidControls.ListItem {
+            text: qsTr("Privacy Policy...")
+            visible: Device.LocalDevice.osRelease.privacyPolicyUrl.toString() !== ""
+            onClicked: Qt.openUrlExternally(Device.LocalDevice.osRelease.privacyPolicyUrl)
         }
     }
 
-/*
-    Snackbar {
-        id: snackbar
-    }
-*/
-    Pane {
-        id: snackbar
-        anchors {
-            left: parent.left
-            right: parent.right
-            bottom: parent.bottom
-        }
-        height: 48
-        visible: false
-
-        Label {
-            id: label
-        }
-
-        Timer {
-            id: timer
-            interval: 2500
-            onTriggered: snackbar.visible = false
-        }
-
-        function open(string) {
-            label.text = string;
-            snackbar.visible = true;
-            timer.start();
-        }
+    FluidControls.SnackBar {
+        id: snackBar
     }
 }
