@@ -26,6 +26,7 @@ find_package(Qt5 "${QT_MIN_VERSION}"
     CONFIG REQUIRED
     COMPONENTS
         Core
+        Concurrent
         DBus
         Xml
         Gui
@@ -44,4 +45,5 @@ add_subdirectory(modules/background)
 add_subdirectory(modules/display)
 add_subdirectory(modules/info)
 add_subdirectory(modules/keyboard)
+add_subdirectory(modules/region)
 add_subdirectory(modules/users)

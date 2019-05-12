@@ -1,0 +1,33 @@
+liri_add_qml_plugin(region
+    MODULE_PATH
+        "Liri/Settings/Region"
+    SOURCES
+        localefiltermodel.cpp
+        localefiltermodel.h
+        localemanager.cpp
+        localemanager.h
+        localemodel.cpp
+        localemodel.h
+        plugin.cpp
+        systemlocale.cpp
+        systemlocale.h
+    QML_FILES
+        qmldir
+    DEFINES
+        QT_NO_CAST_FROM_ASCII
+        QT_NO_FOREACH
+    LIBRARIES
+        Qt5::Concurrent
+        Qt5::DBus
+        Qt5::Qml
+        Qt5::Quick
+)
+
+liri_add_settings_module(Region
+    CONTENTS
+        contents/main.qml
+        contents/FormatsDialog.qml
+        contents/LanguageDialog.qml
+        contents/RadioIndicator.qml
+        contents/RegionDelegate.qml
+)
