@@ -21,10 +21,12 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include <QtCore/QCommandLineParser>
 #include <QtCore/QDir>
 #include <QtCore/QFileInfo>
 #include <QtCore/QLoggingCategory>
 #include <QtCore/QStandardPaths>
+#include <QtCore/QTimer>
 #include <QtCore/QTranslator>
 #include <QtCore/QLibraryInfo>
 #include <QtWidgets/QApplication>
@@ -33,8 +35,12 @@
 #include <QtQuick/QQuickWindow>
 #include <QtQuickControls2/QQuickStyle>
 
+#include "settingsapp.h"
+
 Q_DECLARE_LOGGING_CATEGORY(PREFERENCES)
 Q_LOGGING_CATEGORY(PREFERENCES, "liri.settings")
+
+#define TR(x) QT_TRANSLATE_NOOP("Command line parser", QStringLiteral(x))
 
 static void loadQtTranslations()
 {
@@ -132,8 +138,29 @@ int main(int argc, char *argv[])
     loadShellTranslations();
     loadModuleTranslations();
 
-    // Setup QML engine and show the main window
-    QQmlApplicationEngine engine(QUrl(QLatin1String("qrc:/qml/main.qml")));
+    // Command line parser
+    QCommandLineParser parser;
+    parser.setApplicationDescription(TR("Settings"));
+    parser.addHelpOption();
+    parser.addVersionOption();
+
+    // Freedesktop Application
+    QCommandLineOption appOption(QStringLiteral("xdg-application"),
+                                 TR("Run this application as a D-Bus service"));
+    parser.addOption(appOption);
+
+    // Parse command line
+    parser.process(app);
+
+    // Start application
+    const bool isService = parser.isSet(appOption);
+    const QStringList args = parser.positionalArguments();
+    app.setQuitOnLastWindowClosed(!isService);
+    QSharedPointer<SettingsApp> settings(new SettingsApp(isService));
+    QTimer::singleShot(0, [isService, args, settings] {
+        if (!isService)
+            settings->load(args.count() > 0 ? args[0] : QString());
+    });
 
     return app.exec();
 }

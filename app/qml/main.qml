@@ -88,12 +88,9 @@ FluidControls.ApplicationWindow {
             window.pageStack.push(errorPageComponent, { title: module.title, message: component.errorString()});
     }
 
-    Component.onCompleted: {
-        // Load the plugin specified by the command line
-        if (Qt.application.arguments.length >= 2) {
-            var module = modulesModel.getByName(Qt.application.arguments[1]);
-            if (module)
-                loadModule(module);
-        }
+    function loadModuleByName(moduleName) {
+        var module = modulesModel.getByName(moduleName);
+        if (module)
+            loadModule(module);
     }
 }
