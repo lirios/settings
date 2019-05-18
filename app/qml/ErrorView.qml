@@ -29,7 +29,7 @@ import Fluid.Controls 1.0 as FluidControls
 
 Item {
     property string moduleTitle
-    property alias errorMessage: messageLabel.text
+    property alias message: messageLabel.text
 
     ColumnLayout {
         anchors.centerIn: parent

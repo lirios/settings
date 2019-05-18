@@ -1,8 +1,7 @@
 /****************************************************************************
- * This file is part of Settings.
+ * This file is part of Liri.
  *
  * Copyright (C) 2019 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
- * Copyright (C) 2016 Michael Spencer <sonrisesoftware@gmail.com>
  *
  * $BEGIN_LICENSE:GPL3+$
  *
@@ -23,32 +22,18 @@
  ***************************************************************************/
 
 import QtQuick 2.0
-import QtQuick.Controls 2.2
-import QtQuick.Controls.Material 2.2
+import QtQuick.Controls 2.0
+import QtQuick.Controls.Material 2.0
 import Fluid.Controls 1.0 as FluidControls
 
 FluidControls.Page {
-    id: settingsPage
-
-    property alias component: moduleLoader.sourceComponent
+    property alias message: errorView.message
 
     Material.background: window.wideAspectRatio ? "#f3f3f3" : "white"
-
-    Loader {
-        id: moduleLoader
-        anchors.fill: parent
-        onLoaded: {
-            settingsPage.actions = [];
-            if (item.actions !== undefined && item.actions.length > 0)
-                settingsPage.actions = item.actions;
-        }
-    }
 
     ErrorView {
         id: errorView
         anchors.fill: parent
-        visible: moduleLoader.status == Loader.Error
-        moduleTitle: settingsPage.title
-        errorMessage: moduleLoader.sourceComponent ? moduleLoader.sourceComponent.errorString() : ""
+        moduleTitle: title
     }
 }
