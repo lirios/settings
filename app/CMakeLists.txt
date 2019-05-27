@@ -9,6 +9,10 @@ liri_add_executable(LiriSettings
         "liri-settings"
     SOURCES
         main.cpp
+        qml/ErrorPage.qml
+        qml/ErrorView.qml
+        qml/main.qml
+        qml/SettingsListItem.qml
         ${LiriSettings_QM_FILES}
     DEFINES
         QT_NO_CAST_FROM_ASCII
@@ -17,7 +21,7 @@ liri_add_executable(LiriSettings
     DESKTOP
         "${CMAKE_CURRENT_SOURCE_DIR}/io.liri.Settings.desktop"
     RESOURCES
-        settings.qrc
+        "settings.qrc"
     LIBRARIES
         Qt5::Core
         Qt5::Gui
@@ -25,4 +29,5 @@ liri_add_executable(LiriSettings
         Qt5::Qml
         Qt5::Quick
         Qt5::QuickControls2
+    QTQUICK_COMPILER
 )
