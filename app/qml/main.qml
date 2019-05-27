@@ -81,23 +81,11 @@ FluidControls.ApplicationWindow {
 
     function loadModule(module) {
         var component = Qt.createComponent(module.mainScriptUrl);
-        var incubator = component.incubateObject(window.contentItem, { title: module.title });
 
-        if (!incubator) {
+        if (component.status === Component.Ready)
+            window.pageStack.push(component, { title: module.title });
+        else
             window.pageStack.push(errorPageComponent, { title: module.title, message: component.errorString()});
-            return;
-        }
-
-        if (incubator.status === Component.Ready) {
-            window.pageStack.push(incubator.object);
-        } else {
-            incubator.onStatusChanged = function(status) {
-                if (status === Component.Ready)
-                    window.pageStack.push(incubator.object);
-                else
-                    window.pageStack.push(errorPageComponent, { title: module.title, message: component.errorString()});
-            };
-        }
     }
 
     Component.onCompleted: {
