@@ -30,15 +30,16 @@ import QtGSettings 1.0
 import Liri.Settings 1.0
 
 ModulePage {
+    id: page
+
     ScrollView {
         anchors.fill: parent
         clip: true
 
         Column {
-            width: Math.max(implicitWidth, parent.width)
-
             ModuleContainer {
                 title: qsTr("Desktop")
+                width: page.width
 
                 ListItem {
                     text: qsTr("Transparent app shelf")
@@ -123,6 +124,7 @@ ModulePage {
 
             ModuleContainer {
                 title: "Lockscreen"
+                width: page.width
 
                 ListItem {
                     text: "Nothing here yet"
@@ -132,6 +134,7 @@ ModulePage {
 
             ModuleContainer {
                 title: "Screen saver"
+                width: page.width
 
                 ListItem {
                     text: "Nothing here yet"

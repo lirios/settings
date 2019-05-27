@@ -71,10 +71,9 @@ ModulePage {
         clip: true
 
         Column {
-            width: Math.max(implicitWidth, parent.width)
-
             ModuleContainer {
                 title: qsTr("Your Account")
+                width: modulePage.width
 
                 UserListItem {
                     iconSource: currentUser.iconFileName
@@ -96,6 +95,7 @@ ModulePage {
 
             ModuleContainer {
                 title: qsTr("Other Accounts")
+                width: modulePage.width
 
                 // Only show if larger than one because the first user
                 // is the current user and is hidden

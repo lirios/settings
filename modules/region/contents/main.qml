@@ -29,6 +29,8 @@ import Liri.Settings 1.0
 import Liri.Settings.Region 1.0
 
 ModulePage {
+    id: page
+
     GSettings {
         id: localeSettings
         schema.id: "io.liri.session.locale"
@@ -44,6 +46,8 @@ ModulePage {
     }
 
     ModuleContainer {
+        width: page.width
+
         FluidControls.ListItem {
             text: qsTr("Language")
             valueText: {

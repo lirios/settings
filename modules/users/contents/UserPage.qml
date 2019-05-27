@@ -31,6 +31,8 @@ import Liri.Settings.Users 1.0
 import QtAccountsService 1.0
 
 ModulePage {
+    id: page
+
     property alias userId: account.userId
     property bool isCurrentUser
     property alias iconFileName: photo.source
@@ -63,9 +65,9 @@ ModulePage {
         clip: true
 
         Column {
-            width: Math.max(implicitWidth, parent.width)
-
             ModuleContainer {
+                width: page.width
+
                 Control {
                     width: parent.width
                     height: contentItem.implicitHeight + topPadding + bottomPadding
@@ -118,6 +120,7 @@ ModulePage {
 
             ModuleContainer {
                 title: qsTr("Password")
+                width: page.width
                 enabled: modulePage.unlocked
 
                 Control {

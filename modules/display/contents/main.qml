@@ -30,12 +30,15 @@ import Liri.Settings 1.0
 import Liri.Settings.Display 1.0 as CppDisplay
 
 ModulePage {
+    id: page
+
     CppDisplay.OutputsModel {
         id: outputsModel
     }
 
     ModuleContainer {
         title: qsTr("Screens")
+        width: page.width
 
         Repeater {
             model: outputsModel

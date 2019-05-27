@@ -30,6 +30,8 @@ import Liri.Device 1.0 as Device
 import Liri.Settings 1.0
 
 ModulePage {
+    id: page
+
     property int developerClickCount: 0
     readonly property int developerTotalClicks: 7
     readonly property int developerClickRemaining: developerTotalClicks - developerClickCount
@@ -42,6 +44,7 @@ ModulePage {
 
     ModuleContainer {
         title: qsTr("Operating System")
+        width: page.width
 
         FluidControls.ListItem {
             leftItem: FluidControls.Icon {

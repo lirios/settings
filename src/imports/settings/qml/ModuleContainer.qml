@@ -34,11 +34,7 @@ Item {
 
     property alias title: titleLabel.text
 
-    readonly property real paneWidth: window.wideAspectRatio
-                                      ? moduleContainer.width - (FluidControls.Units.largeSpacing * 4)
-                                      : parent.width
-
-    implicitWidth: parent.width
+    implicitWidth: Math.max(parent.width, pane.width)
     implicitHeight: pane.height +
                     (window.wideAspectRatio ? (FluidControls.Units.smallSpacing * 4) : 0)
 
@@ -48,12 +44,16 @@ Item {
         id: pane
 
         anchors.centerIn: parent
-        height: column.implicitHeight + divider.height
+
+        implicitWidth: window.wideAspectRatio ? parent.width - (FluidControls.Units.largeSpacing * 4) : parent.width
+        implicitHeight: column.implicitHeight + divider.height
 
         Column {
             id: column
 
-            width: moduleContainer.paneWidth
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.right: parent.right
 
             FluidControls.Subheader {
                 id: titleLabel

@@ -31,6 +31,8 @@ import Liri.Settings 1.0
 import Liri.Settings.Keyboard 1.0
 
 ModulePage {
+    id: page
+
     GSettings {
         id: keyboardSettings
         schema.id: "io.liri.desktop.peripherals.keyboard"
@@ -71,10 +73,9 @@ ModulePage {
         clip: true
 
         Column {
-            width: Math.max(implicitWidth, parent.width)
-
             ModuleContainer {
                 title: qsTr("Model and Test")
+                width: page.width
 
                 FluidControls.ListItem {
                     text: qsTr("Model")
@@ -115,6 +116,7 @@ ModulePage {
 
             ModuleContainer {
                 title: qsTr("Layout")
+                width: page.width
 
                 Repeater {
                     model: layoutModel

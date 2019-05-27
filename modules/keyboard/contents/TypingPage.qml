@@ -29,6 +29,8 @@ import Fluid.Controls 1.0
 import Liri.Settings 1.0
 
 ModulePage {
+    id: page
+
     GSettings {
         id: keyboardSettings
         schema.id: "io.liri.desktop.peripherals.keyboard"
@@ -46,10 +48,9 @@ ModulePage {
         clip: true
 
         Column {
-            width: Math.max(implicitWidth, parent.width)
-
             ModuleContainer {
                 title: qsTr("Typing")
+                width: page.width
 
                 ListItem {
                     text: qsTr("Repeat Keys")
@@ -87,6 +88,7 @@ ModulePage {
 
             ModuleContainer {
                 title: qsTr("Cursor")
+                width: page.width
 
                 ListItem {
                     text: qsTr("Cursor Blinking")
@@ -123,6 +125,7 @@ ModulePage {
 
             ModuleContainer {
                 title: qsTr("Input Sources")
+                width: page.width
 
                 ListItem {
                     text: qsTr("Virtual Keyboard")
