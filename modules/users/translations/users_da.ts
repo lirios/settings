@@ -127,10 +127,14 @@
     <name>main</name>
     <message>
         <source>Your Account</source>
-        <translation type="unfinished"/>
+        <translation>Din konto</translation>
     </message>
     <message>
         <source>Other Accounts</source>
+        <translation>Andre konti</translation>
+    </message>
+    <message>
+        <source>Add user...</source>
         <translation type="unfinished"/>
     </message>
 </context>

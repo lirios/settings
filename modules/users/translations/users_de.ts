@@ -133,5 +133,9 @@
         <source>Other Accounts</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Add user...</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 </TS>

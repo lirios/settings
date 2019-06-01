@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Add layout...</source>
-        <translation type="unfinished"/>
+        <translation>Afegir disseny...</translation>
     </message>
 </context>
 <context>
@@ -91,15 +91,15 @@
     <name>main</name>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Dreceres</translation>
     </message>
     <message>
         <source>Behavior</source>
-        <translation type="unfinished"/>
+        <translation>Comportament</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Disseny</translation>
     </message>
 </context>
 </TS>

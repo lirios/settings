@@ -37,7 +37,7 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../contents/main.qml" line="38"/>
+        <location filename="../contents/main.qml" line="40"/>
         <source>Screens</source>
         <translation type="unfinished"></translation>
     </message>

@@ -18,63 +18,13 @@
     </message>
 </context>
 <context>
-    <name>Selector</name>
-    <message>
-        <source>Pick a background</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>SelectorDialog</name>
+    <name>SelectorPage</name>
     <message>
         <source>Wallpaper</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Solid</source>
-        <translation>단색</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>그라디언트</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>WallpaperPage</name>
-    <message>
-        <source>Fill Mode:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Stretched</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Scaled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cropped</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tiled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tiled Vertically</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tiled Horizontally</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Centered</source>
+        <source>Color</source>
         <translation type="unfinished"/>
     </message>
 </context>

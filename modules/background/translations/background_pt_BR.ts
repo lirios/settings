@@ -18,75 +18,25 @@
     </message>
 </context>
 <context>
-    <name>Selector</name>
-    <message>
-        <source>Pick a background</source>
-        <translation>Escolha um plano de fundo</translation>
-    </message>
-</context>
-<context>
-    <name>SelectorDialog</name>
+    <name>SelectorPage</name>
     <message>
         <source>Wallpaper</source>
-        <translation>Papel de parede</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Solid</source>
-        <translation>Sólido</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>Gradiente</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>Tipo:</translation>
-    </message>
-</context>
-<context>
-    <name>WallpaperPage</name>
-    <message>
-        <source>Fill Mode:</source>
-        <translation>Modo de preenchimento:</translation>
-    </message>
-    <message>
-        <source>Stretched</source>
-        <translation>Esticado</translation>
-    </message>
-    <message>
-        <source>Scaled</source>
-        <translation>Redimensionado</translation>
-    </message>
-    <message>
-        <source>Cropped</source>
-        <translation>Recortado</translation>
-    </message>
-    <message>
-        <source>Tiled</source>
-        <translation>Lado a lado</translation>
-    </message>
-    <message>
-        <source>Tiled Vertically</source>
-        <translation>Repetido verticalmente</translation>
-    </message>
-    <message>
-        <source>Tiled Horizontally</source>
-        <translation>Repetido horizontalmente</translation>
-    </message>
-    <message>
-        <source>Centered</source>
-        <translation>Centralizado</translation>
+        <source>Color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Background</source>
-        <translation type="unfinished"/>
+        <translation>Plano de fundo</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Tela de bloqueio</translation>
     </message>
 </context>
 </TS>

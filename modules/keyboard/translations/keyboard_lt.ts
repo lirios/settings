@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>No variant</source>
-        <translation type="unfinished"/>
+        <translation>Jokio varianto</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Add layout...</source>
-        <translation type="unfinished"/>
+        <translation>Pridėti išdėstymą...</translation>
     </message>
 </context>
 <context>
@@ -60,7 +60,7 @@
     </message>
     <message>
         <source>Typing</source>
-        <translation type="unfinished"/>
+        <translation>Rašymas</translation>
     </message>
     <message>
         <source>Delay</source>
@@ -76,7 +76,7 @@
     </message>
     <message>
         <source>Timeout</source>
-        <translation type="unfinished"/>
+        <translation>Laiko limitas</translation>
     </message>
     <message>
         <source>Input Sources</source>
@@ -91,15 +91,15 @@
     <name>main</name>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Spartieji klavišai</translation>
     </message>
     <message>
         <source>Behavior</source>
-        <translation type="unfinished"/>
+        <translation>Elgsena</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Išdėstymas</translation>
     </message>
 </context>
 </TS>

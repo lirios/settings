@@ -20,64 +20,14 @@
     </message>
 </context>
 <context>
-    <name>Selector</name>
-    <message>
-        <source>Pick a background</source>
-        <translation>Pick a background</translation>
-    </message>
-</context>
-<context>
-    <name>SelectorDialog</name>
+    <name>SelectorPage</name>
     <message>
         <source>Wallpaper</source>
-        <translation>Wallpaper</translation>
+        <translation type="unfinished">Wallpaper</translation>
     </message>
     <message>
-        <source>Solid</source>
-        <translation>Solid</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>Gradient</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>Type:</translation>
-    </message>
-</context>
-<context>
-    <name>WallpaperPage</name>
-    <message>
-        <source>Fill Mode:</source>
-        <translation>Fill Mode:</translation>
-    </message>
-    <message>
-        <source>Stretched</source>
-        <translation>Stretched</translation>
-    </message>
-    <message>
-        <source>Scaled</source>
-        <translation>Scaled</translation>
-    </message>
-    <message>
-        <source>Cropped</source>
-        <translation>Cropped</translation>
-    </message>
-    <message>
-        <source>Tiled</source>
-        <translation>Tiled</translation>
-    </message>
-    <message>
-        <source>Tiled Vertically</source>
-        <translation>Tiled Vertically</translation>
-    </message>
-    <message>
-        <source>Tiled Horizontally</source>
-        <translation>Tiled Horizontally</translation>
-    </message>
-    <message>
-        <source>Centered</source>
-        <translation>Centered</translation>
+        <source>Color</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

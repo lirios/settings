@@ -18,64 +18,14 @@
     </message>
 </context>
 <context>
-    <name>Selector</name>
-    <message>
-        <source>Pick a background</source>
-        <translation>選取背景</translation>
-    </message>
-</context>
-<context>
-    <name>SelectorDialog</name>
+    <name>SelectorPage</name>
     <message>
         <source>Wallpaper</source>
-        <translation>桌布</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Solid</source>
-        <translation>純色板</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>梯度</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>種類：</translation>
-    </message>
-</context>
-<context>
-    <name>WallpaperPage</name>
-    <message>
-        <source>Fill Mode:</source>
-        <translation>填充模式</translation>
-    </message>
-    <message>
-        <source>Stretched</source>
-        <translation>延伸</translation>
-    </message>
-    <message>
-        <source>Scaled</source>
-        <translation>縮放</translation>
-    </message>
-    <message>
-        <source>Cropped</source>
-        <translation>剪裁</translation>
-    </message>
-    <message>
-        <source>Tiled</source>
-        <translation>堆疊</translation>
-    </message>
-    <message>
-        <source>Tiled Vertically</source>
-        <translation>垂直堆疊</translation>
-    </message>
-    <message>
-        <source>Tiled Horizontally</source>
-        <translation>水平堆疊</translation>
-    </message>
-    <message>
-        <source>Centered</source>
-        <translation>置中</translation>
+        <source>Color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

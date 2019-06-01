@@ -1,30 +1,43 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="lt" version="2.1">
 <context>
-    <name>Preflet</name>
+    <name>DetailsDialog</name>
     <message>
-        <location filename="../contents/Preflet.qml" line="135"/>
+        <location filename="../contents/DetailsDialog.qml" line="80"/>
+        <source>Rotate counterclockwise by 90Â°</source>
+        <translation>Pasukti 90Â° prieš laikrodžio rodyklę</translation>
+    </message>
+    <message>
+        <location filename="../contents/DetailsDialog.qml" line="92"/>
+        <source>Rotate by 180Â°</source>
+        <translation>Pasukti 180Â°</translation>
+    </message>
+    <message>
+        <location filename="../contents/DetailsDialog.qml" line="104"/>
+        <source>Rotate clockwise by 90Â°</source>
+        <translation>Pasukti 90Â° pagal laikrodžio rodyklę</translation>
+    </message>
+    <message>
+        <location filename="../contents/DetailsDialog.qml" line="123"/>
         <source>Size:</source>
         <translation>Dydis:</translation>
     </message>
     <message>
-        <location filename="../contents/Preflet.qml" line="150"/>
+        <location filename="../contents/DetailsDialog.qml" line="137"/>
         <source>Aspect Ratio:</source>
-        <translation>Proporcija:</translation>
+        <translation>Proporcijos:</translation>
     </message>
     <message>
-        <location filename="../contents/Preflet.qml" line="165"/>
+        <location filename="../contents/DetailsDialog.qml" line="151"/>
         <source>Resolution:</source>
         <translation>Raiška:</translation>
     </message>
+</context>
+<context>
+    <name>main</name>
     <message>
-        <location filename="../contents/Preflet.qml" line="188"/>
-        <source>Cancel</source>
-        <translation>Atsisakyti</translation>
-    </message>
-    <message>
-        <location filename="../contents/Preflet.qml" line="193"/>
-        <source>Apply</source>
-        <translation>Taikyti</translation>
+        <location filename="../contents/main.qml" line="40"/>
+        <source>Screens</source>
+        <translation>Ekranai</translation>
     </message>
 </context>
 </TS>

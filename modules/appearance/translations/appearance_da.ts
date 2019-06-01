@@ -1,18 +1,18 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="da" version="2.1">
 <context>
-    <name>Preflet</name>
+    <name>main</name>
     <message>
-        <location filename="../contents/Preflet.qml" line="34"/>
+        <location filename="../contents/main.qml" line="41"/>
         <source>Desktop</source>
         <translation>Skrivebord</translation>
     </message>
     <message>
-        <location filename="../contents/Preflet.qml" line="37"/>
+        <location filename="../contents/main.qml" line="45"/>
         <source>Transparent app shelf</source>
         <translation>Transparent programhylde</translation>
     </message>
     <message>
-        <location filename="../contents/Preflet.qml" line="57"/>
+        <location filename="../contents/main.qml" line="65"/>
         <source>Accent color</source>
         <translation>Accentfarve</translation>
     </message>

@@ -18,75 +18,25 @@
     </message>
 </context>
 <context>
-    <name>Selector</name>
-    <message>
-        <source>Pick a background</source>
-        <translation>Wybierz tło</translation>
-    </message>
-</context>
-<context>
-    <name>SelectorDialog</name>
+    <name>SelectorPage</name>
     <message>
         <source>Wallpaper</source>
-        <translation>Tło</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Solid</source>
-        <translation>Kolor</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>Gradient</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>Typ:</translation>
-    </message>
-</context>
-<context>
-    <name>WallpaperPage</name>
-    <message>
-        <source>Fill Mode:</source>
-        <translation>Tryb wypełnienia:</translation>
-    </message>
-    <message>
-        <source>Stretched</source>
-        <translation>Rozciągnij</translation>
-    </message>
-    <message>
-        <source>Scaled</source>
-        <translation>Skaluj</translation>
-    </message>
-    <message>
-        <source>Cropped</source>
-        <translation>Przytnij</translation>
-    </message>
-    <message>
-        <source>Tiled</source>
-        <translation>Kafelki</translation>
-    </message>
-    <message>
-        <source>Tiled Vertically</source>
-        <translation>Kafelki pionowe</translation>
-    </message>
-    <message>
-        <source>Tiled Horizontally</source>
-        <translation>Kafelki poziome</translation>
-    </message>
-    <message>
-        <source>Centered</source>
-        <translation>Wyśrodkuj</translation>
+        <source>Color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Background</source>
-        <translation type="unfinished"/>
+        <translation>Tło</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Ekran Blokady</translation>
     </message>
 </context>
 </TS>

@@ -18,75 +18,25 @@
     </message>
 </context>
 <context>
-    <name>Selector</name>
-    <message>
-        <source>Pick a background</source>
-        <translation>Choisissez un arrière plan</translation>
-    </message>
-</context>
-<context>
-    <name>SelectorDialog</name>
+    <name>SelectorPage</name>
     <message>
         <source>Wallpaper</source>
-        <translation>Fond d&apos;écran</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Solid</source>
-        <translation>Solide</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>Dégradé</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>Type : </translation>
-    </message>
-</context>
-<context>
-    <name>WallpaperPage</name>
-    <message>
-        <source>Fill Mode:</source>
-        <translation>Mode Remplissage</translation>
-    </message>
-    <message>
-        <source>Stretched</source>
-        <translation>Étiré</translation>
-    </message>
-    <message>
-        <source>Scaled</source>
-        <translation>À l&apos;échelle</translation>
-    </message>
-    <message>
-        <source>Cropped</source>
-        <translation>Rogné</translation>
-    </message>
-    <message>
-        <source>Tiled</source>
-        <translation>Sous forme de tuile</translation>
-    </message>
-    <message>
-        <source>Tiled Vertically</source>
-        <translation>Mosaïque Verticale</translation>
-    </message>
-    <message>
-        <source>Tiled Horizontally</source>
-        <translation>Mosaïque Horizontale</translation>
-    </message>
-    <message>
-        <source>Centered</source>
-        <translation>Centré</translation>
+        <source>Color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Background</source>
-        <translation type="unfinished"/>
+        <translation>Arrière-plan</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Verrouiller l&apos;écran</translation>
     </message>
 </context>
 </TS>

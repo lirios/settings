@@ -18,64 +18,14 @@
     </message>
 </context>
 <context>
-    <name>Selector</name>
-    <message>
-        <source>Pick a background</source>
-        <translation>Seleziona uno sfondo</translation>
-    </message>
-</context>
-<context>
-    <name>SelectorDialog</name>
+    <name>SelectorPage</name>
     <message>
         <source>Wallpaper</source>
-        <translation>Immagine</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Solid</source>
-        <translation>Colore</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>Sfumatura</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>Tipo:</translation>
-    </message>
-</context>
-<context>
-    <name>WallpaperPage</name>
-    <message>
-        <source>Fill Mode:</source>
-        <translation>Modalità riempimento:</translation>
-    </message>
-    <message>
-        <source>Stretched</source>
-        <translation>Ridimensionata</translation>
-    </message>
-    <message>
-        <source>Scaled</source>
-        <translation>Scalata</translation>
-    </message>
-    <message>
-        <source>Cropped</source>
-        <translation>Tagliata</translation>
-    </message>
-    <message>
-        <source>Tiled</source>
-        <translation>Adatta</translation>
-    </message>
-    <message>
-        <source>Tiled Vertically</source>
-        <translation>Adatta verticalmente</translation>
-    </message>
-    <message>
-        <source>Tiled Horizontally</source>
-        <translation>Adatta orizzontalmente</translation>
-    </message>
-    <message>
-        <source>Centered</source>
-        <translation>Centrata</translation>
+        <source>Color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

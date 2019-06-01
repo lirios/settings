@@ -18,64 +18,14 @@
     </message>
 </context>
 <context>
-    <name>Selector</name>
-    <message>
-        <source>Pick a background</source>
-        <translation>Pilih sebuah latar belakang</translation>
-    </message>
-</context>
-<context>
-    <name>SelectorDialog</name>
+    <name>SelectorPage</name>
     <message>
         <source>Wallpaper</source>
-        <translation>Wallpaper</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Solid</source>
-        <translation>Solid</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>Gradiasi</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>Tipe:</translation>
-    </message>
-</context>
-<context>
-    <name>WallpaperPage</name>
-    <message>
-        <source>Fill Mode:</source>
-        <translation>Mode pengisian:</translation>
-    </message>
-    <message>
-        <source>Stretched</source>
-        <translation>Renggang</translation>
-    </message>
-    <message>
-        <source>Scaled</source>
-        <translation>Skala</translation>
-    </message>
-    <message>
-        <source>Cropped</source>
-        <translation>Potong</translation>
-    </message>
-    <message>
-        <source>Tiled</source>
-        <translation>Ubin</translation>
-    </message>
-    <message>
-        <source>Tiled Vertically</source>
-        <translation>Ubin secara vertikal</translation>
-    </message>
-    <message>
-        <source>Tiled Horizontally</source>
-        <translation>Ubin secara horizontal</translation>
-    </message>
-    <message>
-        <source>Centered</source>
-        <translation>Tengah</translation>
+        <source>Color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

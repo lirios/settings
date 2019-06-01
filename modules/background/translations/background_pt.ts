@@ -18,64 +18,14 @@
     </message>
 </context>
 <context>
-    <name>Selector</name>
-    <message>
-        <source>Pick a background</source>
-        <translation>Escolher uma imagem de fundo</translation>
-    </message>
-</context>
-<context>
-    <name>SelectorDialog</name>
+    <name>SelectorPage</name>
     <message>
         <source>Wallpaper</source>
-        <translation>Papel de parede</translation>
-    </message>
-    <message>
-        <source>Solid</source>
-        <translation>Sólido</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>Gradiente</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>Tipo:</translation>
-    </message>
-</context>
-<context>
-    <name>WallpaperPage</name>
-    <message>
-        <source>Fill Mode:</source>
-        <translation>Modo de preenchimento:</translation>
-    </message>
-    <message>
-        <source>Stretched</source>
-        <translation>Esticado</translation>
-    </message>
-    <message>
-        <source>Scaled</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Cropped</source>
-        <translation>Cortado</translation>
-    </message>
-    <message>
-        <source>Tiled</source>
+        <source>Color</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tiled Vertically</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tiled Horizontally</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Centered</source>
-        <translation>Centrado</translation>
     </message>
 </context>
 <context>

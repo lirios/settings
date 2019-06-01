@@ -18,64 +18,14 @@
     </message>
 </context>
 <context>
-    <name>Selector</name>
-    <message>
-        <source>Pick a background</source>
-        <translation>Kies een achtergrond</translation>
-    </message>
-</context>
-<context>
-    <name>SelectorDialog</name>
+    <name>SelectorPage</name>
     <message>
         <source>Wallpaper</source>
-        <translation>Achtergrond</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Solid</source>
-        <translation>Een kleur</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>Gradient</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>Type:</translation>
-    </message>
-</context>
-<context>
-    <name>WallpaperPage</name>
-    <message>
-        <source>Fill Mode:</source>
-        <translation>Vulmodus:</translation>
-    </message>
-    <message>
-        <source>Stretched</source>
-        <translation>Uitgerokken</translation>
-    </message>
-    <message>
-        <source>Scaled</source>
-        <translation>Geschaald</translation>
-    </message>
-    <message>
-        <source>Cropped</source>
-        <translation>Bijgesneden</translation>
-    </message>
-    <message>
-        <source>Tiled</source>
-        <translation>Betegeld</translation>
-    </message>
-    <message>
-        <source>Tiled Vertically</source>
-        <translation>Verticaal betegeld</translation>
-    </message>
-    <message>
-        <source>Tiled Horizontally</source>
-        <translation>Horizontaal betegeld</translation>
-    </message>
-    <message>
-        <source>Centered</source>
-        <translation>Gecentreerd</translation>
+        <source>Color</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

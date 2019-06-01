@@ -9,21 +9,6 @@
     </message>
 </context>
 <context>
-    <name>SettingsPage</name>
-    <message>
-        <source>Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Welcome to Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select an item from the list to see the available options.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>main</name>
     <message>
         <source>Settings</source>
