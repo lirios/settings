@@ -85,6 +85,20 @@ source_file = modules/keyboard/metadata.desktop.in
 liri_dest_file = modules/keyboard/metadata.desktop
 file_filter = modules/keyboard/translations/metadata_<lang>.desktop
 
+[liri-settings.locale-module]
+type = QT
+source_lang = en
+liri_source_directory = modules/region
+source_file = modules/region/translations/locale.ts
+file_filter = modules/region/translations/locale_<lang>.ts
+
+[liri-settings.locale-metadata]
+type = DESKTOP
+source_lang = en
+source_file = modules/region/metadata.desktop.in
+liri_dest_file = modules/region/metadata.desktop
+file_filter = modules/region/translations/metadata_<lang>.desktop
+
 [liri-settings.users-module]
 type = QT
 source_lang = en
