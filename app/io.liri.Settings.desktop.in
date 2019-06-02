@@ -5,7 +5,7 @@ GenericName=Settings
 Comment=Manages system settings
 #TRANSLATIONS
 Icon=preferences-system
-Exec=liri-settings --xdg-application
+Exec=liri-settings
 TryExec=liri-settings
 Terminal=false
 StartupNotify=true
