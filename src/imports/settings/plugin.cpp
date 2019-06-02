@@ -39,8 +39,9 @@ public:
 
         // @uri Liri.Settings
         qmlRegisterType<AuthorizedAction>(uri, 1, 0, "AuthorizedAction");
-        qmlRegisterType<Module>();
+        qmlRegisterUncreatableType<Module>(uri, 1, 0, "Module", QLatin1String("Cannot instantiate Module"));
         qmlRegisterType<ModulesModel>(uri, 1, 0, "ModulesModel");
+        qmlRegisterType<ModulesProxyModel>(uri, 1, 0, "ModulesProxyModel");
     }
 };
 

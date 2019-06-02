@@ -18,6 +18,7 @@ liri_add_executable(LiriSettings
         qml/ErrorPage.qml
         qml/ErrorView.qml
         qml/main.qml
+        qml/SettingsPage.qml
         qml/SettingsListItem.qml
         ${LiriSettings_QM_FILES}
     DEFINES

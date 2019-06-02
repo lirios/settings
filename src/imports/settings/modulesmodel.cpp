@@ -25,7 +25,6 @@
 #include <QStandardPaths>
 #include <QThread>
 
-#include "module.h"
 #include "modulesmodel.h"
 
 /*
@@ -100,6 +99,7 @@ QHash<int, QByteArray> ModulesModel::roleNames() const
     QHash<int, QByteArray> roles;
     roles.insert(NameRole, QByteArrayLiteral("name"));
     roles.insert(CategoryRole, QByteArrayLiteral("category"));
+    roles.insert(CategoryNameRole, QByteArrayLiteral("categoryName"));
     roles.insert(TitleRole, QByteArrayLiteral("title"));
     roles.insert(CommentRole, QByteArrayLiteral("comment"));
     roles.insert(IconNameRole, QByteArrayLiteral("iconName"));
@@ -129,6 +129,8 @@ QVariant ModulesModel::data(const QModelIndex &index, int role) const
     case NameRole:
         return plugin->name();
     case CategoryRole:
+        return plugin->category();
+    case CategoryNameRole:
         switch (plugin->category()) {
         case Module::PersonalCategory:
             return tr("Personal");
@@ -165,4 +167,31 @@ void ModulesModel::componentComplete()
     beginResetModel();
     m_task->populate();
     endResetModel();
+}
+
+ModulesProxyModel::ModulesProxyModel(QObject *parent)
+    : QSortFilterProxyModel(parent)
+{
+}
+
+Module::Category ModulesProxyModel::category() const
+{
+    return m_category;
+}
+
+void ModulesProxyModel::setCategory(Module::Category category)
+{
+    if (m_category == category)
+        return;
+
+    m_category = category;
+    invalidate();
+    Q_EMIT categoryChanged();
+}
+
+bool ModulesProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+{
+    const auto modelIndex = sourceModel()->index(source_row, 0, source_parent);
+    const auto category = static_cast<Module::Category>(sourceModel()->data(modelIndex, ModulesModel::CategoryRole).toInt());
+    return category == m_category;
 }

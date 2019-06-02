@@ -26,10 +26,12 @@
 
 #include <QAbstractListModel>
 #include <QQmlParserStatus>
+#include <QSortFilterProxyModel>
+
+#include "module.h"
 
 QT_FORWARD_DECLARE_CLASS(QThread)
 
-class Module;
 class ModulesModel;
 
 class ModulesModelTask : public QObject
@@ -59,6 +61,7 @@ public:
     enum Roles {
         NameRole = Qt::UserRole + 1,
         CategoryRole,
+        CategoryNameRole,
         TitleRole,
         CommentRole,
         IconNameRole,
@@ -85,6 +88,26 @@ Q_SIGNALS:
 private:
     ModulesModelTask *m_task;
     QThread *m_thread;
+};
+
+class ModulesProxyModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+    Q_PROPERTY(Module::Category category READ category WRITE setCategory NOTIFY categoryChanged)
+public:
+    explicit ModulesProxyModel(QObject *parent = nullptr);
+
+    Module::Category category() const;
+    void setCategory(Module::Category category);
+
+Q_SIGNALS:
+    void categoryChanged();
+
+protected:
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+
+private:
+    Module::Category m_category = Module::NoCategory;
 };
 
 #endif // LIRI_SETTINGS_MODULESMODEL_H

@@ -21,14 +21,12 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.2
-import QtQuick.Window 2.2
-import QtQuick.Layouts 1.0
-import QtQuick.Controls 2.2
-import QtQuick.Controls.Material 2.2
+import QtQuick 2.0
+import QtQuick.Window 2.0
+import QtQuick.Controls 2.0
+import QtQuick.Controls.Material 2.0
 import Fluid.Core 1.0 as FluidCore
 import Fluid.Controls 1.0 as FluidControls
-import Liri.Settings 1.0
 
 FluidControls.ApplicationWindow {
     id: window
@@ -46,32 +44,7 @@ FluidControls.ApplicationWindow {
     Material.primary: Material.color(Material.BlueGrey, Material.theme === Material.Light
                                      ? Material.Shade700 : Material.Shade800)
 
-    initialPage: FluidControls.Page {
-        title: qsTr("Settings")
-
-        ScrollView {
-            anchors.fill: parent
-            clip: true
-
-            ListView {
-                model: ModulesModel {
-                    id: modulesModel
-                }
-                section.property: "category"
-                section.delegate: FluidControls.Subheader {
-                    id: subheader
-                    text: section
-
-                    FluidControls.ThinDivider {
-                        anchors.top: parent.top
-                        visible: subheader.y > 0
-                    }
-                }
-
-                delegate: SettingsListItem {}
-            }
-        }
-    }
+    initialPage: SettingsPage {}
 
     Component {
         id: errorPageComponent
