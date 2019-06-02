@@ -35,23 +35,21 @@ static QObject *instance(QQmlEngine *, QJSEngine *)
     return new T();
 }
 
-class RegionSettingsPlugin : public QQmlExtensionPlugin
+class LocaleSettingsPlugin : public QQmlExtensionPlugin
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface/1.0")
 public:
-    void registerTypes(const char *uri);
+    void registerTypes(const char *uri)
+    {
+        Q_ASSERT(strcmp(uri, "Liri.Settings.Locale") == 0);
+
+        // @uri Liri.Settings.Locale
+        qmlRegisterSingletonType<LocaleManager>(uri, 1, 0, "LocaleManager", &instance<LocaleManager>);
+        qmlRegisterSingletonType<SystemLocale>(uri, 1, 0, "SystemLocale", &instance<SystemLocale>);
+        qmlRegisterType<LocaleFilterModel>(uri, 1, 0, "LocaleFilterModel");
+        qmlRegisterType<LocaleModel>(uri, 1, 0, "LocaleModel");
+    }
 };
-
-void RegionSettingsPlugin::registerTypes(const char *uri)
-{
-    Q_ASSERT(strcmp(uri, "Liri.Settings.Region") == 0);
-
-    // @uri Liri.Settings.Region
-    qmlRegisterSingletonType<LocaleManager>(uri, 1, 0, "LocaleManager", &instance<LocaleManager>);
-    qmlRegisterSingletonType<SystemLocale>(uri, 1, 0, "SystemLocale", &instance<SystemLocale>);
-    qmlRegisterType<LocaleFilterModel>(uri, 1, 0, "LocaleFilterModel");
-    qmlRegisterType<LocaleModel>(uri, 1, 0, "LocaleModel");
-}
 
 #include "plugin.moc"

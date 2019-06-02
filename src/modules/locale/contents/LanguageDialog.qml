@@ -25,7 +25,7 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.2
 import Fluid.Controls 1.0 as FluidControls
-import Liri.Settings.Region 1.0
+import Liri.Settings.Locale 1.0
 
 Dialog {
     id: langDialog

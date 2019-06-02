@@ -26,7 +26,7 @@ import QtQuick.Controls 2.0
 import Fluid.Controls 1.0 as FluidControls
 import QtGSettings 1.0
 import Liri.Settings 1.0
-import Liri.Settings.Region 1.0
+import Liri.Settings.Locale 1.0
 
 ModulePage {
     id: page

@@ -1,6 +1,6 @@
-liri_add_qml_plugin(region
+liri_add_qml_plugin(locale
     MODULE_PATH
-        "Liri/Settings/Region"
+        "Liri/Settings/Locale"
     SOURCES
         localefiltermodel.cpp
         localefiltermodel.h
@@ -23,7 +23,7 @@ liri_add_qml_plugin(region
         Qt5::Quick
 )
 
-liri_add_settings_module(Region
+liri_add_settings_module(Locale
     CONTENTS
         contents/main.qml
         contents/FormatsDialog.qml
