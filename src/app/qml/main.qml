@@ -32,7 +32,6 @@ FluidControls.ApplicationWindow {
     id: window
 
     readonly property bool wideAspectRatio: width >= height
-    property var selectedModule
 
     title: qsTr("Settings")
     width: 800
