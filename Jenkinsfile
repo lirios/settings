@@ -20,6 +20,7 @@ H H * * *'''
         sh 'curl -O https://raw.githubusercontent.com/lirios/repotools/develop/translations/transifex-push && chmod 755 transifex-push'
         sh 'curl -O https://raw.githubusercontent.com/lirios/repotools/develop/translations/transifex-pull && chmod 755 transifex-pull'
         sh './transifex-push . && ./transifex-pull .'
+        sh 'rm -f transifex-{push,pull}'
       }
     }
   }
