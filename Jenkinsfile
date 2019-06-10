@@ -1,8 +1,4 @@
 pipeline {
-  triggers {
-    cron '''TZ=Europe/Rome
-H H * * *'''
-  }
   agent {
     docker {
       image "fedora:30"
