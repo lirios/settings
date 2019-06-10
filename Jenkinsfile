@@ -17,7 +17,7 @@ H H * * *'''
     stage('Translations') {
       steps {
         sh 'dnf install -y git transifex-client qt5-qtbase qt5-linguist'
-        sh "git push --set-upstream origin ${env.GIT_BRANCH}"
+        sh "git branch --set-upstream-to origin/${env.GIT_BRANCH}"
         sh 'curl -O https://raw.githubusercontent.com/lirios/repotools/develop/translations/transifex-push && chmod 755 transifex-push'
         sh 'curl -O https://raw.githubusercontent.com/lirios/repotools/develop/translations/transifex-pull && chmod 755 transifex-pull'
         sh 'curl -O https://raw.githubusercontent.com/lirios/repotools/develop/translations/translate-desktop && chmod 755 translate-desktop'
