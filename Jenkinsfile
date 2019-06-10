@@ -16,7 +16,7 @@ H H * * *'''
   stages {
     stage('Translations') {
       steps {
-        sh label: 'Installation', script: '''dnf install -y git transifex-client qt5-linguist
+        sh label: 'Installation', script: '''dnf install -y git transifex-client qt5-linguist binutils
 strip --remove-section=.note.ABI-tag /usr/lib64/libQt5Core.so.5
 curl -O https://raw.githubusercontent.com/lirios/repotools/develop/translations/transifex-push && chmod 755 transifex-push
 curl -O https://raw.githubusercontent.com/lirios/repotools/develop/translations/transifex-pull && chmod 755 transifex-pull
