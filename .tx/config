@@ -4,111 +4,111 @@ host = https://www.transifex.com
 [liri-settings.app]
 type = QT
 source_lang = en
-liri_source_directory = app
-source_file = app/translations/app.ts
-file_filter = app/translations/app_<lang>.ts
+liri_source_directory = src/app
+source_file = src/app/translations/app.ts
+file_filter = src/app/translations/app_<lang>.ts
 
 [liri-settings.desktop-file]
 type = DESKTOP
 source_lang = en
-source_file = app/io.liri.Settings.desktop.in
-liri_dest_file = app/io.liri.Settings.desktop
-file_filter = app/translations/io.liri.Settings_<lang>.desktop
+source_file = src/app/io.liri.Settings.desktop.in
+liri_dest_file = src/app/io.liri.Settings.desktop
+file_filter = src/app/translations/io.liri.Settings_<lang>.desktop
 
 [liri-settings.appearance-module]
 type = QT
 source_lang = en
-liri_source_directory = modules/appearance
-source_file = modules/appearance/translations/appearance.ts
-file_filter = modules/appearance/translations/appearance_<lang>.ts
+liri_source_directory = src/modules/appearance
+source_file = src/modules/appearance/translations/appearance.ts
+file_filter = src/modules/appearance/translations/appearance_<lang>.ts
 
 [liri-settings.appearance-metadata]
 type = DESKTOP
 source_lang = en
-source_file = modules/appearance/metadata.desktop.in
-liri_dest_file = modules/appearance/metadata.desktop
-file_filter = modules/appearance/translations/metadata_<lang>.desktop
+source_file = src/modules/appearance/metadata.desktop.in
+liri_dest_file = src/modules/appearance/metadata.desktop
+file_filter = src/modules/appearance/translations/metadata_<lang>.desktop
 
 [liri-settings.background-module]
 type = QT
 source_lang = en
-liri_source_directory = modules/background
-source_file = modules/background/translations/background.ts
-file_filter = modules/background/translations/background_<lang>.ts
+liri_source_directory = src/modules/background
+source_file = src/modules/background/translations/background.ts
+file_filter = src/modules/background/translations/background_<lang>.ts
 
 [liri-settings.background-metadata]
 type = DESKTOP
 source_lang = en
-source_file = modules/background/metadata.desktop.in
-liri_dest_file = modules/background/metadata.desktop
-file_filter = modules/background/translations/metadata_<lang>.desktop
+source_file = src/modules/background/metadata.desktop.in
+liri_dest_file = src/modules/background/metadata.desktop
+file_filter = src/modules/background/translations/metadata_<lang>.desktop
 
 [liri-settings.display-module]
 type = QT
 source_lang = en
-liri_source_directory = modules/display
-source_file = modules/display/translations/display.ts
-file_filter = modules/display/translations/display_<lang>.ts
+liri_source_directory = src/modules/display
+source_file = src/modules/display/translations/display.ts
+file_filter = src/modules/display/translations/display_<lang>.ts
 
 [liri-settings.display-metadata]
 type = DESKTOP
 source_lang = en
-source_file = modules/display/metadata.desktop.in
-liri_dest_file = modules/display/metadata.desktop
-file_filter = modules/display/translations/metadata_<lang>.desktop
+source_file = src/modules/display/metadata.desktop.in
+liri_dest_file = src/modules/display/metadata.desktop
+file_filter = src/modules/display/translations/metadata_<lang>.desktop
 
 [liri-settings.info-module]
 type = QT
 source_lang = en
-liri_source_directory = modules/info
-source_file = modules/info/translations/info.ts
-file_filter = modules/info/translations/info_<lang>.ts
+liri_source_directory = src/modules/info
+source_file = src/modules/info/translations/info.ts
+file_filter = src/modules/info/translations/info_<lang>.ts
 
 [liri-settings.info-metadata]
 type = DESKTOP
 source_lang = en
-source_file = modules/info/metadata.desktop.in
-liri_dest_file = modules/info/metadata.desktop
-file_filter = modules/info/translations/metadata_<lang>.desktop
+source_file = src/modules/info/metadata.desktop.in
+liri_dest_file = src/modules/info/metadata.desktop
+file_filter = src/modules/info/translations/metadata_<lang>.desktop
 
 [liri-settings.keyboard-module]
 type = QT
 source_lang = en
-liri_source_directory = modules/keyboard
-source_file = modules/keyboard/translations/keyboard.ts
-file_filter = modules/keyboard/translations/keyboard_<lang>.ts
+liri_source_directory = src/modules/keyboard
+source_file = src/modules/keyboard/translations/keyboard.ts
+file_filter = src/modules/keyboard/translations/keyboard_<lang>.ts
 
 [liri-settings.keyboard-metadata]
 type = DESKTOP
 source_lang = en
-source_file = modules/keyboard/metadata.desktop.in
-liri_dest_file = modules/keyboard/metadata.desktop
-file_filter = modules/keyboard/translations/metadata_<lang>.desktop
+source_file = src/modules/keyboard/metadata.desktop.in
+liri_dest_file = src/modules/keyboard/metadata.desktop
+file_filter = src/modules/keyboard/translations/metadata_<lang>.desktop
 
 [liri-settings.locale-module]
 type = QT
 source_lang = en
-liri_source_directory = modules/region
-source_file = modules/region/translations/locale.ts
-file_filter = modules/region/translations/locale_<lang>.ts
+liri_source_directory = src/modules/locale
+source_file = src/modules/locale/translations/locale.ts
+file_filter = src/modules/locale/translations/locale_<lang>.ts
 
 [liri-settings.locale-metadata]
 type = DESKTOP
 source_lang = en
-source_file = modules/region/metadata.desktop.in
-liri_dest_file = modules/region/metadata.desktop
-file_filter = modules/region/translations/metadata_<lang>.desktop
+source_file = src/modules/locale/metadata.desktop.in
+liri_dest_file = src/modules/locale/metadata.desktop
+file_filter = src/modules/locale/translations/metadata_<lang>.desktop
 
 [liri-settings.users-module]
 type = QT
 source_lang = en
-liri_source_directory = modules/users
-source_file = modules/users/translations/users.ts
-file_filter = modules/users/translations/users_<lang>.ts
+liri_source_directory = src/modules/users
+source_file = src/modules/users/translations/users.ts
+file_filter = src/modules/users/translations/users_<lang>.ts
 
 [liri-settings.users-metadata]
 type = DESKTOP
 source_lang = en
-source_file = modules/users/metadata.desktop.in
-liri_dest_file = modules/users/metadata.desktop
-file_filter = modules/users/translations/metadata_<lang>.desktop
+source_file = src/modules/users/metadata.desktop.in
+liri_dest_file = src/modules/users/metadata.desktop
+file_filter = src/modules/users/translations/metadata_<lang>.desktop
