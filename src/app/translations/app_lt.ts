@@ -7,6 +7,25 @@
     </message>
 </context>
 <context>
+    <name>SettingsPage</name>
+    <message>
+        <source>Settings</source>
+        <translation>Nustatymai</translation>
+    </message>
+    <message>
+        <source>Personal</source>
+        <translation>Asmeniniai</translation>
+    </message>
+    <message>
+        <source>Hardware</source>
+        <translation>Aparatinė įranga</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation>Sistema</translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
         <source>Settings</source>

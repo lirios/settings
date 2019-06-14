@@ -1,21 +1,33 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="da" version="2.1">
 <context>
-    <name>Preflet</name>
+    <name>main</name>
     <message>
-        <source>Version %1</source>
-        <translation>Version %1</translation>
+        <source>Operating System</source>
+        <translation>Styresystem</translation>
     </message>
     <message>
-        <source>Website</source>
-        <translation>Websted</translation>
+        <source>You are now a developer!</source>
+        <translation>Du er nu en udvikler!</translation>
     </message>
     <message>
-        <source>Report a bug</source>
-        <translation>Rapportér en fejl</translation>
+        <source>You are now %1 steps from becoming a developer</source>
+        <translation>Du er nu %1 trin fra at blive en udvikler</translation>
     </message>
     <message>
-        <source>Credits</source>
-        <translation>Anderkendelser</translation>
+        <source>Open Web site...</source>
+        <translation>Åbn websted ...</translation>
+    </message>
+    <message>
+        <source>Obtain Support...</source>
+        <translation>Få hjælp ...</translation>
+    </message>
+    <message>
+        <source>Report a Bug...</source>
+        <translation>Rapportér en fejl ...</translation>
+    </message>
+    <message>
+        <source>Privacy Policy...</source>
+        <translation>Privatlivspolitik ...</translation>
     </message>
 </context>
 </TS>
