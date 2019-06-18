@@ -21,7 +21,7 @@
     <name>LayoutPage</name>
     <message>
         <source>Type to test the layout...</source>
-        <translation>Skriv for at test layoutet...</translation>
+        <translation>Skriv for at test layoutet ...</translation>
     </message>
     <message>
         <source>Model and Test</source>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Add layout...</source>
-        <translation>Tilføj layout...</translation>
+        <translation>Tilføj layout ...</translation>
     </message>
 </context>
 <context>

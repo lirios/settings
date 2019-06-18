@@ -3,7 +3,7 @@
     <name>PhotoPicker</name>
     <message>
         <source>Browse...</source>
-        <translation>Gennemse...</translation>
+        <translation>Gennemse ...</translation>
     </message>
 </context>
 <context>
