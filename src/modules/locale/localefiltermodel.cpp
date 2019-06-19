@@ -41,7 +41,7 @@ void LocaleFilterModel::setFilter(const QString &filter)
         return;
 
     m_filter = filter;
-    Q_EMIT filterChanged();
+    Q_EMIT filterStringChanged();
 
     invalidate();
 }

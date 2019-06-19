@@ -30,10 +30,6 @@ ModulePage {
 
     title: qsTr("Settings")
 
-    ModulesModel {
-        id: modulesModel
-    }
-
     ScrollView {
         anchors.fill: parent
         clip: true

@@ -27,6 +27,7 @@ import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import Fluid.Core 1.0 as FluidCore
 import Fluid.Controls 1.0 as FluidControls
+import Liri.Settings 1.0
 
 FluidControls.ApplicationWindow {
     id: window
@@ -44,6 +45,10 @@ FluidControls.ApplicationWindow {
                                      ? Material.Shade700 : Material.Shade800)
 
     initialPage: SettingsPage {}
+
+    ModulesModel {
+        id: modulesModel
+    }
 
     Component {
         id: errorPageComponent

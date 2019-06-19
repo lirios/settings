@@ -29,7 +29,7 @@
 class LocaleFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(QString filter READ filter WRITE setFilter NOTIFY filterChanged)
+    Q_PROPERTY(QString filter READ filter WRITE setFilter NOTIFY filterStringChanged)
 public:
     explicit LocaleFilterModel(QObject *parent = nullptr);
 
@@ -39,7 +39,7 @@ public:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 Q_SIGNALS:
-    void filterChanged();
+    void filterStringChanged();
 
 private:
     QString m_filter;
