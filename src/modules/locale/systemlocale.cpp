@@ -65,12 +65,11 @@ QString SystemLocale::code() const
 void SystemLocale::setCode(const QString &code)
 {
     QStringList newLocale;
-    QMapIterator<QString, QString> i(m_localeCache);
-    while (i.hasNext()) {
-        i.next();
-
+    QMap<QString, QString>::const_iterator i = m_localeCache.constBegin();
+    while (i != m_localeCache.constEnd()) {
         QString newValue = i.key() + QLatin1String("=") + i.value();
         newLocale.append(newValue);
+        ++i;
     }
 
     auto pcall = m_interface->asyncCall(QStringLiteral("SetLocale"), newLocale, true);
