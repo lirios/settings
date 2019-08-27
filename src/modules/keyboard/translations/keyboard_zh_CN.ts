@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Add layout...</source>
-        <translation type="unfinished"/>
+        <translation>添加布局...</translation>
     </message>
 </context>
 <context>
@@ -91,15 +91,15 @@
     <name>main</name>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>快捷键</translation>
     </message>
     <message>
         <source>Behavior</source>
-        <translation type="unfinished"/>
+        <translation>行为</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>布局</translation>
     </message>
 </context>
 </TS>

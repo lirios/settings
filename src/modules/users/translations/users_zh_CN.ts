@@ -61,7 +61,7 @@
     <name>UserListItem</name>
     <message>
         <source>Do you want to keep %1&apos;s files?</source>
-        <translation>你想要保留%1的文件吗？</translation>
+        <translation>你想要保留 %1 的文件吗？</translation>
     </message>
     <message>
         <source>It is possible to keep the home directory, mail spool and temporary files around when deleting a user account.</source>
@@ -112,7 +112,7 @@
     </message>
     <message>
         <source>Wrong password verification</source>
-        <translation>密码验证失败</translation>
+        <translation>密码验证错误</translation>
     </message>
     <message>
         <source>The passwords did not match.</source>
@@ -127,15 +127,15 @@
     <name>main</name>
     <message>
         <source>Your Account</source>
-        <translation type="unfinished"/>
+        <translation>你的账户</translation>
     </message>
     <message>
         <source>Other Accounts</source>
-        <translation type="unfinished"/>
+        <translation>其他账户</translation>
     </message>
     <message>
         <source>Add user...</source>
-        <translation type="unfinished"/>
+        <translation>添加用户</translation>
     </message>
 </context>
 </TS>

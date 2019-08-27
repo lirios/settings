@@ -1,30 +1,43 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
 <context>
-    <name>Preflet</name>
+    <name>DetailsDialog</name>
     <message>
-        <location filename="../contents/Preflet.qml" line="135"/>
+        <location filename="../contents/DetailsDialog.qml" line="80"/>
+        <source>Rotate counterclockwise by 90Â°</source>
+        <translation>逆时针旋转90°</translation>
+    </message>
+    <message>
+        <location filename="../contents/DetailsDialog.qml" line="92"/>
+        <source>Rotate by 180Â°</source>
+        <translation>旋转180°</translation>
+    </message>
+    <message>
+        <location filename="../contents/DetailsDialog.qml" line="104"/>
+        <source>Rotate clockwise by 90Â°</source>
+        <translation>顺时针旋转90°</translation>
+    </message>
+    <message>
+        <location filename="../contents/DetailsDialog.qml" line="123"/>
         <source>Size:</source>
         <translation>大小：</translation>
     </message>
     <message>
-        <location filename="../contents/Preflet.qml" line="150"/>
+        <location filename="../contents/DetailsDialog.qml" line="137"/>
         <source>Aspect Ratio:</source>
-        <translation>宽高比：</translation>
+        <translation>纵横比：</translation>
     </message>
     <message>
-        <location filename="../contents/Preflet.qml" line="165"/>
+        <location filename="../contents/DetailsDialog.qml" line="151"/>
         <source>Resolution:</source>
         <translation>分辨率：</translation>
     </message>
+</context>
+<context>
+    <name>main</name>
     <message>
-        <location filename="../contents/Preflet.qml" line="188"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <location filename="../contents/Preflet.qml" line="193"/>
-        <source>Apply</source>
-        <translation>应用</translation>
+        <location filename="../contents/main.qml" line="40"/>
+        <source>Screens</source>
+        <translation>屏幕</translation>
     </message>
 </context>
 </TS>
