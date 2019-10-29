@@ -135,7 +135,7 @@
     </message>
     <message>
         <source>Add user...</source>
-        <translation type="unfinished"/>
+        <translation>Ajouter un utilisateur...</translation>
     </message>
 </context>
 </TS>

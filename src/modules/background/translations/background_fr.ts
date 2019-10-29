@@ -21,11 +21,11 @@
     <name>SelectorPage</name>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Fond d&apos;écran</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished"/>
+        <translation>Couleur</translation>
     </message>
 </context>
 <context>
