@@ -23,8 +23,10 @@ The following modules and their dependencies are required:
  * [cmake](https://gitlab.kitware.com/cmake/cmake) >= 3.10.0
  * [cmake-shared](https://github.com/lirios/cmake-shared.git) >= 1.0.0
  * [qtaccountsservice](https://github.com/lirios/qtaccountsservice.git) >= 1.2.0
+ * [qtgsettings](https://github.com/lirios/qtgsettings) >= 1.1.0
  * [fluid](https://github.com/lirios/fluid.git) >= 1.0.0
  * [libliri](https://github.com/lirios/libliri.git)
+ * [liri-wayland](https://github.com/lirios/wayland)
  * [polkit](https://cgit.freedesktop.org/polkit/)
  * [xkeyboard-config](https://cgit.freedesktop.org/xkeyboard-config)
 
