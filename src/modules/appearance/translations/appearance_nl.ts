@@ -1,20 +1,20 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.1">
 <context>
-    <name>Preflet</name>
+    <name>main</name>
     <message>
-        <location filename="../contents/Preflet.qml" line="34"/>
+        <location filename="../contents/main.qml" line="41"/>
         <source>Desktop</source>
         <translation>Bureaublad</translation>
     </message>
     <message>
-        <location filename="../contents/Preflet.qml" line="37"/>
+        <location filename="../contents/main.qml" line="45"/>
         <source>Transparent app shelf</source>
-        <translation>Transparante app-plank</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../contents/Preflet.qml" line="57"/>
+        <location filename="../contents/main.qml" line="65"/>
         <source>Accent color</source>
-        <translation>Accentkleur</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
