@@ -1,83 +1,141 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_BR" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_BR" version="2.1">
 <context>
-    <name>Hawaii::Settings::Preflet</name>
+    <name>PhotoPicker</name>
     <message>
-        <location filename="../preflet.cpp" line="75"/>
-        <source>Users</source>
-        <translation>Usuários</translation>
-    </message>
-    <message>
-        <location filename="../preflet.cpp" line="80"/>
-        <source>Create new users, change users&apos; details such as real name and icon, manage administrators and groups</source>
-        <translation>Crie novos usuários, altere os detalhes dos usuários como seu nome real e ícone, gerencie os administradores e grupos</translation>
-    </message>
-    <message>
-        <location filename="../preflet.cpp" line="91"/>
-        <source>user;login;account;face;password;administrator;name;fingerprint</source>
-        <translation>usuário;login;conta;face;senha;administrador;nome;impressão digital</translation>
-    </message>
-    <message>
-        <location filename="../preflet.cpp" line="112"/>
-        <source>Standard</source>
-        <translation>Padrão</translation>
-    </message>
-    <message>
-        <location filename="../preflet.cpp" line="115"/>
-        <source>Administrator</source>
-        <translation>Administrador</translation>
+        <source>Browse...</source>
+        <translation>Procurar...</translation>
     </message>
 </context>
 <context>
-    <name>UsersPreflet</name>
+    <name>UserAddDialog</name>
     <message>
-        <location filename="../userspreflet.ui" line="111"/>
-        <source>Click to change user&apos;s name</source>
-        <translation>Clique para alterar o nome do usuário</translation>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../userspreflet.ui" line="114"/>
-        <source>$NAME$</source>
-        <translation>$NOME$</translation>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
     <message>
-        <location filename="../userspreflet.ui" line="146"/>
         <source>Account type</source>
         <translation>Tipo de conta</translation>
     </message>
     <message>
-        <location filename="../userspreflet.ui" line="156"/>
-        <source>$TYPE$</source>
-        <translation>$TIPO$</translation>
+        <source>Standard</source>
+        <translation>Padrão</translation>
     </message>
     <message>
-        <location filename="../userspreflet.ui" line="163"/>
-        <source>Language</source>
-        <translation>Idioma</translation>
+        <source>Administrator</source>
+        <translation>Administrador</translation>
     </message>
     <message>
-        <location filename="../userspreflet.ui" line="178"/>
-        <source>Login Options</source>
-        <translation>Opções de login</translation>
+        <source>Full name</source>
+        <translation>Nome completo</translation>
     </message>
     <message>
-        <location filename="../userspreflet.ui" line="186"/>
+        <source>User name</source>
+        <translation>Nome de usuário</translation>
+    </message>
+    <message>
+        <source>Allow user to set a password at the next login</source>
+        <translation>Permitir usuário definir a senha ao entrar</translation>
+    </message>
+    <message>
+        <source>Set a password now</source>
+        <translation>Definir senha agora</translation>
+    </message>
+    <message>
+        <source>No password</source>
+        <translation>Sem senha</translation>
+    </message>
+    <message>
+        <source>New password</source>
+        <translation>Nova senha</translation>
+    </message>
+    <message>
+        <source>Verify new password</source>
+        <translation>Verificar nova senha</translation>
+    </message>
+</context>
+<context>
+    <name>UserListItem</name>
+    <message>
+        <source>Do you want to keep %1&apos;s files?</source>
+        <translation>Você quer manter os arquivos de %1?</translation>
+    </message>
+    <message>
+        <source>It is possible to keep the home directory, mail spool and temporary files around when deleting a user account.</source>
+        <translation>É possível manter o diretório pessoal, dados de e-mail e arquivos temporários ao excluir uma conta de usuário.</translation>
+    </message>
+    <message>
+        <source>Remove user</source>
+        <translation>Remover usuário</translation>
+    </message>
+</context>
+<context>
+    <name>UserPage</name>
+    <message>
+        <source>Full name</source>
+        <translation>Nome completo</translation>
+    </message>
+    <message>
+        <source>Account type</source>
+        <translation>Tipo de conta</translation>
+    </message>
+    <message>
+        <source>Standard</source>
+        <translation>Padrão</translation>
+    </message>
+    <message>
+        <source>Administrator</source>
+        <translation>Administrador</translation>
+    </message>
+    <message>
+        <source>Automatic login</source>
+        <translation>Login Automático</translation>
+    </message>
+    <message>
         <source>Password</source>
         <translation>Senha</translation>
     </message>
     <message>
-        <location filename="../userspreflet.ui" line="202"/>
-        <source>Click to change user&apos;s password</source>
-        <translation>Clique para alterar a senha do usuário</translation>
-    </message>
-    <message utf8="true">
-        <location filename="../userspreflet.ui" line="205"/>
-        <source>●●●●</source>
-        <translation>●●●●</translation>
+        <source>New password</source>
+        <translation>Nova senha</translation>
     </message>
     <message>
-        <location filename="../userspreflet.ui" line="217"/>
-        <source>Automatic Login</source>
-        <translation>Login automático</translation>
+        <source>Verify new password</source>
+        <translation>Verificar nova senha</translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation>Alterar</translation>
+    </message>
+    <message>
+        <source>Wrong password verification</source>
+        <translation>Verificação de senha incorreta</translation>
+    </message>
+    <message>
+        <source>The passwords did not match.</source>
+        <translation>As senhas não coincidem.</translation>
+    </message>
+    <message>
+        <source>Password changed</source>
+        <translation>Senha alterada</translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <source>Your Account</source>
+        <translation>Sua conta</translation>
+    </message>
+    <message>
+        <source>Other Accounts</source>
+        <translation>Outras contas</translation>
+    </message>
+    <message>
+        <source>Add user...</source>
+        <translation>Adicionar usuário...</translation>
     </message>
 </context>
 </TS>

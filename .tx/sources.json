@@ -1,0 +1,90 @@
+[
+  {
+    "type": "ts",
+    "directory": "src/app",
+    "output_path": "translations/app/app.ts"
+  },
+  {
+    "type": "desktop",
+    "source_file": "src/app/io.liri.Settings.desktop.in",
+    "file_filter": "translations/app/io.liri.Settings_<lang>.desktop",
+    "output_path": "src/app/io.liri.Settings.desktop"
+  },
+  {
+    "type": "ts",
+    "directory": "src/modules/appearance",
+    "output_path": "translations/modules/appearance/appearance.ts"
+  },
+  {
+    "type": "desktop",
+    "source_file": "src/modules/appearance/metadata.desktop.in",
+    "file_filter": "translations/modules/appearance/metadata_<lang>.desktop",
+    "output_path": "src/modules/appearance/metadata.desktop"
+  },
+  {
+    "type": "ts",
+    "directory": "src/modules/background",
+    "output_path": "translations/modules/background/background.ts"
+  },
+  {
+    "type": "desktop",
+    "source_file": "src/modules/background/metadata.desktop.in",
+    "file_filter": "translations/modules/background/metadata_<lang>.desktop",
+    "output_path": "src/modules/background/metadata.desktop"
+  },
+  {
+    "type": "ts",
+    "directory": "src/modules/display",
+    "output_path": "translations/modules/display/display.ts"
+  },
+  {
+    "type": "desktop",
+    "source_file": "src/modules/display/metadata.desktop.in",
+    "file_filter": "translations/modules/display/metadata_<lang>.desktop",
+    "output_path": "src/modules/display/metadata.desktop"
+  },
+  {
+    "type": "ts",
+    "directory": "src/modules/info",
+    "output_path": "translations/modules/info/info.ts"
+  },
+  {
+    "type": "desktop",
+    "source_file": "src/modules/info/metadata.desktop.in",
+    "file_filter": "translations/modules/info/metadata_<lang>.desktop",
+    "output_path": "src/modules/info/metadata.desktop"
+  },
+  {
+    "type": "ts",
+    "directory": "src/modules/keyboard",
+    "output_path": "translations/modules/keyboard/keyboard.ts"
+  },
+  {
+    "type": "desktop",
+    "source_file": "src/modules/keyboard/metadata.desktop.in",
+    "file_filter": "translations/modules/keyboard/metadata_<lang>.desktop",
+    "output_path": "src/modules/keyboard/metadata.desktop"
+  },
+  {
+    "type": "ts",
+    "directory": "src/modules/locale",
+    "output_path": "translations/modules/locale/locale.ts"
+  },
+  {
+    "type": "desktop",
+    "source_file": "src/modules/locale/metadata.desktop.in",
+    "file_filter": "translations/modules/locale/metadata_<lang>.desktop",
+    "output_path": "src/modules/locale/metadata.desktop"
+  },
+  {
+    "type": "ts",
+    "directory": "src/modules/users",
+    "output_path": "translations/modules/users/users.ts"
+  },
+  {
+    "type": "desktop",
+    "source_file": "src/modules/users/metadata.desktop.in",
+    "file_filter": "translations/modules/users/metadata_<lang>.desktop",
+    "output_path": "src/modules/users/metadata.desktop"
+  }
+]

@@ -1,83 +1,137 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ar" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ar" version="2.1">
 <context>
-    <name>Hawaii::Settings::Preflet</name>
+    <name>PhotoPicker</name>
     <message>
-        <location filename="../preflet.cpp" line="75"/>
-        <source>Users</source>
-        <translation>المستخدمون</translation>
-    </message>
-    <message>
-        <location filename="../preflet.cpp" line="80"/>
-        <source>Create new users, change users&apos; details such as real name and icon, manage administrators and groups</source>
-        <translation>إنشاء مستخدمين جدد، تغيير تفاصيل المستخدمين حسب الإسم الحقيقي والإيقونة، إدارة المسؤولين والمجموعات</translation>
-    </message>
-    <message>
-        <location filename="../preflet.cpp" line="91"/>
-        <source>user;login;account;face;password;administrator;name;fingerprint</source>
-        <translation>user;login;account;face;password;administrator;name;fingerprint</translation>
-    </message>
-    <message>
-        <location filename="../preflet.cpp" line="112"/>
-        <source>Standard</source>
-        <translation>قياسي</translation>
-    </message>
-    <message>
-        <location filename="../preflet.cpp" line="115"/>
-        <source>Administrator</source>
-        <translation>مسؤول</translation>
+        <source>Browse...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>UsersPreflet</name>
+    <name>Preflet</name>
     <message>
-        <location filename="../userspreflet.ui" line="111"/>
-        <source>Click to change user&apos;s name</source>
-        <translation>انقر لتغيير اسم المستخدم</translation>
+        <source>Your Account</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../userspreflet.ui" line="114"/>
-        <source>$NAME$</source>
-        <translation>$الإسم$</translation>
+        <source>Other Accounts</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>UserAddDialog</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../userspreflet.ui" line="146"/>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Account type</source>
-        <translation>نوع الحساب</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../userspreflet.ui" line="156"/>
-        <source>$TYPE$</source>
-        <translation>$النوع$</translation>
+        <source>Standard</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../userspreflet.ui" line="163"/>
-        <source>Language</source>
-        <translation>اللغة</translation>
+        <source>Administrator</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../userspreflet.ui" line="178"/>
-        <source>Login Options</source>
-        <translation>خيارات الولوج</translation>
+        <source>Full name</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../userspreflet.ui" line="186"/>
+        <source>User name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Allow user to set a password at the next login</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Set a password now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Verify new password</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>UserListItem</name>
+    <message>
+        <source>Do you want to keep %1&apos;s files?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>It is possible to keep the home directory, mail spool and temporary files around when deleting a user account.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove user</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>UserPage</name>
+    <message>
+        <source>Full name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Account type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Standard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Administrator</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatic login</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Password</source>
-        <translation>كلمة السر</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../userspreflet.ui" line="202"/>
-        <source>Click to change user&apos;s password</source>
-        <translation>انقر لتغيير كلمة مرور المستخدم</translation>
-    </message>
-    <message utf8="true">
-        <location filename="../userspreflet.ui" line="205"/>
-        <source>●●●●</source>
-        <translation>●●●●</translation>
+        <source>New password</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../userspreflet.ui" line="217"/>
-        <source>Automatic Login</source>
-        <translation>ولوج تلقائي</translation>
+        <source>Verify new password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wrong password verification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The passwords did not match.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password changed</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
