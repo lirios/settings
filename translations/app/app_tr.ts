@@ -1,40 +1,35 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.1">
 <context>
-    <name>PluginsModel</name>
+    <name>ErrorView</name>
+    <message>
+        <source>Error loading &quot;%1&quot;</source>
+        <translation>&quot;%1&quot; yüklenirken hata</translation>
+    </message>
+</context>
+<context>
+    <name>SettingsPage</name>
+    <message>
+        <source>Settings</source>
+        <translation>Ayarlar</translation>
+    </message>
     <message>
         <source>Personal</source>
-        <translation type="unfinished"/>
+        <translation>Kişisel</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished"/>
+        <translation>Donanım</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistem</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
-        <source>System Preferences</source>
-        <translation type="vanished">Sistem Ayarları</translation>
-    </message>
-    <message>
-        <source>Keywords</source>
-        <translation type="vanished">Anahtar sözcükler</translation>
-    </message>
-    <message>
-        <source>Personal</source>
-        <translation type="vanished">Kişisel</translation>
-    </message>
-    <message>
-        <source>Hardware</source>
-        <translation type="vanished">Donanım</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation type="vanished">Sistem</translation>
+        <source>Settings</source>
+        <translation>Ayarlar</translation>
     </message>
 </context>
 </TS>

@@ -1,15 +1,15 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_TW" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.1">
 <context>
     <name>FormatsDialog</name>
     <message>
         <location filename="../../../src/modules/locale/contents/FormatsDialog.qml" line="44"/>
         <source>Formats</source>
-        <translation>格式</translation>
+        <translation>Biçimler</translation>
     </message>
     <message>
         <location filename="../../../src/modules/locale/contents/FormatsDialog.qml" line="74"/>
         <source>Search a language</source>
-        <translation>搜尋語言</translation>
+        <translation>Dil ara</translation>
     </message>
     <message>
         <location filename="../../../src/modules/locale/contents/FormatsDialog.qml" line="95"/>
@@ -22,57 +22,57 @@
     <message>
         <location filename="../../../src/modules/locale/contents/FormatsDialog.qml" line="112"/>
         <source>Dates</source>
-        <translation>日期</translation>
+        <translation>Tarihler</translation>
     </message>
     <message>
         <location filename="../../../src/modules/locale/contents/FormatsDialog.qml" line="126"/>
         <source>Times</source>
-        <translation>時間</translation>
+        <translation>Saatler</translation>
     </message>
     <message>
         <location filename="../../../src/modules/locale/contents/FormatsDialog.qml" line="140"/>
         <source>Dates and Times</source>
-        <translation>日期與時間</translation>
+        <translation>Tarih ve Saatler</translation>
     </message>
     <message>
         <location filename="../../../src/modules/locale/contents/FormatsDialog.qml" line="154"/>
         <source>Numbers</source>
-        <translation>數字</translation>
+        <translation>Numaralar</translation>
     </message>
     <message>
         <location filename="../../../src/modules/locale/contents/FormatsDialog.qml" line="168"/>
         <source>Measurement</source>
-        <translation>測量單位</translation>
+        <translation>Ölçü</translation>
     </message>
     <message>
         <location filename="../../../src/modules/locale/contents/FormatsDialog.qml" line="182"/>
         <source>Metric</source>
-        <translation>公制</translation>
+        <translation>Metrik</translation>
     </message>
     <message>
         <location filename="../../../src/modules/locale/contents/FormatsDialog.qml" line="184"/>
         <source>Imperial (UK)</source>
-        <translation>英制 (UK)</translation>
+        <translation>Emperyal (Birleşik Krallık)</translation>
     </message>
     <message>
         <location filename="../../../src/modules/locale/contents/FormatsDialog.qml" line="186"/>
         <source>Imperial (US)</source>
-        <translation>美制 (US)</translation>
+        <translation>Emperyal (ABD)</translation>
     </message>
     <message>
         <location filename="../../../src/modules/locale/contents/FormatsDialog.qml" line="188"/>
         <source>Imperial</source>
-        <translation>英制</translation>
+        <translation>Emperyal</translation>
     </message>
     <message>
         <location filename="../../../src/modules/locale/contents/FormatsDialog.qml" line="193"/>
         <source>Unknown</source>
-        <translation>未知</translation>
+        <translation>Bilinmeyen</translation>
     </message>
     <message>
         <location filename="../../../src/modules/locale/contents/FormatsDialog.qml" line="198"/>
         <source>Currency</source>
-        <translation>貨幣單位</translation>
+        <translation>Para Birimi</translation>
     </message>
 </context>
 <context>
@@ -80,12 +80,12 @@
     <message>
         <location filename="../../../src/modules/locale/contents/LanguageDialog.qml" line="41"/>
         <source>Language</source>
-        <translation>語言</translation>
+        <translation>Dil</translation>
     </message>
     <message>
         <location filename="../../../src/modules/locale/contents/LanguageDialog.qml" line="69"/>
         <source>Search a language</source>
-        <translation>搜尋語言</translation>
+        <translation>Dil ara</translation>
     </message>
 </context>
 <context>
@@ -93,7 +93,7 @@
     <message>
         <location filename="../../../src/modules/locale/contents/main.qml" line="52"/>
         <source>Language</source>
-        <translation>語言</translation>
+        <translation>Dil</translation>
     </message>
     <message>
         <location filename="../../../src/modules/locale/contents/main.qml" line="55"/>
@@ -106,7 +106,7 @@
     <message>
         <location filename="../../../src/modules/locale/contents/main.qml" line="63"/>
         <source>Formats</source>
-        <translation>格式</translation>
+        <translation>Biçimler</translation>
     </message>
 </context>
 </TS>

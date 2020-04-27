@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Application
+Name=Region & Language
+Comment=Select your display language and formats
+Keywords=Language;Region;Format;
+Icon=applications-system
+Categories=Qt;X-Liri;Settings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=personal
+X-Liri-Settings-SymbolicIcon=action/language
+
+
+# Translations
+Icon[tr]=applications-system
+Name[tr]=Bölge ve Dil
+Comment[tr]=Görüntüleme dilinizi ve biçimlerinizi seçin
