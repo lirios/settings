@@ -3,9 +3,8 @@ Settings
 
 [![License](https://img.shields.io/badge/license-GPLv3.0%2B-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 [![GitHub release](https://img.shields.io/github/release/lirios/settings.svg)](https://github.com/lirios/settings)
-[![Build Status](https://travis-ci.org/lirios/settings.svg?branch=develop)](https://travis-ci.org/lirios/settings)
+[![CI](https://github.com/lirios/settings/workflows/CI/badge.svg?branch=develop)](https://github.com/lirios/settings/actions?query=workflow%3ACI)
 [![GitHub issues](https://img.shields.io/github/issues/lirios/settings.svg)](https://github.com/lirios/settings/issues)
-[![Maintained](https://img.shields.io/maintenance/yes/2018.svg)](https://github.com/lirios/settings/commits/develop)
 
 Settings application and modules for Liri desktop.
 
