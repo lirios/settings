@@ -21,22 +21,22 @@
     <name>SelectorPage</name>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Fondo de pantalla</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished"/>
+        <translation>Color</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Background</source>
-        <translation type="unfinished"/>
+        <translation>Background</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Bloqueo de pantalla</translation>
     </message>
 </context>
 </TS>
