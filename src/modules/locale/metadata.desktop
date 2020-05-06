@@ -2,6 +2,7 @@
 Categories=Qt;X-Liri;Settings;
 Comment=Select your display language and formats
 Comment[da]=Vælg dit viste sprog og formater
+Comment[es_419]=Selecciona tu idioma y formatos
 Comment[fr]=Sélectionnez votre langue d'affichage et des formats
 Comment[nl]=Kies je display taal en formaat
 Comment[pt_BR]=Selecione seu idioma e formato de exibição
@@ -12,6 +13,7 @@ Icon=applications-system
 Keywords=Language;Region;Format;
 Name=Region & Language
 Name[da]=Region og sprog
+Name[es_419]=Región e idioma
 Name[fr]=Région & langue
 Name[nl]=Gebied & Taal
 Name[pt_BR]=Região e idioma
