@@ -77,7 +77,7 @@ Dialog {
             ToolButton {
                 id: transform90Button
 
-                ToolTip.text: qsTr("Rotate counterclockwise by 90\xc2\xb0")
+                ToolTip.text: qsTr("Rotate counterclockwise by 90\xb0")
                 ToolTip.visible: hovered
 
                 icon.source: FluidControls.Utils.iconUrl("image/rotate_left")
@@ -89,7 +89,7 @@ Dialog {
             ToolButton {
                 id: transform180Button
 
-                ToolTip.text: qsTr("Rotate by 180\xc2\xb0")
+                ToolTip.text: qsTr("Rotate by 180\xb0")
                 ToolTip.visible: hovered
 
                 icon.source: FluidControls.Utils.iconUrl("image/flip")
@@ -101,7 +101,7 @@ Dialog {
             ToolButton {
                 id: transform270Button
 
-                ToolTip.text: qsTr("Rotate clockwise by 90\xc2\xb0")
+                ToolTip.text: qsTr("Rotate clockwise by 90\xb0")
                 ToolTip.visible: hovered
 
                 icon.source: FluidControls.Utils.iconUrl("image/rotate_right")
