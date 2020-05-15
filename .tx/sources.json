@@ -7,8 +7,9 @@
   {
     "type": "desktop",
     "source_file": "src/app/io.liri.Settings.desktop.in",
-    "file_filter": "translations/app/io.liri.Settings_<lang>.desktop",
-    "output_path": "src/app/io.liri.Settings.desktop"
+    "dest_file": "src/app/io.liri.Settings.desktop",
+    "file_filter": "translations/data/desktop/<lang>.po",
+    "output_path": "translations/data/desktop/desktop.pot"
   },
   {
     "type": "ts",
@@ -18,8 +19,9 @@
   {
     "type": "desktop",
     "source_file": "src/modules/appearance/metadata.desktop.in",
-    "file_filter": "translations/modules/appearance/metadata_<lang>.desktop",
-    "output_path": "src/modules/appearance/metadata.desktop"
+    "dest_file": "src/modules/appearance/metadata.desktop",
+    "file_filter": "translations/modules/appearance/metadata_<lang>.po",
+    "output_path": "translations/modules/appearance/metadata.pot"
   },
   {
     "type": "ts",
@@ -29,8 +31,9 @@
   {
     "type": "desktop",
     "source_file": "src/modules/background/metadata.desktop.in",
-    "file_filter": "translations/modules/background/metadata_<lang>.desktop",
-    "output_path": "src/modules/background/metadata.desktop"
+    "dest_file": "src/modules/background/metadata.desktop",
+    "file_filter": "translations/modules/background/metadata_<lang>.po",
+    "output_path": "translations/modules/background/metadata.pot"
   },
   {
     "type": "ts",
@@ -40,8 +43,9 @@
   {
     "type": "desktop",
     "source_file": "src/modules/display/metadata.desktop.in",
-    "file_filter": "translations/modules/display/metadata_<lang>.desktop",
-    "output_path": "src/modules/display/metadata.desktop"
+    "dest_file": "src/modules/display/metadata.desktop",
+    "file_filter": "translations/modules/display/metadata_<lang>.po",
+    "output_path": "translations/modules/display/metadata.pot"
   },
   {
     "type": "ts",
@@ -51,8 +55,9 @@
   {
     "type": "desktop",
     "source_file": "src/modules/info/metadata.desktop.in",
-    "file_filter": "translations/modules/info/metadata_<lang>.desktop",
-    "output_path": "src/modules/info/metadata.desktop"
+    "dest_file": "src/modules/info/metadata.desktop",
+    "file_filter": "translations/modules/info/metadata_<lang>.po",
+    "output_path": "translations/modules/info/metadata.pot"
   },
   {
     "type": "ts",
@@ -62,8 +67,9 @@
   {
     "type": "desktop",
     "source_file": "src/modules/keyboard/metadata.desktop.in",
-    "file_filter": "translations/modules/keyboard/metadata_<lang>.desktop",
-    "output_path": "src/modules/keyboard/metadata.desktop"
+    "dest_file": "src/modules/keyboard/metadata.desktop",
+    "file_filter": "translations/modules/keyboard/metadata_<lang>.po",
+    "output_path": "translations/modules/keyboard/metadata.pot"
   },
   {
     "type": "ts",
@@ -73,8 +79,9 @@
   {
     "type": "desktop",
     "source_file": "src/modules/locale/metadata.desktop.in",
-    "file_filter": "translations/modules/locale/metadata_<lang>.desktop",
-    "output_path": "src/modules/locale/metadata.desktop"
+    "dest_file": "src/modules/locale/metadata.desktop",
+    "file_filter": "translations/modules/locale/metadata_<lang>.po",
+    "output_path": "translations/modules/locale/metadata.pot"
   },
   {
     "type": "ts",
@@ -84,7 +91,8 @@
   {
     "type": "desktop",
     "source_file": "src/modules/users/metadata.desktop.in",
-    "file_filter": "translations/modules/users/metadata_<lang>.desktop",
-    "output_path": "src/modules/users/metadata.desktop"
+    "dest_file": "src/modules/users/metadata.desktop",
+    "file_filter": "translations/modules/users/metadata_<lang>.po",
+    "output_path": "translations/modules/users/metadata.pot"
   }
 ]

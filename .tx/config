@@ -8,11 +8,10 @@ source_file = translations/app/app.ts
 file_filter = translations/app/app_<lang>.ts
 
 [liri-settings.desktop-file]
-type = DESKTOP
+type = PO
 source_lang = en
-source_file = src/app/io.liri.Settings.desktop.in
-liri_dest_file = src/app/io.liri.Settings.desktop
-file_filter = translations/app/io.liri.Settings_<lang>.desktop
+source_file = translations/data/desktop/desktop.pot
+file_filter = translations/data/desktop/<lang>.po
 
 [liri-settings.appearance-module]
 type = QT
@@ -21,10 +20,10 @@ source_file = translations/modules/appearance/appearance.ts
 file_filter = translations/modules/appearance/appearance_<lang>.ts
 
 [liri-settings.appearance-metadata]
-type = DESKTOP
+type = PO
 source_lang = en
-source_file = src/modules/appearance/metadata.desktop.in
-file_filter = translations/modules/appearance/metadata_<lang>.desktop
+source_file = translations/modules/appearance/metadata.pot
+file_filter = translations/modules/appearance/metadata_<lang>.po
 
 [liri-settings.background-module]
 type = QT
@@ -33,10 +32,10 @@ source_file = translations/modules/background/background.ts
 file_filter = translations/modules/background/background_<lang>.ts
 
 [liri-settings.background-metadata]
-type = DESKTOP
+type = PO
 source_lang = en
-source_file = src/modules/background/metadata.desktop.in
-file_filter = translations/modules/background/metadata_<lang>.desktop
+source_file = translations/modules/background/metadata.pot
+file_filter = translations/modules/background/metadata_<lang>.po
 
 [liri-settings.display-module]
 type = QT
@@ -45,10 +44,10 @@ source_file = translations/modules/display/display.ts
 file_filter = translations/modules/display/display_<lang>.ts
 
 [liri-settings.display-metadata]
-type = DESKTOP
+type = PO
 source_lang = en
-source_file = src/modules/display/metadata.desktop.in
-file_filter = translations/modules/display/metadata_<lang>.desktop
+source_file = translations/modules/display/metadata.pot
+file_filter = translations/modules/display/metadata_<lang>.po
 
 [liri-settings.info-module]
 type = QT
@@ -57,10 +56,10 @@ source_file = translations/modules/info/info.ts
 file_filter = translations/modules/info/info_<lang>.ts
 
 [liri-settings.info-metadata]
-type = DESKTOP
+type = PO
 source_lang = en
-source_file = src/modules/info/metadata.desktop.in
-file_filter = translations/modules/info/metadata_<lang>.desktop
+source_file = translations/modules/info/metadata.pot
+file_filter = translations/modules/info/metadata_<lang>.po
 
 [liri-settings.keyboard-module]
 type = QT
@@ -69,10 +68,10 @@ source_file = translations/modules/keyboard/keyboard.ts
 file_filter = translations/modules/keyboard/keyboard_<lang>.ts
 
 [liri-settings.keyboard-metadata]
-type = DESKTOP
+type = PO
 source_lang = en
-source_file = src/modules/keyboard/metadata.desktop.in
-file_filter = translations/modules/keyboard/metadata_<lang>.desktop
+source_file = translations/modules/keyboard/metadata.pot
+file_filter = translations/modules/keyboard/metadata_<lang>.po
 
 [liri-settings.locale-module]
 type = QT
@@ -81,10 +80,10 @@ source_file = translations/modules/locale/locale.ts
 file_filter = translations/modules/locale/locale_<lang>.ts
 
 [liri-settings.locale-metadata]
-type = DESKTOP
+type = PO
 source_lang = en
-source_file = src/modules/locale/metadata.desktop.in
-file_filter = translations/modules/locale/metadata_<lang>.desktop
+source_file = translations/modules/locale/metadata.pot
+file_filter = translations/modules/locale/metadata_<lang>.po
 
 [liri-settings.users-module]
 type = QT
@@ -93,7 +92,7 @@ source_file = translations/modules/users/users.ts
 file_filter = translations/modules/users/users_<lang>.ts
 
 [liri-settings.users-metadata]
-type = DESKTOP
+type = PO
 source_lang = en
-source_file = src/modules/users/metadata.desktop.in
-file_filter = translations/modules/users/metadata_<lang>.desktop
+source_file = translations/modules/users/metadata.pot
+file_filter = translations/modules/users/metadata_<lang>.po

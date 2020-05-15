@@ -1,9 +1,8 @@
 [Desktop Entry]
 Type=Application
-Name=Keyboard
-Comment=View and change keyboard shortcuts and set your typing preferences
-#TRANSLATIONS
-Keywords=shortcut;repeat;blink;
+_Name=Keyboard
+_Comment=View and change keyboard shortcuts and set your typing preferences
+_Keywords=shortcut;repeat;blink;
 Icon=input-keyboard
 Categories=Qt;X-Liri;Settings;
 OnlyShowIn=X-Liri;

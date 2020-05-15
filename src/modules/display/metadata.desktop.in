@@ -1,8 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=Displays
-Comment=Choose how to use connected monitors and projectors
-#TRANSLATIONS
+_Name=Displays
+_Comment=Choose how to use connected monitors and projectors
 Icon=preferences-desktop-display
 TryExec=liri-settings
 Exec=liri-settings display

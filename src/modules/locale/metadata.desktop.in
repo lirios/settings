@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
-Name=Region & Language
-Comment=Select your display language and formats
-Keywords=Language;Region;Format;
+_Name=Region & Language
+_Comment=Select your display language and formats
+_Keywords=Language;Region;Format;
 Icon=applications-system
 Categories=Qt;X-Liri;Settings;
 OnlyShowIn=X-Liri;

@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
-Name=Users
-Comment=Manage user accounts
-Keywords=User;Users;Me;Account;People;Person;Guest;Admin;Create;Delete;Password
+_Name=Users
+_Comment=Manage user accounts
+_Keywords=User;Users;Me;Account;People;Person;Guest;Admin;Create;Delete;Password
 Icon=preferences-system-users
 Categories=Qt;X-Liri;Settings;
 OnlyShowIn=X-Liri;

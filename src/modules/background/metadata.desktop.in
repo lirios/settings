@@ -1,8 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=Background
-Comment=Change your background image to a wallpaper, photo or solid color
-#TRANSLATIONS
+_Name=Background
+_Comment=Change your background image to a wallpaper, photo or solid color
 Icon=preferences-desktop-wallpaper
 Categories=Qt;X-Liri;Settings;
 OnlyShowIn=X-Liri;

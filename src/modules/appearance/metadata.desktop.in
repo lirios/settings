@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
-Name=Appearance
-Comment=Change the appearance of your desktop
-Keywords=Appearance;Style;Background;Wallpaper;Color;Theme;Desktop;Personalize;
+_Name=Appearance
+_Comment=Change the appearance of your desktop
+_Keywords=Appearance;Style;Background;Wallpaper;Color;Theme;Desktop;Personalize;
 Icon=applications-system
 Categories=Qt;X-Liri;Settings;
 OnlyShowIn=X-Liri;

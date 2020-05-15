@@ -1,9 +1,8 @@
 [Desktop Entry]
 Type=Application
-Name=Settings
-GenericName=Settings
-Comment=Manages system settings
-#TRANSLATIONS
+_Name=Settings
+_GenericName=Settings
+_Comment=Manages system settings
 Icon=preferences-system
 Exec=liri-settings
 TryExec=liri-settings
@@ -11,5 +10,5 @@ Terminal=false
 StartupNotify=true
 Categories=Qt;X-Liri;Settings;Core;
 OnlyShowIn=X-Liri;
-Keywords=Preferences;Settings;
+_Keywords=Preferences;Settings;
 DBusActivatable=true
