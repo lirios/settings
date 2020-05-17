@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-15 15:18+0200\n"
+"POT-Creation-Date: 2020-05-17 00:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,26 +17,26 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. (desktop-to-pot) Name
+#. (desktop-to-pot) "Name" entry
 #: io.liri.Settings.desktop.in:3
-msgctxt "Name"
+msgctxt "Name entry"
 msgid "Settings"
 msgstr ""
 
-#. (desktop-to-pot) GenericName
+#. (desktop-to-pot) "GenericName" entry
 #: io.liri.Settings.desktop.in:4
-msgctxt "GenericName"
+msgctxt "GenericName entry"
 msgid "Settings"
 msgstr ""
 
-#. (desktop-to-pot) Comment
+#. (desktop-to-pot) "Comment" entry
 #: io.liri.Settings.desktop.in:5
-msgctxt "Comment"
+msgctxt "Comment entry"
 msgid "Manages system settings"
 msgstr ""
 
-#. (desktop-to-pot) Keywords
+#. (desktop-to-pot) "Keywords" entry
 #: io.liri.Settings.desktop.in:13
-msgctxt "Keywords"
+msgctxt "Keywords entry"
 msgid "Preferences;Settings;"
 msgstr ""

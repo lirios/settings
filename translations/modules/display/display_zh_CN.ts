@@ -3,18 +3,18 @@
     <name>DetailsDialog</name>
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="80"/>
-        <source>Rotate counterclockwise by 90Â°</source>
-        <translation>逆时针旋转90°</translation>
+        <source>Rotate counterclockwise by 90°</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="92"/>
-        <source>Rotate by 180Â°</source>
-        <translation>旋转180°</translation>
+        <source>Rotate by 180°</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="104"/>
-        <source>Rotate clockwise by 90Â°</source>
-        <translation>顺时针旋转90°</translation>
+        <source>Rotate clockwise by 90°</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="123"/>

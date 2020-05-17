@@ -3,7 +3,7 @@
     <name>AddDialog</name>
     <message>
         <source>Layout:</source>
-        <translation>Mappa:</translation>
+        <translation>Mappatura:</translation>
     </message>
     <message>
         <source>Variant:</source>
@@ -14,14 +14,14 @@
     <name>KeyboardLayout</name>
     <message>
         <source>None</source>
-        <translation>Niente</translation>
+        <translation>Nessuna</translation>
     </message>
 </context>
 <context>
     <name>LayoutPage</name>
     <message>
         <source>Type to test the layout...</source>
-        <translation>Scrivi per testare la mappa...</translation>
+        <translation>Scrivi per testare la mappatura...</translation>
     </message>
     <message>
         <source>Model and Test</source>
@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>Layout</source>
-        <translation>Mappa</translation>
+        <translation>Mappatura</translation>
     </message>
     <message>
         <source>No variant</source>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Add layout...</source>
-        <translation type="unfinished"/>
+        <translation>Aggiungi mappatura...</translation>
     </message>
 </context>
 <context>
@@ -91,15 +91,15 @@
     <name>main</name>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Scorciatoie</translation>
     </message>
     <message>
         <source>Behavior</source>
-        <translation type="unfinished"/>
+        <translation>Comportamento</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Mappatura</translation>
     </message>
 </context>
 </TS>

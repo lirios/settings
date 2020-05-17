@@ -14,7 +14,7 @@
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Account type</source>
@@ -112,7 +112,7 @@
     </message>
     <message>
         <source>Wrong password verification</source>
-        <translation type="unfinished"/>
+        <translation>Verifica password errata</translation>
     </message>
     <message>
         <source>The passwords did not match.</source>
@@ -127,15 +127,15 @@
     <name>main</name>
     <message>
         <source>Your Account</source>
-        <translation type="unfinished"/>
+        <translation>Il tuo account</translation>
     </message>
     <message>
         <source>Other Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Altri account</translation>
     </message>
     <message>
         <source>Add user...</source>
-        <translation type="unfinished"/>
+        <translation>Aggiungi utente...</translation>
     </message>
 </context>
 </TS>
