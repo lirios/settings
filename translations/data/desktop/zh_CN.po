@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>, 2020
+# Jack Works <jackworks@protonmail.com>, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-15 15:18+0200\n"
+"POT-Creation-Date: 2020-05-18 00:17+0000\n"
 "PO-Revision-Date: 2020-05-15 13:18+0000\n"
-"Last-Translator: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>, 2020\n"
+"Last-Translator: Jack Works <jackworks@protonmail.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/lirios/teams/71982/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,26 +21,26 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#. (desktop-to-pot) Name
+#. (desktop-to-pot) "Name" entry
 #: io.liri.Settings.desktop.in:3
-msgctxt "Name"
+msgctxt "Name entry"
 msgid "Settings"
 msgstr "设置"
 
-#. (desktop-to-pot) GenericName
+#. (desktop-to-pot) "GenericName" entry
 #: io.liri.Settings.desktop.in:4
-msgctxt "GenericName"
+msgctxt "GenericName entry"
 msgid "Settings"
 msgstr "设置"
 
-#. (desktop-to-pot) Comment
+#. (desktop-to-pot) "Comment" entry
 #: io.liri.Settings.desktop.in:5
-msgctxt "Comment"
+msgctxt "Comment entry"
 msgid "Manages system settings"
 msgstr "管理系统设置"
 
-#. (desktop-to-pot) Keywords
+#. (desktop-to-pot) "Keywords" entry
 #: io.liri.Settings.desktop.in:13
-msgctxt "Keywords"
+msgctxt "Keywords entry"
 msgid "Preferences;Settings;"
-msgstr ""
+msgstr "首选项;设置;设定;"

@@ -4,17 +4,17 @@
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="80"/>
         <source>Rotate counterclockwise by 90°</source>
-        <translation type="unfinished"/>
+        <translation>Saat yönünün tersine 90° döndür</translation>
     </message>
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="92"/>
         <source>Rotate by 180°</source>
-        <translation type="unfinished"/>
+        <translation>180° döndür</translation>
     </message>
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="104"/>
         <source>Rotate clockwise by 90°</source>
-        <translation type="unfinished"/>
+        <translation>Saat yönünde 90° döndür</translation>
     </message>
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="123"/>
