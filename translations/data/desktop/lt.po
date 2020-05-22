@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>, 2020
+# Moo, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-15 15:18+0200\n"
+"POT-Creation-Date: 2020-05-22 00:17+0000\n"
 "PO-Revision-Date: 2020-05-15 13:18+0000\n"
-"Last-Translator: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>, 2020\n"
+"Last-Translator: Moo, 2020\n"
 "Language-Team: Lithuanian (https://www.transifex.com/lirios/teams/71982/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,26 +21,26 @@ msgstr ""
 "Language: lt\n"
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
 
-#. (desktop-to-pot) Name
+#. (desktop-to-pot) "Name" entry
 #: io.liri.Settings.desktop.in:3
-msgctxt "Name"
+msgctxt "Name entry"
 msgid "Settings"
 msgstr "Nustatymai"
 
-#. (desktop-to-pot) GenericName
+#. (desktop-to-pot) "GenericName" entry
 #: io.liri.Settings.desktop.in:4
-msgctxt "GenericName"
+msgctxt "GenericName entry"
 msgid "Settings"
 msgstr "Nustatymai"
 
-#. (desktop-to-pot) Comment
+#. (desktop-to-pot) "Comment" entry
 #: io.liri.Settings.desktop.in:5
-msgctxt "Comment"
+msgctxt "Comment entry"
 msgid "Manages system settings"
 msgstr "Tvarko sistemos nustatymus"
 
-#. (desktop-to-pot) Keywords
+#. (desktop-to-pot) "Keywords" entry
 #: io.liri.Settings.desktop.in:13
-msgctxt "Keywords"
+msgctxt "Keywords entry"
 msgid "Preferences;Settings;"
-msgstr ""
+msgstr "Nuostatos;Nustatymai;"

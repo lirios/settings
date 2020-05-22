@@ -4,17 +4,17 @@
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="80"/>
         <source>Rotate counterclockwise by 90°</source>
-        <translation type="unfinished"/>
+        <translation>Pasukti 90° prieš laikrodžio rodyklę</translation>
     </message>
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="92"/>
         <source>Rotate by 180°</source>
-        <translation type="unfinished"/>
+        <translation>Pasukti 180°</translation>
     </message>
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="104"/>
         <source>Rotate clockwise by 90°</source>
-        <translation type="unfinished"/>
+        <translation>Pasukti 90° pagal laikrodžio rodyklę</translation>
     </message>
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="123"/>
