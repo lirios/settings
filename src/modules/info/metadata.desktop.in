@@ -2,7 +2,7 @@
 Type=Application
 _Name=Details
 _Comment=View information about your system
-_Keywords=Device;System;Information;Memory;Processor;Version;Default;Application;Preferred;CD;DVD;USB;Audio;Video;Disc;Removable;Media;Autorun
+_Keywords=Device;System;Information;Memory;Processor;Version;Default;Application;Preferred;CD;DVD;USB;Audio;Video;Disc;Removable;Media;Autorun;
 Icon=applications-system
 Categories=Qt;X-Liri;Settings;
 OnlyShowIn=X-Liri;
