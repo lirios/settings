@@ -3,13 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Man from Mars, 2020
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-16 12:53+0200\n"
+"POT-Creation-Date: 2020-05-23 00:29+0000\n"
 "PO-Revision-Date: 2020-05-16 10:51+0000\n"
+"Last-Translator: Man from Mars, 2020\n"
 "Language-Team: Italian (https://www.transifex.com/lirios/teams/71982/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,10 +25,10 @@ msgstr ""
 #: metadata.desktop.in:3
 msgctxt "Name entry"
 msgid "Displays"
-msgstr ""
+msgstr "Schermi"
 
 #. (desktop-to-pot) "Comment" entry
 #: metadata.desktop.in:4
 msgctxt "Comment entry"
 msgid "Choose how to use connected monitors and projectors"
-msgstr ""
+msgstr "Scegli come usare gli schermi ed i proiettori collegati"
