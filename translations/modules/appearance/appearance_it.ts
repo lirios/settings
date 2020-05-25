@@ -9,12 +9,12 @@
     <message>
         <location filename="../../../src/modules/appearance/contents/main.qml" line="45"/>
         <source>Transparent app shelf</source>
-        <translation type="unfinished"/>
+        <translation>Trasparenza barra degli strumenti</translation>
     </message>
     <message>
         <location filename="../../../src/modules/appearance/contents/main.qml" line="65"/>
         <source>Accent color</source>
-        <translation type="unfinished"/>
+        <translation>Tinte unite</translation>
     </message>
 </context>
 </TS>
