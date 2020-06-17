@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>Set a password now</source>
-        <translation>Ввести пароль сейчас</translation>
+        <translation>Установить пароль сейчас</translation>
     </message>
     <message>
         <source>No password</source>
@@ -116,7 +116,7 @@
     </message>
     <message>
         <source>The passwords did not match.</source>
-        <translation>Пароли не совпадают</translation>
+        <translation>Пароли не совпадают.</translation>
     </message>
     <message>
         <source>Password changed</source>
@@ -127,15 +127,15 @@
     <name>main</name>
     <message>
         <source>Your Account</source>
-        <translation type="unfinished"/>
+        <translation>Ваш аккаунт</translation>
     </message>
     <message>
         <source>Other Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Другие аккаунты</translation>
     </message>
     <message>
         <source>Add user...</source>
-        <translation type="unfinished"/>
+        <translation>Добавить пользователя...</translation>
     </message>
 </context>
 </TS>

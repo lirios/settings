@@ -21,7 +21,7 @@
     <name>LayoutPage</name>
     <message>
         <source>Type to test the layout...</source>
-        <translation>Проверьте раскладку...</translation>
+        <translation>Введите что-нибудь для проверки раскладки...</translation>
     </message>
     <message>
         <source>Model and Test</source>
@@ -76,7 +76,7 @@
     </message>
     <message>
         <source>Timeout</source>
-        <translation>Тайм-аут:</translation>
+        <translation>Тайм-аут</translation>
     </message>
     <message>
         <source>Input Sources</source>
@@ -91,11 +91,11 @@
     <name>main</name>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Сокращения</translation>
     </message>
     <message>
         <source>Behavior</source>
-        <translation type="unfinished"/>
+        <translation>Поведение</translation>
     </message>
     <message>
         <source>Layout</source>

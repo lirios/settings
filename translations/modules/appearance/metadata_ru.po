@@ -3,13 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Irina Fedulova <istartlin@gmail.com>, 2020
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-15 15:38+0200\n"
+"POT-Creation-Date: 2020-06-17 00:26+0000\n"
 "PO-Revision-Date: 2020-05-15 13:40+0000\n"
+"Last-Translator: Irina Fedulova <istartlin@gmail.com>, 2020\n"
 "Language-Team: Russian (https://www.transifex.com/lirios/teams/71982/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,16 +25,16 @@ msgstr ""
 #: metadata.desktop.in:3
 msgctxt "Name entry"
 msgid "Appearance"
-msgstr ""
+msgstr "Внешний вид"
 
 #. (desktop-to-pot) "Comment" entry
 #: metadata.desktop.in:4
 msgctxt "Comment entry"
 msgid "Change the appearance of your desktop"
-msgstr ""
+msgstr "Изменить внешний вид вашего рабочего стола"
 
 #. (desktop-to-pot) "Keywords" entry
 #: metadata.desktop.in:5
 msgctxt "Keywords entry"
 msgid "Appearance;Style;Background;Wallpaper;Color;Theme;Desktop;Personalize;"
-msgstr ""
+msgstr "Внешний вид;Стиль;Фон;Обои;Цвет;Тема;Рабочий стол;Персонализация;"
