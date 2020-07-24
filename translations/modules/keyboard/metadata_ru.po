@@ -38,4 +38,4 @@ msgstr ""
 #: metadata.desktop.in:5
 msgctxt "Keywords entry"
 msgid "shortcut;repeat;blink;"
-msgstr ""
+msgstr "shortcut;repeat;blink;"

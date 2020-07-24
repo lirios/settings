@@ -11,7 +11,7 @@
     </message>
     <message>
         <source>You are now %1 steps from becoming a developer</source>
-        <translation>Вы в %1 шагах от того чтобы стать разработчиком</translation>
+        <translation>Вы в %1 шагах от того, чтобы стать разработчиком</translation>
     </message>
     <message>
         <source>Open Web site...</source>

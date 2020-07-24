@@ -4,7 +4,7 @@
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="80"/>
         <source>Rotate counterclockwise by 90°</source>
-        <translation type="unfinished"/>
+        <translation>Повернуть против часовой стрелки на 90°</translation>
     </message>
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="92"/>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="104"/>
         <source>Rotate clockwise by 90°</source>
-        <translation type="unfinished"/>
+        <translation>Повернуть по часовой стрелке на 90°</translation>
     </message>
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="123"/>

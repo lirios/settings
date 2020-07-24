@@ -47,7 +47,7 @@
     <message>
         <location filename="../../../src/modules/locale/contents/FormatsDialog.qml" line="182"/>
         <source>Metric</source>
-        <translation type="unfinished"/>
+        <translation>Метрический</translation>
     </message>
     <message>
         <location filename="../../../src/modules/locale/contents/FormatsDialog.qml" line="184"/>

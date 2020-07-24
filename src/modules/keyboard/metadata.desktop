@@ -18,6 +18,7 @@ Keywords=shortcut;repeat;blink;
 Keywords[da]=genvej;gentag;blink;
 Keywords[it]=Scorciatoia;Ripetizione;Lampeggiamento;
 Keywords[pt_BR]=atalho;repetir;piscar;
+Keywords[ru]=shortcut;repeat;blink;
 Keywords[tr]=kısayol;yineleme;yanıpsönme;gözkırpma;
 Icon=input-keyboard
 Categories=Qt;X-Liri;Settings;
