@@ -20,6 +20,7 @@ Keywords=Device;System;Information;Memory;Processor;Version;Default;Application;
 Keywords[da]=Enhed;System;Information;Hukommelse;Processor;Version;Standard;Program;Foretrukket;CD;DVD;USB;Lyd;Video;Disk;Flytbar;Medier;Automatisk kørsel;
 Keywords[it]=Dispositivo;Sistema;Informazione;Memoria;Processore;Versione;Predefinito;Applicazione;Preferito;CD;DVD;USB;Audio;Video;Disco;Rimovibile;Media;Autorun
 Keywords[lt]=Įrenginys;Sistema;Sistemos;Informacija;Atmintis;Procesorius;Versija;Numatytoji;Numatytasis;Numatytosios;Programa;Programos;Pageidaujamos;CD;DVD;USB;Audio;Garsas;Video;Vaizdas;Diskas;Keičiamasis;Keičiamieji;Diskai;Medija;Automatinis paleidimas;
+Keywords[pt_BR]=Dispositivo;Sistema;Informação;Memória;Processador;Versão;Padrão;Aplicativo;Preferido;Preferencial;CD;DVD;USB;Áudio;Vídeo;Disco;Removível;Mídia;Executar automaticamente;
 Keywords[ru]=Устройство;Система;Информация;Память;Процессор;Версия;По умолчанию;Приложение;Предпочитаемое;CD;DVD;USB;Аудио;Видео;Диск;Удаляемое;Медиа;Автозапуск;
 Keywords[tr]=Aygıt;Sistem;Bilgi;Bellek;İşlemci;Sürüm;Öntanımlı;Varsayılan;Uygulama;Yeğlenen;Tercihli;CD;DVD;USB;Ses;Video;Disk;Kaldırılabilir;Çıkarılabilir;Ortam;Kendiliğindençalıştırma;
 Icon=applications-system
