@@ -14,7 +14,7 @@
     <message>
         <location filename="../../../src/modules/appearance/contents/main.qml" line="65"/>
         <source>Accent color</source>
-        <translation type="unfinished"/>
+        <translation>Акцентный цвет</translation>
     </message>
 </context>
 </TS>

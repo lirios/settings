@@ -36,10 +36,10 @@ msgstr "Настройки"
 #: io.liri.Settings.desktop.in:5
 msgctxt "Comment entry"
 msgid "Manages system settings"
-msgstr ""
+msgstr "Управляет настройками системы"
 
 #. (desktop-to-pot) "Keywords" entry
 #: io.liri.Settings.desktop.in:13
 msgctxt "Keywords entry"
 msgid "Preferences;Settings;"
-msgstr ""
+msgstr "Предпочтения;Настройки;"

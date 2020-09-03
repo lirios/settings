@@ -24,7 +24,7 @@
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="137"/>
         <source>Aspect Ratio:</source>
-        <translation type="unfinished"/>
+        <translation>Соотношение сторон:</translation>
     </message>
     <message>
         <location filename="../../../src/modules/display/contents/DetailsDialog.qml" line="151"/>

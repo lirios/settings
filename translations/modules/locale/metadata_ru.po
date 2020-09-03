@@ -30,7 +30,7 @@ msgstr "Регион & Язык"
 #: metadata.desktop.in:4
 msgctxt "Comment entry"
 msgid "Select your display language and formats"
-msgstr ""
+msgstr "Выбрать язык показа и форматы"
 
 #. (desktop-to-pot) "Keywords" entry
 #: metadata.desktop.in:5
