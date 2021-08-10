@@ -2,6 +2,7 @@
 Type=Application
 Name=Displays
 Name[da]=Skærme
+Name[de]=Bildschirme
 Name[it]=Schermi
 Name[lt]=Ekranai
 Name[pt_BR]=Telas
@@ -9,6 +10,7 @@ Name[tr]=Ekranlar
 Name[zh_CN]=显示器
 Comment=Choose how to use connected monitors and projectors
 Comment[da]=Vælg hvordan tilsluttede skærme og projektorer skal bruges
+Comment[de]=Wählen Sie aus, wie Sie angeschlossene Monitore und Projektoren verwenden möchten
 Comment[it]=Scegli come usare gli schermi ed i proiettori collegati
 Comment[lt]=Pasirinkti kaip naudoti prijungtus monitorius ir projektorius
 Comment[pt_BR]=Escolha como usar os monitores e projetores conectados

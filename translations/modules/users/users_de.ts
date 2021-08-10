@@ -3,7 +3,7 @@
     <name>PhotoPicker</name>
     <message>
         <source>Browse...</source>
-        <translation>Suchen...</translation>
+        <translation>Durchsuchen ...</translation>
     </message>
 </context>
 <context>
@@ -18,7 +18,7 @@
     </message>
     <message>
         <source>Account type</source>
-        <translation>Account-Typ</translation>
+        <translation>Kontotyp</translation>
     </message>
     <message>
         <source>Standard</source>
@@ -38,11 +38,11 @@
     </message>
     <message>
         <source>Allow user to set a password at the next login</source>
-        <translation>Dem Benutzer erlauben beim nächsten Login ein Passwort festzulegen</translation>
+        <translation>Dem Benutzer erlauben, bei der nächsten Anmeldung ein Passwort festzulegen</translation>
     </message>
     <message>
         <source>Set a password now</source>
-        <translation>Jetzt ein Passwort Festlegen</translation>
+        <translation>Jetzt ein Passwort festlegen</translation>
     </message>
     <message>
         <source>No password</source>
@@ -54,14 +54,14 @@
     </message>
     <message>
         <source>Verify new password</source>
-        <translation>Neues Passwort Verifizieren</translation>
+        <translation>Neues Passwort verifizieren</translation>
     </message>
 </context>
 <context>
     <name>UserListItem</name>
     <message>
         <source>Do you want to keep %1&apos;s files?</source>
-        <translation type="unfinished"/>
+        <translation>Möchten Sie die Dateien von %1 behalten?</translation>
     </message>
     <message>
         <source>It is possible to keep the home directory, mail spool and temporary files around when deleting a user account.</source>
@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>Remove user</source>
-        <translation>Benutzer Entfernen</translation>
+        <translation>Benutzer entfernen</translation>
     </message>
 </context>
 <context>
@@ -80,7 +80,7 @@
     </message>
     <message>
         <source>Account type</source>
-        <translation>Account-Typ</translation>
+        <translation>Kontotyp</translation>
     </message>
     <message>
         <source>Standard</source>
@@ -92,7 +92,7 @@
     </message>
     <message>
         <source>Automatic login</source>
-        <translation>Automatisch Anmelden</translation>
+        <translation>Automatisch anmelden</translation>
     </message>
     <message>
         <source>Password</source>
@@ -104,7 +104,7 @@
     </message>
     <message>
         <source>Verify new password</source>
-        <translation>Neues Passwort Verifizieren</translation>
+        <translation>Neues Passwort verifizieren</translation>
     </message>
     <message>
         <source>Change</source>
@@ -112,7 +112,7 @@
     </message>
     <message>
         <source>Wrong password verification</source>
-        <translation>Falsche Passwort Verifizierung</translation>
+        <translation>Falsche Passwortverifizierung</translation>
     </message>
     <message>
         <source>The passwords did not match.</source>
@@ -127,15 +127,15 @@
     <name>main</name>
     <message>
         <source>Your Account</source>
-        <translation type="unfinished"/>
+        <translation>Ihr Konto</translation>
     </message>
     <message>
         <source>Other Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Andere Konten</translation>
     </message>
     <message>
         <source>Add user...</source>
-        <translation type="unfinished"/>
+        <translation>Benutzer hinzufügen ...</translation>
     </message>
 </context>
 </TS>

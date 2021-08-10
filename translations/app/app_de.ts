@@ -1,40 +1,35 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
 <context>
-    <name>PluginsModel</name>
+    <name>ErrorView</name>
+    <message>
+        <source>Error loading &quot;%1&quot;</source>
+        <translation>Fehler beim Laden von „%1“</translation>
+    </message>
+</context>
+<context>
+    <name>SettingsPage</name>
+    <message>
+        <source>Settings</source>
+        <translation>Einstellungen</translation>
+    </message>
     <message>
         <source>Personal</source>
-        <translation type="unfinished"/>
+        <translation>Persönlich</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished"/>
+        <translation>Hardware</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>System</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
-        <source>System Preferences</source>
-        <translation type="vanished">Systemeinstellungen</translation>
-    </message>
-    <message>
-        <source>Keywords</source>
-        <translation type="vanished">Schlüsselwörter</translation>
-    </message>
-    <message>
-        <source>Personal</source>
-        <translation type="vanished">Persönlich</translation>
-    </message>
-    <message>
-        <source>Hardware</source>
-        <translation type="vanished">Hardware</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation type="vanished">System</translation>
+        <source>Settings</source>
+        <translation>Einstellungen</translation>
     </message>
 </context>
 </TS>

@@ -2,6 +2,7 @@
 Type=Application
 Name=Background
 Name[da]=Baggrund
+Name[de]=Hintergrund
 Name[it]=Sfondo
 Name[lt]=Fonas
 Name[pt_BR]=Plano de fundo
@@ -10,6 +11,7 @@ Name[tr]=Arka Plan
 Name[zh_CN]=背景
 Comment=Change your background image to a wallpaper, photo or solid color
 Comment[da]=Skift dit baggrundsbillede til et tapet, billede eller ensfarvet farve
+Comment[de]=Ändern Sie Ihren Hintergrund in ein Hintergrundbild, ein Foto oder eine Volltonfarbe
 Comment[it]=Cambia l'immagine di sfondo con un wallpaper, una foto o un colore
 Comment[lt]=Keisti fono paveikslą į darbalaukio foną, nuotrauką ar vientisą spalvą
 Comment[pt_BR]=Altere seu plano de fundo para uma imagem, fotografia ou cor sólida

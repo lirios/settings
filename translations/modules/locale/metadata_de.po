@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-16 11:28+0000\n"
+"PO-Revision-Date: 2020-05-16 11:35+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>, 2021\n"
 "Language-Team: German (https://www.transifex.com/lirios/teams/71982/de/)\n"
 "MIME-Version: 1.0\n"
@@ -23,19 +23,17 @@ msgstr ""
 #. (desktop-to-pot) "Name" entry
 #: metadata.desktop.in:3
 msgctxt "Name entry"
-msgid "Keyboard"
-msgstr "Tastatur"
+msgid "Region & Language"
+msgstr "Region & Sprache"
 
 #. (desktop-to-pot) "Comment" entry
 #: metadata.desktop.in:4
 msgctxt "Comment entry"
-msgid "View and change keyboard shortcuts and set your typing preferences"
-msgstr ""
-"Anzeigen und Ändern von Tastenkombinationen und Festlegen Ihrer "
-"Eingabeeinstellungen"
+msgid "Select your display language and formats"
+msgstr "Wählen Sie Ihre Anzeigesprache und -formate aus"
 
 #. (desktop-to-pot) "Keywords" entry
 #: metadata.desktop.in:5
 msgctxt "Keywords entry"
-msgid "shortcut;repeat;blink;"
-msgstr "Tastenkombination;Wiederholen;Blinken;"
+msgid "Language;Region;Format;"
+msgstr "Sprache;Region;Format;"

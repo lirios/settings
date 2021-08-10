@@ -3,7 +3,7 @@
     <name>AddDialog</name>
     <message>
         <source>Layout:</source>
-        <translation>Layout:</translation>
+        <translation>Anordnung:</translation>
     </message>
     <message>
         <source>Variant:</source>
@@ -21,7 +21,7 @@
     <name>LayoutPage</name>
     <message>
         <source>Type to test the layout...</source>
-        <translation>Tippen, um das Layout zu testen...</translation>
+        <translation>Tippen, um die Anordnung zu testen...</translation>
     </message>
     <message>
         <source>Model and Test</source>
@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>Layout</source>
-        <translation>Layout</translation>
+        <translation>Anordnung</translation>
     </message>
     <message>
         <source>No variant</source>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Add layout...</source>
-        <translation type="unfinished"/>
+        <translation>Anordnung hinzufügen...</translation>
     </message>
 </context>
 <context>
@@ -76,7 +76,7 @@
     </message>
     <message>
         <source>Timeout</source>
-        <translation>Timeout</translation>
+        <translation>Zeitüberschreitung</translation>
     </message>
     <message>
         <source>Input Sources</source>
@@ -91,15 +91,15 @@
     <name>main</name>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Tastenkombinationen</translation>
     </message>
     <message>
         <source>Behavior</source>
-        <translation type="unfinished"/>
+        <translation>Verhalten</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"/>
+        <translation>Anordnung</translation>
     </message>
 </context>
 </TS>
