@@ -23,6 +23,8 @@ liri_add_qml_plugin(locale
         Qt5::Quick
 )
 
+liri_finalize_qml_plugin(locale)
+
 liri_add_settings_module(Locale
     CONTENTS
         contents/main.qml

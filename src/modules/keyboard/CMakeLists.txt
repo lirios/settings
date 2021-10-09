@@ -23,6 +23,8 @@ liri_add_qml_plugin(keyboard
         Qt5::Quick
 )
 
+liri_finalize_qml_plugin(keyboard)
+
 liri_add_settings_module(Keyboard
     CONTENTS
         contents/AddDialog.qml

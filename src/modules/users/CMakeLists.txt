@@ -18,6 +18,8 @@ liri_add_qml_plugin(users
         Libcrypt::Libcrypt
 )
 
+liri_finalize_qml_plugin(users)
+
 liri_add_settings_module(Users
     CONTENTS
         contents/main.qml

@@ -17,6 +17,8 @@ liri_add_qml_plugin(background
         Qt5::Quick
 )
 
+liri_finalize_qml_plugin(background)
+
 liri_add_settings_module(Background
     CONTENTS
         contents/ColorButton.qml

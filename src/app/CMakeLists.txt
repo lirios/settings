@@ -40,6 +40,8 @@ liri_add_executable(LiriSettings
     QTQUICK_COMPILER
 )
 
+liri_finalize_executable(LiriSettings)
+
 if(IS_ABSOLUTE "${INSTALL_BINDIR}")
     set(BINDIR "${INSTALL_BINDIR}")
 else()

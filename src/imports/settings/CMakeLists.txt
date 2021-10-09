@@ -30,3 +30,5 @@ liri_add_qml_plugin(settings
         PkgConfig::Polkit
         Liri::Xdg
 )
+
+liri_finalize_qml_plugin(settings)
