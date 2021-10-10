@@ -1,6 +1,8 @@
-liri_add_qml_plugin(display
+liri_add_qml_plugin(DisplayQmlPlugin
     MODULE_PATH
         "Liri/Settings/Display"
+    OUTPUT_NAME
+        "displayplugin"
     SOURCES
         outputdevice.h
         outputsmodel.cpp
@@ -23,7 +25,7 @@ liri_add_qml_plugin(display
         Qt5::Quick
 )
 
-liri_finalize_qml_plugin(display)
+liri_finalize_qml_plugin(DisplayQmlPlugin)
 
 liri_add_settings_module(Display
     CONTENTS

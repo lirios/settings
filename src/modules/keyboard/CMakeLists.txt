@@ -1,6 +1,8 @@
-liri_add_qml_plugin(keyboard
+liri_add_qml_plugin(SettingsKeyboardQmlPlugin
     MODULE_PATH
         "Liri/Settings/Keyboard"
+    OUTPUT_NAME
+        "keyboardplugin"
     SOURCES
         keyboarddata.cpp
         keyboarddata.h
@@ -23,7 +25,7 @@ liri_add_qml_plugin(keyboard
         Qt5::Quick
 )
 
-liri_finalize_qml_plugin(keyboard)
+liri_finalize_qml_plugin(SettingsKeyboardQmlPlugin)
 
 liri_add_settings_module(Keyboard
     CONTENTS

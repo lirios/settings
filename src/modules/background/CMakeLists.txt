@@ -1,6 +1,8 @@
-liri_add_qml_plugin(background
+liri_add_qml_plugin(SettingsBackgroundQmlPlugin
     MODULE_PATH
         "Liri/Settings/Background"
+    OUTPUT_NAME
+        "backgroundplugin"
     SOURCES
         backgroundsmodel.cpp
         backgroundsmodel.h
@@ -17,7 +19,7 @@ liri_add_qml_plugin(background
         Qt5::Quick
 )
 
-liri_finalize_qml_plugin(background)
+liri_finalize_qml_plugin(SettingsBackgroundQmlPlugin)
 
 liri_add_settings_module(Background
     CONTENTS

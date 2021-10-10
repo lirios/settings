@@ -4,9 +4,11 @@ if(NOT TARGET Liri::Xdg)
     find_package(Liri1Xdg REQUIRED)
 endif()
 
-liri_add_qml_plugin(settings
+liri_add_qml_plugin(SettingsQmlPlugin
     MODULE_PATH
         "Liri/Settings"
+    OUTPUT_NAME
+        "settingsplugin"
     SOURCES
         authorizedaction.cpp
         authorizedaction.h
@@ -31,4 +33,4 @@ liri_add_qml_plugin(settings
         Liri::Xdg
 )
 
-liri_finalize_qml_plugin(settings)
+liri_finalize_qml_plugin(SettingsQmlPlugin)

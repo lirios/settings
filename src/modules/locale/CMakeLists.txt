@@ -1,6 +1,8 @@
-liri_add_qml_plugin(locale
+liri_add_qml_plugin(SettingsLocaleQmlPlugin
     MODULE_PATH
         "Liri/Settings/Locale"
+    OUTPUT_NAME
+        "localeplugin"
     SOURCES
         localefiltermodel.cpp
         localefiltermodel.h
@@ -23,7 +25,7 @@ liri_add_qml_plugin(locale
         Qt5::Quick
 )
 
-liri_finalize_qml_plugin(locale)
+liri_finalize_qml_plugin(SettingsLocaleQmlPlugin)
 
 liri_add_settings_module(Locale
     CONTENTS
