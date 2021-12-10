@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+_Name=System Updates
+_Comment=Update the operating system
+_Keywords=System;Online;Update;Software;
+Icon=system-software-update
+Categories=Qt;X-Liri;Settings;
+OnlyShowIn=X-Liri;
+X-Liri-Settings-Category=system
+X-Liri-Settings-SymbolicIcon=notification/system_update
