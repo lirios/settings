@@ -28,6 +28,8 @@
 #include "keyboardmodel.h"
 #include "keyboardlayout.h"
 
+using namespace Qt::Literals::StringLiterals;
+
 enum ListSection{
     NoSection,
     ModelSection,
@@ -53,7 +55,7 @@ QQmlListProperty<KeyboardModel> KeyboardData::models()
     auto countFunc = [](QQmlListProperty<KeyboardModel> *prop) {
         return static_cast<KeyboardData *>(prop->object)->m_models.count();
     };
-    auto atFunc = [](QQmlListProperty<KeyboardModel> *prop, int index) {
+    auto atFunc = [](QQmlListProperty<KeyboardModel> *prop, qsizetype index) {
         return static_cast<KeyboardData *>(prop->object)->m_models.at(index);
     };
     return QQmlListProperty<KeyboardModel>(this, 0, countFunc, atFunc);
@@ -64,7 +66,7 @@ QQmlListProperty<KeyboardLayout> KeyboardData::layouts()
     auto countFunc = [](QQmlListProperty<KeyboardLayout> *prop) {
         return static_cast<KeyboardData *>(prop->object)->m_layouts.count();
     };
-    auto atFunc = [](QQmlListProperty<KeyboardLayout> *prop, int index) {
+    auto atFunc = [](QQmlListProperty<KeyboardLayout> *prop, qsizetype index) {
         return static_cast<KeyboardData *>(prop->object)->m_layouts.at(index);
     };
     return QQmlListProperty<KeyboardLayout>(this, 0, countFunc, atFunc);
@@ -132,7 +134,7 @@ void KeyboardData::loadData()
             }
 
             int sep = line.indexOf(' ');
-            QString name = QString::fromLatin1(line, sep);
+            QString name = QString::fromLatin1(line.constData(), sep);
             while (line[sep] == ' ') // skip spaces
                 ++sep;
             QString description = QString::fromUtf8(line.constData() + sep);
@@ -148,7 +150,7 @@ void KeyboardData::loadData()
                 break;
             case VariantSection:
                 // The descriptions of variants are prefixed by their language IDs
-                sep = description.indexOf(": ");
+                sep = description.indexOf(": "_L1);
                 if (sep >= 0) {
                     QString lang = description.left(sep);
                     for (KeyboardLayout *layout : qAsConst(m_layouts)) {

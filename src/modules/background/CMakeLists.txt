@@ -1,25 +1,24 @@
-liri_add_qml_plugin(SettingsBackgroundQmlPlugin
-    MODULE_PATH
-        "Liri/Settings/Background"
-    OUTPUT_NAME
-        "backgroundplugin"
-    SOURCES
-        backgroundsmodel.cpp
-        backgroundsmodel.h
-        colorsmodel.cpp
-        colorsmodel.h
-        plugin.cpp
-    QML_FILES
-        qmldir
-    DEFINES
-        #QT_NO_CAST_FROM_ASCII
-        QT_NO_FOREACH
-    LIBRARIES
-        Qt5::Qml
-        Qt5::Quick
+ecm_add_qml_module(SettingsBackgroundQmlPlugin
+    URI Liri.Settings.Background
+    VERSION 1.0
+    CLASS_NAME BackgroundCorePlugin
+    NO_GENERATE_PLUGIN_SOURCE
 )
 
-liri_finalize_qml_plugin(SettingsBackgroundQmlPlugin)
+target_sources(SettingsBackgroundQmlPlugin
+    PRIVATE
+        backgroundsmodel.cpp backgroundsmodel.h
+        colorsmodel.cpp colorsmodel.h
+        plugin.cpp
+)
+
+target_link_libraries(SettingsBackgroundQmlPlugin
+    PRIVATE
+        Qt6::Qml
+        Qt6::Quick
+)
+
+ecm_finalize_qml_module(SettingsBackgroundQmlPlugin)
 
 liri_add_settings_module(Background
     CONTENTS

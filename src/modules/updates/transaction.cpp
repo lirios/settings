@@ -122,6 +122,12 @@ void Transaction::handleDownloadProgress(RpmOstree::TimeData time,
                                          RpmOstree::ContentData content,
                                          RpmOstree::TransferData transfer)
 {
+    Q_UNUSED(time)
+    Q_UNUSED(outstanding)
+    Q_UNUSED(metadata)
+    Q_UNUSED(delta)
+    Q_UNUSED(content)
+
     qCInfo(gLcUpdates, "Transaction \"%s\" download progress: %lld bytes/s",
            qPrintable(m_name), transfer.bytesPerSecond);
     setStatus(DownloadingStatus);
@@ -159,6 +165,9 @@ void Transaction::handleProgressEnd()
 
 void Transaction::handleSignatureProgress(const QVariantList &signature, const QString &commit)
 {
+    Q_UNUSED(signature)
+    Q_UNUSED(commit)
+
     qCInfo(gLcUpdates, "Transaction \"%s\" signature progress",
            qPrintable(m_name));
 }

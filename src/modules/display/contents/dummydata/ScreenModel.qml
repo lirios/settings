@@ -21,7 +21,7 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.0
+import QtQuick
 
 ListModel {
     ListElement { name: "Built-in display"; physicalSize: Qt.size(30, 30) }

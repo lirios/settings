@@ -22,6 +22,7 @@ class SoftwareUpdate : public QObject, public QQmlParserStatus
     Q_PROPERTY(RpmDiffModel *model READ model CONSTANT)
     Q_PROPERTY(Transaction *currentTransaction READ currentTransaction NOTIFY currentTransactionChanged)
     Q_INTERFACES(QQmlParserStatus)
+    Q_MOC_INCLUDE("transaction.h")
 public:
     explicit SoftwareUpdate(QObject *parent = nullptr);
 

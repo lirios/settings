@@ -22,12 +22,12 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.0
-import QtQuick.Layouts 1.0
-import QtQuick.Controls 2.2
-import Fluid.Controls 1.0 as FluidControls
-import Liri.Settings 1.0
-import QtAccountsService 1.0
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
+import Fluid.Controls as FluidControls
+import Liri.Settings
+import QtAccountsService
 
 ModulePage {
     id: modulePage

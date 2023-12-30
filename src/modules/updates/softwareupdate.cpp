@@ -12,7 +12,7 @@ SoftwareUpdate::SoftwareUpdate(QObject *parent)
     , m_backend(new RpmOstreeBackend(this))
     , m_model(new RpmDiffModel(this))
 {
-    connect(m_backend, &RpmOstreeBackend::rpmDiffChanged, this, [=] {
+    connect(m_backend, &RpmOstreeBackend::rpmDiffChanged, this, [this] {
         auto n = m_backend->model()->rowCount();
         m_information = tr("%n package(s) added, removed or updated", "", n);
         emit informationChanged();
@@ -121,7 +121,7 @@ void SoftwareUpdate::setTransaction(Transaction *transaction)
     m_transaction = transaction;
 
     m_transactionConnection = connect(transaction, &Transaction::statusChanged,
-                                      this, [=](Transaction::Status status) {
+                                      this, [this](Transaction::Status status) {
         switch (status) {
         case Transaction::CompletedStatus:
         case Transaction::CompletedWithErrorStatus:

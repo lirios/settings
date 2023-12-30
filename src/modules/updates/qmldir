@@ -1,3 +1,0 @@
-module Liri.Settings.Updates
-plugin updatesplugin
-classname UpdatesPlugin

@@ -4,51 +4,49 @@ endif()
 
 # Translations
 file(GLOB LiriSettings_TRANSLATIONS "${CMAKE_SOURCE_DIR}/translations/app/*_*.ts")
-qt5_add_translation(LiriSettings_QM_FILES ${LiriSettings_TRANSLATIONS})
+qt6_add_translation(LiriSettings_QM_FILES ${LiriSettings_TRANSLATIONS})
 install(FILES ${LiriSettings_QM_FILES}
-        DESTINATION "${INSTALL_DATADIR}/liri-settings/translations")
+	DESTINATION "${KDE_INSTALL_DATADIR}/liri-settings/translations")
 
-liri_add_executable(LiriSettings
-    OUTPUT_NAME
-        "liri-settings"
-    SOURCES
-        main.cpp
-        settingsapp.cpp
-        settingsapp.h
+set(_sources
+    main.cpp
+    settingsapp.cpp settingsapp.h
+    io.liri.Settings.desktop
+    ${LiriSettings_QM_FILES}
+)
+
+add_executable(LiriSettings ${_sources})
+
+qt6_add_qml_module(LiriSettings
+    URI settings
+    QML_FILES
         qml/ErrorPage.qml
         qml/ErrorView.qml
         qml/main.qml
         qml/SettingsPage.qml
         qml/SettingsListItem.qml
-        ${LiriSettings_QM_FILES}
-    DEFINES
-        QT_NO_CAST_FROM_ASCII
-        QT_NO_FOREACH
-        LIRISETTINGS_VERSION="${PROJECT_VERSION}"
-    DESKTOP
-        "${CMAKE_CURRENT_SOURCE_DIR}/io.liri.Settings.desktop"
-    RESOURCES
-        "settings.qrc"
-    LIBRARIES
-        Qt5::Core
-        Qt5::Gui
-        Qt5::Widgets
-        Qt5::Qml
-        Qt5::Quick
-        Qt5::QuickControls2
-        Liri::DBusService
-    QTQUICK_COMPILER
 )
 
-liri_finalize_executable(LiriSettings)
+set_target_properties(LiriSettings PROPERTIES OUTPUT_NAME liri-settings)
 
-if(IS_ABSOLUTE "${INSTALL_BINDIR}")
-    set(BINDIR "${INSTALL_BINDIR}")
-else()
-    set(BINDIR "${CMAKE_INSTALL_PREFIX}/${INSTALL_BINDIR}")
-endif()
+target_compile_definitions(LiriSettings PRIVATE -DLIRISETTINGS_VERSION="${PROJECT_VERSION}")
+
+target_link_libraries(LiriSettings
+    PRIVATE
+        Qt6::Core
+        Qt6::Gui
+        Qt6::Widgets
+        Qt6::Qml
+        Qt6::Quick
+        Qt6::QuickControls2
+        Liri::DBusService
+)
+
+install(TARGETS LiriSettings ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+
+set(BINDIR "${KDE_INSTALL_FULL_BINDIR}")
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/io.liri.Settings.service.in"
                "${CMAKE_CURRENT_BINARY_DIR}/io.liri.Settings.service"
                @ONLY)
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/io.liri.Settings.service"
-        DESTINATION "${INSTALL_DATADIR}/dbus-1/services")
+        DESTINATION "${KDE_INSTALL_DATADIR}/dbus-1/services")

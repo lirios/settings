@@ -21,13 +21,13 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.0
-import QtQuick.Layouts 1.0
-import QtQuick.Controls 2.1
-import QtQuick.Controls.Material 2.1
-import Fluid.Controls 1.0
-import Liri.Settings 1.0
-import Liri.Settings.Display 1.0 as CppDisplay
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
+import QtQuick.Controls.Material
+import Fluid.Controls
+import Liri.Settings
+import Liri.Settings.Display as CppDisplay
 
 ModulePage {
     id: page

@@ -1,31 +1,38 @@
-liri_add_qml_plugin(DisplayQmlPlugin
-    MODULE_PATH
-        "Liri/Settings/Display"
-    OUTPUT_NAME
-        "displayplugin"
-    SOURCES
-        outputdevice.h
-        outputsmodel.cpp
-        outputsmodel.h
-        plugin.cpp
-    QML_FILES
-        qmldir
-    DEFINES
-        QT_NO_CAST_FROM_ASCII
-        QT_NO_FOREACH
-    DBUS_INTERFACE_SOURCES
-        data/io.liri.Shell.OutputConfiguration1.xml
-        data/io.liri.Shell.OutputDevice1.xml
-        data/io.liri.Shell.OutputManagement1.xml
-    DBUS_INTERFACE_FLAGS
-        -i outputdevice.h
-    LIBRARIES
-        Qt5::DBus
-        Qt5::Qml
-        Qt5::Quick
+ecm_add_qml_module(DisplayQmlPlugin
+    URI Liri.Settings.Display
+    VERSION 1.0
+    CLASS_NAME DisplayPlugin
+    NO_GENERATE_PLUGIN_SOURCE
 )
 
-liri_finalize_qml_plugin(DisplayQmlPlugin)
+set_source_files_properties(
+    data/io.liri.Shell.OutputDevice1.xml
+    PROPERTIES INCLUDE outputdevice.h
+)
+
+qt6_add_dbus_interfaces(
+    _dbus_sources
+    data/io.liri.Shell.OutputConfiguration1.xml
+    data/io.liri.Shell.OutputDevice1.xml
+    data/io.liri.Shell.OutputManagement1.xml
+)
+
+target_sources(DisplayQmlPlugin
+    PRIVATE
+        outputdevice.h
+        outputsmodel.cpp outputsmodel.h
+        plugin.cpp
+        ${_dbus_sources}
+)
+
+target_link_libraries(DisplayQmlPlugin
+    PRIVATE
+        Qt6::DBus
+        Qt6::Qml
+        Qt6::Quick
+)
+
+ecm_finalize_qml_module(DisplayQmlPlugin)
 
 liri_add_settings_module(Display
     CONTENTS

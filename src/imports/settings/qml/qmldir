@@ -1,6 +1,0 @@
-module Liri.Settings
-plugin settingsplugin
-class SettingsPlugin
-ModuleContainer 1.0 ModuleContainer.qml
-ModulePage 1.0 ModulePage.qml
-ModulePane 1.0 ModulePane.qml

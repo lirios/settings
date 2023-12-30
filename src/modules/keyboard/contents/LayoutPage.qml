@@ -21,14 +21,14 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.1
-import QtQuick.Layouts 1.0
-import QtQuick.Controls 2.2
-import QtQuick.Controls.Material 2.2
-import Fluid.Controls 1.0 as FluidControls
-import QtGSettings 1.0
-import Liri.Settings 1.0
-import Liri.Settings.Keyboard 1.0
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
+import QtQuick.Controls.Material
+import Fluid.Controls as FluidControls
+import QtGSettings
+import Liri.Settings
+import Liri.Settings.Keyboard
 
 ModulePage {
     id: page

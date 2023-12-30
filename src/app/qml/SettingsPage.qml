@@ -21,9 +21,9 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.0
-import QtQuick.Controls 2.2
-import Liri.Settings 1.0
+import QtQuick
+import QtQuick.Controls
+import Liri.Settings
 
 ModulePage {
     id: page

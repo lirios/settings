@@ -22,10 +22,10 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.4
-import QtQuick.Layouts 1.0
-import QtQuick.Controls 2.1
-import Fluid.Controls 1.0 as FluidControls
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
+import Fluid.Controls as FluidControls
 
 FluidControls.ListItem {
     property alias iconSource: image.source

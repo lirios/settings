@@ -7,7 +7,7 @@
 
 #include <QObject>
 
-#include "rpmostree.h"
+#include "rpmostreedbus.h"
 
 class OrgProjectatomicRpmostree1TransactionInterface;
 
@@ -52,7 +52,7 @@ public:
     Q_INVOKABLE void start();
     Q_INVOKABLE void cancel();
 
-signals:
+Q_SIGNALS:
     void statusChanged(Transaction::Status status);
     void lastErrorMessageChanged(const QString &message);
     void passiveMessage(const QString &text);
@@ -68,7 +68,7 @@ private:
     void setStatus(Status status);
     void setLastErrorMessage(const QString &message);
 
-private slots:
+private Q_SLOTS:
     void handleDownloadProgress(RpmOstree::TimeData time,
                                 RpmOstree::OutstandingDataCounts outstanding,
                                 RpmOstree::MetadataCounts metadata,

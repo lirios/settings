@@ -10,22 +10,20 @@ Settings application and modules for Liri desktop.
 
 ## Dependencies
 
-Qt >= 5.10.0 with at least the following modules is required:
+Qt >= 6.6.0 with at least the following modules is required:
 
  * [qtbase](http://code.qt.io/cgit/qt/qtbase.git)
  * [qtdeclarative](http://code.qt.io/cgit/qt/qtdeclarative.git)
- * [qtquickcontrols2](http://code.qt.io/cgit/qt/qtquickcontrols2.git)
  * [qttools](http://code.qt.io/cgit/qt/qttools.git)
 
 The following modules and their dependencies are required:
 
- * [cmake](https://gitlab.kitware.com/cmake/cmake) >= 3.10.0
+ * [cmake](https://gitlab.kitware.com/cmake/cmake) >= 3.19.0
  * [cmake-shared](https://github.com/lirios/cmake-shared.git) >= 1.0.0
- * [qtaccountsservice](https://github.com/lirios/qtaccountsservice.git) >= 1.2.0
- * [qtgsettings](https://github.com/lirios/qtgsettings) >= 1.1.0
+ * [qtaccountsservice](https://github.com/lirios/qtaccountsservice.git) >= 2.0.0
+ * [qtgsettings](https://github.com/lirios/qtgsettings) >= 2.0.0
  * [fluid](https://github.com/lirios/fluid.git) >= 1.0.0
  * [libliri](https://github.com/lirios/libliri.git)
- * [liri-wayland](https://github.com/lirios/wayland)
  * [polkit](https://cgit.freedesktop.org/polkit/)
  * [xkeyboard-config](https://cgit.freedesktop.org/xkeyboard-config)
 

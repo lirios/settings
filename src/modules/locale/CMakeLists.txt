@@ -1,31 +1,28 @@
-liri_add_qml_plugin(SettingsLocaleQmlPlugin
-    MODULE_PATH
-        "Liri/Settings/Locale"
-    OUTPUT_NAME
-        "localeplugin"
-    SOURCES
-        localefiltermodel.cpp
-        localefiltermodel.h
-        localemanager.cpp
-        localemanager.h
-        localemodel.cpp
-        localemodel.h
-        plugin.cpp
-        systemlocale.cpp
-        systemlocale.h
-    QML_FILES
-        qmldir
-    DEFINES
-        QT_NO_CAST_FROM_ASCII
-        QT_NO_FOREACH
-    LIBRARIES
-        Qt5::Concurrent
-        Qt5::DBus
-        Qt5::Qml
-        Qt5::Quick
+ecm_add_qml_module(SettingsLocaleQmlPlugin
+    URI Liri.Settings.Locale
+    VERSION 1.0
+    CLASS_NAME LocaleSettingsPlugin
+    NO_GENERATE_PLUGIN_SOURCE
 )
 
-liri_finalize_qml_plugin(SettingsLocaleQmlPlugin)
+target_sources(SettingsLocaleQmlPlugin
+    PRIVATE
+        localefiltermodel.cpp localefiltermodel.h
+        localemanager.cpp localemanager.h
+        localemodel.cpp localemodel.h
+        plugin.cpp
+        systemlocale.cpp systemlocale.h
+)
+
+target_link_libraries(SettingsLocaleQmlPlugin
+    PRIVATE
+        Qt6::Concurrent
+        Qt6::DBus
+        Qt6::Qml
+        Qt6::Quick
+)
+
+ecm_finalize_qml_module(SettingsLocaleQmlPlugin)
 
 liri_add_settings_module(Locale
     CONTENTS

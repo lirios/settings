@@ -21,12 +21,12 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.2
-import QtQuick.Window 2.2
-import QtQuick.Layouts 1.0
-import QtQuick.Controls 2.1
-import QtQuick.Controls.Material 2.1
-import Fluid.Controls 1.0 as FluidControls
+import QtQuick
+import QtQuick.Window
+import QtQuick.Layouts
+import QtQuick.Controls
+import QtQuick.Controls.Material
+import Fluid.Controls as FluidControls
 
 Button {
     id: selector

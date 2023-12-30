@@ -51,7 +51,7 @@ void SettingsApp::load(const QString &moduleName)
                                       Q_ARG(QVariant, moduleName));
     });
 
-    engine->load(QUrl(QLatin1String("qrc:/qml/main.qml")));
+    engine->load(QUrl(QLatin1String("qrc:/qt/qml/settings/qml/main.qml")));
 }
 
 void SettingsApp::handleActivationRequested(const QVariantMap &data)

@@ -27,6 +27,8 @@
 
 #include "backgroundsmodel.h"
 
+using namespace Qt::Literals::StringLiterals;
+
 /*
  * BackgroundsModelPrivate
  */
@@ -102,7 +104,7 @@ QString BackgroundsModel::get(int index) const
     Q_D(const BackgroundsModel);
 
     if (index < 0 || index > d->fileNames.size())
-        return 0;
+        return QString();
     return d->fileNames.at(index);
 }
 
@@ -113,7 +115,7 @@ void BackgroundsModel::addStandardPaths()
     QStringList paths =
             QStandardPaths::locateAll(
                 QStandardPaths::GenericDataLocation,
-                "backgrounds", QStandardPaths::LocateDirectory);
+                "backgrounds"_L1, QStandardPaths::LocateDirectory);
     for (QString path: paths) {
         d->paths.append(path);
         addFolder(path);
@@ -137,7 +139,7 @@ void BackgroundsModel::addFolder(const QString &path)
     Q_D(BackgroundsModel);
 
     QStringList glob;
-    glob << "*.png" << "*.jpg" << "*.jpeg" << "*.svg" << "*.svgz";
+    glob << "*.png"_L1 << "*.jpg"_L1 << "*.jpeg"_L1 << "*.svg"_L1 << "*.svgz"_L1;
 
     QDir::Filters filters =
             QDir::NoDotAndDotDot | QDir::Readable | QDir::Files;

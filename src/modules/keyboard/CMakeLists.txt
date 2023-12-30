@@ -1,31 +1,27 @@
-liri_add_qml_plugin(SettingsKeyboardQmlPlugin
-    MODULE_PATH
-        "Liri/Settings/Keyboard"
-    OUTPUT_NAME
-        "keyboardplugin"
-    SOURCES
-        keyboarddata.cpp
-        keyboarddata.h
-        keyboardlayout.cpp
-        keyboardlayout.h
-        keyboardlayoutvariant.cpp
-        keyboardlayoutvariant.h
-        keyboardmodel.cpp
-        keyboardmodel.h
-        keybordlayoutsmodel.cpp
-        keybordlayoutsmodel.h
-        plugin.cpp
-    QML_FILES
-        qmldir
-    DEFINES
-        #QT_NO_CAST_FROM_ASCII
-        QT_NO_FOREACH
-    LIBRARIES
-        Qt5::Qml
-        Qt5::Quick
+ecm_add_qml_module(SettingsKeyboardQmlPlugin
+    URI Liri.Settings.Keyboard
+    VERSION 1.0
+    CLASS_NAME KeyboardPlugin
+    NO_GENERATE_PLUGIN_SOURCE
 )
 
-liri_finalize_qml_plugin(SettingsKeyboardQmlPlugin)
+target_sources(SettingsKeyboardQmlPlugin
+    PRIVATE
+        keyboarddata.cpp keyboarddata.h
+        keyboardlayout.cpp keyboardlayout.h
+        keyboardlayoutvariant.cpp keyboardlayoutvariant.h
+        keyboardmodel.cpp keyboardmodel.h
+        keybordlayoutsmodel.cpp keybordlayoutsmodel.h
+        plugin.cpp
+)
+
+target_link_libraries(SettingsKeyboardQmlPlugin
+    PRIVATE
+        Qt6::Qml
+        Qt6::Quick
+)
+
+ecm_finalize_qml_module(SettingsKeyboardQmlPlugin)
 
 liri_add_settings_module(Keyboard
     CONTENTS

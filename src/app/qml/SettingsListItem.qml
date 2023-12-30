@@ -22,8 +22,8 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-import QtQuick 2.2
-import Fluid.Controls 1.0 as FluidControls
+import QtQuick
+import Fluid.Controls as FluidControls
 
 FluidControls.ListItem {
     text: title

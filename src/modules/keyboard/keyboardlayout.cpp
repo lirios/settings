@@ -51,7 +51,7 @@ QQmlListProperty<KeyboardLayoutVariant> KeyboardLayout::variants()
     auto countFunc = [](QQmlListProperty<KeyboardLayoutVariant> *prop) {
         return static_cast<KeyboardLayout *>(prop->object)->m_variants.count();
     };
-    auto atFunc = [](QQmlListProperty<KeyboardLayoutVariant> *prop, int index) {
+    auto atFunc = [](QQmlListProperty<KeyboardLayoutVariant> *prop, qsizetype index) {
         return static_cast<KeyboardLayout *>(prop->object)->m_variants.at(index);
     };
     return QQmlListProperty<KeyboardLayoutVariant>(this, 0, countFunc, atFunc);

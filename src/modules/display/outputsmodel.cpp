@@ -25,9 +25,9 @@
 #include <QCoreApplication>
 #include <QDBusConnection>
 
-#include "outputconfiguration1_interface.h"
-#include "outputdevice1_interface.h"
-#include "outputmanagement1_interface.h"
+#include "outputconfiguration1interface.h"
+#include "outputdevice1interface.h"
+#include "outputmanagement1interface.h"
 #include "outputsmodel.h"
 
 #define TR QCoreApplication::translate
@@ -46,10 +46,10 @@ static QString diagonalToString(qreal diagonal)
     for (int i = 0; i < nelements; i++) {
         qreal delta = qFabs(knownDiagonals[i] - diagonal);
         if (delta < 0.1)
-            return QString().sprintf("%0.1f\"", knownDiagonals[i]);
+            return QString::asprintf("%0.1f\"", knownDiagonals[i]);
     }
 
-    return QString().sprintf("%d\"", (int)(diagonal + 0.5));
+    return QString::asprintf("%d\"", (int)(diagonal + 0.5));
 }
 
 static QString displaySizeString(const QSize &sizeMm)
@@ -244,6 +244,8 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
 
 void OutputsModel::applyConfiguration(int outputNumber, int modeId, const Transform &transform)
 {
+    Q_UNUSED(transform)
+
     auto pending = m_outputManagement->CreateConfiguration();
     auto watcher = new QDBusPendingCallWatcher(pending, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, outputNumber, modeId](QDBusPendingCallWatcher *call) {

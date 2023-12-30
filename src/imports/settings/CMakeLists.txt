@@ -4,33 +4,40 @@ if(NOT TARGET Liri::Xdg)
     find_package(Liri1Xdg REQUIRED)
 endif()
 
-liri_add_qml_plugin(SettingsQmlPlugin
-    MODULE_PATH
-        "Liri/Settings"
-    OUTPUT_NAME
-        "settingsplugin"
-    SOURCES
-        authorizedaction.cpp
-        authorizedaction.h
-        module.cpp
-        module.h
-        modulesmodel.cpp
-        modulesmodel.h
+ecm_add_qml_module(SettingsQmlPlugin
+    URI Liri.Settings
+    VERSION 1.0
+    CLASS_NAME SettingsPlugin
+    NO_GENERATE_PLUGIN_SOURCE
+)
+
+target_compile_definitions(SettingsQmlPlugin
+    PRIVATE
+        -DQT_NO_KEYWORDS
+)
+
+target_sources(SettingsQmlPlugin
+    PRIVATE
+        authorizedaction.cpp authorizedaction.h
+        module.cpp module.h
+        modulesmodel.cpp modulesmodel.h
         plugin.cpp
-    QML_FILES
+)
+
+ecm_target_qml_sources(SettingsQmlPlugin
+    SOURCES
         qml/ModuleContainer.qml
         qml/ModulePage.qml
         qml/ModulePane.qml
-        qml/qmldir
-    DEFINES
-        QT_NO_CAST_FROM_ASCII
-        QT_NO_FOREACH
-        QT_NO_KEYWORDS
-    LIBRARIES
-        Qt5::Core
-        Qt5::Gui
+)
+
+target_link_libraries(SettingsQmlPlugin
+    PRIVATE
+        Qt6::Core
+        Qt6::Gui
+        Qt6::Qml
         PkgConfig::Polkit
         Liri::Xdg
 )
 
-liri_finalize_qml_plugin(SettingsQmlPlugin)
+ecm_finalize_qml_module(SettingsQmlPlugin)
