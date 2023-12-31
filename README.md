@@ -19,7 +19,6 @@ Qt >= 6.6.0 with at least the following modules is required:
 The following modules and their dependencies are required:
 
  * [cmake](https://gitlab.kitware.com/cmake/cmake) >= 3.19.0
- * [cmake-shared](https://github.com/lirios/cmake-shared.git) >= 1.0.0
  * [qtaccountsservice](https://github.com/lirios/qtaccountsservice.git) >= 2.0.0
  * [qtgsettings](https://github.com/lirios/qtgsettings) >= 2.0.0
  * [fluid](https://github.com/lirios/fluid.git) >= 1.0.0
