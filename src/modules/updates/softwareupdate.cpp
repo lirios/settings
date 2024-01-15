@@ -15,7 +15,7 @@ SoftwareUpdate::SoftwareUpdate(QObject *parent)
     connect(m_backend, &RpmOstreeBackend::rpmDiffChanged, this, [this] {
         auto n = m_backend->model()->rowCount();
         m_information = tr("%n package(s) added, removed or updated", "", n);
-        emit informationChanged();
+        Q_EMIT informationChanged();
     });
     connect(m_backend, &RpmOstreeBackend::cachedUpdateChanged, this, &SoftwareUpdate::versionChanged);
 
@@ -134,7 +134,7 @@ void SoftwareUpdate::setTransaction(Transaction *transaction)
         }
     });
 
-    emit currentTransactionChanged(m_transaction);
+    Q_EMIT currentTransactionChanged(m_transaction);
 }
 
 void SoftwareUpdate::unsetTransaction()
@@ -142,6 +142,6 @@ void SoftwareUpdate::unsetTransaction()
     if (m_transaction) {
         disconnect(m_transactionConnection);
         m_transaction.clear();
-        emit currentTransactionChanged(nullptr);
+        Q_EMIT currentTransactionChanged(nullptr);
     }
 }

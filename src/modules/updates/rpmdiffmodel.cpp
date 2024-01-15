@@ -63,7 +63,7 @@ void RpmDiffModel::addItem(RpmDiffItem *item)
     m_items.append(item);
     endInsertRows();
 
-    emit countChanged();
+    Q_EMIT countChanged();
 }
 
 void RpmDiffModel::removeItem(RpmDiffItem *item)
@@ -75,7 +75,7 @@ void RpmDiffModel::removeItem(RpmDiffItem *item)
         m_items.removeOne(item);
         endRemoveRows();
 
-        emit countChanged();
+        Q_EMIT countChanged();
     }
 }
 
@@ -86,6 +86,6 @@ void RpmDiffModel::clearItems()
         qDeleteAll(m_items);
         endResetModel();
 
-        emit countChanged();
+        Q_EMIT countChanged();
     }
 }

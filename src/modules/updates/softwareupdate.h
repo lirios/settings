@@ -42,7 +42,7 @@ public:
     Q_INVOKABLE Transaction *checkForUpdates();
     Q_INVOKABLE Transaction *upgrade(bool allowDowngrade = false, bool reboot = false);
 
-signals:
+Q_SIGNALS:
     void informationChanged();
     void versionChanged();
     void currentTransactionChanged(Transaction *transaction);

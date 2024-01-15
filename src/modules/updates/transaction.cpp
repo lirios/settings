@@ -105,14 +105,14 @@ void Transaction::setStatus(Status status)
 {
     if (m_status != status) {
         m_status = status;
-        emit statusChanged(status);
+        Q_EMIT statusChanged(status);
     }
 }
 
 void Transaction::setLastErrorMessage(const QString &message)
 {
     m_lastErrorMessage = message;
-    emit lastErrorMessageChanged(message);
+    Q_EMIT lastErrorMessageChanged(message);
 }
 
 void Transaction::handleDownloadProgress(RpmOstree::TimeData time,
@@ -147,14 +147,14 @@ void Transaction::handleMessage(const QString &text)
 {
     qCInfo(gLcUpdates, "Transaction \"%s\": %s",
            qPrintable(m_name), qPrintable(text));
-    emit passiveMessage(text);
+    Q_EMIT passiveMessage(text);
 }
 
 void Transaction::handlePercentProgress(const QString &text, uint percentage)
 {
     qCInfo(gLcUpdates, "Transaction \"%s\" progress %d %%: %s",
            qPrintable(m_name), percentage, qPrintable(text));
-    emit progressChanged(percentage);
+    Q_EMIT progressChanged(percentage);
 }
 
 void Transaction::handleProgressEnd()

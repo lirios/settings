@@ -50,7 +50,7 @@ public:
 
     void populateRpmDiffModel();
 
-signals:
+Q_SIGNALS:
     void cachedUpdateChanged();
     void rpmDiffChanged();
 

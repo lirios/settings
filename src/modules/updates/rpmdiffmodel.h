@@ -44,7 +44,7 @@ public:
     void removeItem(RpmDiffItem *item);
     void clearItems();
 
-signals:
+Q_SIGNALS:
     void countChanged();
 
 private:

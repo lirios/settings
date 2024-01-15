@@ -114,7 +114,7 @@ void RpmOstreeBackend::readCachedUpdate()
     qCDebug(gLcUpdates, "Got OS '%s', version '%s', checksum '%s'",
             qPrintable(m_osName), qPrintable(m_checksum), qPrintable(m_version));
 
-    emit cachedUpdateChanged();
+    Q_EMIT cachedUpdateChanged();
 }
 
 bool RpmOstreeBackend::registerClient()
@@ -378,5 +378,5 @@ void RpmOstreeBackend::processRpmDiff(const QVariantMap &rpmDiff)
         }
     }
 
-    emit rpmDiffChanged();
+    Q_EMIT rpmDiffChanged();
 }
