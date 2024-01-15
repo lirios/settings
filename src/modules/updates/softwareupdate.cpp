@@ -134,7 +134,7 @@ void SoftwareUpdate::setTransaction(Transaction *transaction)
         }
     });
 
-    Q_EMIT currentTransactionChanged(m_transaction);
+    Q_EMIT currentTransactionChanged();
 }
 
 void SoftwareUpdate::unsetTransaction()
@@ -142,6 +142,6 @@ void SoftwareUpdate::unsetTransaction()
     if (m_transaction) {
         disconnect(m_transactionConnection);
         m_transaction.clear();
-        Q_EMIT currentTransactionChanged(nullptr);
+        Q_EMIT currentTransactionChanged();
     }
 }

@@ -45,7 +45,7 @@ public:
 Q_SIGNALS:
     void informationChanged();
     void versionChanged();
-    void currentTransactionChanged(Transaction *transaction);
+    void currentTransactionChanged();
 
 private:
     RpmOstreeBackend *m_backend = nullptr;
