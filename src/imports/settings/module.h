@@ -33,6 +33,7 @@ class ModulePrivate;
 class Module : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
     QML_UNCREATABLE("Cannot instantiate Module")
     Q_PROPERTY(bool valid READ isValid CONSTANT)
     Q_PROPERTY(Category category READ category CONSTANT)
