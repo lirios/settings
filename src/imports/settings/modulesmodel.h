@@ -26,6 +26,7 @@
 
 #include <QAbstractListModel>
 #include <QQmlParserStatus>
+#include <QtQmlIntegration>
 #include <QSortFilterProxyModel>
 
 #include "module.h"
@@ -56,6 +57,7 @@ private:
 class ModulesModel : public QAbstractListModel, public QQmlParserStatus
 {
     Q_OBJECT
+    QML_ELEMENT
     Q_INTERFACES(QQmlParserStatus)
 public:
     enum Roles {
@@ -93,6 +95,7 @@ private:
 class ModulesProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
     Q_PROPERTY(Module::Category category READ category WRITE setCategory NOTIFY categoryChanged)
 public:
     explicit ModulesProxyModel(QObject *parent = nullptr);

@@ -8,7 +8,8 @@ ecm_add_qml_module(SettingsQmlPlugin
     URI Liri.Settings
     VERSION 1.0
     CLASS_NAME SettingsPlugin
-    NO_GENERATE_PLUGIN_SOURCE
+    GENERATE_PLUGIN_SOURCE
+    DEPENDENCIES QtQuick
 )
 
 target_compile_definitions(SettingsQmlPlugin
@@ -21,7 +22,6 @@ target_sources(SettingsQmlPlugin
         authorizedaction.cpp authorizedaction.h
         module.cpp module.h
         modulesmodel.cpp modulesmodel.h
-        plugin.cpp
 )
 
 ecm_target_qml_sources(SettingsQmlPlugin
@@ -36,6 +36,7 @@ target_link_libraries(SettingsQmlPlugin
         Qt6::Core
         Qt6::Gui
         Qt6::Qml
+        Qt6::QmlIntegration
         PkgConfig::Polkit
         Liri::Xdg
 )

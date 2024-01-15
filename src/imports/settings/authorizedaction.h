@@ -25,12 +25,14 @@
 #define LIRI_SETTINGS_AUTHORIZEDACTION_H
 
 #include <QObject>
+#include <QtQmlIntegration>
 
 class AuthorizedActionPrivate;
 
 class AuthorizedAction : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
     Q_PROPERTY(QString actionId READ actionId WRITE setActionId NOTIFY actionIdChanged)
     Q_PROPERTY(bool authorized READ isAuthorized NOTIFY authorizedChanged)
     Q_DECLARE_PRIVATE(AuthorizedAction)

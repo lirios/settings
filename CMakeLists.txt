@@ -58,6 +58,7 @@ find_package(Qt6 "6.6.0"
         Gui
         Widgets
         Qml
+        QmlIntegration
         Quick
         QuickControls2
         LinguistTools
